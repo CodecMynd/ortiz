@@ -1,0 +1,39 @@
+para minificar
+moinify
+ctrl+shitf + p = escribir minify
+
+consola de js par aver errores
+quokka 
+ctrl+shitf + p = escribir quokka
+
+cambiar tema
+ctrl+shitf + p = escribir theme
+
+cambiar color de vsc para tener dos interfaz abiertas
+peacock 
+ctrl+shitf + p = escribir peacock
+
+tomar foto a codigo
+codeSnap 
+ctrl+shitf + p = escribir codeSnap
+
+para solicitudes de Api par ano porcesar desde postman
+rest client 
+generar nuevo archivo con extension .http y ahi hacer pruebas
+*checar Thunder client
+
+marquee
+nos sirve par aver widget clima ultimos archivos abiertos etc 
+
+import cost
+sirve para ver peso de librerias etc 
+ 
+code time
+ver que tiempo le dedicas a la programacion
+
+rainbow brackets 
+pinctar parentesis corchetes para ver donde abre y cierran
+
+'TODO' 
+hacer comentarios vistosos poner 'TODO' y se pinta de amarillo
+'FIXED' se pinta de rojo
