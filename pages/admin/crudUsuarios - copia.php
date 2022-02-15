@@ -40,10 +40,10 @@ require '../components/head-dataTables.php';
                                     <h3 class="card-title">Usuarios dados de alta en el sistema</h3>
                                     <div class="card-tools">
                                         <span data-toggle="tooltip" data-placement="left" title="1.1.5 Nuevo Usuario">
-                                            <a type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modalAgregarUsuarios" data-toggle="tooltip" data-placement="left" title="1.1.5 Nuevo Usuario">
+                                            <a type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modalAgregarUsuarios" data-toggle="tooltip" data-placement="left" title="1.1.5 Nuevo Usuario" >
                                                 <i class="fa-solid fa-user-plus"></i> Nuevo Usuario</a>
                                         </span>
-                                        <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                        <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página" ><i class="fa-solid fa-arrows-rotate"></i></a>
 
                                     </div>
                                 </div>
@@ -105,9 +105,10 @@ require '../components/head-dataTables.php';
                                                                     <div class="btn-group">
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="1.1.1 Editar Usuario">
-                                                                                <a class="btn btn-secondary" href="../update/formUpdateUsuario.php?id=<?php echo $row['id_usuario'] ?>"><i class="fas fa-edit"></i>
+                                                                                <a href="../update/formUpdateUsuario.php?id=<?php echo $row['id_usuario'] ?>" class="btn btn-secondary"><i class="fas fa-edit"></i>
                                                                                 </a>
                                                                             </span>
+                                                                            
                                                                         </li>
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="1.1.2 Asignar Contraseña">
@@ -135,7 +136,6 @@ require '../components/head-dataTables.php';
                                                 </tr>
                                             <?php
                                                 include '../components/modals.php';
-                                                require '../components/modal-editarUsuario.php';
                                             }
                                             desconectar();
                                             ?>
@@ -169,12 +169,12 @@ require '../components/head-dataTables.php';
     require '../components/scripts-dataTables.php';
     // Modals
     require '../components/modals.php';
-    // require '../components/modal-multiselec.php';
+    require '../components/modal-multiselec.php';
     require '../components/modal-nuevoUsuario.php';
     ?>
     <script>
 
-
+        // /1.1.5Registrar usuario nuevo ***********************
 
         // 1.1.3 Borrar usuario  **************************
         $(document).on("click", ".btn-borrarUsuario", function() {

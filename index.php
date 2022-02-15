@@ -45,7 +45,7 @@
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <h4 class="login-box-msg">Formulario de acceso</h4>
+                <h4 class="login-box-msg">Formulario de Acceso</h4>
                 <div class="main">
                     <form action="config/check-login.php" method="POST">
                         <div class="input-group form-floating mb-3">
@@ -76,7 +76,7 @@
                         <img src="src/img/logos/logo.png" alt="Logo ortiz" width="100%">
                     </div>
                     <div>
-                        <p class="text-center">©2022 Derechos reservados. JsolAutomotriz</p>
+                        <p class="text-center">©2022 Derechos reservados. JSOL Automotriz</p>
                     </div>
                 </div>
             </div>

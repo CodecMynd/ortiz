@@ -2,7 +2,7 @@
     <!-- To the right -->
     <div class="row">
         <div class="col-8">
-            <strong>Derechos Reservados &copy; 2022 <a href="https://adminlte.io">JsolAutomotriz</a>.</strong>.
+            <strong>Derechos Reservados &copy; 2022 <a href="">JSOL Automotriz</a>.</strong>.
         </div>
         <div class="col-3">
             <div class="float-right d-sm-inline ml-5 pl-5">

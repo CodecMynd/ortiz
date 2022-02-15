@@ -1,10 +1,11 @@
 <?php
 require '../components/head-main.php';
 ?>
-<title>Panel Admin | <?php echo $usuario ?></title>
+<title>Panel Admin | <?php echo $nomComp ?></title>
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
+
     <div class="wrapper">
         <?php
         require '../components/navbar.php';
@@ -15,12 +16,12 @@ require '../components/head-main.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Bienvenido: <?php echo $usuario ?></h1>
+                            <h1 class="m-0">Bienvenido: <?php echo $nomComp ?></h1>
                         </div>
                         <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
+                            <!-- <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#"><i class="fa-solid fa-house-user"></i> Inicio</a></li>
-                            </ol>
+                            </ol> -->
                         </div>
                     </div>
                 </div>

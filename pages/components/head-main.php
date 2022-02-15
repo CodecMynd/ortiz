@@ -26,16 +26,18 @@ require 'query.php';
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../../src/css/custom.min.css">
+    <!-- Poner enlaces disabled, agregamos disabled -->
+
 
     <!-- tooltip -->
     <script>
         $(function() {
             $('[data-toggle="tooltip"]').tooltip()
-        })
+        });
     </script>
     <script>
         /* pointer solo lectura */
-        input[readonly] {
+        input[readonly]; {
             cursor: no - drop;
-        }
+        };
     </script>

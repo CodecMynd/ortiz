@@ -1,7 +1,7 @@
 <nav class="main-header navbar navbar-expand-lg navbar-light navbar-white border-nav">
             <div class="container-fluid">
-                <a href="panelAdmin.php" class="navbar-brand">
-                    <img src="../../src/img/logos/logo.png" alt="JsolAutomotriz Logo" class="brand-image  elevation-5" style="opacity: .8; height:4rem">
+                <a href="../admin/panelAdmin.php" class="navbar-brand">
+                    <img src="../../src/img/logos/logo.png" alt="JSOL Automotriz Logo" class="brand-image  elevation-5" style="opacity: .8; height:4rem">
                     <span style="font-size: 20px">Sistema Proyectos Ortiz &reg;</span>
                 </a>
 
@@ -13,12 +13,12 @@
                     <!-- Left navbar links -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="panelAdmin.php" class="nav-link">| <i class="fa-solid fa-house-user"></i> | </a>
+                            <a href="../admin/panelAdmin.php" class="nav-link">| <i class="fa-solid fa-house-user"></i> | </a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">1.0 Catálogos</a>
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                                <li><a href="crudUsuarios.php" class="dropdown-item">1.1 Usuarios </a></li>
+                                <li><a href="../admin/crudUsuarios.php" class="dropdown-item">1.1 Usuarios </a></li>
                                 <li><a href="#" class="dropdown-item">1.2 Marcas </a></li>
                                 <li><a href="#" class="dropdown-item">1.3 Modelos </a></li>
                                 <li><a href="#" class="dropdown-item">1.4 Años </a></li>
@@ -33,7 +33,7 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">3.0 Insumos</a>
+                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle disabled" disabled>3.0 Insumos</a>
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                                 <li><a href="#" class="dropdown-item">3.1 item </a></li>
                                 <li><a href="#" class="dropdown-item">3.2 item </a></li>
@@ -42,7 +42,7 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">4.0 Satajos Técnicos</a>
+                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle disabled" disabled>4.0 Destajos Técnicos</a>
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                                 <li><a href="#" class="dropdown-item">4.1 item </a></li>
                                 <li><a href="#" class="dropdown-item">4.2 item </a></li>
@@ -62,7 +62,7 @@
                         <!-- <span class="badge badge-warning navbar-badge">15</span> -->
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-item dropdown-header"><?php echo $usuario ?></span>
+                        <span class="dropdown-item dropdown-header"><?php echo $nomComp ?></span>
                         <div class="dropdown-divider"></div>
                         <a href="../../config/cerrar-sesion.php" class="dropdown-item">
                         <i class="fa-solid fa-xmark"></i> Cerrar Sesión

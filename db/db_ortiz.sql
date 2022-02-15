@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-02-2022 a las 16:16:16
+-- Tiempo de generación: 14-02-2022 a las 10:06:18
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.1
 
@@ -105,27 +105,28 @@ CREATE TABLE `puestos` (
 --
 
 CREATE TABLE `usuarios` (
-  `id_usuario` int(11) UNSIGNED NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `nombres` varchar(30) NOT NULL,
   `aPaterno` varchar(40) NOT NULL,
   `aMaterno` varchar(40) NOT NULL,
   `usuario` varchar(30) NOT NULL,
   `email` varchar(50) NOT NULL,
   `tel` varchar(10) NOT NULL,
-  `pass` varchar(32) NOT NULL,
-  `admin` char(1) NOT NULL DEFAULT '0',
+  `pass` varchar(32) DEFAULT 'SIN CONTRASEÑA',
+  `admin` char(1) DEFAULT '0',
   `fecha_creacion` datetime DEFAULT NULL,
-  `estatus` varchar(7) NOT NULL DEFAULT 'offline',
-  `id_puesto` int(3) NOT NULL
+  `fecha_mod` datetime DEFAULT NULL,
+  `id_captC` int(11) DEFAULT 0,
+  `id_captM` int(11) DEFAULT 0,
+  `estatus` varchar(7) NOT NULL DEFAULT 'offline'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `nombres`, `aPaterno`, `aMaterno`, `usuario`, `email`, `tel`, `pass`, `admin`, `fecha_creacion`, `estatus`, `id_puesto`) VALUES
-(1, 'ADMIN', 'ADMIN', 'ADMIN', 'ADMINISTRADOR', 'qq', '22', 'admin1', '1', '2022-02-10 17:18:05', '222', 0),
-(2, 'USUARIO1', 'NORMAL', 'NORMAL', 'USUARIO', 'qq', '2', 'user1', '0', '2022-02-10 20:06:46', 'offline', 0);
+INSERT INTO `usuarios` (`id_usuario`, `nombres`, `aPaterno`, `aMaterno`, `usuario`, `email`, `tel`, `pass`, `admin`, `fecha_creacion`, `fecha_mod`, `id_captC`, `id_captM`, `estatus`) VALUES
+(1, 'Nombre_prueba', 'Paternoi', 'Materno', 'Administrador', '', '', 'admin1', '1', '2022-02-14 23:30:32', '2022-02-14 23:30:32', 0, 0, 'offline');
 
 --
 -- Índices para tablas volcadas
@@ -193,7 +194,7 @@ ALTER TABLE `modelos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
