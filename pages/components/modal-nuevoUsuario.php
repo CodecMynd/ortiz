@@ -43,7 +43,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa-solid fa-user-tie"></i></span>
                                     </div>
-                                    <input id="usuario_add" type="text" class="form-control" placeholder="usuario" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres">
+                                    <input id="usuario_add" type="text" class="form-control" placeholder="usuario" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres" onkeyup="javascript:this.value=this.value.toLowerCase();">
                                     <label for="floatingInput" class="pl-5">Usuario</label>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa-solid fa-at"></i></span>
                                     </div>
-                                    <input id="email_add" type="email" class="form-control" placeholder="Correo" required maxlength="50" data-toggle="tooltip" data-placement="bottom" title="Max. 50 caracteres">
+                                    <input id="email_add" type="email" class="form-control" placeholder="Correo" required maxlength="50" data-toggle="tooltip" data-placement="bottom" title="Max. 50 caracteres" onkeyup="javascript:this.value=this.value.toLowerCase();">
                                     <label for="floatingInput" class="pl-5">Email</label>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"> <i class="fa fa-calendar" aria-hidden="true"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Campo en automatico" value="<?php echo $date ?>" disabled readonly>
+                                    <input type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Campo en automatico" value="<?php echo $dateFront ?>" disabled readonly>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-12 my-1">
@@ -100,12 +100,12 @@
                     </div>
                     <br>
                     <div class="col-md-12 col-sm-12 align-self-center">
-                        <div id="exito_add" style="display:none;margin-top:15px" class="alert alert-success ">
+                        <div id="fracaso" style="display:none;margin-top:15px" class="alert alert-success ">
                             Usuario registrado exitosamente, puedes seguir registrando si lo deseas.
                         </div>
-                        <div id="fracaso" style="display:none;margin-top:15px" class="alert alert-danger">
+                        <!-- <div id="fracaso" style="display:none;margin-top:15px" class="alert alert-danger">
                             Lo siento reintenta nuevamente...
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -125,7 +125,7 @@
             let usuario_add = $("#usuario_add").val();
             let email_add = $("#email_add").val();
             let tel_add = $("#tel_add").val();
-            
+
             if (nombres_add !== "" && aPaterno_add !== "" && aMaterno_add !== "" && usuario_add !== "" && email_add !== "" && tel_add !== "") {
 
                 $.ajax({

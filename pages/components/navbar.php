@@ -64,6 +64,11 @@
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-item dropdown-header"><?php echo $nomComp ?></span>
                         <div class="dropdown-divider"></div>
+                        <!-- <a href="#" class="dropdown-item" data-toggle="modal" data-target="#modalMiPass">
+                        <i class="fa-solid fa-key"></i></i> Mi contraseña
+                            <span class="float-right text-muted text-sm"></span>
+                        </a> -->
+        
                         <a href="../../config/cerrar-sesion.php" class="dropdown-item">
                         <i class="fa-solid fa-xmark"></i> Cerrar Sesión
                             <span class="float-right text-muted text-sm"><i class="fa-solid fa-hand-wave"></i></span>

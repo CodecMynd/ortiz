@@ -8,6 +8,7 @@ conectar();
 $id = $_SESSION['id_usuario'];
 ini_set('date.timezone', 'America/Mexico_City');
 $date = date('Y-m-d H:i:s');
+$dateFront = date('d-m-Y H:i:s');
 
 //query usuarios
 $query = mysqli_query($conexion, "SELECT * FROM usuarios WHERE id_usuario = $id");
@@ -25,3 +26,4 @@ while($row = mysqli_fetch_array($query)){
     $nomComp = $nombres.' '.$aPaterno.' '.$aMaterno;
 
 }
+

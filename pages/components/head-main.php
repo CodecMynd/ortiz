@@ -26,9 +26,10 @@ require 'query.php';
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../../src/css/custom.min.css">
+    <!-- multiselectbox -->
+
     <!-- Poner enlaces disabled, agregamos disabled -->
-
-
+    
     <!-- tooltip -->
     <script>
         $(function() {

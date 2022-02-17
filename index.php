@@ -1,3 +1,16 @@
+<?php
+require 'config/functions.php';
+if(haIniciadoSesion()){
+    if($_SESSION['admin'] == 1){
+        header('Location: pages/admin/panelAdmin.php');
+    }else if($_SESSION['admin'] == 0){
+        header('Location: pages/user/panelUsuario.php');
+    }
+}
+
+conectar();
+
+?>
 <!doctype html>
 <html lang="es">
 
@@ -76,7 +89,7 @@
                         <img src="src/img/logos/logo.png" alt="Logo ortiz" width="100%">
                     </div>
                     <div>
-                        <p class="text-center">©2022 Derechos reservados. JSOL Automotriz</p>
+                        <small class="text-center">©2022 Derechos reservados. JSOL Automotriz SRL de CV</small>
                     </div>
                 </div>
             </div>

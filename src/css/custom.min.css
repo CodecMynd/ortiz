@@ -49333,7 +49333,14 @@ a.text-muted:hover {
     opacity: .65;
     transform: scale(.85) translateY(-.5rem) translateX(.15rem)
 }
-/* preloader */
-
+/* scroll */
+/* .my-custom-scrollbar {
+position: relative;
+height:350px;
+overflow: auto;
+}
+.table-wrapper-scroll-y {
+display: block;
+} */
 
     card0fed0fee8fee8e2e8e28e2 */

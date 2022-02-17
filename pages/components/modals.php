@@ -19,7 +19,7 @@
                             $user = $row['usuario'];
                             ?>
                             <div class="row justify-content-center">
-                                <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
+                                <input type="text" name="id_usuario" id="id_usuario" value="<?php echo $id_usuario ?>">
                                 <div class="col-md-6 col-sm-12 my-1">
                                     <label class="pl-5">Usuario</label>
                                     <div class="input-group">
@@ -34,7 +34,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa-solid fa-at"></i></span>
                                         </div>
-                                        <input name="pass" type="text" class="form-control" placeholder="pass" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres">
+                                        <input name="pass" id="pass" type="text" class="form-control" placeholder="pass" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres">
                                         <label for="floatingInput" class="pl-5">Nueva Contraseña <small>*Campo a Editar</small></label>
                                     </div>
                                 </div>
@@ -82,3 +82,17 @@
     </div>
 </div>
 <!-- /Modal Editar Contraseña -->
+<script>
+            // 1.1.2 Actualizar contraseña **************************
+            $('#enviarFormUpdatePass').click(function() {
+            $.ajax({
+                    url: '../update/updatePass.php',
+                    type: 'POST',
+                    data: $('#formUpdatePass').serialize(),
+                })
+                .done(function(res) {
+                    $('#res_updateFormPass').html(res)
+                })
+        });
+        // 1.1.2 Actualizar contraseña **************************
+</script>

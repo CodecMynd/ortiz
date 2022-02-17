@@ -29,6 +29,13 @@ require '../components/head-main.php';
                 </div>
             </div>
             <!-- /titulo y brandcrumb -->
+            <!-- consulta sql -->
+            <?php
+            $id = $_GET['id'];
+            $query = "SELECT * FROM usuarios WHERE id_usuario = $id";
+            $respuesta = mysqli_query($conexion, $query);
+            $row = $respuesta->fetch_assoc();
+            ?>
 
             <!-- Form editar usuario -->
             <section class="content">
@@ -38,14 +45,9 @@ require '../components/head-main.php';
                             <div class="card border-card">
                                 <div class="card-header">
                                     <h3 class="card-title">Usuario seleccionado para editar</h3>
+                                    <small class="float-right">*Ultima modificación: <?php echo $row['fecha_mod'] ?></small>
                                 </div>
-                                <!-- consulta sql -->
-                                <?php
-                             $id = $_GET['id'];
-                             $query = "SELECT * FROM usuarios WHERE id_usuario = $id";
-                             $respuesta = mysqli_query($conexion, $query);
-                             $row = $respuesta->fetch_assoc();
-                                ?>
+
                                 <form id="formEditUser">
                                     <div class="card-body">
                                         <input type="hidden" name="id" id="id" value="<?php echo $id ?>">
@@ -55,7 +57,7 @@ require '../components/head-main.php';
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
                                                     </div>
-                                                    <input name="nombres"  id="nombres" type="text" class="form-control" placeholder="Nombre (s)" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres" value="<?php echo $row['nombres'] ?>">
+                                                    <input name="nombres" id="nombres" type="text" class="form-control" placeholder="Nombre (s)" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres" value="<?php echo $row['nombres'] ?>">
                                                     <label for="floatingInput" class="pl-5">Nombre(s) <small>*Campo a Editar</small></label>
                                                 </div>
                                             </div>
@@ -65,7 +67,7 @@ require '../components/head-main.php';
                                                         <span class="input-group-text"><i class="fa-solid fa-user-group"></i></span>
                                                     </div>
                                                     <input name="aPaterno" id="aPaterno" type="text" class="form-control" placeholder="Apellido Paterno" required maxlength="40" data-toggle="tooltip" data-placement="bottom" title="Max. 40 caracteres" value="<?php echo $row['aPaterno'] ?>">
-                                                    <label for="floatingInput" class="pl-5">Apellido Materno <small>*Campo a Editar</small></label>
+                                                    <label for="floatingInput" class="pl-5">Apellido Paterno <small>*Campo a Editar</small></label>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 col-sm-12 my-1">
@@ -82,7 +84,7 @@ require '../components/head-main.php';
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="fa-solid fa-user-tie"></i></span>
                                                     </div>
-                                                    <input  name="usuario" id="usuario" type="text" class="form-control" placeholder="usuario" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres" value="<?php echo $row['usuario'] ?>">
+                                                    <input name="usuario" id="usuario" type="text" class="form-control" placeholder="usuario" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres" value="<?php echo $row['usuario'] ?>"  onkeyup="javascript:this.value=this.value.toLowerCase();">
                                                     <label for="floatingInput" class="pl-5">Usuario <small>*Campo a Editar</small></label>
                                                 </div>
                                             </div>
@@ -91,8 +93,8 @@ require '../components/head-main.php';
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="fa-solid fa-at"></i></span>
                                                     </div>
-                                                    <input  name="email" id="email" type="email" class="form-control" placeholder="Correo" required maxlength="50" data-toggle="tooltip" data-placement="bottom" title="Max. 50 caracteres" value="<?php echo $row['email'] ?>">
-                                                    <label for="floatingInput" class="pl-5">Email <small>*Campo a Editar</small></label>
+                                                    <input name="email" id="email" type="email" class="form-control" placeholder="Correo" required maxlength="50" data-toggle="tooltip" data-placement="bottom" title="Max. 50 caracteres" value="<?php echo $row['email'] ?>" onkeyup="javascript:this.value=this.value.toLowerCase();">
+                                                    <label for="floatingInput" class="pl-5" >Email <small>*Campo a Editar</small></label>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 col-sm-12 my-1">
@@ -100,7 +102,7 @@ require '../components/head-main.php';
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="fa-solid fa-mobile"></i></span>
                                                     </div>
-                                                    <input name="tel" id="tel" type="text" class="form-control" placeholder="Telefono" required maxlength="10" data-toggle="tooltip" data-placement="bottom" title="Max. 10 caracteres" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask value="<?php echo $row['tel'] ?>">
+                                                    <input name="tel" id="tel" type="number" class="form-control" placeholder="Telefono" required maxlength="10" data-toggle="tooltip" data-placement="bottom" title="Max. 10 caracteres" data-mask value="<?php echo $row['tel'] ?>">
                                                     <label for="floatingInput" class="pl-5">Teléfono <small>*Campo a Editar</small></label>
                                                 </div>
                                             </div>
@@ -113,7 +115,7 @@ require '../components/head-main.php';
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"> <i class="fa fa-calendar" aria-hidden="true"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Campo en automatico" value="<?php echo $date ?>" disabled readonly>
+                                                    <input type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Campo en automatico" value="<?php echo $dateFront ?>" disabled readonly>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 col-sm-12 my-1">
@@ -130,7 +132,7 @@ require '../components/head-main.php';
                                     <div class="card-footer border-footer">
                                         <div class="row">
                                             <div class="col-md-2 col-sm-12 align-self-center">
-                                                <buttom type="button" id="btnEnviar" class="btn btn-secondary btn-block"  data-toggle="tooltip" data-placement="bottom" title="Guardar "><i class="fas fa-pen"></i> Guardar</buttom>
+                                                <buttom type="button" id="btnEnviar" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Guardar "><i class="fas fa-pen"></i> Guardar</buttom>
                                             </div>
                                             <div class="col-md-2 col-sm-12 align-self-center">
                                                 <a href="javascript:history.go(-1)" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
@@ -142,7 +144,7 @@ require '../components/head-main.php';
                                             </div>
                                         </div>
                                     </div>
-                                </form> 
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -158,18 +160,18 @@ require '../components/head-main.php';
     // Scripts principales
     require '../components/scripts-main.php';
     ?>
- <script>
-    //enviar sin actualizar página  datos pareja update
-    $('#btnEnviar').click(function() {
-        $.ajax({
-                url: 'updateUsuario.php',
-                type: 'POST',
-                data: $('#formEditUser').serialize(),
-            })
-            .done(function(res) {
-                $('#respuestaUpdate').html(res)
-            })
-    });
+    <script>
+        //enviar sin actualizar página  datos pareja update
+        $('#btnEnviar').click(function() {
+            $.ajax({
+                    url: 'updateUsuario.php',
+                    type: 'POST',
+                    data: $('#formEditUser').serialize(),
+                })
+                .done(function(res) {
+                    $('#respuestaUpdate').html(res)
+                })
+        });
 
         // 1.1.5 Registrar usuario nuevo **************************
 

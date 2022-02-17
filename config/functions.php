@@ -18,7 +18,6 @@ function conectar()
 
 } 
 
-
 function validarLogin($usuario, $pass){
  global $conexion;
  ini_set('date.timezone', 'America/Mexico_City');
