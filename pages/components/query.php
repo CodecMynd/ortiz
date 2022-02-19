@@ -19,11 +19,20 @@ while($row = mysqli_fetch_array($query)){
     $usuario = $row['usuario'];
     $email = $row['email'];
     $tel = $row['tel'];
-    $pass = $row['pass'];
+    $passUser = $row['pass'];
     $admin = $row['admin'];
     $tel = $row['tel'];
 
     $nomComp = $nombres.' '.$aPaterno.' '.$aMaterno;
 
 }
+/// contadores de registros por usuarios
+// # marcas
+$count_reg_marcas = mysqli_query($conexion, "SELECT id_marca FROM marcas ");
 
+//# usuarios
+$count_reg_usuarios = mysqli_query($conexion, "SELECT id_usuario FROM usuarios ");
+//# usuarios
+$count_reg_marcas = mysqli_query($conexion, "SELECT id_marca FROM marcas ");
+//# usuarios
+$count_reg_modelos = mysqli_query($conexion, "SELECT id_modelo FROM modelos ");

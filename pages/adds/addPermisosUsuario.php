@@ -21,7 +21,7 @@ $separada = explode($separador, $city);
 foreach ($separada as $sep) {
 
 $query = "INSERT INTO permisos(permiso, id_usuario) VALUES('$sep', $id_permiso)";
-var_dump($query);
+
  $resulta = mysqli_query($conexion, $query);
  }
  if ($resulta) {

@@ -17,20 +17,37 @@ $email =  $_POST['email'];
 $tel =  $_POST['tel'];
 
 
-$query = "UPDATE usuarios SET nombres = '$nombres', aPaterno = '$aPaterno', aMaterno = '$aMaterno', usuario = '$usuario', email = '$email', tel= '$tel', fecha_mod = '$date', id_captM = $id WHERE id_usuario = $id_usuario";
-$resultado = mysqli_query($conexion,  $query);
-if ($resultado) {
-    echo
-    "<div class = 'alert alert-success' role = 'alert'>
-   <p>¡Datos actualizados correctamente!</p>
-   </div>";
+if ($nombres == '' || $aPaterno == '' || $aMaterno == '' || $usuario == '' || $tel == '' || $email == '') {
+    echo "<div class='alert alert-danger' role='role'>
+    <p><strong>Error, todos los campos son requerido</strong></p>
+    </div>";
+    exit;
+} else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo "<div class='alert alert-danger' role='role'>
+    <p><strong>Formato de email invalido </p>
+    </div>";
+    exit;
+} else if ($tel == 14) {
+    echo "<div class='alert alert-danger' role='role'>
+    <p><strong>Formato de telefono es de 10 dígitos</p>
+    </div>";
+    exit;
 } else {
-    echo
-    "<div class = 'alert alert-danger' role = 'alert'>
-   <p> ¡Verifica que los campos no esten vacios!</p>
-   </div>";
-    desconectar();
+    $query = "UPDATE usuarios SET nombres = '$nombres', aPaterno = '$aPaterno', aMaterno = '$aMaterno', usuario = '$usuario', email = '$email', tel = '$tel' WHERE id_usuario = $id_usuario ";
+
+    // $verificar_usuario = mysqli_query($conexion, "SELECT * FROM usuarios WHERE nombres = '$nombres' AND aPaterno = '$aPaterno' AND aMaterno = '$aMaterno' ");
+    $resultado = mysqli_query($conexion, $query);
+    if ($resultado) {
+        echo "<div class='alert alert-success' role='alert'>
+                <p><strong>¡Usuario ingresado correctamente!</strong></p>
+                </div>";
+    } else {
+        echo "<div class='alert alert-danger' role='role'>
+            <p><strong>¡Error interno: vuelve a intentarlo!</strong></p>
+            </div>";
+    }
 }
+desconectar();
 ?>
 <script type="text/javascript">
     $(document).ready(function() {

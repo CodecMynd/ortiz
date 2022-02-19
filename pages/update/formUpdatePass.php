@@ -18,7 +18,8 @@ require '../components/head-main.php';
                         <div class="col-sm-6">
                             <h1 class="m-0">Edición de Contraseñas</h1>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 ">
+                            <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
                         </div>
                     </div>
                 </div>
@@ -42,7 +43,7 @@ require '../components/head-main.php';
                                     <small class="float-right">*Ultima modificación: <?php echo $row['fecha_mod'] ?></small>
                                 </div>
 
-                                <form id="formEditPass">
+                                <form id="formUpdatePass" autocomplete="off">
                                     <div class="card-body">
                                         <input type="hidden" name="id_usuario" id="id_usuario" value="<?php echo $id_pass ?>">
                                         <div class="row justify-content-center">
@@ -60,7 +61,7 @@ require '../components/head-main.php';
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="fa-solid fa-at"></i></span>
                                                     </div>
-                                                    <input name="pass" id="pass" type="text" class="form-control" placeholder="pass" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres">
+                                                    <input autofocus name="pass" id="pass" type="text" class="form-control" placeholder="pass" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres">
                                                     <label for="floatingInput" class="pl-5">Nueva Contraseña</label>
                                                 </div>
                                             </div>
@@ -77,12 +78,12 @@ require '../components/head-main.php';
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-sm-12 my-1">
-                                                <label class="ml-5 mb-2">Capturista Editor<small>*Llenado en automatico</small></label>
+                                                <label class="ml-5 mb-2">Capturista editor<small> *El que modifica</small></label>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="fa fa-user-pen" aria-hidden="true"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Campo en automatico" value="<?php echo $usuario ?>" disabled readonly>
+                                                    <input type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Campo en automatico" value="<?php echo $nomComp ?>" disabled readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -117,19 +118,6 @@ require '../components/head-main.php';
     <?php
     require '../components/scripts-main.php';
     ?>
-    <script>
-        //enviar sin actualizar página  datos pareja update
-        $('#btnUpdatePass').click(function() {
-            $.ajax({
-                    url: 'updatePass.php',
-                    type: 'POST',
-                    data: $('#formEditPass').serialize(),
-                })
-                .done(function(res) {
-                    $('#respuestaUpdatePass').html(res)
-                })
-        });
-    </script>
 </body>
 
 </html>

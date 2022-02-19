@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-02-2022 a las 10:06:18
+-- Tiempo de generación: 17-02-2022 a las 15:21:22
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.1
 
@@ -90,12 +90,71 @@ CREATE TABLE `modelos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `puestos`
+-- Estructura de tabla para la tabla `modulos`
 --
 
-CREATE TABLE `puestos` (
-  `id_puesto` int(3) NOT NULL,
-  `puesto` varchar(30) DEFAULT NULL
+CREATE TABLE `modulos` (
+  `id` int(11) NOT NULL,
+  `country` varchar(50) NOT NULL,
+  `state` varchar(50) NOT NULL,
+  `city` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `modulos`
+--
+
+INSERT INTO `modulos` (`id`, `country`, `state`, `city`) VALUES
+(1, '1.0 Catálogos', '1.1 Usuarios', '1.1.1 Editar Usuarios'),
+(2, '1.0 Catálogos', '1.1 Usuarios', '1.1.2 Asignar Contraseña'),
+(3, '1.0 Catálogos', '1.1 Usuarios', '1.1.3 Eliminar Usuario'),
+(4, '1.0 Catálogos', '1.1 Usuarios', '1.1.4 Asignar Permisos'),
+(5, '1.0 Catálogos', '1.1 Usuarios', '1.1.5 Nuevo Usuario'),
+(6, '1.0 Catálogos', '1.2 Marcas', '1.2.1 Registro de marcas'),
+(7, '1.0 Catálogos', '1.2 Marcas', '1.2.2 Modificar Marca'),
+(8, '1.0 Catálogos', '1.2 Marcas', '1.2.3 Eliminar Marca'),
+(9, '1.0 Catálogos', '1.3 Modelos', '1.3.1 Registro de Modelo'),
+(10, '1.0 Catálogos', '1.3 Modelos', '1.3.2 Modificar Modelo'),
+(11, '1.0 Catálogos', '1.3 Modelos', '1.3.3 Eliminar Modelo'),
+(12, '1.0 Catálogos', '1.4 Años', '1.4.1 Registro de Años'),
+(13, '1.0 Catálogos', '1.4 Años', '1.4.2 Modificar Años'),
+(14, '1.0 Catálogos', '1.4 Años', '1.4.3 Eliminar Año'),
+(15, '2.0 Proyecto', '2.1 Registro Vehículo', '2.1.1 Registro de Vehículo'),
+(16, '2.0 Proyecto', '2.1 Registro Vehículo', '2.1.2 Modificar Vehículo'),
+(17, '2.0 Proyecto', '2.1 Registro Vehículo', '2.1.3 Eliminar Vehículo'),
+(18, '2.0 Proyecto', '2.2 Registro Cliente', '2.2.1 Registro de Cliente'),
+(19, '2.0 Proyecto', '2.2 Registro Cliente', '2.2.2 Modificar Cliente'),
+(20, '2.0 Proyecto', '2.2 Registro Cliente', '2.2.1 Eliminar Cliente'),
+(21, '2.0 Proyecto', '2.3 Registro Proyecto', '2.3.1 Registro de Proyecto'),
+(22, '2.0 Proyecto', '2.3 Registro Proyecto', '2.3.2 Lista de Proyectos'),
+(23, '2.0 Proyecto', '2.3 Registro Proyecto', '2.3.3 Modificar Proyectos'),
+(24, '2.0 Proyecto', '2.3 Registro Proyecto', '2.3.4 Eliminar Proyectos'),
+(25, '2.0 Proyecto', '2.3 Registro Proyecto', '2.3.5 Descarga PDF Proyectos');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `permiso`
+--
+
+CREATE TABLE `permiso` (
+  `id` int(11) NOT NULL,
+  `country` varchar(250) NOT NULL,
+  `state` varchar(250) NOT NULL,
+  `city` text NOT NULL,
+  `id_usuario` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `permisos`
+--
+
+CREATE TABLE `permisos` (
+  `id_permiso` int(11) NOT NULL,
+  `permiso` text DEFAULT NULL,
+  `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -126,7 +185,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombres`, `aPaterno`, `aMaterno`, `usuario`, `email`, `tel`, `pass`, `admin`, `fecha_creacion`, `fecha_mod`, `id_captC`, `id_captM`, `estatus`) VALUES
-(1, 'Nombre_prueba', 'Paternoi', 'Materno', 'Administrador', '', '', 'admin1', '1', '2022-02-14 23:30:32', '2022-02-14 23:30:32', 0, 0, 'offline');
+(1, 'Jose Uriel', 'Guerra', 'Trinidad', 'admin', 'prueba@gmail.com', '123456789', 'admin100', '1', '2022-02-14 23:30:32', '2022-02-16 09:40:27', 0, 1, 'Online'),
+(2'Juan Sebastian', 'Perez', 'Ortiz', 'admin', 'prueba@gmail.com', '123456789', 'admin1', '1', '2022-02-14 23:30:32', '2022-02-16 09:40:27', 0, 1, 'Online');
+
 
 --
 -- Índices para tablas volcadas
@@ -155,6 +216,24 @@ ALTER TABLE `marcas`
 --
 ALTER TABLE `modelos`
   ADD PRIMARY KEY (`id_modelo`);
+
+--
+-- Indices de la tabla `modulos`
+--
+ALTER TABLE `modulos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `permiso`
+--
+ALTER TABLE `permiso`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `permisos`
+--
+ALTER TABLE `permisos`
+  ADD PRIMARY KEY (`id_permiso`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -189,6 +268,24 @@ ALTER TABLE `marcas`
 --
 ALTER TABLE `modelos`
   MODIFY `id_modelo` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `modulos`
+--
+ALTER TABLE `modulos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT de la tabla `permiso`
+--
+ALTER TABLE `permiso`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `permisos`
+--
+ALTER TABLE `permisos`
+  MODIFY `id_permiso` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

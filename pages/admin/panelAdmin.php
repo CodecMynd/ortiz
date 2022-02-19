@@ -5,14 +5,17 @@ require '../components/head-main.php';
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
-
+    <!-- <div class="cargando">
+        <div class="loader-outter"></div>
+        <div class="loader-inner"></div>
+    </div> -->
     <div class="wrapper">
         <?php
         require '../components/navbar.php';
         ?>
         <div class="content-wrapper">
             <!-- titulo y brandcrumb -->
-            <div class="content-header"> 
+            <div class="content-header">
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
@@ -33,16 +36,43 @@ require '../components/head-main.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
+                    <div class="col-lg-2 col-4">
+                            <div class="small-box bg-secondary">
+                                <div class="inner">
+                                    <h3><?php echo mysqli_num_rows($count_reg_usuarios); ?></h3>
+                                    <p>Usuarios</p>
+                                </div>
+                                <div class="icon">
+                                <i class="fa-solid fa-users"></i>
+                                </div>
+                                <a href="crudUsuarios.php" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+
                         <div class="col-lg-2 col-4">
                             <div class="small-box bg-secondary">
                                 <div class="inner">
-                                    <h3>150</h3>
-                                    <p>New Orders</p>
+                                    <h3><?php echo mysqli_num_rows($count_reg_marcas); ?></h3>
+                                    <p>Marcas</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-bag"></i>
+                                <i class="fa-solid fa-car"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="crudMarcas.php" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-4">
+                            <div class="small-box bg-secondary">
+                                <div class="inner">
+                                    <!-- <h3><?php echo mysqli_num_rows($count_reg_modelos); ?><sup style="font-size: 20px">%</sup></h3> porcentaje-->
+                                    <h3><?php echo mysqli_num_rows($count_reg_modelos); ?></h3>
+                                    <p>Modelos</p>
+                                </div>
+                                <div class="icon">
+                                <i class="fa-solid fa-car-side"></i>
+                                </div>
+                                <a href="crudModelos.php" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
 
@@ -50,38 +80,12 @@ require '../components/head-main.php';
                             <div class="small-box bg-secondary">
                                 <div class="inner">
                                     <h3>44</h3>
-                                    <p>User Registrations</p>
+                                    <p>Proyectos</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                <i class="ion ion-pie-graph"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-2 col-4">
-                            <div class="small-box bg-secondary">
-                                <div class="inner">
-                                    <h3>53<sup style="font-size: 20px">%</sup></h3>
-                                    <p>Bounce Rate</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-2 col-4">
-                            <div class="small-box bg-secondary">
-                                <div class="inner">
-                                    <h3>44</h3>
-                                    <p>User Registrations</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-person-add"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="#" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
 
@@ -89,12 +93,12 @@ require '../components/head-main.php';
                             <div class="small-box bg-secondary">
                                 <div class="inner">
                                     <h3>65</h3>
-                                    <p>Unique Visitors</p>
+                                    <p>Insumos</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-pie-graph"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="#" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
 
@@ -102,12 +106,12 @@ require '../components/head-main.php';
                             <div class="small-box bg-secondary">
                                 <div class="inner">
                                     <h3>65</h3>
-                                    <p>Unique Visitors</p>
+                                    <p>Destajos Técnicos</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-pie-graph"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="#" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
 
@@ -124,6 +128,7 @@ require '../components/head-main.php';
     </div>
     <?php
     require '../components/scripts-main.php';
+    require '../components/modal-miPass.php';
     ?>
 </body>
 

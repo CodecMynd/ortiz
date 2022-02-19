@@ -8,6 +8,10 @@
 <!-- JS main -->
 <script src="../../src/js/main.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<!-- inputMask js -->
+<script src="../../plugins/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+  <!-- js toogle swicth -->
+  <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.0/js/bootstrap4-toggle.min.js"></script>
 <script>
    //tooltip
    $(function() {
@@ -16,23 +20,3 @@
 </script>
 <!-- Poppers -->
 <script src="../../plugins/popper/popper.min.js"></script>
-<script>
-      // ocultar password
-      function mostrarPassword() {
-      var cambio = document.getElementById("password");
-      if (cambio.type == "password") {
-         cambio.type = "text";
-         $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
-      } else {
-         cambio.type = "password";
-         $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
-      }
-   }
-
-   $(document).ready(function() {
-      //CheckBox mostrar contraseña
-      $('#ShowPassword').click(function() {
-         $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
-      });
-   });
-</script>

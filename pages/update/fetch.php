@@ -3,8 +3,7 @@
 
 if(isset($_POST['action']))
 {
-	$connect = new PDO("mysql:host=localhost;dbname=db_ortiz", "root", "");
-	//$connect = new PDO('mysql:host=den1.mysql6.gear.host;dbname=dbortiz', 'dbortiz', 'Tv4O~77K-R7j');
+	include '../../config/functionPDO.php';
 	$output = '';
 
 	if($_POST["action"] == 'country')

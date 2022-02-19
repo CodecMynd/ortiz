@@ -1,9 +1,8 @@
 <?php
 require '../components/head-main.php';
 
-//$connect = new PDO('mysql:host=den1.mysql6.gear.host;dbname=dbortiz', 'dbortiz', 'Tv4O~77K-R7j');country_state_city
+include '../../config/functionPDO.php';
 
-$connect = new PDO('mysql:host=localhost;dbname=db_ortiz', 'root', '');
 $country = '';
 $query = "
 	SELECT country FROM modulos GROUP BY country ORDER BY country ASC
@@ -18,7 +17,7 @@ foreach ($result as $row) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="../../plugins/multiselectbox/jquery.lwMultiSelect.js"></script>
 <link rel="stylesheet" href="../../plugins/multiselectbox/jquery.lwMultiSelect.css" />
-<title>Edición de Contraseñas | <?php echo $nomComp ?></title>
+<title>Dar permisos | <?php echo $nomComp ?></title>
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
@@ -33,16 +32,17 @@ foreach ($result as $row) {
             $id_permiso = $_GET['id'];
             $query = "SELECT * FROM usuarios WHERE id_usuario = $id_permiso";
             $respuesta = mysqli_query($conexion, $query);
-            $row = $respuesta->fetch_assoc();
-            $nomUserPer = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
+            $rowper = $respuesta->fetch_assoc();
+            $nomUserPer = $rowper['nombres'] . ' ' . $rowper['aPaterno'] . ' ' . $rowper['aMaterno'];
             ?>
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Asignar Permisos para: <strong><?php echo $nomUserPer ?></strong> </h1>
+                            <h1 class="m-0">Asignar Permiso </h1>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 ">
+                        <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ foreach ($result as $row) {
                         <div class="col-md-7 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Seleccionar permisos</h3>
+                                    <h3 class="card-title">Seleccionar permisos para: <strong><?php echo $nomUserPer ?></strong></h3>
                                 </div>
                                 <form method="post" id="insert_data">
                                     <input type="hidden" name="id_usuario" id="id_usuario" value="<?php echo $id_permiso ?>">
@@ -89,7 +89,7 @@ foreach ($result as $row) {
                                     <div class="card-footer border-footer">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-12 align-self-center">
-                                                <input type="submit" id="action" name="insert" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Guardar ">
+                                                <input type="submit" id="action" name="insert" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Campo en Guardar">
                                             </div>
                                             <div class="col-md-4 col-sm-12 align-self-center">
                                                 <a href="javascript:history.go(-1)" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
@@ -151,14 +151,12 @@ foreach ($result as $row) {
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <a class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-sm<?php echo $row['id_usuario'] ?>" data-toggle="tooltip" title="Eliminar permiso"><i class="fas fa-trash-alt"></i>
+                                                            <a class="btn btn-secondary" data-toggle="modal" data-target=".modalEliminarPermiso<?php echo $rowp['id_usuario'] ?>" data-toggle="tooltip" title="Eliminar permiso"><i class="fas fa-trash-alt"></i>
                                                             </a>
                                                         </td>
                                                     </tr>
                                             <?php
-                                                    // include '../components/modals.php';
-                                                    // require '../components/modal-editarUsuario.php';
-                                                    require '../components/modal-eliminarUsuario.php';
+                                                    require '../components/modal-eliminarPermiso.php';
                                                 }
                                             }
                                             desconectar();
@@ -206,95 +204,6 @@ foreach ($result as $row) {
     <script src="../../src/js/main.js"></script>
     <!-- Poppers -->
     <script src="../../plugins/popper/popper.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-
-            $('#city').lwMultiSelect();
-
-            $('.action').change(function() {
-                if ($(this).val() != '') {
-                    var action = $(this).attr("id");
-                    var query = $(this).val();
-                    var result = '';
-                    if (action == 'country') {
-                        result = 'state';
-                    } else {
-                        result = 'city';
-                    }
-                    $.ajax({
-                        url: 'fetch.php',
-                        method: "POST",
-                        data: {
-                            action: action,
-                            query: query
-                        },
-                        success: function(data) {
-                            $('#' + result).html(data);
-                            if (result == 'city') {
-                                $('#city').data('plugin_lwMultiSelect').updateList();
-                            }
-                        }
-                    })
-                }
-            });
-
-            $('#insert_data').on('submit', function(event) {
-                event.preventDefault();
-                if ($('#id_usuario').val() == '') {
-                    alert("Error");
-                    return false;
-                } else if ($('#country').val() == '') {
-                    alert("Por favor seleccione un Botón");
-                    return false;
-                } else if ($('#state').val() == '') {
-                    alert("Por favor seleccione un Botón");
-                    return false;
-                } else if ($('#city').val() == '') {
-                    alert("Por favor asigna un Permiso");
-                    return false;
-                } else {
-                    $('#hidden_city').val($('#city').val());
-                    $('#action').attr('disabled', 'disabled');
-                    var form_data = $(this).serialize();
-                    $.ajax({
-                        url: "insert.php",
-                        method: "POST",
-                        data: form_data,
-              
-                   timeout:200000,
-                        success: function(data) {
-                            // $('#action').attr("disabled", "disabled");
-                            if (data == 'done') {
-                                $('#city').html('');
-                                $('#city').data('plugin_lwMultiSelect').updateList();
-                                $('#city').data('plugin_lwMultiSelect').removeAll();
-                                $('#insert_data')[0].reset();
-                                alert('Permiso(s) asignado(s) correctamente');
-                            }
-                        }
-                    });
-                }
-            });
-        });
-
-        //  extraer datos de una tabla y guardar en otra
-        $('#extraerDatosPermisos').click(function() {
-            $.ajax({
-                    url: '../adds/addPermisosUsuario.php',
-                    type: 'POST',
-                    data: $('#formExtraerPerm').serialize(),
-                    beforeSend: function(){
-                    $("#id_usuario").html("<div class='ui active inline loader myLoader'></div>")
-                    },
-                })
-                .done(function(res) {
-                    $('#respuestaUpdatePermisos').html(res)
-                })
-
-        });
-    </script>
-
 
 </body>
 

@@ -1,17 +1,17 @@
-<!-- Modal -->
-<div class="modal fade" id="modalMiPass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="modal fade modalMiPass<?php echo $id ?>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Cambiar Acceso</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h5 class="modal-title">
+                    Cambiar acceso:
+                </h5>
             </div>
-            <form action="../update/updatePerfil.php" method="POST">
-                <div class="modal-body">
+
+            <form id="formUpdatePassUser" autocomplete="off">
+                <input type="hidden" name="id_usuario" id="id_usuario" value="<?php echo $id ?>">
+                <div class="modal-body d-block">
                     <div class="input-group form-floating mb-3">
-                        <input name="usuario" id="usuario" type="text" class="form-control" id="floatingInput" placeholder="Ej. Juan" required pattern="[A-Za-z0-9 _-]{1,32}">
+                        <input name="usuario" id="usuario" type="text" class="form-control" id="floatingInput" value='<?php echo $usuario ?>'>
                         <label for="floatingInput">Usuario</label>
                         <div class="input-group-text">
                             <span class="fas fa-user"></span>
@@ -20,7 +20,7 @@
                     <div class="form-group-input">
                         <label for="password">Mi contraseña</label>
                         <div class="input-group">
-                            <input type="Password" name="password" id="password" class="form-control" required value="<?php echo $pass ?>" />
+                            <input type="Password" name="password" id="password" class="form-control" required value="<?php echo $passUser ?>" />
                             <div class="input-group-prepend">
                                 <button id="show_password" class="btn btn-secondary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
                             </div>
@@ -28,30 +28,47 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-secondary">Guardar</button>
+                    <buttom type="submit" id="btnUpdatePassUser" class="btn btn-secondary btn-block btnMiPass" data-toggle="tooltip" data-placement="bottom" title="Cambiar acceso"><i class="fa-solid fa-edit"></i> Modificar</buttom>
+                    <a id="btnCerrarModal" data-dismiss="modal" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Cancelar"><i class="fa-solid fa-xmark"></i> Salir</a>
+                    <a id="cerrar" href="../../config/cerrar-sesion.php" class="btn btn-secondary btn-block"><i class="fa-solid fa-xmark"></i> Cerrar</a>
+                </div>
+                <div class="col-md-12 col-sm-12 align-self-center mt-2">
+                    <div id="respuestaUpdatePassUser"></div>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<script>
-    // ocultar password
-    function mostrarPassword() {
-        var cambio = document.getElementById("password");
-        if (cambio.type == "password") {
-            cambio.type = "text";
-            $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
-        } else {
-            cambio.type = "password";
-            $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
-        }
+
+<style>
+    #cerrar {
+        display: none;
     }
+</style>
+<script>
+    $('#btnUpdatePassUser').click(function() {
+        $.ajax({
+                url: '../update/updatePerfil.php',
+                type: 'POST',
+                data: $('#formUpdatePassUser').serialize(),
+            })
+            .done(function(res) {
+                $('#respuestaUpdatePassUser').html(res)
+            })
+    });
+    //Ocultar boton por 5 minutos para evitar el doble submit
+    $("#btnUpdatePassUser").on('click', function() {
+        $("#btnUpdatePassUser").css('visibility', 'hidden');
+        $("#btnCerrarModal").css('visibility', 'hidden');
+        setTimeout(function() {
+            $("#btnUpdatePassUser").css('visibility', 'visible');
+            $("#btnCerrarModal").css('visibility', 'visible');
+        }, 300000);
+    });
 
     $(document).ready(function() {
-        //CheckBox mostrar contraseña
-        $('#ShowPassword').click(function() {
-            $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+        $('#btnUpdatePassUser').on('click', function() {
+            $('#cerrar').toggle('slow');
         });
     });
 </script>
