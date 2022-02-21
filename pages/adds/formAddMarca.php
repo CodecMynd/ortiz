@@ -32,7 +32,7 @@ require '../components/head-main.php';
                         <div class="col-8">
                             <div class="card border-card">
                                 <div class="card-header border-nav">
-                                    <h3 class="card-title">Todos los campos son obligatorios</h3>
+                                    <h3 class="card-title">*Todos los campos son obligatorios</h3>
                                 </div>
                                 <!-- <form id="formNuevoUsuario" action="addNuevoUsuario.php" method="POST"> -->
                                 <form id="formNuevaMarca" autocomplete="off">
@@ -102,5 +102,26 @@ require '../components/head-main.php';
     ?>
 
 </body>
+<script>
+    $(document).ready(function () {
+    $('#btnNuevaMarca').click(function () {
+        $.ajax({
+                url: 'addNuevaMarca.php',
+                type: 'POST',
+                data: $('#formNuevaMarca').serialize(),
 
+            })
+            .done(function (res) {
+                $('#respuestaNuevaMarca').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnNuevaMarca").on('click', function () {
+    $("#btnNuevaMarca").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnNuevaMarca").css('visibility', 'visible');
+    }, 300000);
+});
+</script>
 </html>

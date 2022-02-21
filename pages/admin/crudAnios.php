@@ -44,7 +44,7 @@ require '../components/head-dataTables.php';
                                 <!-- consulta sql -->
                                 <?php
                                 $cont = 0;
-                                $query = "SELECT * FROM anios ORDER BY anio ASC";
+                                $query = "SELECT * FROM anios ORDER BY anio DESC";
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
 
@@ -131,14 +131,8 @@ require '../components/head-dataTables.php';
     require '../components/scripts-main.php';
     // Scripts dataTables
     require '../components/scripts-dataTables.php';
-    // Modals
-    // require '../components/modals.php';
-    require '../components/modal-miPass.php';
     ?>
 
 </body>
-<script>
-
-</script>
 
 </html>

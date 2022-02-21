@@ -44,7 +44,7 @@ require '../components/head-main.php';
                                 </div>
                                 <!-- <form id="formNuevoUsuario" action="addNuevoUsuario.php" method="POST"> -->
                                 <form id="formUpdateAnio" autocomplete="off">
-                                    <input type="hidden" name="id_anio" value="<?php echo $id_marca ?>">
+                                    <input type="hidden" name="id_anio" id="id_anio" value="<?php echo $id_anio ?>">
                                     <div class="card-body">
                                         <div class="row justify-content-center">
                                             <div class="col-md-4 col-sm-12 my-1 form-group">

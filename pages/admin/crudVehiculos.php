@@ -2,7 +2,7 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>CRUD Usuarios | <?php echo $nomComp ?></title>
+<title>CRUD Vehículos | <?php echo $nomComp ?></title>
 
 </head>
 
@@ -17,7 +17,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Tabla Usuarios</h1>
+                            <h1 class="m-0">Tabla Vehículos</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -25,34 +25,38 @@ require '../components/head-dataTables.php';
                     </div>
                 </div>
             </div>
+            <!-- /titulo y brandcrumb -->
+
             <!-- Table usuarios -->
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-10">
+                        <div class="col-md-6 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Usuarios dados de alta en el sistema</h3>
+                                    <h3 class="card-title">Vehículos dadas de alta en el sistema</h3>
                                     <div class="card-tools">
-                                        <a type="button" class="btn btn-secondary" href="../adds/formAddUsuario.php" data-toggle="tooltip" data-placement="left" title="1.1.5 Nuevo Usuario">
-                                            <i class="fa-solid fa-user-plus"></i> Nuevo Usuario</a>
+                                        <a type="button" class="btn btn-secondary" href="../adds/formAddVehiculo.php" data-toggle="tooltip" data-placement="left" title="2.1.1 Registro Vehículo">
+                                        <i class="fa-solid fa-car"></i> Registro de Vehículos</a>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
                                 <!-- consulta sql -->
                                 <?php
                                 $cont = 0;
-                                $query = "SELECT * FROM usuarios WHERE admin <> 1 ORDER BY id_usuario DESC";
+                                $query = "SELECT id_vehiculo, id_marca, id_modelo, placas  FROM vehiculos ORDER BY id_vehiculo DESC";
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
+
                                 <div class="card-body">
-                                    <table id="tableCrudUsuarios" class="table table-sm table-bordered table-striped">
+                                    <table id="tablePermisos" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Nombre</th>
-                                                <th>Usuario</th>
-                                                <th>Contraseña</th>
+                                                <th>Marca</th>
+                                                <th>Modelo</th>
+                                                <th>Año</th>
+                                                <th>Placas</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -66,24 +70,16 @@ require '../components/head-dataTables.php';
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <?php
-                                                        $nombres = $row['nombres'];
-                                                        $aPaterno = $row['aPaterno'];
-                                                        $aMaterno = $row['aMaterno'];
-                                                        echo $nombreComp = $nombres . ' ' . $aPaterno . ' ' . $aMaterno;
-                                                        ?>
+                                                        <?php $row['id_marca'] ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['usuario'] ?>
+                                                        <?php $row['id_modelo'] ?>
                                                     </td>
                                                     <td>
-                                                        <?php $pass = $row['pass'];
-                                                        if ($pass == 'SIN CONTRASEÑA') {
-                                                            echo '<span class="badge badge-pill badge-danger">Sin Asignar</span>';
-                                                        } else {
-                                                            echo '<span class="badge badge-pill badge-success">Asignada</span>';
-                                                        }
-                                                        ?>
+                                                        <?php echo $row['id_anio'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['placas'] ?>
                                                     </td>
                                                     <td>
                                                         <div class="input-group input-group-sm mb-3">
@@ -93,26 +89,14 @@ require '../components/head-dataTables.php';
                                                                 <ul class="dropdown-menu">
                                                                     <div class="btn-group">
                                                                         <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="1.1.1 Editar Usuario">
-                                                                                <a class="btn btn-secondary" href="../update/formUpdateUsuario.php?id=<?php echo $row['id_usuario'] ?>"><i class="fas fa-edit"></i>
+                                                                            <span data-toggle="tooltip" title="2.1.2 Modificar Vehículo">
+                                                                                <a class="btn btn-secondary" href="../update/formUpdateModelo.php?id=<?php echo $row['id_modelo'] ?>"><i class="fas fa-edit"></i>
                                                                                 </a>
                                                                             </span>
                                                                         </li>
                                                                         <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="1.1.2 Asignar Contraseña">
-                                                                                <a class="btn btn-secondary" href="../update/formUpdatePass.php?id=<?php echo $row['id_usuario'] ?>"> <i class="fa-solid fa-lock"></i>
-                                                                                </a>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="1.1.3 Eliminar Usuario">
-                                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-sm<?php echo $row['id_usuario'] ?>"><i class="fas fa-trash-alt"></i>
-                                                                                </a>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="1.1.4 Asignar Permiso">
-                                                                                <a class="btn btn-secondary" href="../update/formUpdatePermiso.php?id=<?php echo $row['id_usuario'] ?>"><i class="fa-solid fa-key"></i>
+                                                                            <span data-toggle="tooltip" title="2.1.3  Eliminar Modelo">
+                                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarModelo-<?php echo $row['id_modelo'] ?>"><i class="fas fa-trash-alt"></i>
                                                                                 </a>
                                                                             </span>
                                                                         </li>
@@ -123,7 +107,7 @@ require '../components/head-dataTables.php';
                                                     </td>
                                                 </tr>
                                             <?php
-                                                require '../components/modal-eliminarUsuario.php';
+                                                require '../components/modal-eliminarModelo.php';
                                             }
                                             desconectar();
                                             ?>
@@ -131,13 +115,16 @@ require '../components/head-dataTables.php';
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Nombre</th>
-                                                <th>Usuario</th>
-                                                <th>Contraseña</th>
+                                                <th>Marca</th>
+                                                <th>Modelo</th>
+                                                <th>Año</th>
+                                                <th>Placas</th>
                                                 <th>Acciones</th>
+                                            </tr>
                                             </tr>
                                         </tfoot>
                                     </table>
+                                    <div id="respuestaBorrarModelo"></div>
                                 </div>
                             </div>
                         </div>
@@ -158,5 +145,6 @@ require '../components/head-dataTables.php';
     ?>
 
 </body>
+
 
 </html>

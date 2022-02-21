@@ -37,3 +37,7 @@ pinctar parentesis corchetes para ver donde abre y cierran
 'TODO' 
 hacer comentarios vistosos poner 'TODO' y se pinta de amarillo
 'FIXED' se pinta de rojo
+
+
+//     https://www.dropbox.com/s/2jlhucduf3rl3tg/itic_actualizar.zip?dl=0&file_subpath=%2Fitic_actualizar%2Factualizar_registros.php
+// // 

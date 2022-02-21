@@ -3,29 +3,39 @@ require '../../config/functions.php';
 if (!haIniciadoSesion()) {
     header('Location: ../../../index.php');
 }
+
 conectar();
 ini_set('date.timezone',  'America/Mexico_City');
 $date = date('Y-m-d H:i:s');
 $id = $_SESSION['id_usuario'];
 
 $id_usuario = $_POST['id_usuario'];
-$pass =  $_POST['pass'];
+$pass = $_POST['pass'];
 
-$query = "UPDATE usuarios SET pass = '$pass', fecha_mod = '$date', id_captM = '$id' WHERE id_usuario = $id_usuario";
-$resultado = mysqli_query($conexion, $query);
 
-if ($resultado) {
-    echo "<div class='alert alert-success' role='alert'>
-     <p>¡La contraseña se modificó exitosamente!</p>
-     </div>";
-  } else {
+if ($id_usuario == '' || $pass == '') {
     echo "<div class='alert alert-danger' role='role'>
-    <p>Hu sucedido un error, reintente</p>
-     </div>";
-  }
-  desconectar();
-?>
+          <p><strong>Error, Contraseña es un campo requeridos</strong></p>
+          </div>";
+    exit;
+} else {
+    $query = "UPDATE usuarios SET pass = '$pass', fecha_mod = '$date', id_captM= '$id' WHERE id_usuario = $id_usuario";
+    
+    $resultado = mysqli_query($conexion, $query);
+    if ($resultado) {
+        echo "<div class='alert alert-success' role='alert'>
+             <p><strong>Contraseña actualizada correctamente!</strong></p>
+             </div>";
+    } else {
+        echo "<div class='alert alert-danger' role='role'>
+         <p><strong>¡Error interno: vuelve a intentarlo!</strong></p>
+         </div>";
+    }
+}
 
+
+desconectar();
+?>
 <script type="text/javascript">
     $(document).ready(function() {
         setTimeout(function() {
@@ -34,6 +44,6 @@ if ($resultado) {
 
         setTimeout(function() {
             $(".alert-danger").fadeIn(1500);
-        }, 3000);
+        }, 4000);
     });
 </script>

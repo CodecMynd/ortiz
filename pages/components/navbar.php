@@ -16,24 +16,33 @@
                     <a href="../admin/panelAdmin.php" class="nav-link">| <i class="fa-solid fa-house-user"></i> | </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">1.0 Catálogos</a>
+                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle  <?php if ($passUser == 'SIN_PASSWORD') {
+                                                                                                                                                                echo 'disabled';
+                                                                                                                                                            } else {
+                                                                                                                                                                echo 'text-dark ';
+                                                                                                                                                            } ?> ">1.0 Catálogos</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                         <li><a href="../admin/crudUsuarios.php" class="dropdown-item">1.1 Usuarios </a></li>
                         <li><a href="../admin/crudMarcas.php" class="dropdown-item">1.2 Marcas </a></li>
                         <li><a href="../admin/crudModelos.php" class="dropdown-item">1.3 Modelos </a></li>
                         <li><a href="../admin/crudAnios.php" class="dropdown-item">1.4 Años </a></li>
+                        <li><a href="../admin/crudPermisos.php" class="dropdown-item">1.5 Permisos </a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">2.0 Proyecto</a>
+                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle <?php if ($passUser == 'SIN_PASSWORD') {
+                                                                                                                                                            echo 'disabled';
+                                                                                                                                                        } else {
+                                                                                                                                                            echo 'text-dark ';
+                                                                                                                                                        } ?> ">2.0 Proyecto</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                        <li><a href="#" class="dropdown-item">2.1 Registro Vehículo </a></li>
+                        <li><a href="crudVehiculos.php" class="dropdown-item">2.1 Registro Vehículo </a></li>
                         <li><a href="#" class="dropdown-item">2.2 Registro Cliente </a></li>
                         <li><a href="#" class="dropdown-item">2.3 Registro Proyecto </a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle disabled" disabled>3.0 Insumos</a>
+                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle  disabled">3.0 Insumos</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                         <li><a href="#" class="dropdown-item">3.1 item </a></li>
                         <li><a href="#" class="dropdown-item">3.2 item </a></li>
@@ -42,7 +51,7 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle disabled" disabled>4.0 Destajos Técnicos</a>
+                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle  disabled">4.0 Destajos Técnicos</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                         <li><a href="#" class="dropdown-item">4.1 item </a></li>
                         <li><a href="#" class="dropdown-item">4.2 item </a></li>
@@ -56,18 +65,23 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         <!-- Notifications Dropdown Menu -->
-        <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="fa-solid fa-user"></i>
-                <!-- <span class="badge badge-warning navbar-badge">15</span> -->
-            </a>
+        <li class="nav-item dropdown ">
+            <?php if ($passUser == 'SIN_PASSWORD') {
+                echo '<a class="nav-link parpadea" data-toggle="dropdown" href="#">
+            <i class="fa-solid fa-user fa-2x"></i>
+        </a>';
+            } else {
+                echo '<a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="fa-solid fa-user fa-2x"></i>
+            </a>';
+            } ?>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <span class="dropdown-item dropdown-header"><?php echo $nomComp ?></span>
+                <span class="dropdown-item dropdown-header text-dark"><?php echo $nomComp ?></span>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item" data-toggle="modal" data-target=".modalMiPass<?php echo $id ?>">
-                        <i class="fa-solid fa-key"></i></i> Mi contraseña
-                            <span class="float-right text-muted text-sm"></span>
-                        </a> 
+                    <i class="fa-solid fa-user-gear"></i> Mi Perfil
+                    <span class="float-right text-muted text-sm"></span>
+                </a>
                 <a href="../../config/cerrar-sesion.php" class="dropdown-item">
                     <i class="fa-solid fa-xmark"></i> Cerrar Sesión
                     <span class="float-right text-muted text-sm"><i class="fa-solid fa-hand-wave"></i></span>

@@ -32,7 +32,7 @@ require '../components/head-main.php';
             $respuesta = mysqli_query($conexion, $query);
             $row = $respuesta->fetch_assoc();
             ?>
-                                                                                                                                                                                                                                          else echo ''; ?>
+                                                                                                                                                                                                                    
             <!-- Form editar usuario -->
             <section class="content">
                 <div class="container-fluid">

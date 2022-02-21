@@ -1,3 +1,5 @@
+
+
 <footer class="main-footer border-footer">
     <!-- To the right -->
     <div class="row">
@@ -6,7 +8,7 @@
         </div>
         <div class="col-3">
             <div class="float-right d-sm-inline ml-5 pl-5">
-                v.1.0 en construcción
+                v.1.1 en construcción
             </div>
         </div>
         <div class="col-2">

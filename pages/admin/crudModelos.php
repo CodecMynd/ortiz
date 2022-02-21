@@ -53,8 +53,8 @@ require '../components/head-dataTables.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Modelo</th>
                                                 <th>Marca</th>
+                                                <th>Modelo</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -68,10 +68,10 @@ require '../components/head-dataTables.php';
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['modelo'] ?>
+                                                        <?php echo $row['marca'] ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['marca'] ?>
+                                                        <?php echo $row['modelo'] ?>
                                                     </td>
                                                     <td>
                                                         <div class="input-group input-group-sm mb-3">
@@ -107,8 +107,8 @@ require '../components/head-dataTables.php';
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Modelo</th>
                                                 <th>Marca</th>
+                                                <th>Modelo</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>
@@ -131,9 +131,6 @@ require '../components/head-dataTables.php';
     require '../components/scripts-main.php';
     // Scripts dataTables
     require '../components/scripts-dataTables.php';
-    // Modals
-    // require '../components/modals.php';
-    require '../components/modal-miPass.php';
     ?>
 
 </body>

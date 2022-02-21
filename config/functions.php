@@ -23,6 +23,8 @@ function conectar()
 
 }
 
+
+
 function validarLogin($usuario, $pass)
 {
     global $conexion;

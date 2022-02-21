@@ -32,7 +32,7 @@ require '../components/head-main.php';
                         <div class="col-8">
                             <div class="card border-card">
                                 <div class="card-header border-nav">
-                                    <h3 class="card-title">*Todos los campos son obligatorios</h3>
+                                    <h3 class="card-title">**Todos los campos son obligatorios</h3>
                                 </div>
                                 <?php
                                 $id_modelo = $_GET['id'];
@@ -41,13 +41,13 @@ require '../components/head-main.php';
                                 $rowModelo = $respuesta->fetch_assoc();
                                 ?>
                                 <form id="formUpdateModelo">
-                                    <input type="text" name="id_modelo" id="id_modelo" value="<?php echo $id_modelo?>">
+                                    <input type="hidden" name="id_modelo" id="id_modelo" value="<?php echo $id_modelo?>">
                                     <div class="card-body">
                                         <div class="row justify-content-center">
                                             <div class="col-md-6 col-sm-12 my-1 form-group">
                                                 <div class="input-group">
                                                     <?php
-                                                    $sql = "SELECT * FROM marcas  ORDER BY marca ASC";
+                                                    $sql = "SELECT * FROM marcas  ORDER BY marca DESC";
                                                     $result = mysqli_query($conexion, $sql) or die(mysqli_error($conexion));
                                                     ?>
                                                     <label for="marca" class="pl-5">Marca</label>

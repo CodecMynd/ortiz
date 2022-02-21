@@ -131,8 +131,6 @@ require '../components/head-dataTables.php';
     require '../components/scripts-main.php';
     // Scripts dataTables
     require '../components/scripts-dataTables.php';
-    // Modals
-    require '../components/modal-miPass.php';
     ?>
 </body>
 

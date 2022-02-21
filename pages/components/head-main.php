@@ -46,3 +46,10 @@ require 'query.php';
             cursor: no - drop;
         };
     </script>
+    <style>
+    .cuadro {
+        border-radius: 25px;
+        border: 1px solid #868788;
+        margin:10px 20px;
+    }
+</style>

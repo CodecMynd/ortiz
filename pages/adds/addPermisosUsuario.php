@@ -8,31 +8,32 @@ ini_set('date.timezone',  'America/Mexico_City');
 $date = date('Y-m-d H:i:s');
 $id = $_SESSION['id_usuario'];
 
-$id_permiso = $_POST['id_usuario'];
+//name
+$id_usuario = $_POST['id_usuario'];
 
-$extraer = "SELECT city FROM permiso WHERE id_usuario = $id_permiso";
-$respuesta = mysqli_query($conexion, $extraer);
-$row = $respuesta->fetch_assoc();
+// Limpio de ID la  taba permisos
+$queryD = ("DELETE FROM permisos WHERE id_usuario = $id_usuario");
+$resultadoD = mysqli_query($conexion, $queryD);
 
 
-$city = $row['city'];
-$separador = ",";
-$separada = explode($separador, $city);
-foreach ($separada as $sep) {
-
-$query = "INSERT INTO permisos(permiso, id_usuario) VALUES('$sep', $id_permiso)";
-
- $resulta = mysqli_query($conexion, $query);
+// Extraigo datos del id de la tabal permiso
+ $queryE = "SELECT permiso FROM permiso WHERE id_usuario = $id_usuario";
+ $resultadoE = mysqli_query($conexion, $queryE);
+ while ($rowE = $resultadoE->fetch_assoc()) {
+     //extraigo permisos
+    echo  $permisos = $rowE['permiso'];
+    // de este array mediante explode lo separo
+     $separador = ",";
+     $separada = explode($separador, $permisos);
+     foreach ($separada as $permiso) {
+         $query = "INSERT INTO permisos(permiso, id_usuario) VALUES('$permiso', $id_usuario)";
+         $verificar_permiso = mysqli_query($conexion, "SELECT * FROM usuarios WHERE nombres = '$nombres' AND aPaterno = '$aPaterno' AND aMaterno = '$aMaterno' ");
+        $resulta = mysqli_query($conexion, $query);
+     }
  }
- if ($resulta) {
-     echo "<div class = 'alert alert-success' role = 'alert'>
-        <p>Los permisos fueron asignados correctamente</p>
-                 </div>";
- } else {
-     echo "<div class = 'alert alert-danger' role = 'alert'>
-         <p>¡<strong>Algo sucedio, vuelve a intentarlo!</p>
-             </div>";
- }
+
+
+
 desconectar();
 ?>
 

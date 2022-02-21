@@ -1,3 +1,9 @@
+<?php
+    // Modal mi Perfil
+    require '../components/modal-miPerfil.php';
+?>
+
+
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.js"></script> 
@@ -20,3 +26,5 @@
 </script>
 <!-- Poppers -->
 <script src="../../plugins/popper/popper.min.js"></script>
+
+

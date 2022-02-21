@@ -2,6 +2,7 @@
 require '../components/head-main.php';
 ?>
 <title>Panel Admin | <?php echo $nomComp ?></title>
+
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
@@ -36,16 +37,20 @@ require '../components/head-main.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                    <div class="col-lg-2 col-4">
+                        <div class="col-lg-2 col-4">
                             <div class="small-box bg-secondary">
                                 <div class="inner">
                                     <h3><?php echo mysqli_num_rows($count_reg_usuarios); ?></h3>
                                     <p>Usuarios</p>
                                 </div>
                                 <div class="icon">
-                                <i class="fa-solid fa-users"></i>
+                                    <i class="fa-solid fa-users"></i>
                                 </div>
-                                <a href="crudUsuarios.php" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>
+                                <?php if ($passUser == 'SIN_PASSWORD') {
+                                    echo '';
+                                } else {
+                                    echo '<a href="crudUsuarios.php" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
+                                } ?> 
                             </div>
                         </div>
 
@@ -56,9 +61,13 @@ require '../components/head-main.php';
                                     <p>Marcas</p>
                                 </div>
                                 <div class="icon">
-                                <i class="fa-solid fa-car"></i>
+                                    <i class="fa-solid fa-car"></i>
                                 </div>
-                                <a href="crudMarcas.php" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>
+                                <?php if ($passUser == 'SIN_PASSWORD') {
+                                    echo '';
+                                } else {
+                                    echo '<a href="crudMarcas.php" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
+                                } ?> 
                             </div>
                         </div>
 
@@ -70,9 +79,13 @@ require '../components/head-main.php';
                                     <p>Modelos</p>
                                 </div>
                                 <div class="icon">
-                                <i class="fa-solid fa-car-side"></i>
+                                    <i class="fa-solid fa-car-side"></i>
                                 </div>
-                                <a href="crudModelos.php" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>
+                                <?php if ($passUser == 'SIN_PASSWORD') {
+                                    echo '';
+                                } else {
+                                    echo '<a href="crudModelos.php" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
+                                } ?> 
                             </div>
                         </div>
 
@@ -83,9 +96,13 @@ require '../components/head-main.php';
                                     <p>Proyectos</p>
                                 </div>
                                 <div class="icon">
-                                <i class="ion ion-pie-graph"></i>
+                                    <i class="ion ion-pie-graph"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>
+                                <?php if ($passUser == 'SIN_PASSWORD') {
+                                    echo '';
+                                } else {
+                                    echo '<a href="# class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
+                                } ?> 
                             </div>
                         </div>
 
@@ -98,7 +115,11 @@ require '../components/head-main.php';
                                 <div class="icon">
                                     <i class="ion ion-pie-graph"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>
+                                <?php if ($passUser == 'SIN_PASSWORD') {
+                                    echo '';
+                                } else {
+                                    echo '<a href="#" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
+                                } ?> 
                             </div>
                         </div>
 
@@ -111,7 +132,11 @@ require '../components/head-main.php';
                                 <div class="icon">
                                     <i class="ion ion-pie-graph"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>
+                                <?php if ($passUser == 'SIN_PASSWORD') {
+                                    echo '';
+                                } else {
+                                    echo '<a href="#" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
+                                } ?>
                             </div>
                         </div>
 
@@ -128,7 +153,7 @@ require '../components/head-main.php';
     </div>
     <?php
     require '../components/scripts-main.php';
-    require '../components/modal-miPass.php';
+    require '../components/modal-sinPass.php'
     ?>
 </body>
 

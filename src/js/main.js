@@ -21,22 +21,22 @@ $(document).ready(function () {
 -
 */
 // ocultar password -----------------------------------------------------------
-function mostrarPassword() {
-    var cambio = document.getElementById("password");
-    if (cambio.type == "password") {
-        cambio.type = "text";
-        $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
-    } else {
-        cambio.type = "password";
-        $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
-    }
-}
-$(document).ready(function () {
-    //CheckBox mostrar contraseña
-    $('#ShowPassword').click(function () {
-        $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
-    });
-});
+// function mostrarPassword() {
+//     var cambio = document.getElementById("password");
+//     if (cambio.type == "password") {
+//         cambio.type = "text";
+//         $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+//     } else {
+//         cambio.type = "password";
+//         $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+//     }
+// }
+// $(document).ready(function () {
+//     //CheckBox mostrar contraseña
+//     $('#ShowPassword').click(function () {
+//         $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+//     });
+// });
 /*
 -
 -
@@ -67,6 +67,15 @@ $("#btnUpdateUsuario").on('click', function () {
 -
 */
 //1.1.2 Formulario Asignar Contraseña -----------------------------------------
+//Cargar texto al habilitar un chekc
+function test() {
+    if (document.getElementById("check").checked) {
+        document.getElementById("pass").value = "SIN_PASSWORD";
+    } else {
+        document.getElementById("pass").value = "";
+    }
+}
+//enviar formulario
 $('#btnUpdatePass').click(function () {
     $.ajax({
             url: 'updatePass.php',
@@ -115,87 +124,26 @@ $('.btnBorrarUsuario').click(function (e) {
 -
 */
 // 1.1.4 Formulario Asignar Permisos ------------------------------------------------------------
-$(document).ready(function () {
-    $('#city').lwMultiSelect();
-    $('.action').change(function () {
-        if ($(this).val() != '') {
-            var action = $(this).attr("id");
-            var query = $(this).val();
-            var result = '';
-            if (action == 'country') {
-                result = 'state';
-            } else {
-                result = 'city';
-            }
-            $.ajax({
-                url: 'fetch.php',
-                method: "POST",
-                data: {
-                    action: action,
-                    query: query
-                },
-                success: function (data) {
-                    $('#' + result).html(data);
-                    if (result == 'city') {
-                        $('#city').data('plugin_lwMultiSelect').updateList();
-                    }
-                }
+$(document).ready(function() {
+    $('#btnNuevoPermiso').click(function() {
+        $.ajax({
+                url: 'addNuevoPermiso.php',
+                type: 'POST',
+                data: $('#formNuevoPermiso').serialize(),
             })
-        }
-    });
-    // Mandar registros a las tablas
-    $('#insert_data').on('submit', function (event) {
-        event.preventDefault();
-        if ($('#id_usuario').val() == '') {
-            alert("Error");
-            return false;
-        } else if ($('#country').val() == '') {
-            alert("Por favor seleccione un Botón");
-            return false;
-        } else if ($('#state').val() == '') {
-            alert("Por favor seleccione un Botón");
-            return false;
-        } else if ($('#city').val() == '') {
-            alert("Por favor asigna un Permiso");
-            return false;
-        } else {
-            $('#hidden_city').val($('#city').val());
-            $('#action').attr('disabled', 'disabled');
-            var form_data = $(this).serialize();
-            $.ajax({
-                url: "insert.php",
-                method: "POST",
-                data: form_data,
-
-                timeout: 3000,
-                success: function (data) {
-                    // $('#action').attr("disabled", "disabled");
-                    if (data == 'done') {
-                        $('#city').html('');
-                        $('#city').data('plugin_lwMultiSelect').updateList();
-                        $('#city').data('plugin_lwMultiSelect').removeAll();
-                        $('#insert_data')[0].reset();
-                        alert('Permiso(s) asignado(s) correctamente');
-                    }
-                }
-            });
-        }
+            .done(function(res) {
+                $('#respuestaNuevoPermiso').html(res)
+            })
     });
 });
-//  extraer datos de una tabla modulos y agregarlas en premisos
-$('#extraerDatosPermisos').click(function () {
-    $.ajax({
-            url: '../adds/addPermisosUsuario.php',
-            type: 'POST',
-            data: $('#formExtraerPerm').serialize(),
-            beforeSend: function () {
-                $("#id_usuario").html("<div class='ui active inline loader myLoader'></div>")
-            },
-        })
-        .done(function (res) {
-            $('#respuestaUpdatePermisos').html(res)
-        })
-});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnNuevoPermiso").on('click', function() {
+    $("#btnNuevoPermiso").css('visibility', 'hidden');
+    setTimeout(function() {
+        $("#btnNuevoPermiso").css('visibility', 'visible');
+    }, 300000);
+});|
+// 
 /*
 -
 -
@@ -223,6 +171,31 @@ $("#btnNuevoUsuario").on('click', function () {
     setTimeout(function () {
         $("#btnNuevoUsuario").css('visibility', 'visible');
     }, 300000);
+});
+/*
+-
+-
+-
+*/
+// 1.1.5 Formulario Borrar Permisos creados----------------------------------------------------
+$('.btnBorrarPermisos').click(function (e) {
+    e.preventDefault();
+    if (confirm("¿Estás seguro de eliminar este Permiso? Una vez borrado ya no se podrá recuperar la información.")) {
+        var id = $(this).attr("id");
+
+        var dataString = 'id=' + id;
+        url = "../delete/deletePermiso.php";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: dataString,
+            success: function (data) {
+                window.location.href = "crudPermisos.php";
+                $('#respuesta').html(data);
+            }
+        });
+    }
+    return false;
 });
 /*
 -
@@ -410,22 +383,22 @@ $("#btnNuevoAnio").on('click', function () {
 -
 */
 // 1.4.2 Formulario Modificar Años ------------------------------------------------------------
-$(document).ready(function () {
-    $('#btnUpdateAnio').click(function () {
+$(document).ready(function() {
+    $('#btnUpdateAnio').click(function() {
         $.ajax({
                 url: 'updateAnio.php',
                 type: 'POST',
                 data: $('#formUpdateAnio').serialize(),
             })
-            .done(function (res) {
+            .done(function(res) {
                 $('#respuestaUpdateAnio').html(res)
             })
     });
 });
 //Ocultar boton por 5 minutos para evitar el doble submit
-$("#btnUpdateAnio").on('click', function () {
+$("#btnUpdateAnio").on('click', function() {
     $("#btnUpdateAnio").css('visibility', 'hidden');
-    setTimeout(function () {
+    setTimeout(function() {
         $("#btnUpdateAnio").css('visibility', 'visible');
     }, 300000);
 });

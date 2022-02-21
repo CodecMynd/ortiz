@@ -2,7 +2,7 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>CRUD Usuarios | <?php echo $nomComp ?></title>
+<title>CRUD Permisos de Usuarios | <?php echo $nomComp ?></title>
 
 </head>
 
@@ -17,7 +17,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Tabla Usuarios</h1>
+                            <h1 class="m-0">Tabla Permisos de Usuarios</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -32,17 +32,17 @@ require '../components/head-dataTables.php';
                         <div class="col-10">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Usuarios dados de alta en el sistema</h3>
+                                    <h3 class="card-title">Permisos dados de alta en el sistema</h3>
                                     <div class="card-tools">
-                                        <a type="button" class="btn btn-secondary" href="../adds/formAddUsuario.php" data-toggle="tooltip" data-placement="left" title="1.1.5 Nuevo Usuario">
-                                            <i class="fa-solid fa-user-plus"></i> Nuevo Usuario</a>
-                                        <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                        <a type="button" class="btn btn-secondary" href="../adds/formAddPermiso.php" data-toggle="tooltip" data-placement="left" title="1.5.1 Registro de Permiso">
+                                        <i class="fa-solid fa-user-check"></i> Registro de Permiso</a>
+                                        <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="top" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
                                 <!-- consulta sql -->
                                 <?php
                                 $cont = 0;
-                                $query = "SELECT * FROM usuarios WHERE admin <> 1 ORDER BY id_usuario DESC";
+                                $query = "SELECT * FROM modulos ORDER BY id_modulo DESC";
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
                                 <div class="card-body">
@@ -50,9 +50,9 @@ require '../components/head-dataTables.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Nombre</th>
-                                                <th>Usuario</th>
-                                                <th>Contraseña</th>
+                                                <th>Modulos</th>
+                                                <th>Botónes</th>
+                                                <th>Permisos</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -66,24 +66,13 @@ require '../components/head-dataTables.php';
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <?php
-                                                        $nombres = $row['nombres'];
-                                                        $aPaterno = $row['aPaterno'];
-                                                        $aMaterno = $row['aMaterno'];
-                                                        echo $nombreComp = $nombres . ' ' . $aPaterno . ' ' . $aMaterno;
-                                                        ?>
+                                                        <?php echo $row['modulo']?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['usuario'] ?>
+                                                    <?php echo $row['boton']?>
                                                     </td>
                                                     <td>
-                                                        <?php $pass = $row['pass'];
-                                                        if ($pass == 'SIN CONTRASEÑA') {
-                                                            echo '<span class="badge badge-pill badge-danger">Sin Asignar</span>';
-                                                        } else {
-                                                            echo '<span class="badge badge-pill badge-success">Asignada</span>';
-                                                        }
-                                                        ?>
+                                                    <?php echo $row['permiso']?>
                                                     </td>
                                                     <td>
                                                         <div class="input-group input-group-sm mb-3">
@@ -92,30 +81,19 @@ require '../components/head-dataTables.php';
                                                                 </button>
                                                                 <ul class="dropdown-menu">
                                                                     <div class="btn-group">
+                                                                    <li class="dropdown-item">
+                                                                            <span data-toggle="tooltip" title="1.5.2 Editar Permiso">
+                                                                                <a class="btn btn-secondary" href="../update/formUpdatePermiso.php?id=<?php echo $row['id_modulo'] ?>"><i class="fas fa-edit"></i>
+                                                                                </a>
+                                                                            </span>
+                                                                        </li>                                                        
                                                                         <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="1.1.1 Editar Usuario">
-                                                                                <a class="btn btn-secondary" href="../update/formUpdateUsuario.php?id=<?php echo $row['id_usuario'] ?>"><i class="fas fa-edit"></i>
+                                                                            <span data-toggle="tooltip" title="1.5.3 Eliminar Permiso">
+                                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarP-<?php echo $row['id_modulo'] ?>"><i class="fas fa-trash-alt"></i>
                                                                                 </a>
                                                                             </span>
                                                                         </li>
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="1.1.2 Asignar Contraseña">
-                                                                                <a class="btn btn-secondary" href="../update/formUpdatePass.php?id=<?php echo $row['id_usuario'] ?>"> <i class="fa-solid fa-lock"></i>
-                                                                                </a>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="1.1.3 Eliminar Usuario">
-                                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-sm<?php echo $row['id_usuario'] ?>"><i class="fas fa-trash-alt"></i>
-                                                                                </a>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="1.1.4 Asignar Permiso">
-                                                                                <a class="btn btn-secondary" href="../update/formUpdatePermiso.php?id=<?php echo $row['id_usuario'] ?>"><i class="fa-solid fa-key"></i>
-                                                                                </a>
-                                                                            </span>
-                                                                        </li>
+                                                                
                                                                     </div>
                                                                 </ul>
                                                             </div>
@@ -123,17 +101,17 @@ require '../components/head-dataTables.php';
                                                     </td>
                                                 </tr>
                                             <?php
-                                                require '../components/modal-eliminarUsuario.php';
+                                                require '../components/modal-eliminarPermiso.php';
                                             }
                                             desconectar();
                                             ?>
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>#</th>
-                                                <th>Nombre</th>
-                                                <th>Usuario</th>
-                                                <th>Contraseña</th>
+                                            <th>#</th>
+                                                <th>Modulos</th>
+                                                <th>Botónes</th>
+                                                <th>Permisos</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>
@@ -156,6 +134,7 @@ require '../components/head-dataTables.php';
     // Scripts dataTables
     require '../components/scripts-dataTables.php';
     ?>
+
 
 </body>
 
