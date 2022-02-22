@@ -45,7 +45,7 @@ require '../components/head-dataTables.php';
                                 <!-- consulta sql -->
                                 <?php
                                 $cont = 0;
-                                $query = "SELECT * FROM marcas ";
+                                $query = "SELECT id_marca, marca FROM marcas ORDER BY marca ASC";
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
                                 <div class="card-body">

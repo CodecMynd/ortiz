@@ -52,7 +52,7 @@ require '../components/head-main.php';
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
                                                     </div>
-                                                    <input autofocus name="nombres" id="nombres" type="text" class="form-control" placeholder="Nombre (s)" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres" value="<?php echo $row['nombres'] ?>">
+                                                    <input autofocus name="nombres" id="nombres" type="text" class="form-control" placeholder="Nombre (s)" required maxlength="40" data-toggle="tooltip" data-placement="bottom" title="Max. 40 caracteres" value="<?php echo $row['nombres'] ?>">
                                                     <label for="floatingInput" class="pl-5">Nombre(s) <small>*Campo a Editar</small></label>
                                                 </div>
                                             </div>
@@ -61,7 +61,7 @@ require '../components/head-main.php';
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="fa-solid fa-user-group"></i></span>
                                                     </div>
-                                                    <input name="aPaterno" id="aPaterno" type="text" class="form-control" placeholder="Apellido Paterno" required maxlength="40" data-toggle="tooltip" data-placement="bottom" title="Max. 40 caracteres" value="<?php echo $row['aPaterno'] ?>">
+                                                    <input name="aPaterno" id="aPaterno" type="text" class="form-control" placeholder="Apellido Paterno" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres" value="<?php echo $row['aPaterno'] ?>">
                                                     <label for="floatingInput" class="pl-5">Apellido Paterno <small>*Campo a Editar</small></label>
                                                 </div>
                                             </div>
@@ -70,7 +70,7 @@ require '../components/head-main.php';
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="fa-solid fa-user-group"></i></span>
                                                     </div>
-                                                    <input name="aMaterno" id="aMaterno" type="text" class="form-control" placeholder="Apellido Materno" required maxlength="40" data-toggle="tooltip" data-placement="bottom" title="Max. 40 caracteres" value="<?php echo $row['aMaterno'] ?>">
+                                                    <input name="aMaterno" id="aMaterno" type="text" class="form-control" placeholder="Apellido Materno" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres" value="<?php echo $row['aMaterno'] ?>">
                                                     <label for="floatingInput" class="pl-5">Apellido Materno <small>*Campo a Editar</small></label>
                                                 </div>
                                             </div>

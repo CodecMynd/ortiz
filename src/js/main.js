@@ -67,14 +67,6 @@ $("#btnUpdateUsuario").on('click', function () {
 -
 */
 //1.1.2 Formulario Asignar Contraseña -----------------------------------------
-//Cargar texto al habilitar un chekc
-function test() {
-    if (document.getElementById("check").checked) {
-        document.getElementById("pass").value = "SIN_PASSWORD";
-    } else {
-        document.getElementById("pass").value = "";
-    }
-}
 //enviar formulario
 $('#btnUpdatePass').click(function () {
     $.ajax({
@@ -93,6 +85,14 @@ $("#btnUpdatePass").on('click', function () {
         $("#btnUpdatePass").css('visibility', 'visible');
     }, 300000);
 });
+//Cargar texto al habilitar un chekc
+function test() {
+    if (document.getElementById("check").checked) {
+        document.getElementById("pass").value = "SIN_PASSWORD";
+    } else {
+        document.getElementById("pass").value = "";
+    }
+}
 /*
 -
 -
@@ -142,7 +142,7 @@ $("#btnNuevoPermiso").on('click', function() {
     setTimeout(function() {
         $("#btnNuevoPermiso").css('visibility', 'visible');
     }, 300000);
-});|
+});
 // 
 /*
 -
@@ -177,7 +177,7 @@ $("#btnNuevoUsuario").on('click', function () {
 -
 -
 */
-// 1.1.5 Formulario Borrar Permisos creados----------------------------------------------------
+// 1.1..2.1 Formulario Borrar Permisos creados----------------------------------------------------
 $('.btnBorrarPermisos').click(function (e) {
     e.preventDefault();
     if (confirm("¿Estás seguro de eliminar este Permiso? Una vez borrado ya no se podrá recuperar la información.")) {
@@ -432,13 +432,132 @@ $('.btnBorrarAnio').click(function (e) {
 -
 -
 */
-// 2.1.1 Formulario Eliminar Modelo ------------------------------------------------------------
+// 2.1.1 Formulario Registro Vehiculos ------------------------------------------------------------
+$(document).ready(function() {
+    $("#marca").change(function() {
+        // $('#cbx_localidad').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
+        $("#marca option:selected").each(function() {
+            id_marca = $(this).val();
+            $.post("../components/comboBox.php", {
+                id_marca: id_marca
+            }, function(data) {
+                $("#modelo").html(data);
+            });
+        });
+    })
+});
+$(document).ready(function() {
+    $('#btnNuevoVehiculo').click(function() {
+        $.ajax({
+                url: 'addNuevoVehiculo.php',
+                type: 'POST',
+                data: $('#formNuevoVehiculo').serialize(),
+
+            })
+            .done(function(res) {
+                $('#respuestaNuevoVehiculo').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnNuevoVehiculo").on('click', function() {
+    $("#btnNuevoVehiculo").css('visibility', 'hidden');
+    setTimeout(function() {
+        $("#btnNuevoVehiculo").css('visibility', 'visible');
+    }, 300000);
+});
 /*
 -
 -
 -
 */
+// 2.1.2 Formulario Actaulizar Vehiculo ------------------------------------------------------------
+$(document).ready(function() {
+    $("#marca").change(function() {
+        // $('#cbx_localidad').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
+        $("#marca option:selected").each(function() {
+            id_marca = $(this).val();
+            $.post("../components/comboBox.php", {
+                id_marca: id_marca
+            }, function(data) {
+                $("#modelo").html(data);
+            });
+        });
+    })
+});
+$(document).ready(function() {
+    $('#btnUpdateVehiculo').click(function() {
+        $.ajax({
+                url: 'updateVehiculo.php',
+                type: 'POST',
+                data: $('#formUpdateVehiculo').serialize(),
 
+            })
+            .done(function(res) {
+                $('#respuestaUpdateVehiculo').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnUpdateVehiculo").on('click', function() {
+    $("#btnUpdateVehiculo").css('visibility', 'hidden');
+    setTimeout(function() {
+        $("#btnUpdateVehiculo").css('visibility', 'visible');
+    }, 300000);
+});
+/*
+-
+-
+-
+*/
+// 2.1. Formulario Borrar Vehiculos ------------------------------------------------------------
+/*
+-
+-
+-
+*/
+// 2.1.1 Formulario Registro Vehiculos ------------------------------------------------------------
+/*
+-
+-
+-
+*/
+// 2.1.1 Formulario Registro Vehiculos ------------------------------------------------------------
+/*
+-
+-
+-
+*/
+// 2.1.1 Formulario Registro Vehiculos ------------------------------------------------------------
+/*
+-
+-
+-
+*/
+// 2.1.1 Formulario Registro Vehiculos ------------------------------------------------------------
+/*
+-
+-
+-
+*/
+// 2.1.1 Formulario Registro Vehiculos ------------------------------------------------------------
+/*
+-
+-
+-
+*/
+// 2.1.1 Formulario Registro Vehiculos ------------------------------------------------------------
+/*
+-
+-
+-
+*/
+// 2.1.1 Formulario Registro Vehiculos ------------------------------------------------------------
+/*
+-
+-
+-
+*/
 
 
 

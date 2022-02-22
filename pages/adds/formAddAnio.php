@@ -107,6 +107,27 @@ require '../components/head-main.php';
     $(document).ready(function() {
         $(":input").inputmask();
     });
+
+    $(document).ready(function () {
+    $('#btnNuevoAnio').click(function () {
+        $.ajax({
+                url: 'addNuevoAnio.php',
+                type: 'POST',
+                data: $('#formNuevoAnio').serialize(),
+
+            })
+            .done(function (res) {
+                $('#respuestaNuevoAnio').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnNuevoAnio").on('click', function () {
+    $("#btnNuevoAnio").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnNuevoAnio").css('visibility', 'visible');
+    }, 300000);
+});
 </script>
 
 </html>

@@ -36,7 +36,7 @@
                                                                                                                                                             echo 'text-dark ';
                                                                                                                                                         } ?> ">2.0 Proyecto</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                        <li><a href="crudVehiculos.php" class="dropdown-item">2.1 Registro Vehículo </a></li>
+                        <li><a href="../admin/crudVehiculos.php" class="dropdown-item">2.1 Registro Vehículo </a></li>
                         <li><a href="#" class="dropdown-item">2.2 Registro Cliente </a></li>
                         <li><a href="#" class="dropdown-item">2.3 Registro Proyecto </a></li>
                     </ul>

@@ -35,13 +35,13 @@ require '../components/head-main.php';
                                     <h3 class="card-title">**Todos los campos son obligatorios</h3>
                                 </div>
                                 <!-- <form id="formNuevoUsuario" action="addNuevoUsuario.php" method="POST"> -->
-                                <form id="formNuevoModelo">
+                                <form id="formNuevoModelo" autocomplete="off">
                                     <div class="card-body">
                                         <div class="row justify-content-center">
                                             <div class="col-md-6 col-sm-12 my-1 form-group">
                                                 <div class="input-group">
                                                     <?php
-                                                    $sql = "SELECT * FROM marcas  ORDER BY marca DESC";
+                                                    $sql = "SELECT * FROM marcas  ORDER BY marca ASC";
                                                     $result = mysqli_query($conexion, $sql) or die(mysqli_error($conexion));
                                                     ?>
                                                     <label for="marca" class="pl-5">Marca</label>

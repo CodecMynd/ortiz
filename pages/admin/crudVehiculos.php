@@ -3,9 +3,7 @@ require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
 <title>CRUD Vehículos | <?php echo $nomComp ?></title>
-
 </head>
-
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">
         <?php
@@ -37,14 +35,17 @@ require '../components/head-dataTables.php';
                                     <h3 class="card-title">Vehículos dadas de alta en el sistema</h3>
                                     <div class="card-tools">
                                         <a type="button" class="btn btn-secondary" href="../adds/formAddVehiculo.php" data-toggle="tooltip" data-placement="left" title="2.1.1 Registro Vehículo">
-                                        <i class="fa-solid fa-car"></i> Registro de Vehículos</a>
+                                            <i class="fa-solid fa-car"></i> Registro de Vehículos</a>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
                                 <!-- consulta sql -->
                                 <?php
                                 $cont = 0;
-                                $query = "SELECT id_vehiculo, id_marca, id_modelo, placas  FROM vehiculos ORDER BY id_vehiculo DESC";
+                                $query = "SELECT M.marca, Mo.modelo, A.anio, V.placa, V.id_vehiculo 
+                                FROM vehiculos V INNER JOIN marcas M ON V.id_marca = M.id_marca
+                                 INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
+                                 INNER JOIN anios A ON V.id_anio = A.id_anio;";
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
 
@@ -62,7 +63,9 @@ require '../components/head-dataTables.php';
                                         </thead>
                                         <tbody>
                                             <?php
-                                            while ($row = $resultado->fetch_assoc()) { ?>
+                                            while ($row = $resultado->fetch_assoc()) { 
+                                                $vehiculo = $row['marca'].' | '.$row['modelo'].' | '.$row['anio'].' | '.$row['placa'];
+                                                ?>
                                                 <tr>
                                                     <td>
                                                         <?php $cont++;
@@ -70,16 +73,16 @@ require '../components/head-dataTables.php';
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <?php $row['id_marca'] ?>
+                                                        <?php echo $row['marca'] ?>
                                                     </td>
                                                     <td>
-                                                        <?php $row['id_modelo'] ?>
+                                                        <?php echo $row['modelo'] ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['id_anio'] ?>
+                                                        <?php echo $row['anio'] ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['placas'] ?>
+                                                        <?php echo $row['placa'] ?>
                                                     </td>
                                                     <td>
                                                         <div class="input-group input-group-sm mb-3">
@@ -90,13 +93,13 @@ require '../components/head-dataTables.php';
                                                                     <div class="btn-group">
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="2.1.2 Modificar Vehículo">
-                                                                                <a class="btn btn-secondary" href="../update/formUpdateModelo.php?id=<?php echo $row['id_modelo'] ?>"><i class="fas fa-edit"></i>
+                                                                                <a class="btn btn-secondary" href="../update/formUpdateVehiculo.php?id=<?php echo $row['id_vehiculo'] ?>"><i class="fas fa-edit"></i>
                                                                                 </a>
                                                                             </span>
                                                                         </li>
                                                                         <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.1.3  Eliminar Modelo">
-                                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarModelo-<?php echo $row['id_modelo'] ?>"><i class="fas fa-trash-alt"></i>
+                                                                            <span data-toggle="tooltip" title="2.1.3  Eliminar Vehiculo">
+                                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarVehiculo-<?php echo $row['id_vehiculo'] ?>"><i class="fas fa-trash-alt"></i>
                                                                                 </a>
                                                                             </span>
                                                                         </li>
@@ -107,7 +110,7 @@ require '../components/head-dataTables.php';
                                                     </td>
                                                 </tr>
                                             <?php
-                                                require '../components/modal-eliminarModelo.php';
+                                                require '../components/modal-eliminarVehiculo.php';
                                             }
                                             desconectar();
                                             ?>
@@ -146,5 +149,25 @@ require '../components/head-dataTables.php';
 
 </body>
 
+<script>
+    $('.btnBorrarVehiculo').click(function (e) {
+    e.preventDefault();
+    if (confirm("¿Estás seguro de eliminar esta registro Vehículo? Una vez borrado ya no se podrá recuperar la información.")) {
+        var id = $(this).attr("id");
 
+        var dataString = 'id=' + id;
+        url = "../delete/deleteVehiculo.php";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: dataString,
+            success: function (data) {
+                window.location.href = "crudVehiculos.php";
+                $('#respuesta').html(data);
+            }
+        });
+    }
+    return false;
+});
+</script>
 </html>

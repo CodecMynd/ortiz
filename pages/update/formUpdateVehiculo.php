@@ -1,8 +1,8 @@
-<!-- <?php
-        require '../components/head-main.php';
+<?php
+require '../components/head-main.php';
 
-        ?>
-<title>Nuevo Vehículo | <?php echo $nomComp ?></title>
+?>
+<title>Edición de Vehículo | <?php echo $nomComp ?></title>
 <!-- necesario para comboBox -->
 <script src="../../src/js/jquery-3.1.1.js"></script>
 </head>
@@ -18,7 +18,7 @@
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="float-left m-0">Crear Nuevo Vehículo</h1>
+                            <h1 class="float-left m-0">Edición de Vehículo</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -27,6 +27,16 @@
                 </div>
             </div>
             <!-- /titulo y brandcrumb -->
+            <?php
+            $id = $_GET['id'];
+            $query = "SELECT M.marca, Mo.modelo, A.anio, V.placa, V.id_vehiculo, V.id_marca, V.id_anio
+            FROM vehiculos V INNER JOIN marcas M ON V.id_marca = M.id_marca
+             INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
+             INNER JOIN anios A ON V.id_anio = A.id_anio WHERE id_vehiculo = $id";
+            $respuesta = mysqli_query($conexion, $query);
+            $rowV = $respuesta->fetch_assoc();
+
+            ?>
             <!-- Form editar usuario -->
             <section class="content">
                 <div class="container-fluid">
@@ -36,15 +46,16 @@
                                 <div class="card-header border-nav">
                                     <h3 class="card-title">*Todos los campos son obligatorios</h3>
                                 </div>
-                                <!-- <form id="formNuevoUsuario" action="addNuevoUsuario.php" method="POST"> -->
-                                <form id="formNuevoVehiculo" autocomplete="off">
+
+                                <form id="formUpdateVehiculo" autocomplete="off">
+                                    <input type="hidden" name="id_vehiculo" id="id_vehiculo" value="<?php echo $id ?>">
                                     <div class="card-body">
                                         <div class="row justify-content-center">
                                             <div class="col-md-3 col-sm-12 my-1 form-group">
                                                 <div class="input-group">
                                                     <label for="marca" class="pl-5">Marca</label>
                                                     <select name="marca" id="marca" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Selecciona una Marca de la lista" style="width: 100%;">
-                                                        <option selected disabled>Selecciona una Marca</option>
+                                                        <option value="<?php echo $rowV['id_marca'] ?>"><?php echo $rowV['marca'] ?></option>
                                                         <?php while ($rowMarca = $resultMarca->fetch_assoc()) { ?>
                                                             <option value="<?php echo $rowMarca['id_marca'] ?>">
                                                                 <?php echo $rowMarca['marca'] ?>
@@ -55,7 +66,7 @@
                                             </div>
                                             <div class="col-md-3 col-sm-12 my-1 form-group">
                                                 <div class="input-group">
-                                                    <label for="modelo" class="pl-5">Modelo</label>
+                                                    <label for="modelo" class="pl-5">Modelo <small>Dato actual: <strong><?php echo $rowV['modelo'] ?></strong></small></label>
                                                     <select name="modelo" id="modelo" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Selecciona un Modelo de la lista" style="width: 100%;">
                                                     </select>
                                                 </div>
@@ -64,7 +75,7 @@
                                                 <div class="input-group">
                                                     <label for="anio" class="pl-5">Año</label>
                                                     <select name="anio" id="anio" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Selecciona un Año de la lista" style="width: 100%;">
-                                                        <option selected disabled>Selecciona un Año</option>
+                                                        <option value="<?php echo $rowV['id_anio'] ?>"><?php echo $rowV['anio'] ?></option>
                                                         <?php while ($rowAnio = $resultAnio->fetch_assoc()) { ?>
                                                             <option value="<?php echo $rowAnio['id_anio'] ?>">
                                                                 <?php echo $rowAnio['anio'] ?>
@@ -78,7 +89,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="fa-solid fa-hashtag"></i></span>
                                                     </div>
-                                                    <input autofocus name="placa" id="placa" type="text" class="form-control" required maxlength="10" data-toggle="tooltip" data-placement="bottom" title="Ingresa la Placa del Vehículo" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                                                    <input autofocus name="placa" id="placa" type="text" class="form-control" required maxlength="10" data-toggle="tooltip" data-placement="bottom" title="Ingresa la Placa del Vehículo" onkeyup="javascript:this.value=this.value.toUpperCase();" value="<?php echo $rowV['placa'] ?>">
                                                     <label for="floatingInput" class="pl-5">Placas</label>
                                                 </div>
                                             </div>
@@ -87,7 +98,7 @@
                                                 <hr>
                                             </div>
                                             <div class="col-md-4 col-sm-12 my-1">
-                                                <label class="ml-5 mb-2">Fecha<small> *Llenado en automatico</small></label>
+                                                <label class="ml-5 mb-2">Fecha Actualización <small> *Llenado en automatico</small></label>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"> <i class="fa fa-calendar" aria-hidden="true"></i></span>
@@ -96,7 +107,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-4 col-sm-12 my-1">
-                                                <label class="ml-5 mb-2">Capturista<small> *El que registra</small></label>
+                                                <label class="ml-5 mb-2">Capturista editor<small> *El que modifica</small></label>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="fa fa-user-pen" aria-hidden="true"></i></span>
@@ -109,7 +120,7 @@
                                     <div class="card-footer border-footer">
                                         <div class="row">
                                             <div class="col-md-2 col-sm-12 align-self-center">
-                                                <buttom type="submit" id="btnNuevoVehiculo" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Guardar "><i class="fas fa-pen"></i> Guardar</buttom>
+                                                <buttom type="submit" id="btnUpdateVehiculo" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Guardar "><i class="fas fa-pen"></i> Guardar</buttom>
                                             </div>
                                             <div class="col-md-2 col-sm-12 align-self-center">
                                                 <a href="javascript:history.go(-1)" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
@@ -117,7 +128,7 @@
                                             <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                             <br>
                                             <div class="col-md-12 col-sm-12 align-self-center mt-2">
-                                                <div id="respuestaNuevoVehiculo"></div>
+                                                <div id="respuestaUpdateVehiculo"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -153,23 +164,23 @@
         })
     });
     $(document).ready(function() {
-        $('#btnNuevoVehiculo').click(function() {
+        $('#btnUpdateVehiculo').click(function() {
             $.ajax({
-                    url: 'addNuevoVehiculo.php',
+                    url: 'updateVehiculo.php',
                     type: 'POST',
-                    data: $('#formNuevoVehiculo').serialize(),
+                    data: $('#formUpdateVehiculo').serialize(),
 
                 })
                 .done(function(res) {
-                    $('#respuestaNuevoVehiculo').html(res)
+                    $('#respuestaUpdateVehiculo').html(res)
                 })
         });
     });
     //Ocultar boton por 5 minutos para evitar el doble submit
-    $("#btnNuevoVehiculo").on('click', function() {
-        $("#btnNuevoVehiculo").css('visibility', 'hidden');
+    $("#btnUpdateVehiculo").on('click', function() {
+        $("#btnUpdateVehiculo").css('visibility', 'hidden');
         setTimeout(function() {
-            $("#btnNuevoVehiculo").css('visibility', 'visible');
+            $("#btnUpdateVehiculo").css('visibility', 'visible');
         }, 300000);
     });
 </script>

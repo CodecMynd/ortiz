@@ -44,7 +44,7 @@ require '../components/head-dataTables.php';
                                 <!-- consulta sql -->
                                 <?php
                                 $cont = 0;
-                                $query = "SELECT Mo.id_modelo, Mo.id_marca, Mo.modelo, Ma.id_marca, Ma.marca  FROM modelos Mo INNER JOIN marcas Ma ON Mo.id_marca = Ma.id_marca";
+                                $query = "SELECT Mo.id_modelo, Mo.id_marca, Mo.modelo, Ma.id_marca, Ma.marca  FROM modelos Mo INNER JOIN marcas Ma ON Mo.id_marca = Ma.id_marca ORDER BY marca ASC";
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
 

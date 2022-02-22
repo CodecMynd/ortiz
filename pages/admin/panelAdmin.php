@@ -88,11 +88,10 @@ require '../components/head-main.php';
                                 } ?> 
                             </div>
                         </div>
-
                         <div class="col-lg-2 col-4">
                             <div class="small-box bg-secondary">
                                 <div class="inner">
-                                    <h3>44</h3>
+                                    <h3>65</h3>
                                     <p>Proyectos</p>
                                 </div>
                                 <div class="icon">
@@ -101,7 +100,7 @@ require '../components/head-main.php';
                                 <?php if ($passUser == 'SIN_PASSWORD') {
                                     echo '';
                                 } else {
-                                    echo '<a href="# class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
+                                    echo '<a href="#" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
                                 } ?> 
                             </div>
                         </div>
