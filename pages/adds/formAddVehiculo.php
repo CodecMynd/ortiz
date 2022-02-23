@@ -1,8 +1,8 @@
-<!-- <?php
-        require '../components/head-main.php';
+<?php
+require '../components/head-main.php';
 
-        ?>
-<title>Nuevo Vehículo | <?php echo $nomComp ?></title>
+?>
+<title>2.1.1 Registro de Vehículo | <?php echo $nomComp ?></title>
 <!-- necesario para comboBox -->
 <script src="../../src/js/jquery-3.1.1.js"></script>
 </head>
@@ -17,8 +17,8 @@
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
-                        <div class="col-sm-6">
-                            <h1 class="float-left m-0">Crear Nuevo Vehículo</h1>
+                        <div class="col-sm-6">r
+                            <h1 class="float-left m-0">2.1.1 Registro de Vehículo</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -138,40 +138,5 @@
     ?>
 
 </body>
-<script>
-    $(document).ready(function() {
-        $("#marca").change(function() {
-            // $('#cbx_localidad').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
-            $("#marca option:selected").each(function() {
-                id_marca = $(this).val();
-                $.post("../components/comboBox.php", {
-                    id_marca: id_marca
-                }, function(data) {
-                    $("#modelo").html(data);
-                });
-            });
-        })
-    });
-    $(document).ready(function() {
-        $('#btnNuevoVehiculo').click(function() {
-            $.ajax({
-                    url: 'addNuevoVehiculo.php',
-                    type: 'POST',
-                    data: $('#formNuevoVehiculo').serialize(),
-
-                })
-                .done(function(res) {
-                    $('#respuestaNuevoVehiculo').html(res)
-                })
-        });
-    });
-    //Ocultar boton por 5 minutos para evitar el doble submit
-    $("#btnNuevoVehiculo").on('click', function() {
-        $("#btnNuevoVehiculo").css('visibility', 'hidden');
-        setTimeout(function() {
-            $("#btnNuevoVehiculo").css('visibility', 'visible');
-        }, 300000);
-    });
-</script>
 
 </html>

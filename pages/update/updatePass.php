@@ -10,6 +10,7 @@ $date = date('Y-m-d H:i:s');
 $id = $_SESSION['id_usuario'];
 
 $id_usuario = $_POST['id_usuario'];
+$usuarioPass =$_POST['usuarioPass'];
 $pass = $_POST['pass'];
 
 
@@ -19,7 +20,7 @@ if ($id_usuario == '' || $pass == '') {
           </div>";
     exit;
 } else {
-    $query = "UPDATE usuarios SET pass = '$pass', fecha_mod = '$date', id_captM= '$id' WHERE id_usuario = $id_usuario";
+    $query = "UPDATE usuarios SET usuario = '$usuarioPass', pass = '$pass', fecha_mod = '$date', id_captM= '$id' WHERE id_usuario = $id_usuario";
     
     $resultado = mysqli_query($conexion, $query);
     if ($resultado) {

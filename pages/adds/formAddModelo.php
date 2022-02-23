@@ -1,7 +1,7 @@
 <?php
 require '../components/head-main.php';
 ?>
-<title>Nuevo Modelo | <?php echo $nomComp ?></title>
+<title>1.3.1 Registro de Modelo | <?php echo $nomComp ?></title>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 
@@ -16,7 +16,7 @@ require '../components/head-main.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="float-left m-0">Crear Nuevo Modelo</h1>
+                            <h1 class="float-left m-0">1.3.1 Registro de Modelo</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -127,26 +127,5 @@ require '../components/head-main.php';
     ?>
 
 </body>
-<script>
-    $(document).ready(function () {
-    $('#btnNuevoModelo').click(function () {
-        $.ajax({
-                url: 'addNuevoModelo.php',
-                type: 'POST',
-                data: $('#formNuevoModelo').serialize(),
-            })
-            .done(function (res) {
-                $('#respuestaNuevoModelo').html(res)
-            })
-    });
-});
-//Ocultar boton por 5 minutos para evitar el doble submit
-$("#btnNuevoModelo").on('click', function () {
-    $("#btnNuevoModelo").css('visibility', 'hidden');
-    setTimeout(function () {
-        $("#btnNuevoModelo").css('visibility', 'visible');
-    }, 300000);
-});
 
-</script>
 </html>

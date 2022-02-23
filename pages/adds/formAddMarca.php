@@ -1,7 +1,7 @@
 <?php
 require '../components/head-main.php';
 ?>
-<title>Nueva Marca | <?php echo $nomComp ?></title>
+<title>1.2.1 Registro de Marca | <?php echo $nomComp ?></title>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 
@@ -16,7 +16,7 @@ require '../components/head-main.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="float-left m-0">Crear Nueva Marca</h1>
+                            <h1 class="float-left m-0">1.2.1 Registro de Marca</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -100,28 +100,6 @@ require '../components/head-main.php';
     // Scripts principales
     require '../components/scripts-main.php';
     ?>
-
 </body>
-<script>
-    $(document).ready(function () {
-    $('#btnNuevaMarca').click(function () {
-        $.ajax({
-                url: 'addNuevaMarca.php',
-                type: 'POST',
-                data: $('#formNuevaMarca').serialize(),
 
-            })
-            .done(function (res) {
-                $('#respuestaNuevaMarca').html(res)
-            })
-    });
-});
-//Ocultar boton por 5 minutos para evitar el doble submit
-$("#btnNuevaMarca").on('click', function () {
-    $("#btnNuevaMarca").css('visibility', 'hidden');
-    setTimeout(function () {
-        $("#btnNuevaMarca").css('visibility', 'visible');
-    }, 300000);
-});
-</script>
 </html>

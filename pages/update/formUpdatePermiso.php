@@ -4,7 +4,7 @@ use LDAP\Result;
 
 require '../components/head-main.php';
 ?>
-<title>Edición Permiso | <?php echo $nomComp ?></title>
+<title>1.1.4 Asignar Permisos | <?php echo $nomComp ?></title>
 
 </head>
 
@@ -21,7 +21,7 @@ require '../components/head-main.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="float-left m-0">Edición Permiso</h1>
+                            <h1 class="float-left m-0">1.1.4 Asignar Permisos</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -35,6 +35,14 @@ require '../components/head-main.php';
             $respuesta = mysqli_query($conexion, $query);
             $rowPer = $respuesta->fetch_assoc();
 
+            $queryU = "SELECT * FROM usuarios WHERE  id_usuario =  $id_usuario";
+            $resultado = mysqli_query($conexion, $queryU);
+            while ($row = $resultado->fetch_assoc()) { 
+            $nombres = $row['nombres'];
+            $aPaterno = $row['aPaterno'];
+            $aMaterno = $row['aMaterno'];
+            $nombreComp = $nombres . ' ' . $aPaterno . ' ' . $aMaterno;
+            }
             ?>
 
 
@@ -44,7 +52,7 @@ require '../components/head-main.php';
                         <div class="col-12">
                             <div class="card border-card">
                                 <div class="card-header border-nav">
-                                    <h3 class="card-title">*Permisos para que el usuario pueda navegar</h3>
+                                    <h2 class="card-title">*Asignar permisos a: <strong><?php echo $nombreComp?></strong> </h2>
                                 </div>
 
                                 <form id="formAsigPermUsuario" method="POST">
@@ -52,7 +60,7 @@ require '../components/head-main.php';
                                     <div class="card-body">
                                         <section class="content">
                                             <div class="container-fluid">
-                                                <h5 class="mb-2">Asignar Permisos</h5>
+                                                <h5 class="mb-2">Habilita los check para asignar los Permisos</h5>
                                                 <div class="row">
                                                     <div class="col-md-3 col-sm-6 col-12">
                                                         <button type="button" class="btn btn-permisos">
@@ -120,7 +128,7 @@ require '../components/head-main.php';
                                                                 <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check-double"></i></span>
                                                                 <div class="info-box-content">
                                                                     <span class="info-box-text">1.2.1 Registro de marcas</span>
-                                                                    <span class="info-box-text"> <input type="checkbox" name="" id="" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-size="mini" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1"  <?php if ($rowPer['regMarca'] == 1) echo 'checked';
+                                                                    <span class="info-box-text"> <input type="checkbox" name="regMarca" id="regMarca" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-size="mini" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1"  <?php if ($rowPer['regMarca'] == 1) echo 'checked';
                                                                                                                                                                                                                                           else echo ''; ?>></span>
                                                                 </div>
                                                             </div>
@@ -144,7 +152,7 @@ require '../components/head-main.php';
                                                                 <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check-double"></i></span>
                                                                 <div class="info-box-content">
                                                                     <span class="info-box-text">1.2.3 Eliminar Marca</span>
-                                                                    <span class="info-box-text"> <input type="checkbox" name="eliminaMar" id="eliminaMar" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-size="mini" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="<?php echo $rowPer['eliminaMar']?>"  <?php if ($rowPer['eliminaMar'] == 1) echo 'checked';
+                                                                    <span class="info-box-text"> <input type="checkbox" name="eliminaMar" id="eliminaMar" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-size="mini" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1"  <?php if ($rowPer['eliminaMar'] == 1) echo 'checked';
                                                                                                                                                                                                                                           else echo ''; ?>></span>
                                                                 </div>
                                                             </div>
@@ -222,7 +230,7 @@ require '../components/head-main.php';
                                                             </div>
                                                         </button>
                                                     </div>
-                                                    <div class="col-md-3 col-sm-6 col-12">
+                                                    <!-- <div class="col-md-3 col-sm-6 col-12">
                                                         <button type="button" class="btn btn-permisos">
                                                             <div class="info-box">
                                                                 <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check-double"></i></span>
@@ -257,7 +265,7 @@ require '../components/head-main.php';
                                                                 </div>
                                                             </div>
                                                         </button>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="col-md-3 col-sm-6 col-12">
                                                         <button type="button" class="btn btn-permisos">
                                                             <div class="info-box">

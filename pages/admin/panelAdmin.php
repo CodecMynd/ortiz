@@ -1,16 +1,16 @@
 <?php
 require '../components/head-main.php';
 ?>
-<title>Panel Admin | <?php echo $nomComp ?></title>
+<title>Panel <?php if ($admin == 1) {
+                    echo 'Admin';
+                } else {
+                    echo 'Usuario';
+                } ?> | <?php echo $nomComp ?></title>
 
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
-    <!-- <div class="cargando">
-        <div class="loader-outter"></div>
-        <div class="loader-inner"></div>
-    </div> -->
-    <div class="wrapper">
+    <div class="wrapper" style="height: 100%;">
         <?php
         require '../components/navbar.php';
         ?>
@@ -19,19 +19,17 @@ require '../components/head-main.php';
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">Bienvenido: <?php echo $nomComp ?></h1>
-                        </div>
-                        <div class="col-sm-6">
-                            <!-- <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#"><i class="fa-solid fa-house-user"></i> Inicio</a></li>
-                            </ol> -->
+                        <div class="col-sm-12">
+                            <h1 class="m-0 bienvenido" style="font-size:2vw">Bienvenido <?php if ($admin == 1) {
+                                                                                            echo 'Admin';
+                                                                                        } else {
+                                                                                            echo 'Usuario';
+                                                                                        } ?>: <strong><?php echo $nomComp ?></strong></h1>
+
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- /titulo y brandcrumb -->
-
 
             <!-- small box-->
             <section class="content">
@@ -50,7 +48,7 @@ require '../components/head-main.php';
                                     echo '';
                                 } else {
                                     echo '<a href="crudUsuarios.php" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
-                                } ?> 
+                                } ?>
                             </div>
                         </div>
 
@@ -67,7 +65,7 @@ require '../components/head-main.php';
                                     echo '';
                                 } else {
                                     echo '<a href="crudMarcas.php" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
-                                } ?> 
+                                } ?>
                             </div>
                         </div>
 
@@ -85,40 +83,42 @@ require '../components/head-main.php';
                                     echo '';
                                 } else {
                                     echo '<a href="crudModelos.php" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
-                                } ?> 
+                                } ?>
                             </div>
                         </div>
                         <div class="col-lg-2 col-4">
                             <div class="small-box bg-secondary">
                                 <div class="inner">
-                                    <h3>65</h3>
-                                    <p>Proyectos</p>
+                                    <!-- <h3><?php echo mysqli_num_rows($count_reg_modelos); ?><sup style="font-size: 20px">%</sup></h3> porcentaje-->
+                                    <h3><?php echo mysqli_num_rows($count_reg_vehiculos); ?></h3>
+                                    <p>Vehículos</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-pie-graph"></i>
+                                    <i class="fa-solid fa-car-crash"></i>
                                 </div>
                                 <?php if ($passUser == 'SIN_PASSWORD') {
                                     echo '';
                                 } else {
-                                    echo '<a href="#" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
-                                } ?> 
+                                    echo '<a href="crudVehiculos.php" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
+                                } ?>
                             </div>
                         </div>
 
                         <div class="col-lg-2 col-4">
                             <div class="small-box bg-secondary">
                                 <div class="inner">
-                                    <h3>65</h3>
-                                    <p>Insumos</p>
+                                    <!-- <h3><?php echo mysqli_num_rows($count_reg_modelos); ?><sup style="font-size: 20px">%</sup></h3> porcentaje-->
+                                    <h3><?php echo mysqli_num_rows($count_reg_clientes); ?></h3>
+                                    <p>Clientes</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-pie-graph"></i>
+                                    <i class="fa-solid fa-user-tie"></i>
                                 </div>
                                 <?php if ($passUser == 'SIN_PASSWORD') {
                                     echo '';
                                 } else {
-                                    echo '<a href="#" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
-                                } ?> 
+                                    echo '<a href="crudClientes.php" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
+                                } ?>
                             </div>
                         </div>
 
@@ -129,7 +129,7 @@ require '../components/head-main.php';
                                     <p>Destajos Técnicos</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-pie-graph"></i>
+                                <i class="fa-solid fa-money-bill-1-wave"></i>
                                 </div>
                                 <?php if ($passUser == 'SIN_PASSWORD') {
                                     echo '';
@@ -143,8 +143,6 @@ require '../components/head-main.php';
                 </div>
             </section>
             <!-- /small box-->
-
-
         </div>
         <?php
         require '../components/footer.php';

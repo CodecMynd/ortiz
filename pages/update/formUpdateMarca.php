@@ -1,7 +1,7 @@
 <?php
 require '../components/head-main.php';
 ?>
-<title>Edición Marca | <?php echo $nomComp ?></title>
+<title>1.2.2 Modificar Marca | <?php echo $nomComp ?></title>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 
@@ -16,7 +16,7 @@ require '../components/head-main.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="float-left m-0">Edición de Marca</h1>
+                            <h1 class="float-left m-0">1.2.2 Modificar Marca</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -25,8 +25,8 @@ require '../components/head-main.php';
                 </div>
             </div>
             <!-- /titulo y brandcrumb -->
-             <!-- consulta sql -->
-             <?php
+            <!-- consulta sql -->
+            <?php
             $id_marca = $_GET['id'];
             $query = "SELECT * FROM marcas WHERE id_marca = $id_marca";
             $respuesta = mysqli_query($conexion, $query);
@@ -39,12 +39,12 @@ require '../components/head-main.php';
                         <div class="col-8">
                             <div class="card border-card">
                                 <div class="card-header border-nav">
-                                <h3 class="card-title">Marca seleccionado para editar</h3>
+                                    <h3 class="card-title">Marca seleccionado para editar</h3>
                                     <small class="float-right">*Ultima modificación: <?php echo $row['fecha_mod'] ?></small>
                                 </div>
                                 <!-- <form id="formNuevoUsuario" action="addNuevoUsuario.php" method="POST"> -->
                                 <form id="formUpdateMarca" autocomplete="off">
-                                    <input type="hidden" name="id_marca" value="<?php echo $id_marca?>">
+                                    <input type="hidden" name="id_marca" value="<?php echo $id_marca ?>">
                                     <div class="card-body">
                                         <div class="row justify-content-center">
                                             <div class="col-md-6 col-sm-12 my-1 form-group">
@@ -52,7 +52,7 @@ require '../components/head-main.php';
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="fa-solid fa-car"></i></span>
                                                     </div>
-                                                    <input name="marca" id="marca" type="text" class="form-control" placeholder="Marca" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Edita la Marca" value="<?php echo $row['marca']?>">
+                                                    <input name="marca" id="marca" type="text" class="form-control" placeholder="Marca" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Edita la Marca" value="<?php echo $row['marca'] ?>">
                                                     <label for="floatingInput" class="pl-5">Marca</label>
                                                 </div>
                                             </div>
@@ -69,7 +69,7 @@ require '../components/head-main.php';
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-sm-12 my-1">
-                                            <label class="ml-5 mb-2">Capturista editor<small> *El que modifica</small></label>
+                                                <label class="ml-5 mb-2">Capturista editor<small> *El que modifica</small></label>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="fa fa-user-pen" aria-hidden="true"></i></span>

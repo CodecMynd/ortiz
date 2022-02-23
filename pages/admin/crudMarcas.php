@@ -14,14 +14,14 @@ require '../components/head-dataTables.php';
         ?>
         <div class="content-wrapper">
             <!-- titulo y brandcrumb -->
-            <div class="content-header"> 
+            <div class="content-header">
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Tabla Marcas</h1>
+                            <h1 class="m-0">Tabla 1.2 Marcas</h1>
                         </div>
                         <div class="col-sm-6 ">
-                        <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
+                            <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
                         </div>
                     </div>
                 </div>
@@ -37,8 +37,14 @@ require '../components/head-dataTables.php';
                                 <div class="card-header">
                                     <h3 class="card-title">Marcas dadas de alta en el sistema</h3>
                                     <div class="card-tools">
-                                            <a type="button" class="btn btn-secondary" href="../adds/formAddMarca.php" data-toggle="tooltip" data-placement="left" title="1.2.1 Registro de Marca">
-                                            <i class="fa-solid fa-car-side"></i> Registro de Marca</a>
+                                        <?php if ($super == 1) { ?>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formAddMarca.php" data-toggle="tooltip" data-placement="left" title="1.2.1 Registro de Marca"> <i class="fa-solid fa-car-side"></i> Registro de Marca</a>
+                                        <?php } else if ($regMarca == 1) { ?>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formAddMarca.php" data-toggle="tooltip" data-placement="left" title="1.2.1 Registro de Marca"> <i class="fa-solid fa-car-side"></i> Registro de Marca</a>
+                                        <?php } else { ?>
+                                            <a type="button" class="btn btn-outline-danger" id="regMarca" data-toggle="tooltip" data-placement="left" title="1.2.1 Registro de Marca"> <i class="fa-solid fa-car-side"></i> Registro de Marca</a>
+                                        <?php } ?>
+
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
@@ -68,10 +74,10 @@ require '../components/head-dataTables.php';
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['marca']?>
+                                                        <?php echo $row['marca'] ?>
                                                     </td>
                                                     <td>
-                                                      
+
                                                     </td>
                                                     <td>
                                                         <div class="input-group input-group-sm mb-3">
@@ -82,16 +88,32 @@ require '../components/head-dataTables.php';
                                                                     <div class="btn-group">
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="1.2.2 Modificar Marca">
-                                                                                <a class="btn btn-secondary" href="../update/formUpdateMarca.php?id=<?php echo $row['id_marca'] ?>"><i class="fas fa-edit"></i>
-                                                                                </a>
+                                                                                <?php if ($super == 1) { ?>
+                                                                                    <a class="btn btn-secondary" href="../update/formUpdateMarca.php?id=<?php echo $row['id_marca'] ?>"><i class="fas fa-edit"></i>
+                                                                                    </a>
+                                                                                <?php  } else if ($modMarca  == 1) { ?>
+                                                                                    <a class="btn btn-secondary" href="../update/formUpdateMarca.php?id=<?php echo $row['id_marca'] ?>"><i class="fas fa-edit"></i>
+                                                                                    </a>
+                                                                                <?php } else { ?>
+                                                                                    <a class="btn btn-outline-danger" id="modMarca"><i class="fas fa-edit"></i>
+                                                                                    </a>
+                                                                                <?php } ?>
                                                                             </span>
                                                                         </li>
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="1.2.3  Eliminar Marca">
-                                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarMarca-<?php echo $row['id_marca'] ?>"><i class="fas fa-trash-alt"></i>
-                                                                                </a>
-                                                                            </span>
+                                                                                <?php if ($super == 1) { ?>
+                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarMarca-<?php echo $row['id_marca'] ?>"><i class="fas fa-trash-alt"></i>
+                                                                                    </a>
+                                                                                <?php  } else if ($eliminaMar  == 1) { ?>
+                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarMarca-<?php echo $row['id_marca'] ?>"><i class="fas fa-trash-alt"></i>
+                                                                                    </a>
+                                                                                <?php } else { ?>
+                                                                                    <a class="btn btn-outline-danger" id="eliminaMar" ><i class="fas fa-trash-alt"></i>
+                                                                                    </a>
+                                                                                <?php } ?>
 
+                                                                            </span>
                                                                         </li>
                                                                     </div>
                                                                 </ul>
@@ -132,6 +154,8 @@ require '../components/head-dataTables.php';
     // Scripts dataTables
     require '../components/scripts-dataTables.php';
     ?>
+    <!-- avisos -->
+    <script src="../../src/js/toastr.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 <?php
 require '../components/head-main.php';
 ?>
-<title>Edición de Usuario | <?php echo $nomComp ?></title>
+<title>1.1.1 Editar Usuario | <?php echo $nomComp ?></title>
 
 </head>
 
@@ -16,7 +16,7 @@ require '../components/head-main.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Edición de Usuario</h1>
+                            <h1 class="m-0">1.1.1 Editar Usuario</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>

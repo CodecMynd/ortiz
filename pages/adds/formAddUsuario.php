@@ -1,9 +1,8 @@
 <?php
 require '../components/head-main.php';
 ?>
-<title>Nuevo Usuario | <?php echo $nomComp ?></title>
+<title>1.1.5 Nuevo Usuario | <?php echo $nomComp ?></title>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
@@ -17,7 +16,7 @@ require '../components/head-main.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="float-left m-0">Crear Usuario</h1>
+                            <h1 class="float-left m-0">1.1.5 Nuevo Usuario</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -53,7 +52,7 @@ require '../components/head-main.php';
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="fa-solid fa-user-group"></i></span>
                                                     </div>
-                                                    <input name="aPaterno" id="aPaterno" type="text" class="form-control" placeholder="Apellido Paterno" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres">
+                                                    <input name="aPaterno" id="aPaterno" type="text" class="form-control" placeholder="Apellido Paterno " required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres">
                                                     <label for="floatingInput" class="pl-5">Apellido Paterno </label>
                                                 </div>
                                             </div>

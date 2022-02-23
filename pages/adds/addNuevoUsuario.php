@@ -52,9 +52,14 @@ if ($nombres == '' || $aPaterno == '' || $aMaterno == '' || $usuario == '' || $t
 
 // Asignamos permisos existentes
         $id_id_usuario = mysqli_insert_id($conexion);
+        if($admin == 1){
+            $querys = "INSERT INTO permisos(editarUsu, asignarCon, eliminarUsu, asignarPer, nuevoUsu, regMarca, modMarca, eliminaMar, regModelo, modModelo, eliminarMod, regAnios, modAnios, eliminarAnio, regPermiso, modPermiso, eliPermiso, regVehiculo, modVehiculo, eliVehiculo, regCliente, modCliente, eliCliente, regProyecto, listProyecto, modProyecto, eliProyecto, pdfProyecto, id_usuario) VALUES (1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, $id_id_usuario)"; 
+            $resultado = mysqli_query($conexion, $querys);
+        }else{
         $querys = "INSERT INTO permisos(editarUsu, asignarCon, eliminarUsu, asignarPer, nuevoUsu, regMarca, modMarca, eliminaMar, regModelo, modModelo, eliminarMod, regAnios, modAnios, eliminarAnio, regPermiso, modPermiso, eliPermiso, regVehiculo, modVehiculo, eliVehiculo, regCliente, modCliente, eliCliente, regProyecto, listProyecto, modProyecto, eliProyecto, pdfProyecto, id_usuario) VALUES (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, $id_id_usuario)"; 
         // var_dump($querys);
         $resultado = mysqli_query($conexion, $querys);
+        }
 
     }
 

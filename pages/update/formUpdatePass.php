@@ -1,7 +1,7 @@
 <?php
 require '../components/head-main.php';
 ?>
-<title>Edición de Contraseñas | <?php echo $nomComp ?></title>
+<title>1.1.2 Asignar Contraseña | <?php echo $nomComp ?></title>
 
 </head>
 
@@ -16,7 +16,7 @@ require '../components/head-main.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Edición de Contraseñas</h1>
+                            <h1 class="m-0">1.1.2 Asignar Contraseña</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -30,7 +30,7 @@ require '../components/head-main.php';
             $id_pass = $_GET['id'];
             $query = "SELECT * FROM usuarios WHERE id_usuario = $id_pass";
             $respuesta = mysqli_query($conexion, $query);
-            $row = $respuesta->fetch_assoc();
+            $rowPass = $respuesta->fetch_assoc();
             ?>
             <!-- Form editar usuario -->
             <section class="content">
@@ -40,7 +40,7 @@ require '../components/head-main.php';
                             <div class="card border-card">
                                 <div class="card-header">
                                     <h3 class="card-title">Usuario seleccionado para editar contraseña</h3>
-                                    <small class="float-right">*Ultima modificación: <?php echo $row['fecha_mod'] ?></small>
+                                    <small class="float-right">*Ultima modificación: <?php echo $rowPass['fecha_mod'] ?></small>
                                 </div>
 
                                 <form id="formUpdatePass" autocomplete="off">
@@ -53,7 +53,7 @@ require '../components/head-main.php';
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="fa-solid fa-user-tie"></i></span>
                                                     </div>
-                                                    <input name="usuario" id="usuario" type="text" class="form-control" placeholder="usuario" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres" value="<?php echo $row['usuario'] ?>" disabled readonly>
+                                                    <input name="usuarioPass" id="usuarioPass" type="text" class="form-control" placeholder="usuario" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres" value="<?php echo $rowPass['usuario'] ?>" >
                                                 </div>
                                             </div>
                                             <div class="col-md-5 col-sm-12 my-1">

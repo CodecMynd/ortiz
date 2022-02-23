@@ -3,7 +3,6 @@ require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
 <title>CRUD Usuarios | <?php echo $nomComp ?></title>
-
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
@@ -17,7 +16,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Tabla Usuarios</h1>
+                            <h1 class="m-0">Tabla 1.1 Usuarios</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -32,10 +31,19 @@ require '../components/head-dataTables.php';
                         <div class="col-10">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Usuarios dados de alta en el sistema</h3>
+                                    <h3 class="card-title">Usuarios dados de alta en el sistema</h3> <?php echo $nuevoUsu?>
                                     <div class="card-tools">
-                                        <a type="button" class="btn btn-secondary" href="../adds/formAddUsuario.php" data-toggle="tooltip" data-placement="left" title="1.1.5 Nuevo Usuario">
-                                            <i class="fa-solid fa-user-plus"></i> Nuevo Usuario</a>
+                                        <?php if ($super == 1) { ?>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formAddUsuario.php" data-toggle="tooltip" data-placement="left" title="1.1.5 Nuevo Usuario">
+                                                <i class="fa-solid fa-user-plus"></i> Nuevo Usuario</a>
+                                        <?php } else if ($nuevoUsu == 1) { ?>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formAddUsuario.php" data-toggle="tooltip" data-placement="left" title="1.1.5 Nuevo Usuario">
+                                                <i class="fa-solid fa-user-plus"></i> Nuevo Usuario</a>
+                                        <?php } else { ?>
+                                            <a type="button" class="btn btn-outline-danger" id="nuevoUsu" data-toggle="tooltip" data-placement="left" title="1.1.5 Nuevo Usuario">
+                                                <i class="fa-solid fa-user-plus"></i> Nuevo Usuario</a>
+                                        <?php } ?>
+
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
@@ -78,7 +86,7 @@ require '../components/head-dataTables.php';
                                                     </td>
                                                     <td>
                                                         <?php $pass = $row['pass'];
-                                                        if ($pass == 'SIN CONTRASEÑA') {
+                                                        if ($pass == 'SIN_PASSWORD') {
                                                             echo '<span class="badge badge-pill badge-danger">Sin Asignar</span>';
                                                         } else {
                                                             echo '<span class="badge badge-pill badge-success">Asignada</span>';
@@ -94,26 +102,56 @@ require '../components/head-dataTables.php';
                                                                     <div class="btn-group">
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="1.1.1 Editar Usuario">
-                                                                                <a class="btn btn-secondary" href="../update/formUpdateUsuario.php?id=<?php echo $row['id_usuario'] ?>"><i class="fas fa-edit"></i>
-                                                                                </a>
+                                                                                <?php if ($super == 1) { ?>
+                                                                                    <a class="btn btn-secondary" href="../update/formUpdateUsuario.php?id=<?php echo $row['id_usuario'] ?>"><i class="fas fa-edit"></i>
+                                                                                    </a>
+                                                                                <?php  } else if ($editarUsu == 1) { ?>
+                                                                                    <a class="btn btn-secondary" href="../update/formUpdateUsuario.php?id=<?php echo $row['id_usuario'] ?>"><i class="fas fa-edit"></i> </a>
+                                                                                <?php } else { ?>
+                                                                                    <a class="btn btn-outline-danger" id="editarUsu"><i class="fas fa-edit"></i></a>
+                                                                                <?php } ?>
                                                                             </span>
                                                                         </li>
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="1.1.2 Asignar Contraseña">
-                                                                                <a class="btn btn-secondary" href="../update/formUpdatePass.php?id=<?php echo $row['id_usuario'] ?>"> <i class="fa-solid fa-lock"></i>
-                                                                                </a>
+                                                                                <?php if ($super == 1) { ?>
+                                                                                    <a class="btn btn-secondary" href="../update/formUpdatePass.php?id=<?php echo $row['id_usuario'] ?>"> <i class="fa-solid fa-lock"></i>
+                                                                                    </a>
+                                                                                <?php  } else if ($asignarCon  == 1) { ?>
+                                                                                    <a class="btn btn-secondary" href="../update/formUpdatePass.php?id=<?php echo $row['id_usuario'] ?>"> <i class="fa-solid fa-lock"></i>
+                                                                                    </a>
+                                                                                <?php } else { ?>
+                                                                                    <a class="btn btn-outline-danger" id="asignarCon"> <i class="fa-solid fa-lock"></i>
+                                                                                    </a>
+                                                                                <?php } ?>
                                                                             </span>
                                                                         </li>
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="1.1.3 Eliminar Usuario">
-                                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-sm<?php echo $row['id_usuario'] ?>"><i class="fas fa-trash-alt"></i>
-                                                                                </a>
+                                                                                <?php if ($super == 1) { ?>
+                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-sm<?php echo $row['id_usuario'] ?>"><i class="fas fa-trash-alt"></i>
+                                                                                    </a>
+                                                                                <?php  } else if ($eliminarUsu   == 1) { ?>
+                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-sm<?php echo $row['id_usuario'] ?>"><i class="fas fa-trash-alt"></i>
+                                                                                    </a>
+                                                                                <?php } else { ?>
+                                                                                    <a class="btn btn-outline-danger" id="eliminarUsu"><i class="fas fa-trash-alt"></i>
+                                                                                    </a>
+                                                                                <?php } ?>
                                                                             </span>
                                                                         </li>
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="1.1.4 Asignar Permiso">
-                                                                                <a class="btn btn-secondary" href="../update/formUpdatePermiso.php?id=<?php echo $row['id_usuario'] ?>"><i class="fa-solid fa-key"></i>
-                                                                                </a>
+                                                                                <?php if ($super == 1) { ?>
+                                                                                    <a class="btn btn-secondary" href="../update/formUpdatePermiso.php?id=<?php echo $row['id_usuario'] ?>"><i class="fa-solid fa-key"></i>
+                                                                                    </a>
+                                                                                <?php  } else if ($asignarPer == 1) { ?>
+                                                                                    <a class="btn btn-secondary" href="../update/formUpdatePermiso.php?id=<?php echo $row['id_usuario'] ?>"><i class="fa-solid fa-key"></i>
+                                                                                    </a>
+                                                                                <?php } else { ?>
+                                                                                    <a class="btn btn-outline-danger" id="asignarPer"><i class="fa-solid fa-key"></i>
+                                                                                    </a>
+                                                                                <?php } ?>
                                                                             </span>
                                                                         </li>
                                                                     </div>
@@ -156,6 +194,8 @@ require '../components/head-dataTables.php';
     // Scripts dataTables
     require '../components/scripts-dataTables.php';
     ?>
+    <!-- avisos -->
+    <script src="../../src/js/toastr.js"></script>
 
 </body>
 

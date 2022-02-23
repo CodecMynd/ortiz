@@ -6,7 +6,7 @@
                     ¿Deseas eliminar la Marca:?
                 </h5>
             </div>
-            <div class="modal-body d-block">
+            <div class="modal-body text-center">
                 <strong class="margin-auto__content">
                     <?php echo  $row['marca'] ?>
                 </strong>
@@ -14,6 +14,9 @@
             <div class="modal-footer">
                 <buttom type="submit" data-dismiss="modal" id="<?php echo $row['id_marca']; ?>" class="btn btn-secondary btn-block btnBorrarMarca" data-toggle="tooltip" data-placement="bottom" title="Estas de acuerdo en eliminar "><i class="fa-solid fa-ban"></i> Eliminar</buttom>
                 <a data-dismiss="modal" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Cancelar"><i class="fa-solid fa-xmark"></i> Salir</a>
+            </div>
+            <div class="pie">
+                <h5>1.2.3 Eliminar Marca</h5>
             </div>
         </div>
     </div>

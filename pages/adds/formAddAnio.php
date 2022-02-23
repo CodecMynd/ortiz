@@ -1,7 +1,7 @@
 <?php
 require '../components/head-main.php';
 ?>
-<title>Nuevo Año | <?php echo $nomComp ?></title>
+<title>1.4.1 Registro de Años | <?php echo $nomComp ?></title>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 
@@ -16,7 +16,7 @@ require '../components/head-main.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="float-left m-0">Crear Nuevo Año</h1>
+                            <h1 class="float-left m-0">1.4.1 Registro de Años</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -107,27 +107,6 @@ require '../components/head-main.php';
     $(document).ready(function() {
         $(":input").inputmask();
     });
-
-    $(document).ready(function () {
-    $('#btnNuevoAnio').click(function () {
-        $.ajax({
-                url: 'addNuevoAnio.php',
-                type: 'POST',
-                data: $('#formNuevoAnio').serialize(),
-
-            })
-            .done(function (res) {
-                $('#respuestaNuevoAnio').html(res)
-            })
-    });
-});
-//Ocultar boton por 5 minutos para evitar el doble submit
-$("#btnNuevoAnio").on('click', function () {
-    $("#btnNuevoAnio").css('visibility', 'hidden');
-    setTimeout(function () {
-        $("#btnNuevoAnio").css('visibility', 'visible');
-    }, 300000);
-});
 </script>
 
 </html>

@@ -510,19 +510,79 @@ $("#btnUpdateVehiculo").on('click', function() {
 -
 -
 */
-// 2.1. Formulario Borrar Vehiculos ------------------------------------------------------------
+
+// 2.2.1. Formulario Registro Cliente ------------------------------------------------------------
+$(document).ready(function() {
+    $('#btnNuevoCliente').click(function() {
+        $.ajax({
+                url: 'addNuevoCliente.php',
+                type: 'POST',
+                data: $('#formNuevoCliente').serialize(),
+
+            })
+            .done(function(res) {
+                $('#respuestaNuevoCliente').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnNuevoCliente").on('click', function() {
+    $("#btnNuevoCliente").css('visibility', 'hidden');
+    setTimeout(function() {
+        $("#btnNuevoCliente").css('visibility', 'visible');
+    }, 300000);
+});
 /*
 -
 -
 -
 */
-// 2.1.1 Formulario Registro Vehiculos ------------------------------------------------------------
+// 2.2.2 Formulario Modificar Cliente ------------------------------------------------------------
+$(document).ready(function() {
+    $('#btnUpdateCliente').click(function() {
+        $.ajax({
+                url: 'updateCliente.php',
+                type: 'POST',
+                data: $('#formUpdateCliente').serialize(),
+
+            })
+            .done(function(res) {
+                $('#respuestaUpdateCliente').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnUpdateCliente").on('click', function() {
+    $("#btnUpdateCliente").css('visibility', 'hidden');
+    setTimeout(function() {
+        $("#btnUpdateCliente").css('visibility', 'visible');
+    }, 300000);
+});
 /*
 -
 -
 -
 */
-// 2.1.1 Formulario Registro Vehiculos ------------------------------------------------------------
+// 2.2.3 Formulario Eliminar Cliente ------------------------------------------------------------
+$('.btnBorrarCliente').click(function (e) {
+    e.preventDefault();
+    if (confirm("¿Estás seguro de eliminar esta Cliente? Una vez borrado ya no se podrá recuperar la información.")) {
+        var id = $(this).attr("id");
+
+        var dataString = 'id=' + id;
+        url = "../delete/deleteCliente.php";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: dataString,
+            success: function (data) {
+                window.location.href = "crudClientes.php";
+                $('#respuesta').html(data);
+            }
+        });
+    }
+    return false;
+});
 /*
 -
 -

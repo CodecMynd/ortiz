@@ -16,7 +16,7 @@ if(validarLogin($usuario, $pass)){
     //acedemos al sistemas
     if(esAdmin())
     header('Location: ../pages/admin/panelAdmin.php');
-    else header('Location: ../pages/user/panelUsuarios.php');
+    else header('Location: ../pages/admin/panelAdmin.php');
 }else{
     //si no es verdadero regresamos al formulario inicial
 ?>

@@ -7,9 +7,9 @@
                 </h5>
             </div>
             <div class="modal-body d-block">
-                <h5>Bienvenido: <strong> <?php echo $nomComp ?></strong></h5>
+                <h5>Bienvenido: <br><strong> <?php echo $nomComp ?></strong></h5>
                 <strong class="margin-auto__content">
-                Para utilizar la plataforma primero debes de crear una contraseña nueva
+                Ingresaste con una contraseña temporal, debes de crear una nueva para poder continuar con el acceso a la plataforma..
                 </strong>
             </div>
             <div class="modal-footer">

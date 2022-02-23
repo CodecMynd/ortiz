@@ -19,7 +19,7 @@ if ($id_marca == '' || $modelo == '') {
     exit;
 } else {
     $query = "INSERT INTO modelos(id_marca, modelo, fecha_creacion, id_capC) VALUES ($id_marca, '$modelo', '$date', $id)";
-
+// var_dump($query);
     $verificar_modeloMarca = mysqli_query($conexion, "SELECT * FROM modelos WHERE id_marca = '$id_marca' AND modelo = '$modelo' ");
 
     if (mysqli_num_rows($verificar_modeloMarca) > 0) {

@@ -17,7 +17,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Tabla Años</h1>
+                            <h1 class="m-0">Tabla 1.4 Años</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -36,8 +36,17 @@ require '../components/head-dataTables.php';
                                 <div class="card-header">
                                     <h3 class="card-title">Años para los Modelos </h3>
                                     <div class="card-tools">
-                                        <a type="button" class="btn btn-secondary" href="../adds/formAddAnio.php" data-toggle="tooltip" data-placement="left" title="1.4.1 Registro de Año">
-                                        <i class="fa-solid fa-calendar"></i> Registro de Años</a>
+                                        <?php if ($super == 1) { ?>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formAddAnio.php" data-toggle="tooltip" data-placement="left" title="1.4.1 Registro de Año">
+                                                <i class="fa-solid fa-calendar"></i> Registro de Años</a>
+                                        <?php } else if ($regAnios  == 1) { ?>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formAddAnio.php" data-toggle="tooltip" data-placement="left" title="1.4.1 Registro de Año">
+                                                <i class="fa-solid fa-calendar"></i> Registro de Años</a>
+                                        <?php } else { ?>
+                                            <a type="button" class="btn btn-outline-danger" id="regAnios" data-toggle="tooltip" data-placement="left" title="1.4.1 Registro de Año">
+                                                <i class="fa-solid fa-calendar"></i> Registro de Años</a>
+                                        <?php } ?>
+
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
@@ -71,7 +80,7 @@ require '../components/head-dataTables.php';
                                                         <?php echo $row['anio'] ?>
                                                     </td>
                                                     <td>
-                                                        
+
                                                     </td>
                                                     <td>
                                                         <div class="input-group input-group-sm mb-3">
@@ -83,14 +92,30 @@ require '../components/head-dataTables.php';
                                                                     <div class="btn-group">
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="1.4.2 Modificar Año">
-                                                                                <a class="btn btn-secondary" href="../update/formUpdateAnio.php?id=<?php echo $row['id_anio'] ?>"><i class="fas fa-edit"></i>
-                                                                                </a>
+                                                                                <?php if ($super == 1) { ?>
+                                                                                    <a class="btn btn-secondary" href="../update/formUpdateAnio.php?id=<?php echo $row['id_anio'] ?>"><i class="fas fa-edit"></i>
+                                                                                    </a>
+                                                                                <?php  } else if ($modAnios   == 1) { ?>
+                                                                                    <a class="btn btn-secondary" href="../update/formUpdateAnio.php?id=<?php echo $row['id_anio'] ?>"><i class="fas fa-edit"></i>
+                                                                                    </a>
+                                                                                <?php } else { ?>
+                                                                                    <a class="btn btn-outline-danger" id="modAnios"><i class="fas fa-edit"></i>
+                                                                                    </a>
+                                                                                <?php } ?>
                                                                             </span>
                                                                         </li>
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="1.4.3  Eliminar Año">
-                                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarAnio-<?php echo $row['id_anio'] ?>"><i class="fas fa-trash-alt"></i>
-                                                                                </a>
+                                                                                <?php if ($super == 1) { ?>
+                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarAnio-<?php echo $row['id_anio'] ?>"><i class="fas fa-trash-alt"></i>
+                                                                                    </a>
+                                                                                <?php  } else if ($eliminarAnio   == 1) { ?>
+                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarAnio-<?php echo $row['id_anio'] ?>"><i class="fas fa-trash-alt"></i>
+                                                                                    </a>
+                                                                                <?php } else { ?>
+                                                                                    <a class="btn btn-outline-danger" id="eliminarAnio"><i class="fas fa-trash-alt"></i>
+                                                                                    </a>
+                                                                                <?php } ?>
                                                                             </span>
                                                                         </li>
                                                                     </div>
@@ -132,7 +157,8 @@ require '../components/head-dataTables.php';
     // Scripts dataTables
     require '../components/scripts-dataTables.php';
     ?>
-
+    <!-- avisos -->
+    <script src="../../src/js/toastr.js"></script>
 </body>
 
 </html>

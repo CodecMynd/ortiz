@@ -6,10 +6,10 @@ CREATE TABLE `anios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `clientes` (
-  `id_cliente` int(11) UNSIGNED NOT NULL,
-  `nombres` varchar(30) NOT NULL,
-  `aPaterno` varchar(40) NOT NULL,
-  `aMaterno` varchar(40) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `nombres` varchar(40) NOT NULL,
+  `aPaternoCliente` varchar(30) NOT NULL,
+  `aMaternoCliente` varchar(30) NOT NULL,
   `calle` varchar(50) NOT NULL,
   `colonia` varchar(40) NOT NULL,
   `ciudad` varchar(50) NOT NULL,
@@ -17,6 +17,7 @@ CREATE TABLE `clientes` (
   `tel1` varchar(10) NOT NULL,
   `tel2` varchar(10) NOT NULL,
   `cel` varchar(10) NOT NULL,
+  observacion varchar(200)null,
   `fecha_creacion` datetime DEFAULT NULL,
   `fecha_mod` datetime DEFAULT NULL,
   `id_capC` int(11) DEFAULT NULL,

@@ -2,8 +2,7 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>CRUD Modelos | <?php echo $nomComp ?></title>
-
+<title>CRUD Clientes | <?php echo $nomComp ?></title>
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
@@ -17,7 +16,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Tabla 1.3 Modelos</h1>
+                            <h1 class="m-0">Tabla 2.2 Clientes</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -25,26 +24,25 @@ require '../components/head-dataTables.php';
                     </div>
                 </div>
             </div>
-            <!-- /titulo y brandcrumb -->
-
             <!-- Table usuarios -->
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-md-6 col-sm-12">
+                        <div class="col-10">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Modelos dadas de alta en el sistema</h3>
+                                    <h3 class="card-title">Clientes dados de alta en el sistema</h3>
                                     <div class="card-tools">
                                         <?php if ($super == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formAddModelo.php" data-toggle="tooltip" data-placement="left" title="1.3.1 Registro de Modelos">
-                                                <i class="fa-solid fa-car"></i> Registro de Modelos</a>
-                                        <?php } else if ($regModelo == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formAddModelo.php" data-toggle="tooltip" data-placement="left" title="1.3.1 Registro de Modelos">
-                                                <i class="fa-solid fa-car"></i> Registro de Modelos</a>
+
+                                            <a type="button" class="btn btn-secondary" href="../adds/formAddCliente.php" data-toggle="tooltip" data-placement="left" title="2.2.1 Registro Cliente">
+                                                <i class="fa-solid fa-user-plus"></i> Nuevo Cliente</a>
+                                        <?php } else if ($regCliente   == 1) { ?>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formAddCliente.php" data-toggle="tooltip" data-placement="left" title="2.2.1 Registro Cliente">
+                                                <i class="fa-solid fa-user-plus"></i> Nuevo Cliente</a>
                                         <?php } else { ?>
-                                            <a type="button" class="btn btn-outline-danger" id="regModelo" data-toggle="tooltip" data-placement="left" title="1.3.1 Registro de Modelos">
-                                                <i class="fa-solid fa-car"></i> Registro de Modelos</a>
+                                            <a type="button" class="btn btn-ouline-danger" id="regCliente" data-toggle="tooltip" data-placement="left" title="2.2.1 Registro Cliente">
+                                                <i class="fa-solid fa-user-plus"></i> Nuevo Cliente</a>
                                         <?php } ?>
 
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
@@ -53,23 +51,26 @@ require '../components/head-dataTables.php';
                                 <!-- consulta sql -->
                                 <?php
                                 $cont = 0;
-                                $query = "SELECT Mo.id_modelo, Mo.id_marca, Mo.modelo, Ma.id_marca, Ma.marca  FROM modelos Mo INNER JOIN marcas Ma ON Mo.id_marca = Ma.id_marca ORDER BY marca ASC";
-                                $resultado = mysqli_query($conexion, $query);
-                                ?>
+                                $query = "SELECT id_cliente, nombres, aPaternoCliente, aMaternoCliente, tel1, tel2, cel, status FROM clientes ORDER BY nombres DESC";
+                                $resultadoClientes = mysqli_query($conexion, $query);
 
+                                ?>
                                 <div class="card-body">
-                                    <table id="tablePermisos" class="table table-sm table-bordered table-striped">
+                                    <table id="tableCrudUsuarios" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Marca</th>
-                                                <th>Modelo</th>
+                                                <th>Nombre Cliente</th>
+                                                <th>Teléfono 1</th>
+                                                <th>Teléfono 2</th>
+                                                <th>Celular</th>
+                                                <th>Estado</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            while ($row = $resultado->fetch_assoc()) { ?>
+                                            while ($row = $resultadoClientes->fetch_assoc()) { ?>
                                                 <tr>
                                                     <td>
                                                         <?php $cont++;
@@ -77,10 +78,30 @@ require '../components/head-dataTables.php';
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['marca'] ?>
+                                                        <?php
+                                                        $nombres = $row['nombres'];
+                                                        $aPaterno = $row['aPaternoCliente'];
+                                                        $aMaterno = $row['aMaternoCliente'];
+                                                        echo $nomCompClie = $nombres . ' ' . $aPaterno . ' ' . $aMaterno;
+                                                        ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['modelo'] ?>
+                                                        <?php echo $row['tel1'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['tel2'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['cel'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php if ($row['status'] == 1) {
+                                                            echo '<span class="badge badge-pill badge-success">Libre</span>';
+                                                        } else {
+                                                            echo '<span class="badge badge-pill badge-danger">En un proyecto</span>';
+                                                        }
+
+                                                        ?>
                                                     </td>
                                                     <td>
                                                         <div class="input-group input-group-sm mb-3">
@@ -90,29 +111,30 @@ require '../components/head-dataTables.php';
                                                                 <ul class="dropdown-menu">
                                                                     <div class="btn-group">
                                                                         <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="1.3.2 Modificar Modelo">
-                                                                                <?php if ($super == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../update/formUpdateModelo.php?id=<?php echo $row['id_modelo'] ?>"><i class="fas fa-edit"></i>
-                                                                                    </a>
-                                                                                <?php  } else if ($modModelo  == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../update/formUpdateModelo.php?id=<?php echo $row['id_modelo'] ?>"><i class="fas fa-edit"></i>
-                                                                                    </a>
+                                                                            <span data-toggle="tooltip" title="2.2.2 Modificar Cliente">
+                                                                            <?php if ($super == 1) { ?>
+                                                                                <a class="btn btn-secondary" href="../update/formUpdateCliente.php?id=<?php echo $row['id_cliente'] ?>"><i class="fas fa-edit"></i>
+                                                                                </a>
+                                                                                <?php  } else if ($modCliente  == 1) { ?>
+                                                                                    <a class="btn btn-secondary" href="../update/formUpdateCliente.php?id=<?php echo $row['id_cliente'] ?>"><i class="fas fa-edit"></i>
+                                                                                </a>
                                                                                 <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="modModelo"><i class="fas fa-edit"></i>
-                                                                                    </a>
+                                                                                    <a class="btn btn-secondary" id="modCliente "><i class="fas fa-edit"></i>
+                                                                                </a>
                                                                                 <?php } ?>
                                                                             </span>
                                                                         </li>
                                                                         <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="1.3.3  Eliminar Modelo">
+                                                                            <span data-toggle="tooltip" title="2.2.3 Eliminar Cliente">
                                                                             <?php if ($super == 1) { ?>
-                                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarModelo-<?php echo $row['id_modelo'] ?>"><i class="fas fa-trash-alt"></i>
+                                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarCliente<?php echo $row['id_cliente'] ?>"><i class="fas fa-trash-alt"></i>
                                                                                 </a>
-                                                                                <?php  } else if ($eliminarMod  == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarModelo-<?php echo $row['id_modelo'] ?>"><i class="fas fa-trash-alt"></i>
+                                                                                <?php  } else if ($eliCliente   == 1) { ?>
+                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarCliente<?php echo $row['id_cliente'] ?>"><i class="fas fa-trash-alt"></i>
                                                                                 </a>
                                                                                 <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="eliminarMod" ><i class="fas fa-trash-alt"></i></a>
+                                                                                    <a class="btn btn-secondary" id="eliCliente "><i class="fas fa-trash-alt"></i>
+                                                                                </a>
                                                                                 <?php } ?>
                                                                             </span>
                                                                         </li>
@@ -123,7 +145,7 @@ require '../components/head-dataTables.php';
                                                     </td>
                                                 </tr>
                                             <?php
-                                                require '../components/modal-eliminarModelo.php';
+                                                require '../components/modal-eliminarCliente.php';
                                             }
                                             desconectar();
                                             ?>
@@ -131,13 +153,15 @@ require '../components/head-dataTables.php';
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Marca</th>
-                                                <th>Modelo</th>
+                                                <th>Nombre Cliente</th>
+                                                <th>Teléfono 1</th>
+                                                <th>Teléfono 2</th>
+                                                <th>Celular</th>
+                                                <th>Estado</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>
                                     </table>
-                                    <div id="respuestaBorrarModelo"></div>
                                 </div>
                             </div>
                         </div>
@@ -159,6 +183,5 @@ require '../components/head-dataTables.php';
     <!-- avisos -->
     <script src="../../src/js/toastr.js"></script>
 </body>
-
 
 </html>

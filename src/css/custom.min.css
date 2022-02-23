@@ -39,7 +39,7 @@ html {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent
 }
-
+h1
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
     display: block
 }
@@ -68,6 +68,7 @@ hr {
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     margin-bottom: .5rem
+
 }
 
 p {
@@ -328,7 +329,8 @@ template {
 }
 
 .h1, h1 {
-    font-size: 2.5rem
+    /* font-size: 2.5rem */
+    font-size:20vw;
 }
 
 .h2, h2 {
@@ -49421,5 +49423,40 @@ a.text-muted:hover {
             transition: all 0.5s;
         }
 
+/* mis media querie */
+@media (max-width:400px) {
+    .title-nav {
+display: none;
+         }
+}
 
+
+@media (min-width: 400px) {
+    .title-nav {
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 600px) {
+   .title-nav {
+        font-size: 1.6rem;
+    }
+}
+
+@media (min-width: 800px) {
+    .title-nav {
+        font-size: 1.9rem;
+    }
+}
+
+@media (min-width: 1000px) {
+    .title-nav {
+        font-size: 2.2rem;
+    }
+}
+@media (max-width: 700px) {
+    .bienvenido {
+    display: none;
+    }
+}
 card0fed0fee8fee8e2e8e28e2 */

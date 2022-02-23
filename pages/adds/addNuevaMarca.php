@@ -17,7 +17,8 @@ if ($marca == '') {
     </div>";
     exit;
 } else {
-    $query = "INSERT INTO marcas(marca, fecha_creacion, id_capC) VALUES ('$marca', '$date', $id)";
+    $queryMarca = "INSERT INTO marcas(marca, fecha_creacion, id_capC) VALUES ('$marca', '$date', $id)";
+
     $verificar_Marca = mysqli_query($conexion, "SELECT marca FROM marcas WHERE marca = '$marca' ");
 
     if (mysqli_num_rows($verificar_Marca) > 0) {
@@ -27,8 +28,10 @@ if ($marca == '') {
         </div>";
         exit;
     } else {
-        $resultado = mysqli_query($conexion, $query);
-        if ($resultado) {
+        
+        $resultadoMarca = mysqli_query($conexion, $queryMarca);
+
+        if ($resultadoMarca) {
             echo "<div class='alert alert-success' role='alert'>
                 <p>Marca ingresada correctamente</p>
                 </div>";
