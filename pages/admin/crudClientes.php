@@ -36,13 +36,13 @@ require '../components/head-dataTables.php';
                                         <?php if ($super == 1) { ?>
 
                                             <a type="button" class="btn btn-secondary" href="../adds/formAddCliente.php" data-toggle="tooltip" data-placement="left" title="2.2.1 Registro Cliente">
-                                                <i class="fa-solid fa-user-plus"></i> Nuevo Cliente</a>
+                                                <i class="fa-solid fa-user-tie"></i>&nbsp;&nbsp; Registro Cliente</a>
                                         <?php } else if ($regCliente   == 1) { ?>
                                             <a type="button" class="btn btn-secondary" href="../adds/formAddCliente.php" data-toggle="tooltip" data-placement="left" title="2.2.1 Registro Cliente">
-                                                <i class="fa-solid fa-user-plus"></i> Nuevo Cliente</a>
+                                                <i class="fa-solid fa-user-tie"></i>&nbsp;&nbsp; Registro Cliente</a>
                                         <?php } else { ?>
                                             <a type="button" class="btn btn-ouline-danger" id="regCliente" data-toggle="tooltip" data-placement="left" title="2.2.1 Registro Cliente">
-                                                <i class="fa-solid fa-user-plus"></i> Nuevo Cliente</a>
+                                                <i class="fa-solid fa-user-tie"></i>&nbsp;&nbsp; Registro Cliente</a>
                                         <?php } ?>
 
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>

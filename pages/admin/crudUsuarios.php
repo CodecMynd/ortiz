@@ -31,17 +31,17 @@ require '../components/head-dataTables.php';
                         <div class="col-10">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Usuarios dados de alta en el sistema</h3> <?php echo $nuevoUsu?>
+                                    <h3 class="card-title">Usuarios dados de alta en el sistema</h3> 
                                     <div class="card-tools">
                                         <?php if ($super == 1) { ?>
                                             <a type="button" class="btn btn-secondary" href="../adds/formAddUsuario.php" data-toggle="tooltip" data-placement="left" title="1.1.5 Nuevo Usuario">
-                                                <i class="fa-solid fa-user-plus"></i> Nuevo Usuario</a>
+                                                <i class="fa-solid fa-user-plus"></i>&nbsp;&nbsp; Nuevo Usuario</a>
                                         <?php } else if ($nuevoUsu == 1) { ?>
                                             <a type="button" class="btn btn-secondary" href="../adds/formAddUsuario.php" data-toggle="tooltip" data-placement="left" title="1.1.5 Nuevo Usuario">
-                                                <i class="fa-solid fa-user-plus"></i> Nuevo Usuario</a>
+                                                <i class="fa-solid fa-user-plus"></i>&nbsp;&nbsp; Nuevo Usuario</a>
                                         <?php } else { ?>
                                             <a type="button" class="btn btn-outline-danger" id="nuevoUsu" data-toggle="tooltip" data-placement="left" title="1.1.5 Nuevo Usuario">
-                                                <i class="fa-solid fa-user-plus"></i> Nuevo Usuario</a>
+                                                <i class="fa-solid fa-user-plus"></i>&nbsp;&nbsp; Nuevo Usuario</a>
                                         <?php } ?>
 
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>

@@ -12,16 +12,20 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="../admin/panelAdmin.php" class="nav-link">| <i class="fa-solid fa-house-user"></i> | </a>
+                    <a href="../admin/panelAdmin.php" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Ir al Inicio" >| <i class="fa-solid fa-house-user"></i></a>
                 </li>
-                <li class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button" data-toggle="tooltip" data-placement="bottom" title="Expandir pantalla completa">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
                 <li class="nav-item dropdown ">
                     <?php if ($passUser == 'SIN_PASSWORD') {
-                        echo '<a class="nav-link parpadea" data-toggle="dropdown" href="#">
-           | <i class="fa-solid fa-user "></i> |</a>';
+                        echo '<a class="nav-link parpadea" data-toggle="dropdown" href="#" >
+            <i class="fa-solid fa-user fa-2x" data-toggle="tooltip" data-placement="bottom" title="Ir a mi perfil"></i> |</a>';
                     } else {
                         echo '<a class="nav-link" data-toggle="dropdown" href="#">
-              | <i class="fa-solid fa-user "></i> |</a>';
+               <i class="fa-solid fa-user" data-toggle="tooltip" data-placement="bottom" title="Ir a mi perfil"></i> |</a>';
                     } ?>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-item dropdown-header text-dark"><?php echo $nomComp ?></span>
@@ -48,7 +52,6 @@
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a> -->
                     </div>
                 </li>
-                </li>
                 <li class="nav-item dropdown">
                     <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle  <?php if ($passUser == 'SIN_PASSWORD') {
                                                                                                                                                                 echo 'disabled';
@@ -62,7 +65,7 @@
                         <li><a href="../admin/crudAnios.php" class="dropdown-item">1.4 Años </a></li>
                         <?php if ($super == 1) { ?>
                             <li><a href="../admin/crudPermisos.php" class="dropdown-item">1.5 Permisos </a></li>
-                         <?php  } ?>
+                        <?php  } ?>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -74,7 +77,7 @@
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                         <li><a href="../admin/crudVehiculos.php" class="dropdown-item">2.1 Registro Vehículo </a></li>
                         <li><a href="../admin/crudClientes.php" class="dropdown-item">2.2 Registro Cliente </a></li>
-                        <li><a href="#" class="dropdown-item disabled">2.3 Registro Proyecto </a></li>
+                        <li><a href="../admin/crudProyectos.php" class="dropdown-item">2.3 Registro Proyecto </a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

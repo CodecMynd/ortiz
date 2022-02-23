@@ -38,13 +38,13 @@ require '../components/head-dataTables.php';
                                     <div class="card-tools">
                                         <?php if ($super == 1) { ?>
                                             <a type="button" class="btn btn-secondary" href="../adds/formAddModelo.php" data-toggle="tooltip" data-placement="left" title="1.3.1 Registro de Modelos">
-                                                <i class="fa-solid fa-car"></i> Registro de Modelos</a>
+                                                <i class="fa-solid fa-car"></i>&nbsp;&nbsp; Registro de Modelos</a>
                                         <?php } else if ($regModelo == 1) { ?>
                                             <a type="button" class="btn btn-secondary" href="../adds/formAddModelo.php" data-toggle="tooltip" data-placement="left" title="1.3.1 Registro de Modelos">
-                                                <i class="fa-solid fa-car"></i> Registro de Modelos</a>
+                                                <i class="fa-solid fa-car"></i>&nbsp;&nbsp; Registro de Modelos</a>
                                         <?php } else { ?>
                                             <a type="button" class="btn btn-outline-danger" id="regModelo" data-toggle="tooltip" data-placement="left" title="1.3.1 Registro de Modelos">
-                                                <i class="fa-solid fa-car"></i> Registro de Modelos</a>
+                                                <i class="fa-solid fa-car"></i>&nbsp;&nbsp; Registro de Modelos</a>
                                         <?php } ?>
 
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>

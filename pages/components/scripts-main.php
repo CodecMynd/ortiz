@@ -27,3 +27,4 @@ require '../components/modal-miPerfil.php';
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <!-- JS main -->
 <script src="../../src/js/main.js"></script>
+<script src="../../src/js/adminlte.min.js"></script>

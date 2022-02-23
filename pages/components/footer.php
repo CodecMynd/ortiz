@@ -1,5 +1,3 @@
-
-
 <footer class="main-footer border-footer">
     <!-- To the right -->
     <div class="row">
@@ -15,6 +13,4 @@
         <span class="ir-arriba"><i class="fa-solid fa-arrow-up"></i></span>
         </div>
     </div>
-    <!-- Default to the left -->
-
 </footer>

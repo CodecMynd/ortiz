@@ -38,11 +38,11 @@ require '../components/head-dataTables.php';
                                     <h3 class="card-title">Marcas dadas de alta en el sistema</h3>
                                     <div class="card-tools">
                                         <?php if ($super == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formAddMarca.php" data-toggle="tooltip" data-placement="left" title="1.2.1 Registro de Marca"> <i class="fa-solid fa-car-side"></i> Registro de Marca</a>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formAddMarca.php" data-toggle="tooltip" data-placement="left" title="1.2.1 Registro de Marca"> <i class="fa-solid fa-car-side"></i>&nbsp;&nbsp; Registro de Marca</a>
                                         <?php } else if ($regMarca == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formAddMarca.php" data-toggle="tooltip" data-placement="left" title="1.2.1 Registro de Marca"> <i class="fa-solid fa-car-side"></i> Registro de Marca</a>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formAddMarca.php" data-toggle="tooltip" data-placement="left" title="1.2.1 Registro de Marca"> <i&nbsp;&nbsp; class="fa-solid fa-car-side"></i&nbsp;&nbsp;> Registro de Marca</a>
                                         <?php } else { ?>
-                                            <a type="button" class="btn btn-outline-danger" id="regMarca" data-toggle="tooltip" data-placement="left" title="1.2.1 Registro de Marca"> <i class="fa-solid fa-car-side"></i> Registro de Marca</a>
+                                            <a type="button" class="btn btn-outline-danger" id="regMarca" data-toggle="tooltip" data-placement="left" title="1.2.1 Registro de Marca"> <i class="fa-solid fa-car-side"></i>&nbsp;&nbsp; Registro de Marca</a>
                                         <?php } ?>
 
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>

@@ -35,7 +35,7 @@ require '../components/head-dataTables.php';
                                     <h3 class="card-title">Permisos dados de alta en el sistema</h3>
                                     <div class="card-tools">
                                         <a type="button" class="btn btn-secondary" href="../adds/formAddPermiso.php" data-toggle="tooltip" data-placement="left" title="1.5.1 Registro de Permiso">
-                                        <i class="fa-solid fa-user-check"></i> Registro de Permiso</a>
+                                        <i class="fa-solid fa-user-check"></i>&nbsp;&nbsp; Registro de Permiso</a>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="top" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>

@@ -38,13 +38,13 @@ require '../components/head-dataTables.php';
                                     <div class="card-tools">
                                         <?php if ($super == 1) { ?>
                                             <a type="button" class="btn btn-secondary" href="../adds/formAddAnio.php" data-toggle="tooltip" data-placement="left" title="1.4.1 Registro de Año">
-                                                <i class="fa-solid fa-calendar"></i> Registro de Años</a>
+                                                <i class="fa-solid fa-calendar"></i>&nbsp;&nbsp; Registro de Años</a>
                                         <?php } else if ($regAnios  == 1) { ?>
                                             <a type="button" class="btn btn-secondary" href="../adds/formAddAnio.php" data-toggle="tooltip" data-placement="left" title="1.4.1 Registro de Año">
-                                                <i class="fa-solid fa-calendar"></i> Registro de Años</a>
+                                                <i class="fa-solid fa-calendar"></i>&nbsp;&nbsp; Registro de Años</a>
                                         <?php } else { ?>
                                             <a type="button" class="btn btn-outline-danger" id="regAnios" data-toggle="tooltip" data-placement="left" title="1.4.1 Registro de Año">
-                                                <i class="fa-solid fa-calendar"></i> Registro de Años</a>
+                                                <i class="fa-solid fa-calendar"></i>&nbsp;&nbsp; Registro de Años</a>
                                         <?php } ?>
 
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>

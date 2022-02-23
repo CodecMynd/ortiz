@@ -37,13 +37,13 @@ require '../components/head-dataTables.php';
                                     <div class="card-tools">
                                         <?php if ($super == 1) { ?>
                                             <a type="button" class="btn btn-secondary" href="../adds/formAddVehiculo.php" data-toggle="tooltip" data-placement="left" title="2.1.1 Registro Vehículo">
-                                                <i class="fa-solid fa-car"></i> Registro de Vehículos</a>
+                                                <i class="fa-solid fa-car"></i>&nbsp;&nbsp; Registro de Vehículos</a>
                                         <?php } else if ($regVehiculo  == 1) { ?>
                                             <a type="button" class="btn btn-secondary" href="../adds/formAddVehiculo.php" data-toggle="tooltip" data-placement="left" title="2.1.1 Registro Vehículo">
-                                                <i class="fa-solid fa-car"></i> Registro de Vehículos</a>
+                                                <i class="fa-solid fa-car"></i>&nbsp;&nbsp; Registro de Vehículos</a>
                                         <?php } else { ?>
                                             <a type="button" class="btn btn-outline-danger" id="regVehiculo " data-toggle="tooltip" data-placement="left" title="2.1.1 Registro Vehículo">
-                                                <i class="fa-solid fa-car"></i> Registro de Vehículos</a>
+                                                <i class="fa-solid fa-car"></i>&nbsp;&nbsp; Registro de Vehículos</a>
                                         <?php } ?>
 
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
