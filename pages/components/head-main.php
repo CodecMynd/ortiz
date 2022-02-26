@@ -36,12 +36,6 @@ require 'query.php';
             $('[data-toggle="tooltip"]').tooltip()
         });
     </script>
-    <script>
-        /* pointer solo lectura */
-        input[readonly]; {
-            cursor: no - drop;
-        };
-    </script>
     <style>
         .cuadro {
             border-radius: 25px;
@@ -53,6 +47,10 @@ require 'query.php';
             background-color: #F4F6F9;
             text-align: center;
             border-top: 1px solid #9FA0A2;
+        }
+             /* pointer solo lectura */
+             input[readonly] {
+            cursor: no - drop;
         }
     </style>
     <!-- notas

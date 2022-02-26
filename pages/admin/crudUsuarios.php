@@ -31,7 +31,7 @@ require '../components/head-dataTables.php';
                         <div class="col-10">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Usuarios dados de alta en el sistema</h3> 
+                                    <h3 class="card-title">Usuarios dados de alta en el sistema</h3>
                                     <div class="card-tools">
                                         <?php if ($super == 1) { ?>
                                             <a type="button" class="btn btn-secondary" href="../adds/formAddUsuario.php" data-toggle="tooltip" data-placement="left" title="1.1.5 Nuevo Usuario">
@@ -50,7 +50,7 @@ require '../components/head-dataTables.php';
                                 <!-- consulta sql -->
                                 <?php
                                 $cont = 0;
-                                $query = "SELECT * FROM usuarios WHERE admin <> 1 ORDER BY id_usuario DESC";
+                                $query = "SELECT * FROM usuarios WHERE super <> 1 ORDER BY id_usuario DESC";
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
                                 <div class="card-body">

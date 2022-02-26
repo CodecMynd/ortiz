@@ -64,7 +64,7 @@
                         <li><a href="../admin/crudModelos.php" class="dropdown-item">1.3 Modelos </a></li>
                         <li><a href="../admin/crudAnios.php" class="dropdown-item">1.4 Años </a></li>
                         <?php if ($super == 1) { ?>
-                            <li><a href="../admin/crudPermisos.php" class="dropdown-item">1.5 Permisos </a></li>
+                            <li><a href="../adds/formProyectos.php" class="dropdown-item">1.5 Permisos </a></li>
                         <?php  } ?>
                     </ul>
                 </li>
@@ -77,7 +77,7 @@
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                         <li><a href="../admin/crudVehiculos.php" class="dropdown-item">2.1 Registro Vehículo </a></li>
                         <li><a href="../admin/crudClientes.php" class="dropdown-item">2.2 Registro Cliente </a></li>
-                        <li><a href="../admin/crudProyectos.php" class="dropdown-item">2.3 Registro Proyecto </a></li>
+                        <li><a href="../adds/formProyectos.php" class="dropdown-item">2.3 Registro Proyecto </a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

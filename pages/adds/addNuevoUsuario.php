@@ -15,9 +15,9 @@ $usuario =  $_POST['usuario'];
 $email =  $_POST['email'];
 $tel =  $_POST['tel'];
 $admin = (isset($_POST['admin'])) ? $_POST['admin'] : 0;
+$estatus = 'offline';
+$super = 0;
 
-$estado = 0;
-$asignarPermisos = '';
 
 if ($nombres == '' || $aPaterno == '' || $aMaterno == '' || $usuario == '' || $tel == '' || $email == '') {
     echo "<div class='alert alert-danger' role='role'>
@@ -35,10 +35,11 @@ if ($nombres == '' || $aPaterno == '' || $aMaterno == '' || $usuario == '' || $t
     </div>";
     exit;
 } else {
-    $query = "INSERT INTO usuarios (nombres, aPaterno, aMaterno, usuario, email, tel, admin, fecha_creacion, id_captC) 
-    VALUES ('$nombres', '$aPaterno', '$aMaterno', '$usuario', '$email', '$tel', $admin, '$date', $id);";
-
+    $query = "INSERT INTO usuarios(nombres, aPaterno, aMaterno, usuario, email, tel, admin, fecha_creacion, id_captC, estatus, super) 
+    VALUES ('$nombres', '$aPaterno', '$aMaterno', '$usuario', '$email', '$tel', $admin, '$date', $id, '$estatus', '$super')";
+    // var_dump($query);
     $verificar_usuario = mysqli_query($conexion, "SELECT * FROM usuarios WHERE nombres = '$nombres' AND aPaterno = '$aPaterno' AND aMaterno = '$aMaterno' ");
+
 
     if (mysqli_num_rows($verificar_usuario) > 0) {
         echo
@@ -49,19 +50,21 @@ if ($nombres == '' || $aPaterno == '' || $aMaterno == '' || $usuario == '' || $t
     } else {
 
         $resultado = mysqli_query($conexion, $query);
-
-// Asignamos permisos existentes
         $id_id_usuario = mysqli_insert_id($conexion);
-        if($admin == 1){
-            $querys = "INSERT INTO permisos(editarUsu, asignarCon, eliminarUsu, asignarPer, nuevoUsu, regMarca, modMarca, eliminaMar, regModelo, modModelo, eliminarMod, regAnios, modAnios, eliminarAnio, regPermiso, modPermiso, eliPermiso, regVehiculo, modVehiculo, eliVehiculo, regCliente, modCliente, eliCliente, regProyecto, listProyecto, modProyecto, eliProyecto, pdfProyecto, id_usuario) VALUES (1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, $id_id_usuario)"; 
-            $resultado = mysqli_query($conexion, $querys);
-        }else{
-        $querys = "INSERT INTO permisos(editarUsu, asignarCon, eliminarUsu, asignarPer, nuevoUsu, regMarca, modMarca, eliminaMar, regModelo, modModelo, eliminarMod, regAnios, modAnios, eliminarAnio, regPermiso, modPermiso, eliPermiso, regVehiculo, modVehiculo, eliVehiculo, regCliente, modCliente, eliCliente, regProyecto, listProyecto, modProyecto, eliProyecto, pdfProyecto, id_usuario) VALUES (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, $id_id_usuario)"; 
-        // var_dump($querys);
-        $resultado = mysqli_query($conexion, $querys);
-        }
 
+
+        // Asignamos permisos existentes
+        if ($admin == 1) {
+            $querys = "INSERT INTO permisos(editarUsu, asignarCon, eliminarUsu, asignarPer, nuevoUsu, regMarca, modMarca, eliminaMar, regModelo, modModelo, eliminarMod, regAnios, modAnios, eliminarAnio, regPermiso, modPermiso, eliPermiso, regVehiculo, modVehiculo, eliVehiculo, regCliente, modCliente, eliCliente, regProyecto, listProyecto, modProyecto, eliProyecto, pdfProyecto, id_usuario) VALUES (1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, $id_id_usuario)";
+            $resultadoPermiso = mysqli_query($conexion, $querys);
+        } else {
+            $querys = "INSERT INTO permisos(editarUsu, asignarCon, eliminarUsu, asignarPer, nuevoUsu, regMarca, modMarca, eliminaMar, regModelo, modModelo, eliminarMod, regAnios, modAnios, eliminarAnio, regPermiso, modPermiso, eliPermiso, regVehiculo, modVehiculo, eliVehiculo, regCliente, modCliente, eliCliente, regProyecto, listProyecto, modProyecto, eliProyecto, pdfProyecto, id_usuario) VALUES (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, $id_id_usuario)";
+            // var_dump($querys);
+            $resultadoPermiso = mysqli_query($conexion, $querys);
+        }
     }
+        // var_dump($resultadoPermiso);
+
 
     if ($resultado) {
         echo "<div class='alert alert-success' role='alert'>

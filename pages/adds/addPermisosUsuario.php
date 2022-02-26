@@ -16,7 +16,7 @@ $queryD = ("DELETE FROM permisos WHERE id_usuario = $id_usuario");
 $resultadoD = mysqli_query($conexion, $queryD);
 
 
-// Extraigo datos del id de la tabal permiso
+// Extraigo datos del id de la tabla permiso
  $queryE = "SELECT permiso FROM permiso WHERE id_usuario = $id_usuario";
  $resultadoE = mysqli_query($conexion, $queryE);
  while ($rowE = $resultadoE->fetch_assoc()) {

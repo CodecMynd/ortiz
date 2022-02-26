@@ -20,7 +20,7 @@ $tel2 =  $_POST['tel2'];
 $cel =  $_POST['cel'];
 $email =  $_POST['email'];
 $observacion = $_POST['observacion'];
-$status = 1;
+$status = 0;
 
 $asignarPermisos = '';
 
@@ -47,7 +47,7 @@ if ($nombres == '' || $aPaternoCliente == '' || $aMaternoCliente == '' || $calle
 }  else {
     $query = "INSERT INTO clientes(nombres, aPaternoCliente, aMaternoCliente, calle, colonia, ciudad, estado, tel1, tel2, cel, email, status, observacion, fecha_creacion, id_capC) 
     VALUES ( '$nombres', '$aPaternoCliente', '$aMaternoCliente', '$calle', '$colonia', '$ciudad', '$estado', '$tel1', '$tel2', '$cel', '$email', '$status', '$observacion', '$date', '$id')";
-    var_dump($query);
+    // var_dump($query);
     $verificar_cliente = mysqli_query($conexion, "SELECT * FROM clientes WHERE nombres = '$nombres' AND aPaternoCliente = '$aPaternoCliente' AND aMaternoCliente = '$aMaternoCliente' ");
 
     if (mysqli_num_rows($verificar_cliente) > 0) {

@@ -2,11 +2,18 @@
 *********************************
 *   crear y subir repositorio   *
 *********************************
+git version ver version instalada
+git help ayuda sobre los comandos 
+git status Ver que archivos no han sido registrados 
+git status -s ver archivos del proyecto 
+
 
 echo "# ortiz" >> README.md
 git init
 git add README.md
 git commit -m "first commit"
+git config --global user.email tu correo (criss_0150@hotmail.com)
+git config --global user.name tu usuario (CrissR10)
 git branch -M main
 git remote add origin https://github.com/CodecMynd/ortiz.git
 git push -u origin main

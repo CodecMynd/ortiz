@@ -82,7 +82,7 @@ require '../components/head-main.php';
                                             <div class="col-md-3 col-sm-12 my-1">
                                                 <div class="input-group form-floating mb-3">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i class="fa-solid fa-location-dot"></i></span>
+                                                        <span class="input-group-text"><i class="fa-solid fa-signs-post"></i></span>
                                                     </div>
                                                     <input type="text" id="colonia" name="colonia" class="form-control" placeholder="Colonia" required maxlength="40" data-toggle="tooltip" data-placement="bottom" title="Max. 40 caracteres" value="<?php echo $row['colonia'] ?>" />
                                                     <label for="floatingInput" class="pl-5">Colonia</label>

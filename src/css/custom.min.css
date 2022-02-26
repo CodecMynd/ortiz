@@ -49459,4 +49459,26 @@ display: none;
     display: none;
     }
 }
+   .btn-modal-selector {
+       border-top-left-radius: 25px;
+       border-bottom-right-radius: 25px;
+      border: 1px solid #ECECEC;
+      -webkit-box-shadow: -2px 2px 15px 0px rgba(0,0,0,0.72); 
+      box-shadow: -2px 2px 15px 0px rgba(0,0,0,0.72);
+    
+   }
+   .btn-modal-selector {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-modal-selector:hover {
+    color: #fff;
+    background-color: #5a6268;
+    border-color: #545b62
+}
+
+
+
 card0fed0fee8fee8e2e8e28e2 */
