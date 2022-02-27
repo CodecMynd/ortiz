@@ -51,11 +51,24 @@ require '../components/head-dataTables.php';
                                 <!-- consulta sql -->
                                 <?php
                                 $cont = 0;
+                                if($super == 1){
                                 $query = "SELECT id_cliente, nombres, aPaternoCliente, aMaternoCliente, tel1, tel2, cel, status FROM clientes ORDER BY nombres DESC";
+                                }else if($verTablaCli == 1){
+                                    $query = "SELECT id_cliente, nombres, aPaternoCliente, aMaternoCliente, tel1, tel2, cel, status FROM clientes ORDER BY nombres DESC";
+                                }else{
+                                    $query = "SELECT id_cliente, nombres, aPaternoCliente, aMaternoCliente, tel1, tel2, cel, status FROM clientes WHERE id_cliente = 0";
+                                }
                                 $resultadoClientes = mysqli_query($conexion, $query);
 
                                 ?>
                                 <div class="card-body">
+                                <?php
+                                    if($verTablaCli == 0){ ?>
+                                        <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
+                                        <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
+                                        <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
+                                        <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
+                                  <?php  } ?>
                                     <table id="tableCrudUsuarios" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>

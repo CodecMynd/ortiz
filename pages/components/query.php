@@ -34,33 +34,47 @@ $resultMarca = mysqli_query($conexion, $sql) or die(mysqli_error($conexion));
 $sql = "SELECT * FROM anios  ORDER BY anio DESC";
 $resultAnio = mysqli_query($conexion, $sql) or die(mysqli_error($conexion));
 
+$sql = "SELECT id_color, color FROM colores  ORDER BY color ASC";
+$resultColor = mysqli_query($conexion, $sql) or die(mysqli_error($conexion));
+
 
 // query Permisos ------------------------------------------------------------------------------------------
 $query = mysqli_query($conexion, "SELECT * FROM permisos WHERE id_usuario = $id");
 while ($row = mysqli_fetch_array($query)) {
+    $verTablaUsuario = $row['verTablaUsuario'];
     $editarUsu = $row['editarUsu'];
     $asignarCon = $row['asignarCon'];
     $eliminarUsu = $row['eliminarUsu'];
     $asignarPer = $row['asignarPer'];
     $nuevoUsu = $row['nuevoUsu'];
+    $verTablaMarca = $row['verTablaMarca'];
     $regMarca = $row['regMarca'];
     $modMarca = $row['modMarca'];
     $eliminaMar = $row['eliminaMar'];
+    $verTablaModelo = $row['verTablaModelo'];
     $regModelo = $row['regModelo'];
     $modModelo = $row['modModelo'];
     $eliminarMod = $row['eliminarMod'];
+    $verTablaAnio = $row['verTablaAnio'];
     $regAnios = $row['regAnios'];
     $modAnios = $row['modAnios'];
     $eliminarAnio = $row['eliminarAnio'];
+    $regColor = $row['regColor'];
+    $modColor = $row['modColor'];
+    $eliminarCol = $row['eliminarCol'];
+    $verTablaColor = $row['verTablaColor'];
     $regPermiso = $row['regPermiso'];
     $modPermiso = $row['modPermiso'];
     $eliPermiso = $row['eliPermiso'];
+    $verTablaVeh = $row['verTablaVeh'];
     $regVehiculo = $row['regVehiculo'];
     $modVehiculo = $row['modVehiculo'];
     $eliVehiculo = $row['eliVehiculo'];
+    $verTablaCli = $row['verTablaCli'];
     $regCliente = $row['regCliente'];
     $modCliente = $row['modCliente'];
     $eliCliente = $row['eliCliente'];
+    $verTablaProy = $row['verTablaProy'];
     $regProyecto = $row['regProyecto'];
     $listProyecto = $row['listProyecto'];
     $modProyecto = $row['modProyecto'];

@@ -29,10 +29,14 @@ require '../components/head-main.php';
             <!-- /titulo y brandcrumb -->
             <?php
             $id = $_GET['id'];
-            $query = "SELECT M.marca, Mo.modelo, A.anio, V.placa, V.id_vehiculo, V.id_marca, V.id_anio
-            FROM vehiculos V INNER JOIN marcas M ON V.id_marca = M.id_marca
-             INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
-             INNER JOIN anios A ON V.id_anio = A.id_anio WHERE id_vehiculo = $id";
+            $query = "SELECT M.marca, Mo.modelo, A.anio, V.placa, C.color, V.id_vehiculo, V.id_marca, V.id_anio, V.id_color
+            FROM vehiculos V 
+            INNER JOIN marcas M ON V.id_marca = M.id_marca 
+            INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
+            INNER JOIN anios A ON V.id_anio = A.id_anio 
+            INNER JOIN colores C on V.id_color = C.id_color WHERE id_vehiculo = $id";
+
+
             $respuesta = mysqli_query($conexion, $query);
             $rowV = $respuesta->fetch_assoc();
 
@@ -41,7 +45,7 @@ require '../components/head-main.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-10">
+                        <div class="col-12">
                             <div class="card border-card">
                                 <div class="card-header border-nav">
                                     <h3 class="card-title">*Todos los campos son obligatorios</h3>
@@ -71,7 +75,7 @@ require '../components/head-main.php';
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3 col-sm-12 my-1 form-group">
+                                            <div class="col-md-2 col-sm-12 my-1 form-group">
                                                 <div class="input-group">
                                                     <label for="anio" class="pl-5">Año</label>
                                                     <select name="anio" id="anio" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Selecciona un Año de la lista" style="width: 100%;">
@@ -84,13 +88,26 @@ require '../components/head-main.php';
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3 col-sm-12 my-1 form-group">
+                                            <div class="col-md-2 col-sm-12 my-1 form-group">
                                                 <div class="input-group form-floating mb-3">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="fa-solid fa-hashtag"></i></span>
                                                     </div>
                                                     <input autofocus name="placa" id="placa" type="text" class="form-control" required maxlength="10" data-toggle="tooltip" data-placement="bottom" title="Ingresa la Placa del Vehículo" onkeyup="javascript:this.value=this.value.toUpperCase();" value="<?php echo $rowV['placa'] ?>">
                                                     <label for="floatingInput" class="pl-5">Placas</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 col-sm-12 my-1 form-group">
+                                                <div class="input-group">
+                                                    <label for="color" class="pl-5">Color</label>
+                                                    <select name="color" id="color" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Selecciona un Color de la lista" style="width: 100%;">
+                                                        <option value="<?php echo $rowV['id_color'] ?>"><?php echo $rowV['color'] ?></option>
+                                                        <?php while ($rowColor = $resultColor->fetch_assoc()) { ?>
+                                                            <option value="<?php echo $rowColor['id_color'] ?>">
+                                                                <?php echo $rowColor['color'] ?>
+                                                            </option>
+                                                        <?php } ?>
+                                                    </select>
                                                 </div>
                                             </div>
 

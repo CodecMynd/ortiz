@@ -52,14 +52,39 @@ require '../components/head-dataTables.php';
                                 <!-- consulta sql -->
                                 <?php
                                 $cont = 0;
-                                $query = "SELECT M.marca, Mo.modelo, A.anio, V.placa, V.id_vehiculo 
-                                FROM vehiculos V INNER JOIN marcas M ON V.id_marca = M.id_marca
-                                 INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
-                                 INNER JOIN anios A ON V.id_anio = A.id_anio;";
+                                if($super == 1){
+                                $query = "SELECT M.marca, Mo.modelo, A.anio, V.placa, C.color, V.id_vehiculo 
+                                FROM vehiculos V 
+                                INNER JOIN marcas M ON V.id_marca = M.id_marca 
+                                INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
+                                INNER JOIN anios A ON V.id_anio = A.id_anio 
+                                INNER JOIN colores C on V.id_color = C.id_color;";
+                                }else if($verTablaVeh == 1){
+                                    $query = "SELECT M.marca, Mo.modelo, A.anio, V.placa, C.color, V.id_vehiculo 
+                                    FROM vehiculos V 
+                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
+                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
+                                    INNER JOIN anios A ON V.id_anio = A.id_anio 
+                                    INNER JOIN colores C on V.id_color = C.id_color;";
+                                }else{
+                                    $query = "SELECT M.marca, Mo.modelo, A.anio, V.placa, C.color, V.id_vehiculo 
+                                    FROM vehiculos V 
+                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
+                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
+                                    INNER JOIN anios A ON V.id_anio = A.id_anio 
+                                    INNER JOIN colores C on V.id_color = C.id_color WHERE id_vehiculo = 0";
+                                }
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
 
                                 <div class="card-body">
+                                <?php
+                                    if($verTablaVeh == 0){ ?>
+                                        <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
+                                        <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
+                                        <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
+                                        <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
+                                  <?php  } ?>
                                     <table id="tablePermisos" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
@@ -68,13 +93,14 @@ require '../components/head-dataTables.php';
                                                 <th>Modelo</th>
                                                 <th>Año</th>
                                                 <th>Placas</th>
+                                                <th>Color</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
                                             while ($row = $resultado->fetch_assoc()) {
-                                                $vehiculo = $row['marca'] . ' | ' . $row['modelo'] . ' | ' . $row['anio'] . ' | ' . $row['placa'];
+                                                $vehiculo = $row['marca'] . ' | ' . $row['modelo'] . ' | ' . $row['anio'] . ' | ' . $row['placa']. ' | '.$row['color'];
                                             ?>
                                                 <tr>
                                                     <td>
@@ -93,6 +119,9 @@ require '../components/head-dataTables.php';
                                                     </td>
                                                     <td>
                                                         <?php echo $row['placa'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['color'] ?>
                                                     </td>
                                                     <td>
                                                         <div class="input-group input-group-sm mb-3">
@@ -148,6 +177,7 @@ require '../components/head-dataTables.php';
                                                 <th>Modelo</th>
                                                 <th>Año</th>
                                                 <th>Placas</th>
+                                                <th>Color</th>
                                                 <th>Acciones</th>
                                             </tr>
                                             </tr>

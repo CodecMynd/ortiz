@@ -29,6 +29,8 @@ require 'query.php';
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
     <!-- Toastr -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+    <!-- ribbon -->
+    <link rel="stylesheet" href="../../src/css/ribbon.css">
 
     <!-- tooltip -->
     <script>

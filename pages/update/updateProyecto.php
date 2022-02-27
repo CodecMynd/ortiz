@@ -30,15 +30,7 @@ $diagnostico = $_POST['diagnostico'];
 $descripServ1 = $_POST['descripServ1'];
 $descripServ2 = $_POST['descripServ2'];
 
-if (
-    $id_cliente == '' || $id_vehiculo == ''  || $nProyecto == '' || $tipoReparacion == '' || $km == '' || $valorVenta == '' || $diagnostico == '' || $descripServ1
-    == ''
-) {
-    echo "<div class='alert alert-danger' role='role'>
-    <p><strong>Error, todos los campos marcados con * son requeridos</strong></p>
-    </div>";
-    exit;
-} else {
+
     // Insertamos tabla proyectos
     $query = "INSERT INTO proyectos(id_cliente, id_vehiculo, nOrden, nProyecto, tipoReparacion, km, valorVenta, diagnostico, descripServ1, descripServ2, fecha, fecha_creacion, id_capC) VALUES ( '$id_cliente', '$id_vehiculo', '$nOrden', '$nProyecto', '$tipoReparacion', '$km', '$valorVenta', '$diagnostico', '$descripServ1', '$descripServ2', '$date', '$date', '$id')";
     $resultado = mysqli_query($conexion, $query);
@@ -52,7 +44,7 @@ if (
     $resultado2 = mysqli_query($conexion, $queryNp);
 
     // var_dump($queryNp);
-}
+
 if ($resultado) {
     echo "<div class='alert alert-success' role='alert'>
             <p><strong>Proyecto ingresado correctamente!</strong></p>

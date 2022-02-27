@@ -68,3 +68,4 @@ function desconectar()
     global $conexion;
     mysqli_close($conexion);
 }
+

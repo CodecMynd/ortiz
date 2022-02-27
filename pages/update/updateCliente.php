@@ -46,9 +46,7 @@ if ($nombres == '' || $aPaternoCliente == '' || $aMaternoCliente == '' || $calle
 
     $query = "UPDATE clientes SET nombres = '$nombres', aPaternoCliente = '$aPaternoCliente', aMaternoCliente = '$aMaternoCliente', calle = '$calle', colonia = '$colonia', ciudad = '$ciudad', estado = '$estado', tel1 = '$tel1', tel2 = '$tel2', cel = '$cel', observacion = '$observacion', fecha_mod = '$date', id_capM = $id, email='$email' WHERE id_cliente = $id_cliente";
 
-
     $resultado = mysqli_query($conexion, $query);
-
 
     if ($resultado) {
         echo "<div class='alert alert-success' role='alert'>
@@ -60,7 +58,6 @@ if ($nombres == '' || $aPaternoCliente == '' || $aMaternoCliente == '' || $calle
             </div>";
     }
 }
-
 desconectar();
 ?>
 <script type="text/javascript">

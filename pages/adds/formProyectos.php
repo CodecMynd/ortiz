@@ -26,7 +26,7 @@ require '../components/head-dataTables.php';
             <!-- Registro Proyecto -->
             <section class="content">
                 <div class="container-fluid">
-                    <div class="card border-card">
+                    <div class="card card-secondary card-outline">
                         <div class="card-header border-nav">
                             <h3 class="card-title">Registro nuevo Proyecto</h3>
                         </div>
@@ -106,8 +106,8 @@ require '../components/head-dataTables.php';
                                                     <div class="card-header">
                                                         <h3 class="card-title">Dato Generales</h3>
                                                         <div class="card-tools">
-                                                        *Campos requeridos
-                                                    </div>
+                                                            *Campos requeridos
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="card-body">
@@ -131,7 +131,7 @@ require '../components/head-dataTables.php';
                                                                 $result = mysqli_query($conexion,  $queryP);
                                                                 $row = mysqli_fetch_row($result);
                                                                 ?>
-                                                                <input name="nProyecto" id="nProyecto" type="text" class="form-control" placeholder="Número de proyecto " required maxlength="15" data-toggle="tooltip" data-placement="bottom" title="Número de proyecto" value="<?php echo $row[0]; ?>" disabled readonly>
+                                                                <input name="nProyecto" id="nProyecto" type="text" class="form-control" placeholder="Número de proyecto " required maxlength="15" data-toggle="tooltip" data-placement="bottom" title="Número de proyecto" value="<?php echo $row[0]; ?>" readonly>
                                                                 <label for="floatingInput" class="pl-5">No. de Proyecto </label>
 
                                                             </div>
@@ -150,30 +150,13 @@ require '../components/head-dataTables.php';
                                                                 </span>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-2 col-sm-12">
-                                                            <div class="input-group">
-                                                                <?php
-                                                                $sql = "SELECT * FROM colores ORDER BY id_color ASC";
-                                                                $result = mysqli_query($conexion, $sql) or die(mysqli_error($conexion));
-                                                                ?>
-                                                                <label style="padding-left: 20px;">*Color</label>
-                                                                <select name="color" id="color" class="form-control" title="Selecciona un color de la lista" style="width: 100%;">
-                                                                    <option selected disabled>Selecciona</option>
-                                                                    <option disabled>_________________</option>
-                                                                    <?php while ($rowColor = $result->fetch_assoc()) { ?>
-                                                                        <option style="background-color: <?php echo $rowColor['hex'] ?>; color:#000000" value="<?php echo $rowColor['color'] ?>">
-                                                                            <?php echo $rowColor['color'] ?>
-                                                                        </option>
-                                                                    <?php } ?>
-                                                                </select>
-                                                            </div>
-                                                        </div>
+
                                                         <div class="col-md-2 col-sm-12 my-1">
                                                             <div class="input-group form-floating mb-3">
                                                                 <div class="input-group-prepend">
-                                                                    <span class="input-group-text"><i class="fa-solid fa-user-tie"></i></span>
+                                                                    <span class="input-group-text"><i class="fa-solid fa-gauge-high"></i></span>
                                                                 </div>
-                                                                <input name="km" id="km" type="text" class="form-control" placeholder="Kilometraje" required maxlength="12" data-toggle="tooltip" data-placement="bottom" title="Redondea Kilometraje actual" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'suffix': ' km', 'placeholder': '0'">
+                                                                <input name="km" id="km" type="text" class="form-control" placeholder="Kilometraje" required maxlength="12" data-toggle="tooltip" data-placement="bottom" title="Redondea Kilometraje actual" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 0, 'digitsOptional': false, 'suffix': ' km', 'placeholder': '0'">
                                                                 <label for="floatingInput" class="pl-5">*Kilometraje </label>
                                                             </div>
                                                         </div>
@@ -181,7 +164,7 @@ require '../components/head-dataTables.php';
                                                             <div class="input-group form-floating mb-3">
                                                                 <div class="input-group-prepend">
                                                                     <span class="input-group-text mt-2">
-                                                                        <h4>$</h4>
+                                                                        <i class="fa-solid fa-money-bill-1-wave"></i>
                                                                     </span>
                                                                 </div>
                                                                 <input name="valorVenta" id="currency1" type="text" class="form-control" placeholder="Kilometraje" required maxlength="12" data-toggle="tooltip" data-placement="bottom" title="Ingresa valor venta">
@@ -256,9 +239,9 @@ require '../components/head-dataTables.php';
                                                         <div class="col-md-2 col-sm-12 align-self-center">
                                                             <buttom type="submit" id="btnNuevoProyecto" class="btn btn-secondary btn-block btnNuevoUsuario" data-toggle="tooltip" data-placement="bottom" title="Guardar "><i class="fas fa-pen"></i> Guardar</buttom>
                                                         </div>
-                                                        <div class="col-md-2 col-sm-12 align-self-center">
+                                                        <!-- <div class="col-md-2 col-sm-12 align-self-center">
                                                             <a href="javascript:history.go(-1)" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
-                                                        </div>
+                                                        </div> -->
                                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                                         <br>
                                                         <div class="col-md-12 col-sm-12 align-self-center mt-2">
@@ -298,18 +281,7 @@ require '../components/head-dataTables.php';
         $(document).ready(function() {
             $(":input").inputmask();
         });
-        // Inputmask.extendAliases({
-        //     pesos: {
-        //         prefix: "₱ ",
-        //         groupSeparator: ".",
-        //         alias: "numeric",
-        //         placeholder: "0",
-        //         autoGroup: true,
-        //         digits: 2,
-        //         digitsOptional: false,
-        //         clearMaskOnLostFocus: false
-        //     }
-        // });
+
         $(document).ready(function() {
             $("#currency1").inputmask({
                 alias: "currency",
@@ -322,58 +294,6 @@ require '../components/head-dataTables.php';
             $("#currency3").inputmask({
                 alias: "pesos"
             });
-        });
-
-        // cargar formulario de Clientes -----------------------------------------------
-        $(document).on("click", ".cargarCliente", function() {
-            var idCliente = $(this).data('id_cliente');
-            $.ajax({
-                url: "../components/cargarCliente.php",
-                type: "POST",
-                cache: false,
-                data: {
-                    idCliente: idCliente
-                },
-                success: function(data) {
-                    $("#cargarClienteTabla").html(data);
-                },
-            });
-        });
-        // cargar formulario de Vehiculos ----------------------------------------------
-        $(document).on("click", ".cargarVehiculo", function() {
-            var idVehiculo = $(this).data('id_vehiculo');
-            $.ajax({
-                url: "../components/cargarVehiculo.php",
-                type: "POST",
-                cache: false,
-                data: {
-                    idVehiculo: idVehiculo
-                },
-                success: function(data) {
-                    $("#cargarVehiculoTabla").html(data);
-                },
-            });
-        });
-
-        // Nuevo proyecto --------------------------------------------------------------------
-        $(document).ready(function() {
-            $('#btnNuevoProyecto').click(function() {
-                $.ajax({
-                        url: 'addNuevoProyecto.php',
-                        type: 'POST',
-                        data: $('#formNuevoProyecto').serialize(),
-                    })
-                    .done(function(res) {
-                        $('#respuestaNuevoProyecto').html(res)
-                    })
-            });
-        });
-        //Ocultar boton por 5 minutos para evitar el doble submit
-        $("#btnNuevoProyecto").on('click', function() {
-            $("#btnNuevoProyecto").css('visibility', 'hidden');
-            setTimeout(function() {
-                $("#btnNuevoProyecto").css('visibility', 'visible');
-            }, 300000);
         });
     </script>
 

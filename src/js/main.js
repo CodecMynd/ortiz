@@ -124,22 +124,22 @@ $('.btnBorrarUsuario').click(function (e) {
 -
 */
 // 1.1.4 Formulario Asignar Permisos ------------------------------------------------------------
-$(document).ready(function() {
-    $('#btnNuevoPermiso').click(function() {
+$(document).ready(function () {
+    $('#btnNuevoPermiso').click(function () {
         $.ajax({
                 url: 'addNuevoPermiso.php',
                 type: 'POST',
                 data: $('#formNuevoPermiso').serialize(),
             })
-            .done(function(res) {
+            .done(function (res) {
                 $('#respuestaNuevoPermiso').html(res)
             })
     });
 });
 //Ocultar boton por 5 minutos para evitar el doble submit
-$("#btnNuevoPermiso").on('click', function() {
+$("#btnNuevoPermiso").on('click', function () {
     $("#btnNuevoPermiso").css('visibility', 'hidden');
-    setTimeout(function() {
+    setTimeout(function () {
         $("#btnNuevoPermiso").css('visibility', 'visible');
     }, 300000);
 });
@@ -177,7 +177,7 @@ $("#btnNuevoUsuario").on('click', function () {
 -
 -
 */
-// 1.1..2.1 Formulario Borrar Permisos creados----------------------------------------------------
+// 1.1.2.1 Formulario Borrar Permisos creados----------------------------------------------------
 $('.btnBorrarPermisos').click(function (e) {
     e.preventDefault();
     if (confirm("¿Estás seguro de eliminar este Permiso? Una vez borrado ya no se podrá recuperar la información.")) {
@@ -357,7 +357,7 @@ $('.btnBorrarModelo').click(function (e) {
 -
 */
 // 1.4.1 Formulario Registro Años ------------------------------------------------------------
-    $(document).ready(function () {
+$(document).ready(function () {
     $('#btnNuevoAnio').click(function () {
         $.ajax({
                 url: 'addNuevoAnio.php',
@@ -383,22 +383,22 @@ $("#btnNuevoAnio").on('click', function () {
 -
 */
 // 1.4.2 Formulario Modificar Años ------------------------------------------------------------
-$(document).ready(function() {
-    $('#btnUpdateAnio').click(function() {
+$(document).ready(function () {
+    $('#btnUpdateAnio').click(function () {
         $.ajax({
                 url: 'updateAnio.php',
                 type: 'POST',
                 data: $('#formUpdateAnio').serialize(),
             })
-            .done(function(res) {
+            .done(function (res) {
                 $('#respuestaUpdateAnio').html(res)
             })
     });
 });
 //Ocultar boton por 5 minutos para evitar el doble submit
-$("#btnUpdateAnio").on('click', function() {
+$("#btnUpdateAnio").on('click', function () {
     $("#btnUpdateAnio").css('visibility', 'hidden');
-    setTimeout(function() {
+    setTimeout(function () {
         $("#btnUpdateAnio").css('visibility', 'visible');
     }, 300000);
 });
@@ -432,37 +432,107 @@ $('.btnBorrarAnio').click(function (e) {
 -
 -
 */
+// 1.5.1 Formulario Crear Colores----------------------------------------------------
+$(document).ready(function () {
+    $('#btnNuevaColor').click(function () {
+        $.ajax({
+                url: 'addNuevoColor.php',
+                type: 'POST',
+                data: $('#formNuevoColor').serialize(),
+                beforeSend: function () {
+                    $('.btnNuevoUsuario').val('Enviando...');
+                }
+            })
+            .done(function (res) {
+                $('#respuestaNuevoColor').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnNuevaColor").on('click', function () {
+    $("#btnNuevaColor").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnNuevaColor").css('visibility', 'visible');
+    }, 300000);
+});
+
+
+// 1.5.2 Formulario Modificar Colores----------------------------------------------------
+$(document).ready(function () {
+    $('#btnUpdateColor').click(function () {
+        $.ajax({
+                url: 'updateColor.php',
+                type: 'POST',
+                data: $('#formUpdateColor').serialize(),
+                beforeSend: function () {
+                    $('.btnNuevoUsuario').val('Enviando...');
+                }
+            })
+            .done(function (res) {
+                $('#respuestaUpdateColor').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnUpdateColor").on('click', function () {
+    $("#btnUpdateColor").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnUpdateColor").css('visibility', 'visible');
+    }, 300000);
+});
+
+// 1.5.3 Formulario Eliminar Color ------------------------------------------------------------
+$('.btnBorrarColor').click(function (e) {
+    e.preventDefault();
+    if (confirm("¿Estás seguro de eliminar esta Color? Una vez borrado ya no se podrá recuperar la información.")) {
+        var id = $(this).attr("id");
+
+        var dataString = 'id=' + id;
+        url = "../delete/deleteColor.php";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: dataString,
+            success: function (data) {
+                window.location.href = "crudColores.php";
+                $('#respuesta').html(data);
+            }
+        });
+    }
+    return false;
+});
+
 // 2.1.1 Formulario Registro Vehiculos ------------------------------------------------------------
-$(document).ready(function() {
-    $("#marca").change(function() {
+$(document).ready(function () {
+    $("#marca").change(function () {
         // $('#cbx_localidad').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
-        $("#marca option:selected").each(function() {
+        $("#marca option:selected").each(function () {
             id_marca = $(this).val();
             $.post("../components/comboBox.php", {
                 id_marca: id_marca
-            }, function(data) {
+            }, function (data) {
                 $("#modelo").html(data);
             });
         });
     })
 });
-$(document).ready(function() {
-    $('#btnNuevoVehiculo').click(function() {
+$(document).ready(function () {
+    $('#btnNuevoVehiculo').click(function () {
         $.ajax({
                 url: 'addNuevoVehiculo.php',
                 type: 'POST',
                 data: $('#formNuevoVehiculo').serialize(),
 
             })
-            .done(function(res) {
+            .done(function (res) {
                 $('#respuestaNuevoVehiculo').html(res)
             })
     });
 });
 //Ocultar boton por 5 minutos para evitar el doble submit
-$("#btnNuevoVehiculo").on('click', function() {
+$("#btnNuevoVehiculo").on('click', function () {
     $("#btnNuevoVehiculo").css('visibility', 'hidden');
-    setTimeout(function() {
+    setTimeout(function () {
         $("#btnNuevoVehiculo").css('visibility', 'visible');
     }, 300000);
 });
@@ -472,36 +542,36 @@ $("#btnNuevoVehiculo").on('click', function() {
 -
 */
 // 2.1.2 Formulario Actaulizar Vehiculo ------------------------------------------------------------
-$(document).ready(function() {
-    $("#marca").change(function() {
+$(document).ready(function () {
+    $("#marca").change(function () {
         // $('#cbx_localidad').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
-        $("#marca option:selected").each(function() {
+        $("#marca option:selected").each(function () {
             id_marca = $(this).val();
             $.post("../components/comboBox.php", {
                 id_marca: id_marca
-            }, function(data) {
+            }, function (data) {
                 $("#modelo").html(data);
             });
         });
     })
 });
-$(document).ready(function() {
-    $('#btnUpdateVehiculo').click(function() {
+$(document).ready(function () {
+    $('#btnUpdateVehiculo').click(function () {
         $.ajax({
                 url: 'updateVehiculo.php',
                 type: 'POST',
                 data: $('#formUpdateVehiculo').serialize(),
 
             })
-            .done(function(res) {
+            .done(function (res) {
                 $('#respuestaUpdateVehiculo').html(res)
             })
     });
 });
 //Ocultar boton por 5 minutos para evitar el doble submit
-$("#btnUpdateVehiculo").on('click', function() {
+$("#btnUpdateVehiculo").on('click', function () {
     $("#btnUpdateVehiculo").css('visibility', 'hidden');
-    setTimeout(function() {
+    setTimeout(function () {
         $("#btnUpdateVehiculo").css('visibility', 'visible');
     }, 300000);
 });
@@ -512,23 +582,23 @@ $("#btnUpdateVehiculo").on('click', function() {
 */
 
 // 2.2.1. Formulario Registro Cliente ------------------------------------------------------------
-$(document).ready(function() {
-    $('#btnNuevoCliente').click(function() {
+$(document).ready(function () {
+    $('#btnNuevoCliente').click(function () {
         $.ajax({
                 url: 'addNuevoCliente.php',
                 type: 'POST',
                 data: $('#formNuevoCliente').serialize(),
 
             })
-            .done(function(res) {
+            .done(function (res) {
                 $('#respuestaNuevoCliente').html(res)
             })
     });
 });
 //Ocultar boton por 5 minutos para evitar el doble submit
-$("#btnNuevoCliente").on('click', function() {
+$("#btnNuevoCliente").on('click', function () {
     $("#btnNuevoCliente").css('visibility', 'hidden');
-    setTimeout(function() {
+    setTimeout(function () {
         $("#btnNuevoCliente").css('visibility', 'visible');
     }, 300000);
 });
@@ -538,23 +608,23 @@ $("#btnNuevoCliente").on('click', function() {
 -
 */
 // 2.2.2 Formulario Modificar Cliente ------------------------------------------------------------
-$(document).ready(function() {
-    $('#btnUpdateCliente').click(function() {
+$(document).ready(function () {
+    $('#btnUpdateCliente').click(function () {
         $.ajax({
                 url: 'updateCliente.php',
                 type: 'POST',
                 data: $('#formUpdateCliente').serialize(),
 
             })
-            .done(function(res) {
+            .done(function (res) {
                 $('#respuestaUpdateCliente').html(res)
             })
     });
 });
 //Ocultar boton por 5 minutos para evitar el doble submit
-$("#btnUpdateCliente").on('click', function() {
+$("#btnUpdateCliente").on('click', function () {
     $("#btnUpdateCliente").css('visibility', 'hidden');
-    setTimeout(function() {
+    setTimeout(function () {
         $("#btnUpdateCliente").css('visibility', 'visible');
     }, 300000);
 });
@@ -588,13 +658,66 @@ $('.btnBorrarCliente').click(function (e) {
 -
 -
 */
-// 2.1.1 Formulario Registro Vehiculos ------------------------------------------------------------
+// 2.3  Registro Proyectos cargar formulario de Clientes -----------------------------------------------
+$(document).on("click", ".cargarCliente", function () {
+    var idCliente = $(this).data('id_cliente');
+    $.ajax({
+        url: "../components/cargarCliente.php",
+        type: "POST",
+        cache: false,
+        data: {
+            idCliente: idCliente
+        },
+        success: function (data) {
+            $("#cargarClienteTabla").html(data);
+        },
+    });
+});
+
+// 2.3  Registro Proyectos  cargar formulario de Vehiculos ----------------------------------------------
+$(document).on("click", ".cargarVehiculo", function () {
+    var idVehiculo = $(this).data('id_vehiculo');
+    $.ajax({
+        url: "../components/cargarVehiculo.php",
+        type: "POST",
+        cache: false,
+        data: {
+            idVehiculo: idVehiculo
+        },
+        success: function (data) {
+            $("#cargarVehiculoTabla").html(data);
+        },
+    });
+});
+
+// 2.3  Registro Proyectos nuevo --------------------------------------------------------------------
+$(document).ready(function () {
+    $('#btnNuevoProyecto').click(function () {
+        $.ajax({
+                url: 'addNuevoProyecto.php',
+                type: 'POST',
+                data: $('#formNuevoProyecto').serialize(),
+            })
+            .done(function (res) {
+                $('#respuestaNuevoProyecto').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnNuevoProyecto").on('click', function () {
+    $("#btnNuevoProyecto").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnNuevoProyecto").css('visibility', 'visible');
+    }, 300000);
+});
 /*
 -
 -
 -
 */
-// 2.1.1 Formulario Registro Vehiculos ------------------------------------------------------------
+// 2.3.3 Formulario Registro Vehiculos ------------------------------------------------------------
+
+
 /*
 -
 -

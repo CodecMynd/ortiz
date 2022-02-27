@@ -2,11 +2,12 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>CRUD Modelos | <?php echo $nomComp ?></title>
+<title>CRUD Colores | <?php echo $nomComp ?></title>
 
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
+
     <div class="wrapper">
         <?php
         require '../components/navbar.php';
@@ -17,7 +18,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Tabla 1.3 Modelos</h1>
+                            <h1 class="m-0">Tabla 1.5 Colores</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -34,17 +35,14 @@ require '../components/head-dataTables.php';
                         <div class="col-md-6 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Modelos dadas de alta en el sistema</h3>
+                                    <h3 class="card-title">Colores dadas de alta en el sistema</h3>
                                     <div class="card-tools">
                                         <?php if ($super == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formAddModelo.php" data-toggle="tooltip" data-placement="left" title="1.3.1 Registro de Modelos">
-                                                <i class="fa-solid fa-car"></i>&nbsp;&nbsp; Registro de Modelos</a>
-                                        <?php } else if ($regModelo == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formAddModelo.php" data-toggle="tooltip" data-placement="left" title="1.3.1 Registro de Modelos">
-                                                <i class="fa-solid fa-car"></i>&nbsp;&nbsp; Registro de Modelos</a>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formAddColor.php" data-toggle="tooltip" data-placement="left" title="1.5.1 Registro de Color"> <i class="fa-solid fa-brush"></i>&nbsp;&nbsp; Registro de Color</a>
+                                        <?php } else if ($regColor == 1) { ?>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formAddColor.php" data-toggle="tooltip" data-placement="left" title="1.5.1 Registro de Color"> <i class="fa-solid fa-brush"></i>&nbsp;&nbsp; Registro de Color</a>
                                         <?php } else { ?>
-                                            <a type="button" class="btn btn-outline-danger" id="regModelo" data-toggle="tooltip" data-placement="left" title="1.3.1 Registro de Modelos">
-                                                <i class="fa-solid fa-car"></i>&nbsp;&nbsp; Registro de Modelos</a>
+                                            <a type="button" class="btn btn-outline-danger" id="regColor" data-toggle="tooltip" data-placement="left" title="1.2.1 Registro de Marca"> <i class="fa-solid fa-brush"></i>&nbsp;&nbsp; Registro de Color</a>
                                         <?php } ?>
 
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
@@ -54,18 +52,19 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if($super == 1){
-                                $query = "SELECT Mo.id_modelo, Mo.id_marca, Mo.modelo, Ma.id_marca, Ma.marca  FROM modelos Mo INNER JOIN marcas Ma ON Mo.id_marca = Ma.id_marca ORDER BY marca ASC";
-                              }else if($verTablaModelo == 1){
-                                    $query = "SELECT Mo.id_modelo, Mo.id_marca, Mo.modelo, Ma.id_marca, Ma.marca  FROM modelos Mo INNER JOIN marcas Ma ON Mo.id_marca = Ma.id_marca ORDER BY marca ASC";
-                              }else{
-                                $query = "SELECT Mo.id_modelo, Mo.id_marca, Mo.modelo, Ma.id_marca, Ma.marca  FROM modelos Mo INNER JOIN marcas Ma ON Mo.id_marca = 0 ORDER BY marca ASC";
-                              }
-                                $resultado = mysqli_query($conexion, $query);
-                                ?>
+                                $query = "SELECT id_color, color FROM colores ORDER BY color ASC";
+                                }else if($verTablaColor == 1){
+                                $query = "SELECT id_color, color FROM colores ORDER BY color ASC";
+                                }else{
+                                    $query = "SELECT id_color, color FROM colores WHERE id_color = 0";
 
+                                }
+                                $resultado = mysqli_query($conexion, $query);
+
+                                ?>
                                 <div class="card-body">
                                 <?php
-                                    if($verTablaModelo == 0){ ?>
+                                    if($verTablaColor == 0){ ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
@@ -75,8 +74,8 @@ require '../components/head-dataTables.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Marca</th>
-                                                <th>Modelo</th>
+                                                <th>Color</th>
+                                                <th>Status</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -90,43 +89,45 @@ require '../components/head-dataTables.php';
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['marca'] ?>
+                                                        <?php echo $row['color'] ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['modelo'] ?>
+
                                                     </td>
                                                     <td>
                                                         <div class="input-group input-group-sm mb-3">
                                                             <div class="input-group-prepend">
-                                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Modelos"> Acciones</span>
+                                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Marcas"> Acciones</span>
                                                                 </button>
                                                                 <ul class="dropdown-menu">
                                                                     <div class="btn-group">
                                                                         <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="1.3.2 Modificar Modelo">
+                                                                            <span data-toggle="tooltip" title="1.5.2 Modificar Color">
                                                                                 <?php if ($super == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../update/formUpdateModelo.php?id=<?php echo $row['id_modelo'] ?>"><i class="fas fa-edit"></i>
+                                                                                    <a class="btn btn-secondary" href="../update/formUpdateColor.php?id=<?php echo $row['id_color'] ?>"><i class="fas fa-edit"></i>
                                                                                     </a>
-                                                                                <?php  } else if ($modModelo  == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../update/formUpdateModelo.php?id=<?php echo $row['id_modelo'] ?>"><i class="fas fa-edit"></i>
+                                                                                <?php  } else if ($modColor  == 1) { ?>
+                                                                                    <a class="btn btn-secondary" href="../update/formUpdateColor.php?id=<?php echo $row['id_color'] ?>"><i class="fas fa-edit"></i>
                                                                                     </a>
                                                                                 <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="modModelo"><i class="fas fa-edit"></i>
+                                                                                    <a class="btn btn-outline-danger" id="modColor"><i class="fas fa-edit"></i>
                                                                                     </a>
                                                                                 <?php } ?>
                                                                             </span>
                                                                         </li>
                                                                         <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="1.3.3  Eliminar Modelo">
-                                                                            <?php if ($super == 1) { ?>
-                                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarModelo-<?php echo $row['id_modelo'] ?>"><i class="fas fa-trash-alt"></i>
-                                                                                </a>
-                                                                                <?php  } else if ($eliminarMod  == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarModelo-<?php echo $row['id_modelo'] ?>"><i class="fas fa-trash-alt"></i>
-                                                                                </a>
+                                                                            <span data-toggle="tooltip" title="1.5.3  Eliminar Color">
+                                                                                <?php if ($super == 1) { ?>
+                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarColor-<?php echo $row['id_color'] ?>"><i class="fas fa-trash-alt"></i>
+                                                                                    </a>
+                                                                                <?php  } else if ($eliminarCol  == 1) { ?>
+                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarColor-<?php echo $row['id_color'] ?>"><i class="fas fa-trash-alt"></i>
+                                                                                    </a>
                                                                                 <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="eliminarMod" ><i class="fas fa-trash-alt"></i></a>
+                                                                                    <a class="btn btn-outline-danger" id="eliminarCol" ><i class="fas fa-trash-alt"></i>
+                                                                                    </a>
                                                                                 <?php } ?>
+
                                                                             </span>
                                                                         </li>
                                                                     </div>
@@ -136,7 +137,7 @@ require '../components/head-dataTables.php';
                                                     </td>
                                                 </tr>
                                             <?php
-                                                require '../components/modal-eliminarModelo.php';
+                                                require '../components/modal-eliminarColor.php';
                                             }
                                             desconectar();
                                             ?>
@@ -144,13 +145,12 @@ require '../components/head-dataTables.php';
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Marca</th>
-                                                <th>Modelo</th>
+                                                <th>Colores</th>
+                                                <th>Status</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>
                                     </table>
-                                    <div id="respuestaBorrarModelo"></div>
                                 </div>
                             </div>
                         </div>
@@ -172,6 +172,5 @@ require '../components/head-dataTables.php';
     <!-- avisos -->
     <script src="../../src/js/toastr.js"></script>
 </body>
-
 
 </html>

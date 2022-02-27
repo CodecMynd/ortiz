@@ -12,7 +12,7 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="../admin/panelAdmin.php" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Ir al Inicio" >| <i class="fa-solid fa-house-user"></i></a>
+                    <a href="../admin/panelAdmin.php" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Ir al Inicio">| <i class="fa-solid fa-house-user"></i></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button" data-toggle="tooltip" data-placement="bottom" title="Expandir pantalla completa">
@@ -63,8 +63,9 @@
                         <li><a href="../admin/crudMarcas.php" class="dropdown-item">1.2 Marcas </a></li>
                         <li><a href="../admin/crudModelos.php" class="dropdown-item">1.3 Modelos </a></li>
                         <li><a href="../admin/crudAnios.php" class="dropdown-item">1.4 Años </a></li>
+                        <li><a href="../admin/crudColores.php" class="dropdown-item">1.5 Colores </a></li>
                         <?php if ($super == 1) { ?>
-                            <li><a href="../adds/formProyectos.php" class="dropdown-item">1.5 Permisos </a></li>
+                            <li><a href="../adds/formProyectos.php" class="dropdown-item">1.6 Permisos </a></li>
                         <?php  } ?>
                     </ul>
                 </li>
@@ -74,12 +75,24 @@
                                                                                                                                                         } else {
                                                                                                                                                             echo 'text-dark ';
                                                                                                                                                         } ?> ">2.0 Proyecto</a>
-                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style="min-width: 12rem">
                         <li><a href="../admin/crudVehiculos.php" class="dropdown-item">2.1 Registro Vehículo </a></li>
                         <li><a href="../admin/crudClientes.php" class="dropdown-item">2.2 Registro Cliente </a></li>
-                        <li><a href="../adds/formProyectos.php" class="dropdown-item">2.3 Registro Proyecto </a></li>
+                        <!-- <li></li> -->
+                        <li class="dropdown-submenu dropdown-hover">
+                            <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">2.3 Registro Proyecto</a>
+                            <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
+                                <li><a href="../adds/formProyectos.php" class="dropdown-item">2.3.1  Registro de Proyecto </a></li>
+                                <li><a href="../admin/crudProyectos.php" class="dropdown-item">2.3.2 Lista de Proyectos</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
+
+
+
+
+
                 <li class="nav-item dropdown">
                     <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle  disabled">3.0 Insumos</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">

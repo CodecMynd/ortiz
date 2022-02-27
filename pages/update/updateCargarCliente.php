@@ -1,5 +1,5 @@
 <?php
-require 'head-main.php';
+require '../components/head-main.php';
 conectar();
 
 $id_cliente = $_POST['idCliente'];
@@ -7,6 +7,7 @@ $id_cliente = $_POST['idCliente'];
 $query = "SELECT * FROM clientes WHERE id_cliente = $id_cliente";
 $respuesta = mysqli_query($conexion, $query);
 $row  = $respuesta->fetch_assoc();
+
 
 $nombres = $row['nombres'];
 $aPaterno = $row['aPaternoCliente'];
@@ -25,9 +26,10 @@ $observacion = $row['observacion'];
 if ($respuesta->num_rows  > 0) {
 $output = '';
 $output .= "
+
 <div class='card-body'>
 <div class='row justify-content-center'>
-<input name='id_cliente' id='id_cliente' type='hidden' value='{$id_cliente}'>
+    <input name='id_cliente' id='id_cliente' type='hidden' value='{$id_cliente}'>
     <div class='col-md-4 col-sm-12  form-group'>
         <div class='input-group form-floating '>
             <div class='input-group-prepend'>
@@ -123,12 +125,47 @@ $output .= "
             </span>
         </div>
     </div>
-    
 </div>
-</div>";
+
+</div>
+</div>
+<div class='row'>
+    <div class='col-md-2 col-sm-12 align-self-center'>
+        <buttom type='button' id='btnUpdateCargarCliente' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Guardar'><i class='fas fa-pen'></i> Guardar</buttom>
+    </div>
+    <div class='col-md-2 col-sm-12 align-self-center'>
+    <a href='javascript:location.reload()' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Actualizar página'><i class='fa-solid fa-arrows-rotate'></i></a>
+    </div>
+    <div id='respuestaUpdateCargarCliente'></div>
+</div>
+
+";
 echo $output;
 }else{
     echo "<h5>Ningún registro fue encontrado</h5>";
 }
 
 ?>
+<script>
+            //Una ves mostrados loe enviamos para actualizar
+            $(document).ready(function() {
+            $('#btnUpdateCargarCliente').click(function() {
+                $.ajax({
+                        url: 'updateCargarClienteActualizado.php',
+                        type: 'POST',
+                        data: $('#formUpdateCargarCliente').serialize(),
+                    })
+                    .done(function(res) {
+                        $('#respuestaUpdateCargarCliente').html(res)
+                    })
+            });
+        });
+        //Ocultar boton por 5 minutos para evitar el doble submit
+        $("#btnUpdateCargarCliente").on('click', function() {
+            $("#btnUpdateCargarCliente").css('visibility', 'hidden');
+            setTimeout(function() {
+                $("#btnUpdateCargarCliente").css('visibility', 'visible');
+            }, 300000);
+        });
+
+</script>

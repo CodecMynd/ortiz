@@ -180,7 +180,7 @@ require '../components/head-main.php';
                                             </div>
                                             <div class="col-md-12 col-sm-12 my-1">
                                                 <label for="aclaraObser">Observaciones <small>*campo no requerido</small></label>
-                                                <div class="form-group-input">
+                                                <div class="form-group-input" style="border: 1px solid #CED4DA;">
                                                     <span data-toggle="tooltip" title="max. 200 caracteres">
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">

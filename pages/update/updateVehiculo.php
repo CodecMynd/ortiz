@@ -15,15 +15,16 @@ $marca = $_POST['marca'];
 $modelo = $_POST['modelo'];
 $anio = $_POST['anio'];
 $placa = $_POST['placa'];
+$color = $_POST['color'];
 
 
-if ($marca == '' || $modelo == '' || $anio == '' || $placa == '') {
+if ($marca == '' || $modelo == '' || $anio == '' || $placa == '' || $color == '') {
     echo "<div class='alert alert-danger' role='role'>
          <p><strong>Error, todos los campos son requeridos</strong></p>
          </div>";
     exit;
 } else {
-    $query = "UPDATE vehiculos SET id_marca = '$marca', id_modelo = '$modelo', id_anio = '$anio', placa = '$placa', fecha_mod = '$date', id_captM = '$id' WHERE id_vehiculo = $id_vehiculo ";
+    $query = "UPDATE vehiculos SET id_marca = '$marca', id_modelo = '$modelo', id_anio = '$anio', placa = '$placa', id_color = '$color', fecha_mod = '$date', id_captM = '$id' WHERE id_vehiculo = $id_vehiculo ";
 
     $resultado = mysqli_query($conexion, $query);
     if ($resultado) {

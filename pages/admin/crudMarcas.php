@@ -40,7 +40,7 @@ require '../components/head-dataTables.php';
                                         <?php if ($super == 1) { ?>
                                             <a type="button" class="btn btn-secondary" href="../adds/formAddMarca.php" data-toggle="tooltip" data-placement="left" title="1.2.1 Registro de Marca"> <i class="fa-solid fa-car-side"></i>&nbsp;&nbsp; Registro de Marca</a>
                                         <?php } else if ($regMarca == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formAddMarca.php" data-toggle="tooltip" data-placement="left" title="1.2.1 Registro de Marca"> <i&nbsp;&nbsp; class="fa-solid fa-car-side"></i&nbsp;&nbsp;> Registro de Marca</a>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formAddMarca.php" data-toggle="tooltip" data-placement="left" title="1.2.1 Registro de Marca"> <i class="fa-solid fa-car-side"></i>&nbsp;&nbsp;Registro de Marca</a>
                                         <?php } else { ?>
                                             <a type="button" class="btn btn-outline-danger" id="regMarca" data-toggle="tooltip" data-placement="left" title="1.2.1 Registro de Marca"> <i class="fa-solid fa-car-side"></i>&nbsp;&nbsp; Registro de Marca</a>
                                         <?php } ?>
@@ -51,10 +51,23 @@ require '../components/head-dataTables.php';
                                 <!-- consulta sql -->
                                 <?php
                                 $cont = 0;
+                                if($super == 1){
                                 $query = "SELECT id_marca, marca FROM marcas ORDER BY marca ASC";
+                                }else if($verTablaMarca){
+                                $query = "SELECT id_marca, marca FROM marcas ORDER BY marca ASC";
+                                }else{
+                                    $query = "SELECT id_marca, marca FROM marcas WHERE id_marca = 0";
+                                }
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
                                 <div class="card-body">
+                                <?php
+                                    if($verTablaMarca == 0){ ?>
+                                        <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
+                                        <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
+                                        <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
+                                        <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
+                                  <?php  } ?>
                                     <table id="tablePermisos" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
