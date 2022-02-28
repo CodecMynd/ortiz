@@ -16,7 +16,7 @@
                 <a data-dismiss="modal" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Cancelar"><i class="fa-solid fa-xmark"></i> Salir</a>
             </div>
             <div class="pie">
-                <h5>2.2.3 Modificar Cliente</h5>
+                <h5>2.2.3 Eliminar Cliente</h5>
             </div>
         </div>
     </div>

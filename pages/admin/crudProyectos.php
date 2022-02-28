@@ -156,10 +156,10 @@ require '../components/head-dataTables.php';
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="2.3.4 Eliminar Proyecyo">
                                                                                 <?php if ($super == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-sm<?php echo $row['id_proyecto'] ?>"><i class="fas fa-trash-alt"></i>
+                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarProyecto<?php echo $row['id_proyecto'] ?>"><i class="fas fa-trash-alt"></i>
                                                                                     </a>
                                                                                 <?php  } else if ($eliProyecto == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-sm<?php echo $row['id_proyecto'] ?>"><i class="fas fa-trash-alt"></i>
+                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarProyecto<?php echo $row['id_proyecto'] ?>"><i class="fas fa-trash-alt"></i>
                                                                                     </a>
                                                                                 <?php } else { ?>
                                                                                     <a class="btn btn-outline-danger" id="eliProyecto"><i class="fas fa-trash-alt"></i>
@@ -188,7 +188,7 @@ require '../components/head-dataTables.php';
                                                     </td>
                                                 </tr>
                                             <?php
-                                                require '../components/modal-eliminarUsuario.php';
+                                                require '../components/modal-eliminarProyecto.php';
                                             }
                                             desconectar();
                                             ?>
@@ -207,6 +207,7 @@ require '../components/head-dataTables.php';
                                             </tr>
                                         </tfoot>
                                     </table>
+                                    <!-- <div id="respuestaProyectoBorrado"></div> -->
                                 </div>
                             </div>
                         </div>
@@ -230,4 +231,4 @@ require '../components/head-dataTables.php';
 
 </body>
 
-</html> -->
+</html> 

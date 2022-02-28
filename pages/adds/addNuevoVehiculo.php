@@ -25,7 +25,7 @@ if ($marca == '' || $modelo == '' || $anio == '' || $placa == '' || $color == ''
 } else {
     $query = "INSERT INTO vehiculos(id_marca, id_modelo, id_anio, placa, id_color, fecha_creacion, id_captC ) VALUES ('$marca' , '$modelo', '$anio', '$placa', '$color', '$date', '$id' )";
     // var_dump($query);
-    $verificar_vehiculo = mysqli_query($conexion, "SELECT id_marca, id_modelo, id_anio, placa, color FROM vehiculos WHERE id_marca = '$marca' AND id_modelo = '$modelo' AND id_anio = '$anio' AND placa = '$placa' AND color = '$color' ");
+    $verificar_vehiculo = mysqli_query($conexion, "SELECT id_marca, id_modelo, id_anio, placa, id_color FROM vehiculos WHERE id_marca = '$marca' AND id_modelo = '$modelo' AND id_anio = '$anio' AND placa = '$placa' AND id_color = '$color' ");
 // var_dump($query);
     if (mysqli_num_rows($verificar_vehiculo) > 0) {
         echo

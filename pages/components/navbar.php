@@ -65,7 +65,7 @@
                         <li><a href="../admin/crudAnios.php" class="dropdown-item">1.4 Años </a></li>
                         <li><a href="../admin/crudColores.php" class="dropdown-item">1.5 Colores </a></li>
                         <?php if ($super == 1) { ?>
-                            <li><a href="../adds/formProyectos.php" class="dropdown-item">1.6 Permisos </a></li>
+                            <li><a href="../admin/crudPermisos.php" class="dropdown-item">1.6 Permisos </a></li>
                         <?php  } ?>
                     </ul>
                 </li>
@@ -87,11 +87,7 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
-
-
-
-
+                </li>    
 
                 <li class="nav-item dropdown">
                     <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle  disabled">3.0 Insumos</a>

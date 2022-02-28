@@ -22,8 +22,8 @@
                                 <th>#</th>
                                 <th>Nombre Cliente</th>
                                 <th>Celular</th>
-                                <th>Estado</th>
-                                <th>Selecciona</th>
+                                <!-- <th>Estado</th> -->
+                                <th>Descarga</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,7 +36,7 @@
                                         echo $cont;
                                         ?>
                                     </td>
-                                    <td>
+                                    <td style="width: 70%;">
                                         <?php
                                         $nombres = $row['nombres'];
                                         $aPaterno = $row['aPaternoCliente'];
@@ -44,10 +44,10 @@
                                         echo $nomCompClie = $nombres . ' ' . $aPaterno . ' ' . $aMaterno;
                                         ?>
                                     </td>
-                                    <td>
+                                    <td style="width: 30%;">
                                         <?php echo $row['cel'] ?>
                                     </td>
-                                    <td>
+                                    <!-- <td style="width: 50%;">
                                         <?php
                                         if ($row['status'] == 1) {
                                             echo '<span class="badge badge-pill badge-danger">En uso</span>';
@@ -55,9 +55,9 @@
                                             echo '<span class="badge badge-pill badge-success">Libre</span>';
                                         }
                                         ?>
-                                    </td>
-                                    <td>
-                                        <button class='btn btn-success btn-sm UpdateCargarCliente' data-id_cliente="<?php echo $row['id_cliente'] ?>">Cargar</button>
+                                    </td> -->
+                                    <td class="row justify-content-center">
+                                        <button class='btn btn-secondary btn-sm UpdateCargarCliente' data-id_cliente="<?php echo $row['id_cliente'] ?>"><i class="fa-solid fa-download"></i></button>
                                     </td>
                                 </tr>
                             <?php
@@ -70,8 +70,8 @@
                                 <th>#</th>
                                 <th>Nombre Cliente</th>
                                 <th>Celular</th>
-                                <th>Estado</th>
-                                <th>Selecciona</th>
+                                <!-- <th>Estado</th> -->
+                                <th>Descarga</th>
                             </tr>
                         </tfoot>
                     </table>

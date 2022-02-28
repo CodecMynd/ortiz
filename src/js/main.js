@@ -658,7 +658,7 @@ $('.btnBorrarCliente').click(function (e) {
 -
 -
 */
-// 2.3  Registro Proyectos cargar formulario de Clientes -----------------------------------------------
+// 2.3  Registro Proyectos cargar Modal de Clientes -----------------------------------------------
 $(document).on("click", ".cargarCliente", function () {
     var idCliente = $(this).data('id_cliente');
     $.ajax({
@@ -690,7 +690,7 @@ $(document).on("click", ".cargarVehiculo", function () {
     });
 });
 
-// 2.3  Registro Proyectos nuevo --------------------------------------------------------------------
+// 2.3  Registro Nuevo Proyecto --------------------------------------------------------------------
 $(document).ready(function () {
     $('#btnNuevoProyecto').click(function () {
         $.ajax({
@@ -710,13 +710,86 @@ $("#btnNuevoProyecto").on('click', function () {
         $("#btnNuevoProyecto").css('visibility', 'visible');
     }, 300000);
 });
+//
+//
+// 2.3  Update Cargar Modal Clientes -----------------------------------------------
+$(document).on("click", ".UpdateCargarCliente", function () {
+    var idCliente = $(this).data('id_cliente');
+    $.ajax({
+        url: "../update/updateCargarCliente.php",
+        type: "POST",
+        cache: false,
+        data: {
+            idCliente: idCliente
+        },
+        success: function (data) {
+            $("#cargarUpdateClienteTabla").html(data);
+        },
+    });
+});
+//
+// 2.3  Update Cargar Modal  Vehiculos -----------------------------------------------
+$(document).on("click", ".updateCargarVehiculo", function () {
+    var idVehiculo = $(this).data('id_vehiculo');
+    $.ajax({
+        url: "../update/updateCargarVehiculo.php",
+        type: "POST",
+        cache: false,
+        data: {
+            idVehiculo: idVehiculo
+        },
+        success: function (data) {
+            $("#cargarUpdateVehiculoTabla").html(data);
+        },
+    });
+});
+
+
+// 2.3  Actualizar Formulario datos generales --------------------------------------------------------------------
+$(document).ready(function () {
+    $('#btnUpdateProyectoDatosGral').click(function () {
+        $.ajax({
+                url: 'updateProyectoDatosGral.php',
+                type: 'POST',
+                data: $('#formUpdateProyectoDatosGral').serialize(),
+            })
+            .done(function (res) {
+                $('#respuestaUpdateProyectoDatosGral').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnUpdateProyectoDatosGral").on('click', function () {
+    $("#btnUpdateProyectoDatosGral").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnUpdateProyectoDatosGral").css('visibility', 'visible');
+    }, 300000);
+});
 /*
 -
 -
 -
 */
-// 2.3.3 Formulario Registro Vehiculos ------------------------------------------------------------
+// 2.3.4 Eliminar Proyectos ------------------------------------------------------------
+$('.btnBorrarProyecto').click(function (e) {
+    e.preventDefault();
+    if (confirm("¿Estás seguro de eliminar esta Proyecto? Una vez borrado ya no se podrá recuperar la información.")) {
+        var id = $(this).attr("id");
 
+        var dataString = 'id=' + id;
+        url = "../delete/deleteProyecto.php";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: dataString,
+            success: function (data) {
+                window.location.href = "crudProyectos.php";
+                $('#respuestaProyectoBorrado').html(data);
+            }
+        });
+    }
+    return false;
+});
 
 /*
 -

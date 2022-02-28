@@ -21,16 +21,16 @@ if ($id_marca == '' || $modelo == '') {
 } else {
     $query = "UPDATE modelos SET id_marca = '$id_marca', modelo = '$modelo', fecha_mod = '$date', id_capM= '$id' WHERE id_modelo = $id_modelo";
 
-    // $verificar_modeloMarca = mysqli_query($conexion, "SELECT * FROM modelos WHERE id_marca = '$id_marca' AND modelo = '$modelo' ");
+     $verificar_modeloMarca = mysqli_query($conexion, "SELECT * FROM modelos WHERE id_marca = '$id_marca' AND modelo = '$modelo' ");
 
 
-    // if (mysqli_num_rows($verificar_modeloMarca) > 0) {
-    //     echo
-    //     "<div class='alert alert-danger' role='role'>
-    //     <p><strong>¡Error, este Modelo/Marca ya se encuentra  registrado, verifica por favor!</strong></p>
-    //     </div>";
-    //     exit;
-    // } else {
+     if (mysqli_num_rows($verificar_modeloMarca) > 0) {
+         echo
+         "<div class='alert alert-danger' role='role'>
+         <p><strong>¡Error, este Modelo/Marca ya se encuentra  registrado, verifica por favor!</strong></p>
+         </div>";
+         exit;
+     } else {
 
         $resultado = mysqli_query($conexion, $query);
         if ($resultado) {

@@ -30,7 +30,7 @@
                             <th>Año</th>
                             <th>Placas</th>
                             <th>Color</th>
-                            <th>Selecciona</th>
+                            <th>Descarga </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,23 +44,23 @@
                                     echo $cont;
                                     ?>
                                 </td>
-                                <td>
+                                <td style="width: 30%;">
                                     <?php echo $row['marca'] ?>
                                 </td>
-                                <td>
+                                <td style="width: 20%;">
                                     <?php echo $row['modelo'] ?>
                                 </td>
-                                <td>
+                                <td style="width: 10%;">
                                     <?php echo $row['anio'] ?>
                                 </td>
-                                <td>
+                                <td style="width: 10%;">
                                     <?php echo $row['placa'] ?>
                                 </td>
-                                <td>
+                                <td style="width: 20%;">
                                     <?php echo $row['color'] ?>
                                 </td>
-                                <td>
-                                    <button class='btn btn-success btn-sm cargarVehiculo' data-id_vehiculo="<?php echo $row['id_vehiculo'] ?>">Cargar</button>
+                                <td class="row justify-content-center">
+                                    <button class='btn btn-secondary btn-sm cargarVehiculo' data-id_vehiculo="<?php echo $row['id_vehiculo'] ?>"><i class="fa-solid fa-download"></i></button>
                                 </td>
                             </tr>
                         <?php
@@ -75,7 +75,7 @@
                             <th>Año</th>
                             <th>Placas</th>
                             <th>Color</th>
-                            <th>Selecciona</th>
+                            <th>Descarga</th>
                         </tr>
                     </tfoot>
                 </table>
