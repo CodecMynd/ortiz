@@ -17,7 +17,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
                                 </div>
-                                <input autofocus name="nombres" id="nombres" type="text" class="form-control" placeholder="Nombre (s)" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres" value="<?php echo $nombres ?>">
+                                <input autofocus name="nombres" id="nombres" type="text" class="form-control" placeholder="Nombre (s)" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres" value="<?php echo $nombres ?>" <?php if($admin == 1){echo '';}else{ echo 'readonly';}?> >
                                 <label for="floatingInput" class="pl-5">Nombre(s) <small>*Campo a Editar</small></label>
                             </div>
                         </div>
@@ -26,7 +26,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa-solid fa-user-group"></i></span>
                                 </div>
-                                <input name="aPaterno" id="aPaterno" type="text" class="form-control" placeholder="Apellido Paterno" required maxlength="40" data-toggle="tooltip" data-placement="bottom" title="Max. 40 caracteres" value="<?php echo $aPaterno ?>">
+                                <input name="aPaterno" id="aPaterno" type="text" class="form-control" placeholder="Apellido Paterno" required maxlength="40" data-toggle="tooltip" data-placement="bottom" title="Max. 40 caracteres" value="<?php echo $aPaterno ?>" <?php if($admin == 1){echo '';}else{ echo 'readonly';}?> >
                                 <label for="floatingInput" class="pl-5">Apellido Paterno <small>*Campo a Editar</small></label>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa-solid fa-user-group"></i></span>
                                 </div>
-                                <input name="aMaterno" id="aMaterno" type="text" class="form-control" placeholder="Apellido Materno" required maxlength="40" data-toggle="tooltip" data-placement="bottom" title="Max. 40 caracteres" value="<?php echo $aMaterno ?>">
+                                <input name="aMaterno" id="aMaterno" type="text" class="form-control" placeholder="Apellido Materno" required maxlength="40" data-toggle="tooltip" data-placement="bottom" title="Max. 40 caracteres" value="<?php echo $aMaterno ?>" <?php if($admin == 1){echo '';}else{ echo 'readonly';}?> >
                                 <label for="floatingInput" class="pl-5">Apellido Materno <small>*Campo a Editar</small></label>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa-solid fa-user-tie"></i></span>
                                 </div>
-                                <input name="usuario" id="usuario" type="text" class="form-control" placeholder="usuario" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres" value="<?php echo $usuario ?>" onkeyup="javascript:this.value=this.value.toLowerCase();">
+                                <input name="usuario" id="usuario" type="text" class="form-control" placeholder="usuario" required maxlength="30" data-toggle="tooltip" data-placement="bottom" title="Max. 30 caracteres" value="<?php echo $usuario ?>" onkeyup="javascript:this.value=this.value.toLowerCase();" <?php if($admin == 1){echo '';}else{ echo 'readonly';}?> >
                                 <label for="floatingInput" class="pl-5">Usuario <small>*Campo a Editar</small></label>
                             </div>
                         </div>
@@ -53,7 +53,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa-solid fa-at"></i></span>
                                 </div>
-                                <input type="text" id="email" name="email" class="form-control" placeholder="Correo" data-inputmask="'alias': 'email'" value="<?php echo $email ?>" />
+                                <input type="text" id="email" name="email" class="form-control" placeholder="Correo" data-inputmask="'alias': 'email'" value="<?php echo $email ?>" <?php if($admin == 1){echo '';}else{ echo 'readonly';}?>  />
                                 <label for="floatingInput" class="pl-5">Email <small> *Ej. prueba@prueba.com</small> </label>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa-solid fa-mobile"></i></span>
                                 </div>
-                                <input name="tel" id="tel" type="text" class="form-control" placeholder="Telefono" data-inputmask="'mask' : '(999) 999-9999'" value="<?php echo $tel ?>">
+                                <input name="tel" id="tel" type="text" class="form-control" placeholder="Telefono" data-inputmask="'mask' : '(999) 999-9999'" value="<?php echo $tel ?>" <?php if($admin == 1){echo '';}else{ echo 'readonly';}?> >
                                 <label for="floatingInput" class="pl-5">Teléfono <small>*Campo a Editar</small></label>
                             </div>
                         </div>

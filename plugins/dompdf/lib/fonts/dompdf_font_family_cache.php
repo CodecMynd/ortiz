@@ -84,5 +84,8 @@ return array (
     'normal' => $fontDir . '/source_sans_pro_normal_3836b62188a7eb41497933c383698a33',
     'bold' => $fontDir . '/source_sans_pro_bold_753131f66ba420849a864dedfee9d2b4',
   ),
+  'bhutuka expanded one' => array(
+    'normal' => $fontDir . '/bhutuka_expanded_one_normal_1f55bb3263a18f09c273e4a84275d778',
+  ),
 );
 }; ?>

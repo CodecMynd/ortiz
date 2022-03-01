@@ -60,7 +60,7 @@
                                     <?php echo $row['color'] ?>
                                 </td>
                                 <td class="row justify-content-center">
-                                    <button class='btn btn-secondary btn-sm updateCargarVehiculo' data-id_vehiculo="<?php echo $row['id_vehiculo'] ?>"><i class="fa-solid fa-download"></i></button>
+                                    <button class='btn btn-secondary btn-sm updateCargarVehiculo' data-dismiss="modal" data-id_vehiculo="<?php echo $row['id_vehiculo'] ?>"><i class="fa-solid fa-download"></i></button>
                                 </td>
                             </tr>
                         <?php
@@ -79,9 +79,6 @@
                         </tr>
                     </tfoot>
                 </table>
-                <div class="col-md-2">
-                    <a data-dismiss="modal" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Cancelar"><i class="fa-solid fa-xmark"></i> Salir</a>
-                </div>
             </div>
         </div>
     </div>

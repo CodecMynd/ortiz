@@ -31844,7 +31844,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
     -ms-flex-pack: center;
     justify-content: center;
     text-align: center;
-    width: 70px
+    width: 40px
 }
 
 .info-box .info-box-icon>img {
@@ -31875,7 +31875,8 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap
+    white-space: nowrap;
+    font-size:14px;
 }
 
 .info-box .info-box .bg-gradient-primary, .info-box .info-box .bg-primary {

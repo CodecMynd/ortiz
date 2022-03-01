@@ -57,7 +57,7 @@
                                         ?>
                                     </td> -->
                                     <td class="row justify-content-center">
-                                        <button class='btn btn-secondary btn-sm UpdateCargarCliente' data-id_cliente="<?php echo $row['id_cliente'] ?>"><i class="fa-solid fa-download"></i></button>
+                                        <button class='btn btn-secondary btn-sm UpdateCargarCliente' data-dismiss="modal" data-id_cliente="<?php echo $row['id_cliente'] ?>"><i class="fa-solid fa-download"></i></button>
                                     </td>
                                 </tr>
                             <?php
@@ -75,9 +75,6 @@
                             </tr>
                         </tfoot>
                     </table>
-                    <div class="col-md-2">
-                        <a data-dismiss="modal" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Cancelar"><i class="fa-solid fa-xmark"></i> Salir</a>
-                    </div>
                 </div>
             </div>
         </div>

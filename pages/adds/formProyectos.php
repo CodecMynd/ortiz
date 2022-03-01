@@ -24,19 +24,31 @@ require '../components/head-dataTables.php';
                 </div>
             </div>
             <!-- Registro Proyecto -->
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="card card-secondary card-outline">
-                        <div class="card-header border-nav">
-                            <h3 class="card-title">Registro nuevo Proyecto</h3>
-                        </div>
-                        <section class="content">
-                            <div class="container-fluid">
-                                <form id="formNuevoProyecto">
-                                    <div class="col-md-12">
+            <form id="formNuevoProyecto">
+                <div class="card-body">
+                    <section class="content">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <?php
+                                    if ($regProyecto == 0) {
+                                        echo "<div class='card card-secondary card-outline collapsed-card'>";
+                                    } else {
+                                        echo "<div class='card card-secondary card-outline'>";
+                                    } ?>
+                                    <div class="card-header border-nav">
+                                        <h3 class="card-title">Registro nuevo Proyecto</h3>
+                                        <div class="card-tools">
+                                            <?php
+                                            if ($regProyecto == 0) {
+                                                echo ' <a type="button" id="regProyecto" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="left" title="2.3.1 Registro de Proyecto"><i class="fa-solid fa-eye-slash"></i>&nbsp;&nbsp; Registro de Proyecto</a>';
+                                            } ?>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
                                         <div class="row justify-content-center">
                                             <div class="col-md-2 col-sm-4 my-4">
-                                                <div class="card card-secondary card-outline" style="height: 90%;">
+                                                <div class="card card-secondary card-outline " style="height: 90%;">
                                                     <div class="card-header">
                                                         <h3 class="card-title">Buscar Cliente</h3>
                                                     </div>
@@ -65,8 +77,6 @@ require '../components/head-dataTables.php';
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-12">
                                         <div class="row justify-content-center">
                                             <div class="col-md-2 col-sm-4 my-4">
                                                 <div class="card card-secondary card-outline" style="height: 90%;">
@@ -98,8 +108,6 @@ require '../components/head-dataTables.php';
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-12">
                                         <div class="row justify-content-center">
                                             <div class="col-md-12 col-sm-4 my-4">
                                                 <div class="card card-secondary card-outline ">
@@ -144,8 +152,8 @@ require '../components/head-dataTables.php';
                                                                     <select name="tipoReparacion" id="tipoReparacion" class="form-control" style="width: 100%;">
                                                                         <option disabled selected>Selecciona</option>
                                                                         <option disabled>___________</option>
-                                                                        <option value="GR">GR</option>
                                                                         <option value="N">N</option>
+                                                                        <option value="GR">GR</option>
                                                                     </select>
                                                                 </span>
                                                             </div>
@@ -239,9 +247,9 @@ require '../components/head-dataTables.php';
                                                         <div class="col-md-2 col-sm-12 align-self-center">
                                                             <buttom type="submit" id="btnNuevoProyecto" class="btn btn-secondary btn-block btnNuevoUsuario" data-toggle="tooltip" data-placement="bottom" title="Guardar "><i class="fas fa-pen"></i> Guardar</buttom>
                                                         </div>
-                                                        <!-- <div class="col-md-2 col-sm-12 align-self-center">
+                                                        <div class="col-md-2 col-sm-12 align-self-center">
                                                             <a href="javascript:history.go(-1)" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
-                                                        </div> -->
+                                                        </div>
                                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                                         <br>
                                                         <div class="col-md-12 col-sm-12 align-self-center mt-2">
@@ -252,17 +260,16 @@ require '../components/head-dataTables.php';
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
-                        </section>
-                    </div>
+                        </div>
+                    </section>
                 </div>
-            </section>
-
+            </form>
+            <?php
+            require '../components/footer.php';
+            ?>
         </div>
-        <?php
-        require '../components/footer.php';
-        ?>
     </div>
     <?php
     // Scripts principales

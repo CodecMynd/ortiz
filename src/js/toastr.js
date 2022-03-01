@@ -496,3 +496,128 @@ $(document).ready(function () {
         }
     })
 });
+
+// eliCliente 2.3.1 REGISTRO PROYECTO --------------------------------------------------------------
+$(document).ready(function () {
+    $("#regProyecto ").click(function () {
+        toastr["error"]("¡No tienes acceso a: 2.3.1 REGISTRO PROYECTO, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// eliCliente 2.3.3 MODIFICAR PROYECTO --------------------------------------------------------------
+$(document).ready(function () {
+    $("#modProyecto ").click(function () {
+        toastr["error"]("¡No tienes acceso a: 2.3.3 MODIFICAR PROYECTO, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// eliCliente 2.3.4 ELIMINAR PROYECTO --------------------------------------------------------------
+$(document).ready(function () {
+    $("#eliProyecto ").click(function () {
+        toastr["error"]("¡No tienes acceso a: 2.3.4 ELIMINAR PROYECTO, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// eliCliente 2.3.5 ELIMINAR PROYECTO --------------------------------------------------------------
+$(document).ready(function () {
+    $("#eliProyecto ").click(function () {
+        toastr["error"]("¡No tienes acceso a: 2.3.5 ELIMINAR PROYECTO, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});pdfProyecto
+
+// eliCliente 2.3.5 DESCARGAR PDF PROYECTO --------------------------------------------------------------
+$(document).ready(function () {
+    $("#pdfProyecto ").click(function () {
+        toastr["error"]("¡No tienes acceso a: 2.3.5 DESCARGAR PDF PROYECTO, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});

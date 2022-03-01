@@ -41,7 +41,7 @@ require '../components/head-dataTables.php';
                                             <a type="button" class="btn btn-secondary" href="../adds/formAddCliente.php" data-toggle="tooltip" data-placement="left" title="2.2.1 Registro Cliente">
                                                 <i class="fa-solid fa-user-tie"></i>&nbsp;&nbsp; Registro Cliente</a>
                                         <?php } else { ?>
-                                            <a type="button" class="btn btn-ouline-danger" id="regCliente" data-toggle="tooltip" data-placement="left" title="2.2.1 Registro Cliente">
+                                            <a type="button" class="btn btn-outline-danger" id="regCliente" data-toggle="tooltip" data-placement="left" title="2.2.1 Registro Cliente">
                                                 <i class="fa-solid fa-user-tie"></i>&nbsp;&nbsp; Registro Cliente</a>
                                         <?php } ?>
 
@@ -132,7 +132,7 @@ require '../components/head-dataTables.php';
                                                                                     <a class="btn btn-secondary" href="../update/formUpdateCliente.php?id=<?php echo $row['id_cliente'] ?>"><i class="fas fa-edit"></i>
                                                                                 </a>
                                                                                 <?php } else { ?>
-                                                                                    <a class="btn btn-secondary" id="modCliente "><i class="fas fa-edit"></i>
+                                                                                    <a class="btn btn-outline-danger" id="modCliente"><i class="fas fa-edit"></i>
                                                                                 </a>
                                                                                 <?php } ?>
                                                                             </span>
@@ -146,7 +146,7 @@ require '../components/head-dataTables.php';
                                                                                     <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarCliente<?php echo $row['id_cliente'] ?>"><i class="fas fa-trash-alt"></i>
                                                                                 </a>
                                                                                 <?php } else { ?>
-                                                                                    <a class="btn btn-secondary" id="eliCliente "><i class="fas fa-trash-alt"></i>
+                                                                                    <a class="btn btn-outline-danger" id="eliCliente"><i class="fas fa-trash-alt"></i>
                                                                                 </a>
                                                                                 <?php } ?>
                                                                             </span>

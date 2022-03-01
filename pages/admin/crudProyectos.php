@@ -33,16 +33,16 @@ require '../components/head-dataTables.php';
                                 <div class="card-header">
                                     <h3 class="card-title">Proyectos dados de alta en el sistema</h3>
                                     <div class="card-tools">
-                                        <!-- <?php if ($super == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formAddUsuario.php" data-toggle="tooltip" data-placement="left" title="2.3.1 Registro de Proyecto">
-                                                <i class="fa-solid fa-user-plus"></i>&nbsp;&nbsp; Registro de Proyecto</a>
-                                        <?php } else if ($verTablaProy == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formAddUsuario.php" data-toggle="tooltip" data-placement="left" title="1.1.5 Registro de Proyecto">
-                                                <i class="fa-solid fa-user-plus"></i>&nbsp;&nbsp; Registro de Proyecto</a>
+                                        <?php if ($super == 1) { ?>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formProyectos.php" data-toggle="tooltip" data-placement="left" title="2.3.1 Registro de Proyecto">
+                                                <i class="fa-solid fa-wrench"></i>&nbsp;&nbsp; Registro de Proyecto</a>
+                                        <?php } else if ($regProyecto == 1) { ?>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formProyectos.php" data-toggle="tooltip" data-placement="left" title="2.3.1 Registro de Proyecto">
+                                                <i class="fa-solid fa-wrench"></i>&nbsp;&nbsp; Registro de Proyecto</a>
                                         <?php } else { ?>
-                                            <a type="button" class="btn btn-outline-danger" id="verTablaProy" data-toggle="tooltip" data-placement="left" title="1.1.5 Registro de Proyecto">
-                                                <i class="fa-solid fa-user-plus"></i>&nbsp;&nbsp; Registro de Proyecto</a>
-                                        <?php } ?> -->
+                                            <a type="button" class="btn btn-outline-danger" id="regProyecto" data-toggle="tooltip" data-placement="left" title="2.3.1 Registro de Proyecto">
+                                                <i class="fa-solid fa-wrench"></i>&nbsp;&nbsp; Registro de Proyecto</a>
+                                        <?php } ?> 
 
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
@@ -58,7 +58,7 @@ require '../components/head-dataTables.php';
                                     INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
                                     INNER JOIN anios A ON V.id_anio = A.id_anio 
                                     INNER JOIN clientes C ON P.id_cliente = C.id_cliente ORDER BY nProyecto ASC";
-                                } else if ($verTablaProy == 1) {
+                                } else if ($listProyecto == 1) {
                                     $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente 
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
@@ -73,13 +73,13 @@ require '../components/head-dataTables.php';
                                     INNER JOIN marcas M ON V.id_marca = M.id_marca 
                                     INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
                                     INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN clientes C ON P.id_cliente = C.id_cliente ORDER BY nProyecto ASC WHERE id_proyecto = 0";
+                                    INNER JOIN clientes C ON P.id_cliente = C.id_cliente WHERE id_proyecto = 0";
                                 }
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
                                 <div class="card-body">
                                     <?php
-                                    if ($verTablaProy == 0) { ?>
+                                    if ($listProyecto == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
@@ -142,7 +142,7 @@ require '../components/head-dataTables.php';
                                                                 <ul class="dropdown-menu">
                                                                     <div class="btn-group">
                                                                         <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.3.2 Modificar Proyecto">
+                                                                            <span data-toggle="tooltip" title="2.3.3 Modificar Proyecto">
                                                                                 <?php if ($super == 1) { ?>
                                                                                     <a class="btn btn-secondary" href="../update/formUpdateProyecto.php?id=<?php echo $row['id_proyecto'] ?>"><i class="fas fa-edit"></i>
                                                                                     </a>
@@ -170,10 +170,10 @@ require '../components/head-dataTables.php';
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="2.3.5 Descarga PDF Proyecto">
                                                                                 <?php if ($super == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-sm<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-file-pdf"></i>
+                                                                                    <a class="btn btn-secondary" href="../components/ordenTrabajo.php?id=<?php echo $row['id_proyecto'] ?>" ><i class="fa-solid fa-file-pdf"></i>
                                                                                     </a>
                                                                                 <?php  } else if ($pdfProyecto == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-sm<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-file-pdf"></i>
+                                                                                    <a class="btn btn-secondary"  href="../components/ordenTrabajo.php?id=<?php echo $row['id_proyecto'] ?>" ><i class="fa-solid fa-file-pdf"></i>
                                                                                     </a>
                                                                                 <?php } else { ?>
                                                                                     <a class="btn btn-outline-danger" id="pdfProyecto"><i class="fa-solid fa-file-pdf"></i>

@@ -225,7 +225,7 @@ require '../components/head-dataTables.php';
                                                                 <div class="input-group-prepend">
                                                                     <span class="input-group-text"><i class="fa-solid fa-list-ol"></i></span>
                                                                 </div>
-                                                                <input name="nOrden" id="nOrden" type="number" class="form-control" placeholder="Número de orden" required maxlength="15" data-toggle="tooltip" data-placement="bottom" title="Número de orden" value="<?php echo $row['nOrden'] ?>" readonly>
+                                                                <input name="nOrden" id="nOrden" type="number" class="form-control" placeholder="Número de orden" required maxlength="15" data-toggle="tooltip" data-placement="bottom" title="Número de orden" value="<?php echo $row['nOrden'] ?>" >
                                                                 <label for="floatingInput" class="pl-5">*No. de Orden</label>
                                                             </div>
                                                         </div>
@@ -248,8 +248,8 @@ require '../components/head-dataTables.php';
                                                                     <select name="tipoReparacion" id="tipoReparacion" class="form-control" style="width: 100%;">
                                                                         <option value="<?php echo $row['tipoReparacion']; ?>"><?php echo $row['tipoReparacion'] ?></option>
                                                                         <option disabled>___________</option>
-                                                                        <option value="GR">GR</option>
                                                                         <option value="N">N</option>
+                                                                        <option value="GR">GR</option>
                                                                     </select>
                                                                 </span>
                                                             </div>
@@ -356,7 +356,6 @@ require '../components/head-dataTables.php';
                                     </div>
                                 </div>
                             </form>
-                            <a href="../components/OrdenTrabajo.php?id=<?php echo $row['id_proyecto']; ?>" class="btn"> pdf</a>
                         </section>
                     </div>
                 </div>

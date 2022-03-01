@@ -51,11 +51,11 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if($super == 1){
-                                    $query = "SELECT * FROM usuarios WHERE super <> 1 ORDER BY id_usuario DESC";
+                                    $query = "SELECT * FROM usuarios WHERE super <> 1 AND admin <> 1 ORDER BY id_usuario DESC";
                                 }else if($verTablaUsuario == 1){
-                                    $query = "SELECT * FROM usuarios WHERE super <> 1 ORDER BY id_usuario DESC";
+                                    $query = "SELECT * FROM usuarios WHERE super <> 1 AND admin <> 1 ORDER BY id_usuario DESC";
                                 }else{
-                                    $query = "SELECT * FROM usuarios WHERE super = 0 ORDER BY id_usuario DESC";
+                                    $query = "SELECT * FROM usuarios WHERE super = 10 ORDER BY id_usuario DESC";
                                 }
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>

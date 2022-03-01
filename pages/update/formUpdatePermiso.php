@@ -264,7 +264,7 @@ require '../components/head-main.php';
                                                                             <div class="info-box">
                                                                                 <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check-double"></i></span>
                                                                                 <div class="info-box-content">
-                                                                                    <span class="info-box-text">1.3.4 Vet tabla Modelo</span>
+                                                                                    <span class="info-box-text">1.3.4 Ver tabla Modelo</span>
                                                                                     <span class="info-box-text"> <input type="checkbox" name="verTablaModelo" id="verTablaModelo" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaModelo'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                 else echo ''; ?>></span>
                                                                                 </div>
@@ -609,7 +609,7 @@ require '../components/head-main.php';
                                                                             </div>
                                                                         </button>
                                                                     </div>
-                                                                    <div class="col-md-3 col-sm-6 col-12">
+                                                                    <!-- <div class="col-md-3 col-sm-6 col-12">
                                                                         <button type="button" class="btn btn-permisos">
                                                                             <div class="info-box">
                                                                                 <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check-double"></i></span>
@@ -620,7 +620,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </button>
-                                                                    </div>
+                                                                    </div> -->
                                                                 </div>
                                                             </div>
                                                         </div>

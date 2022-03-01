@@ -74,7 +74,6 @@ while ($row = mysqli_fetch_array($query)) {
     $regCliente = $row['regCliente'];
     $modCliente = $row['modCliente'];
     $eliCliente = $row['eliCliente'];
-    $verTablaProy = $row['verTablaProy'];
     $regProyecto = $row['regProyecto'];
     $listProyecto = $row['listProyecto'];
     $modProyecto = $row['modProyecto'];

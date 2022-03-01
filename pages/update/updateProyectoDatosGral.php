@@ -40,12 +40,16 @@ if (
     // Insertamos tabla proyectos
     $query = "UPDATE proyectos SET nOrden = '$nOrden', nProyecto = '$nProyecto', tipoReparacion = '$tipoReparacion', km = '$km', valorVenta = '$valorVenta', diagnostico = '$diagnostico', descripServ1 = '$descripServ1',descripServ2 = '$descripServ2', fecha = '$date', fecha_mod = '$date', id_capM = $id WHERE id_proyecto = $id_proyecto ";
     $resultado = mysqli_query($conexion, $query);
-    var_dump($query);
+    // var_dump($query);
 }
 if ($resultado) {
     echo "<div class='alert alert-success' role='alert'>
             <p><strong>Datos Generales del Proyecto modificados correctamente!</strong></p>
-            </div>";
+        </div>
+        <div class='col-md-12 col-sm-12 align-self-center'>
+            <a href='../components/ordenTrabajo.php?id={$id_proyecto}' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Descargar PDF'><i class='fa-solid fa-file-pdf'></i>Descargar PDF</a>
+        </div>
+            ";
 } else {
     echo "<div class='alert alert-danger' role='role'>
         <p><strong>¡Error interno: vuelve a intentarlo!</strong></p>
