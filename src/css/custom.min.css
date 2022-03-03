@@ -31875,7 +31875,9 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    text-align: center;
+    /* white-space: nowrap; */
+    white-space: initial;
     font-size:14px;
 }
 

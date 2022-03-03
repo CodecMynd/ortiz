@@ -53,24 +53,25 @@ require '../components/head-dataTables.php';
                                 <!-- consulta sql -->
                                 <?php
                                 $cont = 0;
-                                if($super == 1){
-                                $query = "SELECT * FROM anios ORDER BY anio DESC";
-                                }else if($verTablaAnio == 1){
-                                $query = "SELECT * FROM anios ORDER BY anio DESC";
-                                }else{
+                                if ($super == 1) {
+                                    $query = "SELECT * FROM anios ORDER BY anio DESC";
+                                } else if ($verTablaAnio == 1) {
+                                    $query = "SELECT * FROM anios ORDER BY anio DESC";
+                                } else {
                                     $query = "SELECT * FROM anios WHERE id_anio = 0";
                                 }
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
 
                                 <div class="card-body">
-                                <?php
-                                    if($verTablaAnio == 0){ ?>
+                                    <?php
+                                    if ($super == 1) {
+                                    } else if ($verTablaAnio == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
-                                  <?php  } ?>
+                                    <?php  } ?>
                                     <table id="tablePermisos" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>

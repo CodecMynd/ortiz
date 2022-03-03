@@ -10,29 +10,28 @@ $date = date('Y-m-d H:i:s');
 $id = $_SESSION['id_usuario'];
 
 
-$anio =  $_POST['anio'];
+$semana =  $_POST['semana'];
 
+$query = "INSERT INTO semanas(semana, fecha_creacion, id_capC) VALUES ('$semana', '$date', $id)";
 
-$query = "INSERT INTO anios(anio) VALUES ('$anio')";
-$verificar_Anio = mysqli_query($conexion, "SELECT anio FROM anios WHERE anio = $anio ");
-if (mysqli_num_rows($verificar_Anio) > 0) {
-    echo
-    "<div class='alert alert-danger' role='role'>
-                     <p><strong>Error, este Año ya esta registrado</strong></p>
-                     </div>";
+$verificar_semana = mysqli_query($conexion, "SELECT semana FROM semanas WHERE semana = '$semana' ");
+if (mysqli_num_rows($verificar_semana) > 0) {
+    echo "<div class='alert alert-danger' role='role'>
+        <p><strong>Error, esta Semana ya esta registrada</strong></p>
+    </div>";
     exit;
-} else {
+    }else {
     $resultado = mysqli_query($conexion, $query);
     if ($resultado) {
         echo
         "<div class='alert alert-success' role='alert'>
-                             <p>Año ingresado correctamente</p>
-                             </div>";
+            <p>Semana ingresada correctamente</p>
+        </div>";
     } else {
         echo
         "<div class='alert alert-danger' role='role'>
-                         <p><strong>Error interno: vuelve a intentarlo</strong></p>
-                         </div>";
+            <p><strong>Error interno: vuelve a intentarlo</strong></p>
+        </div>";
     }
 }
 

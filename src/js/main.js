@@ -501,6 +501,94 @@ $('.btnBorrarColor').click(function (e) {
     }
     return false;
 });
+/*
+-
+-
+-
+*/
+// 1.6.1 Formulario Crear Semanas----------------------------------------------------
+$(document).ready(function () {
+    $('#btnNuevaSemana').click(function () {
+        $.ajax({
+                url: 'addNuevoSemana.php',
+                type: 'POST',
+                data: $('#formNuevaSemana').serialize(),
+            })
+            .done(function (res) {
+                $('#respuestaNuevaSemana').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnNuevaSemana").on('click', function () {
+    $("#btnNuevaSemana").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnNuevaSemana").css('visibility', 'visible');
+    }, 300000);
+});
+
+// 1.6.2  Formulario Eliminar Semanas----------------------------------------------------
+$('.btnBorrarSemana').click(function (e) {
+    e.preventDefault();
+    if (confirm("¿Estás seguro de eliminar esta Cliente? Una vez borrado ya no se podrá recuperar la información.")) {
+        var id = $(this).attr("id");
+
+        var dataString = 'id=' + id;
+        url = "../delete/deleteSemana.php";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: dataString,
+            success: function (data) {
+                window.location.href = "crudSemanas.php";
+                $('#respuesta').html(data);
+            }
+        });
+    }
+    return false;
+});
+
+// 1.7.1  Formulario Crear Agentes----------------------------------------------------
+$(document).ready(function () {
+    $('#btnNuevoAgente').click(function () {
+        $.ajax({
+                url: 'addNuevoAgente.php',
+                type: 'POST',
+                data: $('#formNuevoAgente').serialize(),
+            })
+            .done(function (res) {
+                $('#respuestaNuevoAgente').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnNuevoAgente").on('click', function () {
+    $("#btnNuevoAgente").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnNuevoAgente").css('visibility', 'visible');
+    }, 300000);
+});
+
+// 1.7.2  Formulario Eliminar Agentes----------------------------------------------------
+$('.btnBorrarAgente').click(function (e) {
+    e.preventDefault();
+    if (confirm("¿Estás seguro de eliminar esta Agente? Una vez borrado ya no se podrá recuperar la información.")) {
+        var id = $(this).attr("id");
+
+        var dataString = 'id=' + id;
+        url = "../delete/deleteAgente.php";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: dataString,
+            success: function (data) {
+                window.location.href = "crudAgentes.php";
+                $('#respuesta').html(data);
+            }
+        });
+    }
+    return false;
+});
 
 // 2.1.1 Formulario Registro Vehiculos ------------------------------------------------------------
 $(document).ready(function () {
@@ -796,7 +884,23 @@ $('.btnBorrarProyecto').click(function (e) {
 -
 -
 */
-// 2.1.1 Formulario Registro Vehiculos ------------------------------------------------------------
+// 2.4.2 Registro de Solicitud Alta Proyecto ------------------------------------------------------------
+
+    // 2.3  Registro Proyectos cargar Modal de Proyectos -----------------------------------------------
+    $(document).on("click", ".cargarProyecto", function() {
+        var idProyecto = $(this).data('id_proyecto');
+        $.ajax({
+            url: "../components/cargarProyecto.php",
+            type: "POST",
+            cache: false,
+            data: {
+                idProyecto: idProyecto
+            },
+            success: function(data) {
+                $("#cargarProyectoTabla").html(data);
+            },
+        });
+    });
 /*
 -
 -

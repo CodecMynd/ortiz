@@ -9,7 +9,7 @@ ini_set('date.timezone',  'America/Mexico_City');
 $date = date('Y-m-d H:i:s');
 
 date_default_timezone_set("America/Mexico_City");
-setlocale(LC_TIME, 'es_VE.UTF-8','esp');
+setlocale(LC_TIME, 'es_VE.UTF-8', 'esp');
 $data['fecha'] = $date;
 /* Convertimos la fecha a marca de tiempo */
 $marca = strtotime($data['fecha']);
@@ -50,8 +50,11 @@ if (
     // Ingresamos id a tabla nProyectos para que continue el contador de Numero de proyecto
     $queryNp = "INSERT INTO nproyectos(id_proyecto, fecha_creacion, id_capC) VALUES ('$id_id_nProyecto','$date', '$id')";
     $resultado2 = mysqli_query($conexion, $queryNp);
-
     // var_dump($queryNp);
+
+    // Ingresamos id a tabla solicitudAltaProyecto
+    $querySAP = "INSERT INTO solicitudAltaProyecto(id_proyecto, proyectoActivo, registroSolicitud, fecha_creacion, id_captC) VALUES ('$id_id_nProyecto', 1, 0, '$date', '$id')";
+    $resultado3 = mysqli_query($conexion, $querySAP);
 }
 if ($resultado) {
     echo "<div class='alert alert-success' role='alert'>
@@ -59,9 +62,7 @@ if ($resultado) {
         </div>
         <div class='col-md-12 col-sm-12 align-self-center'>
             <a href='../components/ordenTrabajo.php?id={$id_id_nProyecto}' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Descargar PDF'><i class='fa-solid fa-file-pdf'></i>Descargar PDF</a>
-        </div>
-            
-            ";
+        </div>";
 } else {
     echo "<div class='alert alert-danger' role='role'>
         <p><strong>¡Error interno: vuelve a intentarlo!</strong></p>

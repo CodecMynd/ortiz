@@ -51,23 +51,23 @@ require '../components/head-dataTables.php';
                                 <!-- consulta sql -->
                                 <?php
                                 $cont = 0;
-                                if($super == 1){
-                                $query = "SELECT id_marca, marca FROM marcas ORDER BY marca ASC";
-                                }else if($verTablaMarca){
-                                $query = "SELECT id_marca, marca FROM marcas ORDER BY marca ASC";
-                                }else{
-                                    $query = "SELECT id_marca, marca FROM marcas WHERE id_marca = 0";
+                                if ($super == 1) {
+                                    $query = "SELECT id_marca, marca FROM marcas ORDER BY marca ASC";
+                                } else if ($verTablaMarca) {
+                                    $query = "SELECT id_marca, marca FROM marcas ORDER BY marca ASC";
+                                } else {
+                                    $query = "SELECT id_marca FROM marcas WHERE id_marca = 0";
                                 }
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
                                 <div class="card-body">
-                                <?php
-                                    if($verTablaMarca == 0){ ?>
+                                    <?php if ($super == 1) {
+                                    } else if ($verTablaMarca == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
-                                  <?php  } ?>
+                                    <?php  } ?>
                                     <table id="tablePermisos" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
@@ -122,7 +122,7 @@ require '../components/head-dataTables.php';
                                                                                     <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarMarca-<?php echo $row['id_marca'] ?>"><i class="fas fa-trash-alt"></i>
                                                                                     </a>
                                                                                 <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="eliminaMar" ><i class="fas fa-trash-alt"></i>
+                                                                                    <a class="btn btn-outline-danger" id="eliminaMar"><i class="fas fa-trash-alt"></i>
                                                                                     </a>
                                                                                 <?php } ?>
 

@@ -122,6 +122,7 @@ $(document).ready(function () {
         }
     })
 });
+
 // regMarca 1.2.1 REGISTRO MARCA  --------------------------------------------------------------
 $(document).ready(function () {
     $("#regMarca").click(function () {
@@ -326,6 +327,181 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#eliminarAnio ").click(function () {
         toastr["error"]("¡No tienes acceso a: 1.4.3 ELIMINAR AÑOS, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// regColor 1.5.1 REGISTRO DE COLOR  --------------------------------------------------------------
+$(document).ready(function () {
+    $("#regColor").click(function () {
+        toastr["error"]("¡No tienes acceso a: 1.5.1 REGISTRO DE COLOR, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// modColor 1.5.2 MODIFICAR COLOR  --------------------------------------------------------------
+$(document).ready(function () {
+    $("#modColor").click(function () {
+        toastr["error"]("¡No tienes acceso a:  1.5.2 MODIFICAR COLOR, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// eliminarCol 1.5.3 ELIMINAR COLOR  --------------------------------------------------------------
+$(document).ready(function () {
+    $("#eliminarCol").click(function () {
+        toastr["error"]("¡No tienes acceso a: 1.5.3 ELIMINAR COLOR, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// regSemana 1.6.1 REGISTRO DE SEMANAS  --------------------------------------------------------------
+$(document).ready(function () {
+    $("#regSemana").click(function () {
+        toastr["error"]("¡No tienes acceso a: 1.6.1 REGISTRO DE SEMANA SOLICITUD Y ALTAS, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// eliSemana 1.6.2 ELIMINAR SEMANA  --------------------------------------------------------------
+$(document).ready(function () {
+    $("#eliSemana").click(function () {
+        toastr["error"]("¡No tienes acceso a: 1.6.2 ELIMINAR SEMANA SOLICITUD Y ALTA, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// regAgente 1.7.1 REGISTRO AGENTE DE SERVICIO  --------------------------------------------------------------
+$(document).ready(function () {
+    $("#regAgente").click(function () {
+        toastr["error"]("¡No tienes acceso a: 1.7.1 REGISTRO AGENTE DE SERVICIO, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// eliAgente 1.7.2 ELIMINAR AGENTE DE SERVICIO  --------------------------------------------------------------
+$(document).ready(function () {
+    $("#eliAgente").click(function () {
+        toastr["error"]("¡No tienes acceso a: 1.7.2 ELIMINAR AGENTE DE SERVICIO, consulta al administrador!")
 
         tostadas.opciones = {
             "botóncerrar": falso,

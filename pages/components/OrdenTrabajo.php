@@ -10,7 +10,7 @@ ob_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orden de Trabajo </title>
+    <title>Orden de Servicio </title>
 
     <!-- Favicon -->
     <link rel="icon" href="../../src/img/logos/favicon.png" type="image/gif" sizes="32x32">
@@ -36,6 +36,7 @@ ob_start();
             margin-right: 2.5cm;
             margin-bottom: 1cm;
             font-family: sans-serif;
+            
         }
 
         /** Definir las reglas del encabezado **/
@@ -64,9 +65,8 @@ ob_start();
         }
 
         .inputRespM {
-            text-align: center;
             width: 17em;
-            height: 10px;
+            height: 11px;
             outline: 0;
             border-width: 0 0 .5px;
             border-color: gray;
@@ -76,7 +76,6 @@ ob_start();
         }
 
         .inputRespC {
-            text-align: center;
             width: 9.8em;
             height: 10px;
             outline: 0;
@@ -114,7 +113,7 @@ ob_start();
             height: 30px;
             border: none;
             border-bottom: .5px solid gray;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 100;
         }
 
@@ -174,20 +173,22 @@ $rowV = $respuesta->fetch_assoc();
 
     <!-- Envuelva el contenido de su PDF dentro de una etiqueta principal -->
     <main>
-        <div class="col-md-12">
-            <ul>
-                <li>Fecha Ingreso <input type="text" value="<?php echo $row['fecha_creacion'] ?>" style="width:100px"></li>
-                <li>Número de Orden <input type="text" value="<?php echo $row['nOrden'] ?>" style="width:100px"></li>
-                <li>Número de Proyecto <input type="text" value="<?php echo $row['nProyecto'] ?>" style="width:100px"> </li>
-            </ul>
+        <div class="container-fluid" style="width:107%" >
+            <div class="col-md-12">
+                <ul class="float-right">
+                    <li>Fecha Ingreso <input type="text" value="<?php echo $row['fecha_creacion'] ?>" style="width:100px;"></li>
+                    <li>Número de Orden <input type="text" value="<?php echo $row['nOrden'] ?>" style="width:100px"></li>
+                    <li>Número de Proyecto <input type="text" value="<?php echo $row['nProyecto'] ?>" style="width:100px"> </li>
+                </ul>
+            </div>
         </div>
 
-        <div class="container">
-            <div class="col-12">
+        <div class="container ">
+            <div class="col-12"> 
                 <table class="table table-sm">
                     <tbody>
                         <tr>
-                            <th class="titulo">Datos del Cliente</th>
+                            <th class="titulo">Cliente</th>
                         </tr>
                     </tbody>
                 </table>
@@ -226,7 +227,7 @@ $rowV = $respuesta->fetch_assoc();
                 <table class="table table-sm">
                     <tbody>
                         <tr>
-                            <th class="titulo">Datos del Vehículo</th>
+                            <th class="titulo">Vehículo</th>
                         </tr>
                     </tbody>
                 </table>
@@ -257,7 +258,7 @@ $rowV = $respuesta->fetch_assoc();
                 <table class="table table-sm">
                     <tbody>
                         <tr>
-                            <th class="titulo">Datos del Servicio</th>
+                            <th class="titulo">Servicio</th>
                         </tr>
                     </tbody>
                 </table>
@@ -320,6 +321,6 @@ $dompdf->setPaper('letter'); //hoja tamaño carta
 //$dompdf->setPaper('A4', 'Landscape'); //tamaño oficio 
 
 $dompdf->render(); //poner visible
-$dompdf->stream("Orden_de_Trabajo.pdf", array("Attachment" => true)); // nombre del archivo, array attachment => true para descagar en automatico
+$dompdf->stream("Orden_de_Servicio.pdf", array("Attachment" => true)); // nombre del archivo, array attachment => true para descagar en automatico
 
 ?>

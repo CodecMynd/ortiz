@@ -50,7 +50,7 @@ require '../components/head-dataTables.php';
                                             <div class="col-md-2 col-sm-4 my-4">
                                                 <div class="card card-secondary card-outline " style="height: 90%;">
                                                     <div class="card-header">
-                                                        <h3 class="card-title">Buscar Cliente</h3>
+                                                        <h3 class="card-title"><i class="fa-solid fa-magnifying-glass"></i> Buscar Cliente</h3>
                                                     </div>
                                                     <div class="card-body d-flex justify-content-center align-items-center">
                                                         <div class="btn-group" role="group">
@@ -81,7 +81,7 @@ require '../components/head-dataTables.php';
                                             <div class="col-md-2 col-sm-4 my-4">
                                                 <div class="card card-secondary card-outline" style="height: 90%;">
                                                     <div class="card-header">
-                                                        <h3 class="card-title">Buscar Vehículo</h3>
+                                                        <h3 class="card-title"><i class="fa-solid fa-magnifying-glass"></i> Buscar Vehículo</h3>
                                                     </div>
                                                     <div class="card-body d-flex justify-content-center align-items-center">
                                                         <div class="btn-group" role="group">
@@ -120,15 +120,6 @@ require '../components/head-dataTables.php';
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="row justify-content-center">
-                                                        <div class="col-md-2 col-sm-12 my-1 form-group">
-                                                            <div class="input-group form-floating mb-3">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text"><i class="fa-solid fa-list-ol"></i></span>
-                                                                </div>
-                                                                <input name="nOrden" id="nOrden" type="number" class="form-control" placeholder="Número de orden" required maxlength="15" data-toggle="tooltip" data-placement="bottom" title="Número de orden">
-                                                                <label for="floatingInput" class="pl-5">*No. de Orden</label>
-                                                            </div>
-                                                        </div>
                                                         <div class="col-md-2 col-sm-12 my-1">
                                                             <div class="input-group form-floating mb-3">
                                                                 <div class="input-group-prepend">
@@ -141,7 +132,15 @@ require '../components/head-dataTables.php';
                                                                 ?>
                                                                 <input name="nProyecto" id="nProyecto" type="text" class="form-control" placeholder="Número de proyecto " required maxlength="15" data-toggle="tooltip" data-placement="bottom" title="Número de proyecto" value="<?php echo $row[0]; ?>" readonly>
                                                                 <label for="floatingInput" class="pl-5">No. de Proyecto </label>
-
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2 col-sm-12 my-1 form-group">
+                                                            <div class="input-group form-floating mb-3">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text"><i class="fa-solid fa-list-ol"></i></span>
+                                                                </div>
+                                                                <input name="nOrden" id="nOrden" type="number" class="form-control" placeholder="Número de orden" required maxlength="15" data-toggle="tooltip" data-placement="bottom" title="Número de orden">
+                                                                <label for="floatingInput" class="pl-5">*No. de Orden</label>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12">
@@ -168,7 +167,7 @@ require '../components/head-dataTables.php';
                                                                 <label for="floatingInput" class="pl-5">*Kilometraje </label>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-2 col-sm-12 my-1">
+                                                        <div class="col-md-3 col-sm-12 my-1">
                                                             <div class="input-group form-floating mb-3">
                                                                 <div class="input-group-prepend">
                                                                     <span class="input-group-text mt-2">
@@ -176,7 +175,7 @@ require '../components/head-dataTables.php';
                                                                     </span>
                                                                 </div>
                                                                 <input name="valorVenta" id="currency1" type="text" class="form-control" placeholder="Kilometraje" required maxlength="12" data-toggle="tooltip" data-placement="bottom" title="Ingresa valor venta">
-                                                                <label for="floatingInput" class="pl-5">*Valor venta </label>
+                                                                <label for="floatingInput" class="pl-5">*Valor venta Inicial </label>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4 col-sm-12 my-1">

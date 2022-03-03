@@ -42,7 +42,7 @@ require '../components/head-dataTables.php';
                                         <?php } else if ($regColor == 1) { ?>
                                             <a type="button" class="btn btn-secondary" href="../adds/formAddColor.php" data-toggle="tooltip" data-placement="left" title="1.5.1 Registro de Color"> <i class="fa-solid fa-brush"></i>&nbsp;&nbsp; Registro de Color</a>
                                         <?php } else { ?>
-                                            <a type="button" class="btn btn-outline-danger" id="regColor" data-toggle="tooltip" data-placement="left" title="1.2.1 Registro de Marca"> <i class="fa-solid fa-brush"></i>&nbsp;&nbsp; Registro de Color</a>
+                                            <a type="button" class="btn btn-outline-danger" id="regColor" data-toggle="tooltip" data-placement="left" title="1.5.1 Registro de Color"> <i class="fa-solid fa-brush"></i>&nbsp;&nbsp; Registro de Color</a>
                                         <?php } ?>
 
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
@@ -51,25 +51,24 @@ require '../components/head-dataTables.php';
                                 <!-- consulta sql -->
                                 <?php
                                 $cont = 0;
-                                if($super == 1){
-                                $query = "SELECT id_color, color FROM colores ORDER BY color ASC";
-                                }else if($verTablaColor == 1){
-                                $query = "SELECT id_color, color FROM colores ORDER BY color ASC";
-                                }else{
-                                    $query = "SELECT id_color, color FROM colores WHERE id_color = 0";
-
+                                if ($super == 1) {
+                                    $query = "SELECT id_color, color FROM colores ORDER BY color ASC";
+                                } else if ($verTablaColor == 1) {
+                                    $query = "SELECT id_color, color FROM colores ORDER BY color ASC";
+                                } else {
+                                    $query = "SELECT id_color FROM colores WHERE id_color = 0";
                                 }
                                 $resultado = mysqli_query($conexion, $query);
 
                                 ?>
                                 <div class="card-body">
-                                <?php
-                                    if($verTablaColor == 0){ ?>
+                                    <?php if ($super == 1) {
+                                    } else if ($verTablaColor == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
-                                  <?php  } ?>
+                                    <?php  } ?>
                                     <table id="tablePermisos" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
@@ -124,7 +123,7 @@ require '../components/head-dataTables.php';
                                                                                     <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarColor-<?php echo $row['id_color'] ?>"><i class="fas fa-trash-alt"></i>
                                                                                     </a>
                                                                                 <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="eliminarCol" ><i class="fas fa-trash-alt"></i>
+                                                                                    <a class="btn btn-outline-danger" id="eliminarCol"><i class="fas fa-trash-alt"></i>
                                                                                     </a>
                                                                                 <?php } ?>
 

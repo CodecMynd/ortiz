@@ -10,29 +10,28 @@ $date = date('Y-m-d H:i:s');
 $id = $_SESSION['id_usuario'];
 
 
-$anio =  $_POST['anio'];
+$agente =  $_POST['agente'];
 
+$query = "INSERT INTO agentes(agente, fecha_creacion, id_capC) VALUES ('$agente', '$date', $id)";
 
-$query = "INSERT INTO anios(anio) VALUES ('$anio')";
-$verificar_Anio = mysqli_query($conexion, "SELECT anio FROM anios WHERE anio = $anio ");
-if (mysqli_num_rows($verificar_Anio) > 0) {
-    echo
-    "<div class='alert alert-danger' role='role'>
-                     <p><strong>Error, este Año ya esta registrado</strong></p>
-                     </div>";
+$verificar_agente = mysqli_query($conexion, "SELECT agente FROM agentes WHERE agente = '$agente' ");
+if (mysqli_num_rows($verificar_agente) > 0) {
+    echo "<div class='alert alert-danger' role='role'>
+        <p><strong>Error, esta Agente ya esta registrada</strong></p>
+    </div>";
     exit;
-} else {
+    }else {
     $resultado = mysqli_query($conexion, $query);
     if ($resultado) {
         echo
         "<div class='alert alert-success' role='alert'>
-                             <p>Año ingresado correctamente</p>
-                             </div>";
+            <p>Agente ingresado correctamente</p>
+        </div>";
     } else {
         echo
         "<div class='alert alert-danger' role='role'>
-                         <p><strong>Error interno: vuelve a intentarlo</strong></p>
-                         </div>";
+            <p><strong>Error interno: vuelve a intentarlo</strong></p>
+        </div>";
     }
 }
 

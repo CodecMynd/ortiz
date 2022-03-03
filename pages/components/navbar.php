@@ -64,8 +64,12 @@
                         <li><a href="../admin/crudModelos.php" class="dropdown-item">1.3 Modelos </a></li>
                         <li><a href="../admin/crudAnios.php" class="dropdown-item">1.4 Años </a></li>
                         <li><a href="../admin/crudColores.php" class="dropdown-item">1.5 Colores </a></li>
+                        <li><a href="../admin/crudSemanas.php" class="dropdown-item">1.6 Semanas</a></li>
+                        <li><a href="../admin/crudAgentes.php" class="dropdown-item">1.7 Agentes</a></li>
+
+
                         <?php if ($super == 1) { ?>
-                            <li><a href="../admin/crudPermisos.php" class="dropdown-item">1.6 Permisos </a></li>
+                            <li><a href="../admin/crudPermisos.php" class="dropdown-item">1.8 Permisos </a></li>
                         <?php  } ?>
                     </ul>
                 </li>
@@ -75,19 +79,26 @@
                                                                                                                                                         } else {
                                                                                                                                                             echo 'text-dark ';
                                                                                                                                                         } ?> ">2.0 Proyecto</a>
-                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style="min-width: 12rem">
+                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style="min-width: 13rem">
                         <li><a href="../admin/crudVehiculos.php" class="dropdown-item">2.1 Registro Vehículo </a></li>
                         <li><a href="../admin/crudClientes.php" class="dropdown-item">2.2 Registro Cliente </a></li>
                         <!-- <li></li> -->
                         <li class="dropdown-submenu dropdown-hover">
-                            <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">2.3 Registro Proyecto</a>
-                            <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
-                                <li><a href="../adds/formProyectos.php" class="dropdown-item">2.3.1  Registro de Proyecto </a></li>
+                            <a id="dropdownSubMenu1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">2.3 Registro Proyecto</a>
+                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                <li><a href="../adds/formProyectos.php" class="dropdown-item">2.3.1 Registro de Proyecto </a></li>
                                 <li><a href="../admin/crudProyectos.php" class="dropdown-item">2.3.2 Lista de Proyectos</a></li>
                             </ul>
                         </li>
+                        <li class="dropdown-submenu dropdown-hover">
+                            <a id="dropdownSubMenu1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">2.4 Solicitud Alta Proyectos</a>
+                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                <li><a href="../admin/crudProyectosActivos.php" class="dropdown-item">2.4.1 Proyectos Activos para realizar Solicitud </a></li>
+                                <li><a href="../admin/crudRegistroSolicitudAlta.php" class="dropdown-item">2.4.2 Registro de Solicitud Alta Proyecto </a></li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>    
+                </li>
 
                 <li class="nav-item dropdown">
                     <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle  disabled">3.0 Insumos</a>

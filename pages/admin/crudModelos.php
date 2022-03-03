@@ -53,24 +53,24 @@ require '../components/head-dataTables.php';
                                 <!-- consulta sql -->
                                 <?php
                                 $cont = 0;
-                                if($super == 1){
-                                $query = "SELECT Mo.id_modelo, Mo.id_marca, Mo.modelo, Ma.id_marca, Ma.marca  FROM modelos Mo INNER JOIN marcas Ma ON Mo.id_marca = Ma.id_marca ORDER BY marca ASC";
-                              }else if($verTablaModelo == 1){
+                                if ($super == 1) {
                                     $query = "SELECT Mo.id_modelo, Mo.id_marca, Mo.modelo, Ma.id_marca, Ma.marca  FROM modelos Mo INNER JOIN marcas Ma ON Mo.id_marca = Ma.id_marca ORDER BY marca ASC";
-                              }else{
-                                $query = "SELECT Mo.id_modelo, Mo.id_marca, Mo.modelo, Ma.id_marca, Ma.marca  FROM modelos Mo INNER JOIN marcas Ma ON Mo.id_marca = 0 ORDER BY marca ASC";
-                              }
+                                } else if ($verTablaModelo == 1) {
+                                    $query = "SELECT Mo.id_modelo, Mo.id_marca, Mo.modelo, Ma.id_marca, Ma.marca  FROM modelos Mo INNER JOIN marcas Ma ON Mo.id_marca = Ma.id_marca ORDER BY marca ASC";
+                                } else {
+                                    $query = "SELECT Mo.id_modelo, Mo.id_marca, Mo.modelo, Ma.id_marca, Ma.marca  FROM modelos Mo INNER JOIN marcas Ma ON Mo.id_marca = 0 ORDER BY marca ASC";
+                                }
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
 
                                 <div class="card-body">
-                                <?php
-                                    if($verTablaModelo == 0){ ?>
+                                    <?php if ($super == 1) {
+                                    } else if ($verTablaModelo == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
-                                  <?php  } ?>
+                                    <?php  } ?>
                                     <table id="tablePermisos" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
@@ -118,14 +118,14 @@ require '../components/head-dataTables.php';
                                                                         </li>
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="1.3.3  Eliminar Modelo">
-                                                                            <?php if ($super == 1) { ?>
-                                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarModelo-<?php echo $row['id_modelo'] ?>"><i class="fas fa-trash-alt"></i>
-                                                                                </a>
+                                                                                <?php if ($super == 1) { ?>
+                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarModelo-<?php echo $row['id_modelo'] ?>"><i class="fas fa-trash-alt"></i>
+                                                                                    </a>
                                                                                 <?php  } else if ($eliminarMod  == 1) { ?>
                                                                                     <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarModelo-<?php echo $row['id_modelo'] ?>"><i class="fas fa-trash-alt"></i>
-                                                                                </a>
+                                                                                    </a>
                                                                                 <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="eliminarMod" ><i class="fas fa-trash-alt"></i></a>
+                                                                                    <a class="btn btn-outline-danger" id="eliminarMod"><i class="fas fa-trash-alt"></i></a>
                                                                                 <?php } ?>
                                                                             </span>
                                                                         </li>

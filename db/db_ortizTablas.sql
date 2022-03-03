@@ -1,8 +1,77 @@
+02/03/2022
+
+
+
+CREATE TABLE `agentes` (
+  `id_agente` int(11) NOT NULL,
+  `agente` varchar(40) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `fecha_creacion` datetime DEFAULT NULL,
+  `fecha_mod` datetime DEFAULT NULL,
+  `id_capC` int(11) DEFAULT NULL,
+  `id_capM` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
 
 CREATE TABLE `anios` (
   `id_anio` int(11) NOT NULL,
   `anio` varchar(4) COLLATE utf8mb4_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+
+INSERT INTO `anios` (`id_anio`, `anio`) VALUES
+(1, '1970'),
+(2, '1971'),
+(3, '1972'),
+(4, '1973'),
+(5, '1974'),
+(6, '1975'),
+(7, '1976'),
+(8, '1977'),
+(9, '1978'),
+(10, '1979'),
+(11, '1980'),
+(12, '1981'),
+(13, '1982'),
+(14, '1983'),
+(15, '1984'),
+(16, '1985'),
+(17, '1986'),
+(18, '1987'),
+(19, '1988'),
+(20, '1989'),
+(21, '1990'),
+(22, '1991'),
+(23, '1992'),
+(24, '1993'),
+(25, '1994'),
+(26, '1995'),
+(27, '1996'),
+(28, '1997'),
+(29, '1998'),
+(30, '1999'),
+(31, '2000'),
+(32, '2001'),
+(33, '2002'),
+(34, '2003'),
+(35, '2004'),
+(36, '2005'),
+(37, '2006'),
+(38, '2007'),
+(39, '2008'),
+(40, '2009'),
+(41, '2010'),
+(42, '2011'),
+(43, '2012'),
+(44, '2013'),
+(45, '2014'),
+(46, '2015'),
+(47, '2016'),
+(48, '2017'),
+(49, '2018'),
+(50, '2019'),
+(51, '2020'),
+(52, '2021'),
+(53, '2022');
 
 CREATE TABLE `clientes` (
   `id_cliente` int(11) NOT NULL,
@@ -25,6 +94,13 @@ CREATE TABLE `clientes` (
   `id_capM` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
+
+INSERT INTO `clientes` (`id_cliente`, `nombres`, `aPaternoCliente`, `aMaternoCliente`, `calle`, `colonia`, `ciudad`, `estado`, `tel1`, `tel2`, `cel`, `email`, `status`, `observacion`, `fecha_creacion`, `fecha_mod`, `id_capC`, `id_capM`) VALUES
+(1, 'Marcos ', 'Gomez', 'Diaz', 'Arnica 173', 'Alamedas de Zalatitan', 'Tonala', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(331) 351-7322', 'sin@correo.com', '0', '', '2022-03-01 15:27:31', NULL, 3, NULL),
+(2, 'Ramón ', 'Hernández ', 'Trujillo', '-', '-', '-', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(331) 227-1449', 'sin@correo.com', '0', '', '2022-03-01 15:30:52', NULL, 3, NULL),
+(3, 'Ezequiel', ' Velázquez ', 'Villafuente', 'Francisco I. Madero no. 18', 'Santa Ana Tepetitan', 'Toluca', 'México', '(000) 000-0000', '(000) 000-0000', '(332) 790-9256', 'sin@correo.com', '0', '', '2022-03-01 15:34:23', NULL, 3, NULL),
+(4, 'Roberto', 'De Alba', '-', 'Santa Ana no. 6', 'El Briseño', 'Zapopan', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(331) 343-4075', 'sin@correo.com', '0', '', '2022-03-01 17:51:35', NULL, 3, NULL);
+
 CREATE TABLE `colores` (
   `id_color` int(4) NOT NULL,
   `color` varchar(40) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
@@ -35,8 +111,18 @@ CREATE TABLE `colores` (
   `id_capM` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
+
+INSERT INTO `colores` (`id_color`, `color`, `status`, `fecha_creacion`, `fecha_mod`, `id_capC`, `id_capM`) VALUES
+(1, 'Rojo', '0', '2022-03-01 12:01:28', NULL, 2, NULL),
+(2, 'Azul', '0', '2022-03-01 12:01:31', NULL, 2, NULL),
+(3, 'Blanco', '0', '2022-03-01 15:24:37', NULL, 3, NULL),
+(4, 'Arena', '0', '2022-03-01 15:24:43', NULL, 3, NULL),
+(5, 'Negro', '0', '2022-03-01 15:24:51', NULL, 3, NULL),
+(7, 'Gris', '0', '2022-03-01 15:25:52', NULL, 3, NULL);
+
+
 CREATE TABLE `marcas` (
-  `id_marca` int(11) UNSIGNED NOT NULL,
+  `id_marca` int(11)  NOT NULL,
   `marca` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
   `fecha_creacion` datetime DEFAULT NULL,
   `fecha_mod` datetime DEFAULT NULL,
@@ -44,49 +130,50 @@ CREATE TABLE `marcas` (
   `id_capM` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
+
 INSERT INTO `marcas` (`id_marca`, `marca`, `fecha_creacion`, `fecha_mod`, `id_capC`, `id_capM`) VALUES
-(1, 'Acura', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(3, 'Audi', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(4, 'BMW', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(5, 'Buick', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(6, 'Cadillac', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(7, 'Chevrolet', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(8, 'Chrysler', '0000-00-00 00:00:00', '2022-02-21 16:54:10', 1, 2),
-(9, 'Datsun', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(10, 'Dodge', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(11, 'FIAT', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(12, 'Ford', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(13, 'General Motors', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(14, 'GMC', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(16, 'Honda', '0000-00-00 00:00:00', '2022-02-22 16:00:21', 1, 2),
-(17, 'Hummer', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(18, 'Hyundai', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(19, 'Infinity', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(20, 'International', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(21, 'Isuzu', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(22, 'Jaguar', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(23, 'Jeep', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(24, 'KIA', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(25, 'Land Rover', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(26, 'Lincoln', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(27, 'Mazda', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(28, 'Mercedes Benz', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(29, 'Mercury', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(30, 'Mini cooper', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(31, 'Mitsubishi', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(32, 'Nissan', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(33, 'Peugeot', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(34, 'Pontiac', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(35, 'Porshe', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(36, 'Ram', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(37, 'Renault', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(38, 'Seat', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(39, 'Subaru', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(40, 'Suzuki', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(41, 'Toyota', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(42, 'Volvo', '0000-00-00 00:00:00', '2022-02-22 16:00:45', 1, 2),
-(43, 'VW', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
-(44, 'ZDX', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0);
+(1, 'Acura', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(3, 'Audi', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(4, 'BMW', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(5, 'Buick', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(6, 'Cadillac', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(7, 'Chevrolet', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(8, 'Chrysler', '0000-00-00 00:00:00', '2022-02-21 16:54:10', 2, 2),
+(9, 'Datsun', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(10, 'Dodge', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(11, 'FIAT', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(12, 'Ford', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(13, 'General Motors', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(14, 'GMC', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(16, 'Honda', '0000-00-00 00:00:00', '2022-02-22 16:00:21', 2, 2),
+(17, 'Hummer', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(18, 'Hyundai', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(19, 'Infinity', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(20, 'International', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(21, 'Isuzu', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(22, 'Jaguar', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(23, 'Jeep', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(24, 'KIA', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(25, 'Land Rover', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(26, 'Lincoln', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(27, 'Mazda', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(28, 'Mercedes Benz', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(29, 'Mercury', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(30, 'Mini cooper', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(31, 'Mitsubishi', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(32, 'Nissan', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(33, 'Peugeot', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(34, 'Pontiac', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(35, 'Porshe', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(36, 'Ram', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(37, 'Renault', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(38, 'Seat', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(39, 'Subaru', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(40, 'Suzuki', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(41, 'Toyota', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(42, 'Volvo', '0000-00-00 00:00:00', '2022-02-22 16:00:45', 2, 2),
+(43, 'VW', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
+(44, 'ZDX', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0);
 
 CREATE TABLE `modelos` (
   `id_modelo` int(11) NOT NULL,
@@ -97,6 +184,7 @@ CREATE TABLE `modelos` (
   `id_capC` int(11) DEFAULT NULL,
   `id_capM` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
 
 INSERT INTO `modelos` (`id_modelo`, `id_marca`, `modelo`, `fecha_creacion`, `fecha_mod`, `id_capC`, `id_capM`) VALUES
 (1, 3, 'A1', '2022-02-21 16:30:01', NULL, 2, NULL),
@@ -548,6 +636,7 @@ INSERT INTO `modelos` (`id_modelo`, `id_marca`, `modelo`, `fecha_creacion`, `fec
 (461, 12, 'Aerostar', '2022-02-23 10:38:13', NULL, 2, NULL),
 (462, 26, 'Town Car', '2022-02-25 11:09:42', NULL, 2, NULL);
 
+
 CREATE TABLE `modulos` (
   `id_modulo` int(11) NOT NULL,
   `modulo` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL,
@@ -558,6 +647,7 @@ CREATE TABLE `modulos` (
   `id_captC` int(11) NOT NULL,
   `id_captM` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
 
 INSERT INTO `modulos` (`id_modulo`, `modulo`, `boton`, `permiso`, `fecha_creacion`, `fecha_mod`, `id_captC`, `id_captM`) VALUES
 (1, '1.0 Catálogos', '1.1 Usuarios', '1.1.1 Editar Usuarios', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0),
@@ -589,7 +679,6 @@ INSERT INTO `modulos` (`id_modulo`, `modulo`, `boton`, `permiso`, `fecha_creacio
 (27, '2.0 Proyecto', '2.3 Registro Proyecto', '2.3.4 Eliminar Proyectos', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0),
 (28, '2.0 Proyecto', '2.3 Registro Proyecto', '2.3.5 Descarga PDF Proyectos', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0);
 
-
 CREATE TABLE `nproyectos` (
   `id_nProyecto` int(15) NOT NULL,
   `id_proyecto` int(11) NOT NULL,
@@ -599,20 +688,27 @@ CREATE TABLE `nproyectos` (
   `id_capM` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-INSERT INTO `nproyectos` (`id_nProyecto`, `id_proyecto`, `fecha_creacion`, `fecha_mod`, `id_capC`, `id_capM`) VALUES ('1000', '0', '2022-02-28 00:26:55.000000', '2022-02-28 00:26:55.000000', '1', NULL);
+
+INSERT INTO `nproyectos` (`id_nProyecto`, `id_proyecto`, `fecha_creacion`, `fecha_mod`, `id_capC`, `id_capM`) VALUES
+(11341, 0, '2022-02-28 00:26:55', '2022-02-28 00:26:55', 1, NULL),
+(11342, 0, '2022-03-01 15:28:22', NULL, 3, NULL),
+(11343, 0, '2022-03-01 15:31:42', NULL, 3, NULL),
+(11344, 1, '2022-03-01 15:40:31', NULL, 3, NULL),
+(11345, 2, '2022-03-01 17:54:45', NULL, 3, NULL);
+
 
 CREATE TABLE `permisos` (
   `id_permiso` int(11) NOT NULL,
-  `verTablaUsuario` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `editarUsu` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `asignarCon` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `eliminarUsu` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `asignarPer` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `nuevoUsu` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `verTablaMarca` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `regMarca` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `modMarca` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `eliminaMar` char(1) CHARACTER SET utf8 DEFAULT NULL,
+  `verTablaUsuario` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `editarUsu` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `asignarCon` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `eliminarUsu` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `asignarPer` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `nuevoUsu` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `verTablaMarca` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `regMarca` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `modMarca` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `eliminaMar` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
   `verTablaModelo` char(1) CHARACTER SET utf8 DEFAULT NULL,
   `regModelo` char(1) CHARACTER SET utf8 DEFAULT NULL,
   `modModelo` char(1) CHARACTER SET utf8 DEFAULT NULL,
@@ -625,6 +721,12 @@ CREATE TABLE `permisos` (
   `modColor` char(1) CHARACTER SET utf8 DEFAULT NULL,
   `eliminarCol` char(1) CHARACTER SET utf8 DEFAULT NULL,
   `verTablaColor` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `verTablaSemana` char(1) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `regSemana` char(1) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `eliSemana` char(1) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `verTablaAgente` char(1) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `regAgente` char(1) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `eliAgente` char(1) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `regPermiso` char(1) CHARACTER SET utf8 DEFAULT NULL,
   `modPermiso` char(1) CHARACTER SET utf8 DEFAULT NULL,
   `eliPermiso` char(1) CHARACTER SET utf8 DEFAULT NULL,
@@ -636,7 +738,6 @@ CREATE TABLE `permisos` (
   `regCliente` char(1) CHARACTER SET utf8 DEFAULT NULL,
   `modCliente` char(1) CHARACTER SET utf8 DEFAULT NULL,
   `eliCliente` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `verTablaProy` char(1) CHARACTER SET utf8 DEFAULT NULL,
   `regProyecto` char(1) CHARACTER SET utf8 DEFAULT NULL,
   `listProyecto` char(1) CHARACTER SET utf8 DEFAULT NULL,
   `modProyecto` char(1) CHARACTER SET utf8 DEFAULT NULL,
@@ -645,9 +746,11 @@ CREATE TABLE `permisos` (
   `id_usuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-INSERT INTO `permisos` (`id_permiso`, `verTablaUsuario`, `editarUsu`, `asignarCon`, `eliminarUsu`, `asignarPer`, `nuevoUsu`, `verTablaMarca`, `regMarca`, `modMarca`, `eliminaMar`, `verTablaModelo`, `regModelo`, `modModelo`, `eliminarMod`, `verTablaAnio`, `regAnios`, `modAnios`, `eliminarAnio`, `regColor`, `modColor`, `eliminarCol`, `verTablaColor`, `regPermiso`, `modPermiso`, `eliPermiso`, `verTablaVeh`, `regVehiculo`, `modVehiculo`, `eliVehiculo`, `verTablaCli`, `regCliente`, `modCliente`, `eliCliente`, `verTablaProy`, `regProyecto`, `listProyecto`, `modProyecto`, `eliProyecto`, `pdfProyecto`, `id_usuario`) VALUES
-(1, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 1),
-(2, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 2);
+INSERT INTO `permisos` (`id_permiso`, `verTablaUsuario`, `editarUsu`, `asignarCon`, `eliminarUsu`, `asignarPer`, `nuevoUsu`, `verTablaMarca`, `regMarca`, `modMarca`, `eliminaMar`, `verTablaModelo`, `regModelo`, `modModelo`, `eliminarMod`, `verTablaAnio`, `regAnios`, `modAnios`, `eliminarAnio`, `regColor`, `modColor`, `eliminarCol`, `verTablaColor`, `verTablaSemana`, `regSemana`, `eliSemana`, `verTablaAgente`, `regAgente`, `eliAgente`, `regPermiso`, `modPermiso`, `eliPermiso`, `verTablaVeh`, `regVehiculo`, `modVehiculo`, `eliVehiculo`, `verTablaCli`, `regCliente`, `modCliente`, `eliCliente`, `regProyecto`, `listProyecto`, `modProyecto`, `eliProyecto`, `pdfProyecto`, `id_usuario`) VALUES
+(1, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 1),
+(2, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 2),
+(3, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '0', '1', '1', '0', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '1', 3);
+
 
 CREATE TABLE `proyectos` (
   `id_proyecto` int(11) NOT NULL,
@@ -657,7 +760,7 @@ CREATE TABLE `proyectos` (
   `nProyecto` int(15) NOT NULL,
   `tipoReparacion` varchar(2) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `km` varchar(12) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `valorVenta` int(12) NOT NULL,
+  `valorVenta` varchar(12) COLLATE utf8mb4_spanish_ci NOT NULL,
   `diagnostico` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `descripServ1` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `descripServ2` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -667,6 +770,21 @@ CREATE TABLE `proyectos` (
   `id_capC` int(11) DEFAULT NULL,
   `id_capM` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+INSERT INTO `proyectos` (`id_proyecto`, `id_cliente`, `id_vehiculo`, `nOrden`, `nProyecto`, `tipoReparacion`, `km`, `valorVenta`, `diagnostico`, `descripServ1`, `descripServ2`, `fecha`, `fecha_creacion`, `fecha_mod`, `id_capC`, `id_capM`) VALUES
+(1, 3, 4, 220919, 11344, 'N', '218,989 km', '1,600.00', '-', 'Afinación de la transmisión automática', '-', '2022-03-01 15:40:31', '2022-03-01 15:40:31', NULL, 3, NULL),
+(2, 4, 5, 220920, 11345, 'GR', '108,811 km', '0.00', '-', 'revisar transmisión automática', '-', '2022-03-01 17:54:45', '2022-03-01 17:54:45', NULL, 3, NULL);
+
+
+CREATE TABLE `semanas` (
+  `id_semana` int(11) NOT NULL,
+  `semana` varchar(7) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `fecha_creacion` datetime DEFAULT NULL,
+  `fecha_mod` datetime DEFAULT NULL,
+  `id_capC` int(11) DEFAULT NULL,
+  `id_capM` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
 
 CREATE TABLE `usuarios` (
   `id_usuario` int(11) NOT NULL,
@@ -686,9 +804,11 @@ CREATE TABLE `usuarios` (
   `super` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
+
 INSERT INTO `usuarios` (`id_usuario`, `nombres`, `aPaterno`, `aMaterno`, `usuario`, `email`, `tel`, `pass`, `admin`, `fecha_creacion`, `fecha_mod`, `id_captC`, `id_captM`, `estatus`, `super`) VALUES
-(1, 'Jose Uriel', 'Guerra', 'Trinidad', 'admin', 'a@a.com', '2212096482', 'admin', '1', '2022-02-27 21:27:25', '2022-02-27 21:27:25', 1, 0, 'offline', 1),
-(2, 'Sebastian', 'Ortiz', 'Lopez', 'admin', 'a@a.a', '(000) 000-0000', 'admin', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0, 'Online', 0);
+(1, 'Jose Uriel', 'Guerra', 'Trinidad', 'super', 'a@a.com', '2212096482', 'admin', '1', '2022-02-27 21:27:25', '2022-02-27 21:27:25', 1, 0, 'offline', 1),
+(2, 'Sebastian', 'Ortiz', 'Lomeli', 'admin', 'a@a.a', '(000) 000-0000', 'admin', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0, 'Offline', 1),
+(3, 'Fatima', 'Ocegueda', 'Ramirez', 'fatima_ocegueda', 'servicio.ortiz.trans@gmail.com', '(333) 333-3333', 'fatimaservicio87', '0', '2022-03-01 11:52:28', '2022-03-01 11:57:26', 2, 2, 'Online', 0);
 
 CREATE TABLE `vehiculos` (
   `id_vehiculo` int(11) NOT NULL,
@@ -702,6 +822,17 @@ CREATE TABLE `vehiculos` (
   `id_captC` int(11) DEFAULT 0,
   `id_captM` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+
+INSERT INTO `vehiculos` (`id_vehiculo`, `id_marca`, `id_modelo`, `id_anio`, `placa`, `id_color`, `fecha_creacion`, `fecha_mod`, `id_captC`, `id_captM`) VALUES
+(1, 5, 141, 2, 'DSFGAGDFSG', 1, '2022-03-01 12:01:53', NULL, 2, 0),
+(2, 23, 96, 31, 'JLH2061', 4, '2022-03-01 15:26:24', NULL, 3, 0),
+(3, 41, 340, 49, 'JPV3589', 3, '2022-03-01 15:30:00', NULL, 3, 0),
+(4, 12, 120, 28, 'GZ2627C', 1, '2022-03-01 15:33:04', NULL, 3, 0),
+(5, 32, 377, 39, 'JGF5890', 1, '2022-03-01 17:49:42', NULL, 3, 0);
+
+ALTER TABLE `agentes`
+  ADD PRIMARY KEY (`id_agente`);
 
 ALTER TABLE `anios`
   ADD PRIMARY KEY (`id_anio`);
@@ -730,23 +861,29 @@ ALTER TABLE `permisos`
 ALTER TABLE `proyectos`
   ADD PRIMARY KEY (`id_proyecto`);
 
+ALTER TABLE `semanas`
+  ADD PRIMARY KEY (`id_semana`);
+
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`);
 
 ALTER TABLE `vehiculos`
   ADD PRIMARY KEY (`id_vehiculo`);
 
+ALTER TABLE `agentes`
+  MODIFY `id_agente` int(11) NOT NULL AUTO_INCREMENT;
+
 ALTER TABLE `anios`
-  MODIFY `id_anio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_anio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 ALTER TABLE `colores`
-  MODIFY `id_color` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_color` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 ALTER TABLE `marcas`
-  MODIFY `id_marca` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_marca` int(11)  NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 ALTER TABLE `modelos`
   MODIFY `id_modelo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=463;
@@ -755,16 +892,19 @@ ALTER TABLE `modulos`
   MODIFY `id_modulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 ALTER TABLE `nproyectos`
-  MODIFY `id_nProyecto` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_nProyecto` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11346;
 
 ALTER TABLE `permisos`
-  MODIFY `id_permiso` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 ALTER TABLE `proyectos`
-  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+ALTER TABLE `semanas`
+  MODIFY `id_semana` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 ALTER TABLE `vehiculos`
-  MODIFY `id_vehiculo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_vehiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;

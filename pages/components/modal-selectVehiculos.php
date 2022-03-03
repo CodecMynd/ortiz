@@ -15,8 +15,7 @@
                                 FROM vehiculos V INNER JOIN marcas M ON V.id_marca = M.id_marca
                                  INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
                                  INNER JOIN anios A ON V.id_anio = A.id_anio
-                                 INNER JOIN colores C ON V.id_color = C.id_color
-                                  ";
+                                 INNER JOIN colores C ON V.id_color = C.id_color ";
             $resultado1 = mysqli_query($conexion, $query1);
             ?>
 

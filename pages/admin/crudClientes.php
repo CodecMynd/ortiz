@@ -51,24 +51,25 @@ require '../components/head-dataTables.php';
                                 <!-- consulta sql -->
                                 <?php
                                 $cont = 0;
-                                if($super == 1){
-                                $query = "SELECT id_cliente, nombres, aPaternoCliente, aMaternoCliente, tel1, tel2, cel, status FROM clientes ORDER BY nombres DESC";
-                                }else if($verTablaCli == 1){
+                                if ($super == 1) {
                                     $query = "SELECT id_cliente, nombres, aPaternoCliente, aMaternoCliente, tel1, tel2, cel, status FROM clientes ORDER BY nombres DESC";
-                                }else{
-                                    $query = "SELECT id_cliente, nombres, aPaternoCliente, aMaternoCliente, tel1, tel2, cel, status FROM clientes WHERE id_cliente = 0";
+                                } else if ($verTablaCli == 1) {
+                                    $query = "SELECT id_cliente, nombres, aPaternoCliente, aMaternoCliente, tel1, tel2, cel, status FROM clientes ORDER BY nombres DESC";
+                                } else {
+                                    $query = "SELECT id_cliente FROM clientes WHERE id_cliente = 0";
                                 }
                                 $resultadoClientes = mysqli_query($conexion, $query);
 
                                 ?>
                                 <div class="card-body">
-                                <?php
-                                    if($verTablaCli == 0){ ?>
+                                    <?php
+                                    if ($super == 1) {
+                                    } else if ($verTablaCli == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
-                                  <?php  } ?>
+                                    <?php  } ?>
                                     <table id="tableCrudUsuarios" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
@@ -125,29 +126,29 @@ require '../components/head-dataTables.php';
                                                                     <div class="btn-group">
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="2.2.2 Modificar Cliente">
-                                                                            <?php if ($super == 1) { ?>
-                                                                                <a class="btn btn-secondary" href="../update/formUpdateCliente.php?id=<?php echo $row['id_cliente'] ?>"><i class="fas fa-edit"></i>
-                                                                                </a>
+                                                                                <?php if ($super == 1) { ?>
+                                                                                    <a class="btn btn-secondary" href="../update/formUpdateCliente.php?id=<?php echo $row['id_cliente'] ?>"><i class="fas fa-edit"></i>
+                                                                                    </a>
                                                                                 <?php  } else if ($modCliente  == 1) { ?>
                                                                                     <a class="btn btn-secondary" href="../update/formUpdateCliente.php?id=<?php echo $row['id_cliente'] ?>"><i class="fas fa-edit"></i>
-                                                                                </a>
+                                                                                    </a>
                                                                                 <?php } else { ?>
                                                                                     <a class="btn btn-outline-danger" id="modCliente"><i class="fas fa-edit"></i>
-                                                                                </a>
+                                                                                    </a>
                                                                                 <?php } ?>
                                                                             </span>
                                                                         </li>
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="2.2.3 Eliminar Cliente">
-                                                                            <?php if ($super == 1) { ?>
-                                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarCliente<?php echo $row['id_cliente'] ?>"><i class="fas fa-trash-alt"></i>
-                                                                                </a>
+                                                                                <?php if ($super == 1) { ?>
+                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarCliente<?php echo $row['id_cliente'] ?>"><i class="fas fa-trash-alt"></i>
+                                                                                    </a>
                                                                                 <?php  } else if ($eliCliente   == 1) { ?>
                                                                                     <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarCliente<?php echo $row['id_cliente'] ?>"><i class="fas fa-trash-alt"></i>
-                                                                                </a>
+                                                                                    </a>
                                                                                 <?php } else { ?>
                                                                                     <a class="btn btn-outline-danger" id="eliCliente"><i class="fas fa-trash-alt"></i>
-                                                                                </a>
+                                                                                    </a>
                                                                                 <?php } ?>
                                                                             </span>
                                                                         </li>

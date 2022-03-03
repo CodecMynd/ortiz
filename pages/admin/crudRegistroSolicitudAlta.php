@@ -2,7 +2,7 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>CRUD Lista de Proyectos | <?php echo $nomComp ?></title>
+<title>Tabla Registro de Solicitud Alta Proyecto | <?php echo $nomComp ?></title>
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
@@ -15,10 +15,10 @@ require '../components/head-dataTables.php';
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">Tabla 2.3.2 Lista de Proyectos</h1>
+                        <div class="col-sm-8">
+                            <h1 class="m-0">Tabla 2.4.2 Tabla Registro de Solicitud Alta Proyecto</h1>
                         </div>
-                        <div class="col-sm-6 ">
+                        <div class="col-sm-4 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
                         </div>
                     </div>
@@ -31,19 +31,20 @@ require '../components/head-dataTables.php';
                         <div class="col-10">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Proyectos dados de alta en el sistema</h3>
+                                    <h3 class="card-title">Registro de Solicitud de alta en el sistema</h3>
                                     <div class="card-tools">
                                         <?php if ($super == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formProyectos.php" data-toggle="tooltip" data-placement="left" title="2.3.1 Registro de Proyecto">
-                                                <i class="fa-solid fa-wrench"></i>&nbsp;&nbsp; Registro de Proyecto</a>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formRegSolicitudAlta.php" data-toggle="tooltip" data-placement="left" title="2.4.2 Registro de Solicitud Alta Proyecto">
+                                                <i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Registro Solicitud Alta</a>
                                         <?php } else if ($regProyecto == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formProyectos.php" data-toggle="tooltip" data-placement="left" title="2.3.1 Registro de Proyecto">
-                                                <i class="fa-solid fa-wrench"></i>&nbsp;&nbsp; Registro de Proyecto</a>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formRegSolicitudAlta.php" data-toggle="tooltip" data-placement="left" title="2.4.2 Registro de Solicitud Alta Proyecto">
+                                                <i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Registro Solicitud Alta</a>
                                         <?php } else { ?>
-                                            <a type="button" class="btn btn-outline-danger" id="regProyecto" data-toggle="tooltip" data-placement="left" title="2.3.1 Registro de Proyecto">
-                                                <i class="fa-solid fa-wrench"></i>&nbsp;&nbsp; Registro de Proyecto</a>
+                                            <a type="button" class="btn btn-outline-danger" id="regProyecto" data-toggle="tooltip" data-placement="left" title="2.4.2 Registro de Solicitud Alta Proyecto">
+                                                <i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Registro Solicitud Alta</a>
                                         <?php } ?>
-
+                                        <a href="crudProyectosActivos.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Ver Tabla 2.4.1 Tabla Proyectos Activos para realizar Solicitud"><i class="fa-solid fa-eye"></i></a>
+                                        <!-- <a class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Ver Historial Proyectos Activos para realizar Solicitud"><i class="fa-solid fa-clock-rotate-left"></i></a> -->
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
@@ -51,21 +52,25 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente 
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.proyectoActivo, P.registroSolicitud, V.placa, M.marca, Mo.modelo, A.anio, R.folioRegSolicitud 
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
+                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
                                     INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN clientes C ON P.id_cliente = C.id_cliente ORDER BY nProyecto ASC";
+                                    INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
+                                    INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto
+                                    WHERE P.proyectoActivo = 0 AND P.registroSolicitud = 1 ORDER BY nProyecto ASC;";
                                 } else if ($listProyecto == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente 
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.proyectoActivo, P.registroSolicitud, V.placa, M.marca, Mo.modelo, A.anio, R.folioRegSolicitud 
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
+                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
                                     INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN clientes C ON P.id_cliente = C.id_cliente ORDER BY nProyecto ASC";
+                                    INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
+                                    INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto
+                                    WHERE P.proyectoActivo = 0 AND P.registroSolicitud = 1 ORDER BY nProyecto ASC;";
                                 } else {
                                     $query = "SELECT id_proyecto
                                     FROM proyectos WHERE id_proyecto = 0";
@@ -85,14 +90,14 @@ require '../components/head-dataTables.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>Folio Solicitud</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Placas</th>
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
                                                 <th>Año</th>
-                                                <th>Cliente</th>
-                                                <th>Acciones</th>
+                                                <!-- <th>Acciones</th> -->
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -103,6 +108,9 @@ require '../components/head-dataTables.php';
                                                         <?php $cont++;
                                                         echo $cont;
                                                         ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['folioRegSolicitud'] ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $row['nProyecto']; ?>
@@ -122,15 +130,7 @@ require '../components/head-dataTables.php';
                                                     <td>
                                                         <?php echo $row['anio'] ?>
                                                     </td>
-                                                    <td>
-                                                        <?php
-                                                        $nombres = $row['nombres'];
-                                                        $aPaterno = $row['aPaternoCliente'];
-                                                        $aMaterno = $row['aMaternoCliente'];
-                                                        echo $nombreComp = $nombres . ' ' . $aPaterno . ' ' . $aMaterno;
-                                                        ?>
-                                                    </td>
-                                                    <td>
+                                                    <!-- <td>
                                                         <div class="input-group input-group-sm mb-3">
                                                             <div class="input-group-prepend">
                                                                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Usuarios"> Acciones</span>
@@ -181,7 +181,7 @@ require '../components/head-dataTables.php';
                                                                 </ul>
                                                             </div>
                                                         </div>
-                                                    </td>
+                                                    </td> -->
                                                 </tr>
                                             <?php
                                                 require '../components/modal-eliminarProyecto.php';
@@ -192,14 +192,14 @@ require '../components/head-dataTables.php';
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
+                                                <th>Folio Solicitud</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Placas</th>
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
                                                 <th>Año</th>
-                                                <th>Cliente</th>
-                                                <th>Acciones</th>
+                                                <!-- <th>Acciones</th> -->
                                             </tr>
                                         </tfoot>
                                     </table>
