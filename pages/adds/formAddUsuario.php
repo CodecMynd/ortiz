@@ -94,7 +94,7 @@ require '../components/head-main.php';
                                             </div>
                                             <div class="col-md-2 col-sm-12 tipo-usuario">
                                                 <div class="input-group">
-                                                    <input type="checkbox" data-toggle="toggle" data-on="Admin" data-off="Usuario" data-size="mini" data-onstyle="success" data-offstyle="danger" name="admin" id="admin" value="1" >
+                                                    <input type="checkbox"  data-toggle="toggle" data-on="Admin" data-off="Usuario" data-size="mini" data-onstyle="success" data-offstyle="danger" name="admin" id="admin" value="1" >
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -156,6 +156,7 @@ require '../components/head-main.php';
     $(document).ready(function() {
         $(":input").inputmask();
     });
+
 </script>
 
 </html>

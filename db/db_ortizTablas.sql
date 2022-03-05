@@ -1,7 +1,3 @@
-02/03/2022
-
-
-
 CREATE TABLE `agentes` (
   `id_agente` int(11) NOT NULL,
   `agente` varchar(40) COLLATE utf8mb4_spanish_ci NOT NULL,
@@ -11,12 +7,10 @@ CREATE TABLE `agentes` (
   `id_capM` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-
 CREATE TABLE `anios` (
   `id_anio` int(11) NOT NULL,
   `anio` varchar(4) COLLATE utf8mb4_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
 
 INSERT INTO `anios` (`id_anio`, `anio`) VALUES
 (1, '1970'),
@@ -94,12 +88,36 @@ CREATE TABLE `clientes` (
   `id_capM` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-
 INSERT INTO `clientes` (`id_cliente`, `nombres`, `aPaternoCliente`, `aMaternoCliente`, `calle`, `colonia`, `ciudad`, `estado`, `tel1`, `tel2`, `cel`, `email`, `status`, `observacion`, `fecha_creacion`, `fecha_mod`, `id_capC`, `id_capM`) VALUES
 (1, 'Marcos ', 'Gomez', 'Diaz', 'Arnica 173', 'Alamedas de Zalatitan', 'Tonala', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(331) 351-7322', 'sin@correo.com', '0', '', '2022-03-01 15:27:31', NULL, 3, NULL),
 (2, 'Ramón ', 'Hernández ', 'Trujillo', '-', '-', '-', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(331) 227-1449', 'sin@correo.com', '0', '', '2022-03-01 15:30:52', NULL, 3, NULL),
 (3, 'Ezequiel', ' Velázquez ', 'Villafuente', 'Francisco I. Madero no. 18', 'Santa Ana Tepetitan', 'Toluca', 'México', '(000) 000-0000', '(000) 000-0000', '(332) 790-9256', 'sin@correo.com', '0', '', '2022-03-01 15:34:23', NULL, 3, NULL),
-(4, 'Roberto', 'De Alba', '-', 'Santa Ana no. 6', 'El Briseño', 'Zapopan', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(331) 343-4075', 'sin@correo.com', '0', '', '2022-03-01 17:51:35', NULL, 3, NULL);
+(4, 'Roberto', 'De Alba', '-', 'Santa Ana no. 6', 'El Briseño', 'Zapopan', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(331) 343-4075', 'sin@correo.com', '0', '', '2022-03-01 17:51:35', NULL, 3, NULL),
+(5, 'Pedro Adrian', 'Rojas', 'Moreno', 'calle coto canopus no. 95 ', 'Fraccionamiento Paseo de los Agaves', 'Tlajomulco de Zuñiga', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(332) 573-8909', 'amely_5555@hotmail.com', '0', '', '2022-03-02 08:33:31', NULL, 3, NULL),
+(6, 'Ricardo Adrián ', 'Rojas', 'Moreno', 'coto canopus 95', 'fraccionamiento paseo de los agaves', 'Tlajomulco de Zuñiga', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(332) 573-8909', 'amely_5555@hotmail.com', '0', '', '2022-03-02 08:42:14', NULL, 3, NULL),
+(7, 'Martin', ' Hinojosa ', 'Gallegos', 'C. MAzamitla no. 2031', 'Benito Juarez', 'Zapopan', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(332) 229-8012', 'sin@correo.com', '0', '', '2022-03-02 09:11:01', NULL, 3, NULL),
+(8, 'Edgar Juan Carlos', 'Ramirez ', 'Aceves', 'C. Valle Manzanilla no. 833', 'Fraccionamiento Paseos del Valle', 'Tlajomulco de Zuñiga', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(332) 364-4702', 'edgarjc1985@gmail.com', '0', '', '2022-03-02 09:17:58', NULL, 3, NULL),
+(9, 'Paula yolanda', 'Amaya ', 'Navarro', 'Cuenta Aguascalientes no. 149', 'Villa fontana residencial', 'tlaquepaque', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(333) 118-9608', 'paolaam0430@gmail.com', '0', '', '2022-03-02 09:33:41', NULL, 3, NULL),
+(10, 'Valeria Itzel', 'Flores', 'Gutierrez', 'Paseo solares no. 166', 'Valeira', 'zapopan', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(667) 371-7064', 'valeriaflogtz@gmail.com', '0', '', '2022-03-02 10:18:28', NULL, 3, NULL),
+(11, 'Miguel Angel ', 'Topete', 'Marcela Alvarez', 'Belisario Dominguez 3993', 'Huentitan El Alto', 'Guadalajara', 'Jalisco', '(000) 000-0000', '(233) 125-2427', '(331) 602-0518', 'sin@correo.com', '0', '', '2022-03-02 11:19:00', NULL, 3, NULL),
+(12, 'Carlos ', 'Cortés', 'Guzmán', 'Cda. Trigo no. 6', 'Polanco', 'Sayula', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(333) 820-5117', 'gatocrtz@gmail.com', '0', '', '2022-03-02 11:45:35', NULL, 3, NULL),
+(13, 'Jerónimo ', 'Avalos ', 'Gómez', 'Valle de los Pistaches no. 161', 'Hacienda de los Eucaliptos', 'Tlajomulco de zuñiga', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(333) 321-5696', 'si@correo.com', '0', '', '2022-03-02 12:19:39', NULL, 3, NULL),
+(14, 'Jeónimo ', 'Avalos ', 'Gómez', 'Valle de los pistaches núm 161', 'Hacienda de los eucaliptos', 'Tlajomulco de Zuñig', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(333) 321-5696', 'sin@correo.com', '0', '-', '2022-03-02 12:21:23', NULL, 3, NULL),
+(15, 'J. Javier', 'Sandoval', 'Estupiñan', 'Sabino no. 2253A', 'Del Fresno', 'Guadalajara', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(498) 110-7546', 'sandovalestupinan@gmail.com', '0', '', '2022-03-02 15:12:46', NULL, 3, NULL),
+(16, 'Oscar', 'Ocampo ', 'Fuentes', 'C. del Fresno no. 5350', 'Fraccionamiento Chapultepec 9na seccion ', 'Guadalajara', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(553) 913-0167', 'sin@correo.com', '0', '', '2022-03-02 16:27:43', NULL, 3, NULL),
+(17, 'José Luis', 'Flores ', 'Blanco', 'Privada Mandarina no. 26', 'Nextipac', 'Zapopan', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(333) 182-9317', 'chiguiblanco@gmail.com', '0', '', '2022-03-03 10:33:18', NULL, 3, NULL),
+(18, 'Alfredo', 'Olguin ', 'Porras', 'Valle de los Sauces no. 153', 'Fraccionamiento Hacienda de los Eucalipt', 'Tlajomulco de Zuñiga', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(331) 658-2000', 'nextel_gdl@prodigy.net.mx', '0', '', '2022-03-03 10:46:13', NULL, 3, NULL),
+(19, 'Tereso', 'Acua', 'Chacha', 'Prolongación Niños Heroes no. 512', 'Las Liebres', 'Tlaquepaque', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(331) 880-2753', 'auct740421@hotmail.com', '0', '', '2022-03-03 11:05:58', NULL, 3, NULL),
+(20, 'Miguel Garcia', 'Adan Salvador Gomez Angulo', 'Raymundo Garcia ', 'Libertad no 58', 'Mascuala', 'Ixtlahuacan del Rio', 'Jalisco', '(000) 000-0000', '(331) 026-9294', '(333) 137-3287', 'adanga18@gmail.com', '0', '', '2022-03-03 11:16:00', NULL, 3, NULL),
+(21, 'Javier ', 'Torres', 'Carvajal', 'C. Gregorio Jimenez no. 32', 'Matatlan', 'Zapotlanejo', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(331) 753-7760', 'javier7531@yahoo.com', '0', '', '2022-03-03 13:02:54', NULL, 3, NULL),
+(22, 'Edgar Alejandro ', 'Rodriguez ', 'Marquez', 'Esteban Ramirez no. 213', 'Residencial La Soledad', 'Tlaquepaque', 'Jalisco', '(000) 000-000_', '(000) 000-000_', '(332) 477-0439', 'sin@correo.com', '0', '', '2022-03-03 14:15:40', NULL, 3, NULL),
+(23, 'Luis', ' Fernando ', 'Morales', 'Zapotlanejo 105', '-', 'Tepatitlán de Morelos', 'Jalisco', '(000) 000-0000', '(333) 026-6113', '(333) 153-7053', 'sin@correo.com', '0', '', '2022-03-03 17:37:16', NULL, 3, NULL),
+(24, 'Rito', 'Gómez', 'Ramos', '-', '-', '-', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(332) 180-7115', 'sin@correo.com', '0', '', '2022-03-04 10:42:39', NULL, 3, NULL),
+(25, 'Martin ', 'Jorge ', 'Martinez', 'C. Perdiz no. 1548', '-', 'Morelos', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(331) 197-2977', 'sin@correo.com', '0', '', '2022-03-04 11:25:25', NULL, 3, NULL),
+(26, 'Juventino', 'Mojarro', 'Parra', 'Niños Heroes no. 1', 'Sta. Cruz de las Flores', 'Tlajomulco de Zuñiga', 'Jalisco', '(000) 000-0000', '(332) 312-7485', '(332) 034-2366', 'mojarrojuvntino@gmail.com', '0', '', '2022-03-04 13:14:51', NULL, 3, NULL),
+(27, 'José Guadalupe', 'Gómez', 'Hernández', 'Puerto Melaque no. 1230', 'Santa Maria', 'Guadalajara', 'Jalisco', '(000) 000-0000', '(332) 789-6117', '(333) 637-6509', 'sin@correo.com', '0', '', '2022-03-04 13:22:32', NULL, 3, NULL),
+(28, 'Alberto Manuel', 'Cortes ', 'Cisneros', 'C. hidalgo pte. 93', 'San Miguel Zapoptitlan', 'Poncitlan', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(332) 178-0082', 'amcortesc@yahoo.com', '0', '', '2022-03-04 14:50:58', NULL, 3, NULL),
+(29, 'Mario Abraham ', 'Ordaz ', 'Padilla', '2 de abril #326 ', 'san Juan ', 'Ocotlán', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(353) 124-0098', 'aster_182@hotmail.com', '0', '', '2022-03-04 17:08:53', NULL, 3, NULL);
 
 CREATE TABLE `colores` (
   `id_color` int(4) NOT NULL,
@@ -111,19 +129,21 @@ CREATE TABLE `colores` (
   `id_capM` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-
 INSERT INTO `colores` (`id_color`, `color`, `status`, `fecha_creacion`, `fecha_mod`, `id_capC`, `id_capM`) VALUES
 (1, 'Rojo', '0', '2022-03-01 12:01:28', NULL, 2, NULL),
 (2, 'Azul', '0', '2022-03-01 12:01:31', NULL, 2, NULL),
 (3, 'Blanco', '0', '2022-03-01 15:24:37', NULL, 3, NULL),
 (4, 'Arena', '0', '2022-03-01 15:24:43', NULL, 3, NULL),
 (5, 'Negro', '0', '2022-03-01 15:24:51', NULL, 3, NULL),
-(7, 'Gris', '0', '2022-03-01 15:25:52', NULL, 3, NULL);
+(7, 'Gris', '0', '2022-03-01 15:25:52', NULL, 3, NULL),
+(8, 'sin color', '0', '2022-03-02 09:09:40', NULL, 3, NULL),
+(9, 'Platinum', '0', '2022-03-02 11:20:26', NULL, 3, NULL),
+(10, 'Chocolate', '0', '2022-03-02 15:15:05', NULL, 3, NULL),
+(11, 'Blanco y Negro', '0', '2022-03-04 17:09:34', NULL, 3, NULL);
 
-
-CREATE TABLE `marcas` (
-  `id_marca` int(11)  NOT NULL,
-  `marca` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
+CREATE TABLE `linkvideos` (
+  `id_linkVideo` int(11) NOT NULL,
+  `link` text COLLATE utf8mb4_spanish_ci NOT NULL,
   `fecha_creacion` datetime DEFAULT NULL,
   `fecha_mod` datetime DEFAULT NULL,
   `id_capC` int(11) DEFAULT NULL,
@@ -131,49 +151,58 @@ CREATE TABLE `marcas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 
+CREATE TABLE `marcas` (
+  `id_marca` int(11) UNSIGNED NOT NULL,
+  `marca` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `fecha_creacion` datetime DEFAULT NULL,
+  `fecha_mod` datetime DEFAULT NULL,
+  `id_capC` int(11) DEFAULT NULL,
+  `id_capM` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
 INSERT INTO `marcas` (`id_marca`, `marca`, `fecha_creacion`, `fecha_mod`, `id_capC`, `id_capM`) VALUES
-(1, 'Acura', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(3, 'Audi', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(4, 'BMW', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(5, 'Buick', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(6, 'Cadillac', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(7, 'Chevrolet', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(8, 'Chrysler', '0000-00-00 00:00:00', '2022-02-21 16:54:10', 2, 2),
-(9, 'Datsun', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(10, 'Dodge', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(11, 'FIAT', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(12, 'Ford', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(13, 'General Motors', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(14, 'GMC', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(16, 'Honda', '0000-00-00 00:00:00', '2022-02-22 16:00:21', 2, 2),
-(17, 'Hummer', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(18, 'Hyundai', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(19, 'Infinity', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(20, 'International', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(21, 'Isuzu', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(22, 'Jaguar', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(23, 'Jeep', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(24, 'KIA', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(25, 'Land Rover', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(26, 'Lincoln', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(27, 'Mazda', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(28, 'Mercedes Benz', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(29, 'Mercury', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(30, 'Mini cooper', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(31, 'Mitsubishi', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(32, 'Nissan', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(33, 'Peugeot', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(34, 'Pontiac', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(35, 'Porshe', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(36, 'Ram', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(37, 'Renault', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(38, 'Seat', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(39, 'Subaru', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(40, 'Suzuki', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(41, 'Toyota', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(42, 'Volvo', '0000-00-00 00:00:00', '2022-02-22 16:00:45', 2, 2),
-(43, 'VW', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0),
-(44, 'ZDX', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 2, 0);
+(1, 'Acura', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(3, 'Audi', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(4, 'BMW', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(5, 'Buick', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(6, 'Cadillac', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(7, 'Chevrolet', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(8, 'Chrysler', '0000-00-00 00:00:00', '2022-02-21 16:54:10', 1, 2),
+(9, 'Datsun', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(10, 'Dodge', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(11, 'FIAT', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(12, 'Ford', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(13, 'General Motors', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(14, 'GMC', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(16, 'Honda', '0000-00-00 00:00:00', '2022-02-22 16:00:21', 1, 2),
+(17, 'Hummer', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(18, 'Hyundai', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(19, 'Infinity', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(20, 'International', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(21, 'Isuzu', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(22, 'Jaguar', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(23, 'Jeep', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(24, 'KIA', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(25, 'Land Rover', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(26, 'Lincoln', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(27, 'Mazda', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(28, 'Mercedes Benz', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(29, 'Mercury', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(30, 'Mini cooper', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(31, 'Mitsubishi', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(32, 'Nissan', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(33, 'Peugeot', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(34, 'Pontiac', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(35, 'Porshe', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(36, 'Ram', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(37, 'Renault', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(38, 'Seat', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(39, 'Subaru', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(40, 'Suzuki', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(41, 'Toyota', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(42, 'Volvo', '0000-00-00 00:00:00', '2022-02-22 16:00:45', 1, 2),
+(43, 'VW', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(44, 'ZDX', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0);
 
 CREATE TABLE `modelos` (
   `id_modelo` int(11) NOT NULL,
@@ -184,7 +213,6 @@ CREATE TABLE `modelos` (
   `id_capC` int(11) DEFAULT NULL,
   `id_capM` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
 
 INSERT INTO `modelos` (`id_modelo`, `id_marca`, `modelo`, `fecha_creacion`, `fecha_mod`, `id_capC`, `id_capM`) VALUES
 (1, 3, 'A1', '2022-02-21 16:30:01', NULL, 2, NULL),
@@ -636,7 +664,6 @@ INSERT INTO `modelos` (`id_modelo`, `id_marca`, `modelo`, `fecha_creacion`, `fec
 (461, 12, 'Aerostar', '2022-02-23 10:38:13', NULL, 2, NULL),
 (462, 26, 'Town Car', '2022-02-25 11:09:42', NULL, 2, NULL);
 
-
 CREATE TABLE `modulos` (
   `id_modulo` int(11) NOT NULL,
   `modulo` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL,
@@ -647,7 +674,6 @@ CREATE TABLE `modulos` (
   `id_captC` int(11) NOT NULL,
   `id_captM` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
 
 INSERT INTO `modulos` (`id_modulo`, `modulo`, `boton`, `permiso`, `fecha_creacion`, `fecha_mod`, `id_captC`, `id_captM`) VALUES
 (1, '1.0 Catálogos', '1.1 Usuarios', '1.1.1 Editar Usuarios', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0),
@@ -679,6 +705,7 @@ INSERT INTO `modulos` (`id_modulo`, `modulo`, `boton`, `permiso`, `fecha_creacio
 (27, '2.0 Proyecto', '2.3 Registro Proyecto', '2.3.4 Eliminar Proyectos', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0),
 (28, '2.0 Proyecto', '2.3 Registro Proyecto', '2.3.5 Descarga PDF Proyectos', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0);
 
+
 CREATE TABLE `nproyectos` (
   `id_nProyecto` int(15) NOT NULL,
   `id_proyecto` int(11) NOT NULL,
@@ -688,14 +715,35 @@ CREATE TABLE `nproyectos` (
   `id_capM` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-
 INSERT INTO `nproyectos` (`id_nProyecto`, `id_proyecto`, `fecha_creacion`, `fecha_mod`, `id_capC`, `id_capM`) VALUES
 (11341, 0, '2022-02-28 00:26:55', '2022-02-28 00:26:55', 1, NULL),
 (11342, 0, '2022-03-01 15:28:22', NULL, 3, NULL),
 (11343, 0, '2022-03-01 15:31:42', NULL, 3, NULL),
 (11344, 1, '2022-03-01 15:40:31', NULL, 3, NULL),
-(11345, 2, '2022-03-01 17:54:45', NULL, 3, NULL);
-
+(11345, 2, '2022-03-01 17:54:45', NULL, 3, NULL),
+(11346, 3, '2022-03-02 09:03:50', NULL, 3, NULL),
+(11347, 4, '2022-03-02 09:11:54', NULL, 3, NULL),
+(11348, 5, '2022-03-02 09:19:28', NULL, 3, NULL),
+(11349, 6, '2022-03-02 09:35:21', NULL, 3, NULL),
+(11350, 7, '2022-03-02 10:20:27', NULL, 3, NULL),
+(11351, 8, '2022-03-02 11:22:50', NULL, 3, NULL),
+(11352, 9, '2022-03-02 11:47:48', NULL, 3, NULL),
+(11353, 10, '2022-03-02 12:54:35', NULL, 3, NULL),
+(11354, 11, '2022-03-02 15:18:23', NULL, 3, NULL),
+(11355, 12, '2022-03-02 16:29:15', NULL, 3, NULL),
+(11356, 13, '2022-03-03 10:39:15', NULL, 3, NULL),
+(11357, 14, '2022-03-03 10:47:53', NULL, 3, NULL),
+(11358, 15, '2022-03-03 11:07:44', NULL, 3, NULL),
+(11359, 16, '2022-03-03 11:18:17', NULL, 3, NULL),
+(11360, 17, '2022-03-03 13:05:29', NULL, 3, NULL),
+(11361, 18, '2022-03-03 14:17:23', NULL, 3, NULL),
+(11362, 19, '2022-03-03 17:39:49', NULL, 3, NULL),
+(11363, 20, '2022-03-04 10:44:38', NULL, 3, NULL),
+(11364, 21, '2022-03-04 11:26:54', NULL, 3, NULL),
+(11365, 22, '2022-03-04 13:20:20', NULL, 3, NULL),
+(11366, 23, '2022-03-04 13:24:02', NULL, 3, NULL),
+(11367, 24, '2022-03-04 14:52:29', NULL, 3, NULL),
+(11368, 25, '2022-03-04 17:11:07', NULL, 3, NULL);
 
 CREATE TABLE `permisos` (
   `id_permiso` int(11) NOT NULL,
@@ -709,48 +757,51 @@ CREATE TABLE `permisos` (
   `regMarca` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
   `modMarca` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
   `eliminaMar` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
-  `verTablaModelo` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `regModelo` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `modModelo` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `eliminarMod` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `verTablaAnio` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `regAnios` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `modAnios` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `eliminarAnio` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `regColor` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `modColor` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `eliminarCol` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `verTablaColor` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `verTablaSemana` char(1) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `regSemana` char(1) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `eliSemana` char(1) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `verTablaAgente` char(1) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `regAgente` char(1) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `eliAgente` char(1) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `regPermiso` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `modPermiso` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `eliPermiso` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `verTablaVeh` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `regVehiculo` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `modVehiculo` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `eliVehiculo` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `verTablaCli` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `regCliente` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `modCliente` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `eliCliente` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `regProyecto` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `listProyecto` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `modProyecto` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `eliProyecto` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `pdfProyecto` char(1) CHARACTER SET utf8 DEFAULT NULL,
+  `verTablaModelo` char(1) CHARACTER SET utf8 DEFAULT '0',
+  `regModelo` char(1) CHARACTER SET utf8 DEFAULT '0',
+  `modModelo` char(1) CHARACTER SET utf8 DEFAULT '0',
+  `eliminarMod` char(1) CHARACTER SET utf8 DEFAULT '0',
+  `verTablaAnio` char(1) CHARACTER SET utf8 DEFAULT '0',
+  `regAnios` char(1) CHARACTER SET utf8 DEFAULT '0',
+  `modAnios` char(1) CHARACTER SET utf8 DEFAULT '0',
+  `eliminarAnio` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `regColor` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `modColor` char(1) CHARACTER SET utf8 DEFAULT '0',
+  `eliminarCol` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `verTablaColor` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `verTablaSemana` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
+  `regSemana` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
+  `eliSemana` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
+  `verTablaAgente` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
+  `regAgente` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
+  `eliAgente` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
+  `regPermiso` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `modPermiso` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `eliPermiso` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `verTablaVeh` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `regVehiculo` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `modVehiculo` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `eliVehiculo` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `verTablaCli` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `regCliente` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `modCliente` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `eliCliente` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `regProyecto` char(1) CHARACTER SET utf8 DEFAULT '0',
+  `listProyecto` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `modProyecto` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `eliProyecto` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `pdfProyecto` char(1) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `verTablaProyAct` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
+  `verTablaRegSolAltProy` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
+  `regSolAltProy` char(1) COLLATE utf8mb4_spanish_ci DEFAULT '0',
+  `pdfRegSolAltProy` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
   `id_usuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-INSERT INTO `permisos` (`id_permiso`, `verTablaUsuario`, `editarUsu`, `asignarCon`, `eliminarUsu`, `asignarPer`, `nuevoUsu`, `verTablaMarca`, `regMarca`, `modMarca`, `eliminaMar`, `verTablaModelo`, `regModelo`, `modModelo`, `eliminarMod`, `verTablaAnio`, `regAnios`, `modAnios`, `eliminarAnio`, `regColor`, `modColor`, `eliminarCol`, `verTablaColor`, `verTablaSemana`, `regSemana`, `eliSemana`, `verTablaAgente`, `regAgente`, `eliAgente`, `regPermiso`, `modPermiso`, `eliPermiso`, `verTablaVeh`, `regVehiculo`, `modVehiculo`, `eliVehiculo`, `verTablaCli`, `regCliente`, `modCliente`, `eliCliente`, `regProyecto`, `listProyecto`, `modProyecto`, `eliProyecto`, `pdfProyecto`, `id_usuario`) VALUES
-(1, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 1),
-(2, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 2),
-(3, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '0', '1', '1', '0', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '1', 3);
-
+INSERT INTO `permisos` (`id_permiso`, `verTablaUsuario`, `editarUsu`, `asignarCon`, `eliminarUsu`, `asignarPer`, `nuevoUsu`, `verTablaMarca`, `regMarca`, `modMarca`, `eliminaMar`, `verTablaModelo`, `regModelo`, `modModelo`, `eliminarMod`, `verTablaAnio`, `regAnios`, `modAnios`, `eliminarAnio`, `regColor`, `modColor`, `eliminarCol`, `verTablaColor`, `verTablaSemana`, `regSemana`, `eliSemana`, `verTablaAgente`, `regAgente`, `eliAgente`, `regPermiso`, `modPermiso`, `eliPermiso`, `verTablaVeh`, `regVehiculo`, `modVehiculo`, `eliVehiculo`, `verTablaCli`, `regCliente`, `modCliente`, `eliCliente`, `regProyecto`, `listProyecto`, `modProyecto`, `eliProyecto`, `pdfProyecto`, `verTablaProyAct`, `verTablaRegSolAltProy`, `regSolAltProy`, `pdfRegSolAltProy`, `id_usuario`) VALUES
+(1, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '0', '0', '0', '0', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '0', '0', '0', 1),
+(2, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '0', '0', '0', '0', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '0', '0', '0', 2),
+(3, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '0', '1', '1', '0', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '1', '0', '0', '0', '0', 3);
 
 CREATE TABLE `proyectos` (
   `id_proyecto` int(11) NOT NULL,
@@ -764,17 +815,70 @@ CREATE TABLE `proyectos` (
   `diagnostico` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `descripServ1` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `descripServ2` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `fecha` varchar(40) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `proyectoActivo` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `registroSolicitud` char(1) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `altaProyecto` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
   `fecha_creacion` datetime DEFAULT NULL,
   `fecha_mod` datetime DEFAULT NULL,
   `id_capC` int(11) DEFAULT NULL,
   `id_capM` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-INSERT INTO `proyectos` (`id_proyecto`, `id_cliente`, `id_vehiculo`, `nOrden`, `nProyecto`, `tipoReparacion`, `km`, `valorVenta`, `diagnostico`, `descripServ1`, `descripServ2`, `fecha`, `fecha_creacion`, `fecha_mod`, `id_capC`, `id_capM`) VALUES
-(1, 3, 4, 220919, 11344, 'N', '218,989 km', '1,600.00', '-', 'Afinación de la transmisión automática', '-', '2022-03-01 15:40:31', '2022-03-01 15:40:31', NULL, 3, NULL),
-(2, 4, 5, 220920, 11345, 'GR', '108,811 km', '0.00', '-', 'revisar transmisión automática', '-', '2022-03-01 17:54:45', '2022-03-01 17:54:45', NULL, 3, NULL);
+INSERT INTO `proyectos` (`id_proyecto`, `id_cliente`, `id_vehiculo`, `nOrden`, `nProyecto`, `tipoReparacion`, `km`, `valorVenta`, `diagnostico`, `descripServ1`, `descripServ2`, `proyectoActivo`, `registroSolicitud`, `altaProyecto`, `fecha_creacion`, `fecha_mod`, `id_capC`, `id_capM`) VALUES
+(1, 3, 4, 220919, 11344, 'N', '218,989 km', '1,600.00', '-', 'Afinación de la transmisión automática', '-', '1', '0', '0', '2022-03-01 15:40:31', NULL, 3, NULL),
+(2, 4, 5, 220920, 11345, 'GR', '108,811 km', '0.00', '-', 'revisar transmisión automática', '-', '1', '0', '0', '2022-03-01 17:54:45', NULL, 3, NULL),
+(3, 6, 6, 220921, 11346, 'N', '100,000 km', '15,000.00', '-', 'Diagnóstico', '-', '1', '0', '0', '2022-03-02 09:03:50', NULL, 3, NULL),
+(4, 7, 7, 220922, 11347, 'N', '1 km', '15,000.00', '-', 'Diagnostico y reparación de la transmisión automática', '-', '1', '0', '0', '2022-03-02 09:11:54', NULL, 3, NULL),
+(5, 8, 8, 220923, 11348, 'N', '99,747 km', '1,400.00', '-', 'Afinación de la transmisión automática', '-', '1', '0', '0', '2022-03-02 09:19:28', '2022-03-02 09:35:51', 3, 3),
+(6, 9, 9, 220924, 11349, 'N', '236,001 km', '650.00', '-', 'Afinación de la transmisión automática', '-', '1', '0', '0', '2022-03-02 09:35:21', NULL, 3, NULL),
+(7, 10, 10, 220925, 11350, 'N', '144,996 km', '10,000.00', '-', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '2022-03-02 10:20:27', NULL, 3, NULL),
+(8, 11, 11, 220926, 11351, 'GR', '1 km', '1.00', '-', 'Revisar transmisión automática', '-', '1', '0', '0', '2022-03-02 11:22:50', NULL, 3, NULL),
+(9, 12, 12, 220927, 11352, 'N', '210,544 km', '14,000.00', '-', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '2022-03-02 11:47:48', NULL, 3, NULL),
+(10, 13, 13, 220928, 11353, 'GR', '302,651 km', '1.00', '-', 'Revisar Transmisión automática', '-', '1', '0', '0', '2022-03-02 12:54:35', NULL, 3, NULL),
+(11, 15, 14, 220929, 11354, 'N', '1 km', '13,000.00', '-', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '2022-03-02 15:18:23', NULL, 3, NULL),
+(12, 16, 15, 220930, 11355, 'GR', '129,117 km', '1.00', '-', 'Revisar transmisión automática', '-', '1', '0', '0', '2022-03-02 16:29:15', NULL, 3, NULL),
+(13, 17, 16, 220931, 11356, 'N', '103,935 km', '1,000.00', '-', 'Afinación de la transmisión automática', '-', '1', '0', '0', '2022-03-03 10:39:15', NULL, 3, NULL),
+(14, 18, 17, 220932, 11357, 'N', '1 km', '10,500.00', '-', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '2022-03-03 10:47:53', NULL, 3, NULL),
+(15, 19, 18, 220933, 11358, 'N', '1 km', '20,000.00', '-', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '2022-03-03 11:07:44', '2022-03-03 13:16:16', 3, 3),
+(16, 20, 19, 220934, 11359, 'N', '1 km', '20,000.00', '-', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '2022-03-03 11:18:17', NULL, 3, NULL),
+(17, 21, 20, 220935, 11360, 'N', '234,184 km', '14,000.00', '-', 'Dx y reparación de la transmisión autoḿática', '-', '1', '0', '0', '2022-03-03 13:05:29', NULL, 3, NULL),
+(18, 22, 21, 220936, 11361, 'N', '245,047 km', '1.00', '-', 'Revisar transmisión automática', '-', '1', '0', '0', '2022-03-03 14:17:23', NULL, 3, NULL),
+(19, 23, 22, 220937, 11362, 'GR', '263,385 km', '1.00', '-', 'Revisar transmisión automática', '-', '1', '0', '0', '2022-03-03 17:39:49', NULL, 3, NULL),
+(20, 24, 23, 220938, 11363, 'GR', '1 km', '1.00', '-', 'Revisar transmisión automática', '-', '1', '0', '0', '2022-03-04 10:44:38', NULL, 3, NULL),
+(21, 25, 24, 220939, 11364, 'GR', '183,818 km', '1.00', '-', 'Revisar transmisión automática', '-', '1', '0', '0', '2022-03-04 11:26:54', NULL, 3, NULL),
+(22, 26, 25, 220940, 11365, 'N', '1 km', '1.00', '-', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '2022-03-04 13:20:20', NULL, 3, NULL),
+(23, 27, 26, 220941, 11366, 'N', '1 km', '1.00', '-', 'Diagnostico', '-', '1', '0', '0', '2022-03-04 13:24:02', NULL, 3, NULL),
+(24, 28, 27, 220942, 11367, 'N', '95,986 km', '1,400.00', '-', 'Afinación de la transmisión automática', '-', '1', '0', '0', '2022-03-04 14:52:29', NULL, 3, NULL),
+(25, 29, 28, 220943, 11368, 'N', '1 km', '14,000.00', '-', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '2022-03-04 17:11:07', NULL, 3, NULL);
 
+CREATE TABLE `registroalta` (
+  `id_regAlta` int(11) NOT NULL,
+  `folioRegAlta` varchar(25) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `id_proyecto` int(11) NOT NULL,
+  `id_link` int(11) NOT NULL,
+  `fecha_creacion` datetime DEFAULT NULL,
+  `fecha_mod` datetime DEFAULT NULL,
+  `id_capC` int(11) DEFAULT NULL,
+  `id_capM` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+INSERT INTO `registroalta` (`id_regAlta`, `folioRegAlta`, `id_proyecto`, `id_link`, `fecha_creacion`, `fecha_mod`, `id_capC`, `id_capM`) VALUES
+(0, '0', 0, 0, '2022-03-04 21:49:34', '2022-03-04 21:49:34', NULL, NULL);
+
+CREATE TABLE `registrosolicitud` (
+  `id_regSolicitud` int(11) NOT NULL,
+  `folioRegSolicitud` varchar(25) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `id_proyecto` int(11) NOT NULL,
+  `valorVentaAlta` varchar(12) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `id_semana` int(2) NOT NULL,
+  `fecha_creacion` datetime DEFAULT NULL,
+  `fecha_mod` datetime DEFAULT NULL,
+  `id_capC` int(11) DEFAULT NULL,
+  `id_capM` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+INSERT INTO `registrosolicitud` (`id_regSolicitud`, `folioRegSolicitud`, `id_proyecto`, `valorVentaAlta`, `id_semana`, `fecha_creacion`, `fecha_mod`, `id_capC`, `id_capM`) VALUES
+(0, '0', 0, '', 0, '2022-03-03 06:01:52', '2022-03-03 06:01:52', NULL, NULL);
 
 CREATE TABLE `semanas` (
   `id_semana` int(11) NOT NULL,
@@ -785,6 +889,8 @@ CREATE TABLE `semanas` (
   `id_capM` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
+INSERT INTO `semanas` (`id_semana`, `semana`, `fecha_creacion`, `fecha_mod`, `id_capC`, `id_capM`) VALUES
+(1, '2022-01', '2022-03-04 12:05:02', NULL, 2, NULL);
 
 CREATE TABLE `usuarios` (
   `id_usuario` int(11) NOT NULL,
@@ -804,10 +910,9 @@ CREATE TABLE `usuarios` (
   `super` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-
 INSERT INTO `usuarios` (`id_usuario`, `nombres`, `aPaterno`, `aMaterno`, `usuario`, `email`, `tel`, `pass`, `admin`, `fecha_creacion`, `fecha_mod`, `id_captC`, `id_captM`, `estatus`, `super`) VALUES
 (1, 'Jose Uriel', 'Guerra', 'Trinidad', 'super', 'a@a.com', '2212096482', 'admin', '1', '2022-02-27 21:27:25', '2022-02-27 21:27:25', 1, 0, 'offline', 1),
-(2, 'Sebastian', 'Ortiz', 'Lomeli', 'admin', 'a@a.a', '(000) 000-0000', 'admin', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0, 'Offline', 1),
+(2, 'Sebastian', 'Ortiz', 'Lomeli', 'admin', 'a@a.a', '(000) 000-0000', 'admin', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0, 'Online', 1),
 (3, 'Fatima', 'Ocegueda', 'Ramirez', 'fatima_ocegueda', 'servicio.ortiz.trans@gmail.com', '(333) 333-3333', 'fatimaservicio87', '0', '2022-03-01 11:52:28', '2022-03-01 11:57:26', 2, 2, 'Online', 0);
 
 CREATE TABLE `vehiculos` (
@@ -823,13 +928,35 @@ CREATE TABLE `vehiculos` (
   `id_captM` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-
 INSERT INTO `vehiculos` (`id_vehiculo`, `id_marca`, `id_modelo`, `id_anio`, `placa`, `id_color`, `fecha_creacion`, `fecha_mod`, `id_captC`, `id_captM`) VALUES
 (1, 5, 141, 2, 'DSFGAGDFSG', 1, '2022-03-01 12:01:53', NULL, 2, 0),
 (2, 23, 96, 31, 'JLH2061', 4, '2022-03-01 15:26:24', NULL, 3, 0),
 (3, 41, 340, 49, 'JPV3589', 3, '2022-03-01 15:30:00', NULL, 3, 0),
 (4, 12, 120, 28, 'GZ2627C', 1, '2022-03-01 15:33:04', NULL, 3, 0),
-(5, 32, 377, 39, 'JGF5890', 1, '2022-03-01 17:49:42', NULL, 3, 0);
+(5, 32, 377, 39, 'JGF5890', 1, '2022-03-01 17:49:42', NULL, 3, 0),
+(6, 12, 100, 31, 'JLU9198', 7, '2022-03-02 08:39:47', NULL, 3, 0),
+(7, 10, 429, 25, 'SUELTA', 8, '2022-03-02 09:10:00', NULL, 3, 0),
+(8, 12, 110, 38, 'JLA7025', 3, '2022-03-02 09:18:49', NULL, 3, 0),
+(9, 32, 379, 35, 'JSZ5718', 1, '2022-03-02 09:34:31', NULL, 3, 0),
+(10, 10, 424, 35, 'JCW4881', 3, '2022-03-02 10:19:06', NULL, 3, 0),
+(11, 12, 120, 43, 'NO TRAE', 9, '2022-03-02 11:20:46', NULL, 3, 0),
+(12, 16, 396, 36, 'JLN7315', 7, '2022-03-02 11:46:13', NULL, 3, 0),
+(13, 7, 31, 41, 'JRT2530', 5, '2022-03-02 12:17:54', NULL, 3, 0),
+(14, 12, 100, 30, 'ZGX444B', 10, '2022-03-02 15:15:43', NULL, 3, 0),
+(15, 10, 431, 41, 'MHE7909', 5, '2022-03-02 16:28:13', NULL, 3, 0),
+(16, 32, 379, 42, '161ZCH', 3, '2022-03-03 10:33:57', NULL, 3, 0),
+(17, 12, 108, 24, 'JK71204', 3, '2022-03-03 10:46:42', NULL, 3, 0),
+(18, 10, 428, 39, 'JMM2551', 2, '2022-03-03 11:06:48', NULL, 3, 0),
+(19, 41, 340, 49, 'JPH-80-56', 7, '2022-03-03 11:16:32', NULL, 3, 0),
+(20, 32, 379, 35, 'JHM8265', 7, '2022-03-03 13:04:04', NULL, 3, 0),
+(21, 12, 114, 30, 'JR61229 ', 1, '2022-03-03 14:16:13', NULL, 3, 0),
+(22, 8, 321, 31, 'JDV4204', 3, '2022-03-03 17:38:22', NULL, 3, 0),
+(23, 7, 33, 25, 'JD54742 ', 1, '2022-03-04 10:43:17', NULL, 3, 0),
+(24, 32, 379, 44, 'JKE8851', 7, '2022-03-04 11:25:55', NULL, 3, 0),
+(25, 27, 401, 40, 'JGT7393', 1, '2022-03-04 13:15:59', NULL, 3, 0),
+(26, 41, 347, 39, 'JMX1895', 7, '2022-03-04 13:23:13', NULL, 3, 0),
+(27, 8, 321, 45, 'JKZ2341', 3, '2022-03-04 14:51:35', NULL, 3, 0),
+(28, 7, 35, 37, 'JLE6916', 11, '2022-03-04 17:10:08', NULL, 3, 0);
 
 ALTER TABLE `agentes`
   ADD PRIMARY KEY (`id_agente`);
@@ -842,6 +969,9 @@ ALTER TABLE `clientes`
 
 ALTER TABLE `colores`
   ADD PRIMARY KEY (`id_color`);
+
+ALTER TABLE `linkvideos`
+  ADD PRIMARY KEY (`id_linkVideo`);
 
 ALTER TABLE `marcas`
   ADD PRIMARY KEY (`id_marca`);
@@ -861,6 +991,12 @@ ALTER TABLE `permisos`
 ALTER TABLE `proyectos`
   ADD PRIMARY KEY (`id_proyecto`);
 
+ALTER TABLE `registroalta`
+  ADD PRIMARY KEY (`id_regAlta`);
+
+ALTER TABLE `registrosolicitud`
+  ADD PRIMARY KEY (`id_regSolicitud`);
+
 ALTER TABLE `semanas`
   ADD PRIMARY KEY (`id_semana`);
 
@@ -877,13 +1013,16 @@ ALTER TABLE `anios`
   MODIFY `id_anio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 ALTER TABLE `colores`
-  MODIFY `id_color` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_color` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+ALTER TABLE `linkvideos`
+  MODIFY `id_linkVideo` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `marcas`
-  MODIFY `id_marca` int(11)  NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_marca` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 ALTER TABLE `modelos`
   MODIFY `id_modelo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=463;
@@ -892,19 +1031,25 @@ ALTER TABLE `modulos`
   MODIFY `id_modulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 ALTER TABLE `nproyectos`
-  MODIFY `id_nProyecto` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11346;
+  MODIFY `id_nProyecto` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11369;
 
 ALTER TABLE `permisos`
   MODIFY `id_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 ALTER TABLE `proyectos`
-  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+ALTER TABLE `registroalta`
+  MODIFY `id_regAlta` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `registrosolicitud`
+  MODIFY `id_regSolicitud` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `semanas`
-  MODIFY `id_semana` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_semana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 ALTER TABLE `usuarios`
   MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 ALTER TABLE `vehiculos`
-  MODIFY `id_vehiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_vehiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;

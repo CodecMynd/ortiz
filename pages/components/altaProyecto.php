@@ -10,7 +10,7 @@ ob_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orden de Servicio </title>
+    <title>Alta Proyecto </title>
 
     <!-- Favicon -->
     <link rel="icon" href="../../src/img/logos/favicon.png" type="image/gif" sizes="32x32">
@@ -165,37 +165,45 @@ ob_start();
             color: gray;
         }
     </style>
+    </style>
 </head>
 <?php
 require '../components/head-main.php';
 
 $id_proyecto = $_GET['id'];
 // $id_proyecto = 1;
-$query = "SELECT * FROM proyectos WHERE id_proyecto = $id_proyecto";
-$respuesta = mysqli_query($conexion, $query);
-$row = $respuesta->fetch_assoc();
 
-$id_cliente = $row['id_cliente'];
-$query = "SELECT * FROM clientes WHERE id_cliente = $id_cliente";
+$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, Co.color, R.folioRegSolicitud, R.valorVentaAlta, RA.fecha_creacion, S.semana, U.nombres, U.aPaterno, U.aMaterno, RA.folioRegAlta, LV.link 
+FROM proyectos P 
+INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
+INNER JOIN registroAlta RA ON P.id_proyecto = RA.id_proyecto 
+INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
+INNER JOIN marcas M ON V.id_marca = M.id_marca 
+INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
+INNER JOIN anios A ON V.id_anio = A.id_anio 
+INNER JOIN colores Co ON V.id_color = Co.id_color 
+INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
+INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto 
+INNER JOIN semanas S ON R.id_semana = S.id_semana 
+INNER JOIN usuarios U ON R.id_regSolicitud = U.id_usuario 
+WHERE P.id_proyecto = ' . $id_proyecto . ' ';
 $respuesta = mysqli_query($conexion, $query);
-$rowCliente = $respuesta->fetch_assoc();
-$nomClienteCompleto = $rowCliente['nombres'] . ' ' . $rowCliente['aPaternoCliente'] . ' ' . $rowCliente['aMaternoCliente'];
+$row  = $respuesta->fetch_assoc();
 
-$id_vehiculo = $row['id_vehiculo'];
-$query = "SELECT M.marca, Mo.modelo, A.anio, V.placa, C.color, V.id_vehiculo, V.id_marca, V.id_anio, V.id_color
-    FROM vehiculos V 
-    INNER JOIN marcas M ON V.id_marca = M.id_marca 
-    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
-    INNER JOIN anios A ON V.id_anio = A.id_anio 
-    INNER JOIN colores C on V.id_color = C.id_color WHERE id_vehiculo = $id_vehiculo";
-$respuesta = mysqli_query($conexion, $query);
-$rowV = $respuesta->fetch_assoc();
 
-$id_capC = $row['id_capC'];
-$query = "SELECT nombres, aPaterno, aMaterno FROM usuarios WHERE id_usuario = $id_capC";
-$respuestaUsuario = mysqli_query($conexion, $query);
-$rowUsuario = $respuestaUsuario->fetch_assoc();
-$capturista = $rowUsuario['nombres'] . ' ' . $rowUsuario['aPaterno'] . ' ' . $rowUsuario['aMaterno'];
+$marca = $row['marca'];
+$modelo = $row['modelo'];
+$anio = $row['anio'];
+$placa = $row['placa'];
+$color = $row['color'];
+
+$capturista = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
+
+$tipoReparacion = $row['tipoReparacion'];
+$km = $row['km'];
+$valorVenta = $row['valorVenta'];
+$valorVentaAlta = $row['valorVentaAlta'];
+
 ?>
 
 <body>
@@ -203,18 +211,9 @@ $capturista = $rowUsuario['nombres'] . ' ' . $rowUsuario['aPaterno'] . ' ' . $ro
     <header>
         <div class="logoHeader"><img src="../../src/img/logos/headerSolicitudAltaLogo.png" /></div>
         <div class="titleHeader">
-        <h2 class="mb-0">Orden de Servicio</h2>
-                <ul class="float-right text-center">
-                    <li>Av. Alcalde #1011 Col. Alcalde Barranquitas</li>
-                    <li>Guadalajara Jalisco, México</li>
-                    <li>Tel.(33) 2101 1653</li>
-                </ul>
+            <h2>Alta de Proyecto</h2>
         </div>
     </header>
-    <!-- 
-    <footer>
-        <img src="../../src/img/logos/footer.png" width="100%" height="100%" />
-    </footer> -->
 
     <!-- Envuelva el contenido de su PDF dentro de una etiqueta principal -->
     <main>
@@ -222,9 +221,11 @@ $capturista = $rowUsuario['nombres'] . ' ' . $rowUsuario['aPaterno'] . ' ' . $ro
         <div class="container-fluid" style="width:107%">
             <div class="col-md-12">
                 <ul class="float-right">
-                    <li>Fecha Ingreso <input type="text" value="<?php echo $row['fecha_creacion'] ?>" style="width:100px;"></li>
-                    <li>Número de Orden <input type="text" value="<?php echo $row['nOrden'] ?>" style="width:100px"></li>
-                    <li>Número de Proyecto <input type="text" value="<?php echo $row['nProyecto'] ?>" style="width:100px"> </li>
+                    <li>Núm. Folio Alta <input type="text" value="<?php echo $row['folioRegAlta'] ?>" style="width:100px"> </li>
+                    <li>Fecha Alta <input type="text" value="<?php echo $row['fecha_creacion'] ?>" style="width:100px;"></li>
+                    <li>Núm. Folio Solicitud Alta <input type="text" value="<?php echo $row['folioRegSolicitud'] ?>" style="width:100px"> </li>
+                    <li>Núm. de Orden <input type="text" value="<?php echo $row['nOrden'] ?>" style="width:100px"></li>
+                    <li>Núm. de Proyecto <input type="text" value="<?php echo $row['nProyecto'] ?>" style="width:100px"> </li>
                 </ul>
             </div>
         </div>
@@ -234,46 +235,7 @@ $capturista = $rowUsuario['nombres'] . ' ' . $rowUsuario['aPaterno'] . ' ' . $ro
                 <table class="table table-sm">
                     <tbody>
                         <tr>
-                            <th class="titulo">Cliente</th>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="col-12">
-                    <hr>
-                </div>
-                <table class="table table-sm">
-                    <tbody>
-                        <tr>
-                            <td>Nombre</td>
-                            <td>Domicilio</td>
-                            <td>Ciudad</td>
-                            <td>Estado</td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" class="inputRespM" value="<?php echo $nomClienteCompleto ?>"></td>
-                            <td><input type="text" class="inputRespM" value="<?php echo $rowCliente['calle'] ?>"></td>
-                            <td><input type="text" class="inputRespM" value="<?php echo $rowCliente['ciudad'] ?>"></td>
-                            <td><input type="text" class="inputRespM" value="<?php echo $rowCliente['estado'] ?>"></td>
-                        </tr>
-                        <tr>
-                            <td>Celular</td>
-                            <td>Teléfono 1</td>
-                            <td>Teléfono 2</td>
-                            <td>Correo Electrónico</td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" class="inputRespM" value="<?php echo $rowCliente['cel'] ?>"></td>
-                            <td><input type="text" class="inputRespM" value="<?php echo $rowCliente['tel1'] ?>"></td>
-                            <td><input type="text" class="inputRespM" value="<?php echo $rowCliente['tel2'] ?>"></td>
-                            <td><input type="text" class="inputRespM" value="<?php echo $rowCliente['email'] ?>"></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <br>
-                <table class="table table-sm">
-                    <tbody>
-                        <tr>
-                            <th class="titulo">Vehículo</th>
+                            <th class="titulo">Proyecto</th>
                         </tr>
                     </tbody>
                 </table>
@@ -288,15 +250,13 @@ $capturista = $rowUsuario['nombres'] . ' ' . $rowUsuario['aPaterno'] . ' ' . $ro
                             <td>Año</td>
                             <td>Placa</td>
                             <td>Color</td>
-                            <td>Kilometraje</td>
                         </tr>
                         <tr>
-                            <td><input type="text" class="inputRespM" value="<?php echo $rowV['marca'] ?>"></td>
-                            <td><input type="text" class="inputRespC" value="<?php echo $rowV['modelo'] ?>"></td>
-                            <td><input type="text" class="inputRespC" value="<?php echo $rowV['anio'] ?>"></td>
-                            <td><input type="text" class="inputRespC" value="<?php echo $rowV['placa'] ?>"></td>
-                            <td><input type="text" class="inputRespC" value="<?php echo $rowV['color'] ?>"></td>
-                            <td><input type="text" class="inputRespC" value="<?php echo $row['km'] ?>"></td>
+                            <td><input type="text" class="inputRespM" value="<?php echo $marca ?>"></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $modelo ?>"></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $anio ?>"></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $placa ?>"></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $color ?>"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -304,7 +264,7 @@ $capturista = $rowUsuario['nombres'] . ' ' . $rowUsuario['aPaterno'] . ' ' . $ro
                 <table class="table table-sm">
                     <tbody>
                         <tr>
-                            <th class="titulo">Servicio</th>
+                            <th class="titulo">Generales</th>
                         </tr>
                     </tbody>
                 </table>
@@ -314,33 +274,49 @@ $capturista = $rowUsuario['nombres'] . ' ' . $rowUsuario['aPaterno'] . ' ' . $ro
                 <table class="table table-sm">
                     <tbody>
                         <tr>
-                            <td>Diagnostico</td>
+                            <td>Núm. Folio Alta</td>
+                            <td>Núm. Folio Solicitud Alta</td>
+                            <td>Núm Proyecto</td>
+                            <td>Núm. de Orden</td>
+                            <td>Tipo Reparación</td>
                         </tr>
                         <tr>
-                            <td colspan="2"><textarea cols="160" rows="2"><?php echo $row['diagnostico'] ?></textarea></td>
+                            <td><input type="text" class="inputRespM" value="<?php echo $row['folioRegAlta'] ?>"></td>
+                            <td><input type="text" class="inputRespM" value="<?php echo $row['folioRegSolicitud'] ?>"></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $row['nProyecto'] ?>"></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $row['nOrden'] ?>"></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $row['tipoReparacion'] ?>"></td>
                         </tr>
                         <tr>
-                            <td>Descripción del servicio 1</td>
+                            <td>Kilometraje</td>
+                            <td>Semana</td>
+                            <td>Valor Venta Inicial</td>
+                            <td>Valor Venta Alta</td>
                         </tr>
                         <tr>
-                            <td colspan="2"><textarea cols="160" rows="2"><?php echo $row['descripServ1'] ?></textarea></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $row['km'] ?>"></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $row['semana'] ?>"></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $valorVenta ?>"></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $valorVentaAlta ?>"></td>
                         </tr>
                         <tr>
-                            <td>Descripción del servicio 2</td>
+                            <td>Link de Video en Vivo Alta</td>
                         </tr>
                         <tr>
-                            <td colspan="2"><textarea cols="160" rows="2"><?php echo $row['descripServ2'] ?> </textarea></td>
+                            <td colspan="2"><textarea cols="160" rows="2"><?php echo $row['link'] ?></textarea></td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="firma">
-                <div class="linea">
-                    <h4>Firma cliente</h4>
+                <div class="col-12">
+                    <br>
+                    <hr>
                 </div>
             </div>
         </div>
     </main>
+    <div class="contenedor-dv">
+        <span class="capturista"><?php echo $capturista . '-' . $row['fecha_creacion'] ?></span>
+    </div>
     <footer>
         <img src="../../src/img/logos/footer.png" width="100%" />
     </footer>
@@ -370,6 +346,6 @@ $dompdf->setPaper('letter'); //hoja tamaño carta
 //$dompdf->setPaper('A4', 'Landscape'); //tamaño oficio 
 
 $dompdf->render(); //poner visible
-$dompdf->stream("Orden_de_Servicio-{$row['nOrden']}.pdf", array("Attachment" => true)); // nombre del archivo, array attachment => true para descagar en automatico
+$dompdf->stream("{$row['folioRegSolicitud']}", array("Attachment" => true)); // nombre del archivo, array attachment => true para descagar en automatico
 
 ?>

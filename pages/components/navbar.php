@@ -58,7 +58,7 @@
                                                                                                                                                             } else {
                                                                                                                                                                 echo 'text-dark ';
                                                                                                                                                             } ?> ">1.0 Catálogos</a>
-                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style="columns:2;">
                         <li><a href="../admin/crudUsuarios.php" class="dropdown-item">1.1 Usuarios </a></li>
                         <li><a href="../admin/crudMarcas.php" class="dropdown-item">1.2 Marcas </a></li>
                         <li><a href="../admin/crudModelos.php" class="dropdown-item">1.3 Modelos </a></li>
@@ -97,6 +97,8 @@
                                 <li><a href="../admin/crudRegistroSolicitudAlta.php" class="dropdown-item">2.4.2 Registro de Solicitud Alta Proyecto </a></li>
                             </ul>
                         </li>
+                        <li><a href="../admin/crudAltaProyecto.php" class="dropdown-item">2.5 Alta Proyecto </a></li>
+
                     </ul>
                 </li>
 

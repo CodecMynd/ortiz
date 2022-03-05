@@ -54,33 +54,34 @@ $listProyecto = (!empty($_POST['listProyecto'])) ? $_POST['listProyecto'] : 0;
 $modProyecto = (!empty($_POST['modProyecto'])) ? $_POST['modProyecto'] : 0;
 $eliProyecto = (!empty($_POST['eliProyecto'])) ? $_POST['eliProyecto'] : 0;
 $pdfProyecto = (!empty($_POST['pdfProyecto'])) ? $_POST['pdfProyecto'] : 0;
+$verTablaProyAct = (!empty($_POST['verTablaProyAct'])) ? $_POST['verTablaProyAct'] : 0;
+$verTablaRegSolAltProy = (!empty($_POST['verTablaRegSolAltProy'])) ? $_POST['verTablaRegSolAltProy'] : 0;
+$regSolAltProy = (!empty($_POST['regSolAltProy'])) ? $_POST['regSolAltProy'] : 0;
+$pdfRegSolAltProy = (!empty($_POST['pdfRegSolAltProy'])) ? $_POST['pdfRegSolAltProy'] : 0;
 
-
-$query = "UPDATE permisos SET verTablaUsuario = '$verTablaUsuario', editarUsu ='$editarUsu', asignarCon = '$asignarCon', eliminarUsu = '$eliminarUsu', asignarPer = '$asignarPer', nuevoUsu = '$nuevoUsu', verTablaMarca = '$verTablaMarca', regMarca = '$regMarca', modMarca = '$modMarca', eliminaMar = '$eliminaMar', verTablaModelo = '$verTablaModelo', regModelo = '$regModelo', modModelo = '$modModelo', eliminarMod = '$eliminarMod', regAnios = '$regAnios', modAnios = '$modAnios', eliminarAnio = '$eliminarAnio', verTablaAnio = '$verTablaAnio', regColor = '$regColor', modColor = '$modColor', eliminarCol = '$eliminarCol', verTablaColor = '$verTablaColor', verTablaSemana = '$verTablaSemana', regSemana = '$regSemana', eliSemana = '$eliSemana', verTablaAgente = '$verTablaAgente', regAgente = '$regAgente', eliAgente = '$eliAgente', regPermiso = '$regPermiso', modPermiso = '$modPermiso', eliPermiso = '$eliPermiso', regVehiculo = '$regVehiculo', modVehiculo = '$modVehiculo', eliVehiculo = '$eliVehiculo', verTablaVeh = '$verTablaVeh', regCliente = '$regCliente', modCliente = '$modCliente', eliCliente = '$eliCliente', verTablaCli = '$verTablaCli', regProyecto = '$regProyecto', listProyecto = '$listProyecto', modProyecto = '$modProyecto', eliProyecto = '$eliProyecto', pdfProyecto = '$pdfProyecto' WHERE id_usuario = $id_usuario";
+$query = "UPDATE permisos SET verTablaUsuario = '$verTablaUsuario', editarUsu ='$editarUsu', asignarCon = '$asignarCon', eliminarUsu = '$eliminarUsu', asignarPer = '$asignarPer', nuevoUsu = '$nuevoUsu', verTablaMarca = '$verTablaMarca', regMarca = '$regMarca', modMarca = '$modMarca', eliminaMar = '$eliminaMar', verTablaModelo = '$verTablaModelo', regModelo = '$regModelo', modModelo = '$modModelo', eliminarMod = '$eliminarMod', regAnios = '$regAnios', modAnios = '$modAnios', eliminarAnio = '$eliminarAnio', verTablaAnio = '$verTablaAnio', regColor = '$regColor', modColor = '$modColor', eliminarCol = '$eliminarCol', verTablaColor = '$verTablaColor', verTablaSemana = '$verTablaSemana', regSemana = '$regSemana', eliSemana = '$eliSemana', verTablaAgente = '$verTablaAgente', regAgente = '$regAgente', eliAgente = '$eliAgente', regPermiso = '$regPermiso', modPermiso = '$modPermiso', eliPermiso = '$eliPermiso', regVehiculo = '$regVehiculo', modVehiculo = '$modVehiculo', eliVehiculo = '$eliVehiculo', verTablaVeh = '$verTablaVeh', regCliente = '$regCliente', modCliente = '$modCliente', eliCliente = '$eliCliente', verTablaCli = '$verTablaCli', regProyecto = '$regProyecto', listProyecto = '$listProyecto', modProyecto = '$modProyecto', eliProyecto = '$eliProyecto', pdfProyecto = '$pdfProyecto', verTablaProyAct = '$verTablaProyAct', verTablaRegSolAltProy = '$verTablaRegSolAltProy', regSolAltProy = '$regSolAltProy', pdfRegSolAltProy = '$pdfRegSolAltProy'  WHERE id_usuario = $id_usuario";
 // var_dump($query);
 
 
-$resultado = mysqli_query($conexion, $query);
-if ($resultado) {
-    echo "<div class='alert alert-success' role='alert'>
-                <p><strong>¡Los permisos se actualizaron correctamente!</strong></p>
-                </div>";
-} else {
-    echo "<div class='alert alert-danger' role='role'>
-            <p><strong>¡Error interno: vuelve a intentarlo!</strong></p>
-            </div>";
-}
-
-desconectar();
-?>
-<script type="text/javascript">
-    $(document).ready(function() {
-        setTimeout(function() {
-            $(".alert-success").fadeOut(1500);
-        }, 3000);
-
+ $resultado = mysqli_query($conexion, $query);
+ if ($resultado) {
+     echo "<div class='alert alert-success' role='alert'>
+                 <p><strong>¡Los permisos se actualizaron correctamente!</strong></p>
+                 </div>";
+ } else {
+     echo "<div class='alert alert-danger' role='role'>
+             <p><strong>¡Error interno: vuelve a intentarlo!</strong></p>
+             </div>";
+ }
+ desconectar();
+ ?>
+ <script type="text/javascript">
+     $(document).ready(function() {
          setTimeout(function() {
-             $(".alert-danger").fadeIn(1500);
-         }, 3000);
-     });
- </script>
+             $(".alert-success").fadeOut(1500);
+         }, 3000)
+          setTimeout(function() {
+              $(".alert-danger").fadeIn(1500);
+          }, 3000);
+      });
+  </script>

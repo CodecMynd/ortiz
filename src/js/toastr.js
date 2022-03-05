@@ -797,3 +797,53 @@ $(document).ready(function () {
         }
     })
 });
+
+// regSolAltProy  2.4.2 REGISTRO DE SOLICITUD ALTA DE PROYECTO --------------------------------------------------------------
+$(document).ready(function () {
+    $("#regSolAltProy").click(function () {
+        toastr["error"]("¡No tienes acceso a: 2.4.2 REGISTRO DE SOLICITUD ALTA DE PROYECTO, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// pdfRegSolAltProy 2.4.3 DESCARGAR PDF REGISTRO DE SOLICITUD ALTA PROYECTO --------------------------------------------------------------
+$(document).ready(function () {
+    $("#pdfRegSolAltProy").click(function () {
+        toastr["error"]("¡No tienes acceso a: 2.4.3 DESCARGAR PDF REGISTRO DE SOLICITUD ALTA PROYECTO, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});

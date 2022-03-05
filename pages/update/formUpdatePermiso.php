@@ -671,12 +671,12 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </button>
                                                                         </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                        <div class="col-md-4 col-sm-6 col-12">
                                                                             <button type="button" class="btn btn-permisos">
                                                                                 <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-list-ol"></i></span>
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></i></span>
                                                                                     <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.2 Lista de Proyectos</span>
+                                                                                        <span class="info-box-text">2.3.2 Ver Tabla Lista de Proyectos</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="listProyecto" id="listProyecto" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['listProyecto'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                 else echo ''; ?>></span>
                                                                                     </div>
@@ -719,60 +719,76 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </button>
                                                                         </div>
-                                                                        <!-- <div class="col-md-3 col-sm-6 col-12">
-                                                                        <button type="button" class="btn btn-permisos">
-                                                                            <div class="info-box">
-                                                                                <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check-double"></i></span>
-                                                                                <div class="info-box-content">
-                                                                                    <span class="info-box-text">2.3.6 Ver Tabla Proyectos</span>
-                                                                                    <span class="info-box-text"> <input type="checkbox" name="verTablaProy" id="verTablaProy" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaProy'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </button>
-                                                                    </div> -->
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-
-                                                        <!-- <div class="col-md-3 col-sm-6 col-12">
-                                                        <button type="button" class="btn btn-permisos">
-                                                            <div class="info-box">
-                                                                <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check-double"></i></span>
-                                                                <div class="info-box-content">
-                                                                    <span class="info-box-text">1.5.1 Registro de Permiso</span>
-                                                                    <span class="info-box-text"> <input type="checkbox" name="regPermiso" id="regPermiso" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1"  <?php if ($rowPer['regPermiso'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                        <!-- >2.4 Solicitud Alta Proyecto -->
+                                                        <div class="col-12">
+                                                            <div class="card card-secondary card-outline collapsed-card">
+                                                                <div class="card-header">
+                                                                    <h2 class="card-title"><strong>2.4 Solicitud Alta Proyecto</strong></h2>
+                                                                    <div class="card-tools">
+                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                            <i class="fas fa-plus"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">2.4.1 Ver Tabla Proyectos Activos para realizar Solicitud</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaProyAct" id="verTablaProyAct" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaProyAct'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">2.4.2 Ver Tabla Registro de Solicitud Alta Proyecto</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaRegSolAltProy" id="verTablaRegSolAltProy" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaRegSolAltProy'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"verTablaRegSolAltProy></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">2.4.2.1 Registro de Solicitud Alta Proyecto</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="regSolAltProy" id="regSolAltProy" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regSolAltProy'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-file-pdf"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">2.4.2.2 Descargar PDF Registro de Solicitud Alta Proyecto</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="pdfRegSolAltProy" id="pdfRegSolAltProy
+                                                                                        " data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['pdfRegSolAltProy'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </button>
-                                                    </div>
-                                                    <div class="col-md-3 col-sm-6 col-12">
-                                                        <button type="button" class="btn btn-permisos">
-                                                            <div class="info-box">
-                                                                <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check-double"></i></span>
-                                                                <div class="info-box-content">
-                                                                    <span class="info-box-text">1.5.2 Modificar Permiso</span>
-                                                                    <span class="info-box-text"> <input type="checkbox" name="modPermiso" id="modPermiso" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1"  <?php if ($rowPer['modPermiso'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
-                                                                </div>
-                                                            </div>
-                                                        </button>
-                                                    </div>
-                                                    <div class="col-md-3 col-sm-6 col-12">
-                                                        <button type="button" class="btn btn-permisos">
-                                                            <div class="info-box">
-                                                                <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check-double"></i></span>
-                                                                <div class="info-box-content">
-                                                                    <span class="info-box-text">1.5.3 Eliminar Permiso</span>
-                                                                    <span class="info-box-text"> <input type="checkbox" name="eliPermiso" id="eliPermiso" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1"  <?php if ($rowPer['eliPermiso'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
-                                                                </div>
-                                                            </div>
-                                                        </button>
-                                                    </div> -->
-
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </section>
@@ -829,7 +845,42 @@ require '../components/head-main.php';
             $("#btnUpdatePermisoUsuario").css('visibility', 'visible');
         }, 300000);
     });
-
 </script>
 
 </html>
+<!-- <div class="col-md-3 col-sm-6 col-12">
+    <button type="button" class="btn btn-permisos">
+        <div class="info-box">
+            <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check-double"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">1.5.1 Registro de Permiso</span>
+                <span class="info-box-text"> <input type="checkbox" name="regPermiso" id="regPermiso" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regPermiso'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+            </div>
+        </div>
+    </button>
+</div>
+<div class="col-md-3 col-sm-6 col-12">
+    <button type="button" class="btn btn-permisos">
+        <div class="info-box">
+            <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check-double"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">1.5.2 Modificar Permiso</span>
+                <span class="info-box-text"> <input type="checkbox" name="modPermiso" id="modPermiso" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['modPermiso'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+            </div>
+        </div>
+    </button>
+</div>
+<div class="col-md-3 col-sm-6 col-12">
+    <button type="button" class="btn btn-permisos">
+        <div class="info-box">
+            <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check-double"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">1.5.3 Eliminar Permiso</span>
+                <span class="info-box-text"> <input type="checkbox" name="eliPermiso" id="eliPermiso" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliPermiso'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+            </div>
+        </div>
+    </button>
+</div> -->

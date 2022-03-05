@@ -85,6 +85,10 @@ while ($row = mysqli_fetch_array($query)) {
     $modProyecto = $row['modProyecto'];
     $eliProyecto = $row['eliProyecto'];
     $pdfProyecto = $row['pdfProyecto'];
+    $verTablaProyAct = $row['verTablaProyAct'];
+    $verTablaRegSolAltProy = $row['verTablaRegSolAltProy'];	
+    $regSolAltProy = $row['regSolAltProy'];
+    $pdfRegSolAltProy = $row['pdfRegSolAltProy'];
 }
 
 // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------

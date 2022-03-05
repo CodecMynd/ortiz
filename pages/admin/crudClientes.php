@@ -34,7 +34,6 @@ require '../components/head-dataTables.php';
                                     <h3 class="card-title">Clientes dados de alta en el sistema</h3>
                                     <div class="card-tools">
                                         <?php if ($super == 1) { ?>
-
                                             <a type="button" class="btn btn-secondary" href="../adds/formAddCliente.php" data-toggle="tooltip" data-placement="left" title="2.2.1 Registro Cliente">
                                                 <i class="fa-solid fa-user-tie"></i>&nbsp;&nbsp; Registro Cliente</a>
                                         <?php } else if ($regCliente   == 1) { ?>

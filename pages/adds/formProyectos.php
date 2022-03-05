@@ -120,7 +120,7 @@ require '../components/head-dataTables.php';
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="row justify-content-center">
-                                                        <div class="col-md-2 col-sm-12 my-1">
+                                                        <div class="col-md-3 col-sm-12 my-1">
                                                             <div class="input-group form-floating mb-3">
                                                                 <div class="input-group-prepend">
                                                                     <span class="input-group-text"><i class="fa-solid fa-arrow-down-1-9"></i></span>
@@ -131,7 +131,7 @@ require '../components/head-dataTables.php';
                                                                 $row = mysqli_fetch_row($result);
                                                                 ?>
                                                                 <input name="nProyecto" id="nProyecto" type="text" class="form-control" placeholder="Número de proyecto " required maxlength="15" data-toggle="tooltip" data-placement="bottom" title="Número de proyecto" value="<?php echo $row[0]; ?>" readonly>
-                                                                <label for="floatingInput" class="pl-5">No. de Proyecto </label>
+                                                                <label for="floatingInput" class="pl-5">*Núm. de Proyecto </label>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 my-1 form-group">
@@ -140,7 +140,7 @@ require '../components/head-dataTables.php';
                                                                     <span class="input-group-text"><i class="fa-solid fa-list-ol"></i></span>
                                                                 </div>
                                                                 <input name="nOrden" id="nOrden" type="number" class="form-control" placeholder="Número de orden" required maxlength="15" data-toggle="tooltip" data-placement="bottom" title="Número de orden">
-                                                                <label for="floatingInput" class="pl-5">*No. de Orden</label>
+                                                                <label for="floatingInput" class="pl-5">*Núm. de Orden</label>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12">

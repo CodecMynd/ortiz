@@ -40,7 +40,7 @@ if (
     exit;
 } else {
     // Insertamos tabla proyectos
-    $query = "INSERT INTO proyectos(id_cliente, id_vehiculo, nOrden, nProyecto, tipoReparacion, km, valorVenta, diagnostico, descripServ1, descripServ2, fecha, fecha_creacion, id_capC) VALUES ( '$id_cliente', '$id_vehiculo', '$nOrden', '$nProyecto', '$tipoReparacion', '$km', '$valorVenta', '$diagnostico', '$descripServ1', '$descripServ2', '$date', '$date', '$id')";
+    $query = "INSERT INTO proyectos(id_cliente, id_vehiculo, nOrden, nProyecto, tipoReparacion, km, valorVenta, diagnostico, descripServ1, descripServ2, proyectoActivo, registroSolicitud, altaProyecto,fecha_creacion, id_capC) VALUES ( '$id_cliente', '$id_vehiculo', '$nOrden', '$nProyecto', '$tipoReparacion', '$km', '$valorVenta', '$diagnostico', '$descripServ1', '$descripServ2',1,0,0, '$date', '$id')";
     $resultado = mysqli_query($conexion, $query);
 
     // var_dump($query);
@@ -53,22 +53,20 @@ if (
     // var_dump($queryNp);
 
     // Ingresamos id a tabla solicitudAltaProyecto
-    $querySAP = "INSERT INTO solicitudAltaProyecto(id_proyecto, proyectoActivo, registroSolicitud, fecha_creacion, id_captC) VALUES ('$id_id_nProyecto', 1, 0, '$date', '$id')";
-    $resultado3 = mysqli_query($conexion, $querySAP);
-}
-if ($resultado) {
-    echo "<div class='alert alert-success' role='alert'>
+
+    if ($resultado) {
+        echo "<div class='alert alert-success' role='alert'>
             <p><strong>Proyecto ingresado correctamente!</strong></p>
         </div>
         <div class='col-md-12 col-sm-12 align-self-center'>
             <a href='../components/ordenTrabajo.php?id={$id_id_nProyecto}' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Descargar PDF'><i class='fa-solid fa-file-pdf'></i>Descargar PDF</a>
         </div>";
-} else {
-    echo "<div class='alert alert-danger' role='role'>
+    } else {
+        echo "<div class='alert alert-danger' role='role'>
         <p><strong>¡Error interno: vuelve a intentarlo!</strong></p>
         </div>";
+    }
 }
-
 desconectar();
 ?>
 <script type="text/javascript">

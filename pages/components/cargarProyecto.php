@@ -4,6 +4,7 @@ conectar();
 
 $id_proyecto = $_POST['idProyecto'];
 
+// Query principal
 $query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente, Co.color
 FROM proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
@@ -12,16 +13,20 @@ INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
 INNER JOIN anios A ON V.id_anio = A.id_anio 
 INNER JOIN colores Co ON V.id_color = Co.id_color 
 INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
-WHERE id_proyecto = '.$id_proyecto.' AND P.proyectoActivo = 1 AND P.registroSolicitud = 0 ORDER BY nProyecto ASC';
+WHERE id_proyecto = ' . $id_proyecto . ' AND P.proyectoActivo = 1 AND P.registroSolicitud = 0 ORDER BY nProyecto ASC';
 $respuesta = mysqli_query($conexion, $query);
 $row  = $respuesta->fetch_assoc();
 
+// Query semanas
+$queryS = "SELECT id_semana, semana FROM semanas  ORDER BY semana ASC";
+$resultSemanas = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
 
-
+// Query Registro de folio registrosolicitud
 $queryP = 'SELECT MAX(id_regSolicitud) + 1 FROM registrosolicitud';
 $result = mysqli_query($conexion,  $queryP);
 $rowp = mysqli_fetch_row($result);
 
+// Prefijo folio
 $text = "Solicitud_Alta-00";
 $folio = $text . '' . $rowp[0];
 
@@ -35,18 +40,18 @@ $nOrden = $row['nOrden'];
 $tipoReparacion = $row['tipoReparacion'];
 $km = $row['km'];
 $valorVenta = $row['valorVenta'];
-$diagnostico = $row['diagnostico'];
-$descripServ1 = $row['descripServ1'];
-$descripServ2 = $row['descripServ2'];
+// $diagnostico = $row['diagnostico'];
+// $descripServ1 = $row['descripServ1'];
+// $descripServ2 = $row['descripServ2'];
 
 if ($respuesta->num_rows  > 0) {
-$output = '';
-$output .= "
+    $output = '';
+    $output .= "
 <div class='row justify-content-center'>
 <div class='col-md-12 col-sm-12 my-4'>
     <div class='card card-secondary card-outline' style='height: 90%;'>
         <div class='card-header'>
-            <h3 class='card-title'>Datos del Proyecto</h3>
+            <h3 class='card-title'>Datos del Proyecto (Vehículo)</h3>
         </div>
         <div class='card-body'>
             <div class='row justify-content-center'>
@@ -106,7 +111,7 @@ $output .= "
 <div class='col-md-12 col-sm-4 my-4'>
     <div class='card card-secondary card-outline '>
         <div class='card-header'>
-            <h3 class='card-title'>Dato Generales</h3>
+            <h3 class='card-title'>Datos del Proyecto (Generales)</h3>
             <div class='card-tools'>
                 *Campos requeridos
             </div>
@@ -114,22 +119,22 @@ $output .= "
     </div>
     <div class='card-body'>
         <div class='row justify-content-center'>
-            <div class='col-md-2 col-sm-12 form-group'>
-                <div class='input-group form-floating'>
-                    <div class='input-group-prepend'>
-                        <span class='input-group-text'><i class='fa-solid fa-arrow-down-9-1'></i></span>
-                    </div>
-                    <input name='nProyecto' id='nProyecto' type='text' class='form-control' value='{$nProyecto}' disabled readonly>
-                    <label for='floatingInput' class='pl-5'>Núm. Proyecto </label>
-                </div>
-            </div>
             <div class='col-md-3 col-sm-12 my-1'>
                 <div class='input-group form-floating mb-3'>
                     <div class='input-group-prepend'>
                         <span class='input-group-text'><i class='fa-solid fa-arrow-down-1-9'></i></span>
                     </div>
                     <input name='folioRegSolicitud' id='folioRegSolicitud' type='text' class='form-control' placeholder='Número de proyecto ' required maxlength='15' data-toggle='tooltip' data-placement='bottom' title='Número de Folio' value='{$folio}' readonly>
-                    <label for='floatingInput' class='pl-5'>No. de Folio </label>
+                    <label for='floatingInput' class='pl-5'>*Núm. de Folio Solicitud Alta</label>
+                </div>
+            </div>
+            <div class='col-md-2 col-sm-12 form-group'>
+                <div class='input-group form-floating'>
+                    <div class='input-group-prepend'>
+                        <span class='input-group-text'><i class='fa-solid fa-arrow-down-9-1'></i></span>
+                    </div>
+                    <input name='nProyecto' id='nProyecto' type='text' class='form-control' value='{$nProyecto}' disabled readonly>
+                    <label for='floatingInput' class='pl-5'>*Núm. Proyecto </label>
                 </div>
             </div>
             <div class='col-md-2 col-sm-12 my-1 form-group'>
@@ -138,7 +143,7 @@ $output .= "
                         <span class='input-group-text'><i class='fa-solid fa-list-ol'></i></span>
                     </div>
                     <input name='nOrden' id='nOrden' type='number' class='form-control' placeholder='Número de orden' maxlength='15' data-toggle='tooltip' data-placement='bottom' title='Número de orden' value='{$nOrden}' readonly>
-                    <label for='floatingInput' class='pl-5'>*No. de Orden</label>
+                    <label for='floatingInput' class='pl-5'>*Núm. de Orden</label>
                 </div>
             </div>
             <div class='col-md-3 col-sm-12 my-1 form-group'>
@@ -173,63 +178,34 @@ $output .= "
                             <label for='floatingInput' class='pl-5'>*Valor Venta Inicial </label>
                         </div>
                     </div>
-                    <div class='col-md-3 col-sm-12 my-1'>
+                    <div class='col-md-2 col-sm-12 my-1'>
                         <div class='input-group form-floating mb-3'>
                             <div class='input-group-prepend'>
                                 <span class='input-group-text mt-2'>
                                     <i class='fa-solid fa-money-bill-1-wave parpadea'></i>
                                 </span>
                             </div>
-                            <input name='valorVentaAlta' id='currency1' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Alta'>
+                            <input name='valorVentaAlta' id='currency1' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Alta' autofocus>
                             <label for='floatingInput' class='pl-5'>*Valor Venta Alta</label>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class='col-12'>
-                <hr>
-            </div>
+                    <div class='col-md-2 col-sm-12 mb-2 form-group'>
+                    <div class='input-group'>
+                        <label for='color' class='pl-5'>Semana</label>
+                        <select name='id_semana' id='id_semana' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Semana de la lista' style='width: 100%;' required>
+                            <option selected disabled>Selecciona</option>";
 
-            <div class='col-md-4 col-sm-12 my-1'>
-                <div class='form-group-input' style='border: 1px solid #CED4DA;'>
-                    <label class='ml-5 mb-2'>*Diagnostico</label>
-                    <span data-toggle='tooltip' title='max. 200 caracteres'>
-                        <div class='input-group'>
-                            <div class='input-group-prepend'>
-                                <span class='input-group-text'><i class='fa-solid fa-user-doctor'></i></span>
-                            </div>
-                            <textarea name='diagnostico' id='diagnostico' class='form-control' rows='4' placeholder='Agrega alguna breve observación de Diagnostico' maxlength='200' readonly>$diagnostico</textarea>
-                        </div>
-                    </span>
+    while ($rowSemanas = $resultSemanas->fetch_assoc()) {
+        $id_semana = $rowSemanas['id_semana'];
+        $semana = $rowSemanas['semana'];
+        $output .= "  <option value = $id_semana > $semana </option>";
+    }
+    $output .= "
+                        </select>
+                    </div>
+                </div>
                 </div>
             </div>
-            <div class='col-md-4 col-sm-12 my-1'>
-                <div class='form-group-input' style='border: 1px solid #CED4DA;'>
-                    <label class='ml-5 mb-2'>*Descripción del servicio 1</label>
-                    <span data-toggle='tooltip' title='max. 200 caracteres'>
-                        <div class='input-group'>
-                            <div class='input-group-prepend'>
-                                <span class='input-group-text'><i class='fa-solid fa-toolbox'></i></span>
-                            </div>
-                            <textarea name='descripServ1' id='descripServ1' class='form-control' rows='4' placeholder='Agrega alguna breve Descripción del servicio' maxlength='200' readonly>$descripServ1</textarea>
-                        </div>
-                    </span>
-                </div>
-            </div>
-            <div class='col-md-4 col-sm-12 my-1'>
-                <div class='form-group-input' style='border: 1px solid #CED4DA;'>
-                    <label class='ml-5 mb-2'>Descripción del servicio 2</label>
-                    <span data-toggle='tooltip' title='max. 200 caracteres'>
-                        <div class='input-group'>
-                            <div class='input-group-prepend'>
-                                <span class='input-group-text'><i class='fa-solid fa-toolbox'></i></span>
-                            </div>
-                            <textarea name='descripServ2' id='descripServ2' class='form-control' rows='4' placeholder='Agrega alguna breve Descripción del servicio' maxlength='200' readonly>$descripServ2</textarea>
-                        </div>
-                    </span>
-                </div>
-            </div>
-
             <div class='col-12'>
                 <hr>
             </div>
@@ -273,45 +249,45 @@ $output .= "
 </div>
 </div>
 ";
-echo $output;
-}else{
+    echo $output;
+} else {
     echo '<h5>Ningún registro fue encontrado</h5>';
 }
 
 ?>
 <script>
-        $(document).ready(function() {
-            $('#btnNuevoRegSolAltProyecto').click(function() {
-                $.ajax({
-                        url: 'addNuevoRegSolAltProyecto.php',
-                        type: 'POST',
-                        data: $('#formNuevoRegSolAltProyecto').serialize(),
+    $(document).ready(function() {
+        $('#btnNuevoRegSolAltProyecto').click(function() {
+            $.ajax({
+                    url: 'addNuevoRegSolAltProyecto.php',
+                    type: 'POST',
+                    data: $('#formNuevoRegSolAltProyecto').serialize(),
 
-                    })
-                    .done(function(res) {
-                        $('#respuestaRegSolAltProyecto').html(res)
-                    })
-            });
+                })
+                .done(function(res) {
+                    $('#respuestaRegSolAltProyecto').html(res)
+                })
         });
-        //Ocultar boton por 5 minutos para evitar el doble submit
-        $("#btnNuevoRegSolAltProyecto").on('click', function() {
-            $("#btnNuevoRegSolAltProyecto").css('visibility', 'hidden');
-            setTimeout(function() {
-                $("#btnNuevoRegSolAltProyecto").css('visibility', 'visible');
-            }, 300000);
-        });
+    });
+    //Ocultar boton por 5 minutos para evitar el doble submit
+    $("#btnNuevoRegSolAltProyecto").on('click', function() {
+        $("#btnNuevoRegSolAltProyecto").css('visibility', 'hidden');
+        setTimeout(function() {
+            $("#btnNuevoRegSolAltProyecto").css('visibility', 'visible');
+        }, 300000);
+    });
 
-         $(document).ready(function() {
-            $("#currency1").inputmask({
-                alias: "currency",
-                prefix: ''
-            });
-            $("#currency2").inputmask({
-                alias: "currency",
-                prefix: '₱ '
-            });
-            $("#currency3").inputmask({
-                alias: "pesos"
-            });
+    $(document).ready(function() {
+        $("#currency1").inputmask({
+            alias: "currency",
+            prefix: ''
         });
+        $("#currency2").inputmask({
+            alias: "currency",
+            prefix: '₱ '
+        });
+        $("#currency3").inputmask({
+            alias: "pesos"
+        });
+    });
 </script>

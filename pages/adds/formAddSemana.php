@@ -43,7 +43,7 @@ require '../components/head-main.php';
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="fa-solid fa-calendar-plus"></i></span>
                                                     </div>
-                                                    <input autofocus name="semana" id="semana" type="text" class="form-control" placeholder="Ingresa Año - Semana" required maxlength="7" data-toggle="tooltip" data-placement="bottom" title="Ingresa Año - Semana" data-inputmask="'mask' : '9999-99'">
+                                                    <input autofocus name="semana" id="semana" type="text" class="form-control" placeholder="Ingresa Año - Semana" required maxlength="7" data-toggle="tooltip" data-placement="bottom" title="Ingresa Año - Semana" data-inputmask="'mask' : '9999-99'"> <small>Formato año-semana</small>
                                                     <label for="floatingInput" class="pl-5">Semana</label>
                                                 </div>
                                             </div>
