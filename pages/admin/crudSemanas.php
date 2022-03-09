@@ -31,7 +31,7 @@ require '../components/head-dataTables.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-md-5 col-sm-12">
+                        <div class="col-md-4 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
                                     <h3 class="card-title">Semanas para los Proyectos </h3>

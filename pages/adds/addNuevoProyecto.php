@@ -40,7 +40,7 @@ if (
     exit;
 } else {
     // Insertamos tabla proyectos
-    $query = "INSERT INTO proyectos(id_cliente, id_vehiculo, nOrden, nProyecto, tipoReparacion, km, valorVenta, diagnostico, descripServ1, descripServ2, proyectoActivo, registroSolicitud, altaProyecto,fecha_creacion, id_capC) VALUES ( '$id_cliente', '$id_vehiculo', '$nOrden', '$nProyecto', '$tipoReparacion', '$km', '$valorVenta', '$diagnostico', '$descripServ1', '$descripServ2',1,0,0, '$date', '$id')";
+    $query = "INSERT INTO proyectos(id_cliente, id_vehiculo, nOrden, nProyecto, tipoReparacion, km, valorVenta, diagnostico, descripServ1, descripServ2, proyectoActivo, registroSolicitud, altaProyecto, proyCodIdentificador, fecha_creacion, id_capC) VALUES ( '$id_cliente', '$id_vehiculo', '$nOrden', '$nProyecto', '$tipoReparacion', '$km', '$valorVenta', '$diagnostico', '$descripServ1', '$descripServ2',1,0,0,0, '$date', '$id')";
     $resultado = mysqli_query($conexion, $query);
 
     // var_dump($query);

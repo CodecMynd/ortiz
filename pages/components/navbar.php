@@ -98,6 +98,9 @@
                             </ul>
                         </li>
                         <li><a href="../admin/crudAltaProyecto.php" class="dropdown-item">2.5 Alta Proyecto </a></li>
+                        <li><a href="../admin/crudProyCodiIdentificador.php" class="dropdown-item">2.6 Proyectos con Código Identificador </a></li>
+                        <li><a href="../admin/crudSuperCodiIdentificador.php" class="dropdown-item ">2.7 Supervisados de Código Identificador </a></li>
+                        <li><a href="../admin/crudBitacoraProyecto.php" class="dropdown-item disabled">2.8 Bitacora de Proyecto </a></li>
 
                     </ul>
                 </li>

@@ -16,7 +16,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-8">
-                            <h1 class="m-0">Tabla 2.4.1 Tabla Proyectos Activos para realizar Solicitud</h1>
+                            <h1 class="m-0">Tabla 2.4.1 Proyectos Activos para realizar Solicitud</h1>
                         </div>
                         <div class="col-sm-4 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -28,22 +28,22 @@ require '../components/head-dataTables.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-10">
+                        <div class="col-md-11 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
                                     <h3 class="card-title">Proyectos Activos de alta en el sistema</h3>
                                     <div class="card-tools">
                                         <?php if ($super == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formRegSolicitudAlta.php" data-toggle="tooltip" data-placement="left" title="2.4.2.1 Registro de Solicitud Alta Proyecto">
+                                            <a type="button" class="btn btn-secondary" href="../adds/formRegSolicitudAlta.php" data-toggle="tooltip" data-placement="left" title="2.4.3 Registro de Solicitud Alta Proyecto">
                                                 <i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Registro Solicitud Alta</a>
                                         <?php } else if ($regSolAltProy  == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formRegSolicitudAlta.php" data-toggle="tooltip" data-placement="left" title="2.4.2.1 Registro de Solicitud Alta Proyecto">
+                                            <a type="button" class="btn btn-secondary" href="../adds/formRegSolicitudAlta.php" data-toggle="tooltip" data-placement="left" title="2.4.3 Registro de Solicitud Alta Proyecto">
                                                 <i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Registro Solicitud Alta</a>
                                         <?php } else { ?>
-                                            <a type="button" class="btn btn-outline-danger" id="regSolAltProy" data-toggle="tooltip" data-placement="left" title="2.4.2 Registro de Solicitud Alta Proyecto">
+                                            <a type="button" class="btn btn-outline-danger" id="regSolAltProy" data-toggle="tooltip" data-placement="left" title="2.4.3 Registro de Solicitud Alta Proyecto">
                                                 <i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Registro Solicitud Alta</a>
                                         <?php } ?>
-                                        <a href="crudRegistroSolicitudAlta.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Ver Tabla 2.4.2.1 Tabla Registro de Solicitud Alta Proyecto"><i class="fa-solid fa-eye"></i></a>
+                                        <a href="crudRegistroSolicitudAlta.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Ver Tabla 2.4.2 Tabla Registro de Solicitud Alta Proyecto"><i class="fa-solid fa-eye"></i>&nbsp;&nbsp;<i class="fa-solid fa-angle-right"></i></a>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
@@ -51,7 +51,7 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.proyectoActivo, P.registroSolicitud, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente 
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.proyectoActivo, P.registroSolicitud, P.fecha_creacion, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente 
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN marcas M ON V.id_marca = M.id_marca 
@@ -60,7 +60,7 @@ require '../components/head-dataTables.php';
                                     INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
                                     WHERE P.proyectoActivo = 1 AND P.registroSolicitud = 0 ORDER BY nProyecto ASC;";
                                 } else if ($verTablaProyAct == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.proyectoActivo, P.registroSolicitud, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente 
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.proyectoActivo, P.registroSolicitud, P.fecha_creacion, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente 
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN marcas M ON V.id_marca = M.id_marca 
@@ -83,7 +83,7 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tableVehiculos" class="table table-sm table-bordered table-striped">
+                                    <table id="tablePermisos" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -94,6 +94,7 @@ require '../components/head-dataTables.php';
                                                 <th>Modelo</th>
                                                 <th>Año</th>
                                                 <th>Cliente</th>
+                                                <th>Fecha Registro</th>
                                                 <!-- <th>Acciones</th> -->
                                             </tr>
                                         </thead>
@@ -106,10 +107,10 @@ require '../components/head-dataTables.php';
                                                         echo $cont;
                                                         ?>
                                                     </td>
-                                                    <td>
+                                                    <td style="width: 12%;">
                                                         <?php echo $row['nProyecto']; ?>
                                                     </td>
-                                                    <td>
+                                                    <td style="width: 10%;">
                                                         <?php echo $row['nOrden'] ?>
                                                     </td>
                                                     <td>
@@ -124,7 +125,7 @@ require '../components/head-dataTables.php';
                                                     <td>
                                                         <?php echo $row['anio'] ?>
                                                     </td>
-                                                    <td>
+                                                    <td style="width: 20%;">
                                                         <?php
                                                         $nombres = $row['nombres'];
                                                         $aPaterno = $row['aPaternoCliente'];
@@ -132,58 +133,12 @@ require '../components/head-dataTables.php';
                                                         echo $nombreComp = $nombres . ' ' . $aPaterno . ' ' . $aMaterno;
                                                         ?>
                                                     </td>
-                                                    <!-- <td>
-                                                        <div class="input-group input-group-sm mb-3">
-                                                            <div class="input-group-prepend">
-                                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Usuarios"> Acciones</span>
-                                                                </button>
-                                                                <ul class="dropdown-menu">
-                                                                    <div class="btn-group">
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.3.3 Modificar Proyecto">
-                                                                                <?php if ($super == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../update/formUpdateProyecto.php?id=<?php echo $row['id_proyecto'] ?>"><i class="fas fa-edit"></i>
-                                                                                    </a>
-                                                                                <?php  } else if ($modProyecto == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../update/formUpdateProyecto.php?id=<?php echo $row['id_proyecto'] ?>"><i class="fas fa-edit"></i> </a>
-                                                                                <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="modProyecto"><i class="fas fa-edit"></i></a>
-                                                                                <?php } ?>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.3.4 Eliminar Proyecyo">
-                                                                                <?php if ($super == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarProyecto<?php echo $row['id_proyecto'] ?>"><i class="fas fa-trash-alt"></i>
-                                                                                    </a>
-                                                                                <?php  } else if ($eliProyecto == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarProyecto<?php echo $row['id_proyecto'] ?>"><i class="fas fa-trash-alt"></i>
-                                                                                    </a>
-                                                                                <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="eliProyecto"><i class="fas fa-trash-alt"></i>
-                                                                                    </a>
-                                                                                <?php } ?>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.3.5 Descarga PDF Proyecto">
-                                                                                <?php if ($super == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../components/ordenTrabajo.php?id=<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-file-pdf"></i>
-                                                                                    </a>
-                                                                                <?php  } else if ($pdfProyecto == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../components/ordenTrabajo.php?id=<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-file-pdf"></i>
-                                                                                    </a>
-                                                                                <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="pdfProyecto"><i class="fa-solid fa-file-pdf"></i>
-                                                                                    </a>
-                                                                                <?php } ?>
-                                                                            </span>
-                                                                        </li>
-                                                                    </div>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </td> -->
+                                                    <td>
+                                                        <?php 
+                                                        $originalDate = $row['fecha_creacion'];
+                                                        echo $newDate = date("d-m-Y H:i:s ", strtotime($originalDate));
+                                                        ?>
+                                                    </td>
                                                 </tr>
                                             <?php
                                                 require '../components/modal-eliminarProyecto.php';
@@ -201,6 +156,7 @@ require '../components/head-dataTables.php';
                                                 <th>Modelo</th>
                                                 <th>Año</th>
                                                 <th>Cliente</th>
+                                                <th>Fecha Registro</th>
                                                 <!-- <th>Acciones</th> -->
                                             </tr>
                                         </tfoot>

@@ -220,13 +220,13 @@ require '../components/head-dataTables.php';
                                                 <div class="card-body">
                                                     <div class="row justify-content-center">
                                                         <input name='id_proyecto' id='id_proyecto' type='hidden' value='<?php echo $id_proyecto ?>'>
-                                                        <div class="col-md-2 col-sm-12 my-1">
+                                                        <div class="col-md-3 col-sm-12 my-1">
                                                             <div class="input-group form-floating mb-3">
                                                                 <div class="input-group-prepend">
                                                                     <span class="input-group-text"><i class="fa-solid fa-arrow-down-1-9"></i></span>
                                                                 </div>
                                                                 <input name="nProyecto" id="nProyecto" type="text" class="form-control" placeholder="Número de proyecto " required maxlength="15" data-toggle="tooltip" data-placement="bottom" title="Número de proyecto" value="<?php echo $row['nProyecto']; ?>" readonly>
-                                                                <label for="floatingInput" class="pl-5">No. de Proyecto </label>
+                                                                <label for="floatingInput" class="pl-5">Núm. de Proyecto </label>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 my-1 form-group">
@@ -235,7 +235,7 @@ require '../components/head-dataTables.php';
                                                                     <span class="input-group-text"><i class="fa-solid fa-list-ol"></i></span>
                                                                 </div>
                                                                 <input name="nOrden" id="nOrden" type="number" class="form-control" placeholder="Número de orden" required maxlength="15" data-toggle="tooltip" data-placement="bottom" title="Número de orden" value="<?php echo $row['nOrden'] ?>" >
-                                                                <label for="floatingInput" class="pl-5">*No. de Orden</label>
+                                                                <label for="floatingInput" class="pl-5">*Núm. de Orden</label>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-2 col-sm-12">
@@ -259,17 +259,6 @@ require '../components/head-dataTables.php';
                                                                 </div>
                                                                 <input name="km" id="km" type="text" class="form-control" placeholder="Kilometraje" required maxlength="12" data-toggle="tooltip" data-placement="bottom" title="Redondea Kilometraje actual" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 0, 'digitsOptional': false, 'suffix': ' km', 'placeholder': '0'" value="<?php echo $row['km']; ?>">
                                                                 <label for="floatingInput" class="pl-5">*Kilometraje </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-3 col-sm-12 my-1">
-                                                            <div class="input-group form-floating mb-3">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text mt-2">
-                                                                        <i class="fa-solid fa-money-bill-1-wave"></i>
-                                                                    </span>
-                                                                </div>
-                                                                <input name="valorVenta" id="currency1" type="text" class="form-control" placeholder="Kilometraje" required maxlength="12" data-toggle="tooltip" data-placement="bottom" title="Ingresa valor venta" value="<?php echo $row['valorVenta']; ?>">
-                                                                <label for="floatingInput" class="pl-5">*Valor venta inicial</label>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3 col-sm-12 my-1">

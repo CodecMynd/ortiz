@@ -24,10 +24,10 @@ $verTablaModelo = (!empty($_POST['verTablaModelo'])) ? $_POST['verTablaModelo'] 
 $regModelo = (!empty($_POST['regModelo'])) ? $_POST['regModelo'] : 0;
 $modModelo = (!empty($_POST['modModelo'])) ? $_POST['modModelo'] : 0;
 $eliminarMod = (!empty($_POST['eliminarMod'])) ? $_POST['eliminarMod'] : 0;
+$verTablaAnio = (!empty($_POST['verTablaAnio'])) ? $_POST['verTablaAnio'] : 0;
 $regAnios = (!empty($_POST['regAnios'])) ? $_POST['regAnios'] : 0;
 $modAnios = (!empty($_POST['modAnios'])) ? $_POST['modAnios'] : 0;
 $eliminarAnio = (!empty($_POST['eliminarAnio'])) ? $_POST['eliminarAnio'] : 0;
-$verTablaAnio = (!empty($_POST['verTablaAnio'])) ? $_POST['verTablaAnio'] : 0;
 $regColor = (!empty($_POST['regColor'])) ? $_POST['regColor'] : 0;
 $modColor = (!empty($_POST['modColor'])) ? $_POST['modColor'] : 0;
 $eliminarCol = (!empty($_POST['eliminarCol'])) ? $_POST['eliminarCol'] : 0;
@@ -41,14 +41,14 @@ $eliAgente = (!empty($_POST['eliAgente'])) ? $_POST['eliAgente'] : 0;
 $regPermiso = (!empty($_POST['regPermiso'])) ? $_POST['regPermiso'] : 0;
 $modPermiso = (!empty($_POST['modPermiso'])) ? $_POST['modPermiso'] : 0;
 $eliPermiso = (!empty($_POST['eliPermiso'])) ? $_POST['eliPermiso'] : 0;
+$verTablaVeh = (!empty($_POST['verTablaVeh'])) ? $_POST['verTablaVeh'] : 0;
 $regVehiculo = (!empty($_POST['regVehiculo'])) ? $_POST['regVehiculo'] : 0;
 $modVehiculo = (!empty($_POST['modVehiculo'])) ? $_POST['modVehiculo'] : 0;
 $eliVehiculo = (!empty($_POST['eliVehiculo'])) ? $_POST['eliVehiculo'] : 0;
-$verTablaVeh = (!empty($_POST['verTablaVeh'])) ? $_POST['verTablaVeh'] : 0;
+$verTablaCli = (!empty($_POST['verTablaCli'])) ? $_POST['verTablaCli'] : 0;
 $regCliente = (!empty($_POST['regCliente'])) ? $_POST['regCliente'] : 0;
 $modCliente = (!empty($_POST['modCliente'])) ? $_POST['modCliente'] : 0;
 $eliCliente = (!empty($_POST['eliCliente'])) ? $_POST['eliCliente'] : 0;
-$verTablaCli = (!empty($_POST['verTablaCli'])) ? $_POST['verTablaCli'] : 0;
 $regProyecto = (!empty($_POST['regProyecto'])) ? $_POST['regProyecto'] : 0;
 $listProyecto = (!empty($_POST['listProyecto'])) ? $_POST['listProyecto'] : 0;
 $modProyecto = (!empty($_POST['modProyecto'])) ? $_POST['modProyecto'] : 0;
@@ -58,8 +58,20 @@ $verTablaProyAct = (!empty($_POST['verTablaProyAct'])) ? $_POST['verTablaProyAct
 $verTablaRegSolAltProy = (!empty($_POST['verTablaRegSolAltProy'])) ? $_POST['verTablaRegSolAltProy'] : 0;
 $regSolAltProy = (!empty($_POST['regSolAltProy'])) ? $_POST['regSolAltProy'] : 0;
 $pdfRegSolAltProy = (!empty($_POST['pdfRegSolAltProy'])) ? $_POST['pdfRegSolAltProy'] : 0;
+$eliRegSolAltProy = (!empty($_POST['eliRegSolAltProy'])) ? $_POST['eliRegSolAltProy'] : 0;
+$verObsRegSolAltProy = (!empty($_POST['verObsRegSolAltProy'])) ? $_POST['verObsRegSolAltProy'] : 0;
+$regAlta = (!empty($_POST['regAlta'])) ? $_POST['regAlta'] : 0;
+$eliAlta = (!empty($_POST['eliAlta'])) ? $_POST['eliAlta'] : 0;
+$pdfAlta = (!empty($_POST['pdfAlta'])) ? $_POST['pdfAlta'] : 0;
+$verLinkObsAlta = (!empty($_POST['verLinkObsAlta'])) ? $_POST['verLinkObsAlta'] : 0;
+$verTablaAlta = (!empty($_POST['verTablaAlta'])) ? $_POST['verTablaAlta'] : 0;
+$regCodIdentificador = (!empty($_POST['regCodIdentificador'])) ? $_POST['regCodIdentificador'] : 0;
+$eliCodIdentificador = (!empty($_POST['eliCodIdentificador'])) ? $_POST['eliCodIdentificador'] : 0;
+$pdfCodIdentificador = (!empty($_POST['pdfCodIdentificador'])) ? $_POST['pdfCodIdentificador'] : 0;
+$verLinkObsIdentificador = (!empty($_POST['verLinkObsIdentificador'])) ? $_POST['verLinkObsIdentificador'] : 0;
+$verTablaCodIdentificador = (!empty($_POST['verTablaCodIdentificador'])) ? $_POST['verTablaCodIdentificador'] : 0;
 
-$query = "UPDATE permisos SET verTablaUsuario = '$verTablaUsuario', editarUsu ='$editarUsu', asignarCon = '$asignarCon', eliminarUsu = '$eliminarUsu', asignarPer = '$asignarPer', nuevoUsu = '$nuevoUsu', verTablaMarca = '$verTablaMarca', regMarca = '$regMarca', modMarca = '$modMarca', eliminaMar = '$eliminaMar', verTablaModelo = '$verTablaModelo', regModelo = '$regModelo', modModelo = '$modModelo', eliminarMod = '$eliminarMod', regAnios = '$regAnios', modAnios = '$modAnios', eliminarAnio = '$eliminarAnio', verTablaAnio = '$verTablaAnio', regColor = '$regColor', modColor = '$modColor', eliminarCol = '$eliminarCol', verTablaColor = '$verTablaColor', verTablaSemana = '$verTablaSemana', regSemana = '$regSemana', eliSemana = '$eliSemana', verTablaAgente = '$verTablaAgente', regAgente = '$regAgente', eliAgente = '$eliAgente', regPermiso = '$regPermiso', modPermiso = '$modPermiso', eliPermiso = '$eliPermiso', regVehiculo = '$regVehiculo', modVehiculo = '$modVehiculo', eliVehiculo = '$eliVehiculo', verTablaVeh = '$verTablaVeh', regCliente = '$regCliente', modCliente = '$modCliente', eliCliente = '$eliCliente', verTablaCli = '$verTablaCli', regProyecto = '$regProyecto', listProyecto = '$listProyecto', modProyecto = '$modProyecto', eliProyecto = '$eliProyecto', pdfProyecto = '$pdfProyecto', verTablaProyAct = '$verTablaProyAct', verTablaRegSolAltProy = '$verTablaRegSolAltProy', regSolAltProy = '$regSolAltProy', pdfRegSolAltProy = '$pdfRegSolAltProy'  WHERE id_usuario = $id_usuario";
+$query = "UPDATE permisos SET verTablaUsuario = '$verTablaUsuario', editarUsu = '$editarUsu', asignarCon = '$asignarCon', eliminarUsu = '$eliminarUsu', asignarPer = '$asignarPer', nuevoUsu = '$nuevoUsu', verTablaMarca = '$verTablaMarca', regMarca = '$regMarca', modMarca = '$modMarca', eliminaMar = '$eliminaMar', verTablaModelo = '$verTablaModelo', regModelo = '$regModelo', modModelo = '$modModelo', eliminarMod = '$eliminarMod', verTablaAnio = '$verTablaAnio', regAnios = '$regAnios', modAnios = '$modAnios', eliminarAnio = '$eliminarAnio', regColor = '$regColor', modColor = '$modColor', eliminarCol = '$eliminarCol', verTablaColor = '$verTablaColor', verTablaSemana = '$verTablaSemana', regSemana = '$regSemana', eliSemana = '$eliSemana', verTablaAgente = '$verTablaAgente', regAgente = '$regAgente', eliAgente = '$eliAgente', regPermiso = '$regPermiso', modPermiso = '$modPermiso', eliPermiso = '$eliPermiso', verTablaVeh = '$verTablaVeh', regVehiculo = '$regVehiculo', modVehiculo = '$modVehiculo', eliVehiculo = '$eliVehiculo', verTablaCli = '$verTablaCli', regCliente = '$regCliente', modCliente = '$modCliente', eliCliente = '$eliCliente', regProyecto = '$regProyecto', listProyecto = '$listProyecto', modProyecto = '$modProyecto', eliProyecto = '$eliProyecto', pdfProyecto = '$pdfProyecto', verTablaProyAct = '$verTablaProyAct', verTablaRegSolAltProy = '$verTablaRegSolAltProy', regSolAltProy = '$regSolAltProy', pdfRegSolAltProy = '$pdfRegSolAltProy', eliRegSolAltProy = '$eliRegSolAltProy', verObsRegSolAltProy = '$verObsRegSolAltProy', regAlta = '$regAlta', eliAlta = '$eliAlta', pdfAlta = '$pdfAlta', verLinkObsAlta = '$verLinkObsAlta', verTablaAlta = '$verTablaAlta', regCodIdentificador = '$regCodIdentificador', eliCodIdentificador = '$eliCodIdentificador', pdfCodIdentificador = '$pdfCodIdentificador', verLinkObsIdentificador = '$verLinkObsIdentificador', verTablaCodIdentificador = '$verTablaCodIdentificador' WHERE id_usuario = $id_usuario";
 // var_dump($query);
 
 

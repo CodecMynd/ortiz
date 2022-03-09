@@ -28,7 +28,7 @@ require '../components/head-dataTables.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-10">
+                        <div class="col-md-10 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
                                     <h3 class="card-title">Clientes dados de alta en el sistema</h3>
@@ -69,7 +69,7 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php  } ?>
-                                    <table id="tableCrudUsuarios" class="table table-sm table-bordered table-striped">
+                                    <table id="tablePermisos" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -121,7 +121,7 @@ require '../components/head-dataTables.php';
                                                             <div class="input-group-prepend">
                                                                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Clientes"> Acciones</span>
                                                                 </button>
-                                                                <ul class="dropdown-menu">
+                                                                <ul class="dropdown-menu" style="min-width: 2em;">
                                                                     <div class="btn-group">
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="2.2.2 Modificar Cliente">

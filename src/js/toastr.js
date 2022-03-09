@@ -771,7 +771,8 @@ $(document).ready(function () {
             "hideMethod": "desaparecer"
         }
     })
-});pdfProyecto
+});
+pdfProyecto
 
 // eliCliente 2.3.5 DESCARGAR PDF PROYECTO --------------------------------------------------------------
 $(document).ready(function () {

@@ -90,7 +90,7 @@ require '../components/head-dataTables.php';
                                                         echo $cont;
                                                         ?>
                                                     </td>
-                                                    <td>
+                                                    <td style="width: 60%;">
                                                         <?php echo $row['agente'] ?>
                                                     </td>
                                                     <!-- <td>

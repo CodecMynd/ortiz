@@ -122,7 +122,7 @@ require '../components/head-dataTables.php';
                                                     <div class="row justify-content-center">
                                                         <div class="col-md-3 col-sm-12 my-1">
                                                             <div class="input-group form-floating mb-3">
-                                                                <div class="input-group-prepend">
+                                                                <div class="input-group-prepend parpadea">
                                                                     <span class="input-group-text"><i class="fa-solid fa-arrow-down-1-9"></i></span>
                                                                 </div>
                                                                 <?php
@@ -136,7 +136,7 @@ require '../components/head-dataTables.php';
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 my-1 form-group">
                                                             <div class="input-group form-floating mb-3">
-                                                                <div class="input-group-prepend">
+                                                                <div class="input-group-prepend parpadea">
                                                                     <span class="input-group-text"><i class="fa-solid fa-list-ol"></i></span>
                                                                 </div>
                                                                 <input name="nOrden" id="nOrden" type="number" class="form-control" placeholder="Número de orden" required maxlength="15" data-toggle="tooltip" data-placement="bottom" title="Número de orden">
@@ -145,7 +145,7 @@ require '../components/head-dataTables.php';
                                                         </div>
                                                         <div class="col-md-2 col-sm-12">
                                                             <div class="form-group">
-                                                                <label style="padding-left: 20px;">*Tipo de reparación</label>
+                                                                <label style="padding-left: 20px;" class="parpadea">*Tipo de reparación</label>
                                                                 <div class="input-group"></div>
                                                                 <span data-toggle="tooltip" title="Tipo de reparación a realizar" data-placement="bottom">
                                                                     <select name="tipoReparacion" id="tipoReparacion" class="form-control" style="width: 100%;">
@@ -160,7 +160,7 @@ require '../components/head-dataTables.php';
 
                                                         <div class="col-md-2 col-sm-12 my-1">
                                                             <div class="input-group form-floating mb-3">
-                                                                <div class="input-group-prepend">
+                                                                <div class="input-group-prepend parpadea">
                                                                     <span class="input-group-text"><i class="fa-solid fa-gauge-high"></i></span>
                                                                 </div>
                                                                 <input name="km" id="km" type="text" class="form-control" placeholder="Kilometraje" required maxlength="12" data-toggle="tooltip" data-placement="bottom" title="Redondea Kilometraje actual" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 0, 'digitsOptional': false, 'suffix': ' km', 'placeholder': '0'">
@@ -169,7 +169,7 @@ require '../components/head-dataTables.php';
                                                         </div>
                                                         <div class="col-md-3 col-sm-12 my-1">
                                                             <div class="input-group form-floating mb-3">
-                                                                <div class="input-group-prepend">
+                                                                <div class="input-group-prepend parpadea">
                                                                     <span class="input-group-text mt-2">
                                                                         <i class="fa-solid fa-money-bill-1-wave"></i>
                                                                     </span>
@@ -183,7 +183,7 @@ require '../components/head-dataTables.php';
                                                                 <label class="ml-5 mb-2">*Diagnostico</label>
                                                                 <span data-toggle="tooltip" title="max. 200 caracteres">
                                                                     <div class="input-group">
-                                                                        <div class="input-group-prepend">
+                                                                        <div class="input-group-prepend parpadea">
                                                                             <span class="input-group-text"><i class="fa-solid fa-user-doctor"></i></span>
                                                                         </div>
                                                                         <textarea name="diagnostico" id="diagnostico" class="form-control" rows="4" placeholder="Agrega alguna breve observación de Diagnostico" maxlength="200"></textarea>
@@ -196,7 +196,7 @@ require '../components/head-dataTables.php';
                                                                 <label class="ml-5 mb-2">*Descripción del servicio 1</label>
                                                                 <span data-toggle="tooltip" title="max. 200 caracteres">
                                                                     <div class="input-group">
-                                                                        <div class="input-group-prepend">
+                                                                        <div class="input-group-prepend parpadea">
                                                                             <span class="input-group-text"><i class="fa-solid fa-toolbox"></i></span>
                                                                         </div>
                                                                         <textarea name="descripServ1" id="descripServ1" class="form-control" rows="4" placeholder="Agrega alguna breve Descripción del servicio" maxlength="200"></textarea>
@@ -209,7 +209,7 @@ require '../components/head-dataTables.php';
                                                                 <label class="ml-5 mb-2">Descripción del servicio 2</label>
                                                                 <span data-toggle="tooltip" title="max. 200 caracteres">
                                                                     <div class="input-group">
-                                                                        <div class="input-group-prepend">
+                                                                        <div class="input-group-prepend parpadea">
                                                                             <span class="input-group-text"><i class="fa-solid fa-toolbox"></i></span>
                                                                         </div>
                                                                         <textarea name="descripServ2" id="descripServ2" class="form-control" rows="4" placeholder="Agrega alguna breve Descripción del servicio" maxlength="200"></textarea>
@@ -248,6 +248,9 @@ require '../components/head-dataTables.php';
                                                         </div>
                                                         <div class="col-md-2 col-sm-12 align-self-center">
                                                             <a href="javascript:history.go(-1)" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
+                                                        </div>
+                                                        <div class='col-md-3 col-sm-12 align-self-center'>
+                                                            <a href='../admin/crudProyectos.php' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Ir a 2.3.2 Tabla Lista de Proyectos'><i class='fa-solid fa-arrow-right'></i> Ir a 2.3.2 Lista de Proyectos</a>
                                                         </div>
                                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                                         <br>

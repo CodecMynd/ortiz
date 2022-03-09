@@ -18,66 +18,67 @@
                                  INNER JOIN colores C ON V.id_color = C.id_color ";
             $resultado1 = mysqli_query($conexion, $query1);
             ?>
-
-            <div class="card-body">
-                <table id="tableVehiculos" class="table table-sm table-bordered table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Marca</th>
-                            <th>Modelo</th>
-                            <th>Año</th>
-                            <th>Placas</th>
-                            <th>Color</th>
-                            <th>Descarga </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        while ($row = $resultado1->fetch_assoc()) {
-                            $vehiculo = $row['marca'] . ' | ' . $row['modelo'] . ' | ' . $row['anio'] . ' | ' . $row['placa'] . ' | '. $row['color'];
-                        ?>
+            <div class="modal-body">
+                <div class="card-body">
+                    <table id="tablePermisos2" class="table table-sm table-bordered table-striped" style="width:100%">
+                        <thead>
                             <tr>
-                                <td>
-                                    <?php $cont++;
-                                    echo $cont;
-                                    ?>
-                                </td>
-                                <td style="width: 30%;">
-                                    <?php echo $row['marca'] ?>
-                                </td>
-                                <td style="width: 20%;">
-                                    <?php echo $row['modelo'] ?>
-                                </td>
-                                <td style="width: 10%;">
-                                    <?php echo $row['anio'] ?>
-                                </td>
-                                <td style="width: 10%;">
-                                    <?php echo $row['placa'] ?>
-                                </td>
-                                <td style="width: 20%;">
-                                    <?php echo $row['color'] ?>
-                                </td>
-                                <td class="row justify-content-center">
-                                    <button class='btn btn-secondary btn-sm cargarVehiculo' data-dismiss="modal" data-id_vehiculo="<?php echo $row['id_vehiculo'] ?>"><i class="fa-solid fa-download"></i></button>
-                                </td>
+                                <th>#</th>
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                                <th>Año</th>
+                                <th>Placas</th>
+                                <th>Color</th>
+                                <th>Descarga </th>
                             </tr>
-                        <?php
-                        }
-                        ?>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>#</th>
-                            <th>Marca</th>
-                            <th>Modelo</th>
-                            <th>Año</th>
-                            <th>Placas</th>
-                            <th>Color</th>
-                            <th>Descarga</th>
-                        </tr>
-                    </tfoot>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?php
+                            while ($row = $resultado1->fetch_assoc()) {
+                                $vehiculo = $row['marca'] . ' | ' . $row['modelo'] . ' | ' . $row['anio'] . ' | ' . $row['placa'] . ' | ' . $row['color'];
+                            ?>
+                                <tr>
+                                    <td>
+                                        <?php $cont++;
+                                        echo $cont;
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['marca'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['modelo'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['anio'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['placa'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['color'] ?>
+                                    </td>
+                                    <td class="row justify-content-center">
+                                        <button class='btn btn-secondary btn-sm cargarVehiculo' data-dismiss="modal" data-id_vehiculo="<?php echo $row['id_vehiculo'] ?>"><i class="fa-solid fa-download"></i></button>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>#</th>
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                                <th>Año</th>
+                                <th>Placas</th>
+                                <th>Color</th>
+                                <th>Descarga</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

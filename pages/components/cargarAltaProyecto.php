@@ -5,7 +5,7 @@ conectar();
 $id_proyecto = $_POST['idProyecto'];
 
 // Query principal
-$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente, Co.color, R.folioRegSolicitud, R.valorVentaAlta, S.semana 
+$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente, Co.color, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, S.semana 
 FROM proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 INNER JOIN marcas M ON V.id_marca = M.id_marca 
@@ -24,7 +24,7 @@ $queryS = "SELECT id_semana, semana FROM semanas  ORDER BY semana ASC";
 $resultSemanas = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
 
 // Query Registro de folio Alta
-$queryP = 'SELECT MAX(id_regAlta) + 1 FROM registroalta';
+$queryP = 'SELECT MAX(id_regAlta) + 1 FROM registroaltabitacora';
 $result = mysqli_query($conexion,  $queryP);
 $rowA = mysqli_fetch_row($result);
 
@@ -46,6 +46,8 @@ $valorVenta = $row['valorVenta'];
 $valorVentaAlta = $row['valorVentaAlta'];
 $folioRegSolicitud = $row['folioRegSolicitud'];
 $semana = $row['semana'];
+$inspecCalidad = $row['inspecCalidad'];
+$observCliente = $row['observCliente'];
 
 if ($respuesta->num_rows  > 0) {
     $output = '';
@@ -209,15 +211,58 @@ if ($respuesta->num_rows  > 0) {
                 <label for='floatingInput' class='pl-5'>*Semana</label>
             </div>
         </div>
+        <div class='col-md-12 col-sm-12 my-1'>
+            <div class='row justify-content-center'>
+                <div class='col-md-5 col-sm-12 my-1'>
+                    <div class='form-group-input' style='border: 1px solid #CED4DA;'>
+                        <label class='ml-5 mb-2'>*Observación Inspección de Control de Calidad</label>
+                        <span data-toggle='tooltip' title='max. 300 caracteres'>
+                            <div class='input-group'>
+                                <div class='input-group-prepend'>
+                                    <span class='input-group-text'><i class='fa-solid fa-comments'></i></span>
+                                </div>
+                                <textarea name='inspecCalidad' id='inspecCalidad' class='form-control' rows='4' placeholder='Agrega alguna breve Observación de Inspección de Control Calidad' readonly>{$inspecCalidad}</textarea>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+                <div class='col-md-5 col-sm-12 my-1'>
+                    <div class='form-group-input' style='border: 1px solid #CED4DA;'>
+                        <label class='ml-5 mb-2'>*Observaciones Para el Cliente</label>
+                        <span data-toggle='tooltip' title='max. 300 caracteres'>
+                            <div class='input-group'>
+                                <div class='input-group-prepend'>
+                                    <span class='input-group-text'><i class='fa-solid fa-comment'></i></span>
+                                </div>
+                                <textarea name='observCliente' id='observCliente' class='form-control' rows='4' placeholder='Agrega alguna breve Observación para nuestro Cliente' readonly>{$observCliente}</textarea>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class='col-md-10 col-sm-12 my-1'>
             <div class='input-group form-floating mb-3'>
                 <div class='input-group-prepend'>
-                    <span class='input-group-text mt-2'>
+                    <span class='input-group-text parpadea mt-2'>
                         <i class='fa-solid fa-photo-film'></i>
                     </span>
                 </div>
                 <input name='link' id='link' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' required data-toggle='tooltip' data-placement='bottom' title='Ingresa Link de Video en Vivo'>
                 <label for='floatingInput' class='pl-5'>*Link de Video en Vivo Alta</label>
+            </div>
+        </div>
+        <div class='col-md-10 col-sm-12 my-1'>
+            <div class='form-group-input' style='border: 1px solid #CED4DA;'>
+                <label class='ml-5 mb-2'>*Observaciones Prueba de Auditoria Final</label>
+                <span data-toggle='tooltip' title='max. 300 caracteres'>
+                    <div class='input-group'>
+                        <div class='input-group-prepend parpadea'>
+                            <span class='input-group-text'><i class='fa-solid fa-comment'></i></span>
+                        </div>
+                    <textarea name='observAudiFinal' id='observAudiFinal' class='form-control' rows='2' placeholder='Agrega alguna breve Observación por parte de Auditoria Final' maxlength='300' required></textarea>
+                    </div>
+                </span>
             </div>
         </div>
         <div class='col-12'>
@@ -252,6 +297,9 @@ if ($respuesta->num_rows  > 0) {
             <div class='col-md-2 col-sm-12 align-self-center'>
                 <a href='javascript:history.go(-1)' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Regresar página anterior'><i class='fa-solid fa-arrow-left'></i>
                     Regresar</a>
+            </div>
+            <div class='col-md-4 col-sm-12 align-self-center'>
+            <a href='../admin/crudProyCodiIdentificador.php' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Ir a Tabla Lista de Proyectos'><i class='fa-solid fa-arrow-right'></i> Ir a 2.6 Proyectos con Código Identificador</a>
             </div>
             <a href='javascript:location.reload()' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Actualizar página'><i class='fa-solid fa-arrows-rotate'></i></a>
             <br>

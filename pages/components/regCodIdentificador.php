@@ -1,16 +1,13 @@
 <?php
 ob_start();
 ?>
-<!--<!DOCTYPE html>
-<html lang="es">-->
-
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Solicitud Alta </title>
+    <title>Proyectos con Código Identificador </title>
 
     <!-- Favicon -->
     <link rel="icon" href="../../src/img/logos/favicon.png" type="image/gif" sizes="32x32">
@@ -66,16 +63,15 @@ ob_start();
         }
 
         .inputRespG {
-            width: 20em;
+            width: 49em;
             height: 5px;
             outline: 0;
             border-width: 0 0 .5px;
             border-color: gray;
-            font-size: 13px;
-            font-weight: 100;
+            font-size: 15px;
             margin-bottom: 20px;
             font-family: sans-serif;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
         }
 
         .inputRespM {
@@ -85,7 +81,6 @@ ob_start();
             border-width: 0 0 .5px;
             border-color: gray;
             font-size: 13px;
-            font-weight: 100;
             margin-bottom: 20px;
             font-family: sans-serif;
             padding-bottom: 10px;
@@ -98,7 +93,6 @@ ob_start();
             border-width: 0 0 .5px;
             border-color: gray;
             font-size: 13px;
-            font-weight: 100;
             margin-bottom: 20px;
             font-family: sans-serif;
             padding-bottom: 10px;
@@ -111,7 +105,6 @@ ob_start();
             border-width: 0 0 .5px;
             border-color: gray;
             font-size: 13px;
-            font-weight: 100;
             margin-bottom: 20px;
             font-family: sans-serif;
             padding-bottom: 10px;
@@ -146,14 +139,13 @@ ob_start();
         }
 
         textarea {
-            width: 52em;
+            width: 56em;
             height: 55px;
             border: none;
             border-bottom: .5px solid gray;
-            font-size: 14px;
-            font-weight: 100;
+            font-size: 13px;
             font-family: sans-serif;
-            padding: 10px 5px;
+            padding-bottom: 18px;
         }
 
         .firma {
@@ -204,28 +196,26 @@ ob_start();
             color: gray;
         }
     </style>
+
 </head>
 <?php
 require '../components/head-main.php';
 
 $id_proyecto = $_GET['id'];
 // $id_proyecto = 1;
-// $query = "SELECT id_proyecto FROM proyectos WHERE id_proyecto = $id_p";
-// $respuesta = mysqli_query($conexion, $query);
-// $rowP = $respuesta->fetch_assoc();
-// $id_proyecto = $rowP['id_proyecto'];
 
-
-
-$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, V.placa, M.marca, Mo.modelo,A.anio, C.color,RS.folioRegSolicitud,RS.valorVentaAlta,RS.fecha_creacion, RS.inspecCalidad,RS.observCliente ,S.semana, U.nombres, U.aPaterno, U.aMaterno
+$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, C.color, RS.folioRegSolicitud, RS.valorVentaAlta, RS.inspecCalidad, RS.observCliente, RA.folioRegAlta, RA.observAudiFinal, S.semana, LV.link, RC.valorCobro, RC.codIdentificador, RC.fecha_creacion, U.nombres, U.aPaterno, U.aMaterno
 FROM proyectos P 
-INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
+INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 INNER JOIN marcas M ON V.id_marca = M.id_marca
 INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
 INNER JOIN anios A ON V.id_anio = A.id_anio
 INNER JOIN colores C ON V.id_color = C.id_color
-INNER JOIN registroSolicitud RS ON P.id_proyecto = RS.id_proyecto
+INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto
 INNER JOIN semanas S ON RS.id_semana = S.id_semana
+INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto
+INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo
+INNER JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
 INNER JOIN usuarios U ON P.id_capC = U.id_usuario
 WHERE P.id_proyecto = ' . $id_proyecto . ' ';
 $respuesta = mysqli_query($conexion, $query);
@@ -237,7 +227,6 @@ $modelo = $row['modelo'];
 $anio = $row['anio'];
 $placa = $row['placa'];
 $color = $row['color'];
-$km = $row['km'];
 
 $capturista = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
 
@@ -245,6 +234,7 @@ $tipoReparacion = $row['tipoReparacion'];
 $km = $row['km'];
 $valorVenta = $row['valorVenta'];
 $valorVentaAlta = $row['valorVentaAlta'];
+$valorCobro = $row['valorCobro'];
 
 ?>
 
@@ -253,7 +243,7 @@ $valorVentaAlta = $row['valorVentaAlta'];
     <header>
         <div class="logoHeader"><img src="../../src/img/logos/headerSolicitudAltaLogo.png" /></div>
         <div class="titleHeader">
-            <h2>Solicitud de Alta</h2>
+            <h2>Registro Código Identificador</h2>
         </div>
     </header>
 
@@ -263,10 +253,12 @@ $valorVentaAlta = $row['valorVentaAlta'];
         <div class="container-fluid" style="width:107%">
             <div class="col-md-12">
                 <ul class="float-right">
-                    <li>Núm. Folio Solicitud Alta<input type="text" value="<?php echo $row['folioRegSolicitud'] ?>" style="width:115px"> </li>
-                    <li>Fecha Solicitud Alta <input type="text" value="<?php echo $row['fecha_creacion'] ?>" style="width:115px;"></li>
-                    <li>Número de Orden <input type="text" value="<?php echo $row['nOrden'] ?>" style="width:115px"></li>
-                    <li>Número de Proyecto <input type="text" value="<?php echo $row['nProyecto'] ?>" style="width:115px"> </li>
+                    <li>Código Identificador <input type="text" value="<?php echo $row['codIdentificador'] ?>" style="width:115px"> </li>
+                    <li>Fecha Registro <input type="text" value="<?php echo $row['fecha_creacion'] ?>" style="width:115px;"></li>
+                    <li>Núm. Folio Alta <input type="text" value="<?php echo $row['folioRegAlta'] ?>" style="width:115px"> </li>
+                    <li>Núm. Folio Solicitud Alta <input type="text" value="<?php echo $row['folioRegSolicitud'] ?>" style="width:115px"> </li>
+                    <li>Núm. de Orden <input type="text" value="<?php echo $row['nOrden'] ?>" style="width:115px"></li>
+                    <li>Núm. de Proyecto <input type="text" value="<?php echo $row['nProyecto'] ?>" style="width:115px"> </li>
                 </ul>
             </div>
         </div>
@@ -294,14 +286,13 @@ $valorVentaAlta = $row['valorVentaAlta'];
                         </tr>
                         <tr>
                             <td><input type="text" class="inputRespM" value="<?php echo $marca ?>"></td>
-                            <td><input type="text" class="inputRespC" value="<?php echo $modelo ?>"></td>
-                            <td><input type="text" class="inputRespC" value="<?php echo $anio ?>"></td>
-                            <td><input type="text" class="inputRespC" value="<?php echo $placa ?>"></td>
-                            <td><input type="text" class="inputRespC" value="<?php echo $color ?>"></td>
+                            <td><input type="text" class="inputRespA" value="<?php echo $modelo ?>"></td>
+                            <td><input type="text" class="inputRespA" value="<?php echo $anio ?>"></td>
+                            <td><input type="text" class="inputRespA" value="<?php echo $placa ?>"></td>
+                            <td><input type="text" class="inputRespA" value="<?php echo $color ?>"></td>
                         </tr>
                     </tbody>
                 </table>
-                <br>
                 <table class="table table-sm">
                     <tbody>
                         <tr>
@@ -315,56 +306,67 @@ $valorVentaAlta = $row['valorVentaAlta'];
                 <table class="table table-sm">
                     <tbody>
                         <tr>
-                            <td>Núm. Folio Solicitud de Alta</td>
+                            <td>Núm. Folio Alta</td>
+                            <td>Núm. Folio Solicitud Alta</td>
                             <td>Núm Proyecto</td>
                             <td>Núm. de Orden</td>
                             <td>Tipo Reparación</td>
-                            <td>Kilometraje</td>
                         </tr>
                         <tr>
+                            <td><input type="text" class="inputRespA" value="<?php echo $row['folioRegAlta'] ?>"></td>
                             <td><input type="text" class="inputRespM" value="<?php echo $row['folioRegSolicitud'] ?>"></td>
-                            <td><input type="text" class="inputRespA" value="<?php echo $row['nProyecto'] ?>"></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $row['nProyecto'] ?>"></td>
                             <td><input type="text" class="inputRespA" value="<?php echo $row['nOrden'] ?>"></td>
-                            <td><input type="text" class="inputRespA" value="<?php echo $row['tipoReparacion'] ?>"></td>
-                            <td><input type="text" class="inputRespA" value="<?php echo $row['km'] ?>"></td>
-
+                            <td><input type="text" class="inputRespC" value="<?php echo $row['tipoReparacion'] ?>"></td>
                         </tr>
                     </tbody>
                 </table>
                 <table>
                     <tbody>
                         <tr>
+                            <td>Kilometraje</td>
+                            <td>Semana</td>
                             <td>Valor Venta Inicial</td>
                             <td>Valor Venta Alta</td>
-                            <td>Semana</td>
+                            <td>Valor Cobro</td>
                         </tr>
                         <tr>
-                            <td><input type="text" class="inputRespM" value="<?php echo $valorVenta ?>"></td>
-                            <td><input type="text" class="inputRespM" value="<?php echo $valorVentaAlta ?>"></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $row['km'] ?>"></td>
                             <td><input type="text" class="inputRespC" value="<?php echo $row['semana'] ?>"></td>
+                            <td><input type="text" class="inputRespA" value="<?php echo '$ '.$valorVenta ?>"></td>
+                            <td><input type="text" class="inputRespA" value="<?php echo '$ '.$valorVentaAlta ?>"></td>
+                            <td><input type="text" class="inputRespA" value="<?php echo '$ '.$valorCobro ?>"></td>
                         </tr>
                     </tbody>
                 </table>
-                <table class="table table-sm">
+                <table>
                     <tbody>
                         <tr>
-                            <td>Observación Inspección de Control de Calidad</td>
+                            <td style="width: 20em">Observación Inspección de Control de Calidad</td>
                         </tr>
                         <tr>
-                            <td colspan="2"><textarea cols="160" rows="2"><?php echo $row['inspecCalidad'] ?></textarea></td>
+                            <td colspan="4"><textarea cols="160" rows="4"><?php echo $row['inspecCalidad'] ?></textarea></td>
                         </tr>
                         <tr>
-                            <td>Observaciones Para el Cliente</td>
+                            <td style="width: 20em">Observaciones Para el Cliente</td>
                         </tr>
                         <tr>
-                            <td colspan="2"><textarea cols="160" rows="2"><?php echo $row['observCliente'] ?></textarea></td>
+                            <td colspan="4"><textarea cols="160" rows="4"><?php echo $row['observCliente'] ?></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Link de Video en Vivo Alta</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" class="inputRespG" value="<?php echo $row['link'] ?>"></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 20em">Observaciones Prueba Auditoria Final</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"><textarea cols="160" rows="4"><?php echo $row['observAudiFinal'] ?></textarea></td>
                         </tr>
                     </tbody>
                 </table>
-                <br>
-                <div class="col-12">
-                    <hr>
-                </div>
             </div>
         </div>
     </main>
@@ -377,8 +379,6 @@ $valorVentaAlta = $row['valorVentaAlta'];
 </body>
 
 </html>
-
-
 
 <?php
 $html = ob_get_clean();
@@ -400,6 +400,6 @@ $dompdf->setPaper('letter'); //hoja tamaño carta
 //$dompdf->setPaper('A4', 'Landscape'); //tamaño oficio 
 
 $dompdf->render(); //poner visible
-$dompdf->stream("Registro_Solicitud_Alta", array("Attachment" => true)); // nombre del archivo, array attachment => true para descagar en automatico
+$dompdf->stream("Proyectos con Código Identificador", array("Attachment" => true)); // nombre del archivo, array attachment => true para descagar en automatico
 
 ?>

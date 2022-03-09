@@ -2,7 +2,7 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>2.5.1 Registro de Alta Proyecto | <?php echo $nomComp ?></title>
+<title>2.7.1 Supervisión de Registro Código Identificador | <?php echo $nomComp ?></title>
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
@@ -14,17 +14,17 @@ require '../components/head-dataTables.php';
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">2.5.1 Registro de Alta Proyecto </h1>
+                        <div class="col-sm-8">
+                            <h1 class="m-0">2.7.1 Supervisión de Registro Código Identificador </h1>
                         </div>
-                        <div class="col-sm-6 ">
+                        <div class="col-sm-4 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Registro Proyecto -->
-            <form id="formNuevoRegAltaProyecto">
+            <form id="formNuevoSuperCodIdentificador">
                 <div class="card-body">
                     <section class="content">
                         <div class="container-fluid">
@@ -39,7 +39,7 @@ require '../components/head-dataTables.php';
                                         echo "<div class='card card-secondary card-outline collapsed-card'>";
                                     } ?>
                                     <div class="card-header border-nav">
-                                        <h3 class="card-title">Registro de Alta Proyecto</h3>
+                                        <h3 class="card-title">Supervisión de Registro Código Identificador</h3>
                                         <div class="card-tools">
                                             <?php
                                             if ($super == 1) {
@@ -54,14 +54,14 @@ require '../components/head-dataTables.php';
                                             <div class="col-md-4 col-sm-4 my-4">
                                                 <div class="card card-secondary card-outline" style="height: 90%; width:auto">
                                                     <div class="card-header">
-                                                        <h5 class="text-center"><i class="fa-solid fa-magnifying-glass"></i> Buscar <strong>Registro Solicitud Alta Proyecto</strong></h5>
+                                                        <h5 class="text-center"><i class="fa-solid fa-magnifying-glass"></i> Buscar <strong>Proyectos con Código Identificador</strong></h5>
                                                     </div>
                                                     <div class="card-body d-flex justify-content-center align-items-center">
                                                         <div class="btn-group" role="group">
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="input-group form-group">
-                                                                        <button class="btn btn-modal-selector" style="height:120px;" data-toggle="modal" data-target="#modalSelectSolicitudAltaProyecto">
+                                                                        <button class="btn btn-modal-selector" style="height:120px;" data-toggle="modal" data-target="#modalSelecSuperCodIdentificador">
                                                                             <i class="fa-solid fa-wrench fa-3x"></i>
                                                                             <h6>Proyectos</h6>
                                                                         </button>
@@ -73,7 +73,7 @@ require '../components/head-dataTables.php';
                                                 </div>
                                             </div>
                                         </div>
-                                        <div id="cargarAltaProyectoTabla"></div>
+                                        <div id="cargarSuperCodIdentificadorTabla"></div>
                                     </div>
                                 </div>
                             </div>
@@ -93,7 +93,7 @@ require '../components/head-dataTables.php';
     // Scripts dataTables
     require '../components/scripts-dataTables.php';
     // Seleccionar Proyecto
-    require '../components/modal-selectAltaProyecto.php';
+    require '../components/modal-selectSuperCodIdentificador.php';
     ?>
     <!-- avisos -->
     <script src="../../src/js/toastr.js"></script>
@@ -105,17 +105,17 @@ require '../components/head-dataTables.php';
     </script>
     <script>
          // 2.5.1  Registro Alta Proyectos cargar Modal  -----------------------------------------------
-        $(document).on("click", ".cargarAltaProyecto", function() {
+        $(document).on("click", ".cargarSuperCodIdentificador", function() {
             var idProyecto = $(this).data('id_proyecto');
             $.ajax({
-                url: "../components/cargarAltaProyecto.php",
+                url: "../components/cargarSuperCodIentificador.php",
                 type: "POST",
                 cache: false,
                 data: {
                     idProyecto: idProyecto
                 },
                 success: function(data) {
-                    $("#cargarAltaProyectoTabla").html(data);
+                    $("#cargarSuperCodIdentificadorTabla").html(data);
                 },
             });
         });

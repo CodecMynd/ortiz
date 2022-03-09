@@ -433,9 +433,9 @@
                 }
             }).buttons().container().appendTo('#tablePermisos_wrapper .col-md-6:eq(0)');
         });
-        // table vehiculos
-        $(function() {
-            $("#tableVehiculos").DataTable({
+          // table permisos2
+          $(function() {
+            $("#tablePermisos2").DataTable({
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": true,
@@ -641,6 +641,8 @@
                     "zeroRecords": "No se encontraron coincidencias"
 
                 }
-            }).buttons().container().appendTo('#tableVehiculos_wrapper .col-md-6:eq(0)');
+            }).buttons().container().appendTo('#tablePermisos2_wrapper .col-md-6:eq(0)');
         });
+
+
     </script>

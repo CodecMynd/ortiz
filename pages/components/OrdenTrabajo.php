@@ -60,30 +60,60 @@ ob_start();
         ul li {
             list-style-type: none;
             text-align: right;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 100;
+            font-family: sans-serif;
+        }
+
+        .inputRespG {
+            width: 20em;
+            height: 5px;
+            outline: 0;
+            border-width: 0 0 .5px;
+            border-color: gray;
+            font-size: 13px;
+            font-weight: 100;
+            margin-bottom: 20px;
+            font-family: sans-serif;
+            padding-bottom: 10px;
         }
 
         .inputRespM {
-            width: 17em;
-            height: 11px;
+            width: 16.1em;
+            height: 5px;
             outline: 0;
             border-width: 0 0 .5px;
             border-color: gray;
-            font-size: 10px;
+            font-size: 13px;
             font-weight: 100;
             margin-bottom: 20px;
+            font-family: sans-serif;
+            padding-bottom: 10px;
         }
 
         .inputRespC {
-            width: 9.8em;
-            height: 10px;
+            width: 7em;
+            height: 5px;
             outline: 0;
             border-width: 0 0 .5px;
             border-color: gray;
-            font-size: 10px;
+            font-size: 13px;
             font-weight: 100;
             margin-bottom: 20px;
+            font-family: sans-serif;
+            padding-bottom: 10px;
+        }
+        .inputRespEstado {
+            width: 13.5em;
+            height: 5px;
+            outline: 0;
+            border-width: 0 0 .5px;
+            border-color: gray;
+            font-size: 13px;
+            font-weight: 100;
+            margin-bottom: 20px;
+            font-family: sans-serif;
+            padding-bottom: 10px;
         }
 
         input[type=text] {
@@ -92,29 +122,35 @@ ob_start();
         }
 
         tr td {
-            font-size: 12px;
+            font-size: 15px;
             color: #000;
+            font-weight: 100;
         }
 
         .titulo {
-            font-size: 14px;
+            font-size: 18px;
             color: #000;
-            font-weight: 100;
+            font-weight: 200;
             left: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-family: sans-serif;
         }
 
         hr {
             border: 1px solid gray;
             width: 106%;
+            margin: 0;
         }
 
         textarea {
-            width: 65.5em;
+            width: 56em;
             height: 30px;
             border: none;
             border-bottom: .5px solid gray;
-            font-size: 11px;
+            font-size: 13px;
             font-weight: 100;
+            font-family: sans-serif;
         }
 
         .firma {
@@ -203,12 +239,12 @@ $capturista = $rowUsuario['nombres'] . ' ' . $rowUsuario['aPaterno'] . ' ' . $ro
     <header>
         <div class="logoHeader"><img src="../../src/img/logos/headerSolicitudAltaLogo.png" /></div>
         <div class="titleHeader">
-        <h2 class="mb-0">Orden de Servicio</h2>
-                <ul class="float-right text-center">
-                    <li>Av. Alcalde #1011 Col. Alcalde Barranquitas</li>
-                    <li>Guadalajara Jalisco, México</li>
-                    <li>Tel.(33) 2101 1653</li>
-                </ul>
+            <h2 class="mb-0">Orden de Servicio</h2>
+            <ul class="float-right text-center">
+                <li>Av. Alcalde #1011 Col. Alcalde Barranquitas</li>
+                <li>Guadalajara Jalisco, México</li>
+                <li>Tel.(33) 2101 1653</li>
+            </ul>
         </div>
     </header>
     <!-- 
@@ -222,9 +258,9 @@ $capturista = $rowUsuario['nombres'] . ' ' . $rowUsuario['aPaterno'] . ' ' . $ro
         <div class="container-fluid" style="width:107%">
             <div class="col-md-12">
                 <ul class="float-right">
-                    <li>Fecha Ingreso <input type="text" value="<?php echo $row['fecha_creacion'] ?>" style="width:100px;"></li>
-                    <li>Número de Orden <input type="text" value="<?php echo $row['nOrden'] ?>" style="width:100px"></li>
-                    <li>Número de Proyecto <input type="text" value="<?php echo $row['nProyecto'] ?>" style="width:100px"> </li>
+                    <li>Fecha Ingreso <input type="text" value="<?php echo $row['fecha_creacion'] ?>" style="width:115px;"></li>
+                    <li>Número de Orden <input type="text" value="<?php echo $row['nOrden'] ?>" style="width:115px"></li>
+                    <li>Número de Proyecto <input type="text" value="<?php echo $row['nProyecto'] ?>" style="width:115px"> </li>
                 </ul>
             </div>
         </div>
@@ -247,29 +283,32 @@ $capturista = $rowUsuario['nombres'] . ' ' . $rowUsuario['aPaterno'] . ' ' . $ro
                             <td>Nombre</td>
                             <td>Domicilio</td>
                             <td>Ciudad</td>
-                            <td>Estado</td>
                         </tr>
                         <tr>
-                            <td><input type="text" class="inputRespM" value="<?php echo $nomClienteCompleto ?>"></td>
+                            <td><input type="text" class="inputRespG" value="<?php echo $nomClienteCompleto ?>"></td>
                             <td><input type="text" class="inputRespM" value="<?php echo $rowCliente['calle'] ?>"></td>
                             <td><input type="text" class="inputRespM" value="<?php echo $rowCliente['ciudad'] ?>"></td>
-                            <td><input type="text" class="inputRespM" value="<?php echo $rowCliente['estado'] ?>"></td>
                         </tr>
-                        <tr>
+                    </tbody>
+                </table>
+                <table class="table table-sm">
+                    <tbody>
+                    <tr>
+                            <td>Estado</td>
                             <td>Celular</td>
                             <td>Teléfono 1</td>
                             <td>Teléfono 2</td>
                             <td>Correo Electrónico</td>
                         </tr>
                         <tr>
-                            <td><input type="text" class="inputRespM" value="<?php echo $rowCliente['cel'] ?>"></td>
-                            <td><input type="text" class="inputRespM" value="<?php echo $rowCliente['tel1'] ?>"></td>
-                            <td><input type="text" class="inputRespM" value="<?php echo $rowCliente['tel2'] ?>"></td>
+                            <td><input type="text" class="inputRespEstado" value="<?php echo $rowCliente['estado'] ?>"></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $rowCliente['cel'] ?>"></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $rowCliente['tel1'] ?>"></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $rowCliente['tel2'] ?>"></td>
                             <td><input type="text" class="inputRespM" value="<?php echo $rowCliente['email'] ?>"></td>
                         </tr>
                     </tbody>
                 </table>
-                <br>
                 <table class="table table-sm">
                     <tbody>
                         <tr>

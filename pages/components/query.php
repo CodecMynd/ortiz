@@ -86,9 +86,22 @@ while ($row = mysqli_fetch_array($query)) {
     $eliProyecto = $row['eliProyecto'];
     $pdfProyecto = $row['pdfProyecto'];
     $verTablaProyAct = $row['verTablaProyAct'];
-    $verTablaRegSolAltProy = $row['verTablaRegSolAltProy'];	
+    $verTablaRegSolAltProy = $row['verTablaRegSolAltProy'];
     $regSolAltProy = $row['regSolAltProy'];
     $pdfRegSolAltProy = $row['pdfRegSolAltProy'];
+    $eliRegSolAltProy = $row['eliRegSolAltProy'];
+    $verObsRegSolAltProy = $row['verObsRegSolAltProy'];
+    $regAlta = $row['regAlta'];
+    $eliAlta = $row['eliAlta'];
+    $pdfAlta = $row['pdfAlta'];
+    $verLinkObsAlta = $row['verLinkObsAlta'];
+    $verTablaAlta = $row['verTablaAlta'];
+    $regCodIdentificador = $row['regCodIdentificador'];
+    $eliCodIdentificador = $row['eliCodIdentificador'];
+    $pdfCodIdentificador = $row['pdfCodIdentificador'];
+    $verLinkObsIdentificador = $row['verLinkObsIdentificador'];
+    $verTablaCodIdentificador = $row['verTablaCodIdentificador'];
+    
 }
 
 // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------

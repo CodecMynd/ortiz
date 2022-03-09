@@ -36,11 +36,11 @@ require '../components/head-main.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-8">
+                        <div class="col-md-8 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header border-nav">
                                     <h3 class="card-title">Marca seleccionado para editar</h3>
-                                    <small class="float-right">*Ultima modificación: <?php echo $row['fecha_mod'] ?></small>
+                                    <!-- <small class="float-right">*Ultima modificación: <?php echo $row['fecha_mod'] ?></small> -->
                                 </div>
                                 <!-- <form id="formNuevoUsuario" action="addNuevoUsuario.php" method="POST"> -->
                                 <form id="formUpdateMarca" autocomplete="off">

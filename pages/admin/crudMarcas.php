@@ -32,7 +32,7 @@ require '../components/head-dataTables.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-md-6 col-sm-12">
+                        <div class="col-md-4 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
                                     <h3 class="card-title">Marcas dadas de alta en el sistema</h3>
@@ -73,7 +73,7 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>Marca</th>
-                                                <th>Estatus</th>
+                                                <!-- <th>Estatus</th> -->
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -89,15 +89,15 @@ require '../components/head-dataTables.php';
                                                     <td>
                                                         <?php echo $row['marca'] ?>
                                                     </td>
-                                                    <td>
+                                                    <!-- <td>
 
-                                                    </td>
+                                                    </td> -->
                                                     <td>
                                                         <div class="input-group input-group-sm mb-3">
                                                             <div class="input-group-prepend">
                                                                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Marcas"> Acciones</span>
                                                                 </button>
-                                                                <ul class="dropdown-menu">
+                                                                <ul class="dropdown-menu" style="min-width: 2em">
                                                                     <div class="btn-group">
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="1.2.2 Modificar Marca">
@@ -144,7 +144,7 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>Marca</th>
-                                                <th>Estatus</th>
+                                                <!-- <th>Estatus</th> -->
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>

@@ -34,7 +34,7 @@ require '../components/head-main.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-11">
+                        <div class="col-md-11 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header border-nav">
                                     <h3 class="card-title">*Todos los campos son obligatorios</h3>
