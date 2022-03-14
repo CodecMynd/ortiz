@@ -43,8 +43,9 @@ require '../components/head-dataTables.php';
                                             <a type="button" class="btn btn-outline-danger" id="regAlta" data-toggle="tooltip" data-placement="left" title="2.5.1 Registro Alta Proyecto">
                                                 <i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Registro Alta Proyecto</a>
                                         <?php } ?>
-                                        <a href="crudRegistroSolicitudAlta.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Ver Tabla 2.4.2 Registro de Solicitud Alta Proyecto"><i class="fa-solid fa-angle-left"></i>&nbsp;&nbsp;<i class="fa-solid fa-eye"></i></a>
-                                        <a href="crudProyCodiIdentificador.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Ver Tabla 2.6 Proyectos con Código Identificador"><i class="fa-solid fa-eye"></i>&nbsp;&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+                                        <!-- <a href="crudRegistroSolicitudAlta.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Ver Tabla 2.4.2 Registro de Solicitud Alta Proyecto"><i class="fa-solid fa-angle-left"></i>&nbsp;&nbsp;<i class="fa-solid fa-eye"></i></a>
+                                        <a href="crudProyCodiIdentificador.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Ver Tabla 2.6 Proyectos con Código Identificador"><i class="fa-solid fa-eye"></i>&nbsp;&nbsp;<i class="fa-solid fa-angle-right"></i></a> -->
+
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
@@ -52,7 +53,7 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.altaProyecto, V.placa, M.marca, Mo.modelo, A.anio, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, LV.link, Co.color
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.altaProyecto, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.fecha_creacion AS regSolFecha_creacion, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, LV.link, RA.fecha_creacion AS regAltaFecha_creacion, Co.color, S.semana, U.nombres AS regAltaNombre, U.aPaterno AS regAltaPaterno, U.aMaterno AS regAltaMaterno, Us.nombres AS regSolNombres, Us.aPaterno AS regSolPaterno, Us.aMaterno AS regSolMaterno
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -62,10 +63,13 @@ require '../components/head-dataTables.php';
                                     INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
                                     INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto 
                                     INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
+                                    INNER JOIN semanas S ON R.id_semana = S.id_semana
                                     INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
+                                    INNER JOIN usuarios U ON RA.id_capC = U.id_usuario
+                                    INNER JOIN usuarios Us ON R.id_capC = Us.id_usuario
                                     WHERE altaProyecto = 1 ORDER BY nProyecto ASC";
                                 } else if ($verTablaAlta == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.altaProyecto, V.placa, M.marca, Mo.modelo, A.anio, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, LV.link, Co.color
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.altaProyecto, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.fecha_creacion AS regSolFecha_creacion, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, LV.link, RA.fecha_creacion AS regAltaFecha_creacion, Co.color, S.semana, U.nombres AS regAltaNombre, U.aPaterno AS regAltaPaterno, U.aMaterno AS regAltaMaterno, Us.nombres AS regSolNombres, Us.aPaterno AS regSolPaterno, Us.aMaterno AS regSolMaterno
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -75,7 +79,10 @@ require '../components/head-dataTables.php';
                                     INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
                                     INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto 
                                     INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
+                                    INNER JOIN semanas S ON R.id_semana = S.id_semana
                                     INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
+                                    INNER JOIN usuarios U ON RA.id_capC = U.id_usuario
+                                    INNER JOIN usuarios Us ON R.id_capC = Us.id_usuario
                                     WHERE altaProyecto = 1 ORDER BY nProyecto ASC";
                                 } else {
                                     $query = "SELECT id_proyecto
@@ -92,12 +99,11 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tablePermisos" class="table table-sm table-bordered table-striped">
+                                    <table id="tableAltaProy" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Núm. Folio de Alta</th>
-                                                <th>Núm. Folio Solicitud Alta</th>
+                                                <th>Cronometro Respuesta a solicitud de Alta</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -105,6 +111,8 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
+                                                <th>Semana de Alta</th>
+                                                <th>Valor Venta Inicial</th>
                                                 <th>Valor Venta Alta</th>
                                                 <th>Acciones</th>
                                             </tr>
@@ -115,6 +123,10 @@ require '../components/head-dataTables.php';
                                                 $idP = $row['id_proyecto'];
                                                 $folioRegAlta = $row['folioRegAlta'];
                                                 $id_regAlta = $row['id_regAlta'];
+                                                $regAltaCapturista = $row['regAltaNombre']. ' '.$row['regAltaPaterno'].' '.$row['regAltaMaterno'];
+                                                $regAltaFecha_creacion = $row['regAltaFecha_creacion'];
+                                                $regSolCapturista = $row['regSolNombres']. ' '.$row['regSolPaterno'].' '.$row['regSolMaterno'];
+                                                $regSolFecha_creacion = $row['regSolFecha_creacion'];
                                             ?>
                                                 <tr>
                                                     <td>
@@ -122,11 +134,8 @@ require '../components/head-dataTables.php';
                                                         echo $cont;
                                                         ?>
                                                     </td>
-                                                    <td>
-                                                        <?php echo $row['folioRegAlta'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['folioRegSolicitud'] ?>
+                                                    <td style="width: 10%;">
+                                                        <?php echo $row['cronometro'] ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $row['nProyecto']; ?>
@@ -150,6 +159,12 @@ require '../components/head-dataTables.php';
                                                         <?php echo $row['color'] ?>
                                                     </td>
                                                     <td>
+                                                        <?php echo $row['semana'] ?>
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        <?php echo $row['valorVenta'] ?>
+                                                    </td>
+                                                    <td style="width:12%">
                                                         <?php echo $row['valorVentaAlta'] ?>
                                                     </td>
                                                     <td>
@@ -186,7 +201,7 @@ require '../components/head-dataTables.php';
                                                                             </span>
                                                                         </li>
                                                                         <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.5.4 Ver Link de Video en Vivo y Observaciones">
+                                                                            <span data-toggle="tooltip" title="2.5.4 Ver Link de Video, Observaciones y Generales">
                                                                                 <?php if ($super == 1) { ?>
                                                                                     <button class="btn btn-secondary" data-toggle="modal" data-target=".verLinkVideo-<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></button>
                                                                                 <?php  } else if ($verLinkObsAlta == 1) { ?>
@@ -205,7 +220,7 @@ require '../components/head-dataTables.php';
                                                 </tr>
                                                 <?php
                                                 require '../components/modal-regresarAltaProyecto.php';
-                                                require '../components/modal-verLink.php';
+                                                require '../components/modal-verAltaProyecto.php';
                                                 ?>
                                             <?php
                                             }
@@ -215,8 +230,7 @@ require '../components/head-dataTables.php';
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Núm. Folio de Alta</th>
-                                                <th>Núm. Folio Solicitud Alta</th>
+                                                <th>Cronometro Respuesta a solicitud de Alta</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -224,7 +238,9 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
-                                                <th>Valor Venta Alta</th>
+                                                <th>Semana de Alta</th>
+                                                <th class="suma"></th>
+                                                <th class="suma"></th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>
@@ -235,7 +251,7 @@ require '../components/head-dataTables.php';
                     </div>
                 </div>
             </section>
-
+<div id="respuestaRegresarAltaProyecto"></div>
             <!-- /table usuario -->
         </div>
         <?php
@@ -249,27 +265,7 @@ require '../components/head-dataTables.php';
     require '../components/scripts-dataTables.php';
     ?>
     <script>
-        // regresar a tabla registro solicitud
-        $(document).ready(function() {
-            $('#btnRegresarAltaProyecto').click(function() {
-                $.ajax({
-                        url: '../update/updateRegresarAltaProy.php',
-                        type: 'POST',
-                        data: $('#formRegresarAltaProyecto').serialize(),
-                    })
-                    .done(function(res) {
-                        $('#respuestaRegresarAltaProyecto').html(res)
-                    })
-            });
-
-        });
-        //Ocultar boton por 5 minutos para evitar el doble submit
-        $("#btnRegresarAltaProyecto").on('click', function() {
-            $("#btnRegresarAltaProyecto").css('visibility', 'hidden');
-            setTimeout(function() {
-                $("#btnRegresarAltaProyecto").css('visibility', 'visible');
-            }, 300000);
-        });
+ 
 
         // regAlta 2.5.1 REGISTRO ALTA  --------------------------------------------------------------
         $(document).ready(function() {

@@ -20,7 +20,7 @@
             $resultado1 = mysqli_query($conexion, $query1);
             ?>
             <div class="modal-body">
-                    <table id="tablePermisos" class="table table-sm table-bordered table-striped">
+                    <table id="tableSelectVehiculo" class="table table-sm table-bordered table-striped" style="width:100%">
                         <thead>
                             <tr>
                                 <th>#</th>

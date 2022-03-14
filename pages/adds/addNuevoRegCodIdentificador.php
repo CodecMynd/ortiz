@@ -13,6 +13,7 @@ $id = $_SESSION['id_usuario'];
 $id_proyecto = $_POST['id_proyecto'];
 $valorCobro = $_POST['valorCobro'];
 $codIdentificador = $_POST['codIdentificador'];
+$id_semanaCobro = (!empty($_POST['id_semanaCobro'])) ? $_POST['id_semanaCobro'] : 0;
 $borrado = 0;
 $status = 'Activo';
 
@@ -26,6 +27,11 @@ if (empty($valorCobro)) {
     <p><strong>Error, el campo Código Identificador es requerido</strong></p>
     </div>";
     exit;
+} else if ($id_semanaCobro == 0) {
+    echo "<div class='alert alert-danger' role='role'>
+    <p><strong>Error, el campo Semana Cobro es requerido</strong></p>
+    </div>";
+    exit;
 } else {
 
 
@@ -35,12 +41,12 @@ if (empty($valorCobro)) {
     //var_dump($queryP);
 
     // Insertamos tabla registrocodidenti
-    $query = "INSERT INTO registrocodidenti(id_proyecto, valorCobro, codIdentificador, borrado, status, fecha_creacion, id_capC) VALUES ( '$id_proyecto', '$valorCobro', '$codIdentificador', $borrado, '$status', '$date', '$id')";
+    $query = "INSERT INTO registrocodidenti(id_proyecto, valorCobro, codIdentificador, id_semanaCobro, borrado, status, fecha_creacion, id_capC) VALUES ( '$id_proyecto', '$valorCobro', '$codIdentificador', '$id_semanaCobro', $borrado, '$status', '$date', '$id')";
     $resultado = mysqli_query($conexion, $query);
     //var_dump($query);
 
     // Insertamos tabla registrocodidentibitacora
-    $query = "INSERT INTO registrocodidentibitacora(id_proyecto, valorCobro, codIdentificador, borrado, status, fecha_creacion, id_capC) VALUES ( '$id_proyecto', '$valorCobro', '$codIdentificador', $borrado, '$status', '$date', '$id')";
+    $query = "INSERT INTO registrocodidentibitacora(id_proyecto, valorCobro, codIdentificador, id_semanaCobro, borrado, status, fecha_creacion, id_capC) VALUES ( '$id_proyecto', '$valorCobro', '$codIdentificador', '$id_semanaCobro', $borrado, '$status', '$date', '$id')";
     $resultado = mysqli_query($conexion, $query);
     //var_dump($query);
 

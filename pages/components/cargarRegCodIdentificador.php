@@ -5,7 +5,7 @@ conectar();
 $id_proyecto = $_POST['idProyecto'];
 
 // Query principal
-$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente, Co.color, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, S.semana, RA.observAudiFinal, LV.link
+$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente, Co.color, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, S.semana, RA.observAudiFinal, RA.folioRegAlta, LV.link
 FROM proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 INNER JOIN marcas M ON V.id_marca = M.id_marca 
@@ -22,8 +22,8 @@ $respuesta = mysqli_query($conexion, $query);
 $row  = $respuesta->fetch_assoc();
 
 // Query semanas
-$queryS = "SELECT id_semana, semana FROM semanas  ORDER BY semana ASC";
-$resultSemanas = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+$queryS = "SELECT id_semanaCobro, semanaCobro FROM semanascobro  ORDER BY semanaCobro ASC";
+$resultSemanasCobro = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
 
 // Query Registro de folio Alta
 $queryP = 'SELECT MAX(id_regAlta) + 1 FROM registroalta';
@@ -31,8 +31,8 @@ $result = mysqli_query($conexion,  $queryP);
 $rowA = mysqli_fetch_row($result);
 
 // Prefijo folio
-$text = "Alta-00";
-$folioAlta = $text . '' . $rowA[0];
+// $text = "Alta-00";
+// $folioAlta = $text . '' . $rowA[0];
 
 
 $marca = $row['marca'];
@@ -52,6 +52,7 @@ $inspecCalidad = $row['inspecCalidad'];
 $observCliente = $row['observCliente'];
 $observAudiFinal = $row['observAudiFinal'];
 $link = $row['link'];
+$folioRegAlta = $row['folioRegAlta'];
 
 if ($respuesta->num_rows  > 0) {
     $output = '';
@@ -133,7 +134,7 @@ if ($respuesta->num_rows  > 0) {
                     <div class='input-group-prepend'>
                         <span class='input-group-text'><i class='fa-solid fa-arrow-down-1-9'></i></span>
                     </div>
-                    <input name='folioRegAlta' id='folioRegAlta' type='text' class='form-control' placeholder='Número de proyecto ' required maxlength='15' data-toggle='tooltip' data-placement='bottom' title='Número de  Folio' value='{$folioAlta}' readonly>
+                    <input name='folioRegAlta' id='folioRegAlta' type='text' class='form-control' placeholder='Número de proyecto ' required maxlength='15' data-toggle='tooltip' data-placement='bottom' title='Número de  Folio' value='{$folioRegAlta}' readonly>
                     <label for='floatingInput' class='pl-5'>*Núm. de Folio Alta</label>
                 </div>
             </div>
@@ -212,7 +213,7 @@ if ($respuesta->num_rows  > 0) {
                         </span>
                     </div>
                     <input name='id_semana' id='id_semana' type='text' class='form-control' placeholder='Ingresa semana' required data-toggle='tooltip' data-placement='bottom' title='Ingresa Semana' value='{$semana}'    readonly>
-                    <label for='floatingInput' class='pl-5'>*Semana</label>
+                    <label for='floatingInput' class='pl-5'>*Semana de Alta</label>
                 </div>
             </div>
             <div class='col-md-12 col-sm-12 my-1'>
@@ -270,9 +271,9 @@ if ($respuesta->num_rows  > 0) {
                 </div>
             </div>
             <br>
-            <div class='col-md-10 col-sm-12 my-1'>
+            <div class='col-md-12 col-sm-12 my-1'>
                 <div class='row justify-content-center'>
-                    <div class='col-md-3 col-sm-12 my-1'>
+                    <div class='col-md-2 col-sm-12 my-1'>
                         <div class='input-group form-floating mb-3'>
                             <div class='input-group-prepend'>
                                 <span class='input-group-text parpadea mt-2'>
@@ -283,7 +284,7 @@ if ($respuesta->num_rows  > 0) {
                             <label for='floatingInput' class='pl-5'>*Valor Cobro</label>
                         </div>
                     </div>     
-                    <div class='col-md-9 col-sm-12 my-1'>
+                    <div class='col-md-8 col-sm-12 my-1'>
                         <div class='input-group form-floating mb-3'>
                             <div class='input-group-prepend'>
                                 <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
@@ -292,6 +293,21 @@ if ($respuesta->num_rows  > 0) {
                             <label for='floatingInput' class='pl-5'>*Código Identificador</label>
                         </div>
                     </div>
+                    <div class='col-md-2 col-sm-12 mb-2 form-group'>
+                    <div class='input-group'>
+                        <label for='color' class='pl-5 parpadea'>Semana de Cobro</label>
+                        <select name='id_semanaCobro' id='id_semanaCobro' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Semana de la lista' style='width: 100%;' required>
+                            <option selected disabled>Selecciona</option>";
+
+                            while ($rowSemanasCobro = $resultSemanasCobro->fetch_assoc()) {
+                            $id_semanaCobro = $rowSemanasCobro['id_semanaCobro'];
+                            $semanaCobro = $rowSemanasCobro['semanaCobro'];
+                            $output .= " <option value=$id_semanaCobro> $semanaCobro </option>";
+                            }
+                            $output .= "
+                        </select>
+                    </div>
+                </div>
                 </div>
             </div>
             <div class='col-12'>
@@ -327,9 +343,7 @@ if ($respuesta->num_rows  > 0) {
                     <a href='javascript:history.go(-1)' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Regresar página anterior'><i class='fa-solid fa-arrow-left'></i>
                         Regresar</a>
                 </div>
-                <div class='col-md-5 col-sm-12 align-self-center'>
-                <a href='../admin/crudSuperCodiIdentificador.php' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Ir a Tabla Lista de Proyectos'><i class='fa-solid fa-arrow-right'></i> Ir a  2.7 Supervisión de Registro Código Identificador</a>
-                </div>
+
                 <a href='javascript:location.reload()' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Actualizar página'><i class='fa-solid fa-arrows-rotate'></i></a>
                 <br>
                 <div class='col-md-12 col-sm-12 align-self-center mt-2'>
@@ -382,3 +396,7 @@ if ($respuesta->num_rows  > 0) {
         });
     });
 </script>
+
+<!-- <div class='col-md-5 col-sm-12 align-self-center'>
+    <a href='../admin/crudSuperCodiIdentificador.php' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Ir a Tabla Lista de Proyectos'><i class='fa-solid fa-arrow-right'></i> Ir a 2.7 Supervisión de Registro Código Identificador</a>
+</div> -->

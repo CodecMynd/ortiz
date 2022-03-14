@@ -12123,8 +12123,9 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 
 .content-header {
     padding: 35px .5rem 2px;
-    height: 100px
+    height: 100px;
 }
+
 
 .text-sm .content-header {
     padding: 10px .5rem
@@ -49427,41 +49428,8 @@ a.text-muted:hover {
         }
 
 /* mis media querie */
-@media (max-width:400px) {
-    .title-nav {
-display: none;
-         }
-}
 
 
-@media (min-width: 400px) {
-    .title-nav {
-        font-size: 1.3rem;
-    }
-}
-
-@media (min-width: 600px) {
-   .title-nav {
-        font-size: 1.6rem;
-    }
-}
-
-@media (min-width: 800px) {
-    .title-nav {
-        font-size: 1.9rem;
-    }
-}
-
-@media (min-width: 1000px) {
-    .title-nav {
-        font-size: 2.2rem;
-    }
-}
-@media (max-width: 700px) {
-    .bienvenido {
-    display: none;
-    }
-}
    .btn-modal-selector {
        border-top-left-radius: 25px;
        border-bottom-right-radius: 25px;

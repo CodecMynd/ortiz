@@ -66,6 +66,9 @@ while ($row = mysqli_fetch_array($query)) {
     $verTablaSemana = $row['verTablaSemana'];
     $regSemana = $row['regSemana'];
     $eliSemana = $row['eliSemana'];
+    $verTablaSemanaCobro = $row['verTablaSemanaCobro'];
+    $regSemanaCobro = $row['regSemanaCobro'];
+    $eliSemanaCobro = $row['eliSemanaCobro'];
     $verTablaAgente = $row['verTablaAgente'];
     $regAgente = $row['regAgente'];
     $eliAgente = $row['eliAgente'];
@@ -85,6 +88,7 @@ while ($row = mysqli_fetch_array($query)) {
     $modProyecto = $row['modProyecto'];
     $eliProyecto = $row['eliProyecto'];
     $pdfProyecto = $row['pdfProyecto'];
+    $verGralProy = $row['verGralProy'];
     $verTablaProyAct = $row['verTablaProyAct'];
     $verTablaRegSolAltProy = $row['verTablaRegSolAltProy'];
     $regSolAltProy = $row['regSolAltProy'];
@@ -101,7 +105,10 @@ while ($row = mysqli_fetch_array($query)) {
     $pdfCodIdentificador = $row['pdfCodIdentificador'];
     $verLinkObsIdentificador = $row['verLinkObsIdentificador'];
     $verTablaCodIdentificador = $row['verTablaCodIdentificador'];
-    
+    $regSuperCodIdentificador = $row['regSuperCodIdentificador'];
+    $eliSuperCodIdentificador = $row['eliSuperCodIdentificador'];
+    $verLinkObsSuperIdentificador = $row['verLinkObsSuperIdentificador'];
+    $verTablaSuperCodIdentificador = $row['verTablaSuperCodIdentificador'];
 }
 
 // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
@@ -125,3 +132,7 @@ $count_reg_modelos = mysqli_query($conexion, "SELECT id_modelo FROM modelos ");
 $count_reg_vehiculos = mysqli_query($conexion, "SELECT id_vehiculo FROM vehiculos ");
 //# clientes
 $count_reg_clientes = mysqli_query($conexion, "SELECT id_cliente FROM clientes ");
+
+
+
+

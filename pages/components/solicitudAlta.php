@@ -336,7 +336,7 @@ $valorVentaAlta = $row['valorVentaAlta'];
                         <tr>
                             <td>Valor Venta Inicial</td>
                             <td>Valor Venta Alta</td>
-                            <td>Semana</td>
+                            <td>Semana de Alta</td>
                         </tr>
                         <tr>
                             <td><input type="text" class="inputRespM" value="<?php echo $valorVenta ?>"></td>
@@ -369,7 +369,7 @@ $valorVentaAlta = $row['valorVentaAlta'];
         </div>
     </main>
     <div class="contenedor-dv">
-        <span class="capturista"><?php echo $capturista . '-' . $row['fecha_creacion'] ?></span>
+        <span class="capturista"><?php echo $nomComp . '-' . $row['fecha_creacion'] ?></span>
     </div>
     <footer>
         <img src="../../src/img/logos/footer.png" width="100%" />

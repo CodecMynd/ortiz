@@ -11,6 +11,7 @@
                     <?php echo $codIdentificador ?>
                 </strong>
             </div>
+            <!-- <form id="formRegresarRegCodIdentificador" action="../update/updateRegresarRegCodIdentificador.php" method="POST"> -->
             <form id="formRegresarRegCodIdentificador">
                 <div class="modal-footer">
                     <input type="hidden" name="id_regcodidenti" id="id_regcodidenti" value="<?php echo $id_regcodidenti ?>">

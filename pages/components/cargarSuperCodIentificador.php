@@ -5,7 +5,7 @@ conectar();
 $id_proyecto = $_POST['idProyecto'];
 
 // Query principal
-$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente, Co.color, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, S.semana, RA.observAudiFinal, LV.link, RI.id_regcodidenti, RI.valorCobro, RI.codIdentificador
+$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente, Co.color, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, S.semana, RA.observAudiFinal, LV.link, RI.id_regcodidenti, RI.valorCobro, RI.codIdentificador, SC.semanaCobro
 FROM proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 INNER JOIN marcas M ON V.id_marca = M.id_marca 
@@ -18,6 +18,7 @@ INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto
 INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo
 INNER JOIN semanas S ON R.id_semana = S.id_semana 
 INNER JOIN registrocodidenti RI ON P.id_proyecto = RI.id_proyecto
+INNER JOIN semanasCobro SC ON RI.id_semanaCobro = SC.id_SemanaCobro
 WHERE P.id_proyecto = ' . $id_proyecto . ' AND P.proyCodIdentificador = 1 AND supervisado = 0 ORDER BY nProyecto ASC';
 $respuesta = mysqli_query($conexion, $query);
 $row  = $respuesta->fetch_assoc();
@@ -57,6 +58,7 @@ $link = $row['link'];
 $valorCobro = $row['valorCobro'];
 $codIdentificador = $row['codIdentificador'];
 $id_regcodidenti = $row['id_regcodidenti'];
+$semanaCobro = $row['semanaCobro'];
 
 if ($respuesta->num_rows  > 0) {
     $output = '';
@@ -276,9 +278,9 @@ if ($respuesta->num_rows  > 0) {
                 </div>
             </div>
             <br>
-            <div class='col-md-10 col-sm-12 my-1'>
+            <div class='col-md-12 col-sm-12 my-1'>
                 <div class='row justify-content-center'>
-                    <div class='col-md-3 col-sm-12 my-1'>
+                    <div class='col-md-2 col-sm-12 my-1'>
                         <div class='input-group form-floating mb-3'>
                             <div class='input-group-prepend'>
                                 <span class='input-group-text parpadea mt-2'>
@@ -289,7 +291,7 @@ if ($respuesta->num_rows  > 0) {
                             <label for='floatingInput' class='pl-5'>*Valor Cobro</label>
                         </div>
                     </div>     
-                    <div class='col-md-9 col-sm-12 my-1'>
+                    <div class='col-md-7 col-sm-12 my-1'>
                         <div class='input-group form-floating mb-3'>
                             <div class='input-group-prepend'>
                                 <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
@@ -298,6 +300,17 @@ if ($respuesta->num_rows  > 0) {
                             <label for='floatingInput' class='pl-5'>*Código Identificador</label>
                         </div>
                     </div>
+                    <div class='col-md-3 col-sm-12 my-1'>
+                    <div class='input-group form-floating mb-3'>
+                        <div class='input-group-prepend'>
+                            <span class='input-group-text parpadea mt-2'>
+                            <i class='fa fa-calendar' aria-hidden='true'></i>
+                            </span>
+                        </div>
+                        <input name='valorCobro' id='currency1' type='text' class='form-control' placeholder='Ingresa Cobro' data-toggle='tooltip' data-placement='bottom'  title='Ingresa Cobro' value='{$semanaCobro}' readonly>
+                        <label for='floatingInput' class='pl-5'>*Semana de Cobro</label>
+                    </div>
+                </div> 
                 </div>
             </div>
             <div class='col-12'>

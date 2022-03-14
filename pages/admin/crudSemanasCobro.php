@@ -2,7 +2,7 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>CRUD Semanas de Alta | <?php echo $nomComp ?></title>
+<title>CRUD Semanas de Cobro | <?php echo $nomComp ?></title>
 
 </head>
 
@@ -17,7 +17,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Tabla 1.6.1 Semanas de Alta</h1>
+                            <h1 class="m-0">Tabla 1.6.2 Semanas de Cobro</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -34,17 +34,17 @@ require '../components/head-dataTables.php';
                         <div class="col-md-4 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Semanas de Alta para los Proyectos </h3>
+                                    <h3 class="card-title">Semanas de Cobro </h3>
                                     <div class="card-tools">
                                         <?php if ($super == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formAddSemana.php" data-toggle="tooltip" data-placement="left" title="1.6.1.1 Registro de Semanas">
-                                                <i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp; Registro Semana de Alta</a>
-                                        <?php } else if ($regSemana  == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formAddSemana.php" data-toggle="tooltip" data-placement="left" title="1.6.1.1 Registro de Semanas">
-                                                <i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp; Registro Semana de Alta</a>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formAddSemanaCobro.php" data-toggle="tooltip" data-placement="left" title="1.6.1.1 Registro de Semanas">
+                                                <i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp; Registro Semana de  Cobro</a>
+                                        <?php } else if ($regSemanaCobro  == 1) { ?>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formAddSemanaCobro.php" data-toggle="tooltip" data-placement="left" title="1.6.1.1 Registro de Semanas">
+                                                <i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp; Registro Semana de Cobro</a>
                                         <?php } else { ?>
-                                            <a type="button" class="btn btn-outline-danger" id="regSemana" data-toggle="tooltip" data-placement="left" title="1.6.1.1 Registro de Semanas">
-                                                <i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp; Registro Semana de Alta</a>
+                                            <a type="button" class="btn btn-outline-danger" id="regSemanaCobro" data-toggle="tooltip" data-placement="left" title="1.6.1.1 Registro de Semanas">
+                                                <i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp; Registro Semana de Cobro</a>
                                         <?php } ?>
 
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
@@ -54,11 +54,11 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1) {
-                                    $query = "SELECT * FROM semanas ORDER BY semana DESC";
-                                } else if ($verTablaSemana == 1) {
-                                    $query = "SELECT * FROM semanas ORDER BY semana DESC";
+                                    $query = "SELECT id_semanaCobro, semanaCobro FROM semanasCobro ORDER BY semanaCobro DESC";
+                                } else if ($verTablaSemanaCobro == 1) {
+                                    $query = "SELECT id_semanaCobro, semanaCobro FROM semanasCobro ORDER BY semanaCobro DESC";
                                 } else {
-                                    $query = "SELECT * FROM semanas WHERE id_semana = 0";
+                                    $query = "SELECT id_semanaCobro,semanaCobro FROM semanasCobro WHERE id_semanaCobro = 0";
                                 }
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
@@ -66,7 +66,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-body">
                                     <?php
                                     if ($super == 1) {
-                                    } else if ($verTablaSemana == 0) { ?>
+                                    } else if ($verTablaSemanaCobro == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
@@ -76,7 +76,7 @@ require '../components/head-dataTables.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Semana de Alta</th>
+                                                <th>Semana de Cobro</th>
                                                 <th>Estatus</th>
                                                 <th>Eliminar</th>
                                             </tr>
@@ -91,7 +91,7 @@ require '../components/head-dataTables.php';
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['semana'] ?>
+                                                        <?php echo $row['semanaCobro'] ?>
                                                     </td>
                                                     <td>
                                                         <button type="button" class="btn btn-secondary">
@@ -99,15 +99,15 @@ require '../components/head-dataTables.php';
                                                         </button>
                                                     </td>
                                                     <td class="row justify-content-center">
-                                                        <span data-toggle="tooltip" title="1.6.1.2  Eliminar Semana de Alta">
+                                                        <span data-toggle="tooltip" title="1.6.2.2  Eliminar Semana de Cobro">
                                                             <?php if ($super == 1) { ?>
-                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarSemana<?php echo $row['id_semana'] ?>"><i class="fas fa-trash-alt"></i>
+                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarSemanaCobro<?php echo $row['id_semanaCobro'] ?>"><i class="fas fa-trash-alt"></i>
                                                                 </a>
-                                                            <?php  } else if ($eliSemana   == 1) { ?>
-                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarSemana<?php echo $row['id_semana'] ?>"><i class="fas fa-trash-alt"></i>
+                                                            <?php  } else if ($eliSemanaCobro   == 1) { ?>
+                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarSemanaCobro<?php echo $row['id_semanaCobro'] ?>"><i class="fas fa-trash-alt"></i>
                                                                 </a>
                                                             <?php } else { ?>
-                                                                <a class="btn btn-outline-danger" id="eliSemana"><i class="fas fa-trash-alt"></i>
+                                                                <a class="btn btn-outline-danger" id="eliSemanaCobro"><i class="fas fa-trash-alt"></i>
                                                                 </a>
                                                             <?php } ?>
                                                         </span>
@@ -115,7 +115,7 @@ require '../components/head-dataTables.php';
                                                     </td>
                                                 </tr>
                                             <?php
-                                                require '../components/modal-eliminarSemana.php';
+                                                require '../components/modal-eliminarSemanaCobro.php';
                                             }
                                             desconectar();
                                             ?>
@@ -123,7 +123,7 @@ require '../components/head-dataTables.php';
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Semana de Alta</th>
+                                                <th>Semana de Cobro</th>
                                                 <th>Estatus</th>
                                                 <th>Eliminar</th>
                                             </tr>

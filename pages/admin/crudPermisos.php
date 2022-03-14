@@ -46,7 +46,7 @@ require '../components/head-dataTables.php';
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
                                 <div class="card-body">
-                                    <table id="tableCrudUsuarios" class="table table-sm table-bordered table-striped">
+                                    <table id="tablePermisos" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>#</th>

@@ -5,7 +5,7 @@ conectar();
 $id_proyecto = $_POST['idProyecto'];
 
 // Query principal
-$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente, Co.color, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, S.semana 
+$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente, Co.color, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.fecha_creacion, S.semana 
 FROM proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 INNER JOIN marcas M ON V.id_marca = M.id_marca 
@@ -32,7 +32,6 @@ $rowA = mysqli_fetch_row($result);
 $text = "Alta-00";
 $folioAlta = $text . '' . $rowA[0];
 
-
 $marca = $row['marca'];
 $modelo = $row['modelo'];
 $anio = $row['anio'];
@@ -48,6 +47,15 @@ $folioRegSolicitud = $row['folioRegSolicitud'];
 $semana = $row['semana'];
 $inspecCalidad = $row['inspecCalidad'];
 $observCliente = $row['observCliente'];
+$fecha_creacion = $row['fecha_creacion'];
+
+//Cronometro 
+$fecha1 = new DateTime($date);
+$fecha2 = new DateTime($fecha_creacion);
+
+$diff = $fecha1->diff($fecha2);
+
+$cronometro = $diff->days." Dia(s), ". $diff->h . ' h. '.$diff->i." m. ".$diff->s . ' s.';
 
 if ($respuesta->num_rows  > 0) {
     $output = '';
@@ -208,7 +216,7 @@ if ($respuesta->num_rows  > 0) {
                     </span>
                 </div>
                 <input name='id_semana' id='id_semana' type='text' class='form-control' placeholder='Ingresa semana' required data-toggle='tooltip' data-placement='bottom' title='Ingresa Semana' value='{$semana}' readonly>
-                <label for='floatingInput' class='pl-5'>*Semana</label>
+                <label for='floatingInput' class='pl-5'>*Semana de Alta</label>
             </div>
         </div>
         <div class='col-md-12 col-sm-12 my-1'>
@@ -265,6 +273,47 @@ if ($respuesta->num_rows  > 0) {
                 </span>
             </div>
         </div>
+
+        <div class='col-md-12 col-sm-12 my-1' style='border: 1px solid #CED4DA;'>
+
+        <h5 class='text-center text-dark'>Cronometro de respuesta a la Solicitud de Alta de Proyecto</h5>
+
+            <div class='row justify-content-center'>
+                <div class='col-md-4 col-sm-12 my-1'>
+                    <div class='input-group form-floating mb-3'>
+                        <div class='input-group-prepend'>
+                            <span class='input-group-text mt-2'>
+                                <i class='fa-solid fa-calendar-day'></i>
+                            </span>
+                        </div>
+                        <input name='fecha_creacion' id='fecha_creacion' type='text' class='form-control' placeholder='Valor Venta Inicial' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Inicial' value='{$fecha_creacion}' readonly>
+                        <label for='floatingInput' class='pl-5'>*Fecha Registro de Solicitud Alta Proyecto</label>
+                    </div>
+                </div>
+                <div class='col-md-4 col-sm-12 my-1'>
+                    <div class='input-group form-floating mb-3'>
+                        <div class='input-group-prepend'>
+                            <span class='input-group-text mt-2'>
+                                <i class='fa-solid fa-calendar-day'></i>
+                            </span>
+                        </div>
+                        <input name='valorVenta' id='valorVenta' type='text' class='form-control' placeholder='Valor Venta Inicial' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Inicial' value='{$date}' readonly>
+                        <label for='floatingInput' class='pl-5'>*Fecha Actual Registro de Alta Proyecto</label>
+                    </div>
+                </div>
+                <div class='col-md-4 col-sm-12 my-1'>
+                    <div class='input-group form-floating mb-3'>
+                        <div class='input-group-prepend'>
+                            <span class='input-group-text parpadea mt-2'>
+                                <i class='fa-solid fa-stopwatch'></i>
+                            </span>
+                        </div>
+                        <input name='valorVenta' id='valorVenta' type='text' class='form-control' placeholder='Valor Venta Inicial' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Inicial' value='{$cronometro}' readonly>
+                        <label for='floatingInput' class='pl-5'>*Tiempo de Respuesta a la Solicitud de Alta</label>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class='col-12'>
             <hr>
         </div>
@@ -298,9 +347,7 @@ if ($respuesta->num_rows  > 0) {
                 <a href='javascript:history.go(-1)' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Regresar página anterior'><i class='fa-solid fa-arrow-left'></i>
                     Regresar</a>
             </div>
-            <div class='col-md-4 col-sm-12 align-self-center'>
-            <a href='../admin/crudProyCodiIdentificador.php' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Ir a Tabla Lista de Proyectos'><i class='fa-solid fa-arrow-right'></i> Ir a 2.6 Proyectos con Código Identificador</a>
-            </div>
+
             <a href='javascript:location.reload()' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Actualizar página'><i class='fa-solid fa-arrows-rotate'></i></a>
             <br>
             <div class='col-md-12 col-sm-12 align-self-center mt-2'>
@@ -353,3 +400,6 @@ if ($respuesta->num_rows  > 0) {
         });
     });
 </script>
+<!-- <div class='col-md-4 col-sm-12 align-self-center'>
+    <a href='../admin/crudProyCodiIdentificador.php' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Ir a Tabla Lista de Proyectos'><i class='fa-solid fa-arrow-right'></i> Ir a 2.6 Proyectos con Código Identificador</a>
+</div> -->

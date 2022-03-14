@@ -11,7 +11,7 @@
                     <?php echo $row['folioRegAlta'] ?>
                 </strong>
             </div>
-            <form id="formRegresarAltaProyecto">
+            <form id="formRegresarAltaProyecto" action="../update/updateRegresarAltaProy.php" method="POST">
                 <div class="modal-footer">
                     <input type="hidden" name="id_regAlta" id="id_regAlta" value="<?php echo $id_regAlta ?>">
                     <input type="hidden" name="id_proyecto" id="id_proyecto" value="<?php echo $row['id_proyecto'] ?>">

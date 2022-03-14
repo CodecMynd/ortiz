@@ -50,9 +50,64 @@ require 'query.php';
             text-align: center;
             border-top: 1px solid #9FA0A2;
         }
-             /* pointer solo lectura */
-             input[readonly] {
+
+        /* pointer solo lectura */
+        input[readonly] {
             cursor: no - drop;
+        }
+
+        @media (min-width:320px) and (max-width:425px) {
+            .bienvenido {
+                margin-bottom: 5px;
+                width: 100%;
+                font-size: 500px;
+            }
+        }
+
+        @media (min-width:320px) and (max-width:425px) {
+            .content-header {
+                margin-bottom: 70px;
+                width: 100%;
+
+            }
+
+            .content-header h1 {
+                font-size: 20px;
+                padding: 10px 10px 5px;
+                text-align: center;
+            }
+        }
+
+        @media (min-width:320px)and (max-width: 720px) {
+            .title-nav {
+                display: none;
+            }
+        }
+
+
+        /* @media (max-width: 600px) {
+            .title-nav {
+                display: none;
+            }
+        } */
+
+
+
+        .suma {
+            text-align: center;
+            background-color: #5A6268;
+            color: #fff;
+            font-weight: 900;
+            font-size: 18px;
+            width: auto;
+        }
+        tr th{
+            font-size: 14px;
+            text-align: center;
+        }
+        tr td{
+            font-size: 15px;
+            font-weight: 500;
         }
     </style>
     <!-- notas

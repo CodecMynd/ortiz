@@ -24,7 +24,7 @@
             ?>
             <div class="modal-body">
                 <div class="card-body">
-                    <table id="tableVehiculos" class="table table-sm table-bordered table-striped" style="width:100%">
+                    <table id="tablePermisos" class="table table-sm table-bordered table-striped" style="width:100%">
                         <thead>
                             <tr>
                                 <th>#</th>

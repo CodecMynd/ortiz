@@ -87,7 +87,7 @@ ob_start();
         }
 
         .inputRespC {
-            width: 7em;
+            width: 8em;
             height: 5px;
             outline: 0;
             border-width: 0 0 .5px;
@@ -149,9 +149,9 @@ ob_start();
         }
 
         .firma {
-            padding-top: 90px;
+            padding-top: 40px;
             padding-left: 40%;
-            width: 105px;
+            width: 150px;
             height: 50px;
             text-align: center;
         }
@@ -204,7 +204,7 @@ require '../components/head-main.php';
 $id_proyecto = $_GET['id'];
 // $id_proyecto = 1;
 
-$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, C.color, RS.folioRegSolicitud, RS.valorVentaAlta, RS.inspecCalidad, RS.observCliente, RA.folioRegAlta, RA.observAudiFinal, S.semana, LV.link, RC.valorCobro, RC.codIdentificador, RC.fecha_creacion, U.nombres, U.aPaterno, U.aMaterno
+$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, C.color, RS.folioRegSolicitud, RS.valorVentaAlta, RS.inspecCalidad, RS.observCliente, RA.folioRegAlta, RA.observAudiFinal, S.semana, LV.link, RC.valorCobro, RC.codIdentificador, RC.fecha_creacion, U.nombres, U.aPaterno, U.aMaterno, CL.nombres, CL.aPaternoCliente, CL.aMaternoCliente, SC.semanaCobro
 FROM proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 INNER JOIN marcas M ON V.id_marca = M.id_marca
@@ -216,7 +216,9 @@ INNER JOIN semanas S ON RS.id_semana = S.id_semana
 INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto
 INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo
 INNER JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
+INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_SemanaCobro
 INNER JOIN usuarios U ON P.id_capC = U.id_usuario
+INNER JOIN clientes CL ON P.id_cliente = CL.id_cliente
 WHERE P.id_proyecto = ' . $id_proyecto . ' ';
 $respuesta = mysqli_query($conexion, $query);
 $row  = $respuesta->fetch_assoc();
@@ -229,6 +231,7 @@ $placa = $row['placa'];
 $color = $row['color'];
 
 $capturista = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
+$cliente = $row['nombres'] . ' ' . $row['aPaternoCliente'] . ' ' . $row['aMaternoCliente'];
 
 $tipoReparacion = $row['tipoReparacion'];
 $km = $row['km'];
@@ -243,7 +246,7 @@ $valorCobro = $row['valorCobro'];
     <header>
         <div class="logoHeader"><img src="../../src/img/logos/headerSolicitudAltaLogo.png" /></div>
         <div class="titleHeader">
-            <h2>Registro Código Identificador</h2>
+            <h2>Entrega de Vehículo</h2>
         </div>
     </header>
 
@@ -265,6 +268,23 @@ $valorCobro = $row['valorCobro'];
 
         <div class="container ">
             <div class="col-12">
+            <table class="table table-sm">
+                    <tbody>
+                        <tr>
+                            <th class="titulo">Cliente</th>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="col-12">
+                    <hr>
+                </div>
+                <table class="table table-sm">
+                    <tbody>
+                        <tr>
+                            <td><input type="text" class="inputRespG" value="<?php echo $cliente ?>"></td>
+                        </tr>
+                    </tbody>
+                </table>
                 <table class="table table-sm">
                     <tbody>
                         <tr>
@@ -325,28 +345,30 @@ $valorCobro = $row['valorCobro'];
                     <tbody>
                         <tr>
                             <td>Kilometraje</td>
-                            <td>Semana</td>
-                            <td>Valor Venta Inicial</td>
-                            <td>Valor Venta Alta</td>
+                            <td>Semana de Alta</td>
+                            <td>Semana Cobro</td>
+                            <!-- <td>Valor Venta Inicial</td>
+                            <td>Valor Venta Alta</td> -->
                             <td>Valor Cobro</td>
                         </tr>
                         <tr>
                             <td><input type="text" class="inputRespC" value="<?php echo $row['km'] ?>"></td>
                             <td><input type="text" class="inputRespC" value="<?php echo $row['semana'] ?>"></td>
-                            <td><input type="text" class="inputRespA" value="<?php echo '$ '.$valorVenta ?>"></td>
-                            <td><input type="text" class="inputRespA" value="<?php echo '$ '.$valorVentaAlta ?>"></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $row['semanaCobro'] ?>"></td>
+                            <!-- <td><input type="text" class="inputRespA" value="<?php echo '$ '.$valorVenta ?>"></td>
+                            <td><input type="text" class="inputRespA" value="<?php echo '$ '.$valorVentaAlta ?>"></td> -->
                             <td><input type="text" class="inputRespA" value="<?php echo '$ '.$valorCobro ?>"></td>
                         </tr>
                     </tbody>
                 </table>
                 <table>
                     <tbody>
-                        <tr>
+                        <!-- <tr>
                             <td style="width: 20em">Observación Inspección de Control de Calidad</td>
                         </tr>
                         <tr>
                             <td colspan="4"><textarea cols="160" rows="4"><?php echo $row['inspecCalidad'] ?></textarea></td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <td style="width: 20em">Observaciones Para el Cliente</td>
                         </tr>
@@ -356,22 +378,28 @@ $valorCobro = $row['valorCobro'];
                         <tr>
                             <td>Link de Video en Vivo Alta</td>
                         </tr>
+                        <br>
                         <tr>
                             <td><input type="text" class="inputRespG" value="<?php echo $row['link'] ?>"></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td style="width: 20em">Observaciones Prueba Auditoria Final</td>
                         </tr>
                         <tr>
                             <td colspan="4"><textarea cols="160" rows="4"><?php echo $row['observAudiFinal'] ?></textarea></td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
+            </div>
+            <div class="firma">
+                <div class="linea">
+                    <h4>Firma de Recibido del Cliente</h4>
+                </div>
             </div>
         </div>
     </main>
     <div class="contenedor-dv">
-        <span class="capturista"><?php echo $capturista . '-' . $row['fecha_creacion'] ?></span>
+        <span class="capturista"><?php echo $nomComp . '-' . $row['fecha_creacion'] ?></span>
     </div>
     <footer>
         <img src="../../src/img/logos/footer.png" width="100%" />

@@ -249,9 +249,9 @@ require '../components/head-dataTables.php';
                                                         <div class="col-md-2 col-sm-12 align-self-center">
                                                             <a href="javascript:history.go(-1)" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
                                                         </div>
-                                                        <div class='col-md-3 col-sm-12 align-self-center'>
+                                                        <!-- <div class='col-md-3 col-sm-12 align-self-center'>
                                                             <a href='../admin/crudProyectos.php' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Ir a 2.3.2 Tabla Lista de Proyectos'><i class='fa-solid fa-arrow-right'></i> Ir a 2.3.2 Lista de Proyectos</a>
-                                                        </div>
+                                                        </div> -->
                                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                                         <br>
                                                         <div class="col-md-12 col-sm-12 align-self-center mt-2">

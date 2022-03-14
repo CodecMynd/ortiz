@@ -409,7 +409,7 @@ require '../components/head-main.php';
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!-- 1.6 Semanas -->
+                                                        <!-- 1.6.1 Semanas Alta-->
                                                         <div class="col-12">
                                                             <div class="card card-secondary card-outline collapsed-card">
                                                                 <div class="card-header">
@@ -427,7 +427,7 @@ require '../components/head-main.php';
                                                                                 <div class="info-box">
                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
                                                                                     <div class="info-box-content">
-                                                                                        <span class="info-box-text">1.6.1 Registro de Semana Solicitud y Alta</span>
+                                                                                        <span class="info-box-text">1.6.1.1 Registro de Semana de Alta</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="regSemana" id="regSemana" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regSemana'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                             else echo ''; ?>></span>
                                                                                     </div>
@@ -439,7 +439,7 @@ require '../components/head-main.php';
                                                                                 <div class="info-box">
                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
                                                                                     <div class="info-box-content">
-                                                                                        <span class="info-box-text">1.6.2 Eliminar Semana Solicitud y Alta</span>
+                                                                                        <span class="info-box-text">1.6.1.2 Eliminar Semana de Alta</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="eliSemana" id="eliSemana" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliSemana'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                             else echo ''; ?>></span>
                                                                                     </div>
@@ -451,8 +451,47 @@ require '../components/head-main.php';
                                                                                 <div class="info-box">
                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
                                                                                     <div class="info-box-content">
-                                                                                        <span class="info-box-text">1.6.3 Ver Tabla Semanas</span>
+                                                                                        <span class="info-box-text">1.6.1.3 Ver Tabla Semanas</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="verTablaSemana" id="verTablaSemana" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaSemana'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-12">
+                                                                            <hr>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">1.6.2.1 Registro de Semana Cobro</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="regSemanaCobro" id="regSemanaCobro" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regSemanaCobro'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">1.6.2.2 Eliminar Semana Cobro</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliSemanaCobro" id="eliSemanaCobro" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliSemanaCobro'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">1.6.2.3 Ver Tabla Semanas Cobro</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaSemanaCobro" id="verTablaSemanaCobro" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaSemanaCobro'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                     else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
@@ -659,7 +698,7 @@ require '../components/head-main.php';
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <div class="row">
-                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                        <div class="col-md-4 col-sm-6 col-12">
                                                                             <button type="button" class="btn btn-permisos">
                                                                                 <div class="info-box">
                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
@@ -671,7 +710,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </button>
                                                                         </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                        <div class="col-md-4 col-sm-6 col-12">
                                                                             <button type="button" class="btn btn-permisos">
                                                                                 <div class="info-box">
                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></i></span>
@@ -683,7 +722,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </button>
                                                                         </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                        <div class="col-md-4 col-sm-6 col-12">
                                                                             <button type="button" class="btn btn-permisos">
                                                                                 <div class="info-box">
                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pen-to-square"></i></span>
@@ -695,7 +734,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </button>
                                                                         </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                        <div class="col-md-4 col-sm-6 col-12">
                                                                             <button type="button" class="btn btn-permisos">
                                                                                 <div class="info-box">
                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
@@ -707,13 +746,25 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </button>
                                                                         </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                        <div class="col-md-4 col-sm-6 col-12">
                                                                             <button type="button" class="btn btn-permisos">
                                                                                 <div class="info-box">
                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-file-pdf"></i></span>
                                                                                     <div class="info-box-content">
                                                                                         <span class="info-box-text">2.3.5 Descarga PDF Proyectos</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="pdfProyecto" id="pdfProyecto" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['pdfProyecto'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">2.3.6 Ver Generales Lista de Proyectos</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralProy" id="verGralProy" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralProy'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                 else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
@@ -790,7 +841,7 @@ require '../components/head-main.php';
                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
                                                                                     <div class="info-box-content">
                                                                                         <span class="info-box-text">2.4.5 Eliminar Solicitud Alta Proyecto</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliRegSolAltProy" id="eliRegSolAltProy" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['pdfRegSolAltProy'] == 1) echo 'checked';
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliRegSolAltProy" id="eliRegSolAltProy" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliRegSolAltProy'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                 else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
@@ -866,7 +917,7 @@ require '../components/head-main.php';
                                                                                 <div class="info-box">
                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-photo-film"></i></span>
                                                                                     <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.5.4 Ver Link de Video en Vivo y Observaciones</span>
+                                                                                        <span class="info-box-text">2.5.4 Ver Link de Video, Observaciones y Generales</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="verLinkObsAlta" id="verLinkObsAlta
                                                                                         " data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verLinkObsAlta'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                 else echo ''; ?>></span>
@@ -945,7 +996,7 @@ require '../components/head-main.php';
                                                                                 <div class="info-box">
                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-photo-film"></i></span>
                                                                                     <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.6.4 Ver Link de Video en Vivo y Observaciones</span>
+                                                                                        <span class="info-box-text">2.6.4 Ver Link de Video, Observaciones y Generales</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="verLinkObsIdentificador" id="verLinkObsIdentificador
                                                                                         " data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verLinkObsIdentificador'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                 else echo ''; ?>></span>
@@ -970,6 +1021,72 @@ require '../components/head-main.php';
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                          <!-- >2.7 Alta Proyecto -->
+                                                          <div class="col-12">
+                                                            <div class="card card-secondary card-outline collapsed-card">
+                                                                <div class="card-header">
+                                                                    <h2 class="card-title"><strong>2.7 Supervisión de Registro Código Identificador</strong></h2>
+                                                                    <div class="card-tools">
+                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                            <i class="fas fa-plus"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">2.7.1 Supervisión de Registro Código Identificador</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="regSuperCodIdentificador" id="regSuperCodIdentificador" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regSuperCodIdentificador'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">2.7.2 Eliminar Supervisión de Registro Código Identificador</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliSuperCodIdentificador" id="eliSuperCodIdentificador" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliSuperCodIdentificador'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-photo-film"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">2.7.3 Ver Link de Video, Observaciones y Generales</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="verLinkObsSuperIdentificador" id="verLinkObsSuperIdentificador
+                                                                                        " data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verLinkObsSuperIdentificador'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">2.7.4 Ver Tabla Código Identificador</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaSuperCodIdentificador" id="verTablaSuperCodIdentificador" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaSuperCodIdentificador'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div> 
                                                     </div>
                                                 </div>
                                             </section>

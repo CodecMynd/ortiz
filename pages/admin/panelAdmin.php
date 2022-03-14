@@ -19,8 +19,8 @@ require '../components/head-main.php';
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
-                        <div class="col-sm-12">
-                            <h1 class="m-0 bienvenido" style="font-size:2vw">Bienvenido <?php if ($admin == 1) {
+                        <div class="col-sm-12 textB">
+                            <h1 class="m-0 bienvenido" >Bienvenido <?php if ($admin == 1) {
                                                                                             echo 'Admin';
                                                                                         } else {
                                                                                             echo 'Usuario';

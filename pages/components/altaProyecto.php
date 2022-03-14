@@ -207,7 +207,7 @@ require '../components/head-main.php';
 $id_proyecto = $_GET['id'];
 // $id_proyecto = 1;
 
-$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, Co.color, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, RA.fecha_creacion, RA.observAudiFinal, S.semana, U.nombres, U.aPaterno, U.aMaterno, RA.folioRegAlta, LV.link 
+$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, Co.color, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, RA.fecha_creacion, RA.observAudiFinal, S.semana, RA.folioRegAlta, LV.link 
 FROM proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 INNER JOIN registroAlta RA ON P.id_proyecto = RA.id_proyecto 
@@ -217,9 +217,8 @@ INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
 INNER JOIN anios A ON V.id_anio = A.id_anio 
 INNER JOIN colores Co ON V.id_color = Co.id_color 
 INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
-INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto 
+INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto
 INNER JOIN semanas S ON R.id_semana = S.id_semana 
-INNER JOIN usuarios U ON R.id_regSolicitud = U.id_usuario 
 WHERE P.id_proyecto = ' . $id_proyecto . ' ';
 $respuesta = mysqli_query($conexion, $query);
 $row  = $respuesta->fetch_assoc();
@@ -231,7 +230,7 @@ $anio = $row['anio'];
 $placa = $row['placa'];
 $color = $row['color'];
 
-$capturista = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
+// $capturista = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
 
 $tipoReparacion = $row['tipoReparacion'];
 $km = $row['km'];
@@ -326,7 +325,7 @@ $valorVentaAlta = $row['valorVentaAlta'];
                     <tbody>
                         <tr>
                             <td>Kilometraje</td>
-                            <td>Semana</td>
+                            <td>Semana de Alta</td>
                             <td>Valor Venta Inicial</td>
                             <td>Valor Venta Alta</td>
                         </tr>
@@ -370,7 +369,8 @@ $valorVentaAlta = $row['valorVentaAlta'];
         </div>
     </main>
     <div class="contenedor-dv">
-        <span class="capturista"><?php echo $capturista . '-' . $row['fecha_creacion'] ?></span>
+        <!-- <span class="capturista"><?php echo $nomComp . '-' . $row['fecha_creacion'] ?></span> -->
+        <span class="capturista"><?php echo $row['fecha_creacion'] ?></span>
     </div>
     <footer>
         <img src="../../src/img/logos/footer.png" width="100%" />

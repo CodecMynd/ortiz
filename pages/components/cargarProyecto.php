@@ -193,7 +193,7 @@ if ($respuesta->num_rows  > 0) {
                         </div>
                         <div class='col-md-2 col-sm-12 mb-2 form-group'>
                             <div class='input-group'>
-                                <label for='color' class='pl-5 parpadea'>Semana</label>
+                                <label for='color' class='pl-5 parpadea'>Semana de Alta</label>
                                 <select name='id_semana' id='id_semana' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Semana de la lista' style='width: 100%;' required>
                                     <option selected disabled>Selecciona</option>";
 
@@ -238,7 +238,7 @@ if ($respuesta->num_rows  > 0) {
                         </div>
                     </div>
                 </div>
-
+                                    
                 <div class='col-12'>
                     <hr>
                 </div>
@@ -272,9 +272,7 @@ if ($respuesta->num_rows  > 0) {
                     <a href='javascript:history.go(-1)' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Regresar página anterior'><i class='fa-solid fa-arrow-left'></i>
                         Regresar</a>
                 </div>
-                <div class='col-md-3 col-sm-12 align-self-center'>
-                     <a href='../admin/crudAltaProyecto.php' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Ir a Tabla Lista de Proyectos'><i class='fa-solid fa-arrow-right'></i> Ir a 2.5 Alta Proyecto</a>
-                </div>
+  
                 <a href='javascript:location.reload()' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Actualizar página'><i class='fa-solid fa-arrows-rotate'></i></a>
                 <br>
                 <div class='col-md-12 col-sm-12 align-self-center mt-2'>
@@ -327,3 +325,6 @@ if ($respuesta->num_rows  > 0) {
         });
     });
 </script>
+<!-- <div class='col-md-3 col-sm-12 align-self-center'>
+                     <a href='../admin/crudAltaProyecto.php' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Ir a Tabla Lista de Proyectos'><i class='fa-solid fa-arrow-right'></i> Ir a 2.5 Alta Proyecto</a>
+                </div> -->

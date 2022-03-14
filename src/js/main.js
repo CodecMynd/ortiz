@@ -506,7 +506,7 @@ $('.btnBorrarColor').click(function (e) {
 -
 -
 */
-// 1.6.1 Formulario Crear Semanas----------------------------------------------------
+// 1.6.1.1 Formulario Crear Semanas----------------------------------------------------
 $(document).ready(function () {
     $('#btnNuevaSemana').click(function () {
         $.ajax({
@@ -527,10 +527,10 @@ $("#btnNuevaSemana").on('click', function () {
     }, 300000);
 });
 
-// 1.6.2  Formulario Eliminar Semanas----------------------------------------------------
+// 1.6.1.2  Formulario Eliminar Semanas----------------------------------------------------
 $('.btnBorrarSemana').click(function (e) {
     e.preventDefault();
-    if (confirm("¿Estás seguro de eliminar esta Cliente? Una vez borrado ya no se podrá recuperar la información.")) {
+    if (confirm("¿Estás seguro de eliminar esta Semana? Una vez borrado ya no se podrá recuperar la información.")) {
         var id = $(this).attr("id");
 
         var dataString = 'id=' + id;
@@ -541,6 +541,48 @@ $('.btnBorrarSemana').click(function (e) {
             data: dataString,
             success: function (data) {
                 window.location.href = "crudSemanas.php";
+                $('#respuesta').html(data);
+            }
+        });
+    }
+    return false;
+});
+
+// 1.6.2.1 Formulario Crear Semanas Cobro----------------------------------------------------
+$(document).ready(function () {
+    $('#btnNuevaSemanaCobro').click(function () {
+        $.ajax({
+                url: 'addNuevoSemanaCobro.php',
+                type: 'POST',
+                data: $('#formNuevaSemanaCobro').serialize(),
+            })
+            .done(function (res) {
+                $('#respuestaNuevaSemanaCobro').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnNuevaSemanaCobro").on('click', function () {
+    $("#btnNuevaSemanaCobro").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnNuevaSemanaCobro").css('visibility', 'visible');
+    }, 300000);
+});
+
+// 1.6.2.2 Formulario Eliminar Semanas Cobro----------------------------------------------------
+$('.btnBorrarSemanaCobro').click(function (e) {
+    e.preventDefault();
+    if (confirm("¿Estás seguro de eliminar esta Semana Cobro? Una vez borrado ya no se podrá recuperar la información.")) {
+        var id = $(this).attr("id");
+
+        var dataString = 'id=' + id;
+        url = "../delete/deleteSemanaCobro.php";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: dataString,
+            success: function (data) {
+                window.location.href = "crudSemanasCobro.php";
                 $('#respuesta').html(data);
             }
         });

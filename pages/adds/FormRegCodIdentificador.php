@@ -33,7 +33,7 @@ require '../components/head-dataTables.php';
                                 <?php
                                     if ($super == 1) {
                                         echo "<div class='card card-secondary card-outline'>";
-                                    } else if ($regAlta == 1) {
+                                    } else if ($regCodIdentificador == 1) {
                                         echo "<div class='card card-secondary card-outline'>";
                                     } else {
                                         echo "<div class='card card-secondary card-outline collapsed-card'>";
@@ -43,9 +43,9 @@ require '../components/head-dataTables.php';
                                         <div class="card-tools">
                                             <?php
                                             if ($super == 1) {
-                                            } else if ($regSolAltProy == 1) {
+                                            } else if ($regCodIdentificador == 1) {
                                             } else {
-                                                echo ' <a type="button" id="regAlta" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="left" title="2.4.2  Registro de Proyecto"><i class="fa-solid fa-eye-slash"></i>&nbsp;&nbsp; Registro de Proyecto</a>';
+                                                echo ' <a type="button" id="regCodIdentificador" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="left" title="2.6.1  Registro de Código Identificador"><i class="fa-solid fa-eye-slash"></i>&nbsp;&nbsp; Registro de Proyecto</a>';
                                             } ?>
                                         </div>
                                     </div>

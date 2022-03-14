@@ -426,7 +426,7 @@ $(document).ready(function () {
 // regSemana 1.6.1 REGISTRO DE SEMANAS  --------------------------------------------------------------
 $(document).ready(function () {
     $("#regSemana").click(function () {
-        toastr["error"]("¡No tienes acceso a: 1.6.1 REGISTRO DE SEMANA SOLICITUD Y ALTAS, consulta al administrador!")
+        toastr["error"]("¡No tienes acceso a: 1.6.1.1 REGISTRO DE SEMANA SOLICITUD Y ALTAS, consulta al administrador!")
 
         tostadas.opciones = {
             "botóncerrar": falso,
@@ -451,7 +451,57 @@ $(document).ready(function () {
 // eliSemana 1.6.2 ELIMINAR SEMANA  --------------------------------------------------------------
 $(document).ready(function () {
     $("#eliSemana").click(function () {
-        toastr["error"]("¡No tienes acceso a: 1.6.2 ELIMINAR SEMANA SOLICITUD Y ALTA, consulta al administrador!")
+        toastr["error"]("¡No tienes acceso a: 1.6.1.2 ELIMINAR SEMANA SOLICITUD Y ALTA, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// regSemana 1.6.1 REGISTRO DE SEMANAS  --------------------------------------------------------------
+$(document).ready(function () {
+    $("#regSemanaCobro").click(function () {
+        toastr["error"]("¡No tienes acceso a: 1.6.2.1 REGISTRO DE SEMANA COBRO, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// eliSemana 1.6.2 ELIMINAR SEMANA  --------------------------------------------------------------
+$(document).ready(function () {
+    $("#eliSemanaCobro").click(function () {
+        toastr["error"]("¡No tienes acceso a: 1.6.2.2 ELIMINAR SEMANA COBRO, consulta al administrador!")
 
         tostadas.opciones = {
             "botóncerrar": falso,
@@ -772,12 +822,36 @@ $(document).ready(function () {
         }
     })
 });
-pdfProyecto
 
-// eliCliente 2.3.5 DESCARGAR PDF PROYECTO --------------------------------------------------------------
+
+// pdfProyecto 2.3.5 DESCARGAR PDF PROYECTO --------------------------------------------------------------
 $(document).ready(function () {
     $("#pdfProyecto ").click(function () {
         toastr["error"]("¡No tienes acceso a: 2.3.5 DESCARGAR PDF PROYECTO, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+// verGralProy 2.3.6 Ver GENERALES PROYECTOS --------------------------------------------------------------
+$(document).ready(function () {
+    $("#verGralProy ").click(function () {
+        toastr["error"]("¡No tienes acceso a: 2.3.6 Ver GENERALES PROYECTOS, consulta al administrador!")
 
         tostadas.opciones = {
             "botóncerrar": falso,

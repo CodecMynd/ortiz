@@ -16,7 +16,7 @@
             ?>
             <div class="modal-body">
                 <div class="card-body">
-                    <table id="tablePermisos2" class="table table-sm table-bordered table-striped" style="width:100%">
+                    <table id="tableSelectCliente" class="table table-sm table-bordered table-striped" style="width:100%">
                         <thead>
                             <tr>
                                 <th>#</th>

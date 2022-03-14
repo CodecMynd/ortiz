@@ -43,9 +43,9 @@ require '../components/head-dataTables.php';
                                             <a type="button" class="btn btn-outline-danger" id="regCodIdentificador" data-toggle="tooltip" data-placement="left" title="2.6.1 Registro de Código Identificador">
                                                 <i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Registro Código Identificador</a>
                                         <?php } ?>
-                                        <a href="crudAltaProyecto.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Ver Tabla 2.5 Alta Proyecto"><i class="fa-solid fa-angle-left"></i>&nbsp;&nbsp;<i class="fa-solid fa-eye"></i></a>
+                                        <!-- <a href="crudAltaProyecto.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Ver Tabla 2.5 Alta Proyecto"><i class="fa-solid fa-angle-left"></i>&nbsp;&nbsp;<i class="fa-solid fa-eye"></i></a>
+                                        <a href="crudSuperCodiIdentificador.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Ver Tabla 2.7 Supervisión de Registro Código Identificador"><i class="fa-solid fa-eye"></i>&nbsp;&nbsp;<i class="fa-solid fa-angle-right"></i></a> -->
 
-                                        <a href="crudSuperCodiIdentificador.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Ver Tabla 2.7 Supervisión de Registro Código Identificador"><i class="fa-solid fa-eye"></i>&nbsp;&nbsp;<i class="fa-solid fa-angle-right"></i></a>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
@@ -53,7 +53,13 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, V.placa, M.marca, Mo.modelo, A.anio, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, LV.link, Co.color, RC.id_regcodidenti, RC.valorCobro, RC.codIdentificador, RC.borrado
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio, RS.folioRegSolicitud, RS.valorVentaAlta, RS.inspecCalidad, RS.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, Ra.cronometro, LV.link, Co.color, RC.id_regcodidenti, RC.valorCobro, RC.codIdentificador, RC.borrado, S.semana, SC.semanaCobro, 
+                                    RS.fecha_creacion AS regSolfecha,
+                                    RA.fecha_creacion AS regAltaFecha,
+                                    RC.fecha_creacion AS regCodIdFechas,
+                                    URS.nombres AS RSNombre, URS.aPaterno AS RSPaterno, URS.aMaterno AS RSMaterno,
+                                    URA.nombres AS RANombre, URA.aPaterno AS RAPaterno, URA.aMaterno AS RAMaterno,
+                                    URC.nombres AS RCNombre, URC.aPaterno AS RCPaterno, URC.aMaterno AS RCMaterno
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -61,13 +67,24 @@ require '../components/head-dataTables.php';
                                     INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
                                     INNER JOIN anios A ON V.id_anio = A.id_anio 
                                     INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
-                                    INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto 
+                                    INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto 
                                     INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
                                     INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
                                     INNER JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
+                                    INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
+                                    INNER JOIN semanas S ON RS.id_semana = S.id_semana
+                                    INNER JOIN usuarios URS ON RS.id_capC = URS.id_usuario
+                                    INNER JOIN usuarios URA ON RA.id_capC = URA.id_usuario
+                                    INNER JOIN usuarios URC ON RC.id_capC = URC.id_usuario
                                     WHERE proyCodIdentificador = 1 AND RC.borrado = 0 AND supervisado = 0 ORDER BY nProyecto ASC";
                                 } else if ($verTablaCodIdentificador == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, V.placa, M.marca, Mo.modelo, A.anio, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, LV.link, Co.color, RC.id_regcodidenti, RC.valorCobro, RC.codIdentificador, RC.borrado
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio, RS.folioRegSolicitud, RS.valorVentaAlta, RS.inspecCalidad, RS.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, Ra.cronometro, LV.link, Co.color, RC.id_regcodidenti, RC.valorCobro, RC.codIdentificador, RC.borrado, S.semana, SC.semanaCobro, 
+                                    RS.fecha_creacion AS regSolfecha,
+                                    RA.fecha_creacion AS regAltaFecha,
+                                    RC.fecha_creacion AS regCodIdFechas,
+                                    URS.nombres AS RSNombre, URS.aPaterno AS RSPaterno, URS.aMaterno AS RSMaterno,
+                                    URA.nombres AS RANombre, URA.aPaterno AS RAPaterno, URA.aMaterno AS RAMaterno,
+                                    URC.nombres AS RCNombre, URC.aPaterno AS RCPaterno, URC.aMaterno AS RCMaterno
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -75,10 +92,15 @@ require '../components/head-dataTables.php';
                                     INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
                                     INNER JOIN anios A ON V.id_anio = A.id_anio 
                                     INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
-                                    INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto 
+                                    INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto 
                                     INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
                                     INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
                                     INNER JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
+                                    INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
+                                    INNER JOIN semanas S ON RS.id_semana = S.id_semana
+                                    INNER JOIN usuarios URS ON RS.id_capC = URS.id_usuario
+                                    INNER JOIN usuarios URA ON RA.id_capC = URA.id_usuario
+                                    INNER JOIN usuarios URC ON RC.id_capC = URC.id_usuario
                                     WHERE proyCodIdentificador = 1 AND RC.borrado = 0 AND supervisado = 0 ORDER BY nProyecto ASC";
                                 } else {
                                     $query = "SELECT id_proyecto
@@ -95,13 +117,11 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tablePermisos" class="table table-sm table-bordered table-striped">
+                                    <table id="tableProyCodId" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Código Identificación</th>
-                                                <th>Núm. Folio de Alta</th>
-                                                <th>Núm. Folio Solicitud Alta</th>
+                                                <th>Código Identificador</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -109,6 +129,9 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
+                                                <th>Semana de Alta</th>
+                                                <th>Semana de Cobro</th>
+                                                <th>Valor Venta Inicial</th>
                                                 <th>Valor Venta Alta</th>
                                                 <th>Valor Cobro</th>
                                                 <th>Acciones</th>
@@ -120,6 +143,13 @@ require '../components/head-dataTables.php';
                                                 $idP = $row['id_proyecto'];
                                                 $codIdentificador = $row['codIdentificador'];
                                                 $id_regcodidenti = $row['id_regcodidenti'];
+                                                $regSolfecha = $row['regSolfecha'];
+                                                $regAltaFecha = $row['regAltaFecha'];
+                                                $regCodIdFechas = $row['regCodIdFechas'];
+                                                $RSCapturista = $row['RSNombre'] . ' ' . $row['RSPaterno'] . ' ' . $row['RSMaterno'];
+                                                $RACapturista = $row['RANombre'] . ' ' . $row['RAPaterno'] . ' ' . $row['RAMaterno'];
+                                                $RCCapturista = $row['RCNombre'] . ' ' . $row['RCPaterno'] . ' ' . $row['RCMaterno'];
+                                                $cronometro = $row['cronometro'];
                                             ?>
                                                 <tr>
                                                     <td>
@@ -129,12 +159,6 @@ require '../components/head-dataTables.php';
                                                     </td>
                                                     <td>
                                                         <?php echo $row['codIdentificador'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['folioRegAlta'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['folioRegSolicitud'] ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $row['nProyecto']; ?>
@@ -156,6 +180,15 @@ require '../components/head-dataTables.php';
                                                     </td>
                                                     <td>
                                                         <?php echo $row['color'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['semana'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['semanaCobro'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['valorVenta'] ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $row['valorVentaAlta'] ?>
@@ -197,11 +230,11 @@ require '../components/head-dataTables.php';
                                                                             </span>
                                                                         </li>
                                                                         <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.6.4 Ver Link de Video en Vivo y Observaciones">
+                                                                            <span data-toggle="tooltip" title="2.6.4 Ver Link de Video, Observaciones y Generales">
                                                                                 <?php if ($super == 1) { ?>
-                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target=".verLinkVideo-<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></button>
+                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#verLinkVideoCodId-<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></button>
                                                                                 <?php  } else if ($verLinkObsIdentificador == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".verLinkVideo-<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></a>
+                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target="#verLinkVideoCodId-<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></a>
                                                                                 <?php } else { ?>
                                                                                     <a class="btn btn-outline-danger" id="verLinkObsIdentificador"><i class="fa-solid fa-comments"></i>
                                                                                     </a>
@@ -216,7 +249,7 @@ require '../components/head-dataTables.php';
                                                 </tr>
                                                 <?php
                                                 require '../components/modal-regresarRegCodIdentificador.php';
-                                                require '../components/modal-verLink.php';
+                                                require '../components/modal-verRegCodIdentificador.php';
                                                 ?>
                                             <?php
                                             }
@@ -226,9 +259,7 @@ require '../components/head-dataTables.php';
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Código Identificación</th>
-                                                <th>Núm. Folio de Alta</th>
-                                                <th>Núm. Folio Solicitud Alta</th>
+                                                <th>Código Identificador</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -236,8 +267,11 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
-                                                <th>Valor Venta Alta</th>
-                                                <th>Valor Cobro</th>
+                                                <th>Semana de Alta</th>
+                                                <th>Semana de Cobro</th>
+                                                <th class="suma"></th>
+                                                <th class="suma"></th>
+                                                <th class="suma"></th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>
@@ -248,13 +282,11 @@ require '../components/head-dataTables.php';
                     </div>
                 </div>
             </section>
-
-            <!-- /table usuario -->
         </div>
-        <?php
-        require '../components/footer.php';
-        ?>
     </div>
+    <?php
+    require '../components/footer.php';
+    ?>
     <?php
     // Scripts principales
     require '../components/scripts-main.php';
@@ -263,6 +295,27 @@ require '../components/head-dataTables.php';
     ?>
 
     <script>
+        // regresar a tabla registro solicitud
+         $(document).ready(function() {
+             $('#btnRegresarRegCodIdentificador').click(function() {
+                 $.ajax({
+                         url: '../update/updateRegresarRegCodIdentificador.php',
+                         type: 'POST',
+                         data: $('#formRegresarRegCodIdentificador').serialize(),
+                     })
+                     .done(function(res) {
+                         $('#respuestaRegresarRegCodIdentificador').html(res)
+                     })
+             });
+
+         });
+         //Ocultar boton por 5 minutos para evitar el doble submit
+         $("#btnRegresarRegCodIdentificador").on('click', function() {
+             $("#btnRegresarRegCodIdentificador").css('visibility', 'hidden');
+             setTimeout(function() {
+                 $("#btnRegresarRegCodIdentificador").css('visibility', 'visible');
+             }, 300000);
+         });
         // regCodIdentificador 2.6.1 REGISTRO CODIGO IDENTIFICADOR  --------------------------------------------------------------
         $(document).ready(function() {
             $("#regCodIdentificador").click(function() {
@@ -387,27 +440,11 @@ require '../components/head-dataTables.php';
                 }
             })
         });
-        // regresar a tabla registro solicitud
-        $(document).ready(function() {
-            $('#btnRegresarRegCodIdentificador').click(function() {
-                $.ajax({
-                        url: '../update/updateRegresarRegCodIdentificador.php',
-                        type: 'POST',
-                        data: $('#formRegresarRegCodIdentificador').serialize(),
-                    })
-                    .done(function(res) {
-                        $('#respuestaRegresarRegCodIdentificador').html(res)
-                    })
-            });
-
-        });
-        //Ocultar boton por 5 minutos para evitar el doble submit
-        $("#btnRegresarRegCodIdentificador").on('click', function() {
-            $("#btnRegresarRegCodIdentificador").css('visibility', 'hidden');
-            setTimeout(function() {
-                $("#btnRegresarRegCodIdentificador").css('visibility', 'visible');
-            }, 300000);
-        });
     </script>
+</body>
+<script>
+    // copiar link al portapapeles
+    var clipboard = new Clipboard('.btn');
+</script>
 
-    </html>
+</html>

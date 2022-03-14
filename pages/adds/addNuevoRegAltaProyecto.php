@@ -15,6 +15,16 @@ $folioRegAlta = $_POST['folioRegAlta'];
 $link = $_POST['link'];
 $observAudiFinal = $_POST['observAudiFinal'];
 $borrado = 0;
+$fecha_creacion = $_POST['fecha_creacion'];
+
+// cronometro
+$fecha1 = new DateTime($date);
+$fecha2 = new DateTime($fecha_creacion);
+
+$diff = $fecha1->diff($fecha2);
+
+$cronometro = $diff->days." Dia(s), ". $diff->h . ' h. '.$diff->i." m. ".$diff->s . ' s.';
+
 $status = 'Activo';
 
 if ($link == '') {
@@ -36,12 +46,12 @@ if ($link == '') {
     //var_dump($queryL);
 
     // Insertamos tabla registroalta
-    $query = "INSERT INTO registroalta(folioRegAlta, id_proyecto, id_link, observAudiFinal, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', $borrado, '$status', '$date', '$id')";
+    $query = "INSERT INTO registroalta(folioRegAlta, id_proyecto, id_link, observAudiFinal, cronometro, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', '$cronometro', $borrado, '$status', '$date', '$id')";
     $resultado = mysqli_query($conexion, $query);
     //var_dump($query);
 
      // Insertamos tabla registroaltabitacora
-     $query = "INSERT INTO registroaltabitacora(folioRegAlta, id_proyecto, id_link, observAudiFinal, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', $borrado, '$status', '$date', '$id')";
+     $query = "INSERT INTO registroaltabitacora(folioRegAlta, id_proyecto, id_link, observAudiFinal, cronometro, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', '$cronometro', $borrado, '$status', '$date', '$id')";
      $resultado = mysqli_query($conexion, $query);
      //var_dump($query);;
 

@@ -1,7 +1,7 @@
 <?php
 require '../components/head-main.php';
 ?>
-<title>1.6.1 Registro de Semana de Alta | <?php echo $nomComp ?></title>
+<title>1.4.2 Modificar Años | <?php echo $nomComp ?></title>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 
@@ -16,7 +16,7 @@ require '../components/head-main.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="float-left m-0">1.6.1 Registro de Semana de Alta</h1>
+                            <h1 class="float-left m-0">1.4.2 Modificar Años</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -25,26 +25,35 @@ require '../components/head-main.php';
                 </div>
             </div>
             <!-- /titulo y brandcrumb -->
-            <!-- Form editar usuario -->
+            <!-- consulta sql -->
+            <?php
+            $id_anio = $_GET['id'];
+            $query = "SELECT * FROM anios WHERE id_anio = $id_anio";
+            $respuesta = mysqli_query($conexion, $query);
+            $row = $respuesta->fetch_assoc();
+            ?>
+            <!-- Form editar marca -->
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-4">
+                        <div class="col-md-4 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header border-nav">
-                                    <h3 class="card-title">Campo obligatorio</h3>
+                                    <h3 class="card-title">Año seleccionado para editar</h3>
+
                                 </div>
                                 <!-- <form id="formNuevoUsuario" action="addNuevoUsuario.php" method="POST"> -->
-                                <form id="formNuevaSemana" autocomplete="off">
+                                <form id="formUpdateAnio" autocomplete="off">
+                                    <input type="hidden" name="id_anio" id="id_anio" value="<?php echo $id_anio ?>">
                                     <div class="card-body">
                                         <div class="row justify-content-center">
-                                            <div class="col-md-6 col-sm-12 my-1 form-group">
+                                            <div class="col-md-4 col-sm-12 my-1 form-group">
                                                 <div class="input-group form-floating mb-3">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="fa-solid fa-calendar-plus"></i></span>
                                                     </div>
-                                                    <input autofocus name="semana" id="semana" type="text" class="form-control" placeholder="Ingresa Año - Semana" required maxlength="7" data-toggle="tooltip" data-placement="bottom" title="Ingresa Año - Semana" data-inputmask="'mask' : '9999-99'"> 
-                                                    <label for="floatingInput" class="pl-5">Semana de Alta</label>
+                                                    <input name="anio" id="anio" type="text" class="form-control" placeholder="Año" required maxlength="4" data-toggle="tooltip" data-placement="bottom" title="Edita el año" value="<?php echo $row['anio'] ?>" data-inputmask="'mask' : '9999'">
+                                                    <label for="floatingInput" class="pl-5">Año</label>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -56,11 +65,11 @@ require '../components/head-main.php';
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"> <i class="fa fa-calendar" aria-hidden="true"></i></span>
                                                     </div>
-                                                    <input autofocus type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Campo en automatico" value="<?php echo $dateFront ?>" disabled readonly>
+                                                    <input type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Campo en automatico" value="<?php echo $dateFront ?>" disabled readonly>
                                                 </div>
                                             </div>
                                             <div class="col-md-12 col-sm-12 my-1">
-                                                <label class="ml-5 mb-2">Capturista<small> *El que registra</small></label>
+                                                <label class="ml-5 mb-2">Capturista editor<small> *El que modifica</small></label>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="fa fa-user-pen" aria-hidden="true"></i></span>
@@ -73,7 +82,7 @@ require '../components/head-main.php';
                                     <div class="card-footer border-footer">
                                         <div class="row">
                                             <div class="col-md-5 col-sm-12 align-self-center">
-                                                <buttom type="submit" id="btnNuevaSemana" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Guardar "><i class="fas fa-pen"></i> Guardar</buttom>
+                                                <buttom type="submit" id="btnUpdateAnio" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Guardar "><i class="fas fa-pen"></i> Guardar</buttom>
                                             </div>
                                             <div class="col-md-5 col-sm-12 align-self-center">
                                                 <a href="javascript:history.go(-1)" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
@@ -81,7 +90,7 @@ require '../components/head-main.php';
                                             <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                             <br>
                                             <div class="col-md-12 col-sm-12 align-self-center mt-2">
-                                                <div id="respuestaNuevaSemana"></div>
+                                                <div id="respuestaUpdateAnio"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -106,7 +115,6 @@ require '../components/head-main.php';
     //  iniciar inputMask 
     $(document).ready(function() {
         $(":input").inputmask();
-        // $('#semana').mask("9999-59");
     });
 </script>
 
