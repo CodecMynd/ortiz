@@ -31,7 +31,7 @@ $status = 'Supervisión Código Identificador';
     //var_dump($query);
 
     // Insertamos registro en tabla supervisado
-    $queryS = "INSERT INTO supervisados(id_regcodidenti, id_proyecto, supervisado, fecha_creacion, id_capC) VALUES ($id_regcodidenti, $id_proyecto, 1, '$date', $id)";
+    $queryS = "INSERT INTO supervisado(id_regcodidenti, id_proyecto, supervisado, fecha_creacion, id_capC) VALUES ($id_regcodidenti, $id_proyecto, 1, '$date', $id)";
     $resultado = mysqli_query($conexion, $queryS);
     //var_dump($query);
 

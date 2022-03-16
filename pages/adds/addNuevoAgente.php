@@ -22,7 +22,17 @@ if (mysqli_num_rows($verificar_agente) > 0) {
     exit;
     }else {
     $resultado = mysqli_query($conexion, $query);
-    if ($resultado) {
+    $id_agente = mysqli_insert_id($conexion);
+
+
+    $queryN = "INSERT INTO agentesn(id_agente) VALUES ('$id_agente')";
+    $resultadoN = mysqli_query($conexion, $queryN);
+
+    $queryGR = "INSERT INTO agentesgr(id_agente) VALUES ('$id_agente')";
+    $resultadoGR = mysqli_query($conexion, $queryGR);
+
+
+    if ($resultadoGR) {
         echo
         "<div class='alert alert-success' role='alert'>
             <p>Agente ingresado correctamente</p>

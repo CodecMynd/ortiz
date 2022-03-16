@@ -12,7 +12,7 @@
             <div class="card-body">
                 <div class="card card-secondary card-outline collapsed-card">
                     <div class="card-header">
-                        <h2 class="card-title"><strong>Generales: Supervisión de Registro Código Identificador</strong></h2>
+                        <h2 class="card-title"><strong>Usuario, Fecha y Hora de Captura: Supervisión de Registro Código Identificador</strong></h2>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
                                 <i class="fas fa-plus"></i>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="card card-secondary card-outline collapsed-card">
                     <div class="card-header">
-                        <h2 class="card-title"><strong>Generales: Código <?php echo $row['codIdentificador'] ?></strong></h2>
+                        <h2 class="card-title"><strong>Usuario, Fecha y Hora de Captura: Código <?php echo $row['codIdentificador'] ?></strong></h2>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
                                 <i class="fas fa-plus"></i>
@@ -129,7 +129,7 @@
                 </div>
                 <div class="card card-secondary card-outline collapsed-card">
                     <div class="card-header">
-                        <h2 class="card-title"><strong>Generales: <?php echo $row['folioRegAlta'] ?></strong></h2>
+                        <h2 class="card-title"><strong>Usuario, Fecha y Hora de Captura: <?php echo $row['folioRegAlta'] ?></strong></h2>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
                                 <i class="fas fa-plus"></i>
@@ -217,7 +217,7 @@
                 </div>
                 <div class="card card-secondary card-outline collapsed-card">
                     <div class="card-header">
-                        <h2 class="card-title"><strong>Generales: <?php echo $row['folioRegSolicitud'] ?></strong></h2>
+                        <h2 class="card-title"><strong>Usuario, Fecha y Hora de Captura: <?php echo $row['folioRegSolicitud'] ?></strong></h2>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
                                 <i class="fas fa-plus"></i>

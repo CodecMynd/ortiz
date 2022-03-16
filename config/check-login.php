@@ -1,5 +1,7 @@
 <?php
 require 'functions.php';
+ini_set('date.timezone',  'America/Mexico_City');
+$date = date('Y-m-d H:i:s');
 $usuario = $_POST['usuario'];
 $pass = $_POST['pass'];
 
@@ -10,7 +12,7 @@ if(validarLogin($usuario, $pass)){
     $id = $_SESSION['id_usuario'];
     $estatus = "Online";
 
-    $query = ("UPDATE usuarios SET estatus = '$estatus' WHERE id_usuario = $id");
+    $query = ("UPDATE usuarios SET estatus = '$estatus', ultima_conexion = '$date' WHERE id_usuario = $id");
     $result = mysqli_query($conexion, $query);
 
     //acedemos al sistemas

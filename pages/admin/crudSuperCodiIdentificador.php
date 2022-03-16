@@ -67,57 +67,35 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio, RS.folioRegSolicitud, RS.valorVentaAlta, RS.inspecCalidad, RS.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, LV.link, Co.color, RC.id_regcodidenti, RC.valorCobro, RC.codIdentificador, RC.borrado, S.semana, SC.semanaCobro,
-                                    RS.fecha_creacion AS regSolfecha, RA.fecha_creacion AS regAltaFecha, RC.fecha_creacion AS regCodIdFechas, SV.fecha_creacion AS SupervicionFecha,
-                                    URS.nombres AS RSNombre, URS.aPaterno AS RSPaterno, URS.aMaterno AS RSMaterno,
-                                    URA.nombres AS RANombre, URA.aPaterno AS RAPaterno, URA.aMaterno AS RAMaterno,
-                                    URC.nombres AS RCNombre, URC.aPaterno AS RCPaterno, URC.aMaterno AS RCMaterno,
-                                    USV.nombres AS SVNombre, USV.aPaterno AS SVPaterno, USV.aMaterno AS SVMaterno
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, Co.color, M.marca, Mo.modelo, A.anio, RS.folioRegSolicitud, RS.valorVentaAlta, RS.inspecCalidad, RS.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, RC.borrado, S.semana, SC.semanaCobro
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co ON V.id_color = Co.id_color
                                     INNER JOIN marcas M ON V.id_marca = M.id_marca 
                                     INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
                                     INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
                                     INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto 
                                     INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
-                                    INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
                                     INNER JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
                                     INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
                                     INNER JOIN semanas S ON RS.id_semana = S.id_semana
-                                    INNER JOIN usuarios URS ON RS.id_capC = URS.id_usuario
-                                    INNER JOIN usuarios URA ON RA.id_capC = URA.id_usuario
-                                    INNER JOIN usuarios URC ON RC.id_capC = URC.id_usuario
-                                    INNER JOIN supervisado SV ON P.id_proyecto = SV.id_proyecto
-                                    INNER JOIN usuarios USV ON SV.id_capC = USV.fecha_creacion
-                                    WHERE superCodIdentificador = 1 AND RC.borrado = 0 AND SV.supervisado = 1 ORDER BY nProyecto ASC";
+                     
+                                    WHERE superCodIdentificador = 1 AND RC.borrado = 0  ORDER BY nProyecto ASC;";
                                 } else if ($verTablaSuperCodIdentificador == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio, RS.folioRegSolicitud, RS.valorVentaAlta, RS.inspecCalidad, RS.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, LV.link, Co.color, RC.id_regcodidenti, RC.valorCobro, RC.codIdentificador, RC.borrado, S.semana, SC.semanaCobro,
-                                    RS.fecha_creacion AS regSolfecha, RA.fecha_creacion AS regAltaFecha, RC.fecha_creacion AS regCodIdFechas, SV.fecha_creacion AS SupervicionFecha,
-                                    URS.nombres AS RSNombre, URS.aPaterno AS RSPaterno, URS.aMaterno AS RSMaterno,
-                                    URA.nombres AS RANombre, URA.aPaterno AS RAPaterno, URA.aMaterno AS RAMaterno,
-                                    URC.nombres AS RCNombre, URC.aPaterno AS RCPaterno, URC.aMaterno AS RCMaterno,
-                                    USV.nombres AS SVNombre, USV.aPaterno AS SVPaterno, USV.aMaterno AS SVMaterno
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, Co.color, M.marca, Mo.modelo, A.anio, RS.folioRegSolicitud, RS.valorVentaAlta, RS.inspecCalidad, RS.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, RC.borrado, S.semana, SC.semanaCobro
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co ON V.id_color = Co.id_color
                                     INNER JOIN marcas M ON V.id_marca = M.id_marca 
                                     INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
                                     INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
                                     INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto 
                                     INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
-                                    INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
                                     INNER JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
                                     INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
                                     INNER JOIN semanas S ON RS.id_semana = S.id_semana
-                                    INNER JOIN usuarios URS ON RS.id_capC = URS.id_usuario
-                                    INNER JOIN usuarios URA ON RA.id_capC = URA.id_usuario
-                                    INNER JOIN usuarios URC ON RC.id_capC = URC.id_usuario
-                                    INNER JOIN supervisado SV ON P.id_proyecto = SV.id_proyecto
-                                    INNER JOIN usuarios USV ON SV.id_capC = USV.fecha_creacion
-                                    WHERE superCodIdentificador = 1 AND RC.borrado = 0 AND SV.supervisado = 1 ORDER BY nProyecto ASC";
+                     
+                                    WHERE superCodIdentificador = 1 AND RC.borrado = 0  ORDER BY nProyecto ASC;";
                                 } else {
                                     $query = "SELECT id_proyecto
                                     FROM proyectos WHERE id_proyecto = 0";
@@ -157,17 +135,17 @@ require '../components/head-dataTables.php';
                                             <?php
                                             while ($row = $resultado->fetch_assoc()) {
                                                 $idP = $row['id_proyecto'];
-                                                $codIdentificador = $row['codIdentificador'];
-                                                $id_regcodidenti = $row['id_regcodidenti'];
-                                                $regSolfecha = $row['regSolfecha'];
-                                                $regAltaFecha = $row['regAltaFecha'];
-                                                $regCodIdFechas = $row['regCodIdFechas'];
-                                                $SupervicionFecha = $row['SupervicionFecha'];
-                                                $RSCapturista = $row['RSNombre'] . ' ' . $row['RSPaterno'] . ' ' . $row['RSMaterno'];
-                                                $RACapturista = $row['RANombre'] . ' ' . $row['RAPaterno'] . ' ' . $row['RAMaterno'];
-                                                $RCCapturista = $row['RCNombre'] . ' ' . $row['RCPaterno'] . ' ' . $row['RCMaterno'];
-                                                $SVCapturista = $row['SVNombre'] . ' ' . $row['SVPaterno'] . ' ' . $row['SVMaterno'];
-                                                $cronometro = $row['cronometro'];
+                                                // $codIdentificador = $row['codIdentificador'];
+                                                // $id_regcodidenti = $row['id_regcodidenti'];
+                                                // $regSolfecha = $row['regSolfecha'];
+                                                // $regAltaFecha = $row['regAltaFecha'];
+                                                // $regCodIdFechas = $row['regCodIdFechas'];
+                                                // $SupervicionFecha = $row['SupervicionFecha'];
+                                                // $RSCapturista = $row['RSNombre'] . ' ' . $row['RSPaterno'] . ' ' . $row['RSMaterno'];
+                                                // $RACapturista = $row['RANombre'] . ' ' . $row['RAPaterno'] . ' ' . $row['RAMaterno'];
+                                                // $RCCapturista = $row['RCNombre'] . ' ' . $row['RCPaterno'] . ' ' . $row['RCMaterno'];
+                                                // $SVCapturista = $row['SVNombre'] . ' ' . $row['SVPaterno'] . ' ' . $row['SVMaterno'];
+                                                // $cronometro = $row['cronometro'];
                                             ?>
                                                 <tr>
                                                     <td>
@@ -176,7 +154,7 @@ require '../components/head-dataTables.php';
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['codIdentificador'] ?>
+                                                        <!-- <?php echo $row['codIdentificador'] ?> -->
                                                     </td>
                                                     <td>
                                                         <?php echo $row['nProyecto']; ?>
@@ -212,7 +190,7 @@ require '../components/head-dataTables.php';
                                                         <?php echo $row['valorVentaAlta'] ?>
                                                     </td>
                                                     <td style="width: 10%">
-                                                        <?php echo $row['valorCobro'] ?>
+                                                        <!-- <?php echo $row['valorCobro'] ?> -->
                                                     </td>
                                                     <td>
                                                         <div class="input-group input-group-sm mb-3">

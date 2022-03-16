@@ -5,18 +5,18 @@ require '../components/head-dataTables.php';
 <title>Tabla Registro de Solicitud Alta Proyecto | <?php echo $nomComp ?></title>
 <style>
     @media (min-width:320px) and (max-width:425px) {
-            .content-header{
-                margin-bottom: 90px;
-                width: 100%;
+        .content-header {
+            margin-bottom: 90px;
+            width: 100%;
 
-            }
-
-            .content-header h1{
-                font-size: 20px;
-                padding: 10px 10px 5px;
-                text-align: center;
-            }
         }
+
+        .content-header h1 {
+            font-size: 20px;
+            padding: 10px 10px 5px;
+            text-align: center;
+        }
+    }
 </style>
 </head>
 
@@ -77,9 +77,9 @@ require '../components/head-dataTables.php';
                                     INNER JOIN anios A ON V.id_anio = A.id_anio 
                                     INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
                                     INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto
-                                    INNER JOIN semanas S ON R.id_semana = R.id_semana
+                                    INNER JOIN semanas S ON R.id_semana = S.id_semana
                                     INNER JOIN usuarios U ON R.id_capC = U.id_usuario
-                                    WHERE P.registroSolicitud = 1 AND R.borrado = 0 ORDER BY nProyecto ASC";
+                                    WHERE P.registroSolicitud = 1 AND R.borrado = 0 ORDER BY fecha_creacion DESC";
                                 } else if ($verTablaRegSolAltProy == 1) {
                                     $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio,  R.id_regSolicitud, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.borrado, R.fecha_creacion, Co.color, S.semana, U.nombres, U.aPaterno, U.aMaterno
                                     FROM proyectos P 
@@ -90,9 +90,9 @@ require '../components/head-dataTables.php';
                                     INNER JOIN anios A ON V.id_anio = A.id_anio 
                                     INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
                                     INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto
-                                    INNER JOIN semanas S ON R.id_semana = R.id_semana
+                                    INNER JOIN semanas S ON R.id_semana = S.id_semana
                                     INNER JOIN usuarios U ON R.id_capC = U.id_usuario
-                                    WHERE P.registroSolicitud = 1 AND R.borrado = 0 ORDER BY nProyecto ASC";
+                                    WHERE P.registroSolicitud = 1 AND R.borrado = 0 ORDER BY fecha_creacion DESC";
                                 } else {
                                     $query = "SELECT id_proyecto
                                     FROM proyectos WHERE id_proyecto = 0";
@@ -112,6 +112,8 @@ require '../components/head-dataTables.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>Fecha Registro Solicitud en espera de Alta</th>
+                                                <th>Cronometro Solicitud en espera de Alta</th>
                                                 <th>Núm. Folio Solicitud Alta</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
@@ -133,12 +135,26 @@ require '../components/head-dataTables.php';
                                                 $observCliente = $row['observCliente'];
                                                 $id_regSolicitud = $row['id_regSolicitud'];
                                                 $id_proyecto = $row['id_proyecto'];
-                                                $capturista = $row['nombres'].' '.$row['aPaterno'].' ' .$row['aMaterno'];
+                                                $capturista = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
+                                                $fecha_creacion = $row['fecha_creacion'];
                                             ?>
                                                 <tr>
                                                     <td>
                                                         <?php $cont++;
                                                         echo $cont;
+                                                        ?>
+                                                    </td>
+                                                    <td style="width: 12%">
+                                                        <?php echo $fecha_creacion ?>
+                                                    </td>
+                                                    <td style="width: 12%">
+                                                        <?php
+                                                        $fecha1 = new DateTime($date);
+                                                        $fecha2 = new DateTime($fecha_creacion);
+
+                                                        $diff = $fecha1->diff($fecha2);
+
+                                                        echo $cronometro = $diff->days . " Dia(s), " . $diff->h . ' h. ' . $diff->i . " m. " . $diff->s . ' s.';
                                                         ?>
                                                     </td>
                                                     <td style="width: 14%">
@@ -240,6 +256,8 @@ require '../components/head-dataTables.php';
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
+                                                <th>Fecha Registro Solicitud en espera de Alta</th>
+                                                <th>Cronometro Solicitud en espera de Alta</th>
                                                 <th>Núm. Folio Solicitud Alta</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
@@ -325,7 +343,6 @@ require '../components/head-dataTables.php';
                 }
             })
         });
-
     </script>
 </body>
 

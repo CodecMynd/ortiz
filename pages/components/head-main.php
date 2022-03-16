@@ -102,7 +102,7 @@ require 'query.php';
             width: auto;
         }
         tr th{
-            font-size: 14px;
+            font-size: 13px;
             text-align: center;
         }
         tr td{

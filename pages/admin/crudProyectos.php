@@ -51,7 +51,7 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.fecha_creacion, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente, Co.color, U.nombres, U.aPaterno, U.aMaterno
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.fecha_creacion, V.placa, M.marca, Mo.modelo, A.anio, C.nombres AS nombreCliente, C.aPaternoCliente, C.aMaternoCliente, Co.color, U.nombres, U.aPaterno, U.aMaterno
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co On V.id_color = Co.id_color
@@ -62,7 +62,7 @@ require '../components/head-dataTables.php';
                                     INNER JOIN usuarios U ON P.id_capC = U.id_usuario
                                     ORDER BY nProyecto ASC";
                                 } else if ($listProyecto == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.fecha_creacion, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente, Co.color, U.nombres, U.aPaterno, U.aMaterno
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.fecha_creacion, V.placa, M.marca, Mo.modelo, A.anio, C.nombres AS nombreCliente, C.aPaternoCliente, C.aMaternoCliente, Co.color, U.nombres, U.aPaterno, U.aMaterno
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co On V.id_color = Co.id_color
@@ -136,7 +136,7 @@ require '../components/head-dataTables.php';
                                                     </td>
                                                     <td style="width: 20%;">
                                                         <?php
-                                                        $nombres = $row['nombres'];
+                                                        $nombres = $row['nombreCliente'];
                                                         $aPaterno = $row['aPaternoCliente'];
                                                         $aMaterno = $row['aMaternoCliente'];
                                                         echo $nombreComp = $nombres . ' ' . $aPaterno . ' ' . $aMaterno;

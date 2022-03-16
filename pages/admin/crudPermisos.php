@@ -35,7 +35,7 @@ require '../components/head-dataTables.php';
                                     <h3 class="card-title">Permisos dados de alta en el sistema</h3>
                                     <div class="card-tools">
                                         <a type="button" class="btn btn-secondary" href="../adds/formAddPermiso.php" data-toggle="tooltip" data-placement="left" title="1.5.1 Registro de Permiso">
-                                        <i class="fa-solid fa-user-check"></i>&nbsp;&nbsp; Registro de Permiso</a>
+                                            <i class="fa-solid fa-user-check"></i>&nbsp;&nbsp; Registro de Permiso</a>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="top" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
@@ -66,13 +66,13 @@ require '../components/head-dataTables.php';
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['modulo']?>
+                                                        <?php echo $row['modulo'] ?>
                                                     </td>
                                                     <td>
-                                                    <?php echo $row['boton']?>
+                                                        <?php echo $row['boton'] ?>
                                                     </td>
                                                     <td>
-                                                    <?php echo $row['permiso']?>
+                                                        <?php echo $row['permiso'] ?>
                                                     </td>
                                                     <td>
                                                         <div class="input-group input-group-sm mb-3">
@@ -81,19 +81,19 @@ require '../components/head-dataTables.php';
                                                                 </button>
                                                                 <ul class="dropdown-menu">
                                                                     <div class="btn-group">
-                                                                    <li class="dropdown-item">
+                                                                        <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="1.5.2 Editar Permiso">
                                                                                 <a class="btn btn-secondary" href="../update/formUpdatePermiso.php?id=<?php echo $row['id_modulo'] ?>"><i class="fas fa-edit"></i>
                                                                                 </a>
                                                                             </span>
-                                                                        </li>                                                        
+                                                                        </li>
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="1.5.3 Eliminar Permiso">
                                                                                 <a class="btn btn-secondary" data-toggle="modal" data-target=".eliminarP-<?php echo $row['id_modulo'] ?>"><i class="fas fa-trash-alt"></i>
                                                                                 </a>
                                                                             </span>
                                                                         </li>
-                                                                
+
                                                                     </div>
                                                                 </ul>
                                                             </div>
@@ -108,7 +108,7 @@ require '../components/head-dataTables.php';
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                            <th>#</th>
+                                                <th>#</th>
                                                 <th>Modulos</th>
                                                 <th>Botónes</th>
                                                 <th>Permisos</th>

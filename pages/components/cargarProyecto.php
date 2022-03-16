@@ -325,6 +325,3 @@ if ($respuesta->num_rows  > 0) {
         });
     });
 </script>
-<!-- <div class='col-md-3 col-sm-12 align-self-center'>
-                     <a href='../admin/crudAltaProyecto.php' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Ir a Tabla Lista de Proyectos'><i class='fa-solid fa-arrow-right'></i> Ir a 2.5 Alta Proyecto</a>
-                </div> -->

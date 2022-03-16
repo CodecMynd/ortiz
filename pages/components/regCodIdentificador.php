@@ -86,6 +86,18 @@ ob_start();
             padding-bottom: 10px;
         }
 
+        .inputRespMCobro {
+            width: 18em;
+            height: 5px;
+            outline: 0;
+            border-width: 0 0 .5px;
+            border-color: gray;
+            font-size: 13px;
+            margin-bottom: 20px;
+            font-family: sans-serif;
+            padding-bottom: 10px;
+        }
+
         .inputRespC {
             width: 8em;
             height: 5px;
@@ -195,6 +207,12 @@ ob_start();
             font-size: 8px;
             color: gray;
         }
+
+        .recuadro {
+            border: 1px solid gray;
+            padding: 15px 5px;
+            border-radius: 25px;
+        }
     </style>
 
 </head>
@@ -204,7 +222,11 @@ require '../components/head-main.php';
 $id_proyecto = $_GET['id'];
 // $id_proyecto = 1;
 
-$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, C.color, RS.folioRegSolicitud, RS.valorVentaAlta, RS.inspecCalidad, RS.observCliente, RA.folioRegAlta, RA.observAudiFinal, S.semana, LV.link, RC.valorCobro, RC.codIdentificador, RC.fecha_creacion, U.nombres, U.aPaterno, U.aMaterno, CL.nombres, CL.aPaternoCliente, CL.aMaternoCliente, SC.semanaCobro
+$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, C.color, RS.folioRegSolicitud, RS.valorVentaAlta, RS.inspecCalidad, RS.observCliente, RA.folioRegAlta, RA.observAudiFinal, S.semana, LV.link, RC.fecha_creacion,
+U.nombres AS Unombre, U.aPaterno AS Upaterno, U.aMaterno AS Umaterno, 
+CL.nombres, CL.aPaternoCliente, CL.aMaternoCliente, SC.semanaCobro,
+D.valCobProyBase, D.codIdProyBase, D.valCobProyExtra, D.codIdProyExtra, D.valCobComBan, D.codIdComBan, D.valCobPen, D.codIdPension, D.valCobOtros, D.codIdOtros,
+FB.formaPago AS formabase, FE.formaPago AS formaExtra, FC.formaPago AS formaBanca, FP.formaPago AS formaPension, FO.formaPago AS formaOtro
 FROM proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 INNER JOIN marcas M ON V.id_marca = M.id_marca
@@ -217,12 +239,17 @@ INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto
 INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo
 INNER JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
 INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_SemanaCobro
+INNER JOIN desglocecodid D on P.id_proyecto = D.id_proyecto
+INNER JOIN formapagos FB ON D.id_pagoProyBase = FB.id_formaPago
+INNER JOIN formapagos FE ON D.id_pagoProyExtra = FE.id_formaPago
+INNER JOIN formapagos FC ON D.id_pagoComBan = FC.id_formaPago
+INNER JOIN formapagos FP ON D.id_pagoPension = FP.id_formaPago
+INNER JOIN formapagos FO ON D.id_pagoOtros = FO.id_formaPago
 INNER JOIN usuarios U ON P.id_capC = U.id_usuario
 INNER JOIN clientes CL ON P.id_cliente = CL.id_cliente
-WHERE P.id_proyecto = ' . $id_proyecto . ' ';
+WHERE P.id_proyecto =' . $id_proyecto . ' ';
 $respuesta = mysqli_query($conexion, $query);
 $row  = $respuesta->fetch_assoc();
-
 
 $marca = $row['marca'];
 $modelo = $row['modelo'];
@@ -230,14 +257,13 @@ $anio = $row['anio'];
 $placa = $row['placa'];
 $color = $row['color'];
 
-$capturista = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
+$capturista = $row['Unombre'] . ' ' . $row['Upaterno'] . ' ' . $row['Umaterno'];
 $cliente = $row['nombres'] . ' ' . $row['aPaternoCliente'] . ' ' . $row['aMaternoCliente'];
 
 $tipoReparacion = $row['tipoReparacion'];
 $km = $row['km'];
 $valorVenta = $row['valorVenta'];
 $valorVentaAlta = $row['valorVentaAlta'];
-$valorCobro = $row['valorCobro'];
 
 ?>
 
@@ -250,13 +276,14 @@ $valorCobro = $row['valorCobro'];
         </div>
     </header>
 
+
     <!-- Envuelva el contenido de su PDF dentro de una etiqueta principal -->
     <main>
         <div class="lineaHeader"><img src="../../src/img/logos/headerSolicitudAltaLinea.png" /></div>
         <div class="container-fluid" style="width:107%">
             <div class="col-md-12">
-                <ul class="float-right">
-                    <li>Código Identificador <input type="text" value="<?php echo $row['codIdentificador'] ?>" style="width:115px"> </li>
+                <ul class="float-right py-0">
+                    <li>Código Identificador <input type="text" value="<?php echo $row['codIdProyBase'] ?>" style="width:115px"> </li>
                     <li>Fecha Registro <input type="text" value="<?php echo $row['fecha_creacion'] ?>" style="width:115px;"></li>
                     <li>Núm. Folio Alta <input type="text" value="<?php echo $row['folioRegAlta'] ?>" style="width:115px"> </li>
                     <li>Núm. Folio Solicitud Alta <input type="text" value="<?php echo $row['folioRegSolicitud'] ?>" style="width:115px"> </li>
@@ -268,7 +295,7 @@ $valorCobro = $row['valorCobro'];
 
         <div class="container ">
             <div class="col-12">
-            <table class="table table-sm">
+                <table class="table table-sm">
                     <tbody>
                         <tr>
                             <th class="titulo">Cliente</th>
@@ -347,17 +374,15 @@ $valorCobro = $row['valorCobro'];
                             <td>Kilometraje</td>
                             <td>Semana de Alta</td>
                             <td>Semana Cobro</td>
-                            <!-- <td>Valor Venta Inicial</td>
-                            <td>Valor Venta Alta</td> -->
-                            <td>Valor Cobro</td>
+                            <!-- <td>Valor Venta Inicial</td> -->
+                            <!-- <td>Valor Venta Alta</td> --> -->
                         </tr>
                         <tr>
                             <td><input type="text" class="inputRespC" value="<?php echo $row['km'] ?>"></td>
                             <td><input type="text" class="inputRespC" value="<?php echo $row['semana'] ?>"></td>
                             <td><input type="text" class="inputRespC" value="<?php echo $row['semanaCobro'] ?>"></td>
-                            <!-- <td><input type="text" class="inputRespA" value="<?php echo '$ '.$valorVenta ?>"></td>
-                            <td><input type="text" class="inputRespA" value="<?php echo '$ '.$valorVentaAlta ?>"></td> -->
-                            <td><input type="text" class="inputRespA" value="<?php echo '$ '.$valorCobro ?>"></td>
+                            <!-- <td><input type="text" class="inputRespA" value="<?php echo '$ ' . $valorVenta ?>"></td>
+                            <td><input type="text" class="inputRespA" value="<?php echo '$ ' . $valorVentaAlta ?>"></td> -->
                         </tr>
                     </tbody>
                 </table>
@@ -382,12 +407,76 @@ $valorCobro = $row['valorCobro'];
                         <tr>
                             <td><input type="text" class="inputRespG" value="<?php echo $row['link'] ?>"></td>
                         </tr>
-                        <!-- <tr>
-                            <td style="width: 20em">Observaciones Prueba Auditoria Final</td>
+                    </tbody>
+                </table>
+                <br><br><br><br>
+                <img src="../../src/img/logos/footer.png" width="108%" />
+                <br><br><br>
+                <div class="lineaHeader"><img src="../../src/img/logos/headerSolicitudAltaLinea.png" /></div>
+                <div class="container-fluid" style="width:107%">
+                    <div class="col-md-12">
+                        <ul class="float-right py-0">
+                            <li>Código Identificador <input type="text" value="<?php echo $row['codIdProyBase'] ?>" style="width:115px"> </li>
+                            <li>Fecha Registro <input type="text" value="<?php echo $row['fecha_creacion'] ?>" style="width:115px;"></li>
+                            <li>Núm. Folio Alta <input type="text" value="<?php echo $row['folioRegAlta'] ?>" style="width:115px"> </li>
+                            <li>Núm. Folio Solicitud Alta <input type="text" value="<?php echo $row['folioRegSolicitud'] ?>" style="width:115px"> </li>
+                            <li>Núm. de Orden <input type="text" value="<?php echo $row['nOrden'] ?>" style="width:115px"></li>
+                            <li>Núm. de Proyecto <input type="text" value="<?php echo $row['nProyecto'] ?>" style="width:115px"> </li>
+                        </ul>
+                    </div>
+                </div>
+                <table class="table table-sm recuadro">
+                    <tbody>
+                        <tr>
+                            <td>Valor Cobro Proyecto Base</td>
+                            <td>Código Identificador Proyecto Base</td>
+                            <td>Forma de Pago Proyecto Base</td>
                         </tr>
                         <tr>
-                            <td colspan="4"><textarea cols="160" rows="4"><?php echo $row['observAudiFinal'] ?></textarea></td>
-                        </tr> -->
+                            <td><input type="text" class="inputRespMCobro" value="<?php echo $row['valCobProyBase'] ?>"></td>
+                            <td><input type="text" class="inputRespMCobro" value="<?php echo $row['codIdProyBase'] ?>"></td>
+                            <td><input type="text" class="inputRespMCobro" value="<?php echo $row['formabase'] ?>"></td>
+                        </tr>
+                        <tr>
+                            <td>Valor Cobro Proyecto Extra</td>
+                            <td>Código Identificador Proyecto Extra</td>
+                            <td>Forma de Pago Proyecto Extra</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" class="inputRespMCobro" value="<?php echo $row['valCobProyExtra'] ?>"></td>
+                            <td><input type="text" class="inputRespMCobro" value="<?php echo $row['codIdProyExtra'] ?>"></td>
+                            <td><input type="text" class="inputRespMCobro" value="<?php echo $row['formaExtra'] ?>"></td>
+                        </tr>
+                        <tr>
+                            <td>Valor Cobro Comisión Bancaria</td>
+                            <td>Código Identificador Comisión Bancaria</td>
+                            <td>Forma de Pago Comisión Bancaria</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" class="inputRespMCobro" value="<?php echo $row['valCobComBan'] ?>"></td>
+                            <td><input type="text" class="inputRespMCobro" value="<?php echo $row['codIdComBan'] ?>"></td>
+                            <td><input type="text" class="inputRespMCobro" value="<?php echo $row['formaBanca'] ?>"></td>
+                        </tr>
+                        <tr>
+                            <td>Valor Cobro Pensión</td>
+                            <td>Código Identificador Pensión</td>
+                            <td>Forma de Pago Pensión</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" class="inputRespMCobro" value="<?php echo $row['valCobPen'] ?>"></td>
+                            <td><input type="text" class="inputRespMCobro" value="<?php echo $row['codIdPension'] ?>"></td>
+                            <td><input type="text" class="inputRespMCobro" value="<?php echo $row['formaPension'] ?>"></td>
+                        </tr>
+                        <tr>
+                            <td>Valor Cobro Otros</td>
+                            <td>Código Identificador Otros</td>
+                            <td>Forma de Pago Otros</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" class="inputRespMCobro" value="<?php echo $row['valCobOtros'] ?>"></td>
+                            <td><input type="text" class="inputRespMCobro" value="<?php echo $row['codIdOtros'] ?>"></td>
+                            <td><input type="text" class="inputRespMCobro" value="<?php echo $row['formaOtro'] ?>"></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -401,8 +490,8 @@ $valorCobro = $row['valorCobro'];
     <div class="contenedor-dv">
         <span class="capturista"><?php echo $nomComp . '-' . $row['fecha_creacion'] ?></span>
     </div>
-    <footer>
-        <img src="../../src/img/logos/footer.png" width="100%" />
+    <footer class="capturista">
+    <img src="../../src/img/logos/footer.png" width="100%" />
     </footer>
 </body>
 

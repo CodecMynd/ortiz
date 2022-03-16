@@ -632,6 +632,48 @@ $('.btnBorrarAgente').click(function (e) {
     return false;
 });
 
+// 1.8.1 Formulario Registro de Forma de Pago ------------------------------------------------------------
+$(document).ready(function () {
+    $('#btnNuevaFormaPago').click(function () {
+        $.ajax({
+                url: 'addNuevoFormaPago.php',
+                type: 'POST',
+                data: $('#formNuevoFormaPago').serialize(),
+            })
+            .done(function (res) {
+                $('#respuestaNuevoFormaPago').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnNuevaFormaPago").on('click', function () {
+    $("#btnNuevaFormaPago").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnNuevaFormaPago").css('visibility', 'visible');
+    }, 300000);
+});
+
+// 1.8.2  Formulario Eliminar Forma de Pago----------------------------------------------------
+$('.btnBorrarFormaPago').click(function (e) {
+    e.preventDefault();
+    if (confirm("¿Estás seguro de eliminar esta Forma de Pago? Una vez borrado ya no se podrá recuperar la información.")) {
+        var id = $(this).attr("id");
+
+        var dataString = 'id=' + id;
+        url = "../delete/deleteFormaPago.php";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: dataString,
+            success: function (data) {
+                window.location.href = "crudFormasPago.php";
+                $('#respuesta').html(data);
+            }
+        });
+    }
+    return false;
+});
+
 // 2.1.1 Formulario Registro Vehiculos ------------------------------------------------------------
 $(document).ready(function () {
     $("#marca").change(function () {

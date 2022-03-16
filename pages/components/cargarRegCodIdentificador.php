@@ -25,6 +25,26 @@ $row  = $respuesta->fetch_assoc();
 $queryS = "SELECT id_semanaCobro, semanaCobro FROM semanascobro  ORDER BY semanaCobro ASC";
 $resultSemanasCobro = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
 
+// Query Forma de Pago 1
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos  ORDER BY formaPago ASC";
+$resultFormaCobro1 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+
+// Query Forma de Pago 2
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos  ORDER BY formaPago ASC";
+$resultFormaCobro2 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+
+// Query Forma de Pago 3
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos  ORDER BY formaPago ASC";
+$resultFormaCobro3 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+
+// Query Forma de Pago 4
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos  ORDER BY formaPago ASC";
+$resultFormaCobro4 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+
+// Query Forma de Pago 5
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos  ORDER BY formaPago ASC";
+$resultFormaCobro5 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+
 // Query Registro de folio Alta
 $queryP = 'SELECT MAX(id_regAlta) + 1 FROM registroalta';
 $result = mysqli_query($conexion,  $queryP);
@@ -57,7 +77,7 @@ $folioRegAlta = $row['folioRegAlta'];
 if ($respuesta->num_rows  > 0) {
     $output = '';
     $output .= "
-<div class='row justify-content-center'>
+    <div class='row justify-content-center'>
     <div class='col-md-12 col-sm-12 my-4'>
         <div class='card card-secondary card-outline' style='height: 90%;'>
             <div class='card-header'>
@@ -116,7 +136,7 @@ if ($respuesta->num_rows  > 0) {
         </div>
     </div>
 </div>
-    
+
 <div class='row justify-content-center'>
     <div class='col-md-12 col-sm-4 my-4'>
         <div class='card card-secondary card-outline'>
@@ -128,211 +148,384 @@ if ($respuesta->num_rows  > 0) {
             </div>
         </div>
         <div class='card-body'>
-        <div class='row justify-content-center'>
-            <div class='col-md-3 col-sm-12 my-1'>
-                <div class='input-group form-floating mb-3'>
-                    <div class='input-group-prepend'>
-                        <span class='input-group-text'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+            <div class='row justify-content-center'>
+                <div class='col-md-3 col-sm-12 my-1'>
+                    <div class='input-group form-floating mb-3'>
+                        <div class='input-group-prepend'>
+                            <span class='input-group-text'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                        </div>
+                        <input name='folioRegAlta' id='folioRegAlta' type='text' class='form-control' placeholder='Número de proyecto ' required maxlength='15' data-toggle='tooltip' data-placement='bottom' title='Número de  Folio' value='{$folioRegAlta}' readonly>
+                        <label for='floatingInput' class='pl-5'>*Núm. de Folio Alta</label>
                     </div>
-                    <input name='folioRegAlta' id='folioRegAlta' type='text' class='form-control' placeholder='Número de proyecto ' required maxlength='15' data-toggle='tooltip' data-placement='bottom' title='Número de  Folio' value='{$folioRegAlta}' readonly>
-                    <label for='floatingInput' class='pl-5'>*Núm. de Folio Alta</label>
                 </div>
-            </div>
-            <div class='col-md-3 col-sm-12 my-1'>
-                <div class='input-group form-floating mb-3'>
-                    <div class='input-group-prepend'>
-                        <span class='input-group-text'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                <div class='col-md-3 col-sm-12 my-1'>
+                    <div class='input-group form-floating mb-3'>
+                        <div class='input-group-prepend'>
+                            <span class='input-group-text'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                        </div>
+                        <input name='folioRegSolicitud' id='folioRegSolicitud' type='text' class='form-control' placeholder='Número de proyecto ' required maxlength='15' data-toggle='tooltip' data-placement='bottom' title='Número de Folio' value='{$folioRegSolicitud}' readonly>
+                        <label for='floatingInput' class='pl-5'>*Núm. de Folio Solicitud Alta</label>
                     </div>
-                    <input name='folioRegSolicitud' id='folioRegSolicitud' type='text' class='form-control' placeholder='Número de proyecto ' required maxlength='15' data-toggle='tooltip' data-placement='bottom'     title='Número de Folio' value='{$folioRegSolicitud}' readonly>
-                    <label for='floatingInput' class='pl-5'>*Núm. de Folio Solicitud Alta</label>
                 </div>
-            </div>
-            <div class='col-md-2 col-sm-12 form-group'>
-                <div class='input-group form-floating'>
-                    <div class='input-group-prepend'>
-                        <span class='input-group-text'><i class='fa-solid fa-arrow-down-9-1'></i></span>
+                <div class='col-md-2 col-sm-12 form-group'>
+                    <div class='input-group form-floating'>
+                        <div class='input-group-prepend'>
+                            <span class='input-group-text'><i class='fa-solid fa-arrow-down-9-1'></i></span>
+                        </div>
+                        <input name='nProyecto' id='nProyecto' type='text' class='form-control' value='{$nProyecto}' disabled readonly>
+                        <label for='floatingInput' class='pl-5'>*Núm. Proyecto </label>
                     </div>
-                    <input name='nProyecto' id='nProyecto' type='text' class='form-control' value='{$nProyecto}' disabled readonly>
-                    <label for='floatingInput' class='pl-5'>*Núm. Proyecto </label>
                 </div>
-            </div>
-            <div class='col-md-2 col-sm-12 my-1 form-group'>
-                <div class='input-group form-floating mb-3'>
-                    <div class='input-group-prepend'>
-                        <span class='input-group-text'><i class='fa-solid fa-list-ol'></i></span>
+                <div class='col-md-2 col-sm-12 my-1 form-group'>
+                    <div class='input-group form-floating mb-3'>
+                        <div class='input-group-prepend'>
+                            <span class='input-group-text'><i class='fa-solid fa-list-ol'></i></span>
+                        </div>
+                        <input name='nOrden' id='nOrden' type='number' class='form-control' placeholder='Número de orden' maxlength='15' data-toggle='tooltip' data-placement='bottom' title='Número de orden' value='{$nOrden}' readonly>
+                        <label for='floatingInput' class='pl-5'>*Núm. de Orden</label>
                     </div>
-                    <input name='nOrden' id='nOrden' type='number' class='form-control' placeholder='Número de orden' maxlength='15' data-toggle='tooltip' data-placement='bottom' title='Número de orden' value='{$nOrden}'    readonly>
-                    <label for='floatingInput' class='pl-5'>*Núm. de Orden</label>
                 </div>
-            </div>
-            <div class='col-md-2 col-sm-12 my-1'>
-                <div class='input-group form-floating mb-3'>
-                    <div class='input-group-prepend'>
-                        <span class='input-group-text'><i class='fa-solid fa-gauge-high'></i></span>
+                <div class='col-md-2 col-sm-12 my-1'>
+                    <div class='input-group form-floating mb-3'>
+                        <div class='input-group-prepend'>
+                            <span class='input-group-text'><i class='fa-solid fa-gauge-high'></i></span>
+                        </div>
+                        <input name='km' id='km' type='text' class='form-control' placeholder='Kilometraje' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Redondea Kilometraje actual' data-inputmask='' alias': 'numeric' , 'groupSeparator' : ',' , 'autoGroup' : true, 'digits' : 0, 'digitsOptional' : false, 'suffix' : ' km' , 'placeholder' : '0'' value=' {$km}' readonly>
+                        <label for='floatingInput' class='pl-5'>*Kilometraje </label>
                     </div>
-                    <input name='km' id='km' type='text' class='form-control' placeholder='Kilometraje' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Redondea Kilometraje actual'   data-inputmask='' alias': 'numeric' , 'groupSeparator' : ',' , 'autoGroup' : true, 'digits' : 0, 'digitsOptional' : false, 'suffix' : ' km' , 'placeholder' : '0'' value=' {$km}' readonly>
-                    <label for='floatingInput' class='pl-5'>*Kilometraje </label>
                 </div>
-            </div>
-            <div class='col-md-3 col-sm-12 my-1 form-group'>
-                <div class='input-group form-floating mb-3'>
-                    <div class='input-group-prepend'>
-                        <span class='input-group-text'><i class='fa-solid fa-list-ol'></i></span>
+                <div class='col-md-3 col-sm-12 my-1 form-group'>
+                    <div class='input-group form-floating mb-3'>
+                        <div class='input-group-prepend'>
+                            <span class='input-group-text'><i class='fa-solid fa-list-ol'></i></span>
+                        </div>
+                        <input name='tipoReparacion' id='tipoReparacion' type='text' class='form-control' placeholder='Tipo de reparación a realizar' maxlength='15' data-toggle='tooltip' data-placement='bottom' title='Tipo de   reparación' value='{$tipoReparacion}' readonly>
+                        <label for='floatingInput' class='pl-5'>*Tipo de Reparación</label>
                     </div>
-                    <input name='tipoReparacion' id='tipoReparacion' type='text' class='form-control' placeholder='Tipo de reparación a realizar' maxlength='15' data-toggle='tooltip' data-placement='bottom' title='Tipo de   reparación' value='{$tipoReparacion}' readonly>
-                    <label for='floatingInput' class='pl-5'>*Tipo de Reparación</label>
                 </div>
-            </div>
-            <div class='col-md-3 col-sm-12 my-1'>
-                <div class='input-group form-floating mb-3'>
-                    <div class='input-group-prepend'>
-                        <span class='input-group-text mt-2'>
-                            <i class='fa-solid fa-money-bill-1-wave'></i>
-                        </span>
-                    </div>
-                    <input name='valorVenta' id='valorVenta' type='text' class='form-control' placeholder='Valor Venta Inicial' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor  Venta Inicial' value='{$valorVenta}' readonly>
-                    <label for='floatingInput' class='pl-5'>*Valor Venta Inicial </label>
-                </div>
-            </div>
-            <div class='col-md-2 col-sm-12 my-1'>
-                <div class='input-group form-floating mb-3'>
-                    <div class='input-group-prepend'>
-                        <span class='input-group-text mt-2'>
-                            <i class='fa-solid fa-money-bill-1-wave '></i>
-                        </span>
-                    </div>
-                    <input name='valorVentaAlta' id='valorVentaAlta' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' required maxlength='12' data-toggle='tooltip' data-placement='bottom'  title='Ingresa Valor Venta Alta' value='{$valorVentaAlta}' readonly>
-                    <label for='floatingInput' class='pl-5'>*Valor Venta Alta</label>
-                </div>
-            </div>
-            <div class='col-md-2 col-sm-12 my-1'>
-                <div class='input-group form-floating mb-3'>
-                    <div class='input-group-prepend'>
-                        <span class='input-group-text mt-2'>
-                            <i class='fa-solid fa-calendar-day'></i>
-                        </span>
-                    </div>
-                    <input name='id_semana' id='id_semana' type='text' class='form-control' placeholder='Ingresa semana' required data-toggle='tooltip' data-placement='bottom' title='Ingresa Semana' value='{$semana}'    readonly>
-                    <label for='floatingInput' class='pl-5'>*Semana de Alta</label>
-                </div>
-            </div>
-            <div class='col-md-12 col-sm-12 my-1'>
-                <div class='row justify-content-center'>
-                    <div class='col-md-5 col-sm-12 my-1'>
-                        <div class='form-group-input' style='border: 1px solid #CED4DA;'>
-                            <label class='ml-5 mb-2'>*Observación Inspección de Control de Calidad</label>
-                            <span data-toggle='tooltip' title='max. 300 caracteres'>
-                                <div class='input-group'>
-                                    <div class='input-group-prepend'>
-                                        <span class='input-group-text'><i class='fa-solid fa-comments'></i></span>
-                                    </div>
-                                    <textarea name='inspecCalidad' id='inspecCalidad' class='form-control' rows='4' placeholder='Agrega alguna breve Observación de Inspección de Control Calidad' readonly>{$inspecCalidad}</textarea>
-                                </div>
+                <div class='col-md-3 col-sm-12 my-1'>
+                    <div class='input-group form-floating mb-3'>
+                        <div class='input-group-prepend'>
+                            <span class='input-group-text mt-2'>
+                                <i class='fa-solid fa-money-bill-1-wave'></i>
                             </span>
                         </div>
+                        <input name='valorVenta' id='valorVenta' type='text' class='form-control' placeholder='Valor Venta Inicial' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor  Venta Inicial' value='{$valorVenta}' readonly>
+                        <label for='floatingInput' class='pl-5'>*Valor Venta Inicial </label>
                     </div>
-                    <div class='col-md-5 col-sm-12 my-1'>
-                        <div class='form-group-input' style='border: 1px solid #CED4DA;'>
-                            <label class='ml-5 mb-2'>*Observaciones Para el Cliente</label>
-                            <span data-toggle='tooltip' title='max. 300 caracteres'>
-                                <div class='input-group'>
-                                    <div class='input-group-prepend'>
-                                        <span class='input-group-text'><i class='fa-solid fa-comment'></i></span>
-                                    </div>
-                                    <textarea name='observCliente' id='observCliente' class='form-control' rows='4' placeholder='Agrega alguna breve Observación para nuestro Cliente' readonly>{$observCliente}</textarea>
-                                </div>
+                </div>
+                <div class='col-md-2 col-sm-12 my-1'>
+                    <div class='input-group form-floating mb-3'>
+                        <div class='input-group-prepend'>
+                            <span class='input-group-text mt-2'>
+                                <i class='fa-solid fa-money-bill-1-wave '></i>
                             </span>
                         </div>
+                        <input name='valorVentaAlta' id='valorVentaAlta' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Alta' value='{$valorVentaAlta}' readonly>
+                        <label for='floatingInput' class='pl-5'>*Valor Venta Alta</label>
                     </div>
                 </div>
-            </div>
-            <div class='col-md-10 col-sm-12 my-1'>
-                <div class='input-group form-floating mb-3'>
-                    <div class='input-group-prepend'>
-                        <span class='input-group-text mt-2'>
-                            <i class='fa-solid fa-photo-film'></i>
-                        </span>
-                    </div>
-                    <input name='link' id='link' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' data-toggle='tooltip' data-placement='bottom' title='Ingresa Link de Video en Vivo' value='{$link}'    readonly>
-                    <label for='floatingInput' class='pl-5'>*Link de Video en Vivo Alta</label>
-                </div>
-            </div>
-            <div class='col-md-10 col-sm-12 my-1'>
-                <div class='form-group-input' style='border: 1px solid #CED4DA;'>
-                    <label class='ml-5 mb-2'>*Observaciones Prueba de Auditoria Final</label>
-                    <span data-toggle='tooltip' title='max. 300 caracteres'>
-                        <div class='input-group'>
-                            <div class='input-group-prepend'>
-                                <span class='input-group-text'><i class='fa-solid fa-comment'></i></span>
-                            </div>
-                        <textarea name='observAudiFinal' id='observAudiFinal' class='form-control' rows='2' placeholder='Agrega alguna breve Observación por parte de Auditoria Final' readonly>{$observAudiFinal}</textarea>
+                <div class='col-md-2 col-sm-12 my-1'>
+                    <div class='input-group form-floating mb-3'>
+                        <div class='input-group-prepend'>
+                            <span class='input-group-text mt-2'>
+                                <i class='fa-solid fa-calendar-day'></i>
+                            </span>
                         </div>
-                    </span>
+                        <input name='id_semana' id='id_semana' type='text' class='form-control' placeholder='Ingresa semana' required data-toggle='tooltip' data-placement='bottom' title='Ingresa Semana' value='{$semana}' readonly>
+                        <label for='floatingInput' class='pl-5'>*Semana de Alta</label>
+                    </div>
                 </div>
-            </div>
-            <br>
-            <div class='col-md-12 col-sm-12 my-1'>
-                <div class='row justify-content-center'>
-                    <div class='col-md-2 col-sm-12 my-1'>
-                        <div class='input-group form-floating mb-3'>
-                            <div class='input-group-prepend'>
-                                <span class='input-group-text parpadea mt-2'>
-                                    <i class='fa-solid fa-money-bill-1-wave '></i>
+                <div class='col-md-12 col-sm-12 my-1'>
+                    <div class='row justify-content-center'>
+                        <div class='col-md-5 col-sm-12 my-1'>
+                            <div class='form-group-input' style='border: 1px solid #CED4DA;'>
+                                <label class='ml-5 mb-2'>*Observación Inspección de Control de Calidad</label>
+                                <span data-toggle='tooltip' title='max. 300 caracteres'>
+                                    <div class='input-group'>
+                                        <div class='input-group-prepend'>
+                                            <span class='input-group-text'><i class='fa-solid fa-comments'></i></span>
+                                        </div>
+                                        <textarea name='inspecCalidad' id='inspecCalidad' class='form-control' rows='4' placeholder='Agrega alguna breve Observación de Inspección de Control Calidad' readonly>{$inspecCalidad}</textarea>
+                                    </div>
                                 </span>
                             </div>
-                            <input name='valorCobro' id='currency1' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom'  title='Ingresa Cobro'>
-                            <label for='floatingInput' class='pl-5'>*Valor Cobro</label>
                         </div>
-                    </div>     
-                    <div class='col-md-8 col-sm-12 my-1'>
-                        <div class='input-group form-floating mb-3'>
-                            <div class='input-group-prepend'>
-                                <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                        <div class='col-md-5 col-sm-12 my-1'>
+                            <div class='form-group-input' style='border: 1px solid #CED4DA;'>
+                                <label class='ml-5 mb-2'>*Observaciones Para el Cliente</label>
+                                <span data-toggle='tooltip' title='max. 300 caracteres'>
+                                    <div class='input-group'>
+                                        <div class='input-group-prepend'>
+                                            <span class='input-group-text'><i class='fa-solid fa-comment'></i></span>
+                                        </div>
+                                        <textarea name='observCliente' id='observCliente' class='form-control' rows='4' placeholder='Agrega alguna breve Observación para nuestro Cliente' readonly>{$observCliente}</textarea>
+                                    </div>
+                                </span>
                             </div>
-                            <input name='codIdentificador' id='codIdentificador' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip'  data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
-                            <label for='floatingInput' class='pl-5'>*Código Identificador</label>
                         </div>
                     </div>
-                    <div class='col-md-2 col-sm-12 mb-2 form-group'>
-                    <div class='input-group'>
-                        <label for='color' class='pl-5 parpadea'>Semana de Cobro</label>
-                        <select name='id_semanaCobro' id='id_semanaCobro' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Semana de la lista' style='width: 100%;' required>
-                            <option selected disabled>Selecciona</option>";
-
-                            while ($rowSemanasCobro = $resultSemanasCobro->fetch_assoc()) {
-                            $id_semanaCobro = $rowSemanasCobro['id_semanaCobro'];
-                            $semanaCobro = $rowSemanasCobro['semanaCobro'];
-                            $output .= " <option value=$id_semanaCobro> $semanaCobro </option>";
-                            }
-                            $output .= "
-                        </select>
+                </div>
+                <div class='col-md-10 col-sm-12 my-1'>
+                    <div class='input-group form-floating mb-3'>
+                        <div class='input-group-prepend'>
+                            <span class='input-group-text mt-2'>
+                                <i class='fa-solid fa-photo-film'></i>
+                            </span>
+                        </div>
+                        <input name='link' id='link' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' data-toggle='tooltip' data-placement='bottom' title='Ingresa Link de Video en Vivo' value='{$link}' readonly>
+                        <label for='floatingInput' class='pl-5'>*Link de Video en Vivo Alta</label>
                     </div>
                 </div>
+                <div class='col-md-10 col-sm-12 my-1'>
+                    <div class='form-group-input' style='border: 1px solid #CED4DA;'>
+                        <label class='ml-5 mb-2'>*Observaciones Prueba de Auditoria Final</label>
+                        <span data-toggle='tooltip' title='max. 300 caracteres'>
+                            <div class='input-group'>
+                                <div class='input-group-prepend'>
+                                    <span class='input-group-text'><i class='fa-solid fa-comment'></i></span>
+                                </div>
+                                <textarea name='observAudiFinal' id='observAudiFinal' class='form-control' rows='2' placeholder='Agrega alguna breve Observación por parte de Auditoria Final' readonly>{$observAudiFinal}</textarea>
+                            </div>
+                        </span>
+                    </div>
                 </div>
-            </div>
-            <div class='col-12'>
+                <br>
+                <div class='col-md-12'>
                 <hr>
-            </div>
-            <div class='col-md-4 col-sm-12 my-1'>
-                <label class='ml-5 mb-2'>Fecha<small> *Llenado en automatico</small></label>
-                <div class='input-group'>
-                    <div class='input-group-prepend'>
-                        <span class='input-group-text'> <i class='fa fa-calendar' aria-hidden='true'></i></span>
+                    <div class='row justify-content-center'>
+                        <div class='col-md-2 col-sm-12 my-2'>
+                            <div class='input-group'>
+                                <label for='color' class='pl-5 parpadea'>Semana de Cobro</label>
+                                <select name='id_semanaCobro' id='id_semanaCobro' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Semana de la lista' style='width: 100%;' required>
+                                    <option selected disabled>Selecciona</option>";
+
+    while ($rowSemanasCobro = $resultSemanasCobro->fetch_assoc()) {
+        $id_semanaCobro = $rowSemanasCobro['id_semanaCobro'];
+        $semanaCobro = $rowSemanasCobro['semanaCobro'];
+        $output .= " <option value=$id_semanaCobro> $semanaCobro </option>";
+    }
+    $output .= "
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                    <input type='text' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Campo en automatico' value='{$dateFront}' disabled readonly>
                 </div>
-            </div>
-            <div class='col-md-4 col-sm-12 my-1'>
-                <label class='ml-5 mb-2'>Capturista<small> *El que registra</small></label>
-                <div class='input-group'>
-                    <div class='input-group-prepend'>
-                        <span class='input-group-text'><i class='fa fa-user-pen' aria-hidden='true'></i></span>
+                <div class='col-md-12 col-sm-12 my-2 py-1' style='border: 2px solid #CED4DA;'>
+                    <div class='row justify-content-center'>
+                        <div class='col-md-3 col-sm-12 my-1'>
+                            <div class='input-group form-floating mb-3'>
+                                <div class='input-group-prepend'>
+                                    <span class='input-group-text parpadea mt-2'>
+                                        <i class='fa-solid fa-money-bill-1-wave '></i>
+                                    </span>
+                                </div>
+                                <input name='valCobProyBase' id='currency1' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                <label for='floatingInput' class='pl-5'>*Valor Cobro Proyecto Base</label>
+                            </div>
+                        </div>
+                        <div class='col-md-6 col-sm-12 my-1'>
+                            <div class='input-group form-floating mb-3'>
+                                <div class='input-group-prepend'>
+                                    <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                                </div>
+                                <input name='codIdProyBase' id='codIdProyBase' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50'   data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                <label for='floatingInput' class='pl-5'>*Código Identificador Valor Cobro Proyecto Base</label>
+                            </div>
+                        </div>
+                        <div class='col-md-3 col-sm-12 '>
+                            <div class='input-group'>
+                                <label for='color' class='pl-5 parpadea'>Forma de Pago Proyecto Base</label>
+                                <select name='id_pagoProyBase' id='id_pagoProyBase' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
+                                    <option selected disabled>Selecciona</option>";
+    while ($rowFormaCobro = $resultFormaCobro1->fetch_assoc()) {
+        $id_formaPago = $rowFormaCobro['id_formaPago'];
+        $formaPago = $rowFormaCobro['formaPago'];
+        $output .= " <option value=$id_formaPago> $formaPago </option>";
+    }
+    $output .= "
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                    <input type='text' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Campo en automatico' value='{$nomComp}' disabled readonly>
+                </div>
+
+                <div class='col-md-12 col-sm-12 my-2 py-1' style='border: 2px solid #CED4DA;'>
+                    <div class='row justify-content-center'>
+                        <div class='col-md-3 col-sm-12 my-1'>
+                            <div class='input-group form-floating mb-3'>
+                                <div class='input-group-prepend'>
+                                    <span class='input-group-text parpadea mt-2'>
+                                        <i class='fa-solid fa-money-bill-1-wave '></i>
+                                    </span>
+                                </div>
+                                <input name='valCobProyExtra' id='currency2' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                <label for='floatingInput' class='pl-5'>Valor Cobro Proyecto Extra</label>
+                            </div>
+                        </div>
+                        <div class='col-md-6 col-sm-12 my-1'>
+                            <div class='input-group form-floating mb-3'>
+                                <div class='input-group-prepend'>
+                                    <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                                </div>
+                                <input name='codIdProyExtra' id='codIdProyExtra' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50'   data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                <label for='floatingInput' class='pl-5'>Código Identificador Proyecto Extra</label>
+                            </div>
+                        </div>
+                        <div class='col-md-3 col-sm-12 '>
+                            <div class='input-group'>
+                                <label for='color' class='pl-5 parpadea'>Forma de Pago Proyecto Extra</label>
+                                <select name='id_pagoProyExtra' id='id_pagoProyExtra' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
+                                    <option selected disabled>Selecciona</option>";
+    while ($rowFormaCobro = $resultFormaCobro2->fetch_assoc()) {
+        $id_formaPago = $rowFormaCobro['id_formaPago'];
+        $formaPago = $rowFormaCobro['formaPago'];
+        $output .= " <option value=$id_formaPago> $formaPago </option>";
+    }
+    $output .= "
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='col-md-12 col-sm-12 my-2 py-1' style='border: 2px solid #CED4DA;'>
+                    <div class='row justify-content-center'>
+                        <div class='col-md-3 col-sm-12 my-1'>
+                            <div class='input-group form-floating mb-3'>
+                                <div class='input-group-prepend'>
+                                    <span class='input-group-text parpadea mt-2'>
+                                        <i class='fa-solid fa-money-bill-1-wave '></i>
+                                    </span>
+                                </div>
+                                <input name='valCobComBan' id='currency3' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                <label for='floatingInput' class='pl-5'>Valor Cobro Comisión Bancaria</label>
+                            </div>
+                        </div>
+                        <div class='col-md-6 col-sm-12 my-1'>
+                            <div class='input-group form-floating mb-3'>
+                                <div class='input-group-prepend'>
+                                    <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                                </div>
+                                <input name='codIdComBan' id='codIdComBan' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50'   data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                <label for='floatingInput' class='pl-5'>Código Identificador Comisión Bancaria</label>
+                            </div>
+                        </div>
+                        <div class='col-md-3 col-sm-12 '>
+                            <div class='input-group'>
+                                <label for='color' class='pl-5 parpadea'>Forma de Pago Comisión Bancaria</label>
+                                <select name='id_pagoComBan' id='id_pagoComBan' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
+                                    <option selected disabled>Selecciona</option>";
+    while ($rowFormaCobro = $resultFormaCobro3->fetch_assoc()) {
+        $id_formaPago = $rowFormaCobro['id_formaPago'];
+        $formaPago = $rowFormaCobro['formaPago'];
+        $output .= " <option value=$id_formaPago> $formaPago </option>";
+    }
+    $output .= "
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='col-md-12 col-sm-12 my-2 py-1' style='border: 2px solid #CED4DA;'>
+                    <div class='row justify-content-center'>
+                        <div class='col-md-3 col-sm-12 my-1'>
+                            <div class='input-group form-floating mb-3'>
+                                <div class='input-group-prepend'>
+                                    <span class='input-group-text parpadea mt-2'>
+                                        <i class='fa-solid fa-money-bill-1-wave '></i>
+                                    </span>
+                                </div>
+                                <input name='valCobPen' id='currency4' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                <label for='floatingInput' class='pl-5'>Valor Cobro Pensión</label>
+                            </div>
+                        </div>
+                        <div class='col-md-6 col-sm-12 my-1'>
+                            <div class='input-group form-floating mb-3'>
+                                <div class='input-group-prepend'>
+                                    <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                                </div>
+                                <input name='codIdPension' id='codIdPension' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50'   data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                <label for='floatingInput' class='pl-5'>Código Identificador Pensión</label>
+                            </div>
+                        </div>
+                        <div class='col-md-3 col-sm-12 '>
+                            <div class='input-group'>
+                                <label for='color' class='pl-5 parpadea'>Forma de Pago Pensión</label>
+                                <select name='id_pagoPension' id='id_pagoPension' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
+                                    <option selected disabled>Selecciona</option>";
+    while ($rowFormaCobro = $resultFormaCobro4->fetch_assoc()) {
+        $id_formaPago = $rowFormaCobro['id_formaPago'];
+        $formaPago = $rowFormaCobro['formaPago'];
+        $output .= " <option value=$id_formaPago> $formaPago </option>";
+    }
+    $output .= "
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='col-md-12 col-sm-12 my-2 py-1' style='border: 2px solid #CED4DA;'>
+                    <div class='row justify-content-center'>
+                        <div class='col-md-3 col-sm-12 my-1'>
+                            <div class='input-group form-floating mb-3'>
+                                <div class='input-group-prepend'>
+                                    <span class='input-group-text parpadea mt-2'>
+                                        <i class='fa-solid fa-money-bill-1-wave '></i>
+                                    </span>
+                                </div>
+                                <input name='valCobOtros' id='currency5' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                <label for='floatingInput' class='pl-5'>Valor Cobro Otros</label>
+                            </div>
+                        </div>
+                        <div class='col-md-6 col-sm-12 my-1'>
+                            <div class='input-group form-floating mb-3'>
+                                <div class='input-group-prepend'>
+                                    <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                                </div>
+                                <input name='codIdOtros' id='codIdOtros' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50'   data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                <label for='floatingInput' class='pl-5'>Código Identificador Otros</label>
+                            </div>
+                        </div>
+                        <div class='col-md-3 col-sm-12 '>
+                            <div class='input-group'>
+                                <label for='color' class='pl-5 parpadea'>Forma de Pago Otros</label>
+                                <select name='id_pagoOtros' id='id_pagoOtros' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
+                                    <option selected disabled>Selecciona</option>";
+    while ($rowFormaCobro = $resultFormaCobro5->fetch_assoc()) {
+        $id_formaPago = $rowFormaCobro['id_formaPago'];
+        $formaPago = $rowFormaCobro['formaPago'];
+        $output .= " <option value=$id_formaPago> $formaPago </option>";
+    }
+    $output .= "
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='col-md-4 col-sm-12 my-1'>
+                    <label class='ml-5 mb-2'>Fecha<small> *Llenado en automatico</small></label>
+                    <div class='input-group'>
+                        <div class='input-group-prepend'>
+                            <span class='input-group-text'> <i class='fa fa-calendar' aria-hidden='true'></i></span>
+                        </div>
+                        <input type='text' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Campo en automatico' value='{$dateFront}' disabled readonly>
+                    </div>
+                </div>
+                <div class='col-md-4 col-sm-12 my-1'>
+                    <label class='ml-5 mb-2'>Capturista<small> *El que registra</small></label>
+                    <div class='input-group'>
+                        <div class='input-group-prepend'>
+                            <span class='input-group-text'><i class='fa fa-user-pen' aria-hidden='true'></i></span>
+                        </div>
+                        <input type='text' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Campo en automatico' value='{$nomComp}' disabled readonly>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
         <div class='card-footer border-footer'>
             <div class='row'>
                 <div class='col-md-2 col-sm-12 align-self-center'>
@@ -353,6 +546,8 @@ if ($respuesta->num_rows  > 0) {
         </div>
     </div>
 </div>
+
+
 ";
     echo $output;
 } else {
@@ -389,14 +584,20 @@ if ($respuesta->num_rows  > 0) {
         });
         $("#currency2").inputmask({
             alias: "currency",
-            prefix: '₱ '
+            prefix: ''
         });
         $("#currency3").inputmask({
-            alias: "pesos"
+            alias: "currency",
+            prefix: ''
         });
+        $("#currency4").inputmask({
+            alias: "currency",
+            prefix: ''
+        });
+        $("#currency5").inputmask({
+            alias: "currency",
+            prefix: ''
+        });
+
     });
 </script>
-
-<!-- <div class='col-md-5 col-sm-12 align-self-center'>
-    <a href='../admin/crudSuperCodiIdentificador.php' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Ir a Tabla Lista de Proyectos'><i class='fa-solid fa-arrow-right'></i> Ir a 2.7 Supervisión de Registro Código Identificador</a>
-</div> -->

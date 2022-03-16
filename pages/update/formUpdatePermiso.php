@@ -554,6 +554,59 @@ require '../components/head-main.php';
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                           <!-- 1.8 Forma de Pago -->
+                                                           <div class="col-12">
+                                                            <div class="card card-secondary card-outline collapsed-card">
+                                                                <div class="card-header">
+                                                                    <h2 class="card-title"><strong>1.8 Forma de Pago</strong></h2>
+                                                                    <div class="card-tools">
+                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                            <i class="fas fa-plus"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">1.8.1 Registro Forma de Pago</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="regFormaPago" id="regFormaPago" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regFormaPago'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">1.8.2 Eliminar Forma de Pago</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliFormaPago" id="eliFormaPago" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliFormaPago'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">1.8.3 Ver Tabla Forma de Pago</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaFormaPago" id="verTablaFormaPago" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaFormaPago'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         <!-- 2.1 Vehículos -->
                                                         <div class="col-12">
                                                             <div class="card card-secondary card-outline collapsed-card">
@@ -942,7 +995,7 @@ require '../components/head-main.php';
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!-- >2.6 Alta Proyecto -->
+                                                        <!-- >2.6 Proyectos con Códio Identificador -->
                                                         <div class="col-12">
                                                             <div class="card card-secondary card-outline collapsed-card">
                                                                 <div class="card-header">
@@ -1012,6 +1065,19 @@ require '../components/head-main.php';
                                                                                         <span class="info-box-text">2.6.5 Ver Tabla Código Identificador</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="verTablaCodIdentificador" id="verTablaCodIdentificador
                                                                                         " data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaCodIdentificador'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">2.6.6 Ver Tabla Proyectos Dados de Alta Por Asignar Código ID</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="vertablaDadosAltaAsignarCodId" id="vertablaDadosAltaAsignarCodId
+                                                                                        " data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['vertablaDadosAltaAsignarCodId'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                 else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>

@@ -573,6 +573,56 @@ $(document).ready(function () {
     })
 });
 
+// regFormaPago 1.8.1 REGISTRO FORMA DE PAGO  --------------------------------------------------------------
+$(document).ready(function () {
+    $("#regFormaPago").click(function () {
+        toastr["error"]("¡No tienes acceso a: 1.8.1 REGISTRO FORMA DE PAGO, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// eliFormaPago 1.8.2 ELIMINAR FORMA DE PAGO  --------------------------------------------------------------
+$(document).ready(function () {
+    $("#eliFormaPago").click(function () {
+        toastr["error"]("¡No tienes acceso a: 1.8.2 ELIMINAR FORMA DE PAGO, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
 // regVehiculo 2.1.1 REGISTRO DE VEHICULOS --------------------------------------------------------------
 $(document).ready(function () {
     $("#regVehiculo ").click(function () {

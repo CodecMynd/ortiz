@@ -41,6 +41,9 @@ $eliSemanaCobro = (!empty($_POST['eliSemanaCobro'])) ? $_POST['eliSemanaCobro'] 
 $verTablaAgente = (!empty($_POST['verTablaAgente'])) ? $_POST['verTablaAgente'] : 0;
 $regAgente = (!empty($_POST['regAgente'])) ? $_POST['regAgente'] : 0;
 $eliAgente = (!empty($_POST['eliAgente'])) ? $_POST['eliAgente'] : 0;
+$regFormaPago = (!empty($_POST['regFormaPago'])) ? $_POST['regFormaPago'] : 0;
+$eliFormaPago = (!empty($_POST['eliFormaPago'])) ? $_POST['eliFormaPago'] : 0;
+$verTablaFormaPago = (!empty($_POST['verTablaFormaPago'])) ? $_POST['verTablaFormaPago'] : 0;
 $regPermiso = (!empty($_POST['regPermiso'])) ? $_POST['regPermiso'] : 0;
 $modPermiso = (!empty($_POST['modPermiso'])) ? $_POST['modPermiso'] : 0;
 $eliPermiso = (!empty($_POST['eliPermiso'])) ? $_POST['eliPermiso'] : 0;
@@ -74,25 +77,26 @@ $eliCodIdentificador = (!empty($_POST['eliCodIdentificador'])) ? $_POST['eliCodI
 $pdfCodIdentificador = (!empty($_POST['pdfCodIdentificador'])) ? $_POST['pdfCodIdentificador'] : 0;
 $verLinkObsIdentificador = (!empty($_POST['verLinkObsIdentificador'])) ? $_POST['verLinkObsIdentificador'] : 0;
 $verTablaCodIdentificador = (!empty($_POST['verTablaCodIdentificador'])) ? $_POST['verTablaCodIdentificador'] : 0;
+$vertablaDadosAltaAsignarCodId = (!empty($_POST['vertablaDadosAltaAsignarCodId'])) ? $_POST['vertablaDadosAltaAsignarCodId'] : 0;
 $regSuperCodIdentificador = (!empty($_POST['regSuperCodIdentificador'])) ? $_POST['regSuperCodIdentificador'] : 0;
 $eliSuperCodIdentificador = (!empty($_POST['eliSuperCodIdentificador'])) ? $_POST['eliSuperCodIdentificador'] : 0;
 $verLinkObsSuperIdentificador = (!empty($_POST['verLinkObsSuperIdentificador'])) ? $_POST['verLinkObsSuperIdentificador'] : 0;
 $verTablaSuperCodIdentificador = (!empty($_POST['verTablaSuperCodIdentificador'])) ? $_POST['verTablaSuperCodIdentificador'] : 0;
 
-$query = "UPDATE permisos SET verTablaUsuario = '$verTablaUsuario', editarUsu = '$editarUsu', asignarCon = '$asignarCon', eliminarUsu = '$eliminarUsu', asignarPer = '$asignarPer', nuevoUsu = '$nuevoUsu', verTablaMarca = '$verTablaMarca', regMarca = '$regMarca', modMarca = '$modMarca', eliminaMar = '$eliminaMar', verTablaModelo = '$verTablaModelo', regModelo = '$regModelo', modModelo = '$modModelo', eliminarMod = '$eliminarMod', verTablaAnio = '$verTablaAnio', regAnios = '$regAnios', modAnios = '$modAnios', eliminarAnio = '$eliminarAnio', regColor = '$regColor', modColor = '$modColor', eliminarCol = '$eliminarCol', verTablaColor = '$verTablaColor', verTablaSemana = '$verTablaSemana', regSemana = '$regSemana', eliSemana = '$eliSemana',  verTablaSemanaCobro = '$verTablaSemanaCobro', regSemanaCobro = '$regSemanaCobro', eliSemanaCobro = '$eliSemanaCobro', verTablaAgente = '$verTablaAgente', regAgente = '$regAgente', eliAgente = '$eliAgente', regPermiso = '$regPermiso', modPermiso = '$modPermiso', eliPermiso = '$eliPermiso', verTablaVeh = '$verTablaVeh', regVehiculo = '$regVehiculo', modVehiculo = '$modVehiculo', eliVehiculo = '$eliVehiculo', verTablaCli = '$verTablaCli', regCliente = '$regCliente', modCliente = '$modCliente', eliCliente = '$eliCliente', regProyecto = '$regProyecto', listProyecto = '$listProyecto', modProyecto = '$modProyecto', eliProyecto = '$eliProyecto', pdfProyecto = '$pdfProyecto', verGralProy = '$verGralProy', verTablaProyAct = '$verTablaProyAct', verTablaRegSolAltProy = '$verTablaRegSolAltProy', regSolAltProy = '$regSolAltProy', pdfRegSolAltProy = '$pdfRegSolAltProy', eliRegSolAltProy = '$eliRegSolAltProy', verObsRegSolAltProy = '$verObsRegSolAltProy', regAlta = '$regAlta', eliAlta = '$eliAlta', pdfAlta = '$pdfAlta', verLinkObsAlta = '$verLinkObsAlta', verTablaAlta = '$verTablaAlta', regCodIdentificador = '$regCodIdentificador', eliCodIdentificador = '$eliCodIdentificador', pdfCodIdentificador = '$pdfCodIdentificador', verLinkObsIdentificador = '$verLinkObsIdentificador', verTablaCodIdentificador = '$verTablaCodIdentificador', regSuperCodIdentificador = '$regSuperCodIdentificador', eliSuperCodIdentificador = '$eliSuperCodIdentificador', verLinkObsSuperIdentificador = '$verLinkObsSuperIdentificador', verTablaSuperCodIdentificador = '$verTablaSuperCodIdentificador' WHERE id_usuario = $id_usuario";
+$query = "UPDATE permisos SET verTablaUsuario = '$verTablaUsuario', editarUsu = '$editarUsu', asignarCon = '$asignarCon', eliminarUsu = '$eliminarUsu', asignarPer = '$asignarPer', nuevoUsu = '$nuevoUsu', verTablaMarca = '$verTablaMarca', regMarca = '$regMarca', modMarca = '$modMarca', eliminaMar = '$eliminaMar', verTablaModelo = '$verTablaModelo', regModelo = '$regModelo', modModelo = '$modModelo', eliminarMod = '$eliminarMod', verTablaAnio = '$verTablaAnio', regAnios = '$regAnios', modAnios = '$modAnios', eliminarAnio = '$eliminarAnio', regColor = '$regColor', modColor = '$modColor', eliminarCol = '$eliminarCol', verTablaColor = '$verTablaColor', verTablaSemana = '$verTablaSemana', regSemana = '$regSemana', eliSemana = '$eliSemana',  verTablaSemanaCobro = '$verTablaSemanaCobro', regSemanaCobro = '$regSemanaCobro', eliSemanaCobro = '$eliSemanaCobro', verTablaAgente = '$verTablaAgente', regAgente = '$regAgente', eliAgente = '$eliAgente', regFormaPago = '$regFormaPago', eliFormaPago = '$eliFormaPago', verTablaFormaPago = '$verTablaFormaPago', regPermiso = '$regPermiso', modPermiso = '$modPermiso', eliPermiso = '$eliPermiso', verTablaVeh = '$verTablaVeh', regVehiculo = '$regVehiculo', modVehiculo = '$modVehiculo', eliVehiculo = '$eliVehiculo', verTablaCli = '$verTablaCli', regCliente = '$regCliente', modCliente = '$modCliente', eliCliente = '$eliCliente', regProyecto = '$regProyecto', listProyecto = '$listProyecto', modProyecto = '$modProyecto', eliProyecto = '$eliProyecto', pdfProyecto = '$pdfProyecto', verGralProy = '$verGralProy', verTablaProyAct = '$verTablaProyAct', verTablaRegSolAltProy = '$verTablaRegSolAltProy', regSolAltProy = '$regSolAltProy', pdfRegSolAltProy = '$pdfRegSolAltProy', eliRegSolAltProy = '$eliRegSolAltProy', verObsRegSolAltProy = '$verObsRegSolAltProy', regAlta = '$regAlta', eliAlta = '$eliAlta', pdfAlta = '$pdfAlta', verLinkObsAlta = '$verLinkObsAlta', verTablaAlta = '$verTablaAlta', regCodIdentificador = '$regCodIdentificador', eliCodIdentificador = '$eliCodIdentificador', pdfCodIdentificador = '$pdfCodIdentificador', verLinkObsIdentificador = '$verLinkObsIdentificador', verTablaCodIdentificador = '$verTablaCodIdentificador', vertablaDadosAltaAsignarCodId = '$vertablaDadosAltaAsignarCodId', regSuperCodIdentificador = '$regSuperCodIdentificador', eliSuperCodIdentificador = '$eliSuperCodIdentificador', verLinkObsSuperIdentificador = '$verLinkObsSuperIdentificador', verTablaSuperCodIdentificador = '$verTablaSuperCodIdentificador' WHERE id_usuario = $id_usuario";
 // var_dump($query);
 
 
- $resultado = mysqli_query($conexion, $query);
- if ($resultado) {
-     echo "<div class='alert alert-success' role='alert'>
-                 <p><strong>¡Los permisos se actualizaron correctamente!</strong></p>
-                 </div>";
- } else {
-     echo "<div class='alert alert-danger' role='role'>
-             <p><strong>¡Error interno: vuelve a intentarlo!</strong></p>
-             </div>";
- }
+  $resultado = mysqli_query($conexion, $query);
+  if ($resultado) {
+      echo "<div class='alert alert-success' role='alert'>
+                  <p><strong>¡Los permisos se actualizaron correctamente!</strong></p>
+                  </div>";
+  } else {
+      echo "<div class='alert alert-danger' role='role'>
+              <p><strong>¡Error interno: vuelve a intentarlo!</strong></p>
+              </div>";
+  }
  desconectar();
  ?>
  <script type="text/javascript">
@@ -105,3 +109,4 @@ $query = "UPDATE permisos SET verTablaUsuario = '$verTablaUsuario', editarUsu = 
           }, 3000);
       });
   </script>
+
