@@ -68,7 +68,8 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio,  R.id_regSolicitud, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.borrado, R.fecha_creacion, Co.color, S.semana, U.nombres, U.aPaterno, U.aMaterno
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio,  R.id_regSolicitud, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.borrado, R.fecha_creacion, Co.color, S.semana, U.nombres, U.aPaterno, U.aMaterno,
+                                    TA.tecArmador, TM1.tecMontador AS TM1, TM2.tecMontador AS TM2, TM3.tecMontador AS TM3, TM4.tecMontador AS TM4
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -79,9 +80,15 @@ require '../components/head-dataTables.php';
                                     INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto
                                     INNER JOIN semanas S ON R.id_semana = S.id_semana
                                     INNER JOIN usuarios U ON R.id_capC = U.id_usuario
+                                    INNER JOIN tecarmadores TA ON R.tecArmador = TA.id_tecArmador
+                                    INNER JOIN tecmontadores TM1 ON R.tecMontador1 = TM1.id_tecMontador
+                                    INNER JOIN tecmontadores TM2 ON R.tecMontador2 = TM2.id_tecMontador
+                                    INNER JOIN tecmontadores TM3 ON R.tecMontador3 = TM3.id_tecMontador
+                                    INNER JOIN tecmontadores TM4 ON R.tecMontador4 = TM4.id_tecMontador
                                     WHERE P.registroSolicitud = 1 AND R.borrado = 0 ORDER BY fecha_creacion DESC";
                                 } else if ($verTablaRegSolAltProy == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio,  R.id_regSolicitud, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.borrado, R.fecha_creacion, Co.color, S.semana, U.nombres, U.aPaterno, U.aMaterno
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio,  R.id_regSolicitud, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.borrado, R.fecha_creacion, Co.color, S.semana, U.nombres, U.aPaterno, U.aMaterno,
+                                    TA.tecArmador, TM1.tecMontador AS TM1, TM2.tecMontador AS TM2, TM3.tecMontador AS TM3, TM4.tecMontador AS TM4
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -92,6 +99,11 @@ require '../components/head-dataTables.php';
                                     INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto
                                     INNER JOIN semanas S ON R.id_semana = S.id_semana
                                     INNER JOIN usuarios U ON R.id_capC = U.id_usuario
+                                    INNER JOIN tecarmadores TA ON R.tecArmador = TA.id_tecArmador
+                                    INNER JOIN tecmontadores TM1 ON R.tecMontador1 = TM1.id_tecMontador
+                                    INNER JOIN tecmontadores TM2 ON R.tecMontador2 = TM2.id_tecMontador
+                                    INNER JOIN tecmontadores TM3 ON R.tecMontador3 = TM3.id_tecMontador
+                                    INNER JOIN tecmontadores TM4 ON R.tecMontador4 = TM4.id_tecMontador
                                     WHERE P.registroSolicitud = 1 AND R.borrado = 0 ORDER BY fecha_creacion DESC";
                                 } else {
                                     $query = "SELECT id_proyecto
@@ -137,6 +149,11 @@ require '../components/head-dataTables.php';
                                                 $id_proyecto = $row['id_proyecto'];
                                                 $capturista = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
                                                 $fecha_creacion = $row['fecha_creacion'];
+                                                $tecArmador = $row['tecArmador']; 
+                                                $TM1 = $row['TM1']; 
+                                                $TM2 = $row['TM2']; 
+                                                $TM3 = $row['TM3']; 
+                                                $TM4 = $row['TM4'];
                                             ?>
                                                 <tr>
                                                     <td>
@@ -157,10 +174,10 @@ require '../components/head-dataTables.php';
                                                         echo $cronometro = $diff->days . " Dia(s), " . $diff->h . ' h. ' . $diff->i . " m. " . $diff->s . ' s.';
                                                         ?>
                                                     </td>
-                                                    <td style="width: 14%">
+                                                    <td style="width: 10%">
                                                         <?php echo $row['folioRegSolicitud'] ?>
                                                     </td>
-                                                    <td style="width: 12%">
+                                                    <td style="width: 10%">
                                                         <?php echo $row['nProyecto']; ?>
                                                     </td>
                                                     <td>
@@ -184,10 +201,10 @@ require '../components/head-dataTables.php';
                                                     <td>
                                                         <?php echo $row['semana'] ?>
                                                     </td>
-                                                    <td>
+                                                    <td style="width: 10%">
                                                         <?php echo $row['valorVenta'] ?>
                                                     </td>
-                                                    <td>
+                                                    <td style="width: 10%">
                                                         <?php echo $row['valorVentaAlta'] ?>
                                                     </td>
                                                     <td>
@@ -345,5 +362,6 @@ require '../components/head-dataTables.php';
         });
     </script>
 </body>
+
 
 </html>

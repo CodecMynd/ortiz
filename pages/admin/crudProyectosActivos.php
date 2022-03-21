@@ -66,7 +66,7 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.proyectoActivo, P.registroSolicitud, P.fecha_creacion, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente, Co.color, U.nombres, U.aPaterno, U.aMaterno
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.fecha_creacion, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente, Co.color, U.nombres, U.aPaterno, U.aMaterno
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN marcas M ON V.id_marca = M.id_marca 
@@ -77,7 +77,7 @@ require '../components/head-dataTables.php';
                                     INNER JOIN usuarios U ON P.id_capC = U.id_usuario
                                     WHERE P.proyectoActivo = 1 AND P.registroSolicitud = 0 ORDER BY nProyecto ASC";
                                 } else if ($verTablaProyAct == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.proyectoActivo, P.registroSolicitud, P.fecha_creacion, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente, Co.color, U.nombres, U.aPaterno, U.aMaterno
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, P.fecha_creacion, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente, Co.color, U.nombres, U.aPaterno, U.aMaterno
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN marcas M ON V.id_marca = M.id_marca 

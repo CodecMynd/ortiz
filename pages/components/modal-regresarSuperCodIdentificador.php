@@ -8,13 +8,12 @@
             </div>
             <div class="modal-body text-center">
                 <strong class="margin-auto__content">
-                    <?php echo $codIdentificador ?>
+                <?php echo $row['codIdProyBase'] ?>
                 </strong>
             </div>
             <!-- <form id="formRegresarSuperCodIdentificador" action="../update/updateRegresarSuperCodIdentificador.php" method="post"> -->
             <form id="formRegresarSuperCodIdentificador">
                 <div class="modal-footer">
-                    <input type="hidden" name="id_regcodidenti" id="id_regcodidenti" value="<?php echo $id_regcodidenti ?>">
                     <input type="hidden" name="id_proyecto" id="id_proyecto" value="<?php echo $row['id_proyecto'] ?>">
                     <button type="submit" id="btnRegresarSuperCodIdentificador" class="btn btn-secondary btn-block"><i class="fa-solid fa-ban"></i> Eliminar</buttom> <br>
                     <button data-dismiss="modal" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Cancelar">Salir</button>

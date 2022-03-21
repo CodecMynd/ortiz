@@ -28,7 +28,7 @@ require '../components/head-dataTables.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-md-10 col-sm-12">
+                        <div class="col-md-12 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
                                     <h3 class="card-title">Proyectos dados de alta en el sistema</h3>
@@ -51,27 +51,33 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.fecha_creacion, V.placa, M.marca, Mo.modelo, A.anio, C.nombres AS nombreCliente, C.aPaternoCliente, C.aMaternoCliente, Co.color, U.nombres, U.aPaterno, U.aMaterno
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, P.fecha_creacion, P.status, P.proyectoActivo, P.registroSolicitud, P.altaProyecto, P.proyCodIdentificador, P.superCodIdentificador,
+                                    V.placa, M.marca, Mo.modelo, A.anio, Co.color,
+                                    -- C.nombres AS nombreCliente, C.aPaternoCliente, C.aMaternoCliente,
+                                    U.nombres, U.aPaterno, U.aMaterno
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co On V.id_color = Co.id_color
                                     INNER JOIN marcas M ON V.id_marca = M.id_marca 
                                     INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
                                     INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
+                                    -- INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
                                     INNER JOIN usuarios U ON P.id_capC = U.id_usuario
-                                    ORDER BY nProyecto ASC";
+                                    ORDER BY nProyecto DESC";
                                 } else if ($listProyecto == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.fecha_creacion, V.placa, M.marca, Mo.modelo, A.anio, C.nombres AS nombreCliente, C.aPaternoCliente, C.aMaternoCliente, Co.color, U.nombres, U.aPaterno, U.aMaterno
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, P.fecha_creacion, P.status, P.proyectoActivo, P.registroSolicitud, P.altaProyecto, P.proyCodIdentificador, P.superCodIdentificador,
+                                    V.placa, M.marca, Mo.modelo, A.anio, Co.color,
+                                    -- C.nombres AS nombreCliente, C.aPaternoCliente, C.aMaternoCliente,
+                                    U.nombres, U.aPaterno, U.aMaterno
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co On V.id_color = Co.id_color
                                     INNER JOIN marcas M ON V.id_marca = M.id_marca 
                                     INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
                                     INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
+                                    -- INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
                                     INNER JOIN usuarios U ON P.id_capC = U.id_usuario
-                                    ORDER BY nProyecto ASC";
+                                    ORDER BY nProyecto DESC";
                                 } else {
                                     $query = "SELECT id_proyecto
                                     FROM proyectos WHERE id_proyecto = 0";
@@ -87,7 +93,7 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tablePermisos" class="table table-sm table-bordered table-striped">
+                                    <table id="tableListaProyectos" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -98,22 +104,27 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
-                                                <th>Cliente</th>
+                                                <th>Status Valor Venta Inicial</th>
+                                                <th>Valor Venta Inicial</th>
+                                                <th>Estado</th>
+                                                <th>Etapa Proyecto</th>
+                                                <!-- <th>Cliente</th> -->
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            while ($row = $resultado->fetch_assoc()) { 
-                                                $capturista = $row['nombres'].' '.$row['aPaterno'].' '.$row['aMaterno'];
-                                                ?>
+                                            while ($row = $resultado->fetch_assoc()) {
+                                                $capturista = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
+                                                $idP = $row['id_proyecto'];
+                                            ?>
                                                 <tr>
                                                     <td>
                                                         <?php $cont++;
                                                         echo $cont;
                                                         ?>
                                                     </td>
-                                                    <td style="width: 11%;">
+                                                    <td style="width: 9%;">
                                                         <?php echo $row['nProyecto']; ?>
                                                     </td>
                                                     <td style="width: 9%;">
@@ -134,14 +145,61 @@ require '../components/head-dataTables.php';
                                                     <td>
                                                         <?php echo $row['color'] ?>
                                                     </td>
-                                                    <td style="width: 20%;">
+                                                    <td class="text-center">
+                                                        <?php
+                                                        $v = $row['valorVenta'];
+                                                        if ($v == 0.00) {
+                                                            echo '<h6><span class="badge badge-danger badge-pill">No modificado 0.00</span></h6>';
+                                                        } else {
+                                                            echo '<h6><span class="badge badge-success badge-pill">Actualizado</span></h6>';
+                                                        }
+                                                        ?>
+
+                                                    </td>
+                                                    <td style="width: 10%;">
+                                                        <?php echo $row['valorVenta'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php 
+                                                        $S = $row['status'];
+                                                        if ($S == 0) {
+                                                            echo '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>';
+                                                        } else {
+                                                            echo '<h6><span class="badge badge-success badge-pill">Activo</span></h6>';
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php 
+                                                        $PA = $row['proyectoActivo'];
+                                                        $RS = $row['registroSolicitud'];
+                                                        $AP = $row['altaProyecto'];
+                                                        $CI = $row['proyCodIdentificador'];
+                                                        $SU = $row['superCodIdentificador'];
+    
+                                                        if($PA == 1) {
+                                                            echo '<h6><span class="badge badge-success badge-pill">Proyecto Activo</span></h6>';
+                                                        }else if($RS == 1) {
+                                                            echo '<h6><span class="badge badge-success badge-pill">Solicitud Alta</span></h6>';
+                                                        }else if($AP == 1) {
+                                                            echo '<h6><span class="badge badge-success badge-pill">Alta Proyecto</span></h6>';
+                                                        }else if($CI == 1) {
+                                                            echo '<h6><span class="badge badge-success badge-pill">Código Identificador</span></h6>';
+                                                        }else if($SU == 1) {
+                                                            echo '<h6><span class="badge badge-success badge-pill">Supervisión</span></h6>';
+                                                        }else{
+                                                            echo '<h6><span class="badge badge-Warning badge-pill">Sin Ubicación</span></h6>';
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <!-- <td style="width: 20%;">
                                                         <?php
                                                         $nombres = $row['nombreCliente'];
                                                         $aPaterno = $row['aPaternoCliente'];
                                                         $aMaterno = $row['aMaternoCliente'];
                                                         echo $nombreComp = $nombres . ' ' . $aPaterno . ' ' . $aMaterno;
                                                         ?>
-                                                    </td>
+                                                    </td> -->
                                                     <td>
                                                         <div class="input-group input-group-sm mb-3">
                                                             <div class="input-group-prepend">
@@ -216,7 +274,7 @@ require '../components/head-dataTables.php';
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>#</th>
+                                            <th>#</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -224,7 +282,11 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
-                                                <th>Cliente</th>
+                                                <th>Status Valor Venta Inicial</th>
+                                                <th class="suma"></th>
+                                                <th>Estado</th>
+                                                <th>Etapa Proyecto</th>
+                                                <!-- <th>Cliente</th> -->
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>

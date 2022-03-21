@@ -1,6 +1,6 @@
 <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.5.3/dist/clipboard.min.js"></script>
 <?php
-$query = "SELECT P.id_proyecto, P.nProyecto, RS.folioRegSolicitud, RS.inspecCalidad, RS.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, Ra.cronometro, LV.link, RC.borrado,
+$query = "SELECT P.id_proyecto, P.nProyecto, RS.folioRegSolicitud, RS.inspecCalidad, RS.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, Ra.cronometro, LV.link, RC.borrado, RC.folioCodID,
 RS.fecha_creacion AS regSolfecha,
 RA.fecha_creacion AS regAltaFecha,
 RC.fecha_creacion AS regCodIdFechas,
@@ -34,7 +34,7 @@ $row = $respuesta->fetch_assoc();
     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Registro con Código Identificador: Código <strong><?php echo $codIdProyBase ?></strong></h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Registro con Código Identificador: Folio <strong><?php echo $row['folioCodID'] ?></strong></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

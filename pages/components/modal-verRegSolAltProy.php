@@ -17,6 +17,65 @@
                 <div class='col-md-12 col-sm-12 my-1'>
                     <div class="card card-secondary card-outline collapsed-card">
                         <div class="card-header">
+                            <h2 class="card-title"><strong>Técnicos: <?php echo $row['folioRegSolicitud'] ?></strong></h2>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class='row justify-content-center'>
+                                <div class='col-md-4 col-sm-12  form-group'>
+                                    <div class='input-group form-floating'>
+                                        <div class='input-group-prepend'>
+                                            <span class='input-group-text'><i class="fa-solid fa-user-gear"></i></span>
+                                        </div>
+                                        <input name='' id='' type='text' class='form-control' value='<?php echo $tecArmador ?>' disabled readonly>
+                                        <label for='floatingInput' class='pl-5 ml-1'>Técnico Armador</label>
+                                    </div>
+                                </div>
+                                <div class='col-md-4 col-sm-12  form-group'>
+                                    <div class='input-group form-floating'>
+                                        <div class='input-group-prepend'>
+                                            <span class='input-group-text'><i class="fa-solid fa-people-carry-box"></i></span>
+                                        </div>
+                                        <input name='' id='' type='text' class='form-control' value='<?php echo $TM1 ?>' disabled readonly>
+                                        <label for='floatingInput' class='pl-5 ml-1'>Técnico Montador 1</label>
+                                    </div>
+                                </div>
+                                <div class='col-md-4 col-sm-12  form-group'>
+                                    <div class='input-group form-floating'>
+                                        <div class='input-group-prepend'>
+                                            <span class='input-group-text'><i class="fa-solid fa-people-carry-box"></i></span>
+                                        </div>
+                                        <input name='' id='' type='text' class='form-control' value='<?php echo $TM2 ?>' disabled readonly>
+                                        <label for='floatingInput' class='pl-5 ml-1'>Técnico Montador 2</label>
+                                    </div>
+                                </div>
+                                <div class='col-md-4 col-sm-12  form-group'>
+                                    <div class='input-group form-floating'>
+                                        <div class='input-group-prepend'>
+                                            <span class='input-group-text'><i class="fa-solid fa-people-carry-box"></i></span>
+                                        </div>
+                                        <input name='' id='' type='text' class='form-control' value='<?php echo $TM3 ?>' disabled readonly>
+                                        <label for='floatingInput' class='pl-5 ml-1'>Técnico Montador 3</label>
+                                    </div>
+                                </div>
+                                <div class='col-md-4 col-sm-12  form-group'>
+                                    <div class='input-group form-floating'>
+                                        <div class='input-group-prepend'>
+                                            <span class='input-group-text'><i class="fa-solid fa-people-carry-box"></i></span>
+                                        </div>
+                                        <input name='' id='' type='text' class='form-control' value='<?php echo $TM4 ?>' disabled readonly>
+                                        <label for='floatingInput' class='pl-5 ml-1'>Técnico Montador 4</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-secondary card-outline collapsed-card">
+                        <div class="card-header">
                             <h2 class="card-title"><strong>Observaciones: <?php echo $row['folioRegSolicitud'] ?></strong></h2>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
@@ -73,7 +132,7 @@
                                             <div class='input-group-prepend'>
                                                 <span class='input-group-text'><i class='fa-solid fa-car-side'></i></span>
                                             </div>
-                                            <input name='' id='modelo' type='text' class='form-control' value='<?php echo $capturista?>' disabled readonly>
+                                            <input name='' id='modelo' type='text' class='form-control' value='<?php echo $capturista ?>' disabled readonly>
                                             <label for='floatingInput' class='pl-5'>Capturista: Registro de Solicitud en espera de alta </label>
                                         </div>
                                     </div>
@@ -89,7 +148,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                                           
+                    </div>
                 </div>
             </div>
         </div>

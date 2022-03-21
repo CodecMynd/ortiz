@@ -26,33 +26,33 @@ $queryS = "SELECT id_semanaCobro, semanaCobro FROM semanascobro  ORDER BY semana
 $resultSemanasCobro = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
 
 // Query Forma de Pago 1
-$queryS = "SELECT id_formaPago, formaPago FROM formapagos  ORDER BY formaPago ASC";
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A' ORDER BY formaPago ASC";
 $resultFormaCobro1 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
 
 // Query Forma de Pago 2
-$queryS = "SELECT id_formaPago, formaPago FROM formapagos  ORDER BY formaPago ASC";
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A' ORDER BY formaPago ASC";
 $resultFormaCobro2 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
 
 // Query Forma de Pago 3
-$queryS = "SELECT id_formaPago, formaPago FROM formapagos  ORDER BY formaPago ASC";
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A'  ORDER BY formaPago ASC";
 $resultFormaCobro3 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
 
 // Query Forma de Pago 4
-$queryS = "SELECT id_formaPago, formaPago FROM formapagos  ORDER BY formaPago ASC";
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A' ORDER BY formaPago ASC";
 $resultFormaCobro4 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
 
 // Query Forma de Pago 5
-$queryS = "SELECT id_formaPago, formaPago FROM formapagos  ORDER BY formaPago ASC";
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A' ORDER BY formaPago ASC";
 $resultFormaCobro5 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
 
 // Query Registro de folio Alta
-$queryP = 'SELECT MAX(id_regAlta) + 1 FROM registroalta';
+$queryP = 'SELECT MAX(id_regcodidenti) + 1 FROM registrocodidentibitacora';
 $result = mysqli_query($conexion,  $queryP);
 $rowA = mysqli_fetch_row($result);
 
-// Prefijo folio
-// $text = "Alta-00";
-// $folioAlta = $text . '' . $rowA[0];
+ //Prefijo folio
+ $text = "CodID-00";
+ $folioCodID = $text . '' . $rowA[0];
 
 
 $marca = $row['marca'];
@@ -149,6 +149,15 @@ if ($respuesta->num_rows  > 0) {
         </div>
         <div class='card-body'>
             <div class='row justify-content-center'>
+                <div class='col-md-3 col-sm-12 my-1'>
+                    <div class='input-group form-floating mb-3'>
+                        <div class='input-group-prepend'>
+                            <span class='input-group-text'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                        </div>
+                        <input name='folioCodID' id='folioCodID' type='text' class='form-control' placeholder='Número de proyecto ' required maxlength='15' data-toggle='tooltip' data-placement='bottom' title='Número de Folio Código Identificador' value='{$folioCodID}' readonly>
+                        <label for='floatingInput' class='pl-5'>*Núm. de Folio Código ID</label>
+                    </div>
+                </div>
                 <div class='col-md-3 col-sm-12 my-1'>
                     <div class='input-group form-floating mb-3'>
                         <div class='input-group-prepend'>

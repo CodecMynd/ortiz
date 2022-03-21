@@ -29,6 +29,7 @@ $valorVenta = $_POST['valorVenta'];
 $diagnostico = $_POST['diagnostico'];
 $descripServ1 = $_POST['descripServ1'];
 $descripServ2 = $_POST['descripServ2'];
+$etapa = 'Creación de nuevo proyecto';
 
 if (
     $id_cliente == '' || $id_vehiculo == ''  || $nProyecto == '' || $tipoReparacion == '' || $km == '' || $valorVenta == '' || $diagnostico == '' || $descripServ1
@@ -45,21 +46,27 @@ if (
 
     // var_dump($query);
     // id que se cargara a tabla nProyectos
-    $id_id_nProyecto = mysqli_insert_id($conexion);
+    $id_proyecto = mysqli_insert_id($conexion);
 
     // Ingresamos id a tabla nProyectos para que continue el contador de Numero de proyecto
-    $queryNp = "INSERT INTO nproyectos(id_proyecto, fecha_creacion, id_capC) VALUES ('$id_id_nProyecto','$date', '$id')";
+    $queryNp = "INSERT INTO nproyectos(id_proyecto, fecha_creacion, id_capC) VALUES ('$id_proyecto','$date', '$id')";
     $resultado2 = mysqli_query($conexion, $queryNp);
     // var_dump($queryNp);
 
-    // Ingresamos id a tabla solicitudAltaProyecto
+    // se agrega en tabla capvalorventas
+    $query = "INSERT INTO capvalorventas(id_proyecto) VALUES ('$id_proyecto')";
+    $resultado = mysqli_query($conexion, $query);
+
+
+    $queryBI = "INSERT INTO bitacora(id_proyecto, etapa, fecha_registro, id_capR) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
+    $resultadoBI = mysqli_query($conexion, $queryBI);
 
     if ($resultado) {
         echo "<div class='alert alert-success' role='alert'>
             <p><strong>Proyecto ingresado correctamente!</strong></p>
         </div>
         <div class='col-md-12 col-sm-12 align-self-center'>
-            <a href='../components/ordenTrabajo.php?id={$id_id_nProyecto}' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Descargar PDF'><i class='fa-solid fa-file-pdf'></i>Descargar PDF</a>
+            <a href='../components/ordenTrabajo.php?id={$id_proyecto}' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Descargar PDF'><i class='fa-solid fa-file-pdf'></i>Descargar PDF</a>
         </div>";
     } else {
         echo "<div class='alert alert-danger' role='role'>

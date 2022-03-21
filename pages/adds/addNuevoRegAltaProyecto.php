@@ -7,9 +7,8 @@ conectar();
 
 ini_set('date.timezone',  'America/Mexico_City');
 $date = date('Y-m-d H:i:s');
-
-
 $id = $_SESSION['id_usuario'];
+
 $id_proyecto = $_POST['id_proyecto'];
 $folioRegAlta = $_POST['folioRegAlta'];
 $link = $_POST['link'];
@@ -23,9 +22,9 @@ $fecha2 = new DateTime($fecha_creacion);
 
 $diff = $fecha1->diff($fecha2);
 
-$cronometro = $diff->days." Dia(s), ". $diff->h . ' h. '.$diff->i." m. ".$diff->s . ' s.';
-
+$cronometro = $diff->days . " Dia(s), " . $diff->h . ' h. ' . $diff->i . " m. " . $diff->s . ' s.';
 $status = 'Activo';
+$etapa = 'Proyecto avanzó a 2.5 Alta Proyecto';
 
 if ($link == '') {
     echo "<div class='alert alert-danger' role='role'>
@@ -50,10 +49,10 @@ if ($link == '') {
     $resultado = mysqli_query($conexion, $query);
     //var_dump($query);
 
-     // Insertamos tabla registroaltabitacora
-     $query = "INSERT INTO registroaltabitacora(folioRegAlta, id_proyecto, id_link, observAudiFinal, cronometro, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', '$cronometro', $borrado, '$status', '$date', '$id')";
-     $resultado = mysqli_query($conexion, $query);
-     //var_dump($query);;
+    // Insertamos tabla registroaltabitacora
+    $query = "INSERT INTO registroaltabitacora(folioRegAlta, id_proyecto, id_link, observAudiFinal, cronometro, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', '$cronometro', $borrado, '$status', '$date', '$id')";
+    $resultado = mysqli_query($conexion, $query);
+    //var_dump($query);;
 
 
     // Ingresamos id a tabla proyectos modificar registros
@@ -61,7 +60,11 @@ if ($link == '') {
     $resultado2 = mysqli_query($conexion, $queryP);
     //var_dump($queryP);
 
-    if ($resultado) {
+    // Bitacora
+    $queryBI = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
+    $resultadoBI = mysqli_query($conexion, $queryBI);
+
+    if ($resultadoBI) {
         echo "<div class='alert alert-success' role='alert'>
               <p><strong>Registro de Alta Proyecto ingresado correctamente!</strong></p>
           </div>
@@ -75,7 +78,7 @@ if ($link == '') {
     }
 }
 
- desconectar();
+desconectar();
 
 ?>
 <script type="text/javascript">

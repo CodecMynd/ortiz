@@ -157,7 +157,7 @@ ob_start();
             border-bottom: .5px solid gray;
             font-size: 13px;
             font-family: sans-serif;
-            padding-bottom: 18px;
+            padding-bottom: 25px;
         }
 
         .firma {
@@ -222,7 +222,11 @@ require '../components/head-main.php';
 $id_proyecto = $_GET['id'];
 // $id_proyecto = 1;
 
-$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, C.color, RS.folioRegSolicitud, RS.valorVentaAlta, RS.inspecCalidad, RS.observCliente, RA.folioRegAlta, RA.observAudiFinal, S.semana, LV.link, RC.fecha_creacion,
+$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, 
+V.placa, M.marca, Mo.modelo, A.anio, C.color,
+RS.folioRegSolicitud, RS.valorVentaAlta, RS.inspecCalidad, RS.observCliente, 
+RA.folioRegAlta, RA.observAudiFinal, S.semana, LV.link,
+RC.fecha_creacion, RC.folioCodID,
 U.nombres AS Unombre, U.aPaterno AS Upaterno, U.aMaterno AS Umaterno, 
 CL.nombres, CL.aPaternoCliente, CL.aMaternoCliente, SC.semanaCobro,
 D.valCobProyBase, D.codIdProyBase, D.valCobProyExtra, D.codIdProyExtra, D.valCobComBan, D.codIdComBan, D.valCobPen, D.codIdPension, D.valCobOtros, D.codIdOtros,
@@ -284,6 +288,7 @@ $valorVentaAlta = $row['valorVentaAlta'];
             <div class="col-md-12">
                 <ul class="float-right py-0">
                     <li>Código Identificador <input type="text" value="<?php echo $row['codIdProyBase'] ?>" style="width:115px"> </li>
+                    <li>Núm. Código Identificador <input type="text" value="<?php echo $row['folioCodID'] ?>" style="width:115px"> </li>
                     <li>Fecha Registro <input type="text" value="<?php echo $row['fecha_creacion'] ?>" style="width:115px;"></li>
                     <li>Núm. Folio Alta <input type="text" value="<?php echo $row['folioRegAlta'] ?>" style="width:115px"> </li>
                     <li>Núm. Folio Solicitud Alta <input type="text" value="<?php echo $row['folioRegSolicitud'] ?>" style="width:115px"> </li>
@@ -353,24 +358,24 @@ $valorVentaAlta = $row['valorVentaAlta'];
                 <table class="table table-sm">
                     <tbody>
                         <tr>
+                            <td>Núm. Folio Código ID</td>
                             <td>Núm. Folio Alta</td>
                             <td>Núm. Folio Solicitud Alta</td>
                             <td>Núm Proyecto</td>
-                            <td>Núm. de Orden</td>
-                            <td>Tipo Reparación</td>
                         </tr>
                         <tr>
+                            <td><input type="text" class="inputRespM" value="<?php echo $row['folioCodID'] ?>"></td>
                             <td><input type="text" class="inputRespA" value="<?php echo $row['folioRegAlta'] ?>"></td>
                             <td><input type="text" class="inputRespM" value="<?php echo $row['folioRegSolicitud'] ?>"></td>
-                            <td><input type="text" class="inputRespC" value="<?php echo $row['nProyecto'] ?>"></td>
-                            <td><input type="text" class="inputRespA" value="<?php echo $row['nOrden'] ?>"></td>
-                            <td><input type="text" class="inputRespC" value="<?php echo $row['tipoReparacion'] ?>"></td>
+                            <td><input type="text" class="inputRespA" value="<?php echo $row['nProyecto'] ?>"></td>
                         </tr>
                     </tbody>
                 </table>
                 <table>
                     <tbody>
                         <tr>
+                            <td>Núm. de Orden</td>
+                            <td>Tipo Reparación</td>
                             <td>Kilometraje</td>
                             <td>Semana de Alta</td>
                             <td>Semana Cobro</td>
@@ -378,6 +383,8 @@ $valorVentaAlta = $row['valorVentaAlta'];
                             <!-- <td>Valor Venta Alta</td> --> -->
                         </tr>
                         <tr>
+                            <td><input type="text" class="inputRespA" value="<?php echo $row['nOrden'] ?>"></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $row['tipoReparacion'] ?>"></td>
                             <td><input type="text" class="inputRespC" value="<?php echo $row['km'] ?>"></td>
                             <td><input type="text" class="inputRespC" value="<?php echo $row['semana'] ?>"></td>
                             <td><input type="text" class="inputRespC" value="<?php echo $row['semanaCobro'] ?>"></td>
@@ -409,14 +416,15 @@ $valorVentaAlta = $row['valorVentaAlta'];
                         </tr>
                     </tbody>
                 </table>
-                <br><br><br><br>
-                <img src="../../src/img/logos/footer.png" width="108%" />
                 <br><br><br>
+                <img src="../../src/img/logos/footer.png" width="108%" />
+                <br>
                 <div class="lineaHeader"><img src="../../src/img/logos/headerSolicitudAltaLinea.png" /></div>
                 <div class="container-fluid" style="width:107%">
                     <div class="col-md-12">
                         <ul class="float-right py-0">
                             <li>Código Identificador <input type="text" value="<?php echo $row['codIdProyBase'] ?>" style="width:115px"> </li>
+                            <li>Núm. Código Identificador <input type="text" value="<?php echo $row['folioCodID'] ?>" style="width:115px"> </li>
                             <li>Fecha Registro <input type="text" value="<?php echo $row['fecha_creacion'] ?>" style="width:115px;"></li>
                             <li>Núm. Folio Alta <input type="text" value="<?php echo $row['folioRegAlta'] ?>" style="width:115px"> </li>
                             <li>Núm. Folio Solicitud Alta <input type="text" value="<?php echo $row['folioRegSolicitud'] ?>" style="width:115px"> </li>
@@ -491,7 +499,7 @@ $valorVentaAlta = $row['valorVentaAlta'];
         <span class="capturista"><?php echo $nomComp . '-' . $row['fecha_creacion'] ?></span>
     </div>
     <footer class="capturista">
-    <img src="../../src/img/logos/footer.png" width="100%" />
+        <img src="../../src/img/logos/footer.png" width="100%" />
     </footer>
 </body>
 

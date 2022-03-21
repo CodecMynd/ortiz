@@ -44,7 +44,7 @@ if ($id_marca == '' || $modelo == '') {
         }
     }
 
-
+}
 
 desconectar();
 ?>

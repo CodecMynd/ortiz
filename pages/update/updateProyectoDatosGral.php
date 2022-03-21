@@ -23,13 +23,12 @@ $nOrden = $_POST['nOrden'];
 $nProyecto = $_POST['nProyecto'];
 $tipoReparacion = $_POST['tipoReparacion'];
 $km = $_POST['km'];
-$valorVenta = $_POST['valorVenta'];
 $diagnostico = $_POST['diagnostico'];
 $descripServ1 = $_POST['descripServ1'];
 $descripServ2 = $_POST['descripServ2'];
 
 if (
-    $nProyecto == '' || $tipoReparacion == '' || $km == '' || $valorVenta == '' || $diagnostico == '' || $descripServ1
+    $nProyecto == '' || $tipoReparacion == '' || $km == '' || $diagnostico == '' || $descripServ1
     == ''
 ) {
     echo "<div class='alert alert-danger' role='role'>
@@ -38,7 +37,7 @@ if (
     exit;
 } else {
     // Insertamos tabla proyectos
-    $query = "UPDATE proyectos SET nOrden = '$nOrden', nProyecto = '$nProyecto', tipoReparacion = '$tipoReparacion', km = '$km', valorVenta = '$valorVenta', diagnostico = '$diagnostico', descripServ1 = '$descripServ1',descripServ2 = '$descripServ2', fecha = '$date', fecha_mod = '$date', id_capM = $id WHERE id_proyecto = $id_proyecto ";
+    $query = "UPDATE proyectos SET nOrden = '$nOrden', nProyecto = '$nProyecto', tipoReparacion = '$tipoReparacion', km = '$km', diagnostico = '$diagnostico', descripServ1 = '$descripServ1',descripServ2 = '$descripServ2',fecha_mod = '$date', id_capM = $id WHERE id_proyecto = $id_proyecto ";
     $resultado = mysqli_query($conexion, $query);
     // var_dump($query);
 }

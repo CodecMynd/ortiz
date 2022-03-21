@@ -15,6 +15,10 @@ if(validarLogin($usuario, $pass)){
     $query = ("UPDATE usuarios SET estatus = '$estatus', ultima_conexion = '$date' WHERE id_usuario = $id");
     $result = mysqli_query($conexion, $query);
 
+    //Tabla acceso
+    $query = ("INSERT INTO acceso(id_usuario, fecha_acceso) VALUES ('$id','$date')");
+    $result = mysqli_query($conexion, $query);
+
     //acedemos al sistemas
     if(esAdmin())
     header('Location: ../pages/admin/panelAdmin.php');

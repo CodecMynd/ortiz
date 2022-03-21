@@ -21,6 +21,27 @@ $row  = $respuesta->fetch_assoc();
 $queryS = "SELECT id_semana, semana FROM semanas  ORDER BY semana ASC";
 $resultSemanas = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
 
+// Query Tecnico Armador
+$queryTA = "SELECT id_tecArmador, tecArmador FROM tecarmadores  ORDER BY tecArmador ASC";
+$resultTecArmador = mysqli_query($conexion, $queryTA) or die(mysqli_error($conexion));
+
+// Query Tecnico Montador 1
+$queryTM1 = "SELECT id_tecMontador, tecMontador FROM tecmontadores  ORDER BY tecMontador ASC";
+$resultTM1 = mysqli_query($conexion, $queryTM1) or die(mysqli_error($conexion));
+
+// Query Tecnico Montador 2
+$queryTM2 = "SELECT id_tecMontador, tecMontador FROM tecmontadores  ORDER BY tecMontador ASC";
+$resultTM2 = mysqli_query($conexion, $queryTM2) or die(mysqli_error($conexion));
+
+// Query Tecnico Montador 3
+$queryTM3 = "SELECT id_tecMontador, tecMontador FROM tecmontadores  ORDER BY tecMontador ASC";
+$resultTM3 = mysqli_query($conexion, $queryTM3) or die(mysqli_error($conexion));
+
+// Query Tecnico Montador 4
+$queryTM4 = "SELECT id_tecMontador, tecMontador FROM tecmontadores  ORDER BY tecMontador ASC";
+$resultTM4 = mysqli_query($conexion, $queryTM4) or die(mysqli_error($conexion));
+
+
 // Query Registro de folio registrosolicitud
 $queryP = 'SELECT MAX(id_regSolicitud) + 1 FROM registrosolicitudbitacora';
 $result = mysqli_query($conexion,  $queryP);
@@ -49,7 +70,7 @@ $valorVenta = $row['valorVenta'];
 if ($respuesta->num_rows  > 0) {
     $output = '';
     $output .= "
-    <div class='row justify-content-center'>
+<div class='row justify-content-center'>
     <div class='col-md-12 col-sm-12 my-4'>
         <div class='card card-secondary card-outline' style='height: 90%;'>
             <div class='card-header'>
@@ -238,7 +259,86 @@ if ($respuesta->num_rows  > 0) {
                         </div>
                     </div>
                 </div>
-                                    
+                <div class='col-md-12 col-sm-12 my-2 py-1' style='border: 2px solid #CED4DA;'>
+                    <div class='row justify-content-center'>
+                        <div class='col-md-4 col-sm-12 mb-2 form-group'>
+                            <div class='input-group'>
+                                <label for='color' class='pl-5 parpadea'>*Técnico Armador <small>(requerido)</small></label>
+                                <select name='tecArmador' id='tecArmador' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Semana de la lista' style='width: 100%;' required>
+                                    <option selected disabled>Selecciona</option>";
+
+                                    while ($rowTA = $resultTecArmador->fetch_assoc()) {
+                                    $id_tecArmador = $rowTA['id_tecArmador'];
+                                    $tecArmador = $rowTA['tecArmador'];
+                                    $output .= " <option value=$id_tecArmador> $tecArmador </option>";
+                                    }
+                                    $output .= "
+                                </select>
+                            </div>
+                        </div>
+                        <div class='col-md-4 col-sm-12 mb-2 form-group'>
+                            <div class='input-group'>
+                                <label for='color' class='pl-5 parpadea'>*Técnico Montador 1 <small>(requerido)</small></label>
+                                <select name='tecMontador1' id='tecMontador1' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Semana de la lista' style='width: 100%;' required>
+                                    <option selected disabled>Selecciona</option>";
+
+                                    while ($rowTM1 = $resultTM1->fetch_assoc()) {
+                                    $id_tecMontador = $rowTM1['id_tecMontador'];
+                                    $tecMontador = $rowTM1['tecMontador'];
+                                    $output .= " <option value=$id_tecMontador> $tecMontador </option>";
+                                    }
+                                    $output .= "
+                                </select>
+                            </div>
+                        </div>
+                            <div class='col-md-4 col-sm-12 mb-2 form-group'>
+                            <div class='input-group'>
+                                <label for='color' class='pl-5 '>Técnico Montador 2</label>
+                                <select name='tecMontador2' id='tecMontador2' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Semana de la lista' style='width: 100%;' required>
+                                    <option selected disabled>Selecciona</option>";
+                                
+                                    while ($rowTM2 = $resultTM2->fetch_assoc()) {
+                                    $id_tecMontador = $rowTM2['id_tecMontador'];
+                                    $tecMontador = $rowTM2['tecMontador'];
+                                    $output .= " <option value=$id_tecMontador> $tecMontador </option>";
+                                    }
+                                    $output .= "
+                                </select>
+                            </div>
+                        </div>
+                        <div class='col-md-4 col-sm-12 mb-2 form-group'>
+                            <div class='input-group'>
+                                <label for='color' class='pl-5'>Técnico Montador 3</label>
+                                <select name='tecMontador3' id='tecMontador3' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Semana de la lista' style='width: 100%;' required>
+                                    <option selected disabled>Selecciona</option>";
+
+                                    while ($rowTM3 = $resultTM3->fetch_assoc()) {
+                                    $id_tecMontador = $rowTM3['id_tecMontador'];
+                                    $tecMontador = $rowTM3['tecMontador'];
+                                    $output .= " <option value=$id_tecMontador> $tecMontador </option>";
+                                    }
+                                    $output .= "
+                                </select>
+                            </div>
+                        </div>
+                        <div class='col-md-4 col-sm-12 mb-2 form-group'>
+                            <div class='input-group'>
+                                <label for='color' class='pl-5'>Técnico Montador 4</label>
+                                <select name='tecMontador4' id='tecMontador4' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Semana de la lista' style='width: 100%;' required>
+                                    <option selected disabled>Selecciona</option>";
+
+                                    while ($rowTM4 = $resultTM4->fetch_assoc()) {
+                                    $id_tecMontador = $rowTM4['id_tecMontador'];
+                                    $tecMontador = $rowTM4['tecMontador'];
+                                    $output .= " <option value=$id_tecMontador> $tecMontador </option>";
+                                    }
+                                    $output .= "
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+
                 <div class='col-12'>
                     <hr>
                 </div>
@@ -272,7 +372,7 @@ if ($respuesta->num_rows  > 0) {
                     <a href='javascript:history.go(-1)' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Regresar página anterior'><i class='fa-solid fa-arrow-left'></i>
                         Regresar</a>
                 </div>
-  
+
                 <a href='javascript:location.reload()' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Actualizar página'><i class='fa-solid fa-arrows-rotate'></i></a>
                 <br>
                 <div class='col-md-12 col-sm-12 align-self-center mt-2'>
@@ -282,6 +382,7 @@ if ($respuesta->num_rows  > 0) {
         </div>
     </div>
 </div>
+    
 ";
     echo $output;
 } else {

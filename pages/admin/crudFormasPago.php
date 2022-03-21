@@ -54,9 +54,9 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1) {
-                                    $query = "SELECT * FROM formapagos WHERE id_formaPago <> 0 ORDER BY id_formaPago ASC";
+                                    $query = "SELECT * FROM formapagos WHERE formaPago <> 'N/A' ORDER BY id_formaPago ASC";
                                 } else if ($verTablaAgente == 1) {
-                                    $query = "SELECT * FROM formapagos WHERE id_formaPago <> 0 ORDER BY id_formaPago ASC";
+                                    $query = "SELECT * FROM formapagos WHERE formaPago <> 'N/A' ORDER BY id_formaPago ASC";
                                 } else {
                                     $query = "SELECT * FROM formapagos WHERE formaPago = 0";
                                 }

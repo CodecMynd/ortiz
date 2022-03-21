@@ -92,6 +92,10 @@ while ($row = mysqli_fetch_array($query)) {
     $eliProyecto = $row['eliProyecto'];
     $pdfProyecto = $row['pdfProyecto'];
     $verGralProy = $row['verGralProy'];
+    $regCapValVenInicial = $row['regCapValVenInicial'];
+    $perRegCapValVenInicial = $row['perRegCapValVenInicial'];
+    $verGralCapValVenInicial = $row['verGralCapValVenInicial'];
+    $verTablaCapValVenInicial = $row['verTablaCapValVenInicial'];
     $verTablaProyAct = $row['verTablaProyAct'];
     $verTablaRegSolAltProy = $row['verTablaRegSolAltProy'];
     $regSolAltProy = $row['regSolAltProy'];
@@ -109,10 +113,19 @@ while ($row = mysqli_fetch_array($query)) {
     $verLinkObsIdentificador = $row['verLinkObsIdentificador'];
     $verTablaCodIdentificador = $row['verTablaCodIdentificador'];
     $vertablaDadosAltaAsignarCodId = $row['vertablaDadosAltaAsignarCodId'];
+    $verGralDadosAltaAsignarCodId = $row['verGralDadosAltaAsignarCodId'];
     $regSuperCodIdentificador = $row['regSuperCodIdentificador'];
     $eliSuperCodIdentificador = $row['eliSuperCodIdentificador'];
     $verLinkObsSuperIdentificador = $row['verLinkObsSuperIdentificador'];
     $verTablaSuperCodIdentificador = $row['verTablaSuperCodIdentificador'];
+    $verTablaTecArmador = $row['verTablaTecArmador'];
+    $regTecArmador = $row['regTecArmador'];
+    $modTecArmador = $row['modTecArmador'];
+    $eliTecArmador = $row['eliTecArmador'];
+    $verTablaTecMontador = $row['verTablaTecMontador'];
+    $regTecMontador = $row['regTecMontador'];
+    $modTecMontador = $row['modTecMontador'];
+    $eliTecMontador = $row['eliTecMontador'];
 }
 
 // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------

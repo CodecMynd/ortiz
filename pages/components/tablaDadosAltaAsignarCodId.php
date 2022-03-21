@@ -2,7 +2,7 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>Tabla Proyectos Dados de Alta Por Asignar Código ID | <?php echo $nomComp ?></title>
+<title>Tabla Reporte de Altas Por Asignar Código ID | <?php echo $nomComp ?></title>
 <style>
     @media (min-width:320px) and (max-width:425px) {
         .content-header {
@@ -31,7 +31,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-8">
-                            <h1 class="m-0">Tabla 2.6.6 Proyectos Dados de Alta Por Asignar Código ID</h1>
+                            <h1 class="m-0">Tabla 2.6.6 Reporte de Altas Por Asignar Código ID</h1>
                         </div>
                         <div class="col-sm-4 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -55,7 +55,7 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.altaProyecto, V.placa, M.marca, Mo.modelo, A.anio, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, LV.link, Co.color
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.altaProyecto, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.fecha_creacion AS regSolFecha_creacion, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, LV.link, RA.fecha_creacion AS regAltaFecha_creacion, Co.color, S.semana, U.nombres AS regAltaNombre, U.aPaterno AS regAltaPaterno, U.aMaterno AS regAltaMaterno, Us.nombres AS regSolNombres, Us.aPaterno AS regSolPaterno, Us.aMaterno AS regSolMaterno
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -65,10 +65,13 @@ require '../components/head-dataTables.php';
                                     INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
                                     INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto 
                                     INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
+                                    INNER JOIN semanas S ON R.id_semana = S.id_semana
                                     INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
+                                    INNER JOIN usuarios U ON RA.id_capC = U.id_usuario
+                                    INNER JOIN usuarios Us ON R.id_capC = Us.id_usuario
                                     WHERE altaProyecto = 1 ORDER BY nProyecto ASC";
                                 } else if ($vertablaDadosAltaAsignarCodId == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.altaProyecto, V.placa, M.marca, Mo.modelo, A.anio, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, LV.link, Co.color
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.altaProyecto, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.fecha_creacion AS regSolFecha_creacion, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, LV.link, RA.fecha_creacion AS regAltaFecha_creacion, Co.color, S.semana, U.nombres AS regAltaNombre, U.aPaterno AS regAltaPaterno, U.aMaterno AS regAltaMaterno, Us.nombres AS regSolNombres, Us.aPaterno AS regSolPaterno, Us.aMaterno AS regSolMaterno
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -78,7 +81,10 @@ require '../components/head-dataTables.php';
                                     INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
                                     INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto 
                                     INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
+                                    INNER JOIN semanas S ON R.id_semana = S.id_semana
                                     INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
+                                    INNER JOIN usuarios U ON RA.id_capC = U.id_usuario
+                                    INNER JOIN usuarios Us ON R.id_capC = Us.id_usuario
                                     WHERE altaProyecto = 1 ORDER BY nProyecto ASC";
                                 } else {
                                     $query = "SELECT id_proyecto
@@ -87,7 +93,7 @@ require '../components/head-dataTables.php';
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
                                 <div class="card-body">
-                                <?php
+                                    <?php
                                     if ($super == 1) {
                                     } else if ($vertablaDadosAltaAsignarCodId == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
@@ -95,12 +101,11 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tableDadosAltaAsignarCodId" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                    <table id="tableAltaProy" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Núm. Folio de Alta</th>
-                                                <th>Núm. Folio Solicitud Alta</th>
+                                                <th>Cronometro Respuesta a solicitud de Alta</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -108,7 +113,10 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
+                                                <th>Semana de Alta</th>
+                                                <th>Valor Venta Inicial</th>
                                                 <th>Valor Venta Alta</th>
+                                                <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -117,6 +125,10 @@ require '../components/head-dataTables.php';
                                                 $idP = $row['id_proyecto'];
                                                 $folioRegAlta = $row['folioRegAlta'];
                                                 $id_regAlta = $row['id_regAlta'];
+                                                $regAltaCapturista = $row['regAltaNombre']. ' '.$row['regAltaPaterno'].' '.$row['regAltaMaterno'];
+                                                $regAltaFecha_creacion = $row['regAltaFecha_creacion'];
+                                                $regSolCapturista = $row['regSolNombres']. ' '.$row['regSolPaterno'].' '.$row['regSolMaterno'];
+                                                $regSolFecha_creacion = $row['regSolFecha_creacion'];
                                             ?>
                                                 <tr>
                                                     <td>
@@ -124,11 +136,8 @@ require '../components/head-dataTables.php';
                                                         echo $cont;
                                                         ?>
                                                     </td>
-                                                    <td>
-                                                        <?php echo $row['folioRegAlta'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['folioRegSolicitud'] ?>
+                                                    <td style="width: 10%;">
+                                                        <?php echo $row['cronometro'] ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $row['nProyecto']; ?>
@@ -152,9 +161,43 @@ require '../components/head-dataTables.php';
                                                         <?php echo $row['color'] ?>
                                                     </td>
                                                     <td>
+                                                        <?php echo $row['semana'] ?>
+                                                    </td>
+                                                    <td style="width:12%">
+                                                        <?php echo $row['valorVenta'] ?>
+                                                    </td>
+                                                    <td style="width:12%">
                                                         <?php echo $row['valorVentaAlta'] ?>
                                                     </td>
+                                                    <td>
+                                                        <div class="input-group input-group-sm mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Marcas"> Acciones</span>
+                                                                </button>
+                                                                <ul class="dropdown-menu" style="min-width: 2em">
+                                                                    <div class="btn-group">                                                            
+                                                                        <li class="dropdown-item">
+                                                                            <span data-toggle="tooltip" title="2.6.6.1 Ver Link de Video, Observaciones y Generales">
+                                                                                <?php if ($super == 1) { ?>
+                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target=".verGralDadosAltaAsignarCodId-<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></button>
+                                                                                <?php  } else if ($verGralDadosAltaAsignarCodId == 1) { ?>
+                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".verGralDadosAltaAsignarCodId-<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></a>
+                                                                                <?php } else { ?>
+                                                                                    <a class="btn btn-outline-danger" id="verGralDadosAltaAsignarCodId"><i class="fa-solid fa-comments"></i>
+                                                                                    </a>
+                                                                                <?php } ?>
+                                                                            </span>
+                                                                        </li>
+                                                                    </div>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
                                                 </tr>
+                                                <?php
+                                                require '../components/modal-regresarAltaProyecto.php';
+                                                require '../components/modal-verGralDadosAltaAsignarCodId.php';
+                                                ?>
                                             <?php
                                             }
                                             desconectar();
@@ -163,8 +206,7 @@ require '../components/head-dataTables.php';
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Núm. Folio de Alta</th>
-                                                <th>Núm. folio Solicitud Alta</th>
+                                                <th>Cronometro Respuesta a solicitud de Alta</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -172,7 +214,10 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
+                                                <th>Semana de Alta</th>
                                                 <th class="suma"></th>
+                                                <th class="suma"></th>
+                                                <th>Acciones</th>
                                             </tr>
                                         </tfoot>
                                     </table>

@@ -174,7 +174,7 @@ require '../components/head-dataTables.php';
                                                                         <i class="fa-solid fa-money-bill-1-wave"></i>
                                                                     </span>
                                                                 </div>
-                                                                <input name="valorVenta" id="currency1" type="text" class="form-control" placeholder="Kilometraje" required maxlength="12" data-toggle="tooltip" data-placement="bottom" title="Ingresa valor venta">
+                                                                <input name="valorVenta" id="valorVenta" type="text" class="form-control" placeholder="Kilometraje" data-toggle="tooltip" data-placement="bottom" title="Ingresa Valor en módulo 2.3.6 Captura Valor Venta Inicial" value="0.00" readonly>
                                                                 <label for="floatingInput" class="pl-5">*Valor venta Inicial </label>
                                                             </div>
                                                         </div>

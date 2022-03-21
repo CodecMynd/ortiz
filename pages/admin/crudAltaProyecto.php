@@ -251,7 +251,6 @@ require '../components/head-dataTables.php';
                     </div>
                 </div>
             </section>
-<div id="respuestaRegresarAltaProyecto"></div>
             <!-- /table usuario -->
         </div>
         <?php

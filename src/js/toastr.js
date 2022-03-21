@@ -623,6 +623,156 @@ $(document).ready(function () {
     })
 });
 
+// regTecArmador 1.9.1.1 REGISTRAR TECNICO ARMADOR --------------------------------------------------------------
+$(document).ready(function () {
+    $("#regTecArmador ").click(function () {
+        toastr["error"]("¡No tienes acceso a: 1.9.1.1 REGISTRAR TECNICO ARMADOR, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// modTecArmador 1.9.1.2 MODIFICAR TECNICO ARMADOR --------------------------------------------------------------
+$(document).ready(function () {
+    $("#modTecArmador ").click(function () {
+        toastr["error"]("¡No tienes acceso a: 1.9.1.2 MODIFICAR TECNICO ARMADOR, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// eliTecArmador 1.9.1.3 ELIMINAR TECNICO ARMADOR --------------------------------------------------------------
+$(document).ready(function () {
+    $("#eliTecArmador ").click(function () {
+        toastr["error"]("¡No tienes acceso a: 1.9.1.3 ELIMINAR TECNICO ARMADOR, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// regTecMontador 1.9.2.1 REGISTRAR TECNICO MONTADOR --------------------------------------------------------------
+$(document).ready(function () {
+    $("#regTecMontador ").click(function () {
+        toastr["error"]("¡No tienes acceso a: 1.9.2.1 REGISTRAR TECNICO MONTADOR, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// modTecMontador 1.9.2.2 MODIFICAR TECNICO MONTADOR --------------------------------------------------------------
+$(document).ready(function () {
+    $("#modTecMontador ").click(function () {
+        toastr["error"]("¡No tienes acceso a: 1.9.2.2 MODIFICAR TECNICO MONTADOR, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// eliTecMontador 1.9.2.3 ELIMINAR TECNICO MONTADOR --------------------------------------------------------------
+$(document).ready(function () {
+    $("#eliTecMontador ").click(function () {
+        toastr["error"]("¡No tienes acceso a: 1.9.2.3 ELIMINAR TECNICO MONTADOR, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
 // regVehiculo 2.1.1 REGISTRO DE VEHICULOS --------------------------------------------------------------
 $(document).ready(function () {
     $("#regVehiculo ").click(function () {
@@ -923,6 +1073,56 @@ $(document).ready(function () {
     })
 });
 
+// verTablaCapValVenInicial 2.3.7 TABLA CAPTURA VALOR VENTA INICIAL --------------------------------------------------------------
+$(document).ready(function () {
+    $("#verTablaCapValVenInicial ").click(function () {
+        toastr["error"]("¡No tienes acceso a: 2.3.7 TABLA CAPTURA VALOR VENTA INICIAL, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// regCapValVenInicial 2.3.7 TABLA CAPTURA VALOR VENTA INICIAL --------------------------------------------------------------
+$(document).ready(function () {
+    $("#regCapValVenInicial ").click(function () {
+        toastr["error"]("¡No tienes acceso a: 2.3.7.1 CAPTURA VALOR VENTA INICIAL, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
 // regSolAltProy  2.4.2 REGISTRO DE SOLICITUD ALTA DE PROYECTO --------------------------------------------------------------
 $(document).ready(function () {
     $("#regSolAltProy").click(function () {
@@ -952,6 +1152,31 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#pdfRegSolAltProy").click(function () {
         toastr["error"]("¡No tienes acceso a: 2.4.3 DESCARGAR PDF REGISTRO DE SOLICITUD ALTA PROYECTO, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// verGralDadosAltaAsignarCodId 2.6.6.1 Ver Link de Video, Observaciones y Generales --------------------------------------------------------------
+$(document).ready(function () {
+    $("#verGralDadosAltaAsignarCodId").click(function () {
+        toastr["error"]("¡No tienes acceso a: 2.4.3 VER GENERALES, consulta al administrador!")
 
         tostadas.opciones = {
             "botóncerrar": falso,

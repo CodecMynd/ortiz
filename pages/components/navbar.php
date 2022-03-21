@@ -3,10 +3,10 @@
         <a href="../admin/panelAdmin.php" class="navbar-brand">
             <img src="../../src/img/logos/logo.png" alt="JSOL Automotriz Logo" class="brand-image  elevation-5" style="opacity: .8; height:4rem">
             <!-- Produccion -->
-            <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span> </a> 
+            <!-- <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span> </a>  -->
 
             <!-- test -->
-            <!-- <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span>  -->
+            <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span> 
         </a>
 
         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,11 +61,18 @@
                         </li>
                         <li><a href="../admin/crudAgentes.php" class="dropdown-item">1.7 Agentes</a></li>
                         <li><a href="../admin/crudFormasPago.php" class="dropdown-item">1.8 Formas de Pago</a></li>
+                        <li class="dropdown-submenu dropdown-hover">
+                            <a id="dropdownSubMenu1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">1.9 Técnicos</a>
+                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                <li><a href="../admin/crudTecArmador.php" class="dropdown-item">1.9.1 Técnico Armador</a></li>
+                                <li><a href="../admin/crudTecMontador.php" class="dropdown-item">1.9.2 Técnico Montador</a></li>
+                            </ul>
+                        </li>
 
-<!-- 
-                        <?php if ($super == 1) { ?>
+
+                        <!-- <?php if ($super == 1) { ?>
                             <li><a href="../admin/crudPermisos.php" class="dropdown-item">1.8 Permisos </a></li>
-                        <?php  } ?> -->
+                        <?php  } ?>  -->
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -83,7 +90,8 @@
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                                 <li><a href="../adds/formProyectos.php" class="dropdown-item">2.3.1 Registro de Proyecto </a></li>
                                 <li><a href="../admin/crudProyectos.php" class="dropdown-item">2.3.2 Lista de Proyectos</a></li>
-                                <li><a href="../update/formUpdateAsignarAgentes.php" class="dropdown-item disabled">2.3.6 Orden de Asignacion de Agentes Servicio </a></li>
+                                <li><a href="../adds/formAddCapValVenInicial.php" class="dropdown-item">2.3.7 Captura de Valor Venta Inicial  </a></li>
+                                <li><a href="../update/formUpdateAsignarAgentes.php" class="dropdown-item disabled">2.3.8 Orden de Asignacion de Agentes Servicio </a></li>
                             </ul>
                         </li>
                         <li class="dropdown-submenu dropdown-hover">
@@ -98,7 +106,7 @@
                             <a id="dropdownSubMenu1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">2.6 Proyectos Código Identificador</a>
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                                 <li><a href="../admin/crudProyCodiIdentificador.php" class="dropdown-item">2.6.1 Registro de Código Identificador </a></li>
-                                <li><a href="../components/tablaDadosAltaAsignarCodId.php" class="dropdown-item">2.6.6 Proyectos dados de Alta por asignar...</a></li>
+                                <li><a href="../components/tablaDadosAltaAsignarCodId.php" class="dropdown-item">2.6.6 Reporte de Alta por asignar Código</a></li>
                             </ul>
                         </li>
                         <li><a href="../admin/crudSuperCodiIdentificador.php" class="dropdown-item ">2.7 Supervisión Código Identificador </a></li>

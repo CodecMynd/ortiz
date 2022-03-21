@@ -8,7 +8,7 @@
             </div>
             <div class="modal-body text-center">
                 <strong class="margin-auto__content">
-                    <?php echo $codIdentificador ?>
+                    <?php echo $codIdProyBase ?>
                 </strong>
             </div>
             <!-- <form id="formRegresarRegCodIdentificador" action="../update/updateRegresarRegCodIdentificador.php" method="POST"> -->

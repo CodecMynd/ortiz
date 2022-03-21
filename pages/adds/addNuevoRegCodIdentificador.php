@@ -14,6 +14,8 @@ $id_proyecto = $_POST['id_proyecto'];
 $id_semanaCobro = (!empty($_POST['id_semanaCobro'])) ? $_POST['id_semanaCobro'] : 0;
 $borrado = 0;
 $status = 'Activo';
+$etapa = 'Proyecto avanzó a 2.6 Proyectos con Código Identificador';
+$folioCodID = $_POST['folioCodID'];
 
 // Proyecto Base
 $valCobProyBase = $_POST['valCobProyBase'];
@@ -71,13 +73,13 @@ if ($id_semanaCobro == 0) {
     // echo '<br>';
 
     // Insertamos tabla registrocodidenti
-    $queryR = "INSERT INTO registrocodidenti(id_proyecto, id_semanaCobro, borrado, status, fecha_creacion, id_capC) VALUES ( '$id_proyecto', '$id_semanaCobro', $borrado, '$status', '$date', '$id')";
+    $queryR = "INSERT INTO registrocodidenti(folioCodID, id_proyecto, id_semanaCobro, borrado, status, fecha_creacion, id_capC) VALUES ('$folioCodID', '$id_proyecto', '$id_semanaCobro', $borrado, '$status', '$date', '$id')";
     $resultadoR = mysqli_query($conexion, $queryR);
     //   var_dump($queryR);
     //   echo '<br>';
 
     // Insertamos tabla registrocodidentibitacora
-    $queryB = "INSERT INTO registrocodidentibitacora(id_proyecto, id_semanaCobro, borrado, status, fecha_creacion, id_capC) VALUES ( '$id_proyecto', '$id_semanaCobro', $borrado, '$status', '$date', '$id')";
+    $queryB = "INSERT INTO registrocodidentibitacora(folioCodID, id_proyecto, id_semanaCobro, borrado, status, fecha_creacion, id_capC) VALUES ('$folioCodID', '$id_proyecto', '$id_semanaCobro', $borrado, '$status', '$date', '$id')";
     $resultadoB = mysqli_query($conexion, $queryB);
     //   var_dump($queryB);
     //   echo '<br>';
@@ -86,7 +88,11 @@ if ($id_semanaCobro == 0) {
     $resultadoD = mysqli_query($conexion, $queryD);
     // var_dump($queryD);
 
-    if ($resultadoD) {
+    // Bitacora
+    $queryBI = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
+    $resultadoBI = mysqli_query($conexion, $queryBI);
+
+    if ($resultadoBI) {
         echo "<div class='alert alert-success' role='alert'>
                  <p><strong>Registro de Código Identificador ingresado correctamente!</strong></p>
              </div>

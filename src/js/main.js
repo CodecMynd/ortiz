@@ -674,6 +674,143 @@ $('.btnBorrarFormaPago').click(function (e) {
     return false;
 });
 
+// 1.9.1.1 Formulario Registro de Tecnico Armador ------------------------------------------------------------
+$(document).ready(function () {
+    $('#btnNuevaTecArmador').click(function () {
+        $.ajax({
+                url: 'addNuevaTecArmador.php',
+                type: 'POST',
+                data: $('#formNuevaTecArmador').serialize(),
+
+            })
+            .done(function (res) {
+                $('#respuestaNuevaTecArmador').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnNuevaTecArmador").on('click', function () {
+    $("#btnNuevaTecArmador").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnNuevaTecArmador").css('visibility', 'visible');
+    }, 300000);
+});
+
+// 1.9.1.2 Formulario Modificar Tecnico Armador ------------------------------------------------------------
+$(document).ready(function () {
+    $('#btnUpdateTecArmador').click(function () {
+        $('#btnUpdateTecArmador').attr('disabled', 'disabled');
+        $.ajax({
+                url: 'updateTecArmador.php',
+                type: 'POST',
+                data: $('#formUpdateTecArmador').serialize(),
+
+                timeout: 3000,
+            })
+            .done(function (res) {
+                $('#respuestaUpdateTecArmador').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnUpdateTecArmador").on('click', function () {
+    $("#btnUpdateTecArmador").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnUpdateTecArmador").css('visibility', 'visible');
+    }, 300000);
+});
+
+// 1.9.1.3 Formulario Eliminar Tecnico Armador ------------------------------------------------------------
+$('.btnBorrarTecArmador').click(function (e) {
+    e.preventDefault();
+    if (confirm("¿Estás seguro de eliminar esta Técnico Armador? Una vez borrado ya no se podrá recuperar la información.")) {
+        var id = $(this).attr("id");
+
+        var dataString = 'id=' + id;
+        url = "../delete/deleteTecArmador.php";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: dataString,
+            success: function (data) {
+                window.location.href = "crudTecArmador.php";
+                $('#respuesta').html(data);
+            }
+        });
+    }
+    return false;
+});
+
+// 1.9.2.1 Formulario Registro de Tecnico Montador ------------------------------------------------------------
+$(document).ready(function () {
+    $('#btnNuevaTecMontador').click(function () {
+        $.ajax({
+                url: 'addNuevaTecMontador.php',
+                type: 'POST',
+                data: $('#formNuevaTecMontador').serialize(),
+
+            })
+            .done(function (res) {
+                $('#respuestaNuevaTecMontador').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnNuevaTecMontador").on('click', function () {
+    $("#btnNuevaTecMontador").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnNuevaTecMontador").css('visibility', 'visible');
+    }, 300000);
+});
+
+
+// 1.9.2.2 Formulario Modificar Tecnico Montador ------------------------------------------------------------
+$(document).ready(function () {
+    $('#btnUpdateTecMontador').click(function () {
+        $('#btnUpdateTecMontador').attr('disabled', 'disabled');
+        $.ajax({
+                url: 'updateTecMontador.php',
+                type: 'POST',
+                data: $('#formUpdateTecMontador').serialize(),
+
+                timeout: 3000,
+            })
+            .done(function (res) {
+                $('#respuestaUpdateTecMontador').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnUpdateTecMontador").on('click', function () {
+    $("#btnUpdateTecMontador").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnUpdateTecMontador").css('visibility', 'visible');
+    }, 300000);
+});
+
+
+// 1.9.1.3 Formulario Eliminar Tecnico Montador ------------------------------------------------------------
+$('.btnBorrarTecMontador').click(function (e) {
+    e.preventDefault();
+    if (confirm("¿Estás seguro de eliminar esta Técnico Montador? Una vez borrado ya no se podrá recuperar la información.")) {
+        var id = $(this).attr("id");
+
+        var dataString = 'id=' + id;
+        url = "../delete/deleteTecMontador.php";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: dataString,
+            success: function (data) {
+                window.location.href = "crudTecMontador.php";
+                $('#respuesta').html(data);
+            }
+        });
+    }
+    return false;
+});
+
+
 // 2.1.1 Formulario Registro Vehiculos ------------------------------------------------------------
 $(document).ready(function () {
     $("#marca").change(function () {
@@ -962,7 +1099,32 @@ $('.btnBorrarProyecto').click(function (e) {
     }
     return false;
 });
+/*
+-
+-
+-
+*/
+// 2.3.7.1 Formulario Captura de Valor Venta Inicial ------------------------------------------------------------
+$(document).ready(function () {
+    $('#btnUpdateValVenInicial').click(function () {
+        $.ajax({
+                url: 'updateValVenInicial.php',
+                type: 'POST',
+                data: $('#formUpdateValVenInicial').serialize(),
 
+            })
+            .done(function (res) {
+                $('#respuestaUpdateValVenInicial').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnUpdateValVenInicial").on('click', function () {
+    $("#btnUpdateValVenInicial").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnUpdateValVenInicial").css('visibility', 'visible');
+    }, 300000);
+});
 /*
 -
 -
@@ -970,21 +1132,21 @@ $('.btnBorrarProyecto').click(function (e) {
 */
 // 2.4.2 Registro de Solicitud Alta Proyecto ------------------------------------------------------------
 
-    // 2.3  Registro Proyectos cargar Modal de Proyectos -----------------------------------------------
-    $(document).on("click", ".cargarProyecto", function() {
-        var idProyecto = $(this).data('id_proyecto');
-        $.ajax({
-            url: "../components/cargarProyecto.php",
-            type: "POST",
-            cache: false,
-            data: {
-                idProyecto: idProyecto
-            },
-            success: function(data) {
-                $("#cargarProyectoTabla").html(data);
-            },
-        });
+// 2.3  Registro Proyectos cargar Modal de Proyectos -----------------------------------------------
+$(document).on("click", ".cargarProyecto", function () {
+    var idProyecto = $(this).data('id_proyecto');
+    $.ajax({
+        url: "../components/cargarProyecto.php",
+        type: "POST",
+        cache: false,
+        data: {
+            idProyecto: idProyecto
+        },
+        success: function (data) {
+            $("#cargarProyectoTabla").html(data);
+        },
     });
+});
 /*
 -
 -

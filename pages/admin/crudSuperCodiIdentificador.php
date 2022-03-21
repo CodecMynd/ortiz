@@ -5,18 +5,18 @@ require '../components/head-dataTables.php';
 <title>Tabla Supervisión de Registro Código Identificador | <?php echo $nomComp ?></title>
 <style>
     @media (min-width:320px) and (max-width:425px) {
-            .content-header{
-                margin-bottom: 90px;
-                width: 100%;
+        .content-header {
+            margin-bottom: 90px;
+            width: 100%;
 
-            }
-
-            .content-header h1{
-                font-size: 20px;
-                padding: 10px 10px 5px;
-                text-align: center;
-            }
         }
+
+        .content-header h1 {
+            font-size: 20px;
+            padding: 10px 10px 5px;
+            text-align: center;
+        }
+    }
 </style>
 </head>
 
@@ -49,14 +49,14 @@ require '../components/head-dataTables.php';
                                     <h3 class="card-title">Supervisión de Registro Código Identificador en el sistema</h3>
                                     <div class="card-tools">
                                         <?php if ($super == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formSuperCodIdentificador.php" data-toggle="tooltip" data-placement="left" title="2.7.1 Supervisión de Registro Código Identificador ">
-                                                <i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Supervisión de Registro Código Identificador </a>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formSuperCodIdentificador.php" data-toggle="tooltip" data-placement="left" title="2.7.1 Registro de Supervisión Código Identificador ">
+                                                <i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Registro de Supervisión Código Identificador </a>
                                         <?php } else if ($regSuperCodIdentificador == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formSuperCodIdentificador.php" data-toggle="tooltip" data-placement="left" title="2.7.1 Supervisión de Registro Código Identificador ">
-                                                <i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Supervisión de Registro Código Identificador </a>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formSuperCodIdentificador.php" data-toggle="tooltip" data-placement="left" title="2.7.1 Registro de Supervisión Código Identificador ">
+                                                <i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Registro de Supervisión Código Identificador </a>
                                         <?php } else { ?>
-                                            <a type="button" class="btn btn-outline-danger" id="regSuperCodIdentificador" data-toggle="tooltip" data-placement="left" title="2.7.1 Supervisión de Registro Código Identificador ">
-                                                <i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Supervisión de Registro Código Identificador </a>
+                                            <a type="button" class="btn btn-outline-danger" id="regSuperCodIdentificador" data-toggle="tooltip" data-placement="left" title="2.7.1 Registro de Supervisión Código Identificador ">
+                                                <i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Registro de Supervisión Código Identificador </a>
                                         <?php } ?>
                                         <!-- <a href="crudProyCodiIdentificador.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Ver Tabla 2.6 Proyectos con Código Identificador"><i class="fa-solid fa-angle-left"></i>&nbsp;&nbsp;<i class="fa-solid fa-eye"></i></a> -->
 
@@ -67,35 +67,35 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, Co.color, M.marca, Mo.modelo, A.anio, RS.folioRegSolicitud, RS.valorVentaAlta, RS.inspecCalidad, RS.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, RC.borrado, S.semana, SC.semanaCobro
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, Co.color, M.marca, Mo.modelo, A.anio, RS.valorVentaAlta, RC.id_regcodidenti,S.semana, SC.semanaCobro, D.valCobProyBase, D.codIdProyBase, SU.compCodId
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co ON V.id_color = Co.id_color
                                     INNER JOIN marcas M ON V.id_marca = M.id_marca 
                                     INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
                                     INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto 
-                                    INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
+                                    INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto  
                                     INNER JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
                                     INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
                                     INNER JOIN semanas S ON RS.id_semana = S.id_semana
-                     
-                                    WHERE superCodIdentificador = 1 AND RC.borrado = 0  ORDER BY nProyecto ASC;";
+                                    INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto 
+                                    INNER JOIN supervisado SU ON P.id_proyecto = SU.id_proyecto
+                                    WHERE superCodIdentificador = 1  ORDER BY nProyecto ASC";
                                 } else if ($verTablaSuperCodIdentificador == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, Co.color, M.marca, Mo.modelo, A.anio, RS.folioRegSolicitud, RS.valorVentaAlta, RS.inspecCalidad, RS.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, RC.borrado, S.semana, SC.semanaCobro
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, Co.color, M.marca, Mo.modelo, A.anio, RS.valorVentaAlta, RC.id_regcodidenti, S.semana, SC.semanaCobro, D.valCobProyBase, D.codIdProyBase, SU.compCodId
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co ON V.id_color = Co.id_color
                                     INNER JOIN marcas M ON V.id_marca = M.id_marca 
                                     INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
                                     INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto 
-                                    INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
+                                    INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto  
                                     INNER JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
                                     INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
                                     INNER JOIN semanas S ON RS.id_semana = S.id_semana
-                     
-                                    WHERE superCodIdentificador = 1 AND RC.borrado = 0  ORDER BY nProyecto ASC;";
+                                    INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto 
+                                    INNER JOIN supervisado SU ON P.id_proyecto = SU.id_proyecto
+                                    WHERE superCodIdentificador = 1 ORDER BY nProyecto ASC";
                                 } else {
                                     $query = "SELECT id_proyecto
                                     FROM proyectos WHERE id_proyecto = 0";
@@ -115,7 +115,8 @@ require '../components/head-dataTables.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Código Identificación</th>
+                                                <th>Código Identificador</th>
+                                                <th>Comprobación Código Identificador</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -134,18 +135,8 @@ require '../components/head-dataTables.php';
                                         <tbody>
                                             <?php
                                             while ($row = $resultado->fetch_assoc()) {
-                                                $idP = $row['id_proyecto'];
-                                                // $codIdentificador = $row['codIdentificador'];
-                                                // $id_regcodidenti = $row['id_regcodidenti'];
-                                                // $regSolfecha = $row['regSolfecha'];
-                                                // $regAltaFecha = $row['regAltaFecha'];
-                                                // $regCodIdFechas = $row['regCodIdFechas'];
-                                                // $SupervicionFecha = $row['SupervicionFecha'];
-                                                // $RSCapturista = $row['RSNombre'] . ' ' . $row['RSPaterno'] . ' ' . $row['RSMaterno'];
-                                                // $RACapturista = $row['RANombre'] . ' ' . $row['RAPaterno'] . ' ' . $row['RAMaterno'];
-                                                // $RCCapturista = $row['RCNombre'] . ' ' . $row['RCPaterno'] . ' ' . $row['RCMaterno'];
-                                                // $SVCapturista = $row['SVNombre'] . ' ' . $row['SVPaterno'] . ' ' . $row['SVMaterno'];
-                                                // $cronometro = $row['cronometro'];
+                                               $idP = $row['id_proyecto'];
+                                               $codIdProyBase = $row['codIdProyBase'];
                                             ?>
                                                 <tr>
                                                     <td>
@@ -154,7 +145,10 @@ require '../components/head-dataTables.php';
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <!-- <?php echo $row['codIdentificador'] ?> -->
+                                                        <?php echo $row['codIdProyBase'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['compCodId'] ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $row['nProyecto']; ?>
@@ -190,7 +184,7 @@ require '../components/head-dataTables.php';
                                                         <?php echo $row['valorVentaAlta'] ?>
                                                     </td>
                                                     <td style="width: 10%">
-                                                        <!-- <?php echo $row['valorCobro'] ?> -->
+                                                        <?php echo $row['valCobProyBase'] ?>
                                                     </td>
                                                     <td>
                                                         <div class="input-group input-group-sm mb-3">
@@ -240,14 +234,15 @@ require '../components/head-dataTables.php';
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Código Identificación</th>
+                                                <th>Código Identificador</th>
+                                                <th>Comprobación Código Identificador</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
                                                 <th>Año</th>
                                                 <th>Placas</th>
-                                                <th>Color</th>   
+                                                <th>Color</th>
                                                 <th>Semana de Alta</th>
                                                 <th>Semana de Cobro</th>
                                                 <th class="suma"></th>

@@ -13,20 +13,25 @@ $id = $_SESSION['id_usuario'];
 $id_proyecto = $_POST['id_proyecto'];
 $folioRegSolicitud = $_POST['folioRegSolicitud'];
 $valorVentaAlta = $_POST['valorVentaAlta'];
-// $id_semana = (!empty($_POST['id_semana'])) ? $_POST['id_semana'] : '';
-$id_semana = $_POST['id_semana'];
+$id_semana = (!empty($_POST['id_semana'])) ? $_POST['id_semana'] : '0';
 $inspecCalidad = $_POST['inspecCalidad'];
 $observCliente = $_POST['observCliente'];
+$tecArmador = $_POST['tecArmador'];
+$tecMontador1 = $_POST['tecMontador1'];
+$tecMontador2 = (!empty($_POST['tecMontador2'])) ? $_POST['tecMontador2'] : 0;
+$tecMontador3 = (!empty($_POST['tecMontador3'])) ? $_POST['tecMontador3'] : 0;
+$tecMontador4 = (!empty($_POST['tecMontador4'])) ? $_POST['tecMontador4'] : 0;
 $borrado = 0;
 $status = 'Activo';
+$etapa = 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta';
 
 if (empty($valorVentaAlta)) {
     echo "<div class='alert alert-danger' role='role'>
     <p><strong>Error, Ingresa una cantidad en campo Valor Venta Alta</strong></p>
     </div>";
-} else if ($id_semana == '') {
+} else if ($id_semana == '0') {
     echo "<div class='alert alert-danger' role='role'>
-              <p><strong>Error, Ingresa una opción de la lista Semana</strong></p>
+              <p><strong>Error, Ingresa una opción de la lista Semana de Alta</strong></p>
               </div>";
     exit;
 } else if ($inspecCalidad == '') {
@@ -39,15 +44,25 @@ if (empty($valorVentaAlta)) {
     <p><strong>Error, Ingresa en campo Observaciones Para el Cliente</strong></p>
     </div>";
     exit;
+} else if ($tecArmador == '') {
+    echo "<div class='alert alert-danger' role='role'>
+        <p><strong>Error, Ingresa en campo Nombre de Técnico Armador </strong></p>
+        </div>";
+    exit;
+} else if ($tecMontador1 == '') {
+    echo "<div class='alert alert-danger' role='role'>
+            <p><strong>Error, Ingresa en campo Nombre de Técnico Montador </strong></p>
+            </div>";
+    exit;
 } else {
 
     // Insertamos tabla registrosolicitud
-    $query = "INSERT INTO registrosolicitud(folioRegSolicitud, id_proyecto, valorVentaAlta, id_semana, inspecCalidad, observCliente, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegSolicitud', $id_proyecto, '$valorVentaAlta', $id_semana, '$inspecCalidad', '$observCliente', $borrado, '$status', '$date', $id)";
+    $query = "INSERT INTO registrosolicitud(folioRegSolicitud, id_proyecto, valorVentaAlta, id_semana, inspecCalidad, observCliente, tecArmador, tecMontador1, tecMontador2, tecMontador3, tecMontador4, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegSolicitud', $id_proyecto, '$valorVentaAlta', $id_semana, '$inspecCalidad', '$observCliente', '$tecArmador', '$tecMontador1', '$tecMontador2', '$tecMontador3', '$tecMontador4', $borrado, '$status', '$date', $id)";
     $resultado = mysqli_query($conexion, $query);
     // var_dump($query);
 
     // Insertamos tabla registrosolicitudbitacora
-    $queryR = "INSERT INTO registrosolicitudbitacora(folioRegSolicitud, id_proyecto, valorVentaAlta, id_semana, inspecCalidad, observCliente, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegSolicitud', $id_proyecto, '$valorVentaAlta', $id_semana, '$inspecCalidad', '$observCliente', $borrado, '$status', '$date', $id)";
+    $queryR = "INSERT INTO registrosolicitudbitacora(folioRegSolicitud, id_proyecto, valorVentaAlta, id_semana, inspecCalidad, observCliente, tecArmador, tecMontador1, tecMontador2, tecMontador3, tecMontador4, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegSolicitud', $id_proyecto, '$valorVentaAlta', $id_semana, '$inspecCalidad', '$observCliente', '$tecArmador', '$tecMontador1', '$tecMontador2', '$tecMontador3', '$tecMontador4', $borrado, '$status', '$date', $id)";
     $resultadoR = mysqli_query($conexion, $queryR);
     // var_dump($queryR);
 
@@ -57,7 +72,11 @@ if (empty($valorVentaAlta)) {
     $resultadoP = mysqli_query($conexion, $queryP);
     // var_dump($queryP);
 
-    if ($resultadoP) {
+    // Bitacora
+    $queryBI = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
+    $resultadoBI = mysqli_query($conexion, $queryBI);
+
+    if ($resultadoBI) {
         echo "<div class='alert alert-success' role='alert'>
               <p><strong>Proyecto ingresado correctamente!</strong></p>
           </div>

@@ -12,39 +12,57 @@ $date = date('Y-m-d H:i:s');
 $id = $_SESSION['id_usuario'];
 $id_proyecto = $_POST['id_proyecto'];
 $id_regcodidenti = $_POST['id_regcodidenti'];
+$compCodId = $_POST['compCodId'];
+$folioSupervision = $_POST['folioSupervision'];
 $borrado = 0;
 $status = 'Supervisión Código Identificador';
+$etapa = 'Proyecto avanzó a 2.7 Supervisión de Registro Código Identificador';
 
-    // Ingresamos id a tabla proyectos modificar registros
-    $queryP = "UPDATE proyectos SET proyCodIdentificador = 0, superCodIdentificador = 1  WHERE id_proyecto = $id_proyecto";
-    $resultado2 = mysqli_query($conexion, $queryP);
-    //var_dump($queryP);
+if($compCodId == ''){
+    echo "<div class='alert alert-danger' role='role'>
+    <p><strong>Error, Comprobación Código Identificador es requerido</strong></p>
+    </div>";
+    exit;
+}
 
-    // Insertamos tabla registrocodidenti
-    $query = "UPDATE registrocodidenti SET status = '$status', supervisado = 1";
-    $resultado = mysqli_query($conexion, $query);
-    //var_dump($query);
+// Ingresamos id a tabla proyectos modificar registros
+$queryP = "UPDATE proyectos SET proyCodIdentificador = 0, superCodIdentificador = 1  WHERE id_proyecto = $id_proyecto";
+$resultadoP = mysqli_query($conexion, $queryP);
+//var_dump($queryP);
 
-    // Insertamos tabla registrocodidentibitacora
-    $query = "UPDATE registrocodidentibitacora SET status = '$status', supervisado = 1";
-    $resultado = mysqli_query($conexion, $query);
-    //var_dump($query);
+// Insertamos tabla registrocodidenti
+$queryC = "UPDATE registrocodidenti SET status = '$status', supervisado = 1";
+$resultadoC = mysqli_query($conexion, $queryC);
+//var_dump($query);
 
-    // Insertamos registro en tabla supervisado
-    $queryS = "INSERT INTO supervisado(id_regcodidenti, id_proyecto, supervisado, fecha_creacion, id_capC) VALUES ($id_regcodidenti, $id_proyecto, 1, '$date', $id)";
-    $resultado = mysqli_query($conexion, $queryS);
-    //var_dump($query);
+// Insertamos tabla registrocodidentibitacora
+$queryCB = "UPDATE registrocodidentibitacora SET status = '$status', supervisado = 1";
+$resultadoCB = mysqli_query($conexion, $queryCB);
+//var_dump($query);
 
+// Insertamos registro en tabla supervisado
+$queryS = "INSERT INTO supervisado(folioSupervision, id_regcodidenti, id_proyecto, compCodId, supervisado, fecha_creacion, id_capC) VALUES ('$folioSupervision', $id_regcodidenti, $id_proyecto, '$compCodId', 1, '$date', $id)";
+$resultadoS = mysqli_query($conexion, $queryS);
+//var_dump($query);
 
-    if ($resultado) {
-        echo "<div class='alert alert-success' role='alert'>
+// Insertamos registro en tabla supervisado
+$querySB = "INSERT INTO supervisadobitacora(folioSupervision, id_regcodidenti, id_proyecto, compCodId, supervisado, fecha_creacion, id_capC) VALUES ('$folioSupervision', $id_regcodidenti, $id_proyecto, '$compCodId', 1,'$date', $id)";
+$resultadoSB = mysqli_query($conexion, $querySB);
+//var_dump($query);
+
+// Bitacora
+$queryBI = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
+$resultadoBI = mysqli_query($conexion, $queryBI);
+
+if ($resultadoSB) {
+    echo "<div class='alert alert-success' role='alert'>
               <p><strong>Supervisión de Registro Código Identificador ingresado correctamente!</strong></p>
           </div>";
-    } else {
-        echo "<div class='alert alert-danger' role='role'>
+} else {
+    echo "<div class='alert alert-danger' role='role'>
           <p><strong>¡Error interno: vuelve a intentarlo!</strong></p>
           </div>";
-    }
+}
 
 desconectar();
 

@@ -268,8 +268,8 @@ require '../components/head-dataTables.php';
                                                                         <i class="fa-solid fa-money-bill-1-wave"></i>
                                                                     </span>
                                                                 </div>
-                                                                <input name="valorVenta" id="currency1" type="text" class="form-control" placeholder="Kilometraje" required maxlength="12" data-toggle="tooltip" data-placement="bottom" title="Ingresa valor venta" value="<?php echo $row['valorVenta']; ?>">
-                                                                <label for="floatingInput" class="pl-5">*Valor venta inicial</label>
+                                                                <input name="valorVenta" id="currency1" type="text" class="form-control" placeholder="Kilometraje" required maxlength="12" data-toggle="tooltip" data-placement="bottom" title="Ingresa valor venta" value="<?php echo $row['valorVenta']; ?>" readonly>
+                                                                <label for="floatingInput" class="pl-5">*Valor Venta Inicial</label>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4 col-sm-12 my-1">

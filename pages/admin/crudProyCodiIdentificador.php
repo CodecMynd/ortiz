@@ -53,7 +53,10 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, Co.color, M.marca, Mo.modelo, A.anio, RS.valorVentaAlta, RC.borrado, S.semana, SC.semanaCobro, D.valCobProyBase, D.codIdProyBase
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, 
+                                    V.placa, Co.color, M.marca, Mo.modelo, A.anio, 
+                                    RS.valorVentaAlta, RC.id_regcodidenti, RC.borrado, RC.folioCodID,
+                                    S.semana, SC.semanaCobro, D.valCobProyBase, D.codIdProyBase
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -67,7 +70,10 @@ require '../components/head-dataTables.php';
                                     INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto
                                     WHERE proyCodIdentificador = 1 AND RC.borrado = 0  ORDER BY nProyecto ASC";
                                 } else if ($verTablaCodIdentificador == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, Co.color, M.marca, Mo.modelo, A.anio, RS.valorVentaAlta, RC.borrado, S.semana, SC.semanaCobro, D.valCobProyBase, D.codIdProyBase
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, 
+                                    V.placa, Co.color, M.marca, Mo.modelo, A.anio, 
+                                    RS.valorVentaAlta, RC.id_regcodidenti, RC.borrado, RC.folioCodID,
+                                    S.semana, SC.semanaCobro, D.valCobProyBase, D.codIdProyBase
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -79,7 +85,7 @@ require '../components/head-dataTables.php';
                                     INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
                                     INNER JOIN semanas S ON RS.id_semana = S.id_semana
                                     INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto
-                                    WHERE proyCodIdentificador = 1 AND RC.borrado = 0  ORDER BY nProyecto ASC;";
+                                    WHERE proyCodIdentificador = 1 AND RC.borrado = 0  ORDER BY nProyecto ASC";
                                 } else {
                                     $query = "SELECT id_proyecto
                                     FROM proyectos WHERE id_proyecto = 0";
@@ -100,6 +106,7 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>Código Identificador Valor Base</th>
+                                                <th>Núm Código ID</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -120,6 +127,7 @@ require '../components/head-dataTables.php';
                                             while ($row = $resultado->fetch_assoc()) {
                                                 $idP = $row['id_proyecto'];
                                                 $codIdProyBase = $row['codIdProyBase'];
+                                                $id_regcodidenti = $row['id_regcodidenti'];
                                             ?>
                                                 <tr>
                                                     <td>
@@ -128,7 +136,10 @@ require '../components/head-dataTables.php';
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['codIdProyBase'] ?>
+                                                        <?php echo $row['codIdProyBase']?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['folioCodID']?>
                                                     </td>
                                                     <td>
                                                         <?php echo $row['nProyecto']; ?>
@@ -157,13 +168,13 @@ require '../components/head-dataTables.php';
                                                     <td>
                                                         <?php echo $row['semanaCobro'] ?>
                                                     </td>
-                                                    <td style="width: 10%;">
+                                                    <td style="width: 9%;">
                                                         <?php echo $row['valorVenta'] ?>
                                                     </td>
-                                                    <td style="width: 10%;">
+                                                    <td style="width: 9%;">
                                                         <?php echo $row['valorVentaAlta'] ?>
                                                     </td>
-                                                    <td style="width: 10%;">
+                                                    <td style="width: 9%;">
                                                         <?php echo $row['valCobProyBase'] ?> 
                                                     </td>
                                                     <td>
@@ -230,6 +241,7 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>Código Identificador Valor Base</th>
+                                                <th>Núm Código ID</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>

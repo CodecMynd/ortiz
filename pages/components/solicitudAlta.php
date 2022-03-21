@@ -66,7 +66,7 @@ ob_start();
         }
 
         .inputRespG {
-            width: 20em;
+            width: 17.7em;
             height: 5px;
             outline: 0;
             border-width: 0 0 .5px;
@@ -203,6 +203,13 @@ ob_start();
             font-size: 8px;
             color: gray;
         }
+
+        .recuadro {
+            border: 1px solid gray;
+            padding: 15px 5px;
+            border-radius: 25px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <?php
@@ -217,7 +224,11 @@ $id_proyecto = $_GET['id'];
 
 
 
-$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, V.placa, M.marca, Mo.modelo,A.anio, C.color,RS.folioRegSolicitud,RS.valorVentaAlta,RS.fecha_creacion, RS.inspecCalidad,RS.observCliente ,S.semana, U.nombres, U.aPaterno, U.aMaterno
+$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, 
+V.placa, M.marca, Mo.modelo,A.anio, C.color,
+RS.folioRegSolicitud,RS.valorVentaAlta,RS.fecha_creacion, RS.inspecCalidad,RS.observCliente,
+S.semana, U.nombres, U.aPaterno, U.aMaterno,
+TA.tecArmador, TM1.tecMontador AS TM1, TM2.tecMontador AS TM2, TM3.tecMontador AS TM3, TM4.tecMontador AS TM4
 FROM proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
 INNER JOIN marcas M ON V.id_marca = M.id_marca
@@ -227,6 +238,11 @@ INNER JOIN colores C ON V.id_color = C.id_color
 INNER JOIN registroSolicitud RS ON P.id_proyecto = RS.id_proyecto
 INNER JOIN semanas S ON RS.id_semana = S.id_semana
 INNER JOIN usuarios U ON P.id_capC = U.id_usuario
+INNER JOIN tecarmadores TA ON RS.tecArmador = TA.id_tecArmador
+INNER JOIN tecmontadores TM1 ON RS.tecMontador1 = TM1.id_tecMontador
+INNER JOIN tecmontadores TM2 ON RS.tecMontador2 = TM2.id_tecMontador
+INNER JOIN tecmontadores TM3 ON RS.tecMontador3 = TM3.id_tecMontador
+INNER JOIN tecmontadores TM4 ON RS.tecMontador4 = TM4.id_tecMontador
 WHERE P.id_proyecto = ' . $id_proyecto . ' ';
 $respuesta = mysqli_query($conexion, $query);
 $row  = $respuesta->fetch_assoc();
@@ -361,10 +377,29 @@ $valorVentaAlta = $row['valorVentaAlta'];
                         </tr>
                     </tbody>
                 </table>
-                <br>
-                <div class="col-12">
-                    <hr>
-                </div>
+                <table class="table table-sm recuadro">
+                    <tbody>
+                        <tr>
+                            <td>Técnico Armador </td>
+                            <td>Técnico Montador 1</td>
+                            <td>Técnico Montador 2</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" class="inputRespG" value="<?php echo $row['tecArmador'] ?>"></td>
+                            <td><input type="text" class="inputRespG" value="<?php echo $row['TM1'] ?>"></td>
+                            <td><input type="text" class="inputRespG" value="<?php echo $row['TM2'] ?>"></td>
+                        </tr>
+                        <tr>
+                            <td>Técnico Montador 3</td>
+                            <td>Técnico Montador 4</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" class="inputRespG" value="<?php echo $row['TM3'] ?>"></td>
+                            <td><input type="text" class="inputRespG" value="<?php echo $row['TM4'] ?>"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
             </div>
         </div>
     </main>
