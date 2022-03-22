@@ -116,12 +116,12 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle  disabled">3.0 Insumos</a>
+                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle text-dark">3.0 Reportes</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                        <li><a href="#" class="dropdown-item">3.1 item </a></li>
-                        <li><a href="#" class="dropdown-item">3.2 item </a></li>
-                        <li><a href="#" class="dropdown-item">3.3 item </a></li>
-                        <li><a href="#" class="dropdown-item">3.4 item </a></li>
+                        <li><a href="../components/reporteDifValVenAltavsValCodId.php" class="dropdown-item">3.1 Reporte Diferencia Valor Alta Vs Valor Codigo Identificador  </a></li>
+                        <li><a href="../components/reporteDifValVenInicialvsValAlta.php" class="dropdown-item ">3.2 Reporte Diferencia Valor Venta Inicial Vs Valor Alta </a></li>
+                        <li><a href="#" class="dropdown-item disabled">3.3 item </a></li>
+                        <li><a href="#" class="dropdown-item disabled">3.4 item </a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

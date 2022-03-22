@@ -1336,6 +1336,112 @@ require '../components/head-main.php';
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                         <!-- >3.1 Alta Proyecto -->
+                                                         <div class="col-12">
+                                                            <div class="card card-secondary card-outline collapsed-card">
+                                                                <div class="card-header">
+                                                                    <h2 class="card-title"><strong>3.1 Reporte Diferencia Valor Alta Vs. Valor Código Identificador</strong></h2>
+                                                                    <div class="card-tools">
+                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                            <i class="fas fa-plus"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="row"> 
+                                                                    <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-file-pdf" verTablaRegSolAltProy></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">3.1.1 PDF Registro Código Identificador</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="pdfRepVVAvsVCodID" id="pdfRepVVAvsVCodID" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['pdfRepVVAvsVCodID'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>                                                            
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-photo-film"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">3.1.2 Ver Link de Video, Observaciones y Generales</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralRepVVAvsVCodID" id="verGralRepVVAvsVCodID" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralRepVVAvsVCodID'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">3.1.3 Ver Tabla Diferencia Valor Alta Vs. Valor Código Identificador</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaRepVVAvsVCodID" id="verTablaRepVVAvsVCodID" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaRepVVAvsVCodID'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- >3.2 Alta Proyecto -->
+                                                        <div class="col-12">
+                                                            <div class="card card-secondary card-outline collapsed-card">
+                                                                <div class="card-header">
+                                                                    <h2 class="card-title"><strong>3.2 Reporte Diferencia Valor Venta Inicial Vs. Valor Alta</strong></h2>
+                                                                    <div class="card-tools">
+                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                            <i class="fas fa-plus"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="row"> 
+                                                                    <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-file-pdf" verTablaRegSolAltProy></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">3.2.1 PDF Registro Código Identificador</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="pdfRepVVIvsVVA" id="pdfRepVVIvsVVA" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['pdfRepVVIvsVVA'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>                                                            
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-photo-film"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">3.2.2 Ver Link de Video, Observaciones y Generales</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralRepVVIvsVVA" id="verGralRepVVIvsVVA" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralRepVVIvsVVA'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">3.2.3 Ver Tabla Diferencia Valor Venta Inicial Vs. Valor Alta</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaRepVVIvsVVA" id="verTablaRepVVIvsVVA" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaRepVVIvsVVA'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </section>

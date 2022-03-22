@@ -126,6 +126,13 @@ while ($row = mysqli_fetch_array($query)) {
     $regTecMontador = $row['regTecMontador'];
     $modTecMontador = $row['modTecMontador'];
     $eliTecMontador = $row['eliTecMontador'];
+    $pdfRepVVAvsVCodID = $row['pdfRepVVAvsVCodID'];
+    $verGralRepVVAvsVCodID = $row['verGralRepVVAvsVCodID'];
+    $verTablaRepVVAvsVCodID = $row['verTablaRepVVAvsVCodID']; 
+    $pdfRepVVIvsVVA = $row['pdfRepVVIvsVVA'];
+    $verGralRepVVIvsVVA = $row['verGralRepVVIvsVVA']; 
+    $verTablaRepVVIvsVVA = $row['verTablaRepVVIvsVVA']; 
+
 }
 
 // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
@@ -149,7 +156,20 @@ $count_reg_modelos = mysqli_query($conexion, "SELECT id_modelo FROM modelos ");
 $count_reg_vehiculos = mysqli_query($conexion, "SELECT id_vehiculo FROM vehiculos ");
 //# clientes
 $count_reg_clientes = mysqli_query($conexion, "SELECT id_cliente FROM clientes ");
-
+//# Proyectos Activos
+$count_reg_proyectoActivo = mysqli_query($conexion, "SELECT proyectoActivo FROM proyectos WHERE proyectoActivo = 1 AND status = 1 ");
+//# Registro Solicitud
+$count_reg_registroSolicitud = mysqli_query($conexion, "SELECT registroSolicitud FROM proyectos WHERE registroSolicitud = 1 AND status = 1 ");
+//# Alta Proyecto
+$count_reg_altaProyecto = mysqli_query($conexion, "SELECT altaProyecto FROM proyectos WHERE altaProyecto = 1 AND status = 1 ");
+//# Código Identificador
+$count_reg_proyCodIdentificador = mysqli_query($conexion, "SELECT proyCodIdentificador FROM proyectos WHERE proyCodIdentificador = 1 AND status = 1 ");
+//# Supervisión CodID
+$count_reg_superCodIdentificador = mysqli_query($conexion, "SELECT superCodIdentificador FROM proyectos WHERE superCodIdentificador = 1 AND status = 1 ");
+//# proyectos Registrados
+$count_reg_proyectos = mysqli_query($conexion, "SELECT id_proyecto FROM proyectos WHERE status = 1 ");
+//# proyectos Eliminados
+$count_reg_proyectosE = mysqli_query($conexion, "SELECT id_proyecto FROM proyectos WHERE status = 0 ");
 
 
 

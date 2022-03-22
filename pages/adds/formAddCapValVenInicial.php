@@ -190,7 +190,7 @@ require '../components/head-dataTables.php';
                                                 </tr>
                                             <?php
                                                 require '../components/modal-eliminarProyecto.php';
-                                                require '../components/modal-verListaProy.php';
+                                                require '../components/modal-verListaCapValVenInicial.php';
                                             }
                                             desconectar();
                                             ?>

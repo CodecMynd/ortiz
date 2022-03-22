@@ -998,6 +998,8 @@ $(document).ready(function () {
     })
 });
 
+
+
 // eliCliente 2.3.5 ELIMINAR PROYECTO --------------------------------------------------------------
 $(document).ready(function () {
     $("#eliProyecto ").click(function () {
@@ -1177,6 +1179,56 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#verGralDadosAltaAsignarCodId").click(function () {
         toastr["error"]("¡No tienes acceso a: 2.4.3 VER GENERALES, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// pdfRepVVAvsVCodID  3.1.1 DESCARGA PDF REGISTRO CODIGO IDENTIFICADOR --------------------------------------------------------------
+$(document).ready(function () {
+    $("#pdfRepVVAvsVCodID").click(function () {
+        toastr["error"]("¡No tienes acceso a: 3.1.1 DESCARGA PDF REGISTRO CODIGO IDENTIFICADOR, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+
+// verGralRepVVAvsVCodID    3.1.1 VER GENERALES --------------------------------------------------------------
+$(document).ready(function () {
+    $("#verGralRepVVAvsVCodID").click(function () {
+        toastr["error"]("¡No tienes acceso a: 3.1.1 VER GENERALES, consulta al administrador!")
 
         tostadas.opciones = {
             "botóncerrar": falso,
