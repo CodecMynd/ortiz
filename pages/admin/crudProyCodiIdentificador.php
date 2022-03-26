@@ -55,7 +55,7 @@ require '../components/head-dataTables.php';
                                 if ($super == 1) {
                                     $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, 
                                     V.placa, Co.color, M.marca, Mo.modelo, A.anio, 
-                                    RS.valorVentaAlta, RC.id_regcodidenti, RC.borrado, RC.folioCodID,
+                                    RS.valorVentaAlta, RC.id_regcodidenti, RC.borrado, RC.folioCodID, RC.fecha_creacion,
                                     S.semana, SC.semanaCobro, D.valCobProyBase, D.codIdProyBase
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
@@ -68,11 +68,11 @@ require '../components/head-dataTables.php';
                                     INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
                                     INNER JOIN semanas S ON RS.id_semana = S.id_semana
                                     INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto
-                                    WHERE proyCodIdentificador = 1 AND RC.borrado = 0  ORDER BY nProyecto ASC";
+                                    WHERE proyCodIdentificador = 1 AND RC.borrado = 0  ORDER BY nProyecto DESC";
                                 } else if ($verTablaCodIdentificador == 1) {
                                     $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, 
                                     V.placa, Co.color, M.marca, Mo.modelo, A.anio, 
-                                    RS.valorVentaAlta, RC.id_regcodidenti, RC.borrado, RC.folioCodID,
+                                    RS.valorVentaAlta, RC.id_regcodidenti, RC.borrado, RC.folioCodID, RC.fecha_creacion,
                                     S.semana, SC.semanaCobro, D.valCobProyBase, D.codIdProyBase
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
@@ -85,7 +85,7 @@ require '../components/head-dataTables.php';
                                     INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
                                     INNER JOIN semanas S ON RS.id_semana = S.id_semana
                                     INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto
-                                    WHERE proyCodIdentificador = 1 AND RC.borrado = 0  ORDER BY nProyecto ASC";
+                                    WHERE proyCodIdentificador = 1 AND RC.borrado = 0  ORDER BY nProyecto DESC";
                                 } else {
                                     $query = "SELECT id_proyecto
                                     FROM proyectos WHERE id_proyecto = 0";
@@ -105,6 +105,7 @@ require '../components/head-dataTables.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>Fecha Registro</th>
                                                 <th>Código Identificador Valor Base</th>
                                                 <th>Núm Código ID</th>
                                                 <th>Núm. Proyecto</th>
@@ -134,6 +135,9 @@ require '../components/head-dataTables.php';
                                                         <?php $cont++;
                                                         echo $cont;
                                                         ?>
+                                                    </td>
+                                                    <td style="width:10%">
+                                                        <?php echo $row['fecha_creacion'] ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $row['codIdProyBase']?>
@@ -240,6 +244,7 @@ require '../components/head-dataTables.php';
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
+                                                <th>Fecha Registro</th>
                                                 <th>Código Identificador Valor Base</th>
                                                 <th>Núm Código ID</th>
                                                 <th>Núm. Proyecto</th>
@@ -430,35 +435,3 @@ require '../components/head-dataTables.php';
 </script>
 
 </html>
-<!-- SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio, RS.folioRegSolicitud, RS.valorVentaAlta, RS.inspecCalidad, RS.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, Ra.cronometro, LV.link, Co.color, RC.id_regcodidenti, RC.borrado, S.semana, SC.semanaCobro, 
-                                    RS.fecha_creacion AS regSolfecha,
-                                    RA.fecha_creacion AS regAltaFecha,
-                                    RC.fecha_creacion AS regCodIdFechas,
-                                    URS.nombres AS RSNombre, URS.aPaterno AS RSPaterno, URS.aMaterno AS RSMaterno,
-                                    URA.nombres AS RANombre, URA.aPaterno AS RAPaterno, URA.aMaterno AS RAMaterno,
-                                    URC.nombres AS RCNombre, URC.aPaterno AS RCPaterno, URC.aMaterno AS RCMaterno,
-                                    D.valCobProyBase, D.codIdProyBase, D.valCobProyExtra, D.codIdProyExtra, D.valCobComBan, D.codIdComBan, D.valCobPen, D.codIdPension, D.valCobOtros, D.codIdOtros,
-                                    FPB.formaPago AS formaProyBase, FPE.formaPago AS formaProyExtra, FCB.formaPago AS formaComBan, FP.formaPago AS formaCobPen, FO.formaPago AS formaOtros
-                                    FROM proyectos P 
-                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-                                    INNER JOIN colores Co ON V.id_color = Co.id_color
-                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
-                                    INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
-                                    INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto 
-                                    INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
-                                    INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
-                                    INNER JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
-                                    INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
-                                    INNER JOIN semanas S ON RS.id_semana = S.id_semana
-                                    INNER JOIN usuarios URS ON RS.id_capC = URS.id_usuario
-                                    INNER JOIN usuarios URA ON RA.id_capC = URA.id_usuario
-                                    INNER JOIN usuarios URC ON RC.id_capC = URC.id_usuario
-                                    INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto
-  									INNER JOIN formapagos FPB ON D.id_pagoProyBase = FPB.id_formaPago
-                                    INNER JOIN formapagos FPE ON D.id_pagoProyExtra = FPE.id_formaPago
-                                    INNER JOIN formapagos FCB ON D.id_pagoComBan = FCB.id_formaPago
-                                    INNER JOIN formapagos FP ON D.id_pagoPension = FP.id_formaPago
-                                    INNER JOIN formapagos FO ON D.id_pagoOtros = FO.id_formaPago
-                                    WHERE proyCodIdentificador = 1 AND RC.borrado = 0 AND supervisado = 0 ORDER BY nProyecto ASC -->

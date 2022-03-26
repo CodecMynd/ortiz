@@ -2,7 +2,7 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>Tabla 3.2 Reporte Diferencia Valor Venta Inicial Vs Valor Alta  | <?php echo $nomComp ?></title>
+<title>Tabla 3.2 Reporte Diferencia Valor Venta Inicial Vs Valor Alta | <?php echo $nomComp ?></title>
 <style>
     @media (min-width:320px) and (max-width:425px) {
         .content-header {
@@ -57,7 +57,7 @@ require '../components/head-dataTables.php';
                                 if ($super == 1) {
                                     $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, 
                                     V.placa, Co.color, M.marca, Mo.modelo, A.anio, RS.valorVentaAlta,
-                                    RC.id_regcodidenti, RC.borrado, RC.folioCodID,
+                                    RC.id_regcodidenti, RC.borrado, RC.folioCodID, RA.supervisionValores,
                                     S.semana, SC.semanaCobro, D.codIdProyBase, D.valCobProyBase
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
@@ -65,16 +65,17 @@ require '../components/head-dataTables.php';
                                     INNER JOIN marcas M ON V.id_marca = M.id_marca 
                                     INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
                                     INNER JOIN anios A ON V.id_anio = A.id_anio 
+                                    INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto
                                     INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto  
                                     INNER JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
                                     INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
                                     INNER JOIN semanas S ON RS.id_semana = S.id_semana
                                     INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto
-                                    WHERE proyCodIdentificador = 1 AND RC.borrado = 0 AND P.valorVenta <> RS.valorVentaAlta  ORDER BY nProyecto ASC";
-                                } else if ($verTablaRepVVIvsVVA == 1) {
+                                    WHERE proyCodIdentificador = 1 AND RC.borrado = 0 AND P.valorVenta <> RS.valorVentaAlta  ORDER BY nProyecto DESC";
+                                } else if ($verTablaRepVVIvsVVA  == 1) {
                                     $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, 
                                     V.placa, Co.color, M.marca, Mo.modelo, A.anio, RS.valorVentaAlta,
-                                    RC.id_regcodidenti, RC.borrado, RC.folioCodID,
+                                    RC.id_regcodidenti, RC.borrado, RC.folioCodID, RA.supervisionValores,
                                     S.semana, SC.semanaCobro, D.codIdProyBase, D.valCobProyBase
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
@@ -82,12 +83,13 @@ require '../components/head-dataTables.php';
                                     INNER JOIN marcas M ON V.id_marca = M.id_marca 
                                     INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
                                     INNER JOIN anios A ON V.id_anio = A.id_anio 
+                                    INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto
                                     INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto  
                                     INNER JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
                                     INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
                                     INNER JOIN semanas S ON RS.id_semana = S.id_semana
                                     INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto
-                                    WHERE proyCodIdentificador = 1 AND RC.borrado = 0 AND P.valorVenta <> RS.valorVentaAlta  ORDER BY nProyecto ASC";
+                                    WHERE proyCodIdentificador = 1 AND RC.borrado = 0 AND P.valorVenta <> RS.valorVentaAlta  ORDER BY nProyecto DESC";
                                 } else {
                                     $query = "SELECT id_proyecto
                                     FROM proyectos WHERE id_proyecto = 0";
@@ -97,7 +99,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-body">
                                     <?php
                                     if ($super == 1) {
-                                    } else if ($verTablaRepVVIvsVVA == 0) { ?>
+                                    } else if ($verTablaRepVVIvsVVA  == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
@@ -132,6 +134,7 @@ require '../components/head-dataTables.php';
                                                 $codIdProyBase = $row['codIdProyBase'];
                                                 $id_regcodidenti = $row['id_regcodidenti'];
                                                 $VVA = $row["valorVentaAlta"];
+                                                $Sup = $row['supervisionValores'];
                                             ?>
                                                 <tr>
                                                     <td>
@@ -140,10 +143,10 @@ require '../components/head-dataTables.php';
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['codIdProyBase']?>
+                                                        <?php echo $row['codIdProyBase'] ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['folioCodID']?>
+                                                        <?php echo $row['folioCodID'] ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $row['nProyecto']; ?>
@@ -172,46 +175,72 @@ require '../components/head-dataTables.php';
                                                     <td>
                                                         <?php echo $row['semanaCobro'] ?>
                                                     </td>
-                                                    <td style="min-width: 10%;">
+                                                    <td style="min-width: 10%; background: gray; color: #fff;">
                                                         <?php echo $row['valorVenta'] ?>
                                                     </td>
-                                                    <td style="min-width: 10%;">
-                                                        <?php 
+                                                    <td style="min-width: 10%; background: gray; color: #fff">
+                                                        <?php
                                                         echo $row["valorVentaAlta"];
                                                         ?>
                                                     </td>
                                                     <td style="min-width: 10%;">
-                                                        <?php echo $row['valCobProyBase'] ?> 
+                                                        <?php echo $row['valCobProyBase'] ?>
                                                     </td>
-                                                    <td>¿?</td>
                                                     <td>
-                                                        <div class="input-group input-group-sm mb-3">
+                                                        <?php
+                                                        if ($Sup == 0) {
+                                                            echo '<h6><span class="badge badge-danger badge-pill">Sin Supervisión</span></h6>';
+                                                        } else if ($Sup == 1) {
+                                                            echo '<h6><span class="badge badge-success badge-pill">Supervisado</span></h6>';
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td>
+                                                        <div class=" input-group input-group-sm mb-3">
                                                             <div class="input-group-prepend">
-                                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Marcas"> Acciones</span>
-                                                                </button>
+                                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Marcas"> Acciones</span></button>
                                                                 <ul class="dropdown-menu" style="min-width: 2em">
                                                                     <div class="btn-group">
                                                                         <li class="dropdown-item">
-                                                                            <!-- repAltaCob permiso -->
-                                                                            <span data-toggle="tooltip" title="3.2.1 Descarga PDF Registro Código Identificador">
+                                                                            <span data-toggle="tooltip" title="3.2.1 Registrar Motivo Supervisión">
+                                                                                <?php if ($super == 1 && $Sup == 0) { ?>
+                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target=".regMotivoSupVVIvsVVA-<?php echo $idP ?>"><i class="fa-solid fa-pencil"></i>
+                                                                                    </button>
+                                                                                <?php } else if ($super == 1 && $Sup == 1) {
+                                                                                    echo '<a class="btn btn-outline-danger" id="regMotivoSupVVIvsVVA "><i class="fa-solid fa-pencil"></i>
+                                                                            </a>';
+                                                                                } else if ($regMotivoSupVVIvsVVA  == 1 && $Sup == 0) { ?>
+                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target=".regMotivoSupVVIvsVVA-<?php echo $idP ?>"><i class="fa-solid fa-pencil"></i>
+                                                                                    </button>
+                                                                                <?php  } else if ($regMotivoSupVVIvsVVA  == 1 && $Sup == 1) {
+                                                                                    echo '<a class="btn btn-outline-danger" id="regMotivoSupVVIvsVVA "><i class="fa-solid fa-pencil"></i>
+                                                                            </a>';
+                                                                                } else {
+                                                                                    echo '<a class="btn btn-outline-danger" id="regMotivoSupVVIvsVVA "><i class="fa-solid fa-pencil"></i>
+                                                                            </a>';
+                                                                                } ?>
+                                                                            </span>
+                                                                        </li>
+                                                                        <li class="dropdown-item">
+                                                                            <span data-toggle="tooltip" title="3.2.2 Modificar Motivo Supervisión">
                                                                                 <?php if ($super == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../components/regCodIdentificador.php?id=<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-file-pdf"></i>
-                                                                                    </a>
-                                                                                <?php  } else if ($pdfRepVVIvsVVA == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../components/regCodIdentificador.php?id=<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-file-pdf"></i>
-                                                                                    </a>
+                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target=".modMotivoSupVVIvsVVA-<?php echo $row["id_proyecto"] ?>"><i class="fa-solid fa-pen-to-square"></i>
+                                                                                    </button>
+                                                                                <?php  } else if ($modMotivoSupVVIvsVVA == 1) { ?>
+                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target=".modMotivoSupVVIvsVVA-<?php echo $row["id_proyecto"] ?>"><i class="fa-solid fa-pen-to-square"></i>
+                                                                                    </button>
                                                                                 <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="pdfRepVVIvsVVA"><i class="fa-solid fa-file-pdf"></i>
+                                                                                    <a class="btn btn-outline-danger" id="modMotivoSupVVIvsVVA"><i class="fa-solid fa-pen-to-square"></i>
                                                                                     </a>
                                                                                 <?php } ?>
                                                                             </span>
                                                                         </li>
                                                                         <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="3.2.2 Ver Link de Video, Observaciones y Generales">
+                                                                            <span data-toggle="tooltip" title="3.2.3 Ver Link de Video, Observaciones y Generales">
                                                                                 <?php if ($super == 1) { ?>
                                                                                     <button class="btn btn-secondary" data-toggle="modal" data-target="#verGralRepVVIvsVVA-<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></button>
-                                                                                <?php  } else if ($verGralRepVVIvsVVA == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target="#verGralRepVVAvsVCodID-<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></a>
+                                                                                <?php  } else if ($verGralRepVVIvsVVA  == 1) { ?>
+                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target="#verGralRepVVIvsVVA-<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></a>
                                                                                 <?php } else { ?>
                                                                                     <a class="btn btn-outline-danger" id="verGralRepVVIvsVVA"><i class="fa-solid fa-comments"></i>
                                                                                     </a>
@@ -225,8 +254,9 @@ require '../components/head-dataTables.php';
                                                     </td>
                                                 </tr>
                                                 <?php
-                                                require '../components/modal-regresarRegCodIdentificador.php';
                                                 require '../components/modal-verRepDifValVenInicialvsValVenAlta.php';
+                                                require '../components/modal-regMotivoSupVVIvsVVA.php';
+                                                require '../components/modal-modMotivoSupVVIvsVVA.php';
                                                 ?>
                                             <?php
                                             }
@@ -262,10 +292,10 @@ require '../components/head-dataTables.php';
                 </div>
             </section>
         </div>
+        <?php
+        require '../components/footer.php';
+        ?>
     </div>
-    <?php
-    require '../components/footer.php';
-    ?>
     <?php
     // Scripts principales
     require '../components/scripts-main.php';
@@ -275,26 +305,26 @@ require '../components/head-dataTables.php';
 
     <script>
         // regresar a tabla registro solicitud
-         $(document).ready(function() {
-             $('#btnRegresarRegCodIdentificador').click(function() {
-                 $.ajax({
-                         url: '../update/updateRegresarRegCodIdentificador.php',
-                         type: 'POST',
-                         data: $('#formRegresarRegCodIdentificador').serialize(),
-                     })
-                     .done(function(res) {
-                         $('#respuestaRegresarRegCodIdentificador').html(res)
-                     })
-             });
+        $(document).ready(function() {
+            $('#btnRegresarRegCodIdentificador').click(function() {
+                $.ajax({
+                        url: '../update/updateRegresarRegCodIdentificador.php',
+                        type: 'POST',
+                        data: $('#formRegresarRegCodIdentificador').serialize(),
+                    })
+                    .done(function(res) {
+                        $('#respuestaRegresarRegCodIdentificador').html(res)
+                    })
+            });
 
-         });
-         //Ocultar boton por 5 minutos para evitar el doble submit
-         $("#btnRegresarRegCodIdentificador").on('click', function() {
-             $("#btnRegresarRegCodIdentificador").css('visibility', 'hidden');
-             setTimeout(function() {
-                 $("#btnRegresarRegCodIdentificador").css('visibility', 'visible');
-             }, 300000);
-         });
+        });
+        //Ocultar boton por 5 minutos para evitar el doble submit
+        $("#btnRegresarRegCodIdentificador").on('click', function() {
+            $("#btnRegresarRegCodIdentificador").css('visibility', 'hidden');
+            setTimeout(function() {
+                $("#btnRegresarRegCodIdentificador").css('visibility', 'visible');
+            }, 300000);
+        });
         // regCodIdentificador 2.6.1 REGISTRO CODIGO IDENTIFICADOR  --------------------------------------------------------------
         $(document).ready(function() {
             $("#regCodIdentificador").click(function() {
@@ -419,11 +449,10 @@ require '../components/head-dataTables.php';
                 }
             })
         });
+
+        // copiar link al portapapeles
+        var clipboard = new Clipboard('.btn');
     </script>
 </body>
-<script>
-    // copiar link al portapapeles
-    var clipboard = new Clipboard('.btn');
-</script>
 
 </html>

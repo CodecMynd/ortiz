@@ -2,7 +2,7 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>Tabla 3.1 Reporte Diferencia Valor Alta Vs. Valor Código Identificador  | <?php echo $nomComp ?></title>
+<title>Tabla 3.1 Reporte Diferencia Valor Alta Vs. Valor Código Identificador | <?php echo $nomComp ?></title>
 <style>
     @media (min-width:320px) and (max-width:425px) {
         .content-header {
@@ -57,7 +57,7 @@ require '../components/head-dataTables.php';
                                 if ($super == 1) {
                                     $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, 
                                     V.placa, Co.color, M.marca, Mo.modelo, A.anio, RS.valorVentaAlta,
-                                    RC.id_regcodidenti, RC.borrado, RC.folioCodID,
+                                    RC.id_regcodidenti, RC.borrado, RC.folioCodID, RC.supervisionValores,
                                     S.semana, SC.semanaCobro, D.codIdProyBase, D.valCobProyBase
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
@@ -74,7 +74,7 @@ require '../components/head-dataTables.php';
                                 } else if ($verTablaRepVVAvsVCodID == 1) {
                                     $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, 
                                     V.placa, Co.color, M.marca, Mo.modelo, A.anio, RS.valorVentaAlta,
-                                    RC.id_regcodidenti, RC.borrado, RC.folioCodID,
+                                    RC.id_regcodidenti, RC.borrado, RC.folioCodID,RC.supervisionValores,
                                     S.semana, SC.semanaCobro, D.codIdProyBase, D.valCobProyBase
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
@@ -121,7 +121,7 @@ require '../components/head-dataTables.php';
                                                 <th>Valor Venta Inicial</th>
                                                 <th>Valor Venta Alta</th>
                                                 <th>Valor Cobro Proyecto Base</th>
-                                                <th>Status</th>
+                                                <th>Status Supervisión</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -132,6 +132,7 @@ require '../components/head-dataTables.php';
                                                 $codIdProyBase = $row['codIdProyBase'];
                                                 $id_regcodidenti = $row['id_regcodidenti'];
                                                 $VVA = $row["valorVentaAlta"];
+                                                $Sup = $row['supervisionValores'];
                                             ?>
                                                 <tr>
                                                     <td>
@@ -140,10 +141,10 @@ require '../components/head-dataTables.php';
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['codIdProyBase']?>
+                                                        <?php echo $row['codIdProyBase'] ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['folioCodID']?>
+                                                        <?php echo $row['folioCodID'] ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $row['nProyecto']; ?>
@@ -175,39 +176,65 @@ require '../components/head-dataTables.php';
                                                     <td style="min-width: 10%;">
                                                         <?php echo $row['valorVenta'] ?>
                                                     </td>
-                                                    <td style="min-width: 10%;">
-                                                        <?php 
+                                                    <td style="min-width: 10%; background: gray; color: #fff">
+                                                        <?php
                                                         echo $row["valorVentaAlta"];
                                                         ?>
                                                     </td>
-                                                    <td style="min-width: 10%;">
-                                                        <?php echo $row['valCobProyBase'] ?> 
+                                                    <td style="min-width: 10%; background: gray; color: #fff">
+                                                        <?php echo $row['valCobProyBase'] ?>
                                                     </td>
-                                                    <td>¿?</td>
                                                     <td>
-                                                        <div class="input-group input-group-sm mb-3">
+                                                        <?php
+                                                        if ($Sup == 0) {
+                                                            echo '<h6><span class="badge badge-danger badge-pill">Sin Supervisión</span></h6>';
+                                                        } else if ($Sup == 1) {
+                                                            echo '<h6><span class="badge badge-success badge-pill">Supervisado</span></h6>';
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td>
+                                                        <div class=" input-group input-group-sm mb-3">
                                                             <div class="input-group-prepend">
-                                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Marcas"> Acciones</span>
-                                                                </button>
+                                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Marcas"> Acciones</span></button>
                                                                 <ul class="dropdown-menu" style="min-width: 2em">
                                                                     <div class="btn-group">
                                                                         <li class="dropdown-item">
-                                                                            <!-- repAltaCob permiso -->
-                                                                            <span data-toggle="tooltip" title="3.1.1 Descarga PDF Registro Código Identificador">
+                                                                            <span data-toggle="tooltip" title="3.1.1 Registrar Motivo Supervisión">
+                                                                                <?php if ($super == 1 && $Sup == 0) { ?>
+                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target=".regMotivoSupVVAvsVCodID-<?php echo $idP ?>"><i class="fa-solid fa-pencil"></i>
+                                                                                    </button>
+                                                                                <?php } else if ($super == 1 && $Sup == 1) {
+                                                                                    echo '<a class="btn btn-outline-danger" id="regMotivoSupVVAvsVCodID"><i class="fa-solid fa-pencil"></i>
+                                                                            </a>';
+                                                                                } else if ($regMotivoSupVVAvsVCodID == 1 && $Sup == 0) { ?>
+                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target=".regMotivoSupVVAvsVCodID-<?php echo $idP ?>"><i class="fa-solid fa-pencil"></i>
+                                                                                    </button>
+                                                                                <?php  } else if ($regMotivoSupVVAvsVCodID == 1 && $Sup == 1) {
+                                                                                    echo '<a class="btn btn-outline-danger" id="regMotivoSupVVAvsVCodID"><i class="fa-solid fa-pencil"></i>
+                                                                            </a>';
+                                                                                } else {
+                                                                                    echo '<a class="btn btn-outline-danger" id="regMotivoSupVVAvsVCodID"><i class="fa-solid fa-pencil"></i>
+                                                                            </a>';
+                                                                                } ?>
+                                                                            </span>
+                                                                        </li>
+                                                                        <li class="dropdown-item">
+                                                                            <span data-toggle="tooltip" title="3.1.2 Modificar Motivo Supervisión">
                                                                                 <?php if ($super == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../components/regCodIdentificador.php?id=<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-file-pdf"></i>
-                                                                                    </a>
-                                                                                <?php  } else if ($pdfRepVVAvsVCodID == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../components/regCodIdentificador.php?id=<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-file-pdf"></i>
-                                                                                    </a>
+                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target=".modMotivoSupVVAvsVCodID-<?php echo $row["id_proyecto"] ?>"><i class="fa-solid fa-pen-to-square"></i>
+                                                                                    </button>
+                                                                                <?php  } else if ($modMotivoSupVVAvsVCodID == 1) { ?>
+                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target=".modMotivoSupVVAvsVCodID-<?php echo $row["id_proyecto"] ?>"><i class="fa-solid fa-pen-to-square"></i>
+                                                                                    </button>
                                                                                 <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="pdfRepVVAvsVCodID"><i class="fa-solid fa-file-pdf"></i>
+                                                                                    <a class="btn btn-outline-danger" id="modMotivoSupVVAvsVCodID"><i class="fa-solid fa-pen-to-square"></i>
                                                                                     </a>
                                                                                 <?php } ?>
                                                                             </span>
                                                                         </li>
                                                                         <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="3.1.2 Ver Link de Video, Observaciones y Generales">
+                                                                            <span data-toggle="tooltip" title="3.1.3 Ver Link de Video, Observaciones y Generales">
                                                                                 <?php if ($super == 1) { ?>
                                                                                     <button class="btn btn-secondary" data-toggle="modal" data-target="#verGralRepVVAvsVCodID-<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></button>
                                                                                 <?php  } else if ($verGralRepVVAvsVCodID == 1) { ?>
@@ -225,8 +252,9 @@ require '../components/head-dataTables.php';
                                                     </td>
                                                 </tr>
                                                 <?php
-                                                require '../components/modal-regresarRegCodIdentificador.php';
                                                 require '../components/modal-verRepDifValVenAltavsValCodId.php';
+                                                require '../components/modal-regMotivoSupVVAvsVCodID.php';
+                                                require '../components/modal-modMotivoSupVVAvsVCodID.php';
                                                 ?>
                                             <?php
                                             }
@@ -250,7 +278,7 @@ require '../components/head-dataTables.php';
                                                 <th class="suma"></th>
                                                 <th class="suma"></th>
                                                 <th class="suma"></th>
-                                                <th>Status</th>
+                                                <th>Status Supervisión</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>
@@ -262,10 +290,10 @@ require '../components/head-dataTables.php';
                 </div>
             </section>
         </div>
+        <?php
+        require '../components/footer.php';
+        ?>
     </div>
-    <?php
-    require '../components/footer.php';
-    ?>
     <?php
     // Scripts principales
     require '../components/scripts-main.php';
@@ -274,31 +302,10 @@ require '../components/head-dataTables.php';
     ?>
 
     <script>
-        // regresar a tabla registro solicitud
-         $(document).ready(function() {
-             $('#btnRegresarRegCodIdentificador').click(function() {
-                 $.ajax({
-                         url: '../update/updateRegresarRegCodIdentificador.php',
-                         type: 'POST',
-                         data: $('#formRegresarRegCodIdentificador').serialize(),
-                     })
-                     .done(function(res) {
-                         $('#respuestaRegresarRegCodIdentificador').html(res)
-                     })
-             });
-
-         });
-         //Ocultar boton por 5 minutos para evitar el doble submit
-         $("#btnRegresarRegCodIdentificador").on('click', function() {
-             $("#btnRegresarRegCodIdentificador").css('visibility', 'hidden');
-             setTimeout(function() {
-                 $("#btnRegresarRegCodIdentificador").css('visibility', 'visible');
-             }, 300000);
-         });
-        // regCodIdentificador 2.6.1 REGISTRO CODIGO IDENTIFICADOR  --------------------------------------------------------------
+        // regMotivoSupVVAvsVCodID  3.1.1 PDF CODIGO IDENTIFICADOR  --------------------------------------------------------------
         $(document).ready(function() {
-            $("#regCodIdentificador").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.5.1 REGISTRO DE CÓDIGO IDENTIFICADOR, consulta al administrador!")
+            $("#regMotivoSupVVAvsVCodID ").click(function() {
+                toastr["error"]("¡No tienes acceso a: 3.1.1 REGISTRO MOTIVO DE SUPERVISION, consulta al administrador!")
 
                 tostadas.opciones = {
                     "botóncerrar": falso,
@@ -320,7 +327,7 @@ require '../components/head-dataTables.php';
             })
         });
 
-        // eliCodIdentificador 2.6.2 ELIMINAR CODIGO IDENTIFICADOR  --------------------------------------------------------------
+        // eliCodIdentificador 3.1.2 ELIMINAR CODIGO IDENTIFICADOR  --------------------------------------------------------------
         $(document).ready(function() {
             $("#eliCodIdentificador").click(function() {
                 toastr["error"]("¡No tienes acceso a: 2.6.2 ELIMINAR CODIGO IDENTIFICADOR, consulta al administrador!")
@@ -419,11 +426,9 @@ require '../components/head-dataTables.php';
                 }
             })
         });
+        // copiar link al portapapeles
+        var clipboard = new Clipboard('.btn');
     </script>
 </body>
-<script>
-    // copiar link al portapapeles
-    var clipboard = new Clipboard('.btn');
-</script>
 
 </html>

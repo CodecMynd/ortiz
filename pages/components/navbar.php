@@ -5,7 +5,7 @@
             <!-- Produccion -->
             <!-- <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span> </a>  -->
 
-            <!-- test -->
+        <!-- test -->
             <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span> 
         </a>
 
@@ -90,8 +90,13 @@
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                                 <li><a href="../adds/formProyectos.php" class="dropdown-item">2.3.1 Registro de Proyecto </a></li>
                                 <li><a href="../admin/crudProyectos.php" class="dropdown-item">2.3.2 Lista de Proyectos</a></li>
-                                <li><a href="../adds/formAddCapValVenInicial.php" class="dropdown-item">2.3.7 Captura de Valor Venta Inicial  </a></li>
+                                <li><a href="../adds/formAddCapValVenInicial.php" class="dropdown-item">2.3.7 Captura de Valor Venta Inicial </a></li>
                                 <li><a href="../update/formUpdateAsignarAgentes.php" class="dropdown-item disabled">2.3.8 Orden de Asignacion de Agentes Servicio </a></li>
+                                <li><a href="../admin/crudComprobacionPlacas.php" class="dropdown-item ">2.3.9 Comprobación de Placas </a></li>
+                                <li><a href="../admin/crudComprobacionKm.php" class="dropdown-item ">2.3.10 Comprobación de Kilometraje </a></li>
+                                <li><a href="../admin/crudComprobacionImagenes.php" class="dropdown-item ">2.3.11 Comprobación 7 Imágenes </a></li>
+                                <li><a href="../admin/crudComprobacionClientes.php" class="dropdown-item ">2.3.12 Comprobación INE Clientes </a></li>
+                                <li><a href="../admin/crudComprobacionDocuFirm.php" class="dropdown-item ">2.3.13 Comprobación Documentación Firmada Ingreso Vehículo</a></li>
                             </ul>
                         </li>
                         <li class="dropdown-submenu dropdown-hover">
@@ -118,7 +123,7 @@
                 <li class="nav-item dropdown">
                     <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle text-dark">3.0 Reportes</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                        <li><a href="../components/reporteDifValVenAltavsValCodId.php" class="dropdown-item">3.1 Reporte Diferencia Valor Alta Vs Valor Codigo Identificador  </a></li>
+                        <li><a href="../components/reporteDifValVenAltavsValCodId.php" class="dropdown-item">3.1 Reporte Diferencia Valor Alta Vs Valor Codigo Identificador </a></li>
                         <li><a href="../components/reporteDifValVenInicialvsValAlta.php" class="dropdown-item ">3.2 Reporte Diferencia Valor Venta Inicial Vs Valor Alta </a></li>
                         <li><a href="#" class="dropdown-item disabled">3.3 item </a></li>
                         <li><a href="#" class="dropdown-item disabled">3.4 item </a></li>

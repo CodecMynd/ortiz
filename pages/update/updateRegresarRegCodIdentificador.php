@@ -10,6 +10,7 @@ $id = $_SESSION['id_usuario'];
 
 $id_proyecto = $_POST['id_proyecto'];
 $id_regcodidenti = $_POST['id_regcodidenti'];
+$codIdProyBase = $_POST['codIdProyBase'];
 $status = 'Borrado de 2.6 Código Identificador';
 $etapa = 'Proyecto regresado a 2.5 Alta Proyecto';
 
@@ -29,21 +30,32 @@ $resultadoU = mysqli_query($conexion, $queryU);
 //var_dump($queryU);
 //echo '<br>';
 
+$queryDC = ("DELETE FROM desglocecodid WHERE id_proyecto = $id_proyecto AND codIdProyBase = '$codIdProyBase' ");
+$resultadoDC = mysqli_query($conexion, $queryDC);
+//var_dump($queryD);
+//echo '<br>';
+
+$queryUD = ("UPDATE desglocecodidbitacora SET borrado = 1, fecha_borrado = '$date', id_capB = '$id' WHERE id_proyecto = $id_proyecto AND codIdProyBase = '$codIdProyBase' ");
+$resultadoUD = mysqli_query($conexion, $queryUD);
+var_dump($queryU);
+//echo '<br>'; 
+
+
 //Bitacora
 $queryBI = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
 $resultadoBI = mysqli_query($conexion, $queryBI);
-//var_dump($queryBI);
+var_dump($queryBI);
 
 
-  if ($resultadoBI) {
+if ($resultadoBI) {
       echo '<script type="text/javascript">
-         window.history.go(-1);
-          </script>';
-  } else {
+        window.history.go(-1);
+         </script>';
+ } else {
       echo '<script type="text/javascript">
-         alert("Error");
-         window.history.go(-1);
-          </script>';
-  }
+        alert("Error");
+        window.history.go(-1);
+         </script>';
+ }
 
 desconectar();

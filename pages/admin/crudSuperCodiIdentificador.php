@@ -80,7 +80,7 @@ require '../components/head-dataTables.php';
                                     INNER JOIN semanas S ON RS.id_semana = S.id_semana
                                     INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto 
                                     INNER JOIN supervisado SU ON P.id_proyecto = SU.id_proyecto
-                                    WHERE superCodIdentificador = 1  ORDER BY nProyecto ASC";
+                                    WHERE superCodIdentificador = 1 AND D.borrado = 0 ORDER BY nProyecto ASC";
                                 } else if ($verTablaSuperCodIdentificador == 1) {
                                     $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, Co.color, M.marca, Mo.modelo, A.anio, RS.valorVentaAlta, RC.id_regcodidenti, S.semana, SC.semanaCobro, D.valCobProyBase, D.codIdProyBase, SU.compCodId
                                     FROM proyectos P 
@@ -95,7 +95,7 @@ require '../components/head-dataTables.php';
                                     INNER JOIN semanas S ON RS.id_semana = S.id_semana
                                     INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto 
                                     INNER JOIN supervisado SU ON P.id_proyecto = SU.id_proyecto
-                                    WHERE superCodIdentificador = 1 ORDER BY nProyecto ASC";
+                                    WHERE superCodIdentificador = 1 AND D.borrado = 0 ORDER BY nProyecto ASC";
                                 } else {
                                     $query = "SELECT id_proyecto
                                     FROM proyectos WHERE id_proyecto = 0";

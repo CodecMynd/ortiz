@@ -1174,7 +1174,6 @@ $(document).on("click", ".cargarProyecto", function () {
 
 
 
-
 // // login validar usuario y contraseña
 // jQuery(document).on('submit', '#form-login', function (event) {
 //     event.preventDefault();

@@ -8,7 +8,7 @@ function conectar()
     $conexion = mysqli_connect('localhost', 'root', '', 'db_ortiz');
 
     //conexion pruebas
-    // $conexion = mysqli_connect('den1.mysql6.gear.host', 'dbortiz', 'Tv4O~77K-R7j', 'dbortiz');
+    //$conexion = mysqli_connect('den1.mysql6.gear.host', 'dbortiz', 'Tv4O~77K-R7j', 'dbortiz');
 
     //conexion produccion
     //$conexion = mysqli_connect('den1.mysql6.gear.host', 'jsolautomotriz', 'Sk4Ot??17QLC', 'jsolautomotriz');

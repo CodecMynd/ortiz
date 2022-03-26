@@ -51,24 +51,26 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, P.fecha_creacion, V.placa, M.marca, Mo.modelo, A.anio, Co.color
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, P.fecha_creacion, P.estadoProyectoEliminado,
+                                    V.placa, M.marca, Mo.modelo, A.anio, Co.color
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co On V.id_color = Co.id_color
                                     INNER JOIN marcas M ON V.id_marca = M.id_marca 
                                     INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
                                     INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    WHERE p.status = 1
+                                    WHERE P.estadoProyectoEliminado = 1
                                     ORDER BY nProyecto DESC";
                                 } else if ($verTablaCapValVenInicial == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, P.fecha_creacion, V.placa, M.marca, Mo.modelo, A.anio, Co.color
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, P.fecha_creacion, P.estadoProyectoEliminado,
+                                    V.placa, M.marca, Mo.modelo, A.anio, Co.color
                                     FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co On V.id_color = Co.id_color
                                     INNER JOIN marcas M ON V.id_marca = M.id_marca 
                                     INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
-                                    INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    WHERE p.status = 1
+                                    INNER JOIN anios A ON V.id_anio = A.id_anio  
+                                    WHERE P.estadoProyectoEliminado = 1                          
                                     ORDER BY nProyecto DESC";
                                 } else {
                                     $query = "SELECT id_proyecto
@@ -98,6 +100,7 @@ require '../components/head-dataTables.php';
                                                 <th>Color</th>
                                                 <th>Status Valor Venta Inicial</th>
                                                 <th>Valor Venta Inicial</th>
+                                                <th>Estado del Proyecto</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -105,6 +108,7 @@ require '../components/head-dataTables.php';
                                             <?php
                                             while ($row = $resultado->fetch_assoc()) {
                                                 $idP = $row['id_proyecto'];
+                                                $EP = $row['estadoProyectoEliminado'];
                                             ?>
                                                 <tr>
                                                     <td>
@@ -148,18 +152,31 @@ require '../components/head-dataTables.php';
                                                         <?php echo $row['valorVenta']; ?>
                                                     </td>
                                                     <td>
+                                                    <?php
+                                                      $S = $row['estadoProyectoEliminado'];
+                                                         if ($S == 0) {
+                                                             echo '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>';
+                                                         } else {
+                                                             echo '<h6><span class="badge badge-success badge-pill">Activo</span></h6>';
+                                                         }
+                                                        ?>
+                                                    </td>
+                                                    <td>
                                                         <div class="input-group input-group-sm mb-3">
                                                             <div class="input-group-prepend">
-                                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Usuarios"> Acciones</span>
+                                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Captura de Valor Venta Inicial"> Acciones</span>
                                                                 </button>
                                                                 <ul class="dropdown-menu" style="min-width: 2em;">
                                                                     <div class="btn-group">
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="2.3.7.1 Capturar Valor Venta Inicial">
-                                                                                <?php if ($super == 1) { ?>
+                                                                                <?php if ($super == 1 and $EP == 1) { ?>
                                                                                     <a class="btn btn-secondary" href="../update/formUpdateCapValVentInicial.php?id=<?php echo $idP ?>"><i class="fas fa-edit"></i>
                                                                                     </a>
-                                                                                <?php } else if ($perRegCapValVenInicial == 1) { ?>
+                                                                                    <?php  } else if ($super == 1 && $EP == 0) {
+                                                                                    echo '<a class="btn btn-outline-danger" id="noRegCapValVenInicial"><i class="fas fa-edit"></i></a>';
+
+                                                                                    } else if ($perRegCapValVenInicial == 1) { ?>
                                                                                     <a class="btn btn-secondary" href="../update/formUpdateCapValVentInicial.php?id=<?php echo $idP ?>"><i class="fas fa-edit"></i>
                                                                                     </a>
                                                                                 <?php  } else if ($regCapValVenInicial == 1) { ?>
@@ -175,7 +192,7 @@ require '../components/head-dataTables.php';
                                                                                 <?php if ($super == 1) { ?>
                                                                                     <button class="btn btn-secondary" data-toggle="modal" data-target=".verGralProy<?php echo $idP ?>"><i class="fa-solid fa-eye"></i></button>
                                                                                 <?php  } else if ($verGralCapValVenInicial == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".verGralProy-<?php echo $idP ?>"><i class="fa-solid fa-eye"></i></a>
+                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target=".verGralProy<?php echo $idP ?>"><i class="fa-solid fa-eye"></i></button>
                                                                                 <?php } else { ?>
                                                                                     <a class="btn btn-outline-danger" id="verGralCapValVenInicial"><i class="fa-solid fa-comments"></i>
                                                                                     </a>
@@ -207,6 +224,7 @@ require '../components/head-dataTables.php';
                                                 <th>Color</th>
                                                 <th>Status Valor Venta Inicial</th>
                                                 <th class="suma"></th>
+                                                <th>Estado del Proyecto</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>
@@ -231,6 +249,33 @@ require '../components/head-dataTables.php';
     ?>
     <!-- avisos -->
     <script src="../../src/js/toastr.js"></script>
+    <script>
+        
+// eliCliente 2.3.7.1 ELIMINAR PROYECTO --------------------------------------------------------------
+$(document).ready(function () {
+    $("#noRegCapValVenInicial ").click(function () {
+        toastr["error"]("¡No tienes acceso a: 2.3.7.1 PROYECTO ELIMINADO, NO SE PUEDE CAPTURAR VALOR VENTA INICIAL!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+    </script>
 
 </body>
 

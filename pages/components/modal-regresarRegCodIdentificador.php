@@ -16,6 +16,7 @@
                 <div class="modal-footer">
                     <input type="hidden" name="id_regcodidenti" id="id_regcodidenti" value="<?php echo $id_regcodidenti ?>">
                     <input type="hidden" name="id_proyecto" id="id_proyecto" value="<?php echo $row['id_proyecto'] ?>">
+                    <input type="hidden" name="codIdProyBase" id="codIdProyBase" value="<?php echo $row['codIdProyBase'] ?>">
                     <button type="submit" id="btnRegresarRegCodIdentificador" class="btn btn-secondary btn-block"><i class="fa-solid fa-ban"></i> Eliminar</buttom> <br>
                     <button data-dismiss="modal" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Cancelar">Salir</button>
                 </div>

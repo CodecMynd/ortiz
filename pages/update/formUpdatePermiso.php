@@ -627,7 +627,7 @@ require '../components/head-main.php';
                                                                                     <div class="info-box-content">
                                                                                         <span class="info-box-text">1.9.1.1 Registro de Técnico Armador</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="regTecArmador" id="regTecArmador" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regTecArmador'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </button>
@@ -639,7 +639,7 @@ require '../components/head-main.php';
                                                                                     <div class="info-box-content">
                                                                                         <span class="info-box-text">1.9.1.2 Modificar Técnico Armador</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="modTecArmador" id="modTecArmador" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['modTecArmador'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </button>
@@ -651,7 +651,7 @@ require '../components/head-main.php';
                                                                                     <div class="info-box-content">
                                                                                         <span class="info-box-text">1.9.1.3 Eliminar Técnico Armador</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="eliTecArmador" id="eliTecArmador" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliTecArmador'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </button>
@@ -663,7 +663,7 @@ require '../components/head-main.php';
                                                                                     <div class="info-box-content">
                                                                                         <span class="info-box-text">1.9.1.4 Ver Tabla Técnico Armador</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="verTablaTecArmador" id="verTablaTecArmador" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaTecArmador'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </button>
@@ -678,7 +678,7 @@ require '../components/head-main.php';
                                                                                     <div class="info-box-content">
                                                                                         <span class="info-box-text">1.9.2.1 Registro de Técnico Montador</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="regTecMontador" id="regTecMontador" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regTecMontador'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </button>
@@ -690,7 +690,7 @@ require '../components/head-main.php';
                                                                                     <div class="info-box-content">
                                                                                         <span class="info-box-text">1.9.2.2 Modificar Técnico Montador</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="modTecMontador" id="modTecMontador" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['modTecMontador'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </button>
@@ -702,7 +702,7 @@ require '../components/head-main.php';
                                                                                     <div class="info-box-content">
                                                                                         <span class="info-box-text">1.9.2.3 Eliminar Técnico Montador</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="eliTecMontador" id="eliTecMontador" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliTecMontador'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </button>
@@ -714,7 +714,7 @@ require '../components/head-main.php';
                                                                                     <div class="info-box-content">
                                                                                         <span class="info-box-text">1.9.2.4 Ver Tabla Técnico Montador</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="verTablaTecMontador" id="verTablaTecMontador" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaTecMontador'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </button>
@@ -1336,8 +1336,8 @@ require '../components/head-main.php';
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                         <!-- >3.1 Alta Proyecto -->
-                                                         <div class="col-12">
+                                                        <!-- >3.1 Alta Proyecto -->
+                                                        <div class="col-12">
                                                             <div class="card card-secondary card-outline collapsed-card">
                                                                 <div class="card-header">
                                                                     <h2 class="card-title"><strong>3.1 Reporte Diferencia Valor Alta Vs. Valor Código Identificador</strong></h2>
@@ -1348,27 +1348,27 @@ require '../components/head-main.php';
                                                                     </div>
                                                                 </div>
                                                                 <div class="card-body">
-                                                                    <div class="row"> 
-                                                                    <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-file-pdf" verTablaRegSolAltProy></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">3.1.1 PDF Registro Código Identificador</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="pdfRepVVAvsVCodID" id="pdfRepVVAvsVCodID" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['pdfRepVVAvsVCodID'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>                                                            
+                                                                    <div class="row">
                                                                         <div class="col-md-4 col-sm-6 col-12">
                                                                             <button type="button" class="btn btn-permisos">
                                                                                 <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-photo-film"></i></span>
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
                                                                                     <div class="info-box-content">
-                                                                                        <span class="info-box-text">3.1.2 Ver Link de Video, Observaciones y Generales</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralRepVVAvsVCodID" id="verGralRepVVAvsVCodID" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralRepVVAvsVCodID'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                        <span class="info-box-text">3.1.1 Registrar Motivo Supervisión</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="regMotivoSupVVAvsVCodID" id="regMotivoSupVVAvsVCodID" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regMotivoSupVVAvsVCodID'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pen-to-square"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">3.1.2 Modificar Motivo Supervisión</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="modMotivoSupVVAvsVCodID" id="modMotivoSupVVAvsVCodID" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['modMotivoSupVVAvsVCodID'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </button>
@@ -1378,9 +1378,21 @@ require '../components/head-main.php';
                                                                                 <div class="info-box">
                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
                                                                                     <div class="info-box-content">
-                                                                                        <span class="info-box-text">3.1.3 Ver Tabla Diferencia Valor Alta Vs. Valor Código Identificador</span>
+                                                                                        <span class="info-box-text">3.1.3 Ver Observaciones y Generales</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralRepVVAvsVCodID" id="verGralRepVVAvsVCodID" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralRepVVAvsVCodID'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">3.1.4 Ver Tabla Diferencia Valor Alta Vs. Valor Código Identificador</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="verTablaRepVVAvsVCodID" id="verTablaRepVVAvsVCodID" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaRepVVAvsVCodID'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </button>
@@ -1401,27 +1413,39 @@ require '../components/head-main.php';
                                                                     </div>
                                                                 </div>
                                                                 <div class="card-body">
-                                                                    <div class="row"> 
-                                                                    <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-file-pdf" verTablaRegSolAltProy></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">3.2.1 PDF Registro Código Identificador</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="pdfRepVVIvsVVA" id="pdfRepVVIvsVVA" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['pdfRepVVIvsVVA'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>                                                            
+                                                                    <div class="row">
                                                                         <div class="col-md-4 col-sm-6 col-12">
                                                                             <button type="button" class="btn btn-permisos">
                                                                                 <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-photo-film"></i></span>
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
                                                                                     <div class="info-box-content">
-                                                                                        <span class="info-box-text">3.2.2 Ver Link de Video, Observaciones y Generales</span>
+                                                                                        <span class="info-box-text">3.2.1 Registrar Motivo Supervisión</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="regMotivoSupVVIvsVVA" id="regMotivoSupVVIvsVVA" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regMotivoSupVVIvsVVA'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pen-to-square"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">3.2.2 Modificar Motivo Supervisión</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="modMotivoSupVVIvsVVA" id="modMotivoSupVVIvsVVA" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['modMotivoSupVVIvsVVA'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">3.2.2 Ver Observaciones y Generales</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="verGralRepVVIvsVVA" id="verGralRepVVIvsVVA" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralRepVVIvsVVA'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </button>
@@ -1433,7 +1457,7 @@ require '../components/head-main.php';
                                                                                     <div class="info-box-content">
                                                                                         <span class="info-box-text">3.2.3 Ver Tabla Diferencia Valor Venta Inicial Vs. Valor Alta</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="verTablaRepVVIvsVVA" id="verTablaRepVVIvsVVA" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaRepVVIvsVVA'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </button>

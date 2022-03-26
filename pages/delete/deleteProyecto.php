@@ -28,86 +28,95 @@ if ($proyectoActivo == 1) {
     $resultado = mysqli_query($conexion, $queryB);
     // var_dump($queryB);
 
-    $queryP = ("UPDATE proyectos SET status = 0, fecha_borrado = '$date', id_capB = '$id' WHERE id_proyecto = $id_proyecto");
+
+    $queryP = ("UPDATE proyectos SET estadoProyectoEliminado = 0, fecha_borrado = '$date', id_capB = '$id' WHERE id_proyecto = $id_proyecto");
     $resultadoP = mysqli_query($conexion, $queryP);
     // var_dump($queryP);
+
+    $queryD = ("DELETE desglocecodid WHERE id_proyecto = $id_proyecto");
+    $resultadoD = mysqli_query($conexion, $queryD);
+    
+    // $queryD = ("UPDATE desglocecodid SET borrado = 1, fecha_borrado = '$date', id_capB = '$id' WHERE id_proyecto = $id_proyecto");
+    // $resultadoD = mysqli_query($conexion, $queryD);
+
+    // var_dump($queryP);
     exit;
-} else if ($registroSolicitud == 1) {
-    $queryB = "INSERT INTO bitacora(id_proyecto, etapa, fechar_borrado, id_capB) VALUES ( '$id_proyecto', '$etapa', '$date', $id)";
-    // $resultado = mysqli_query($conexion, $queryB);
-    var_dump($queryB);
+// } else if ($registroSolicitud == 1) {
+//     $queryB = "INSERT INTO bitacora(id_proyecto, etapa, fechar_borrado, id_capB) VALUES ( '$id_proyecto', '$etapa', '$date', $id)";
+//     // $resultado = mysqli_query($conexion, $queryB);
+//     var_dump($queryB);
 
-    $queryP = ("UPDATE proyectos SET status = 0, fecha_borrado = '$date', id_capB = '$id' WHERE id_proyecto = $id_proyecto");
-    $resultadoP = mysqli_query($conexion, $queryP);
-    //var_dump($queryP);
+//     $queryP = ("UPDATE proyectos SET estadoProyecto = 0, fecha_borrado = '$date', id_capB = '$id' WHERE id_proyecto = $id_proyecto");
+//     $resultadoP = mysqli_query($conexion, $queryP);
+//     //var_dump($queryP);
 
-    $queryS = ("DELETE FROM registrosolicitud WHERE id_proyecto = $id_proyecto");
-    $resultadoS = mysqli_query($conexion, $queryS);
-    //var_dump($queryS);
-    exit;
-} else if ($altaProyecto == 1) {
-    $queryB = "INSERT INTO bitacora(id_proyecto, etapa, fechar_borrado, id_capB) VALUES ( '$id_proyecto', '$etapa', '$date', $id)";
-    $resultadoB = mysqli_query($conexion, $queryB);
-    //var_dump($queryB);
+//     $queryS = ("DELETE FROM registrosolicitud WHERE id_proyecto = $id_proyecto");
+//     $resultadoS = mysqli_query($conexion, $queryS);
+//     //var_dump($queryS);
+//     exit;
+// } else if ($altaProyecto == 1) {
+//     $queryB = "INSERT INTO bitacora(id_proyecto, etapa, fechar_borrado, id_capB) VALUES ( '$id_proyecto', '$etapa', '$date', $id)";
+//     $resultadoB = mysqli_query($conexion, $queryB);
+//     //var_dump($queryB);
 
-    $queryP = ("UPDATE proyectos SET status = 0, fecha_borrado = '$date', id_capB = '$id' WHERE id_proyecto = $id_proyecto");
-    $resultadoP = mysqli_query($conexion, $queryP);
-    //var_dump($queryP);
+//     $queryP = ("UPDATE proyectos SET estadoProyecto = 0, fecha_borrado = '$date', id_capB = '$id' WHERE id_proyecto = $id_proyecto");
+//     $resultadoP = mysqli_query($conexion, $queryP);
+//     //var_dump($queryP);
 
-    $queryS = ("DELETE FROM registrosolicitud WHERE id_proyecto = $id_proyecto");
-    $resultadoS = mysqli_query($conexion, $queryS);
-    //var_dump($queryS);
+//     $queryS = ("DELETE FROM registrosolicitud WHERE id_proyecto = $id_proyecto");
+//     $resultadoS = mysqli_query($conexion, $queryS);
+//     //var_dump($queryS);
 
-    $queryA = ("DELETE FROM registroalta WHERE id_proyecto = $id_proyecto");
-    $resultadoA = mysqli_query($conexion, $queryA);
-    //var_dump($queryA);
-    exit;
-} else if ($proyCodIdentificador == 1) {
-    $queryB = "INSERT INTO bitacora(id_proyecto, etapa, fechar_borrado, id_capB) VALUES ( '$id_proyecto', '$etapa', '$date', $id)";
-    $resultado = mysqli_query($conexion, $queryB);
-    //var_dump($queryB);
+//     $queryA = ("DELETE FROM registroalta WHERE id_proyecto = $id_proyecto");
+//     $resultadoA = mysqli_query($conexion, $queryA);
+//     //var_dump($queryA);
+//     exit;
+// } else if ($proyCodIdentificador == 1) {
+//     $queryB = "INSERT INTO bitacora(id_proyecto, etapa, fechar_borrado, id_capB) VALUES ( '$id_proyecto', '$etapa', '$date', $id)";
+//     $resultado = mysqli_query($conexion, $queryB);
+//     //var_dump($queryB);
 
-    $queryP = ("UPDATE proyectos SET status = 0, fecha_borrado = '$date', id_capB = '$id' WHERE id_proyecto = $id_proyecto");
-    $resultadoP = mysqli_query($conexion, $queryP);
-    //var_dump($queryP);
+//     $queryP = ("UPDATE proyectos SET estadoProyecto = 0, fecha_borrado = '$date', id_capB = '$id' WHERE id_proyecto = $id_proyecto");
+//     $resultadoP = mysqli_query($conexion, $queryP);
+//     //var_dump($queryP);
 
-    $queryS = ("DELETE FROM registrosolicitud WHERE id_proyecto = $id_proyecto");
-    $resultadoS = mysqli_query($conexion, $queryS);
-    //var_dump($queryS);
+//     $queryS = ("DELETE FROM registrosolicitud WHERE id_proyecto = $id_proyecto");
+//     $resultadoS = mysqli_query($conexion, $queryS);
+//     //var_dump($queryS);
 
-    $queryA = ("DELETE FROM registroalta WHERE id_proyecto = $id_proyecto");
-    $resultadoA = mysqli_query($conexion, $queryA);
-    //var_dump($queryA);
+//     $queryA = ("DELETE FROM registroalta WHERE id_proyecto = $id_proyecto");
+//     $resultadoA = mysqli_query($conexion, $queryA);
+//     //var_dump($queryA);
 
-    $queryC = ("DELETE FROM registrocodidenti WHERE id_proyecto = $id_proyecto");
-    $resultadoC = mysqli_query($conexion, $queryC);
-    //var_dump($queryC);
-    exit;
-} else if ($superCodIdentificador == 1) {
-    $queryB = "INSERT INTO bitacora(id_proyecto, etapa, fechar_borrado, id_capB) VALUES ( '$id_proyecto', '$etapa', '$date', $id)";
-    $resultado = mysqli_query($conexion, $queryB);
-    //var_dump($queryB);
+//     $queryC = ("DELETE FROM registrocodidenti WHERE id_proyecto = $id_proyecto");
+//     $resultadoC = mysqli_query($conexion, $queryC);
+//     //var_dump($queryC);
+//     exit;
+// } else if ($superCodIdentificador == 1) {
+//     $queryB = "INSERT INTO bitacora(id_proyecto, etapa, fechar_borrado, id_capB) VALUES ( '$id_proyecto', '$etapa', '$date', $id)";
+//     $resultado = mysqli_query($conexion, $queryB);
+//     //var_dump($queryB);
 
-    $queryP = ("UPDATE proyectos SET status = 0, fecha_borrado = '$date', id_capB = '$id' WHERE id_proyecto = $id_proyecto");
-    $resultadoP = mysqli_query($conexion, $queryP);
-    //var_dump($queryP);
+//     $queryP = ("UPDATE proyectos SET estadoProyecto = 0, fecha_borrado = '$date', id_capB = '$id' WHERE id_proyecto = $id_proyecto");
+//     $resultadoP = mysqli_query($conexion, $queryP);
+//     //var_dump($queryP);
 
-    $queryS = ("DELETE FROM registrosolicitud WHERE id_proyecto = $id_proyecto");
-    $resultadoS = mysqli_query($conexion, $queryS);
-    //var_dump($queryS);
+//     $queryS = ("DELETE FROM registrosolicitud WHERE id_proyecto = $id_proyecto");
+//     $resultadoS = mysqli_query($conexion, $queryS);
+//     //var_dump($queryS);
 
-    $queryA = ("DELETE FROM registroalta WHERE id_proyecto = $id_proyecto");
-    $resultadoA = mysqli_query($conexion, $queryA);
-    //var_dump($queryA);
+//     $queryA = ("DELETE FROM registroalta WHERE id_proyecto = $id_proyecto");
+//     $resultadoA = mysqli_query($conexion, $queryA);
+//     //var_dump($queryA);
 
-    $queryC = ("DELETE FROM registrocodidenti WHERE id_proyecto = $id_proyecto");
-    $resultadoC = mysqli_query($conexion, $queryC);
-    //var_dump($queryC);
+//     $queryC = ("DELETE FROM registrocodidenti WHERE id_proyecto = $id_proyecto");
+//     $resultadoC = mysqli_query($conexion, $queryC);
+//     //var_dump($queryC);
 
-    $querySU = ("DELETE FROM supervisado WHERE id_proyecto = $id_proyecto");
-    $resultadoSU = mysqli_query($conexion, $querySU);
-    //var_dump($querySU);
-    exit;
+//     $querySU = ("DELETE FROM supervisado WHERE id_proyecto = $id_proyecto");
+//     $resultadoSU = mysqli_query($conexion, $querySU);
+//     //var_dump($querySU);
+//     exit;
 } else {
     echo "sin registro";
 }

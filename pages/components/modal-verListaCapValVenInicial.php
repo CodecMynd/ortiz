@@ -41,7 +41,7 @@ if (isset($rowV['capValVenta_fecha'])) {
             <div class="card-body">
                 <div class="card card-secondary card-outline collapsed-card">
                     <div class="card-header">
-                        <h2 class="card-title"><strong>Usuario, Fecha y Hora de Captura: Número de Proyecto <?php echo $idP?></strong></h2>
+                        <h2 class="card-title"><strong>Usuario, Fecha y Hora de Captura: Número de Proyecto <?php echo $row['nProyecto'] ?></strong></h2>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
                                 <i class="fas fa-plus"></i>
