@@ -283,7 +283,7 @@ require '../components/head-dataTables.php';
                                                 require '../components/modal-regComCliente.php';
                                                 require '../components/modal-eliminarComCliente.php';
                                                 require '../components/modal-regComClienteSuper.php';
-                                                require '../components/modal-eliminarComPlacaSuper.php';
+                                                require '../components/modal-eliminarComClienteSuper.php';
                                                 require '../components/modal-verGralComCliente.php';
                                             }
                                             desconectar();

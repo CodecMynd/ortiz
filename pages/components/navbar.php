@@ -97,6 +97,7 @@
                                 <li><a href="../admin/crudComprobacionImagenes.php" class="dropdown-item ">2.3.11 Comprobación 7 Imágenes </a></li>
                                 <li><a href="../admin/crudComprobacionClientes.php" class="dropdown-item ">2.3.12 Comprobación INE Clientes </a></li>
                                 <li><a href="../admin/crudComprobacionDocuFirm.php" class="dropdown-item ">2.3.13 Comprobación Documentación Firmada Ingreso Vehículo</a></li>
+                                <li><a href="../admin/crudComprobacionGarantia.php" class="dropdown-item ">2.3.14 Comprobación de Garantia</a></li>
                             </ul>
                         </li>
                         <li class="dropdown-submenu dropdown-hover">

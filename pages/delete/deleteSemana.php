@@ -6,10 +6,11 @@ if (!haIniciadoSesion()) {
 conectar();
 ini_set('date.timezone',  'America/Mexico_City');
 $date = date('Y-m-d H:i:s');
-$id = $_SESSION['id'];
+$id = $_SESSION['id_usuario'];
 
 $id_semana = $_POST['id'];
-$query = ("DELETE FROM semanas WHERE id_semana = $id_semana");
+
+$query = ("UPDATE semanas SET borrado = 1, fecha_borrado = '$date', id_capB = '$id'  WHERE id_semana = $id_semana");
 
 $resultado = mysqli_query($conexion, $query);
 if ($resultado) {

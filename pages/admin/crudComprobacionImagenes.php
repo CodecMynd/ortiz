@@ -230,8 +230,10 @@ require '../components/head-dataTables.php';
 
                                                                     <li class="dropdown-item">
                                                                         <span data-toggle="tooltip" title="2.3.11.2 Eliminar Comprobación de 7 Imagenes">
-                                                                            <?php
-                                                                            if ($super == 1 && $cI == 1) { ?>
+                                                                       
+                                                                        <?php if ($Eliminado == 0) {
+                                                                                echo '<a class="btn btn-outline-danger" id="noComImg"><i class="fa-solid fa-ban"></i></a>';
+                                                                            } else if ($super == 1 && $cI == 1) { ?>
                                                                                 <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarComImg<?php echo $row["id_proyecto"] ?> "><i class="fas fa-trash-alt"></i>
                                                                                 </a>
                                                                             <?php  } else if ($super == 1 && $cI == 0) {

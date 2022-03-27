@@ -54,11 +54,11 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1) {
-                                    $query = "SELECT * FROM semanas ORDER BY semana DESC";
+                                    $query = "SELECT id_semana, semana FROM semanas WHERE borrado = 0 ORDER BY semana DESC";
                                 } else if ($verTablaSemana == 1) {
-                                    $query = "SELECT * FROM semanas ORDER BY semana DESC";
+                                    $query = "SELECT id_semana, semana FROM semanas WHERE borrado = 0 ORDER BY semana DESC";
                                 } else {
-                                    $query = "SELECT * FROM semanas WHERE id_semana = 0";
+                                    $query = "SELECT id_semana FROM semanas WHERE id_semana = 0";
                                 }
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
@@ -77,7 +77,6 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>Semana de Alta</th>
-                                                <th>Estatus</th>
                                                 <th>Eliminar</th>
                                             </tr>
                                         </thead>
@@ -92,11 +91,6 @@ require '../components/head-dataTables.php';
                                                     </td>
                                                     <td>
                                                         <?php echo $row['semana'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-secondary">
-                                                            En uso <span class="badge badge-light">0</span>
-                                                        </button>
                                                     </td>
                                                     <td class="row justify-content-center">
                                                         <span data-toggle="tooltip" title="1.6.1.2  Eliminar Semana de Alta">
@@ -124,7 +118,6 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>Semana de Alta</th>
-                                                <th>Estatus</th>
                                                 <th>Eliminar</th>
                                             </tr>
                                         </tfoot>

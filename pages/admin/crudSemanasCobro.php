@@ -54,9 +54,9 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1) {
-                                    $query = "SELECT id_semanaCobro, semanaCobro FROM semanasCobro ORDER BY semanaCobro DESC";
+                                    $query = "SELECT id_semanaCobro, semanaCobro FROM semanasCobro WHERE borrado = 0 ORDER BY semanaCobro DESC";
                                 } else if ($verTablaSemanaCobro == 1) {
-                                    $query = "SELECT id_semanaCobro, semanaCobro FROM semanasCobro ORDER BY semanaCobro DESC";
+                                    $query = "SELECT id_semanaCobro, semanaCobro FROM semanasCobro WHERE borrado = 0 ORDER BY semanaCobro DESC";
                                 } else {
                                     $query = "SELECT id_semanaCobro,semanaCobro FROM semanasCobro WHERE id_semanaCobro = 0";
                                 }
@@ -77,7 +77,6 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>Semana de Cobro</th>
-                                                <th>Estatus</th>
                                                 <th>Eliminar</th>
                                             </tr>
                                         </thead>
@@ -92,11 +91,6 @@ require '../components/head-dataTables.php';
                                                     </td>
                                                     <td>
                                                         <?php echo $row['semanaCobro'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-secondary">
-                                                            En uso <span class="badge badge-light">0</span>
-                                                        </button>
                                                     </td>
                                                     <td class="row justify-content-center">
                                                         <span data-toggle="tooltip" title="1.6.2.2  Eliminar Semana de Cobro">
@@ -124,7 +118,6 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>Semana de Cobro</th>
-                                                <th>Estatus</th>
                                                 <th>Eliminar</th>
                                             </tr>
                                         </tfoot>

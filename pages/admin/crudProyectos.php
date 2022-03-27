@@ -101,7 +101,7 @@ require '../components/head-dataTables.php';
                                     <div class="row justify-content-center">
                                         <div class="col-sm-6 col-md-3">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-arrow-down-1-9"></i></span>
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-arrow-up-1-9"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Total Proyectos</h6>
                                                     <h4 class="text-center">

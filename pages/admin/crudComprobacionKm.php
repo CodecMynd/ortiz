@@ -174,7 +174,7 @@ require '../components/head-dataTables.php';
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="2.3.10.1 Registrar Comprobación de Kilometraje">
                                                                                 <?php if ($Eliminado == 0) {
-                                                                                    echo '<a class="btn btn-outline-danger" id="noRegComKm"><i class="fa-solid fa-pencil"></i></a>';
+                                                                                    echo '<a class="btn btn-outline-danger" id="noRegComKm"><i class="fa-solid fa-ban"></i></a>';
                                                                                 } else if ($super == 1 && $cK == 0) { ?>
                                                                                     <button class="btn btn-secondary" data-toggle="modal" data-target=".regComKm-<?php echo $idP ?>"><i class="fa-solid fa-pencil"></i>
                                                                                     </button>
@@ -229,7 +229,7 @@ require '../components/head-dataTables.php';
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="2.3.10.2 Eliminar Comprobación de Kilometraje">
                                                                                 <?php if ($Eliminado == 0) {
-                                                                                    echo '<a class="btn btn-outline-danger" id="noComKm"><i class="fas fa-trash-alt"></i></a>';
+                                                                                    echo '<a class="btn btn-outline-danger" id="noComKm"><i class="fa-solid fa-ban"></i></a>';
                                                                                 } else if ($super == 1 && $cK == 1) { ?>
                                                                                     <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarComKm<?php echo $row["id_proyecto"] ?> "><i class="fas fa-trash-alt"></i>
                                                                                     </a>
@@ -254,14 +254,14 @@ require '../components/head-dataTables.php';
                                                                             <span data-toggle="tooltip" title="2.3.10.4 Eliminar Supervisión Comprobación de Placa">
                                                                                 <?php if ($Eliminado == 0) {
                                                                                     echo '<a class="btn btn-outline-danger" id="noComPlacas"><i class="fa-solid fa-ban"></i></a>';
-                                                                                } else if ($super == 1 && $cK == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarComPlacaSuper<?php echo $row["id_proyecto"] ?> "><i class="fas fa-trash-alt"></i></a>
-                                                                                <?php  } else if ($super == 1 && $cK == 0) {
+                                                                                } else if ($super == 1 && $cSK == 1) { ?>
+                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarComKmSuper<?php echo $row["id_proyecto"] ?> "><i class="fas fa-trash-alt"></i></a>
+                                                                                <?php  } else if ($super == 1 && $cSK == 0) {
                                                                                     echo '<a class="btn btn-outline-danger" id="noEliComPlacas"><i class="fa-solid fa-eraser"></i></a>';
-                                                                                } else if ($eliComPlacas == 1 && $cK == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarComPlacaSuper<?php echo $row["id_proyecto"] ?>"><i class="fas fa-trash-alt"></i>
+                                                                                } else if ($eliComPlacas == 1 && $cSK == 1) { ?>
+                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarComKmSuper<?php echo $row["id_proyecto"] ?>"><i class="fas fa-trash-alt"></i>
                                                                                     </a>
-                                                                                <?php  } else if ($eliComPlacas == 1 && $cK == 0) {
+                                                                                <?php  } else if ($eliComPlacas == 1 && $cSK == 0) {
                                                                                     echo '<a class="btn btn-outline-danger" id="noeliComPlacas"><i class="fa-solid fa-eraser"></i>
                                                                                     </a>';
                                                                                 } else {
