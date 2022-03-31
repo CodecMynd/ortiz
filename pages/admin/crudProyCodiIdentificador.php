@@ -3,6 +3,7 @@ require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
 <title>Tabla Proyectos con Código Identificador | <?php echo $nomComp ?></title>
+<link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
@@ -68,7 +69,7 @@ require '../components/head-dataTables.php';
                                     INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
                                     INNER JOIN semanas S ON RS.id_semana = S.id_semana
                                     INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto
-                                    WHERE proyCodIdentificador = 1 AND RC.borrado = 0  ORDER BY nProyecto DESC";
+                                    WHERE proyCodIdentificador = 1 AND RC.borrado = 0  ORDER BY nProyecto DESC LIMIT 5";
                                 } else if ($verTablaCodIdentificador == 1) {
                                     $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, 
                                     V.placa, Co.color, M.marca, Mo.modelo, A.anio, 
@@ -101,6 +102,48 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
+                                    <!-- Contador de Registros -->
+                                    <!-- <section class="content">
+                                        <div class="container-fluid">
+                                            <div class="row justify-content-center">
+                                                <div class="col-12">
+                                                    <div class="card card-secondary card-outline collapsed-card">
+                                                        <div class="card-header bg-secondary">
+                                                            <h2 class="card-title"><strong>Filtro</strong></h2>
+                                                            <div class="card-tools">
+                                                                <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                    <i class="fas fa-plus"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card-body ">
+                                                            <div class="row justify-content-center">
+                                                                <div class="col-md-2 col-sm-12 my-1">
+                                                                    <label class="ml-5 mb-2">Semana de Alta</label>
+                                                                    <div class="input-group">
+                                                                        <div class="input-group-prepend">
+                                                                            <span class="input-group-text"><i class="fa fa-user-pen" aria-hidden="true"></i></span>
+                                                                        </div>
+                                                                        <input type="text" class="form-control" id="filtroSemanaAlta" data-index="11">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-2 col-sm-12 my-1">
+                                                                    <label class="ml-5 mb-2">Semana de Cobro</label>
+                                                                    <div class="input-group">
+                                                                        <div class="input-group-prepend">
+                                                                            <span class="input-group-text"><i class="fa fa-user-pen" aria-hidden="true"></i></span>
+                                                                        </div>
+                                                                        <input type="text" class="form-control" id="filtroSemanaCobro" data-index="12">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section> -->
                                     <table id="tableProyCodId" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
@@ -140,10 +183,10 @@ require '../components/head-dataTables.php';
                                                         <?php echo $row['fecha_creacion'] ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['codIdProyBase']?>
+                                                        <?php echo $row['codIdProyBase'] ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['folioCodID']?>
+                                                        <?php echo $row['folioCodID'] ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $row['nProyecto']; ?>
@@ -179,7 +222,7 @@ require '../components/head-dataTables.php';
                                                         <?php echo $row['valorVentaAlta'] ?>
                                                     </td>
                                                     <td style="width: 9%;">
-                                                        <?php echo $row['valCobProyBase'] ?> 
+                                                        <?php echo $row['valCobProyBase'] ?>
                                                     </td>
                                                     <td>
                                                         <div class="input-group input-group-sm mb-3">
@@ -280,29 +323,30 @@ require '../components/head-dataTables.php';
     // Scripts dataTables
     require '../components/scripts-dataTables.php';
     ?>
+    <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
 
     <script>
         // regresar a tabla registro solicitud
-         $(document).ready(function() {
-             $('#btnRegresarRegCodIdentificador').click(function() {
-                 $.ajax({
-                         url: '../update/updateRegresarRegCodIdentificador.php',
-                         type: 'POST',
-                         data: $('#formRegresarRegCodIdentificador').serialize(),
-                     })
-                     .done(function(res) {
-                         $('#respuestaRegresarRegCodIdentificador').html(res)
-                     })
-             });
+        $(document).ready(function() {
+            $('#btnRegresarRegCodIdentificador').click(function() {
+                $.ajax({
+                        url: '../update/updateRegresarRegCodIdentificador.php',
+                        type: 'POST',
+                        data: $('#formRegresarRegCodIdentificador').serialize(),
+                    })
+                    .done(function(res) {
+                        $('#respuestaRegresarRegCodIdentificador').html(res)
+                    })
+            });
 
-         });
-         //Ocultar boton por 5 minutos para evitar el doble submit
-         $("#btnRegresarRegCodIdentificador").on('click', function() {
-             $("#btnRegresarRegCodIdentificador").css('visibility', 'hidden');
-             setTimeout(function() {
-                 $("#btnRegresarRegCodIdentificador").css('visibility', 'visible');
-             }, 300000);
-         });
+        });
+        //Ocultar boton por 5 minutos para evitar el doble submit
+        $("#btnRegresarRegCodIdentificador").on('click', function() {
+            $("#btnRegresarRegCodIdentificador").css('visibility', 'hidden');
+            setTimeout(function() {
+                $("#btnRegresarRegCodIdentificador").css('visibility', 'visible');
+            }, 300000);
+        });
         // regCodIdentificador 2.6.1 REGISTRO CODIGO IDENTIFICADOR  --------------------------------------------------------------
         $(document).ready(function() {
             $("#regCodIdentificador").click(function() {

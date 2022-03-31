@@ -3,10 +3,10 @@
         <a href="../admin/panelAdmin.php" class="navbar-brand">
             <img src="../../src/img/logos/logo.png" alt="JSOL Automotriz Logo" class="brand-image  elevation-5" style="opacity: .8; height:4rem">
             <!-- Produccion -->
-            <!-- <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span> </a>  -->
+         <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span> </a>   
 
         <!-- test -->
-            <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span> 
+        <!-- <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span>   -->
         </a>
 
         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,6 +68,7 @@
                                 <li><a href="../admin/crudTecMontador.php" class="dropdown-item">1.9.2 Técnico Montador</a></li>
                             </ul>
                         </li>
+                        <li><a href="../admin/crudAsesor.php" class="dropdown-item">1.10 Asesor</a></li>
 
 
                         <!-- <?php if ($super == 1) { ?>
@@ -90,6 +91,7 @@
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                                 <li><a href="../adds/formProyectos.php" class="dropdown-item">2.3.1 Registro de Proyecto </a></li>
                                 <li><a href="../admin/crudProyectos.php" class="dropdown-item">2.3.2 Lista de Proyectos</a></li>
+                                <li><a href="../admin/crudVerificacionDiariaVehiculos.php" class="dropdown-item ">2.3.2.2 Verificación Diaria Vehículos Activos</a></li>
                                 <li><a href="../adds/formAddCapValVenInicial.php" class="dropdown-item">2.3.7 Captura de Valor Venta Inicial </a></li>
                                 <li><a href="../update/formUpdateAsignarAgentes.php" class="dropdown-item disabled">2.3.8 Orden de Asignacion de Agentes Servicio </a></li>
                                 <li><a href="../admin/crudComprobacionPlacas.php" class="dropdown-item ">2.3.9 Comprobación de Placas </a></li>
@@ -98,6 +100,7 @@
                                 <li><a href="../admin/crudComprobacionClientes.php" class="dropdown-item ">2.3.12 Comprobación INE Clientes </a></li>
                                 <li><a href="../admin/crudComprobacionDocuFirm.php" class="dropdown-item ">2.3.13 Comprobación Documentación Firmada Ingreso Vehículo</a></li>
                                 <li><a href="../admin/crudComprobacionGarantia.php" class="dropdown-item ">2.3.14 Comprobación de Garantia</a></li>
+                                <li><a href="../admin/crudComprobacionAsignarAsesor.php" class="dropdown-item ">2.3.15 Asignación de Asesor</a></li>
                             </ul>
                         </li>
                         <li class="dropdown-submenu dropdown-hover">
@@ -131,12 +134,12 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle  disabled">4.0 Destajos Técnicos</a>
+                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle disabled">4.0 menú</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                        <li><a href="#" class="dropdown-item">4.1 item </a></li>
-                        <li><a href="#" class="dropdown-item">4.2 item </a></li>
-                        <li><a href="#" class="dropdown-item">4.3 item </a></li>
-                        <li><a href="#" class="dropdown-item">4.4 item </a></li>
+                        <li><a href="#" class="dropdown-item">Asignación de Asesor</a></li>
+                        <li><a href="#" class="dropdown-item disabled">4.2 item </a></li>
+                        <li><a href="#" class="dropdown-item disabled">4.3 item </a></li>
+                        <li><a href="#" class="dropdown-item disabled">4.4 item </a></li>
                     </ul>
                 </li>
             </ul>

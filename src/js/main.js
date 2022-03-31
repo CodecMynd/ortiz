@@ -177,6 +177,7 @@ $("#btnNuevoUsuario").on('click', function () {
 -
 -
 */
+
 // 1.1.2.1 Formulario Borrar Permisos creados----------------------------------------------------
 $('.btnBorrarPermisos').click(function (e) {
     e.preventDefault();
@@ -810,6 +811,71 @@ $('.btnBorrarTecMontador').click(function (e) {
     return false;
 });
 
+// 1.10.1 Formulario Registrar Asesor ------------------------------------------------------------
+$(document).ready(function () {
+    $('#btnNuevoAsesor').click(function () {
+        $.ajax({
+                url: 'addNuevoAsesor.php',
+                type: 'POST',
+                data: $('#formNuevoAsesor').serialize(),
+            })
+            .done(function (res) {
+                $('#respuestaNuevoAsesor').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnNuevoAsesor").on('click', function () {
+    $("#btnNuevoAsesor").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnNuevoAsesor").css('visibility', 'visible');
+    }, 300000);
+});
+
+// 1.10.2 Formulario Modificar Asesor ------------------------------------------------------------
+$(document).ready(function () {
+    $('#btnUpdateAsesor').click(function () {
+        $('#btnUpdateAsesor').attr('disabled', 'disabled');
+        $.ajax({
+                url: 'updateAsesor.php',
+                type: 'POST',
+                data: $('#formUpdateAsesor').serialize(),
+
+                timeout: 3000,
+            })
+            .done(function (res) {
+                $('#respuestaUpdateAsesor').html(res)
+            })
+    });
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnUpdateAsesor").on('click', function () {
+    $("#btnUpdateAsesor").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnUpdateAsesor").css('visibility', 'visible');
+    }, 300000);
+});
+
+// 1.10.3 Eliminar Asesor ------------------------------------------------------------
+$('.btnBorrarAsesor').click(function (e) {
+    e.preventDefault();
+    if (confirm("¿Estás seguro de eliminar esta Asesor? Una vez borrado ya no se podrá recuperar la información.")) {
+        var id = $(this).attr("id");
+
+        var dataString = 'id=' + id;
+        url = "../delete/deleteAsesor.php";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: dataString,
+            success: function (data) {
+                window.location.href = "crudAsesor.php";
+                $('#respuestaProyectoBorrado').html(data);
+            }
+        });
+    }
+    return false;
+});
 
 // 2.1.1 Formulario Registro Vehiculos ------------------------------------------------------------
 $(document).ready(function () {
