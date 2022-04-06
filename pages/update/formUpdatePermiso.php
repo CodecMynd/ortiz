@@ -944,6 +944,83 @@ require '../components/head-main.php';
                                                                             <hr>
                                                                         </div>
                                                                         <div class="col-md-12 text-center">
+                                                                            <p>2.3.2.2 Verificación Diaria Vehículos Activos</p>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">2.3.2.2.1 Registrar Comprobación Link de Video en Vivo</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComVerifDiariaVeh" id="regComVerifDiariaVeh" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComVerifDiariaVeh'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">2.3.2.2.2 Registrar Supervisión Link de Video en Vivo</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComVerifDiariaVehSuper" id="regComVerifDiariaVehSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComVerifDiariaVehSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">2.3.2.2.3 Ver Generales Link de Video en Vivo</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralComVerifDiariaVeh" id="verGralComVerifDiariaVeh" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComVerifDiariaVeh'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">2.3.2.2.4 Eliminar Comprobación Link de Video en Vivo</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComVerifDiariaVehv" id="eliComVerifDiariaVehv" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComVerifDiariaVehv'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">2.3.2.2.5 Eliminar Supervisión Link de Video en Vivo</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComVerifDiariaVehSuper" id="eliComVerifDiariaVehSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComVerifDiariaVehSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+
+                                                                         <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">2.3.2.2.5 Ver Tabla Verificacion Diaria Vehículos Activos</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaComVerifDiariaVeh" id="verTablaComVerifDiariaVeh" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaComVerifDiariaVeh'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+
+                                                                        <div class="col-md-12 text-center">
                                                                             <p>2.3.7 Captura de Valor Venta Inicial</p>
                                                                         </div>
                                                                         <div class="col-md-3 col-sm-6 col-12">

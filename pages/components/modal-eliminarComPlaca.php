@@ -1,4 +1,5 @@
-<div class="modal fade borrarComPlaca<?php echo $row["id_proyecto"] ?> " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<div class="modal fade borrarComPlaca" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,13 +9,16 @@
             </div>
             <div class="modal-body text-center">
                 <strong class="margin-auto__content">
-                <?php echo $row['nProyecto']; ?>
+                    <span id="tituloModal3"></span>
                 </strong>
             </div>
-            <div class="modal-footer">
-                <buttom type="submit" data-dismiss="modal" id="<?php echo $row['id_proyecto']; ?>" class="btn btn-secondary btn-block btnBorrarComPlaca" data-toggle="tooltip" data-placement="bottom" title="Estas de acuerdo en eliminar "><i class="fa-solid fa-ban"></i> Eliminar</buttom>
-                <a data-dismiss="modal" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Cancelar"><i class="fa-solid fa-xmark"></i> Salir</a>
-            </div>
+            <form id="formEliminarRegComPlaca" action="../delete/deleteComPlaca.php" method="POST">
+                <div class="modal-footer text-left">
+                    <input type="hidden" name="id_proyecto3" id="id_proyecto3" value="">
+                    <button type="submit" name="btnEliminarRegComPlaca" id="btnEliminarRegComPlaca" class="btn btn-secondary"><i class="fas fa-ban"></i> Eliminar</button>
+                    <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Salir"><i class="fa-solid fa-circle-xmark"></i> Salir</a>
+                </div>
+            </form>
             <div class="pie">
                 <h5>2.3.9.2 Eliminar Comprobación de Placa</h5>
             </div>

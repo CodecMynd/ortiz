@@ -4,11 +4,9 @@ $query = "SELECT P.id_proyecto, P.nProyecto, RS.folioRegSolicitud, RS.inspecCali
 RS.fecha_creacion AS regSolfecha,
 RA.fecha_creacion AS regAltaFecha,
 RC.fecha_creacion AS regCodIdFechas,
-
 URS.nombres AS RSNombre , URS.aPaterno AS RSPaterno, URS.aMaterno AS RSMaterno,
 URA.nombres AS RANombre, URA.aPaterno AS RAPaterno, URA.aMaterno AS RAMaterno,
 URC.nombres AS RCNombre, URC.aPaterno AS RCPaterno, URC.aMaterno AS RCMaterno,
-
 D.valCobProyBase, D.codIdProyBase, D.id_pagoProyBase, D.valCobProyExtra, D.codIdProyExtra, D.valCobComBan, D.codIdComBan,D.valCobPen, D.codIdPension, D.valCobOtros, D.codIdOtros, D.fecha_creacion AS DFecha,
 F.formaPago AS formaProyBase, FE.formaPago AS formaProyExtra, FB.formaPago AS formaComBan, FP.formaPago AS formaCobPen, FO.formaPago AS formaOtros,
 SU.compCodId, SU.fecha_creacion AS Fecha

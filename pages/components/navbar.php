@@ -3,10 +3,10 @@
         <a href="../admin/panelAdmin.php" class="navbar-brand">
             <img src="../../src/img/logos/logo.png" alt="JSOL Automotriz Logo" class="brand-image  elevation-5" style="opacity: .8; height:4rem">
             <!-- Produccion -->
-         <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span> </a>   
+         <!-- <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span> </a>    -->
 
         <!-- test -->
-        <!-- <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span>   -->
+        <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span>  
         </a>
 
         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">

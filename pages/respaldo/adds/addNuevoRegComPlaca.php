@@ -1,7 +1,7 @@
 <?php
 require '../../config/functions.php';
 if (!haIniciadoSesion()) {
-    header('Location: ../../../index.php');
+  header('Location: ../../../index.php');
 }
 
 conectar();
@@ -14,26 +14,40 @@ $id_proyecto =  $_POST['id_proyecto'];
 $nProyecto =  $_POST['nProyecto'];
 $linkComPlaca = $_POST['linkComPlaca'];
 
-// Registrar motivo de supervision
-$query = "INSERT INTO complacas(id_proyecto, nProyecto, linkComPlaca, fecha_creacion, id_capC) VALUES ('$id_proyecto', '$nProyecto', '$linkComPlaca', '$date', '$id')";
-$resultado = mysqli_query($conexion, $query);
-//var_dump($query);
+if ($linkComPlaca == '') {
+  echo
+  '<script>
+  alert("Error, El link de comprobación es un campo requerido");
+  window.history.go(-1);
+</script>';
+  exit;
+} else {
 
-// Actualizar supervision valores
-$queryP = "UPDATE proyectos SET comPlacas = 1 WHERE id_proyecto = '$id_proyecto' AND nProyecto = '$nProyecto' ";
-$resultadoP = mysqli_query($conexion, $queryP);
-// var_dump($queryP);
+  try {
+    $conexion->autocommit(FALSE);
 
- if ($resultadoP) {
-            echo '<script>
+    // Registrar motivo de supervision
+    $query = "INSERT INTO complacas(id_proyecto, nProyecto, linkComPlaca, fecha_creacion, id_capC) VALUES ('$id_proyecto', '$nProyecto', '$linkComPlaca', '$date', '$id')";
+    $resultado = mysqli_query($conexion, $query);
+    //var_dump($query);
+
+    // Actualizar supervision valores
+    $queryP = "UPDATE proyectos SET comPlacas = 1 WHERE id_proyecto = '$id_proyecto' AND nProyecto = '$nProyecto' ";
+    $resultadoP = mysqli_query($conexion, $queryP);
+    // var_dump($queryP);
+
+    $conexion->autocommit(TRUE);
+    echo '<script>
+          alert("¡Ingresado correctamente")
           window.history.go(-1);
-       </script>';
-   } else {
-             echo '<script>
-           alert("Error")
-           window.history.go(-1);
-           </script>';
-   }
- desconectar();
- ?>
-
+          </script>';
+          
+  } catch (Exception $e) {
+    $conexion->rollback();
+    echo '<script>
+          alert("¡Error interno! Por favor repórtelo inmediatamente a el área de Soporte")
+          window.history.go(-1);
+          </script>';
+  }
+}
+desconectar();

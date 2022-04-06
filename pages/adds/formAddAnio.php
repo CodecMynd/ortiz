@@ -32,7 +32,7 @@ require '../components/head-main.php';
                         <div class="col-4">
                             <div class="card border-card">
                                 <div class="card-header border-nav">
-                                    <h3 class="card-title">Campo obligatorio</h3>
+                                    <h3 class="card-title">(*) Campos requeridos</h3>
                                 </div>
                                 <!-- <form id="formNuevoUsuario" action="addNuevoUsuario.php" method="POST"> -->
                                 <form id="formNuevoAnio" autocomplete="off">

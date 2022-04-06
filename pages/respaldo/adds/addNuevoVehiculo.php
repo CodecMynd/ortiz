@@ -41,7 +41,7 @@ if ($marca == '' || $modelo == '' || $anio == '' || $placa == '' || $color == ''
             </div>";
         } else {
             echo "<div class='alert alert-danger' role='role'>
-        <p><strong>¡Error interno: vuelve a intentarlo!</strong></p>
+        <p><strong>¡Error interno:! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte</strong></p>
         </div>";
         }
     }
@@ -57,6 +57,6 @@ desconectar();
 
         setTimeout(function() {
             $(".alert-danger").fadeIn(1500);
-        }, 4000);
+        }, 5000);
     });
 </script>

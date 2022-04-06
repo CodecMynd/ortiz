@@ -1166,7 +1166,7 @@
     position: absolute;
     top: 0;
     width: 210px;
-    z-index: 4000;
+    z-index: 5000;
     background: #3E5367;
     display: none
 }
@@ -5971,7 +5971,7 @@ ul.verticle_bars li {
     right: 0;
     float: right;
     width: 400px;
-    z-index: 4000;
+    z-index: 5000;
     bottom: 0
 }
 

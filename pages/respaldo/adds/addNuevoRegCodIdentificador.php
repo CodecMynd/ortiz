@@ -65,49 +65,54 @@ if ($id_semanaCobro == 0) {
     exit;
 } else {
 
+    try {
+        $conexion->autocommit(FALSE);
 
-    // Ingresamos id a tabla proyectos modificar registros
-    $queryP = "UPDATE proyectos SET altaProyecto = 0, proyCodIdentificador = 1 WHERE id_proyecto = $id_proyecto";
-    $resultadoP = mysqli_query($conexion, $queryP);
-    // var_dump($queryP);
-    // echo '<br>';
+        // Ingresamos id a tabla proyectos modificar registros
+        $queryP = "UPDATE proyectos SET altaProyecto = 0, proyCodIdentificador = 1 WHERE id_proyecto = $id_proyecto";
+        $resultadoP = mysqli_query($conexion, $queryP);
+        // var_dump($queryP);
+        // echo '<br>';
 
-    // Insertamos tabla registrocodidenti
-    $queryR = "INSERT INTO registrocodidenti(folioCodID, id_proyecto, id_semanaCobro, borrado, status, fecha_creacion, id_capC) VALUES ('$folioCodID', '$id_proyecto', '$id_semanaCobro', $borrado, '$status', '$date', '$id')";
-    $resultadoR = mysqli_query($conexion, $queryR);
-    //   var_dump($queryR);
-    //   echo '<br>';
+        // Insertamos tabla registrocodidenti
+        $queryR = "INSERT INTO registrocodidenti(folioCodID, id_proyecto, id_semanaCobro, borrado, status, fecha_creacion, id_capC) VALUES ('$folioCodID', '$id_proyecto', '$id_semanaCobro', $borrado, '$status', '$date', '$id')";
+        $resultadoR = mysqli_query($conexion, $queryR);
+        //   var_dump($queryR);
+        //   echo '<br>';
 
-    // Insertamos tabla registrocodidentibitacora
-    $queryB = "INSERT INTO registrocodidentibitacora(folioCodID, id_proyecto, id_semanaCobro, borrado, status, fecha_creacion, id_capC) VALUES ('$folioCodID', '$id_proyecto', '$id_semanaCobro', $borrado, '$status', '$date', '$id')";
-    $resultadoB = mysqli_query($conexion, $queryB);
-    //   var_dump($queryB);
-    //   echo '<br>';
+        // Insertamos tabla registrocodidentibitacora
+        $queryB = "INSERT INTO registrocodidentibitacora(folioCodID, id_proyecto, id_semanaCobro, borrado, status, fecha_creacion, id_capC) VALUES ('$folioCodID', '$id_proyecto', '$id_semanaCobro', $borrado, '$status', '$date', '$id')";
+        $resultadoB = mysqli_query($conexion, $queryB);
+        //   var_dump($queryB);
+        //   echo '<br>';
 
-    $queryD = "INSERT INTO desglocecodid(id_proyecto, valCobProyBase, codIdProyBase, id_pagoProyBase, valCobProyExtra, codIdProyExtra, id_pagoProyExtra, valCobComBan, codIdComBan, id_pagoComBan, valCobPen, codIdPension, id_pagoPension, valCobOtros, codIdOtros, id_pagoOtros, fecha_creacion, id_capC) VALUES ('$id_proyecto', '$valCobProyBase', '$codIdProyBase', '$id_pagoProyBase', '$valCobProyExtra', '$codIdProyExtra', '$id_pagoProyExtra', '$valCobComBan', '$codIdComBan', '$id_pagoComBan', '$valCobPen', '$codIdPension', '$id_pagoPension', '$valCobOtros', '$codIdOtros', '$id_pagoOtros', '$date', '$id')";
-    $resultadoD = mysqli_query($conexion, $queryD);
-    // var_dump($queryD);
+        $queryD = "INSERT INTO desglocecodid(id_proyecto, valCobProyBase, codIdProyBase, id_pagoProyBase, valCobProyExtra, codIdProyExtra, id_pagoProyExtra, valCobComBan, codIdComBan, id_pagoComBan, valCobPen, codIdPension, id_pagoPension, valCobOtros, codIdOtros, id_pagoOtros, fecha_creacion, id_capC) VALUES ('$id_proyecto', '$valCobProyBase', '$codIdProyBase', '$id_pagoProyBase', '$valCobProyExtra', '$codIdProyExtra', '$id_pagoProyExtra', '$valCobComBan', '$codIdComBan', '$id_pagoComBan', '$valCobPen', '$codIdPension', '$id_pagoPension', '$valCobOtros', '$codIdOtros', '$id_pagoOtros', '$date', '$id')";
+        $resultadoD = mysqli_query($conexion, $queryD);
+        // var_dump($queryD);
 
-     $queryDB = "INSERT INTO desglocecodidBitacora(id_proyecto, valCobProyBase, codIdProyBase, id_pagoProyBase, valCobProyExtra, codIdProyExtra, id_pagoProyExtra, valCobComBan, codIdComBan, id_pagoComBan, valCobPen, codIdPension, id_pagoPension, valCobOtros, codIdOtros, id_pagoOtros, fecha_creacion, id_capC) VALUES ('$id_proyecto', '$valCobProyBase', '$codIdProyBase', '$id_pagoProyBase', '$valCobProyExtra', '$codIdProyExtra', '$id_pagoProyExtra', '$valCobComBan', '$codIdComBan', '$id_pagoComBan', '$valCobPen', '$codIdPension', '$id_pagoPension', '$valCobOtros', '$codIdOtros', '$id_pagoOtros', '$date', '$id')";
-     $resultadoDB = mysqli_query($conexion, $queryDB);
-     // var_dump($queryD);
+        $queryDB = "INSERT INTO desglocecodidBitacora(id_proyecto, valCobProyBase, codIdProyBase, id_pagoProyBase, valCobProyExtra, codIdProyExtra, id_pagoProyExtra, valCobComBan, codIdComBan, id_pagoComBan, valCobPen, codIdPension, id_pagoPension, valCobOtros, codIdOtros, id_pagoOtros, fecha_creacion, id_capC) VALUES ('$id_proyecto', '$valCobProyBase', '$codIdProyBase', '$id_pagoProyBase', '$valCobProyExtra', '$codIdProyExtra', '$id_pagoProyExtra', '$valCobComBan', '$codIdComBan', '$id_pagoComBan', '$valCobPen', '$codIdPension', '$id_pagoPension', '$valCobOtros', '$codIdOtros', '$id_pagoOtros', '$date', '$id')";
+        $resultadoDB = mysqli_query($conexion, $queryDB);
+        // var_dump($queryD);
 
 
-    // Bitacora
-    $queryBI = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
-    $resultadoBI = mysqli_query($conexion, $queryBI);
+        // Bitacora
+        $queryBI = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
+        $resultadoBI = mysqli_query($conexion, $queryBI);
 
-    if ($resultadoBI) {
+
+        $conexion->autocommit(TRUE);
         echo "<div class='alert alert-success' role='alert'>
-                 <p><strong>Registro de Código Identificador ingresado correctamente!</strong></p>
-             </div>
-             <div class='col-md-12 col-sm-12 align-self-center'>
-                 <a href='../components/regCodIdentificador.php?id={$id_proyecto}' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Descargar PDF'><i class='fa-solid fa-file-pdf'></i> Descargar PDF</a>
-             </div>";
-    } else {
+        <p><strong>Registro de Código Identificador ingresado correctamente!</strong></p>
+        </div>
+        <div class='col-md-12 col-sm-12 align-self-center'>
+            <a href='../components/regCodIdentificador.php?id={$id_proyecto}' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Descargar PDF'><i class='fa-solid fa-file-pdf'></i> Descargar PDF</a>
+        </div>";
+    } catch (Exception $e) {
+        $conexion->rollback();
         echo "<div class='alert alert-danger' role='role'>
-             <p><strong>¡Error interno: vuelve a intentarlo!</strong></p>
-             </div>";
+        <p><strong>¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte</strong></p>
+        <a href='https://jsolautomotriz.workplace.com/groups/504053034641133'  target='_blank' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Area de Soporte'>¡Reporta aqui! <i class='fa-solid fa-triangle-exclamation parpadea'></i></a>
+        </div>";
     }
 }
 
@@ -122,6 +127,6 @@ desconectar();
 
         setTimeout(function() {
             $(".alert-danger").fadeIn(1500);
-        }, 3000);
+        }, 5000);
     });
 </script>

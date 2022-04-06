@@ -181,7 +181,7 @@ class Helpers
             throw new Exception("dec2roman() requires a numeric argument.");
         }
 
-        if ($num >= 4000 || $num <= 0) {
+        if ($num >= 5000 || $num <= 0) {
             return (string) $num;
         }
 

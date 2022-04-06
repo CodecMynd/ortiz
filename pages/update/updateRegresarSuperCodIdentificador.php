@@ -12,6 +12,10 @@ $id_proyecto = $_POST['id_proyecto'];
 $status = 'Borrado de 2.7 Supervisión Código Identificador';
 $etapa = 'Proyecto regresado a 2.6 Proyectos con Código Identificador';
 
+
+try {
+    $conexion->autocommit(FALSE);
+
 //   Regresar Registro de Registro Codigo Identificador a Alta de proyecto para realizar Solicitud
 $queryP = ("UPDATE proyectos SET proyectoActivo = 0, registroSolicitud = 0, altaProyecto = 0, proyCodIdentificador= 1, superCodIdentificador = 0 WHERE id_proyecto = $id_proyecto ");
 $resultadoP = mysqli_query($conexion, $queryP);
@@ -43,16 +47,21 @@ $queryBI = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM
 $resultadoBI = mysqli_query($conexion, $queryBI);
 // var_dump($queryBI);
   
+$conexion->autocommit(TRUE);
+    
+echo '<script>
+      alert("¡Eliminado este Registro de Supervisión de Código Identificador correctamente")
+      window.history.go(-1);
+      </script>';
 
- if ($resultadoBI) {
-       echo '<script type="text/javascript">
-          window.history.go(-1);
-           </script>';
-   } else {
-       echo '<script type="text/javascript">
-          alert("Error");
-          window.history.go(-1);
-           </script>';
-   }
 
- desconectar();
+} catch (Exception $e) {
+$conexion->rollback();
+
+echo '<script>
+    alert("¡Error interno! Por favor repórtelo inmediatamente a el área de Soporte")
+    window.history.go(-1);
+    </script>';
+}
+
+desconectar();

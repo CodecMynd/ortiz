@@ -3,6 +3,67 @@ require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
 <title>CRUD Comprobación de Placas | <?php echo $nomComp ?></title>
+
+<script>
+    function abrirModal1(id_proyecto, nProyecto) {
+        $("#btnModal-regComPlaca").click();
+        $("#id_proyecto").val(id_proyecto);
+        $("#nProyecto").val(nProyecto);
+        $("#tituloModal1").html(nProyecto);
+    }
+
+    function abrirModal2(id_proyecto, nProyecto) {
+        $("#btnModal-regComPlacaSuper").click();
+        $("#id_proyecto2").val(id_proyecto);
+        $("#nProyecto").val(nProyecto);
+        $("#tituloModal2").html(nProyecto);
+    }
+
+    function abrirModal3(id_proyecto, nProyecto) {
+        $("#btnMmodal-eliminarComPlaca").click();
+        $("#id_proyecto3").val(id_proyecto);
+        $("#nProyecto3").val(nProyecto);
+        $("#tituloModal3").html(nProyecto);
+    }
+
+    function abrirModal4(id_proyecto, nProyecto) {
+        $("#btnMmodal-eliminarComPlacaSuper").click();
+        $("#id_proyecto4").val(id_proyecto);
+        $("#nProyecto4").val(nProyecto);
+        $("#tituloModal4").html(nProyecto);
+    }
+
+    // function abrirModal5(id_proyecto, nProyecto, nOrden, linkComPlaca, UPN, UPP, UPM, fecha_creacion, textSupervision, UCSN, UCSP, UCSM, CSF) { // 13 en total
+    function abrirModal5(id_proyecto, nProyecto, nOrden) { // 13 en total
+
+        $("#btnMmodal-verGralComPlacas").click();
+        $("#id_proyecto5").val(id_proyecto);
+        $("#nProyecto5").val(nProyecto);
+        $("#nOrden").val(nOrden);
+        // $("#linkComPlaca").val(linkComPlaca);
+        // $("#UPN").val(UPN); //nombre comprobacion
+        // $("#UPP").val(UPP); //paterno comprobacion
+        // $("#UPM").val(UPM); //materno comprobacion
+        // $("#captComprobacion").val(UPN+' '+UPP+' '+UPM); // concatenado
+
+        // $("#fecha_creacion").val(fecha_creacion);
+        // $("#UCSN").val(UCSN); //nombre Supervision
+        // $("#UCSP").val(UCSP); //paterno Supervision
+        // $("#UCSM").val(UCSM); //matwerno Supervision
+        // $("#captSupervision").val(UCSN+' '+UCSP+' '+UCSM); //cocatenado
+
+        // $("#CSF").val(CSF); // Capturista Fecha Supervision
+
+
+        // $("#textSupervision").html(textSupervision);
+        // $("#id_proyecto5").html(id_proyecto);
+        // $("#tituloModal5").html(nProyecto);
+        // $("#tituloModal5.1").html(nProyecto);
+        // $("#nOrden").html(nOrden);
+
+    }
+</script>
+
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
@@ -25,7 +86,95 @@ require '../components/head-dataTables.php';
                 </div>
             </div>
 
-            <!-- Table Comprobcion de placas -->
+            <!-- Contador de Registros -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="card card-secondary card-outline collapsed-card">
+                                <div class="card-header">
+                                    <h2 class="card-title"><strong>Tablas en uso</strong></h2>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card-body ">
+                                    <div class="row justify-content-center">
+
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Activos</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Solicitud Alta</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Alta Proyecto</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Código ID</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Supervisión</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-6 col-md-3">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-trash-can"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Proyectos Eliminados</h6>
+                                                    <div class="text-center "><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer" style="height: 50px;">
+                                    <marquee width="100%"  behavior="alternate">
+                                        <marquee behavior="alternate">
+                                            <p>Consulta optimizada, ultima actualización: <strong>04/04/2022</strong></p>
+                                        </marquee>
+                                    </marquee>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Table Comprobacion de placas -->
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
@@ -37,22 +186,7 @@ require '../components/head-dataTables.php';
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
-                                <!-- consulta sql -->
-                                <?php
-                                $cont = 0;
-                                if ($super == 1) {
-                                    // $query = "SELECT id_proyecto, nProyecto, nOrden, comPlacas, estadoProyectoEliminado, comSuperPlaca, nombres, aPaternoCliente, aMaternoCliente, placa, marca, modelo, anio, color
-                                    // FROM test
-                                    // ORDER BY nProyecto DESC";
-                                    $query = "SELECT * FROM vplacas";
-                                } else if ($verTablaComPlacas == 1) {
-                                    $query = "SELECT * FROM vplacas";
-                                } else {
-                                    $query = "SELECT id_proyecto
-                                    FROM proyectos WHERE id_proyecto = 0";
-                                }
-                                $resultado = mysqli_query($conexion, $query);
-                                ?>
+                        
                                 <div class="card-body">
                                     <?php
                                     if ($super == 1) {
@@ -80,202 +214,7 @@ require '../components/head-dataTables.php';
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <?php
-                                            while ($row = $resultado->fetch_assoc()) {
-                                                $idP = $row['id_proyecto'];
-                                                $cP = $row['comPlacas'];
-                                                $nP = $row['nProyecto'];
-                                                $cS = $row['comSuperPlaca'];
-                                            ?>
-                                                <tr>
-                                                    <td>
-                                                        <?php $cont++;
-                                                        echo $cont;
-                                                        ?>
-                                                    </td>
-                                                    <td style="width: 9%;">
-                                                        <?php echo $row['nProyecto'] ?>
-                                                    </td>
-                                                    <td style="width: 9%;">
-                                                        <?php echo $row['nOrden'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['marca'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['modelo'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['anio'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['placa'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['color'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['nombres'] . ' ' . $row['aPaternoCliente'] . ' ' . $row['aMaternoCliente']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php
-                                                        $Eliminado = $row['estadoProyectoEliminado'];
-                                                        if ($Eliminado == 0) {
-                                                            echo '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>';
-                                                        } else {
-                                                            echo '<h6><span class="badge badge-success badge-pill">Activo</span></h6>';
-                                                        }
-                                                        ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php
-                                                        if ($cP == 0) {
-                                                            echo '<h6><span class="badge badge-danger badge-pill">Sin Comprobar Placas</span></h6>';
-                                                        } else if ($cP == 1) {
-                                                            echo '<h6><span class="badge badge-success badge-pill">Placa Comprobada</span></h6>';
-                                                        }
-                                                        ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php
-                                                        if ($cS == 0) {
-                                                            echo '<h6><span class="badge badge-danger badge-pill">No Supervisado</span></h6>';
-                                                        } else if ($cS == 1) {
-                                                            echo '<h6><span class="badge badge-success badge-pill">Supervisado</span></h6>';
-                                                        }
-                                                        ?>
-                                                    </td>
-                                                    <td>
-                                                        <div class="input-group input-group-sm mb-3">
-                                                            <div class="input-group-prepend">
-                                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Comprobación de Placas"> Acciones</span>
-                                                                </button>
-                                                                <ul class="dropdown-menu" style="columns:2; min-width:2em;">
-                                                                    <!-- <div class="btn-group"> -->
-                                                                    <li class="dropdown-item">
-                                                                        <span data-toggle="tooltip" title="2.3.9.1 Registrar Comprobación de Placa">
-                                                                            <?php if ($Eliminado == 0) {
-                                                                                echo '<a class="btn btn-outline-danger" id="eliminado"><i class="fa-solid fa-ban"></i></a>';
-                                                                            } else if ($super == 1 && $cP == 0) { ?>
-                                                                                <button class="btn btn-secondary" data-toggle="modal" data-target=".regComPlacas-<?php echo $idP ?>"><i class="fa-solid fa-pencil"></i>
-                                                                                </button>
-                                                                            <?php } else if ($super == 1 && $cP == 1) {
-                                                                                echo '<a class="btn btn-outline-danger" id="yaRegistrado"><i class="fa-solid fa-pencil"></i></a>';
-                                                                            } else if ($regComPlacas == 1 && $cP == 0) { ?>
-                                                                                <button class="btn btn-secondary" data-toggle="modal" data-target=".regComPlacas-<?php echo $idP ?>"><i class="fa-solid fa-pencil"></i>
-                                                                                </button>
-                                                                            <?php  } else if ($regComPlacas == 1 && $cP == 1) {
-                                                                                echo '<a class="btn btn-outline-danger" id="yaRegistrado"><i class="fa-solid fa-pencil"></i>
-                                                                            </a>';
-                                                                            } else {
-                                                                                echo '<a class="btn btn-outline-danger" id="regComPlacas"><i class="fa-solid fa-pencil"></i>
-                                                                            </a>';
-                                                                            } ?>
-                                                                        </span>
-                                                                    </li>
-                                                                    <!-- <div class="dropdown-divider"></div> -->
-
-                                                                    <li class="dropdown-item">
-                                                                        <span data-toggle="tooltip" title="2.3.9.3 Registrar Supervisión Comprobación de Placa">
-                                                                            <?php if ($cP == 0) {
-                                                                                echo '<a class="btn btn-outline-danger" id="comprobar"><i class="fa-solid fa-spell-check"></i></a>';
-                                                                            } else if ($Eliminado == 0) {
-                                                                                echo '<a class="btn btn-outline-danger" id="eliminado"><i class="fa-solid fa-ban"></i></a>';
-                                                                            } else if ($super == 1 && $cS == 0) { ?>
-                                                                                <button class="btn btn-secondary" data-toggle="modal" data-target=".regComPlacasSuper-<?php echo $idP ?>"><i class="fa-solid fa-spell-check"></i>
-                                                                                </button>
-                                                                            <?php } else if ($super == 1 && $cS == 1) {
-                                                                                echo '<a class="btn btn-outline-danger" id="yaRegistrado"><i class="fa-solid fa-spell-check"></i></a>';
-                                                                            } else if ($regComPlacasSuper == 1 && $cS == 0) { ?>
-                                                                                <button class="btn btn-secondary" data-toggle="modal" data-target=".regComPlacasSuper-<?php echo $idP ?>"><i class="fa-solid fa-spell-check"></i>
-                                                                                </button>
-                                                                            <?php  } else if ($regComPlacasSuper == 1 && $cS == 1) {
-                                                                                echo '<a class="btn btn-outline-danger" id="regComPlacas"><i class="fa-solid fa-spell-check"></i></a>';
-                                                                            } else {
-                                                                                echo '<a class="btn btn-outline-danger" id="regComPlacasSuper"><i class="fa-solid fa-spell-check"></i></a>';
-                                                                            } ?>
-                                                                        </span>
-                                                                    </li>
-
-                                                                    <li class="dropdown-item">
-                                                                        <span data-toggle="tooltip" title="2.3.9.5 Ver Generales Comprobación de Placas">
-                                                                            <?php if ($super == 1) { ?>
-                                                                                <button class="btn btn-secondary" data-toggle="modal" data-target=".verGralComPlacas<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></button>
-                                                                            <?php  } else if ($verGralComPlacas == 1) { ?>
-                                                                                <button class="btn btn-secondary" data-toggle="modal" data-target=".verGralComPlacas<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></button>
-                                                                            <?php } else { ?>
-                                                                                <a class="btn btn-outline-danger" id="verGralComPlacas"><i class="fa-solid fa-comments"></i>
-                                                                                </a>
-                                                                            <?php } ?>
-                                                                        </span>
-                                                                    </li>
-
-                                                                    <li class="dropdown-item">
-                                                                        <span data-toggle="tooltip" title="2.3.9.2 Eliminar Comprobación de Placa">
-                                                                            <?php if ($cS == 1) {
-                                                                                echo '<a class="btn btn-outline-danger" id="elimina"><i class="fas fa-trash-alt"></i></a>';
-                                                                            } else if ($Eliminado == 0) {
-                                                                                echo '<a class="btn btn-outline-danger" id="eliminado"><i class="fa-solid fa-ban"></i></a>';
-                                                                            } else if ($super == 1 && $cP == 1) { ?>
-                                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarComPlaca<?php echo $row["id_proyecto"] ?> "><i class="fas fa-trash-alt"></i></a>
-                                                                            <?php  } else if ($super == 1 && $cP == 0) {
-                                                                                echo '<a class="btn btn-outline-danger" id="resgistra"><i class="fas fa-trash-alt"></i></a>';
-                                                                            } else if ($eliComPlacas == 1 && $cP == 1) { ?>
-                                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarComPlaca<?php echo $row["id_proyecto"] ?>"><i class="fas fa-trash-alt"></i>
-                                                                                </a>
-                                                                            <?php  } else if ($eliComPlacas == 1 && $cP == 0) {
-                                                                                echo '<a class="btn btn-outline-danger" id="noeliComPlacas"><i class="fas fa-trash-alt"></i>
-                                                                                    </a>';
-                                                                            } else {
-                                                                                echo '<a class="btn btn-outline-danger" id="eliComPlacas"><i class="fas fa-trash-alt"></i>
-                                                                                </a>';
-                                                                            }
-                                                                            ?>
-                                                                        </span>
-                                                                    </li>
-                                                                    <!-- <div class="dropdown-divider"></div> -->
-                                                                    <li class="dropdown-item">
-                                                                        <span data-toggle="tooltip" title="2.3.9.4 Eliminar Supervisión Comprobación de Placa">
-                                                                            <?php if ($Eliminado == 0) {
-                                                                                echo '<a class="btn btn-outline-danger" id="eliminado"><i class="fa-solid fa-ban"></i></a>';
-                                                                            } else if ($super == 1 && $cS == 1) { ?>
-                                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarComPlacaSuper<?php echo $row["id_proyecto"] ?> "><i class="fas fa-trash-alt"></i></a>
-                                                                            <?php  } else if ($super == 1 && $cS == 0) {
-                                                                                echo '<a class="btn btn-outline-danger" id="resgistra"><i class="fa-solid fa-eraser"></i></a>';
-                                                                            } else if ($eliComPlacasSuper == 1 && $cS == 1) { ?>
-                                                                                <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarComPlacaSuper<?php echo $row["id_proyecto"] ?>"><i class="fas fa-trash-alt"></i>
-                                                                                </a>
-                                                                            <?php  } else if ($eliComPlacasSuper == 1 && $cS == 0) {
-                                                                                echo '<a class="btn btn-outline-danger" id="noeliComPlacas"><i class="fa-solid fa-eraser"></i>
-                                                                                    </a>';
-                                                                            } else {
-                                                                                echo '<a class="btn btn-outline-danger" id="eliComPlacasSuper"><i class="fa-solid fa-eraser"></i>
-                                                                                </a>';
-                                                                            }
-                                                                            ?>
-                                                                        </span>
-                                                                    </li>
-
-
-                                                                    <!-- </div> -->
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-
-                                            <?php
-                                                require '../components/modal-regComPlaca.php';
-                                                require '../components/modal-eliminarComPlaca.php';
-                                                require '../components/modal-regComPlacaSuper.php';
-                                                require '../components/modal-eliminarComPlacaSuper.php';
-                                                require '../components/modal-verGralComPlacas.php';
-                                            }
-                                            desconectar();
-                                            ?>
-                                        </tbody>
+                                        <tbody></tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
@@ -294,6 +233,21 @@ require '../components/head-dataTables.php';
                                             </tr>
                                         </tfoot>
                                     </table>
+
+
+
+                                    <button id="btnModal-regComPlaca" class='btn btn-white' data-toggle='modal' data-target='.regComPlacas'></button>
+                                    <button id="btnModal-regComPlacaSuper" class='btn btn-white' data-toggle='modal' data-target='.regComPlacasSuper'></button>
+                                    <button id="btnMmodal-eliminarComPlaca" class='btn btn-white' data-toggle='modal' data-target='.borrarComPlaca'></button>
+                                    <button id="btnMmodal-eliminarComPlacaSuper" class='btn btn-white' data-toggle='modal' data-target='.borrarComPlacaSuper'></button>
+                                    <?php
+                                    require '../components/modal-regComPlaca.php';
+                                    require '../components/modal-regComPlacaSuper.php';
+                                    require '../components/modal-eliminarComPlaca.php';
+                                    require '../components/modal-eliminarComPlacaSuper.php';
+
+                                    desconectar();
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -313,290 +267,8 @@ require '../components/head-dataTables.php';
     require '../components/scripts-dataTables.php';
     ?>
     <!-- avisos -->
-    <script src="../../src/js/toastr.js"></script>
-    <script>
-        // comprobar NO SE PUEDE HACER UNA SUPERVISION SIN HABER PRIMERO HECHO UNA COMPROBACION DE PLACAS --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#comprobar ").click(function() {
-                toastr["error"]("¡NO SE PUEDE HACER UNA SUPERVISIÓN SIN HABER PRIMERO HECHO UNA COMPROBACIÓN!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // comprobar NO SE PUEDE HACER UNA SUPERVISION SIN HABER PRIMERO HECHO UNA COMPROBACION DE PLACAS --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#elimina").click(function() {
-                toastr["error"]("¡NO SE PUEDE ELIMINAR UNA COMPROBACIÓN, PRIMERO ELIMINA LA SUPERVISIÓN!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // eliminado PROYECTO ELIMINADO, NO SE PUEDE REALIZAR ESTA ACCION --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#eliminado ").click(function() {
-                toastr["error"]("¡PROYECTO ELIMINADO, NO SE PUEDE REALIZAR ESTA ACCION!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // resgistra NO TIENE COMPROBACION, PRIMERO REGISTRA YA DESPUES PUEDES BORRAR --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#resgistra ").click(function() {
-                toastr["error"]("¡NO TIENE REGISTRO DE COMPROBACION!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // resgistra NO SE PUEDE VOLVER A REGISTRAR, PRIMERO ELIMINA Y VUELVE A REGISTRAR --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#yaRegistrado ").click(function() {
-                toastr["error"]("¡NO SE PUEDE VOLVER A REGISTRAR, ELIMINA Y VUELVE A REGISTRAR!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // regComPlacas 2.3.9.1 REGISTRAR COMPROBACIÓN DE PLACA --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#regComPlacas ").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.9.1 REGISTRAR COMPROBACIÓN DE PLACA, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // eliComPlacas 2.3.9.2 REGISTRAR COMPROBACIÓN DE PLACA --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#eliComPlacas ").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.9.2 ELIMINAR COMPROBACIÓN DE PLACA, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // regComPlacasSuper 2.3.9.3 REGISTRAR COMPROBACIÓN DE PLACA --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#regComPlacasSuper ").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.9.3 REGISTRAR SUPERVISION DE COMPROBACIÓN DE PLACA, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // eliComPlacasSuper 2.3.9.4  ELIMINAR SUPERVISION COMPROBACIÓN DE PLACA --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#eliComPlacasSuper ").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.9.4 ELIMINAR SUPERVISIÓN DE COMPROBACIÓN DE PLACA, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // 2.3.9.1  Registro Comprobación de Placa --------------------------------------------------------------------
-        //  $('#btnNuevoRegComPlaca').click(function() {
-        //      $.ajax({
-        //              url: '../adds/addNuevoRegComPlaca.php',
-        //              type: 'POST',
-        //              data: $('#formNuevoRegComPlaca').serialize(),
-        //          })
-        //          .done(function(res) {
-        //              $('#respuestaNuevoRegComPlaca').html(res)
-        //             //  $(".regComPlacas-<?php echo $idP ?>").modal("hide")
-        //          })
-        //  });
-
-
-
-        //  2.3.9.2 Eliminar Comprobación de Placa ------------------------------------------------------------
-        $('.btnBorrarComPlaca').click(function(e) {
-            e.preventDefault();
-            if (confirm("¿Estás seguro de eliminar esta Comprobación de Placa? Una vez borrado ya no se podrá recuperar la información.")) {
-                var id = $(this).attr("id");
-
-                var dataString = 'id=' + id;
-                url = "../delete/deleteComPlaca.php";
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    data: dataString,
-                    success: function(data) {
-                        window.location.href = "crudComprobacionPlacas.php";
-                        $('#respuestaProyectoBorrado').html(data);
-                    }
-                });
-            }
-            return false;
-        });
-
-        //  2.3.9.4 Eliminar Supervision Comprobación de Placa ------------------------------------------------------------
-        $('.btnBorrarComPlacaSuper').click(function(e) {
-            e.preventDefault();
-            if (confirm("¿Estás seguro de eliminar esta Supervisión de Comprobación de Placa? Una vez borrado ya no se podrá recuperar la información.")) {
-                var id = $(this).attr("id");
-
-                var dataString = 'id=' + id;
-                url = "../delete/deleteComPlacaSuper.php";
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    data: dataString,
-                    success: function(data) {
-                        window.location.href = "crudComprobacionPlacas.php";
-                        $('#respuestaProyectoBorrado').html(data);
-                    }
-                });
-            }
-            return false;
-        });
-    </script>
+    <!-- <script src="../../src/js/toastr.js"></script> -->
+    <script src="../../src/js/jsComprobacionPlacas.js"></script>
 </body>
 
 </html>

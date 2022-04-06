@@ -41,27 +41,12 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.comPlacas, P.estadoProyectoEliminado, P.comSuperPlaca,
-                                    C.nombres, C.aPaternoCliente, C.aMaternoCliente,
-                                    V.placa, M.marca, Mo.modelo, A.anio, Co.color
-                                    FROM proyectos P 
-                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-                                    INNER JOIN colores Co On V.id_color = Co.id_color
-                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
-                                    INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN clientes C on P.id_cliente = C.id_cliente";
+                                    // $query = "SELECT id_proyecto, nProyecto, nOrden, comPlacas, estadoProyectoEliminado, comSuperPlaca, nombres, aPaternoCliente, aMaternoCliente, placa, marca, modelo, anio, color
+                                    // FROM test
+                                    // ORDER BY nProyecto DESC";
+                                    $query = "SELECT * FROM vplacas ";
                                 } else if ($verTablaComPlacas == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.comPlacas, P.estadoProyectoEliminado, P.comSuperPlaca,
-                                    C.nombres, C.aPaternoCliente, C.aMaternoCliente,
-                                    V.placa, M.marca, Mo.modelo, A.anio, Co.color
-                                    FROM proyectos P 
-                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-                                    INNER JOIN colores Co On V.id_color = Co.id_color
-                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
-                                    INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN clientes C on P.id_cliente = C.id_cliente";
+                                    $query = "SELECT * FROM vplacas ";
                                 } else {
                                     $query = "SELECT id_proyecto
                                     FROM proyectos WHERE id_proyecto = 0";
@@ -77,7 +62,7 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tablePermisos" class="table table-sm table-bordered table-striped">
+                                    <table id="tableComPlacas" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -568,7 +553,7 @@ require '../components/head-dataTables.php';
         //          })
         //  });
 
- 
+
 
         //  2.3.9.2 Eliminar Comprobación de Placa ------------------------------------------------------------
         $('.btnBorrarComPlaca').click(function(e) {
@@ -615,3 +600,21 @@ require '../components/head-dataTables.php';
 </body>
 
 </html>
+<!-- SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.comPlacas, P.estadoProyectoEliminado, P.comSuperPlaca,
+C.nombres, C.aPaternoCliente, C.aMaternoCliente,
+V.placa, M.marca, Mo.modelo, A.anio, Co.color,
+CP.linkComPlaca, CP.fecha_creacion,
+UP.nombres AS UPN, UP.aPaterno AS UPP, UP.aMaterno AS UPM,
+CS.textSupervision, CS.fecha_registro AS CSF,
+UCS.nombres AS UCSN, UCS.aPaterno AS UCSP, UCS.aMaterno AS UCSM
+FROM proyectos P
+INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
+INNER JOIN colores Co On V.id_color = Co.id_color
+INNER JOIN marcas M ON V.id_marca = M.id_marca
+INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
+INNER JOIN anios A ON V.id_anio = A.id_anio
+INNER JOIN clientes C on P.id_cliente = C.id_cliente
+LEFT JOIN complacas CP ON P.id_proyecto = CP.id_proyecto
+LEFT JOIN usuarios UP ON CP.id_capC = UP.id_usuario
+LEFT JOIN comsupervision CS ON P.id_proyecto = CS.id_proyecto
+LEFT JOIN usuarios UCS ON CS.id_capC = UCS.id_usuario -->

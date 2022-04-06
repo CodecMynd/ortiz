@@ -3,10 +3,10 @@
         <a href="../admin/panelAdmin.php" class="navbar-brand">
             <img src="../../src/img/logos/logo.png" alt="JSOL Automotriz Logo" class="brand-image  elevation-5" style="opacity: .8; height:4rem">
             <!-- Produccion -->
-         <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span> </a>   
+         <!-- <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span> </a>    -->
 
         <!-- test -->
-        <!-- <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span>   -->
+        <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span>  
         </a>
 
         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,7 +91,7 @@
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                                 <li><a href="../adds/formProyectos.php" class="dropdown-item">2.3.1 Registro de Proyecto </a></li>
                                 <li><a href="../admin/crudProyectos.php" class="dropdown-item">2.3.2 Lista de Proyectos</a></li>
-                                <li><a href="../admin/crudVerificacionDiariaVehiculos.php" class="dropdown-item disabled">2.3.2.2 Verificación Diaria Vehículos Activos</a></li>
+                                <li><a href="../admin/crudVerificacionDiariaVehiculos.php" class="dropdown-item ">2.3.2.2 Verificación Diaria Vehículos Activos</a></li>
                                 <li><a href="../adds/formAddCapValVenInicial.php" class="dropdown-item">2.3.7 Captura de Valor Venta Inicial </a></li>
                                 <li><a href="../update/formUpdateAsignarAgentes.php" class="dropdown-item disabled">2.3.8 Orden de Asignacion de Agentes Servicio </a></li>
                                 <li><a href="../admin/crudComprobacionPlacas.php" class="dropdown-item ">2.3.9 Comprobación de Placas </a></li>

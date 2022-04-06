@@ -9,6 +9,7 @@ $id = $_SESSION['id_usuario'];
 ini_set('date.timezone', 'America/Mexico_City');
 $date = date('Y-m-d H:i:s');
 $dateFront = date('d-m-Y H:i:s');
+$fecha_sistema = date('d-m-Y');
 
 //query usuarios ------------------------------------------------------------------------------------------
 $query = mysqli_query($conexion, "SELECT * FROM usuarios WHERE id_usuario = $id");
@@ -180,6 +181,12 @@ while ($row = mysqli_fetch_array($query)) {
     $eliComAsesorSuper = $row['eliComAsesorSuper'];
     $verGralComAsesor = $row['verGralComAsesor'];
     $verTablaComAsesor = $row['verTablaComAsesor'];
+    $regComVerifDiariaVeh = $row['regComVerifDiariaVeh'];
+    $eliComVerifDiariaVehv = $row['eliComVerifDiariaVehv'];
+    $verGralComVerifDiariaVeh = $row['verGralComVerifDiariaVeh'];
+    $regComVerifDiariaVehSuper = $row['regComVerifDiariaVehSuper'];
+    $eliComVerifDiariaVehSuper = $row['eliComVerifDiariaVehSuper'];
+    $verTablaComVerifDiariaVeh = $row['verTablaComVerifDiariaVeh'];
 
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
     if ($passUser === 'SIN_PASSWORD') {

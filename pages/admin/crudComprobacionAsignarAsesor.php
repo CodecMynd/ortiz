@@ -400,7 +400,7 @@ require '../components/head-dataTables.php';
                                                 require '../components/modal-eliminarComAsesor.php';
                                                 require '../components/modal-regComAsesorSuper.php';
                                                 require '../components/modal-eliminarComAsesorSuper.php';
-                                                // require '../components/modal-verGralComAsesor.php';
+                                                require '../components/modal-verGralComAsesor.php';
                                              }
                                             desconectar();
                                             ?>

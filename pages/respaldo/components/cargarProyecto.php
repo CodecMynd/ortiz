@@ -18,7 +18,7 @@ $respuesta = mysqli_query($conexion, $query);
 $row  = $respuesta->fetch_assoc();
 
 // Query semanas
-$queryS = "SELECT id_semana, semana, borrado FROM semanas WHERE borrado = 0 ORDER BY semana ASC";
+$queryS = "SELECT id_semana, semana, borrado FROM semanas WHERE borrado = 0 ORDER BY semana DESC";
 $resultSemanas = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
 
 // Query Tecnico Armador

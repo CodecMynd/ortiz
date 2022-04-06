@@ -22,7 +22,7 @@ $respuesta = mysqli_query($conexion, $query);
 $row  = $respuesta->fetch_assoc();
 
 // Query semanas
-$queryS = "SELECT id_semanaCobro, semanaCobro, borrado FROM semanascobro WHERE borrado = 0 ORDER BY semanaCobro ASC";
+$queryS = "SELECT id_semanaCobro, semanaCobro, borrado FROM semanascobro WHERE borrado = 0 ORDER BY semanaCobro DESC";
 $resultSemanasCobro = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
 
 // Query Forma de Pago 1

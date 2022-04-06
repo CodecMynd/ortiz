@@ -27,8 +27,9 @@ if ($tecMontador == '') {
                 </div>";
     } else {
         echo "<div class='alert alert-danger' role='role'>
-            <p><strong>Error interno: vuelve a intentarlo</strong></p>
-            </div>";
+        <p><strong>¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte</strong></p>
+        <a href='https://jsolautomotriz.workplace.com/groups/504053034641133'  target='_blank' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Area de Soporte'>¡Reporta aqui! <i class='fa-solid fa-triangle-exclamation parpadea'></i></a>
+        </div>";
     }
 }
 
@@ -42,6 +43,6 @@ desconectar();
 
         setTimeout(function() {
             $(".alert-danger").fadeIn(1500);
-        }, 4000);
+        }, 5000);
     });
 </script>

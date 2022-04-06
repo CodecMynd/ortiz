@@ -1,5 +1,5 @@
 <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.5.3/dist/clipboard.min.js"></script>
-<div class="modal fade verGralComPlacas<?php echo $row['id_proyecto'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade verGralComVerifDiariaVeh<?php echo $row['id_proyecto'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -22,12 +22,12 @@
                         <div class='row justify-content-center'>
                             <div class='col-md-12 col-sm-12 my-1'>
                                 <div class='form-group-input'>
-                                    <label for='' class='pl-5'>*Link de Comprobación de Placa</label>
+                                    <label for='' class='pl-5'>*Link de Verificacion Diaria Vehículos Activos</label>
                                     <div class='input-group'>
                                         <div class='input-group-prepend'>
                                             <button type="button" class="btn btn-secondary" data-clipboard-target="#link<?php echo $nP; ?>">Copiar Link <i class='fa-solid fa-photo-film'></i></button>
                                         </div>
-                                        <input name='link' id='link<?php echo $nP ?>' type='text' class='form-control' value="<?php echo $row['linkComPlaca'] ?>" readonly>
+                                        <input name='link' id='link<?php echo $nP ?>' type='text' class='form-control' value="<?php echo $row['linkComVerifDiariaVeh'] ?>" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -36,8 +36,8 @@
                                     <div class='input-group-prepend'>
                                         <span class='input-group-text'><i class='fa-solid fa-user'></i></span>
                                     </div>
-                                    <input type='text' class='form-control' value='<?php echo $row['UPN'] . ' ' . $row['UPP'] . ' ' . $row['UPM']; ?>' disabled readonly>
-                                    <label for='floatingInput' class='pl-5'>Capturista: Registro Comprobación de Placas</label>
+                                    <input type='text' class='form-control' value='<?php echo $row['nombreV'] . ' ' . $row['paternoV'] . ' ' . $row['maternoV']; ?>' disabled readonly>
+                                    <label for='floatingInput' class='pl-5'>Capturista: Verificacion Diaria </label>
                                 </div>
                             </div>
                             <div class='col-md-5 col-sm-12 my-5 form-group'>
@@ -45,8 +45,8 @@
                                     <div class='input-group-prepend'>
                                         <span class='input-group-text'><i class='fa-solid fa-calendar-check'></i></span>
                                     </div>
-                                    <input name='' id='' type='text' class='form-control' value='<?php echo $row['fecha_creacion'] ?>' disabled readonly>
-                                    <label for='floatingInput' class='pl-5'>Fecha: Registro Comprobación de Placas</label>
+                                    <input name='' id='' type='text' class='form-control' value='<?php echo $row['fechaV'] ?>' disabled readonly>
+                                    <label for='floatingInput' class='pl-5'>Fecha: Registro Verificacion Diaria</label>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                                     <div class='input-group-prepend'>
                                         <span class='input-group-text'><i class='fa-solid fa-user'></i></span>
                                     </div>
-                                    <input type='text' class='form-control' value='<?php echo $row['UCSN'] . ' ' . $row['UCSP'] . ' ' . $row['UCSM']; ?>' disabled readonly> 
+                                    <input type='text' class='form-control' value='<?php echo $row['nombreS'] . ' ' . $row['paternoS'] . ' ' . $row['maternoS']; ?>' disabled readonly>
                                     <label for='floatingInput' class='pl-5'>Capturista: Registro Supervisión</label>
                                 </div>
                             </div>
@@ -95,7 +95,7 @@
                                     <div class='input-group-prepend'>
                                         <span class='input-group-text'><i class='fa-solid fa-calendar-check'></i></span>
                                     </div>
-                                    <input name='' id='' type='text' class='form-control' value='<?php echo $row['CSF'] ?>' disabled readonly>
+                                    <input name='' id='' type='text' class='form-control' value='<?php echo $row['fechaS'] ?>' disabled readonly>
                                     <label for='floatingInput' class='pl-5'>Fecha: Registro Supervisión</label>
                                 </div>
                             </div>

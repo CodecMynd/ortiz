@@ -24,8 +24,8 @@ $email = $row['email'];
 $observacion = $row['observacion'];
 
 if ($respuesta->num_rows  > 0) {
-$output = '';
-$output .= "
+    $output = '';
+    $output .= "
 
 <div class='card-body'>
 <div class='row justify-content-center'>
@@ -140,32 +140,31 @@ $output .= "
 </div>
 
 ";
-echo $output;
-}else{
+    echo $output;
+} else {
     echo "<h5>Ningún registro fue encontrado</h5>";
 }
 
 ?>
 <script>
-            //Una ves mostrados loe enviamos para actualizar
-            $(document).ready(function() {
-            $('#btnUpdateCargarCliente').click(function() {
-                $.ajax({
-                        url: 'updateCargarClienteActualizado.php',
-                        type: 'POST',
-                        data: $('#formUpdateCargarCliente').serialize(),
-                    })
-                    .done(function(res) {
-                        $('#respuestaUpdateCargarCliente').html(res)
-                    })
-            });
+    //Una ves mostrados loe enviamos para actualizar
+    $(document).ready(function() {
+        $('#btnUpdateCargarCliente').click(function() {
+            $.ajax({
+                    url: 'updateCargarClienteActualizado.php',
+                    type: 'POST',
+                    data: $('#formUpdateCargarCliente').serialize(),
+                })
+                .done(function(res) {
+                    $('#respuestaUpdateCargarCliente').html(res)
+                })
         });
-        //Ocultar boton por 5 minutos para evitar el doble submit
-        $("#btnUpdateCargarCliente").on('click', function() {
-            $("#btnUpdateCargarCliente").css('visibility', 'hidden');
-            setTimeout(function() {
-                $("#btnUpdateCargarCliente").css('visibility', 'visible');
-            }, 300000);
-        });
-
+    });
+    //Ocultar boton por 5 minutos para evitar el doble submit
+    $("#btnUpdateCargarCliente").on('click', function() {
+        $("#btnUpdateCargarCliente").css('visibility', 'hidden');
+        setTimeout(function() {
+            $("#btnUpdateCargarCliente").css('visibility', 'visible');
+        }, 300000);
+    });
 </script>

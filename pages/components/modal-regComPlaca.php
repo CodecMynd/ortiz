@@ -1,18 +1,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<div class="modal fade regComPlacas-<?php echo $idP ?>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade regComPlacas" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" >
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">
-                    Registrar Comprobacion de Placa de Número de Proyecto: <?php echo $nP ?>
+                    Registrar Comprobacion de Placa de Número de Proyecto: <span id="tituloModal1"></span>
                 </h5>
             </div>
-            <form id="formNuevoRegComPlaca" action="../adds/addNuevoRegComPlaca.php" method="POST">
-            <!-- <form id="formNuevoRegComPlaca" method="POST"> -->
+            <form id="formNuevoRegComPlaca" action="../adds/addNuevoRegComPlaca.php" method="POST"> 
                 <div class="modal-body">
                     <div class='row justify-content-center'>
-                        <input type="hidden" name="id_proyecto" id="id_proyecto" value="<?php echo $idP ?>">
-                        <input type="hidden" name="nProyecto" id="nProyecto" value="<?php echo $nP ?>">
+                        <input type="hidden" name="id_proyecto" id="id_proyecto" value="">
+                        <input type="hidden" name="nProyecto" id="nProyecto" value="">
                         <div class='col-md-10 col-sm-12 my-1'>
                             <div class='input-group form-floating mb-3'>
                                 <div class='input-group-prepend'>
@@ -27,7 +26,7 @@
                     </div>
                 </div>
                 <div class="modal-footer text-left">
-                    <button type="submit" name="btnNuevoRegComPlaca" id="btnNuevoRegComPlaca" class="btn btn-secondary" ><i class="fas fa-pen"></i> Guardar</button>
+                    <button type="submit" class="btn btn-secondary" ><i class="fas fa-pen"></i> Guardar</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>
                 </div>
             </form>

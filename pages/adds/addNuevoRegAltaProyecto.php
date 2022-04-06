@@ -38,43 +38,48 @@ if ($link == '') {
     exit;
 } else {
 
-    // Insertamos tabla linkvideos
-    $queryL = "INSERT INTO linkvideos(link, fecha_creacion, id_capC) VALUES ( '$link','$date', '$id')";
-    $resultado = mysqli_query($conexion, $queryL);
-    $id_link = mysqli_insert_id($conexion);
-    //var_dump($queryL);
+    try {
+        $conexion->autocommit(FALSE);
 
-    // Insertamos tabla registroalta
-    $query = "INSERT INTO registroalta(folioRegAlta, id_proyecto, id_link, observAudiFinal, cronometro, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', '$cronometro', $borrado, '$status', '$date', '$id')";
-    $resultado = mysqli_query($conexion, $query);
-    //var_dump($query);
+        // Insertamos tabla linkvideos
+        $queryL = "INSERT INTO linkvideos(link, fecha_creacion, id_capC) VALUES ( '$link','$date', '$id')";
+        $resultado = mysqli_query($conexion, $queryL);
+        $id_link = mysqli_insert_id($conexion);
+        //var_dump($queryL);
 
-    // Insertamos tabla registroaltabitacora
-    $query = "INSERT INTO registroaltabitacora(folioRegAlta, id_proyecto, id_link, observAudiFinal, cronometro, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', '$cronometro', $borrado, '$status', '$date', '$id')";
-    $resultado = mysqli_query($conexion, $query);
-    //var_dump($query);;
+        // Insertamos tabla registroalta
+        $query = "INSERT INTO registroalta(folioRegAlta, id_proyecto, id_link, observAudiFinal, cronometro, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', '$cronometro', $borrado, '$status', '$date', '$id')";
+        $resultado = mysqli_query($conexion, $query);
+        //var_dump($query);
+
+        // Insertamos tabla registroaltabitacora
+        $query = "INSERT INTO registroaltabitacora(folioRegAlta, id_proyecto, id_link, observAudiFinal, cronometro, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', '$cronometro', $borrado, '$status', '$date', '$id')";
+        $resultado = mysqli_query($conexion, $query);
+        //var_dump($query);;
 
 
-    // Ingresamos id a tabla proyectos modificar registros
-    $queryP = "UPDATE `proyectos` SET registroSolicitud = 0, altaProyecto = 1 WHERE id_proyecto = $id_proyecto";
-    $resultado2 = mysqli_query($conexion, $queryP);
-    //var_dump($queryP);
+        // Ingresamos id a tabla proyectos modificar registros
+        $queryP = "UPDATE proyectos SET registroSolicitud = 0, altaProyecto = 1 WHERE id_proyecto = $id_proyecto";
+        $resultado2 = mysqli_query($conexion, $queryP);
+        //var_dump($queryP);
 
-    // Bitacora
-    $queryBI = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
-    $resultadoBI = mysqli_query($conexion, $queryBI);
+        // Bitacora
+        $queryBI = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
+        $resultadoBI = mysqli_query($conexion, $queryBI);
 
-    if ($resultadoBI) {
+        $conexion->autocommit(TRUE);
         echo "<div class='alert alert-success' role='alert'>
               <p><strong>Registro de Alta Proyecto ingresado correctamente!</strong></p>
-          </div>
-          <div class='col-md-12 col-sm-12 align-self-center'>
-              <a href='../components/altaProyecto.php?id={$id_proyecto}' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Descargar PDF'><i class='fa-solid fa-file-pdf'></i> Descargar PDF</a>
-          </div>";
-    } else {
+              </div>
+              <div class='col-md-12 col-sm-12 align-self-center'>
+                  <a href='../components/altaProyecto.php?id={$id_proyecto}' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Descargar PDF'><i class='fa-solid fa-file-pdf'></i> Descargar PDF</a>
+              </div>";
+    } catch (Exception $e) {
+        $conexion->rollback();
         echo "<div class='alert alert-danger' role='role'>
-          <p><strong>¡Error interno: vuelve a intentarlo!</strong></p>
-          </div>";
+              <p><strong>¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte</strong></p>
+              <a href='https://jsolautomotriz.workplace.com/groups/504053034641133'  target='_blank' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Area de Soporte'>¡Reporta aqui! <i class='fa-solid fa-triangle-exclamation parpadea'></i></a>
+             </div>";
     }
 }
 

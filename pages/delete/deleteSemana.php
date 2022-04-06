@@ -19,7 +19,7 @@ if ($resultado) {
         </div>";
 } else {
     echo "<div class='alert alert-danger' role='role'>
-    <p><strong>¡Error interno: vuelve a intentarlo!</strong></p>
+    <p><strong>¡Error interno:! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte</strong></p>
     </div>";
 }
 

@@ -44,7 +44,7 @@ require '../components/head-dataTables.php';
 
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box">
-                                                <span class="info-box-icon bg-secondary elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Activos</h6>
                                                     <h4 class="text-center">
@@ -55,7 +55,7 @@ require '../components/head-dataTables.php';
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-secondary elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Solicitud Alta</h6>
                                                     <h4 class="text-center">
@@ -66,7 +66,7 @@ require '../components/head-dataTables.php';
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-secondary elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Alta Proyecto</h6>
                                                     <h4 class="text-center">
@@ -77,7 +77,7 @@ require '../components/head-dataTables.php';
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-secondary elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Código ID</h6>
                                                     <h4 class="text-center">
@@ -88,7 +88,7 @@ require '../components/head-dataTables.php';
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-secondary elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Supervisión</h6>
                                                     <h4 class="text-center">
@@ -101,7 +101,7 @@ require '../components/head-dataTables.php';
                                     <div class="row justify-content-center">
                                         <div class="col-sm-6 col-md-3">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-arrow-up-1-9"></i></span>
+                                                <span class="info-box-icon bg-info elevation-1"><i class="fa-solid fa-arrow-up-1-9"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Total Proyectos</h6>
                                                     <h4 class="text-center">
@@ -122,6 +122,13 @@ require '../components/head-dataTables.php';
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="card-footer" style="height: 50px;">
+                                    <marquee width="100%" behavior="alternate">
+                                        <marquee behavior="alternate">
+                                            <p>Consulta no optimizada, <strong>!en espera¡</strong></p>
+                                        </marquee>
+                                    </marquee>
                                 </div>
                             </div>
                         </div>

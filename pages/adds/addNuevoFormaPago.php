@@ -53,6 +53,6 @@ desconectar();
 
         setTimeout(function() {
             $(".alert-danger").fadeIn(1500);
-        }, 4000);
+        }, 5000);
     });
 </script>

@@ -103,7 +103,7 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
                                     <!-- Contador de Registros -->
-                                    <section class="content">
+                                    <!-- <section class="content">
                                         <div class="container-fluid">
                                             <div class="row justify-content-center">
                                                 <div class="col-12">
@@ -143,7 +143,7 @@ require '../components/head-dataTables.php';
                                                 </div>
                                             </div>
                                         </div>
-                                    </section>
+                                    </section> -->
                                     <table id="tableProyCodId" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
