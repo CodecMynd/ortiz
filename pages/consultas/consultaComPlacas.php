@@ -13,8 +13,8 @@
 	ORDER BY nProyecto DESC";
 
 }else{
-	// $query = "SELECT id_proyecto
-	// FROM proyectos WHERE id_proyecto = 0";
+	$query = "SELECT id_proyecto
+	FROM proyectos WHERE id_proyecto = 0";
 }
 $resultado = mysqli_query($conexion, $query);
 $cont = 0;
@@ -43,7 +43,7 @@ $cont = 0;
 		} else if ($super == 1 && $cP == 1) {
 			$outputBtns1 = "<a class='btn btn-outline-danger' id='yaRegistrado'><i class='fa-solid fa-pencil'></i></a>";
 		} else if ($regComPlacas == 1 && $cP == 0) { 
-			$outputBtns = "<a href='#' onclick='abrirModal1(".$idP.",".$nP.")' class='btn btn-secondary'><i class='fa-solid fa-pencil'></i></a>";
+			$outputBtns1 = "<a href='#' onclick='abrirModal1(".$idP.",".$nP.")' class='btn btn-secondary'><i class='fa-solid fa-pencil'></i></a>";
 		} else if ($regComPlacas == 1 && $cP == 1) {
 			$outputBtns1 = "<a class='btn btn-outline-danger' id='yaRegistrado'><i class='fa-solid fa-pencil'></i></a>";
 		} else {

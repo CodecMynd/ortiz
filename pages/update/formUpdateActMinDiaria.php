@@ -2,7 +2,7 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>2.3.2.2.5 Ver Generales Verificación y Supervisión | <?php echo $nomComp ?></title>
+<title>2.3.4.3 Ver Generales Actividad Mínima Diaria | <?php echo $nomComp ?></title>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <style>
     @media (min-width:320px) and (max-width:425px) {
@@ -32,7 +32,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="float-left m-0">2.3.2.2.5 Ver Generales Verificación y Supervisión</h1>
+                            <h1 class="float-left m-0">2.3.4.3 Ver Generales Actividad Mínima Diaria</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -55,17 +55,16 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $id_proyecto = $_GET['id'];
                                 $cont = 0;
-                                // $query = "SELECT * FROM verificacion WHERE id_Proyecto = $id_proyecto";
-                                $query = "SELECT P.id_proyecto, P.nProyecto, P.comSuperVerifDiariaVeh, P.comVerifDiariaVeh,
-                                V.id_comverifdiariaveh, V.linkComVerifDiariaVeh, V.textSupervision, 
-                                V.fecha_hoyV AS FV, V.fecha_hoyS AS FS,
-                                UV.nombres AS nombreV, UV.aPaterno AS paternoV, UV.aMaterno AS maternoV,
-                                US.nombres AS nombreS, US.aPaterno AS paternoS, US.aMaterno AS maternoS
-                                from proyectos P
-                                INNER JOIN comverifdiariaveh V ON P.id_proyecto = V.id_proyecto
-                                LEFT JOIN usuarios UV ON V.id_capCV = UV.id_usuario
-                                LEFT JOIN usuarios US ON V.id_capCS = US.id_usuario
-                                WHERE P.id_Proyecto = $id_proyecto ORDER BY id_comverifdiariaveh DESC;";
+                                $query = "SELECT P.id_proyecto, P.nProyecto, P.comActMinDia, P.comSuperActMinDia, 
+                                A.id_ActMinDiaria, A.linkComActMinDia, A.textSupervision, 
+                                A.fecha_hoyV AS FV, A.fecha_hoyS AS FS, 
+                                UV.nombres AS nombreV, UV.aPaterno AS paternoV, UV.aMaterno AS maternoV, 
+                                US.nombres AS nombreS, US.aPaterno AS paternoS, US.aMaterno AS maternoS 
+                                from proyectos P 
+                                INNER JOIN actmindiaria A ON P.id_proyecto = A.id_proyecto 
+                                LEFT JOIN usuarios UV ON A.id_capCV = UV.id_usuario 
+                                LEFT JOIN usuarios US ON A.id_capCS = US.id_usuario 
+                                WHERE P.id_Proyecto = $id_proyecto ORDER BY id_ActMinDiaria DESC;";
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
                                 <div class="card-body">
@@ -87,9 +86,8 @@ require '../components/head-dataTables.php';
                                             <?php
                                             while ($row = $resultado->fetch_assoc()) {
                                                 $id_proyecto = $row['id_proyecto'];
-                                                $idV = $row['id_comverifdiariaveh'];
+                                                $idV = $row['id_ActMinDiaria'];
                                                 $textSupervision = $row['textSupervision'];
-                                                $linkComVerifDiariaVeh = $row['linkComVerifDiariaVeh'];
                                                 $hoyS = $row['FS'];
                                                 $fecha = new DateTime($hoyS);
                                                 $fechaS = $fecha->format('d-m-Y');
@@ -100,8 +98,8 @@ require '../components/head-dataTables.php';
                                                 $fecha_sistema;
                                                 $fechaV = $row['FV'];
                                                 $fechaS = $row['FS'];
-                                                $com = $row['comVerifDiariaVeh'];
-                                                $sup = $row['comSuperVerifDiariaVeh'];
+                                                echo $com = $row['comActMinDia'];
+                                                echo $sup = $row['comSuperActMinDia'];
                                             ?>
                                                 <tr>
                                                     <td>
@@ -113,7 +111,7 @@ require '../components/head-dataTables.php';
                                                         <?php echo $row['nProyecto'] ?>
                                                     </td>
                                                     <td style="width: 15%;">
-                                                        <?php echo $row['linkComVerifDiariaVeh'] ?>
+                                                        <?php echo $row['linkComActMinDia'] ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $row['nombreV'] . ' ' . $row['paternoV'] . ' ' . $row['maternoV']; ?>
@@ -157,33 +155,33 @@ require '../components/head-dataTables.php';
                                                                 <ul class="dropdown-menu" style="min-width:2em">
                                                                     <div class="btn-group">
                                                                         <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.3.2.2.4 Eliminar Comprobación Link de Video en Vivo">
-                                                                                <?php if ($super == 1 and $com == 0) {
+                                                                            <span data-toggle="tooltip" title="2.3.4.4 Eliminar Comprobación de Actividad Mínima Diaria">
+                                                                                <?php if ($super == 1 and $sup == 1) {
                                                                                     echo '<a class="btn btn-outline-danger" id="yaRegistro"><i class="fas fa-trash-alt"></i></a>';
-                                                                                } else if ($super == 1 and $com == 1) { ?>
-                                                                                    <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComVerifDiaria-<?php $row['id_comverifdiariaveh']?>'><i class='fas fa-trash-alt'></i></a>
-                                                                               <?php } else if ($eliComVerifDiariaVehv == 1 and $com == 0) {
+                                                                                } else if ($super == 1 and $sup == 0) { ?>
+                                                                                    <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComActMinDia-<?php $row['id_ActMinDiaria']?>'><i class='fas fa-trash-alt'></i></a>
+                                                                               <?php } else if ($eliComActMinDia == 1 and $sup == 1) {
                                                                                     echo '<a class="btn btn-outline-danger" id="yaRegistro"><i class="fas fa-trash-alt"></i></a>';
-                                                                                } else if ($eliComVerifDiariaVehv == 1 and $com == 1) { ?>
-                                                                                     <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComVerifDiaria-<?php $row['id_comverifdiariaveh']?>'><i class='fas fa-trash-alt'></i></a>
+                                                                                } else if ($eliComActMinDia == 1 and $sup == 0) { ?>
+                                                                                     <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComActMinDia-<?php $row['id_ActMinDiaria']?>'><i class='fas fa-trash-alt'></i></a>
                                                                                 <?php } else {
-                                                                                    echo '<a class="btn btn-outline-danger" id="eliComVerifDiariaVehv"><i class="fas fa-trash-alt"></i></a>';
+                                                                                    echo '<a class="btn btn-outline-danger" id="eliComActMinDia"><i class="fas fa-trash-alt"></i></a>';
                                                                                 }
                                                                                 ?>
                                                                             </span>
                                                                         </li>
                                                                         <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.3.2.2.5 Eliminar Supervisión Link de Video en Vivo">
+                                                                            <span data-toggle="tooltip" title="2.3.4.5 Eliminar Supervisión de Comprobación de Actividad Mínima Diaria">
                                                                                 <?php if ($super == 1 and $sup == 0) {
                                                                                     echo '<a class="btn btn-outline-danger" id="yaRegistro"><i class="fas fa-trash-alt"></i></a>';
-                                                                                } else if ($super == 1 and $sup == 1) { ?>
-                                                                                    <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComSuperDiaria-<?php $row['id_comverifdiariaveh']?>'><i class='fas fa-trash-alt'></i></a>
-                                                                                <?php } else if ($eliComVerifDiariaVehSuper == 1 and $sup == 0) {
+                                                                                } else if ($super == 1 and $com == 1) { ?>
+                                                                                    <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComSuperActMinDia-<?php $row['id_ActMinDiaria']?>'><i class='fas fa-trash-alt'></i></a>
+                                                                                <?php } else if ($eliComSuperActMinDia == 1 and $sup == 0) {
                                                                                     echo '<a class="btn btn-outline-danger" id="sinEliminar"><i class="fas fa-trash-alt"></i></a>';
-                                                                                } else if ($eliComVerifDiariaVehSuper == 1 and $sup == 1) { ?>
-                                                                                   <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComSuperDiaria-<?php $row['id_comverifdiariaveh']?>'><i class='fas fa-trash-alt'></i></a>
+                                                                                } else if ($eliComSuperActMinDia == 1 and $com == 1) { ?>
+                                                                                   <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComSuperActMinDia-<?php $row['id_ActMinDiaria']?>'><i class='fas fa-trash-alt'></i></a>
                                                                                 <?php } else {
-                                                                                    echo '<a class="btn btn-outline-danger" id="eliComVerifDiariaVehSuper"><i class="fas fa-trash-alt"></i></a>';
+                                                                                    echo '<a class="btn btn-outline-danger" id="eliComSuperActMinDia"><i class="fas fa-trash-alt"></i></a>';
                                                                                 }
                                                                                 ?>
                                                                             </span>
@@ -195,8 +193,8 @@ require '../components/head-dataTables.php';
                                                     </td> 
                                                 </tr>
                                                 <?php
-                                                include '../components/modal-eliminarComVerifDiaria.php';
-                                                include '../components/modal-eliminarComSuperDiaria.php';
+                                                include '../components/modal-eliminarComActMinDia.php';
+                                                include '../components/modal-eliminarComSuperActMinDia.php';
                                                 ?>
                                             <?php
                                             }

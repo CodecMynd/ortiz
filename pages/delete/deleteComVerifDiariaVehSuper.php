@@ -15,10 +15,13 @@ $id_comSupervision = $_POST['id_comSupervision'];
 
 $queryD = ("DELETE FROM comsupervision WHERE id_proyecto = $id_proyecto AND id_comSupervision = '$id_comSupervision'");
 $resultadoD = mysqli_query($conexion, $queryD);
+// var_dump($queryD);
 
 
 $queryU = "UPDATE proyectos SET comSuperVerifDiariaVeh = '$comSuperVerifDiariaVeh' WHERE id_proyecto = $id_proyecto";
 $resultadoU = mysqli_query($conexion, $queryU);
+// var_dump($queryU);
+
 
 if ($resultadoU) {
   header("Location: ../admin/crudVerificacionDiariaVehiculos.php" );

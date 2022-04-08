@@ -2,16 +2,8 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>CRUD Verificacion Diaria Vehículos Activos | <?php echo $nomComp ?></title>
-<script>
-    //  function abrirModal1($id_proyecto, $nProyecto, $id_comverifdiariaveh) {
-    //     $("#btModal-eliminarConmVerifDiariaVeh").click();
-    //     $("#id_proyectoVerDiaria").val(id_proyecto);
-    //     $("#nProyecto").val(nProyecto);
-    //     $("#id_comverifdiariaveh").val(id_comverifdiariaveh);
-    //     $("#tituloModal1").html(nProyecto);
-    // }
-</script>
+<title>CRUD Verificación Actividad Mínima Diaria | <?php echo $nomComp ?></title>
+
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
@@ -25,7 +17,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Tabla 2.3.2.2 Verificacion Diaria Vehículos Activos</h1>
+                            <h1 class="m-0">Tabla 2.3.4 Verificación Actividad Mínima Diaria</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -125,29 +117,16 @@ require '../components/head-dataTables.php';
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
-                                <!-- consulta sql -->
-                                <?php
-                                // $cont = 0;
-                                // if ($super == 1) {
-                                //     $query = "SELECT * FROM verificacion LIMIT 10";
-                                // } else if ($verTablaComVerifDiariaVeh == 1) {
-                                //     $query = "SELECT * FROM verificacion";
-                                // } else {
-                                //     $query = "SELECT id_proyecto
-                                //     FROM proyectos WHERE id_proyecto = 0";
-                                // }
-                                // $resultado = mysqli_query($conexion, $query);
-                                ?>
                                 <div class="card-body">
                                     <?php
                                     if ($super == 1) {
-                                    } else if ($verTablaComVerifDiariaVeh == 0) { ?>
+                                    } else if ($verTablaActMinDia == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tableVerifDiariaVeh" class="table table-sm table-bordered table-striped">
+                                    <table id="tableActMinDia" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -215,7 +194,7 @@ require '../components/head-dataTables.php';
     require '../components/scripts-dataTables.php';
     ?>
     <!-- avisos -->
-    <script src="../../src/js/toastr.js"></script>
+    <!-- <script src="../../src/js/toastr.js"></script> -->
     <script>
         // sinRegistro ¡SIN REGISTRO, AGREGA UNA COMPROBACIÓN PARA HABILITAR ESTE BÓTON --------------------------------------------------------------
         $(document).ready(function() {
@@ -445,10 +424,10 @@ require '../components/head-dataTables.php';
 
 </html>
 <!-- VISTA
-create view verificacion as
-SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.comVerifDiariaVeh, P.estadoProyectoEliminado, P.comSuperVerifDiariaVeh,
+create view vactMinDiaria as
+SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.comActMinDia, P.estadoProyectoEliminado, P.comSuperActMinDia,
 V.placa, M.marca, Mo.modelo, A.anio, Co.color,                                    
-MAX(CV.fecha_hoyV) AS FV, MAX(CV.fecha_hoyS) AS FS, MAX(CV.id_comverifdiariaveh) AS id_comverifdiariaveh,
+MAX(AM.fecha_hoyV) AS FV, MAX(AM.fecha_hoyS) AS FS, MAX(AM.id_ActMinDiaria) AS id_ActMinDiaria,
 ASE.asesor
 FROM proyectos P
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
@@ -456,7 +435,11 @@ INNER JOIN colores Co On V.id_color = Co.id_color
 INNER JOIN marcas M ON V.id_marca = M.id_marca
 INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
 INNER JOIN anios A ON V.id_anio = A.id_anio
-LEFT JOIN comverifdiariaveh CV ON P.id_proyecto = CV.id_proyecto
+LEFT JOIN actmindiaria AM ON P.id_proyecto = AM.id_proyecto
 LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
 LEFT JOIN asesores ASE ON CA.id_asesor = ASE.id_asesor
-WHERE P.proyectoActivo = 1 AND P.estadoProyectoEliminado = 1 OR P.registroSolicitud = 1 GROUP BY P.id_proyecto -->
+WHERE P.proyectoActivo = 1 AND P.estadoProyectoEliminado = 1 OR P.registroSolicitud = 1 GROUP BY P.id_proyecto;-->
+
+
+
+

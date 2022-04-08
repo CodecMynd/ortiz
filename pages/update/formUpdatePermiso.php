@@ -940,682 +940,862 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </button>
                                                                         </div>
-                                                                        <div class="col-12">
-                                                                            <hr>
+                                                                        <div class="col-md-12 col-sm-6 col-12">
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>2.3.2.2 Verificación Diaria Vehículos Activos</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.2.2.1 Registrar Comprobación Link de Video en Vivo</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComVerifDiariaVeh" id="regComVerifDiariaVeh" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComVerifDiariaVeh'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.2.2.2 Registrar Supervisión Link de Video en Vivo</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComVerifDiariaVehSuper" id="regComVerifDiariaVehSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComVerifDiariaVehSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.2.2.3 Ver Generales Link de Video en Vivo</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralComVerifDiariaVeh" id="verGralComVerifDiariaVeh" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComVerifDiariaVeh'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.2.2.4 Eliminar Comprobación Link de Video en Vivo</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComVerifDiariaVehv" id="eliComVerifDiariaVehv" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComVerifDiariaVehv'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.2.2.5 Eliminar Supervisión Link de Video en Vivo</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComVerifDiariaVehSuper" id="eliComVerifDiariaVehSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComVerifDiariaVehSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.2.2.5 Ver Tabla Verificacion Diaria Vehículos Activos</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaComVerifDiariaVeh" id="verTablaComVerifDiariaVeh" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaComVerifDiariaVeh'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="col-md-12 text-center">
-                                                                            <p>2.3.2.2 Verificación Diaria Vehículos Activos</p>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.2.2.1 Registrar Comprobación Link de Video en Vivo</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComVerifDiariaVeh" id="regComVerifDiariaVeh" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComVerifDiariaVeh'] == 1) echo 'checked';
+                                                                        <div class="col-md-12 col-sm-6 col-12">
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>2.3.4 Actividad Mínima Diaria </strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.4.1 Registro Comprobación de Actividad Mínima Diaria</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComActMinDia" id="regComActMinDia" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComActMinDia'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                 else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.2.2.2 Registrar Supervisión Link de Video en Vivo</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComVerifDiariaVehSuper" id="regComVerifDiariaVehSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComVerifDiariaVehSuper'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.2.2.3 Ver Generales Link de Video en Vivo</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralComVerifDiariaVeh" id="verGralComVerifDiariaVeh" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComVerifDiariaVeh'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.2.2.4 Eliminar Comprobación Link de Video en Vivo</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComVerifDiariaVehv" id="eliComVerifDiariaVehv" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComVerifDiariaVehv'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.2.2.5 Eliminar Supervisión Link de Video en Vivo</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComVerifDiariaVehSuper" id="eliComVerifDiariaVehSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComVerifDiariaVehSuper'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-
-                                                                         <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.2.2.5 Ver Tabla Verificacion Diaria Vehículos Activos</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaComVerifDiariaVeh" id="verTablaComVerifDiariaVeh" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaComVerifDiariaVeh'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-
-                                                                        <div class="col-md-12 text-center">
-                                                                            <p>2.3.7 Captura de Valor Venta Inicial</p>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.7 Tabla Captura de Valor Venta Inicial</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaCapValVenInicial" id="verTablaCapValVenInicial" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaCapValVenInicial'] == 1) echo 'checked';
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.4.2 Registro Supervisión de Comprobación de Actividad Mínima Diaria</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComSuperActMinDia" id="regComSuperActMinDia" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComSuperActMinDia'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.4.3 Ver Generales Actividad Mínima Diaria</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralActMinDia" id="verGralActMinDia" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralActMinDia'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                         else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.7.1 Capturar Valor Venta Inicial <strong>(1)</strong></span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regCapValVenInicial" id="regCapValVenInicial" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regCapValVenInicial'] == 1) echo 'checked';
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.4.4 Eliminar Comprobación de Actividad Mínima Diaria</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComActMinDia" id="eliComActMinDia" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComActMinDia'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                 else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                     
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.4.5 Eliminar Supervisión de Comprobación de Actividad Mínima Diaria</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComSuperActMinDia" id="eliComSuperActMinDia" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComSuperActMinDia'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.4.6 Ver tabla Actividad Mínima Diaria</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaActMinDia" id="verTablaActMinDia" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaActMinDia'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
-                                                                            </button>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.7.2 Capturar Valor Venta Inicial <strong>(+1)</strong></span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="perRegCapValVenInicial" id="perRegCapValVenInicial" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['perRegCapValVenInicial'] == 1) echo 'checked';
+                                                                        <div class="col-md-12 col-sm-6 col-12">
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>2.3.7 Captura de Valor Venta Inicial</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.7 Tabla Captura de Valor Venta Inicial</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaCapValVenInicial" id="verTablaCapValVenInicial" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaCapValVenInicial'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.7.1 Capturar Valor Venta Inicial <strong>(1)</strong></span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regCapValVenInicial" id="regCapValVenInicial" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regCapValVenInicial'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.7.2 Capturar Valor Venta Inicial <strong>(+1)</strong></span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="perRegCapValVenInicial" id="perRegCapValVenInicial" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['perRegCapValVenInicial'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.7.3 Ver Generales Captura de Valor Venta Inicial</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralCapValVenInicial" id="verGralCapValVenInicial" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralCapValVenInicial'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-12 col-sm-6 col-12">
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>2.3.9 Comprobación de Placas</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.9.1 Registro Comprobación de Placa</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComPlacas" id="regComPlacas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComPlacas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.9.2 Eliminar Comprobación de Placa</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComPlacas" id="eliComPlacas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComPlacas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.9.3 Registro Supervisión de Comprobación de Placa</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComPlacasSuper" id="regComPlacasSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComPlacasSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.9.4 Eliminar Supervisión de Comprobación de Placa</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComPlacasSuper" id="eliComPlacasSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComPlacasSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.9.5 Ver Generales Comprobación de Placa</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralComPlacas" id="verGralComPlacas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComPlacas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.9.6 Ver tabla Comprobación de Placa</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaComPlacas" id="verTablaComPlacas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaComPlacas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-12 col-sm-6 col-12">
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>2.3.10 Comprobación de Kilometraje</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.10.1 Registro Comprobación de Kilometraje</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComKm" id="regComKm" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComKm'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.10.2 Eliminar Comprobación de Kilometraje</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComKm" id="eliComKm" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComKm'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.10.3 Registro Supervisión de Comprobación de Kilometraje</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComKmSuper" id="regComKmSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComKmSuper'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                     else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.10.4 Eliminar Supervisión de Comprobación de Kilometraje</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComKmSuper" id="eliComKmSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComKmSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.11.5 Ver Generales Comprobación de Kilometraje</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralComKm" id="verGralComKm" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComKm'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.10.6 Ver tabla Comprobación de Kilometraje</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaComKm" id="verTablaComKm" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaComKm'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
-                                                                            </button>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.7.3 Ver Generales Captura de Valor Venta Inicial</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralCapValVenInicial" id="verGralCapValVenInicial" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralCapValVenInicial'] == 1) echo 'checked';
+                                                                        <div class="col-md-12 col-sm-6 col-12">
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>2.3.11 Comprobación de 7 Imagenes</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.11.1 Registro Comprobación de 7 Imagenes</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComImg" id="regComImg" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComImg'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.11.2 Eliminar Comprobación de 7 Imagenes</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComImg" id="eliComImg" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComImg'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.11.3 Registro Supervisión de Comprobación de 7 Imagenes</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComImgSuper" id="regComImgSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComImgSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.11.4 Eliminar Supervisión de Comprobación de 7 Imagenes</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComImgSuper" id="eliComImgSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComImgSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.11.5 Ver Generales Comprobación de 7 Imagenes</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralComImg" id="verGralComImg" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComImg'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.11.6 Ver tabla Comprobación de 7 Imagenes</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaComImg" id="verTablaComImg" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaComImg'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-12 col-sm-6 col-12">
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>2.3.12 Comprobación de INE Clientes</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.12.1 Registro Comprobación de INE Clientes</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComCliente" id="regComCliente" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComCliente'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.12.2 Eliminar Comprobación de INE Clientes</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComCliente" id="eliComCliente" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComCliente'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.12.3 Registro Supervisión de Comprobación de INE Clientes</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComClienteSuper" id="regComClienteSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComClienteSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.12.4 Eliminar Supervisión de Comprobación de INE Clientes</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComClienteSuper" id="eliComClienteSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComClienteSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.12.5 Ver Generales Comprobación de INE Clientes</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralComCliente" id="verGralComCliente" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComCliente'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.12.6 Ver tabla Comprobación de INE Clientes</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaComCliente" id="verTablaComCliente" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaComCliente'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-12 col-sm-6 col-12">
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>2.3.13 Comprobación de Documentación Firmada Ingreso de Vehículos</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.13.1 Registro Comprobación de Documentación Firmada Ingreso de Vehículos</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComDocuFirm" id="regComDocuFirm" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComDocuFirm'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.13.2 Eliminar Comprobación de Documentación Firmada Ingreso de Vehículos</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComDocuFirm" id="eliComDocuFirm" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComDocuFirm'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.13.3 Registro Supervisión de Comprobación de Documentación Firmada Ingreso de Vehículos</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComDocuFirmSuper" id="regComDocuFirmSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComDocuFirmSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.13.4 Eliminar Supervisión de Comprobación de Documentación Firmada Ingreso de Vehículos</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComDocuFirmSuper" id="eliComDocuFirmSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComDocuFirmSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.13.5 Ver Generales Comprobación de Documentación Firmada Ingreso de Vehículos</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralComDocuFirm" id="verGralComDocuFirm" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComDocuFirm'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.13.6 Ver tabla Comprobación de Documentación Firmada Ingreso de Vehículos</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaComDocuFirm" id="verTablaComDocuFirm" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaComDocuFirm'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-12 col-sm-6 col-12">
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>2.3.14 Comprobación de Garantia</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.14.1 Registro Comprobación de Garantia</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComGarantia" id="regComGarantia" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComGarantia'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.14.2 Eliminar Comprobación de Garantia</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComGarantia" id="eliComGarantia" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComGarantia'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.14.3 Registro Supervisión de Comprobación de Garantia</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComGarantiaSuper" id="regComGarantiaSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComGarantiaSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.14.4 Eliminar Supervisión de Comprobación de Garantia</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComGarantiaSuper" id="eliComGarantiaSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComGarantiaSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.14.5 Ver Generales Comprobación de Garantia</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralComGarantia" id="verGralComGarantia" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComGarantia'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.14.6 Ver tabla Comprobación de Garantia</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaComGarantia" id="verTablaComGarantia" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaComGarantia'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-12 col-sm-6 col-12">
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>2.3.15 Comprobación de Asignación de Asesor</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.15.1 Registro Comprobación de Asesor</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComAsesor" id="regComAsesor" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComAsesor'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.15.2 Eliminar Comprobación de Asesor</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComAsesor" id="eliComAsesor" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComAsesor'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.15.3 Registro Supervisión de Comprobación de Asesor</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComAsesorSuper" id="regComAsesorSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComAsesorSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.15.4 Eliminar Supervisión de Comprobación de Asesor</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComAsesorSuper" id="eliComAsesorSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComAsesorSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.15.5 Ver Generales Comprobación de Asesor</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralComAsesor" id="verGralComAsesor" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComAsesor'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                         else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.15.6 Ver tabla Comprobación de Asesor</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaComAsesor" id="verTablaComAsesor" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaComAsesor'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <hr>
-                                                                        </div>
-                                                                        <div class="col-md-12 text-center">
-                                                                            <p>2.3.9 Comprobación de Placas</p>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.9.1 Registro Comprobación de Placa</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComPlacas" id="regComPlacas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComPlacas'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.9.2 Eliminar Comprobación de Placa</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComPlacas" id="eliComPlacas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComPlacas'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.9.3 Registro Supervisión de Comprobación de Placa</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComPlacasSuper" id="regComPlacasSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComPlacasSuper'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.9.4 Eliminar Supervisión de Comprobación de Placa</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComPlacasSuper" id="eliComPlacasSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComPlacasSuper'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.9.5 Ver Generales Comprobación de Placa</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralComPlacas" id="verGralComPlacas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComPlacas'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.9.6 Ver tabla Comprobación de Placa</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaComPlacas" id="verTablaComPlacas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaComPlacas'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <hr>
-                                                                        </div>
-                                                                        <div class="col-md-12 text-center">
-                                                                            <p>2.3.10 Comprobación de Kilometraje</p>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.10.1 Registro Comprobación de Kilometraje</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComKm" id="regComKm" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComKm'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.10.2 Eliminar Comprobación de Kilometraje</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComKm" id="eliComKm" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComKm'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.10.3 Registro Supervisión de Comprobación de Kilometraje</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComKmSuper" id="regComKmSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComKmSuper'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.10.4 Eliminar Supervisión de Comprobación de Kilometraje</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComKmSuper" id="eliComKmSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComKmSuper'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.11.5 Ver Generales Comprobación de Kilometraje</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralComKm" id="verGralComKm" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComKm'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.10.6 Ver tabla Comprobación de Kilometraje</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaComKm" id="verTablaComKm" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaComKm'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <hr>
-                                                                        </div>
-                                                                        <div class="col-md-12 text-center">
-                                                                            <p>2.3.11 Comprobación de 7 Imagenes</p>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.11.1 Registro Comprobación de 7 Imagenes</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComImg" id="regComImg" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComImg'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.11.2 Eliminar Comprobación de 7 Imagenes</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComImg" id="eliComImg" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComImg'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.11.3 Registro Supervisión de Comprobación de 7 Imagenes</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComImgSuper" id="regComImgSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComImgSuper'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.11.4 Eliminar Supervisión de Comprobación de 7 Imagenes</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComImgSuper" id="eliComImgSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComImgSuper'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.11.5 Ver Generales Comprobación de 7 Imagenes</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralComImg" id="verGralComImg" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComImg'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.11.6 Ver tabla Comprobación de 7 Imagenes</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaComImg" id="verTablaComImg" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaComImg'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <hr>
-                                                                        </div>
-                                                                        <div class="col-md-12 text-center">
-                                                                            <p>2.3.12 Comprobación de INE Clientes</p>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.12.1 Registro Comprobación de INE Clientes</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComCliente" id="regComCliente" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComCliente'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.12.2 Eliminar Comprobación de INE Clientes</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComCliente" id="eliComCliente" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComCliente'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.12.3 Registro Supervisión de Comprobación de INE Clientes</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComClienteSuper" id="regComClienteSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComClienteSuper'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.12.4 Eliminar Supervisión de Comprobación de INE Clientes</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComClienteSuper" id="eliComClienteSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComClienteSuper'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.12.5 Ver Generales Comprobación de INE Clientes</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralComCliente" id="verGralComCliente" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComCliente'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.12.6 Ver tabla Comprobación de INE Clientes</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaComCliente" id="verTablaComCliente" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaComCliente'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <hr>
-                                                                        </div>
-                                                                        <div class="col-md-12 text-center">
-                                                                            <p>2.3.13 Comprobación de Documentación Firmada Ingreso de Vehículos</p>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.13.1 Registro Comprobación de Documentación Firmada Ingreso de Vehículos</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComDocuFirm" id="regComDocuFirm" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComDocuFirm'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.13.2 Eliminar Comprobación de Documentación Firmada Ingreso de Vehículos</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComDocuFirm" id="eliComDocuFirm" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComDocuFirm'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.13.3 Registro Supervisión de Comprobación de Documentación Firmada Ingreso de Vehículos</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComDocuFirmSuper" id="regComDocuFirmSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComDocuFirmSuper'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.13.4 Eliminar Supervisión de Comprobación de Documentación Firmada Ingreso de Vehículos</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComDocuFirmSuper" id="eliComDocuFirmSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComDocuFirmSuper'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.13.5 Ver Generales Comprobación de Documentación Firmada Ingreso de Vehículos</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralComDocuFirm" id="verGralComDocuFirm" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComDocuFirm'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.13.6 Ver tabla Comprobación de Documentación Firmada Ingreso de Vehículos</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaComDocuFirm" id="verTablaComDocuFirm" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaComDocuFirm'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <hr>
-                                                                        </div>
-                                                                        <div class="col-md-12 text-center">
-                                                                            <p>2.3.14 Comprobación de Garantia</p>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.14.1 Registro Comprobación de Garantia</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComGarantia" id="regComGarantia" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComGarantia'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.14.2 Eliminar Comprobación de Garantia</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComGarantia" id="eliComGarantia" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComGarantia'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.14.3 Registro Supervisión de Comprobación de Garantia</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComGarantiaSuper" id="regComGarantiaSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComGarantiaSuper'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.14.4 Eliminar Supervisión de Comprobación de Garantia</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComGarantiaSuper" id="eliComGarantiaSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComGarantiaSuper'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.14.5 Ver Generales Comprobación de Garantia</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralComGarantia" id="verGralComGarantia" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComGarantia'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.14.6 Ver tabla Comprobación de Garantia</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaComGarantia" id="verTablaComGarantia" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaComGarantia'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <hr>
-                                                                        </div>
-                                                                        <div class="col-md-12 text-center">
-                                                                            <p>2.3.15 Comprobación de Asignación de Asesor</p>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.15.1 Registro Comprobación de Asesor</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComAsesor" id="regComAsesor" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComAsesor'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.15.2 Eliminar Comprobación de Asesor</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComAsesor" id="eliComAsesor" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComAsesor'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.15.3 Registro Supervisión de Comprobación de Asesor</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComAsesorSuper" id="regComAsesorSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComAsesorSuper'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.15.4 Eliminar Supervisión de Comprobación de Asesor</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComAsesorSuper" id="eliComAsesorSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComAsesorSuper'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.15.5 Ver Generales Comprobación de Asesor</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralComAsesor" id="verGralComAsesor" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComAsesor'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-3 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.3.15.6 Ver tabla Comprobación de Asesor</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaComAsesor" id="verTablaComAsesor" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaComAsesor'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>

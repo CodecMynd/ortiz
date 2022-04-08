@@ -12,11 +12,11 @@ $id = $_SESSION['id_usuario'];
 
 $id_proyecto =  $_POST['id_proyecto'];
 $nProyecto =  $_POST['nProyecto'];
-$linkComVerifDiariaVeh = $_POST['linkComVerifDiariaVeh'];
+$linkComActMinDia = $_POST['linkComActMinDia'];
 $fecha_hoyV  = $_POST['fecha_hoyV'];
 
 
-if ($linkComVerifDiariaVeh == '') {
+if ($linkComActMinDia == '') {
     echo "<div class='alert alert-danger' role='role'>
   <p><strong>Error, Link de Video en Vivo es un campo requerido</strong></p>
   </div>";
@@ -26,22 +26,23 @@ if ($linkComVerifDiariaVeh == '') {
        try {
            $conexion->autocommit(FALSE);
         // Registrar motivo de supervision
-        $query = "INSERT INTO comverifdiariaveh(id_proyecto, nProyecto, linkComVerifDiariaVeh, fecha_hoyV, fecha_creacionV, id_capCV) VALUES ('$id_proyecto', '$nProyecto', '$linkComVerifDiariaVeh', '$fecha_hoyV', '$date', '$id')";
+        $query = "INSERT INTO actmindiaria(id_proyecto, nProyecto, linkComActMinDia, fecha_hoyV, fecha_creacionV, id_capCV) VALUES ('$id_proyecto', '$nProyecto', '$linkComActMinDia', '$fecha_hoyV', '$date', '$id')";
+
         $resultado = mysqli_query($conexion, $query);
         //var_dump($query);
 
         // Actualizar supervision valores
-        $queryP = "UPDATE proyectos SET comVerifDiariaVeh = 1 WHERE id_proyecto = '$id_proyecto' AND nProyecto = '$nProyecto' ";
+        $queryP = "UPDATE proyectos SET comActMinDia = 1 WHERE id_proyecto = '$id_proyecto' AND nProyecto = '$nProyecto' ";
         $resultadoP = mysqli_query($conexion, $queryP);
         // var_dump($queryP);
 
            $conexion->autocommit(TRUE);
                echo "<div class='alert alert-success' role='alert'>
-               <p><strong>Registro de Verificación diaria ingresada correctamente!</strong></p>
+               <p><strong>Registro Comprobación de Actividad Mínima Diaria ingresada correctamente!</strong></p>
                </div>";
                echo '<script>
-               alert("Registro de Verificación diaria ingresada correctamente");
-               window.location.href = "../admin/crudVerificacionDiariaVehiculos.php";
+               alert("Registro Comprobación de Actividad Mínima Diaria ingresada correctamente");
+               window.location.href = "../admin/crudActividadMinimaDiaria.php";
                </script>';
        } catch (Exception $e) {
            $conexion->rollback();

@@ -40,7 +40,7 @@ if ($textSupervision == '') {
 
         $conexion->autocommit(TRUE);
          echo '<script>
-       alert("¡Ingresado correctamente")
+       alert("¡Supervisón de Link de comprobación Ingresado correctamente")
        window.history.go(-1);
        </script>';
     } catch (Exception $e) {

@@ -1075,6 +1075,7 @@ $(document).ready(function () {
             })
             .done(function (res) {
                 $('#respuestaNuevoProyecto').html(res)
+
             })
     });
 });

@@ -92,6 +92,7 @@
                                 <li><a href="../adds/formProyectos.php" class="dropdown-item">2.3.1 Registro de Proyecto </a></li>
                                 <li><a href="../admin/crudProyectos.php" class="dropdown-item">2.3.2 Lista de Proyectos</a></li>
                                 <li><a href="../admin/crudVerificacionDiariaVehiculos.php" class="dropdown-item ">2.3.2.2 Verificación Diaria Vehículos Activos</a></li>
+                                <li><a href="../admin/crudActividadMinimaDiaria.php" class="dropdown-item ">2.3.4 Actividad Mínima Diaria</a></li>
                                 <li><a href="../adds/formAddCapValVenInicial.php" class="dropdown-item">2.3.7 Captura de Valor Venta Inicial </a></li>
                                 <li><a href="../update/formUpdateAsignarAgentes.php" class="dropdown-item disabled">2.3.8 Orden de Asignacion de Agentes Servicio </a></li>
                                 <li><a href="../admin/crudComprobacionPlacas.php" class="dropdown-item ">2.3.9 Comprobación de Placas </a></li>

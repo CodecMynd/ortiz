@@ -189,6 +189,7 @@ require '../components/head-dataTables.php';
                         
                                 <div class="card-body">
                                     <?php
+                                    echo $regComPlacas;
                                     if ($super == 1) {
                                     } else if ($verTablaComPlacas == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>

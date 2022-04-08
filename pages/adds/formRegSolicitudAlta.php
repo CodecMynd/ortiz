@@ -47,6 +47,7 @@ require '../components/head-dataTables.php';
                                             } else {
                                                 echo ' <a type="button" id="regSolAltProy" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="left" title="2.4.2  Registro de Proyecto"><i class="fa-solid fa-eye-slash"></i>&nbsp;&nbsp; Registro de Proyecto</a>';
                                             } ?>
+                                            <a href="#" id="info" class=" btn btn-outline-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualización de Consulta de esta tabla"><i class="fa-solid fa-info"></i></a>
                                         </div>
                                     </div>
                                     <div class="card-body">
@@ -102,6 +103,30 @@ require '../components/head-dataTables.php';
         $(document).ready(function() {
             $(":input").inputmask();
         });
+
+            // Info Consulta --------------------------------------------------------------
+            $(document).ready(function() {
+            $("#info").click(function() {
+                    toastr["info"]("¡Última Actualizacion: <strong>06/04/2022</strong> -- Bloques !")
+
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": false,
+                        "positionClass": "toast-top-center",
+                        "preventDuplicates": false,
+                        "showDuration": "500",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    }
+                })
+            });
     </script>
 
 </body>

@@ -1,7 +1,7 @@
 <?php
 require '../components/head-main.php';
 ?>
-<title>2.3.2.2.3 Registrar Supervisión Link de Video en Vivo | <?php echo $nomComp ?></title>
+<title>2.3.4.2 Registro Supervisión de Comprobación de Actividad Mínima Diaria | <?php echo $nomComp ?></title>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <style>
     @media (min-width:320px) and (max-width:425px) {
@@ -31,7 +31,7 @@ require '../components/head-main.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-8">
-                            <h1 class="float-left m-0">2.3.2.2.3 Registrar Supervisión Link de Video en Vivo</h1>
+                            <h1 class="float-left m-0">2.3.4.2 Supervisión de Comprobación de Actividad Mínima Diaria</h1>
                         </div>
                         <div class="col-sm-4">
                             <h5 class="float-right">Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -42,8 +42,8 @@ require '../components/head-main.php';
             <!-- /titulo y brandcrumb -->
             <!-- Form editar usuario -->
             <?php
-             $id_comverifdiariaveh = $_GET['id'];
-             $query = "SELECT id_proyecto FROM comverifdiariaveh WHERE id_comverifdiariaveh = $id_comverifdiariaveh";
+             $id_ActMinDiaria = $_GET['id'];
+             $query = "SELECT id_proyecto FROM actmindiaria WHERE id_ActMinDiaria = $id_ActMinDiaria";
              $respuesta = mysqli_query($conexion, $query);
              $row = $respuesta->fetch_assoc();
              $id_proyecto = $row['id_proyecto'];
@@ -56,8 +56,8 @@ require '../components/head-main.php';
                                 <div class="card-header border-nav">
                                     <h3 class="card-title">(*) Campos requeridos</h3>
                                 </div>
-                                <form id="formNuevoRegComVerifDiariaVehSuper" autocomplete="off">
-                                    <input type="hidden" name="id_comverifdiariaveh" id="id_comverifdiariaveh" value="<?php echo $id_comverifdiariaveh ?>">
+                                <form id="formNuevoRegComActMinDiaSuper" autocomplete="off">
+                                    <input type="hidden" name="id_ActMinDiaria" id="id_ActMinDiaria" value="<?php echo $id_ActMinDiaria ?>">
                                     <input type="hidden" name="id_proyecto" id="id_proyecto" value="<?php echo $id_proyecto ?>">
                                     <div class="card-body">
                                         <div class="row justify-content-center">
@@ -109,7 +109,7 @@ require '../components/head-main.php';
                                     <div class="card-footer border-footer">
                                         <div class="row">
                                             <div class="col-md-2 col-sm-12 align-self-center">
-                                                <buttom type="submit" id="btnNuevoRegComVerifDiariaVehSuper" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Guardar "><i class="fas fa-pen"></i> Guardar</buttom>
+                                                <buttom type="submit" id="btnNuevoRegComActMinDiaSuper" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Guardar "><i class="fas fa-pen"></i> Guardar</buttom>
                                             </div>
                                             <div class="col-md-2 col-sm-12 align-self-center">
                                                 <a href="javascript:history.go(-1)" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
@@ -117,7 +117,7 @@ require '../components/head-main.php';
                                             <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                             <br>
                                             <div class="col-md-12 col-sm-12 align-self-center mt-2">
-                                                <div id="respuestaNuevoRegComVerifDiariaVehSuper"></div>
+                                                <div id="respuestaNuevoRegComActMinDiaSuper"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -146,22 +146,22 @@ require '../components/head-main.php';
 
     // 2.3  Registro Nuevo Proyecto --------------------------------------------------------------------
     $(document).ready(function() {
-        $('#btnNuevoRegComVerifDiariaVehSuper').click(function() {
+        $('#btnNuevoRegComActMinDiaSuper').click(function() {
             $.ajax({
-                    url: '../adds/addNuevoRegComVerifDiariaVehSuper.php',
+                    url: '../adds/addNuevoRegComActMinDiaSuper.php',
                     type: 'POST',
-                    data: $('#formNuevoRegComVerifDiariaVehSuper').serialize(),
+                    data: $('#formNuevoRegComActMinDiaSuper').serialize(),
                 })
                 .done(function(res) {
-                    $('#respuestaNuevoRegComVerifDiariaVehSuper').html(res)
+                    $('#respuestaNuevoRegComActMinDiaSuper').html(res)
                 })
         });
     });
     //Ocultar boton por 5 minutos para evitar el doble submit
-    $("#btnNuevoRegComVerifDiariaVehSuper").on('click', function() {
-        $("#btnNuevoRegComVerifDiariaVehSuper").css('visibility', 'hidden');
+    $("#btnNuevoRegComActMinDiaSuper").on('click', function() {
+        $("#btnNuevoRegComActMinDiaSuper").css('visibility', 'hidden');
         setTimeout(function() {
-            $("#btnNuevoRegComVerifDiariaVehSuper").css('visibility', 'visible');
+            $("#btnNuevoRegComActMinDiaSuper").css('visibility', 'visible');
         }, 300000);
     });
 </script>

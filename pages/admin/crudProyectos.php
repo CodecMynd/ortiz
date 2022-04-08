@@ -123,13 +123,6 @@ require '../components/head-dataTables.php';
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-footer" style="height: 50px;">
-                                    <marquee width="100%" behavior="alternate">
-                                        <marquee behavior="alternate">
-                                            <p>Consulta no optimizada, <strong>!en espera¡</strong></p>
-                                        </marquee>
-                                    </marquee>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -157,6 +150,9 @@ require '../components/head-dataTables.php';
                                         <?php } ?>
 
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
+
+                                        <!-- <a href="#" id="info" class=" btn btn-outline-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualización de Consulta de esta tabla"><i class="fa-solid fa-info"></i></a> -->
+
                                     </div>
                                 </div>
                                 <!-- consulta sql -->
@@ -472,6 +468,31 @@ require '../components/head-dataTables.php';
                 }
             })
         });
+
+        
+        // Info Consulta --------------------------------------------------------------
+        $(document).ready(function() {
+            $("#info").click(function() {
+                    toastr["info"]("¡Última Actualizacion: <strong>06/04/2022</strong> -- Bloques !")
+
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": false,
+                        "positionClass": "toast-top-center",
+                        "preventDuplicates": false,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    }
+                })
+            });
     </script>
 </body>
 

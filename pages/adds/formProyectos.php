@@ -37,12 +37,13 @@ require '../components/head-dataTables.php';
                                         echo "<div class='card card-secondary card-outline'>";
                                     } ?>
                                     <div class="card-header border-nav">
-                                        <h3 class="card-title">Registro nuevo Proyecto</h3>
+                                        <h3 class="card-title">Registro nuevo Proyecto <strong></strong></h3>
                                         <div class="card-tools">
                                             <?php
                                             if ($regProyecto == 0) {
                                                 echo ' <a type="button" id="regProyecto" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="left" title="2.3.1 Registro de Proyecto"><i class="fa-solid fa-eye-slash"></i>&nbsp;&nbsp; Registro de Proyecto</a>';
                                             } ?>
+                                            <a href="#" id="info" class=" btn btn-outline-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualización de Consulta de esta tabla"><i class="fa-solid fa-info"></i></a>
                                         </div>
                                     </div>
                                     <div class="card-body">
@@ -241,24 +242,24 @@ require '../components/head-dataTables.php';
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="card-footer border-footer">
-                                                    <div class="row">
-                                                        <div class="col-md-2 col-sm-12 align-self-center">
-                                                            <buttom type="submit" id="btnNuevoProyecto" class="btn btn-secondary btn-block btnNuevoUsuario" data-toggle="tooltip" data-placement="bottom" title="Guardar "><i class="fas fa-pen"></i> Guardar</buttom>
-                                                        </div>
-                                                        <div class="col-md-2 col-sm-12 align-self-center">
-                                                            <a href="javascript:history.go(-1)" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
-                                                        </div>
-                                                        <!-- <div class='col-md-3 col-sm-12 align-self-center'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer border-footer">
+                                        <div class="row">
+                                            <div class="col-md-2 col-sm-12 align-self-center">
+                                                <buttom type="submit" id="btnNuevoProyecto" class="btn btn-secondary btn-block btnNuevoUsuario" data-toggle="tooltip" data-placement="bottom" title="Guardar "><i class="fas fa-pen"></i> Guardar</buttom>
+                                            </div>
+                                            <div class="col-md-2 col-sm-12 align-self-center">
+                                                <a href="javascript:history.go(-1)" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
+                                            </div>
+                                            <!-- <div class='col-md-3 col-sm-12 align-self-center'>
                                                             <a href='../admin/crudProyectos.php' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Ir a 2.3.2 Tabla Lista de Proyectos'><i class='fa-solid fa-arrow-right'></i> Ir a 2.3.2 Lista de Proyectos</a>
                                                         </div> -->
-                                                        <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
-                                                        <br>
-                                                        <div class="col-md-12 col-sm-12 align-self-center mt-2">
-                                                            <div id="respuestaNuevoProyecto"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                            <br>
+                                            <div class="col-md-12 col-sm-12 align-self-center mt-2">
+                                                <div id="respuestaNuevoProyecto"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -304,6 +305,30 @@ require '../components/head-dataTables.php';
                 alias: "pesos"
             });
         });
+
+        // Info Consulta --------------------------------------------------------------
+        $(document).ready(function() {
+            $("#info").click(function() {
+                    toastr["info"]("¡Última Actualizacion: <strong>06/04/2022</strong> -- Bloques !")
+
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": false,
+                        "positionClass": "toast-top-center",
+                        "preventDuplicates": false,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    }
+                })
+            });
     </script>
 
 </body>

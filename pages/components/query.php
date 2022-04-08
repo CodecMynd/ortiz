@@ -187,6 +187,12 @@ while ($row = mysqli_fetch_array($query)) {
     $regComVerifDiariaVehSuper = $row['regComVerifDiariaVehSuper'];
     $eliComVerifDiariaVehSuper = $row['eliComVerifDiariaVehSuper'];
     $verTablaComVerifDiariaVeh = $row['verTablaComVerifDiariaVeh'];
+    $regComActMinDia = $row['regComActMinDia'];
+    $regComSuperActMinDia = $row['regComSuperActMinDia'];
+    $eliComActMinDia = $row['eliComActMinDia'];
+    $eliComSuperActMinDia = $row['eliComSuperActMinDia'];
+    $verGralActMinDia = $row['verGralActMinDia'];
+    $verTablaActMinDia = $row['verTablaActMinDia'];
 
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
     if ($passUser === 'SIN_PASSWORD') {

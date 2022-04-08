@@ -69,7 +69,7 @@ require '../components/head-dataTables.php';
                                     INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
                                     INNER JOIN semanas S ON RS.id_semana = S.id_semana
                                     INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto
-                                    WHERE proyCodIdentificador = 1 AND RC.borrado = 0  ORDER BY nProyecto DESC LIMIT 5";
+                                    WHERE proyCodIdentificador = 1 AND RC.borrado = 0  ORDER BY nProyecto DESC ";
                                 } else if ($verTablaCodIdentificador == 1) {
                                     $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, 
                                     V.placa, Co.color, M.marca, Mo.modelo, A.anio, 
@@ -102,48 +102,7 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <!-- Contador de Registros -->
-                                    <!-- <section class="content">
-                                        <div class="container-fluid">
-                                            <div class="row justify-content-center">
-                                                <div class="col-12">
-                                                    <div class="card card-secondary card-outline collapsed-card">
-                                                        <div class="card-header bg-secondary">
-                                                            <h2 class="card-title"><strong>Filtro</strong></h2>
-                                                            <div class="card-tools">
-                                                                <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
-                                                                    <i class="fas fa-plus"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
 
-                                                        <div class="card-body ">
-                                                            <div class="row justify-content-center">
-                                                                <div class="col-md-2 col-sm-12 my-1">
-                                                                    <label class="ml-5 mb-2">Semana de Alta</label>
-                                                                    <div class="input-group">
-                                                                        <div class="input-group-prepend">
-                                                                            <span class="input-group-text"><i class="fa fa-user-pen" aria-hidden="true"></i></span>
-                                                                        </div>
-                                                                        <input type="text" class="form-control" id="filtroSemanaAlta" data-index="11">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-2 col-sm-12 my-1">
-                                                                    <label class="ml-5 mb-2">Semana de Cobro</label>
-                                                                    <div class="input-group">
-                                                                        <div class="input-group-prepend">
-                                                                            <span class="input-group-text"><i class="fa fa-user-pen" aria-hidden="true"></i></span>
-                                                                        </div>
-                                                                        <input type="text" class="form-control" id="filtroSemanaCobro" data-index="12">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section> -->
                                     <table id="tableProyCodId" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>

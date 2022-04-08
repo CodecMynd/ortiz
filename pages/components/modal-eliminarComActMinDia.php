@@ -1,5 +1,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<div class="modal fade eliminarComVerifDiaria-<?php $row['id_comverifdiariaveh']?>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade eliminarComActMinDia-<?php $row['id_ActMinDiaria']?>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
@@ -12,10 +12,10 @@
                 <?php echo $row['nProyecto']; ?>
                 </strong>
             </div>
-            <form id="formNuevoRegComPlaca" action="../delete/deleteRegVerifDiariaVeh.php" method="POST">
+            <form id="formNuevoRegComPlaca" action="../delete/deleteComActMinDia.php" method="POST">
                 <div class="modal-body text-center">
                     <div class='row justify-content-center'>
-                        <input type="hidden" name="id_comverifdiariaveh" id="id_comverifdiariaveh" value="<?php echo $row['id_comverifdiariaveh'] ?>">
+                        <input type="hidden" name="id_ActMinDiaria" id="id_ActMinDiaria" value="<?php echo $row['id_ActMinDiaria'] ?>">
                         <input type="hidden" name="id_proyecto" id="id_proyecto" value="<?php echo $row['id_proyecto'] ?>">
                     </div>
                 </div>
