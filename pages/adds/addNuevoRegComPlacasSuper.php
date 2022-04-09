@@ -25,8 +25,8 @@ if ($textSupervision == '') {
     exit;
 } else {
 
+    $conexion->autocommit(FALSE);
     try {
-        $conexion->autocommit(FALSE);
 
         // Registrar comprobación de supervision
         $query = "INSERT INTO comsupervision(id_proyecto, textSupervision, tipoComprobacion, estado, fecha_registro, id_capC) VALUES ('$id_proyecto', '$textSupervision', '$tipoComprobacion', '$estado', '$date', '$id')";
@@ -38,8 +38,8 @@ if ($textSupervision == '') {
         $resultadoP = mysqli_query($conexion, $queryP);
         // var_dump($queryP);
 
-        $conexion->autocommit(TRUE);
-         echo '<script>
+        $conexion->commit();
+        echo '<script>
        alert("¡Supervisón de Link de comprobación Ingresado correctamente")
        window.history.go(-1);
        </script>';

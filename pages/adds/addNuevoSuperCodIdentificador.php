@@ -24,8 +24,8 @@ if ($compCodId == '') {
     </div>";
     exit;
 }
+$conexion->autocommit(FALSE);
 try {
-    $conexion->autocommit(FALSE);
 
     // Ingresamos id a tabla proyectos modificar registros
     $queryP = "UPDATE proyectos SET proyCodIdentificador = 0, superCodIdentificador = 1  WHERE id_proyecto = $id_proyecto";
@@ -44,8 +44,20 @@ try {
 
     // Insertamos registro en tabla supervisado
     $queryS = "INSERT INTO supervisado(folioSupervision, id_regcodidenti, id_proyecto, compCodId, supervisado, fecha_creacion, id_capC) VALUES ('$folioSupervision', $id_regcodidenti, $id_proyecto, '$compCodId', 1, '$date', $id)";
+
+    $verificar_folio = mysqli_query($conexion, "SELECT folioSupervision FROM supervisado WHERE folioSupervision = '$folioSupervision'");
+
+    if (mysqli_num_rows($verificar_folio) > 0) {
+        echo
+        "<div class='alert alert-danger' role='role'>
+        <p><strong>¡Error, este Número de Folio ya se encuentra  registrado, verifica por favor!</strong></p>
+        </div>";
+        exit;
+    } else {
+        
     $resultadoS = mysqli_query($conexion, $queryS);
     //var_dump($query);
+    }
 
     // Insertamos registro en tabla supervisado
     $querySB = "INSERT INTO supervisadobitacora(folioSupervision, id_regcodidenti, id_proyecto, compCodId, supervisado, fecha_creacion, id_capC) VALUES ('$folioSupervision', $id_regcodidenti, $id_proyecto, '$compCodId', 1,'$date', $id)";
@@ -56,17 +68,18 @@ try {
     $queryBI = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
     $resultadoBI = mysqli_query($conexion, $queryBI);
 
-    $conexion->autocommit(TRUE);
+    $conexion->commit();
 
     echo "<div class='alert alert-success' role='alert'>
     <p><strong>Supervisión de Registro Código Identificador ingresado correctamente!</strong></p>
     </div>";
 } catch (Exception $e) {
     $conexion->rollback();
+    echo 'Error detectado: ',  $e->getMessage(), "\n";
     echo "<div class='alert alert-danger' role='role'>
-    <p><strong>¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte</strong></p>
-    <a href='https://jsolautomotriz.workplace.com/groups/504053034641133'  target='_blank' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Area de Soporte'>¡Reporta aqui! <i class='fa-solid fa-triangle-exclamation parpadea'></i></a>
-    </div>";
+         <p><strong>¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte</strong></p>
+         <a href='https://jsolautomotriz.workplace.com/groups/504053034641133'  target='_blank' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Area de Soporte'>¡Reporta aqui! <i class='fa-solid fa-triangle-exclamation parpadea'></i></a>
+         </div>";
 }
 
 

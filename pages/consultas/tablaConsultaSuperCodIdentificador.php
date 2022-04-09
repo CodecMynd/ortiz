@@ -31,7 +31,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-8">
-                            <h1 class="m-0">Tabla 2.7.3 Grals Supervisión de Registro Código Identificador</h1>
+                            <h1 class="m-0">Tabla 2.7.3 Grals. Supervisión de Registro Código Identificador</h1>
                         </div>
                         <div class="col-sm-4">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -40,27 +40,53 @@ require '../components/head-dataTables.php';
                 </div>
             </div>
 
-            <!-- Table Comprobcion de placas -->
+
+            <!-- consulta sql -->
+            <?php
+            $idP = $_GET['id'];
+
+            $query = "SELECT P.id_proyecto, P.nProyecto, RS.folioRegSolicitud, RS.inspecCalidad, RS.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, LV.link, RC.borrado,
+            RS.fecha_creacion AS regSolfecha,
+            RA.fecha_creacion AS regAltaFecha,
+            RC.fecha_creacion AS regCodIdFechas,
+            URS.nombres AS RSNombre , URS.aPaterno AS RSPaterno, URS.aMaterno AS RSMaterno,
+            URA.nombres AS RANombre, URA.aPaterno AS RAPaterno, URA.aMaterno AS RAMaterno,
+            URC.nombres AS RCNombre, URC.aPaterno AS RCPaterno, URC.aMaterno AS RCMaterno,
+            D.valCobProyBase, D.codIdProyBase, D.id_pagoProyBase, D.valCobProyExtra, D.codIdProyExtra, D.valCobComBan,
+            D.codIdComBan,D.valCobPen, D.codIdPension, D.valCobOtros, D.codIdOtros, D.fecha_creacion AS DFecha,
+            F.formaPago AS formaProyBase, FE.formaPago AS formaProyExtra, FB.formaPago AS formaComBan, FP.formaPago AS formaCobPen, FO.formaPago AS formaOtros,
+            SU.compCodId, SU.fecha_creacion AS Fecha
+            FROM proyectos P 
+            INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto 
+            INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
+            INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
+            INNER JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
+            INNER JOIN usuarios URS ON RS.id_capC = URS.id_usuario
+            INNER JOIN usuarios URA ON RA.id_capC = URA.id_usuario
+            INNER JOIN usuarios URC ON RC.id_capC = URC.id_usuario
+            INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto
+            INNER JOIN formapagos F ON D.id_pagoProyBase = F.id_formaPago
+            INNER JOIN formapagos FE ON D.id_pagoProyExtra = FE.id_formaPago
+            INNER JOIN formapagos FB ON D.id_pagoComBan = FB.id_formaPago
+            INNER JOIN formapagos FP ON D.id_pagoPension = FP.id_formaPago 
+            INNER JOIN formapagos FO ON D.id_pagoOtros = FO.id_formaPago
+            INNER JOIN supervisado SU ON P.id_proyecto = SU.id_proyecto
+            WHERE P.id_proyecto = $idP";
+            $respuesta = mysqli_query($conexion, $query);
+            $row = $respuesta->fetch_assoc();
+            ?>
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
                         <div class="col-md-12 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Proyecto Supervisión de Registro Código Identificador en el sistema</h3>
+                                    <h3 class="card-title">Proyecto Supervisión de Registro Código Identificador en el sistema, <strong><?php echo $row['nProyecto'] ?></strong></h3>
                                     <div class="card-tools">
                                         <a href="javascript:history.go(-1)" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
-                                <!-- consulta sql -->
-                                <?php
-                                $idP = $_GET['id'];
-                                $query = "SELECT * FROM vconsultasupercodid
-                                WHERE id_proyecto = $idP";
-                                $respuesta = mysqli_query($conexion, $query);
-                                $row = $respuesta->fetch_assoc();
-                                ?>
                                 <div class="card-body">
                                     <div class="card card-secondary card-outline collapsed-card">
                                         <div class="card-header">
@@ -504,261 +530,7 @@ require '../components/head-dataTables.php';
     ?>
     <!-- avisos -->
     <script src="../../src/js/toastr.js"></script>
-    <script>
-        // copiar link al portapapeles
-        var clipboard = new Clipboard('.btn');
 
-        // sinRegistro ¡SIN REGISTRO, AGREGA UNA COMPROBACIÓN PARA HABILITAR ESTE BÓTON --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#sinRegistro ").click(function() {
-                toastr["error"]("¡SIN REGISTRO, AGREGA UNA COMPROBACIÓN PARA HABILITAR ESTE BÓTON!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-        // comprobar NO SE PUEDE HACER UNA SUPERVISION SIN HABER PRIMERO HECHO UNA COMPROBACION DE PLACAS --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#comprobar ").click(function() {
-                toastr["error"]("¡NO SE PUEDE HACER UNA SUPERVISIÓN SIN HABER PRIMERO HECHO UNA COMPROBACIÓN!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // comprobar NO SE PUEDE HACER UNA SUPERVISION SIN HABER PRIMERO HECHO UNA COMPROBACION DE PLACAS --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#elimina").click(function() {
-                toastr["error"]("¡NO SE PUEDE ELIMINAR UNA COMPROBACIÓN, PRIMERO ELIMINA LA SUPERVISIÓN!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // eliminado PROYECTO ELIMINADO, NO SE PUEDE REALIZAR ESTA ACCION --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#eliminado ").click(function() {
-                toastr["error"]("¡PROYECTO ELIMINADO, NO SE PUEDE REALIZAR ESTA ACCION!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // resgistra NO TIENE COMPROBACION, PRIMERO REGISTRA YA DESPUES PUEDES BORRAR --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#resgistra ").click(function() {
-                toastr["error"]("¡NO TIENE REGISTRO DE COMPROBACION!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // resgistra NO SE PUEDE VOLVER A REGISTRAR, PRIMERO ELIMINA Y VUELVE A REGISTRAR --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#yaRegistrado ").click(function() {
-                toastr["error"]("¡NO SE PUEDE VOLVER A REGISTRAR, ELIMINA Y VUELVE A REGISTRAR!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // regComVerifDiariaVeh 2.3.2.2.1 REGISTRAR COMPROBACIÓN LINK DE VIDEO EN VIVO --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#regComVerifDiariaVeh ").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.2.2.1 REGISTRAR COMPROBACIÓN LINK DE VIDEO EN VIVO, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // eliComVerifDiariaVeh 2.3.9.2 REGISTRAR COMPROBACIÓN DE PLACA --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#eliComVerifDiariaVeh ").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.9.2 ELIMINAR COMPROBACIÓN DE PLACA, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // regComVerifDiariaVehSuper 2.3.9.3 REGISTRAR COMPROBACIÓN DE PLACA --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#regComVerifDiariaVehSuper ").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.9.3 REGISTRAR SUPERVISION DE COMPROBACIÓN DE PLACA, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-    </script>
 </body>
 
 </html>
-<!-- VISTA
-CREATE VIEW vconsultasupercodid as 
-SELECT P.id_proyecto, P.nProyecto, RS.folioRegSolicitud, RS.inspecCalidad, RS.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, Ra.cronometro, LV.link, RC.borrado,
-RS.fecha_creacion AS regSolfecha,
-RA.fecha_creacion AS regAltaFecha,
-RC.fecha_creacion AS regCodIdFechas,
-URS.nombres AS RSNombre , URS.aPaterno AS RSPaterno, URS.aMaterno AS RSMaterno,
-URA.nombres AS RANombre, URA.aPaterno AS RAPaterno, URA.aMaterno AS RAMaterno,
-URC.nombres AS RCNombre, URC.aPaterno AS RCPaterno, URC.aMaterno AS RCMaterno,
-D.valCobProyBase, D.codIdProyBase, D.id_pagoProyBase, D.valCobProyExtra, D.codIdProyExtra, D.valCobComBan, D.codIdComBan,D.valCobPen, D.codIdPension, D.valCobOtros, D.codIdOtros, D.fecha_creacion AS DFecha,
-F.formaPago AS formaProyBase, FE.formaPago AS formaProyExtra, FB.formaPago AS formaComBan, FP.formaPago AS formaCobPen, FO.formaPago AS formaOtros,
-SU.compCodId, SU.fecha_creacion AS Fecha
-FROM proyectos P 
-INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto 
-LEFT JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
-LEFT JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
-LEFT JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
-LEFT JOIN usuarios URS ON RS.id_capC = URS.id_usuario
-LEFT JOIN usuarios URA ON RA.id_capC = URA.id_usuario
-LEFT JOIN usuarios URC ON RC.id_capC = URC.id_usuario
-LEFT JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto
-LEFT JOIN formapagos F ON D.id_pagoProyBase = F.id_formaPago
-LEFT JOIN formapagos FE ON D.id_pagoProyExtra = FE.id_formaPago
-LEFT JOIN formapagos FB ON D.id_pagoComBan = FB.id_formaPago
-LEFT JOIN formapagos FP ON D.id_pagoPension = FP.id_formaPago 
-LEFT JOIN formapagos FO ON D.id_pagoOtros = FO.id_formaPago
-LEFT JOIN supervisado SU ON P.id_proyecto = SU.id_proyecto; -->

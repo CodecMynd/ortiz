@@ -8,10 +8,14 @@ function conectar()
     $conexion = mysqli_connect('localhost', 'root', '', 'db_ortiz');
 
     //conexion pruebas
-    //$conexion = mysqli_connect('den1.mysql6.gear.host', 'dbortiz', 'Tv4O~77K-R7j', 'dbortiz');
+    // $conexion = mysqli_connect('den1.mysql6.gear.host', 'dbortiz', 'Tv4O~77K-R7j', 'dbortiz');
 
     //conexion produccion
-    //$conexion = mysqli_connect('den1.mysql6.gear.host', 'jsolautomotriz', 'Sk4Ot??17QLC', 'jsolautomotriz');
+    // $conexion = mysqli_connect('den1.mysql6.gear.host', 'jsolautomotriz', 'Sk4Ot??17QLC', 'jsolautomotriz');
+
+    //conexion produccion hostinger
+    // $conexion = mysqli_connect('localhost', 'u910288658_jsolautomotriz', 'jsolAutomotriz2022@', 'u910288658_jsolautomotriz');
+    
 
     mysqli_set_charset($conexion, 'utf8');
 
@@ -22,8 +26,6 @@ function conectar()
     //   }
 
 }
-
-
 
 function validarLogin($usuario, $pass)
 {
@@ -68,4 +70,3 @@ function desconectar()
     global $conexion;
     mysqli_close($conexion);
 }
-

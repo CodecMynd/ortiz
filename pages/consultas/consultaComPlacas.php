@@ -9,7 +9,7 @@
 	UPN, UPP, UPM,
 	textSupervision, CSF,
 	UCSN, UCSP, UCSM
-	FROM vplacas
+	FROM vplacas 
 	ORDER BY nProyecto DESC";
 
 }else{
@@ -113,21 +113,22 @@ $cont = 0;
 		$cont++;
 		$datos[] = array(
 			"0" => $cont,
-			"1" => $row['nProyecto'],
-			"2" => $row['nOrden'],
-			"3" => $row['marca'],
-			"4" => $row['modelo'],
-			"5" => $row['anio'],
-			"6" => $row['placa'],
-			"7" => $row['color'],
-			"8" => $row['nombres'] . ' ' . $row['aPaternoCliente'] . ' ' . $row['aMaternoCliente'],
-			"9" => ($Eliminado == 0)? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
+			"1" => $row['id_proyecto'],
+			"2" => $row['nProyecto'],
+			"3" => $row['nOrden'],
+			"4" => $row['marca'],
+			"5" => $row['modelo'],
+			"6" => $row['anio'],
+			"7" => $row['placa'],
+			"8" => $row['color'],
+			"9" => $row['nombres'] . ' ' . $row['aPaternoCliente'] . ' ' . $row['aMaternoCliente'],
+			"10" => ($Eliminado == 0)? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
 
-			"10" => ($cP == 0)? '<h6><span class="badge badge-danger badge-pill">Sin Comprobar Placas</span></h6>' : '<h6><span class="badge badge-success badge-pill">Placa Comprobada</span></h6>',
+			"11" => ($cP == 0)? '<h6><span class="badge badge-danger badge-pill">Sin Comprobar Placas</span></h6>' : '<h6><span class="badge badge-success badge-pill">Placa Comprobada</span></h6>',
 
-			"11" => ($cS == 0)? '<h6><span class="badge badge-danger badge-pill">No Supervisado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Supervisado</span></h6>',
+			"12" => ($cS == 0)? '<h6><span class="badge badge-danger badge-pill">No Supervisado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Supervisado</span></h6>',
 			
-			"12" => "<div class='input-group input-group-sm mb-3'>
+			"13" => "<div class='input-group input-group-sm mb-3'>
 						<div class='input-group-prepend'>
 							<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración tabla Comprobación de Placas'> Acciones</span>
 							</button>

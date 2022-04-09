@@ -31,6 +31,7 @@
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>ID</th>
                             <th>Código Identificador</th>
                             <th>Núm. Folio Código ID</th>
                             <th>Núm. Folio de Alta</th>
@@ -54,6 +55,9 @@
                                     <?php $cont++;
                                     echo $cont;
                                     ?>
+                                </td>
+                                <td>
+                                    <?php echo "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>" ?>
                                 </td>
                                 <td style="width: 25;">
                                     <?php echo $row['codIdProyBase'] ?>
@@ -91,6 +95,7 @@
                     <tfoot>
                         <tr>
                             <th>#</th>
+                            <th>ID</th>
                             <th>Código Identificador</th>
                             <th>Núm. Folio Código ID</th>
                             <th>Núm. Folio de Alta</th>

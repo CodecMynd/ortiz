@@ -1,4 +1,31 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 08-04-2022 a las 08:14:25
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 8.1.1
 
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `db_ortiz`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `acceso`
+--
 
 CREATE TABLE `acceso` (
   `id_acceso` int(11) NOT NULL,
@@ -6,6 +33,10 @@ CREATE TABLE `acceso` (
   `fecha_acceso` datetime DEFAULT NULL,
   `fecha_cierre` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `acceso`
+--
 
 INSERT INTO `acceso` (`id_acceso`, `id_usuario`, `fecha_acceso`, `fecha_cierre`) VALUES
 (6, 1, '2022-03-20 15:02:47', NULL),
@@ -741,7 +772,234 @@ INSERT INTO `acceso` (`id_acceso`, `id_usuario`, `fecha_acceso`, `fecha_cierre`)
 (736, 8, '2022-04-05 17:25:10', NULL),
 (737, 3, '2022-04-05 17:35:56', NULL),
 (738, 6, '2022-04-05 18:00:50', NULL),
-(739, 10, '2022-04-05 18:31:39', NULL);
+(739, 10, '2022-04-05 18:31:39', NULL),
+(740, 2, '2022-04-06 08:23:06', NULL),
+(741, 2, '2022-04-06 08:26:13', NULL),
+(742, 3, '2022-04-06 08:38:44', NULL),
+(743, 7, '2022-04-06 08:43:06', NULL),
+(744, 4, '2022-04-06 08:45:36', NULL),
+(745, 7, '2022-04-06 08:46:36', NULL),
+(746, 6, '2022-04-06 08:52:12', NULL),
+(747, 9, '2022-04-06 08:53:49', NULL),
+(748, 5, '2022-04-06 08:57:32', NULL),
+(749, 10, '2022-04-06 08:59:32', NULL),
+(750, 1, '2022-04-06 09:19:17', NULL),
+(751, 8, '2022-04-06 09:37:23', NULL),
+(752, 9, '2022-04-06 09:44:27', NULL),
+(753, 6, '2022-04-06 09:51:09', NULL),
+(754, 8, '2022-04-06 10:05:33', NULL),
+(755, 9, '2022-04-06 10:13:39', NULL),
+(756, 1, '2022-04-06 10:13:44', NULL),
+(757, 7, '2022-04-06 10:19:06', NULL),
+(758, 3, '2022-04-06 10:27:50', NULL),
+(759, 10, '2022-04-06 10:42:27', NULL),
+(760, 2, '2022-04-06 10:48:38', NULL),
+(761, 6, '2022-04-06 10:49:02', NULL),
+(762, 3, '2022-04-06 11:05:44', NULL),
+(763, 7, '2022-04-06 11:08:09', NULL),
+(764, 7, '2022-04-06 11:10:42', NULL),
+(765, 9, '2022-04-06 11:16:53', NULL),
+(766, 13, '2022-04-06 11:34:19', NULL),
+(767, 13, NULL, '2022-04-06 11:35:37'),
+(768, 3, '2022-04-06 11:36:22', NULL),
+(769, 13, '2022-04-06 11:36:56', NULL),
+(770, 9, '2022-04-06 11:47:00', NULL),
+(771, 7, '2022-04-06 11:52:09', NULL),
+(772, 7, '2022-04-06 11:53:32', NULL),
+(773, 10, '2022-04-06 12:01:29', NULL),
+(774, 1, '2022-04-06 12:20:55', NULL),
+(775, 13, '2022-04-06 12:21:32', NULL),
+(776, 13, '2022-04-06 12:24:00', NULL),
+(777, 8, '2022-04-06 12:31:51', NULL),
+(778, 2, '2022-04-06 12:38:54', NULL),
+(779, 12, '2022-04-06 12:41:33', NULL),
+(780, 10, '2022-04-06 12:55:33', NULL),
+(781, 11, '2022-04-06 13:00:55', NULL),
+(782, 1, '2022-04-06 13:02:36', NULL),
+(783, 1, '2022-04-06 13:16:30', NULL),
+(784, 9, '2022-04-06 13:19:51', NULL),
+(785, 6, '2022-04-06 13:20:06', NULL),
+(786, 10, '2022-04-06 13:24:30', NULL),
+(787, 9, '2022-04-06 13:30:31', NULL),
+(788, 3, '2022-04-06 13:31:27', NULL),
+(789, 7, '2022-04-06 13:34:09', NULL),
+(790, 9, '2022-04-06 13:36:37', NULL),
+(791, 9, '2022-04-06 13:36:38', NULL),
+(792, 8, '2022-04-06 13:39:53', NULL),
+(793, 2, '2022-04-06 13:41:46', NULL),
+(794, 11, '2022-04-06 13:44:50', NULL),
+(795, 9, '2022-04-06 13:50:17', NULL),
+(796, 1, '2022-04-06 13:55:02', NULL),
+(797, 6, '2022-04-06 13:56:57', NULL),
+(798, 9, '2022-04-06 13:58:33', NULL),
+(799, 12, '2022-04-06 14:02:38', NULL),
+(800, 10, '2022-04-06 14:03:31', NULL),
+(801, 11, NULL, '2022-04-06 14:03:35'),
+(802, 12, '2022-04-06 14:08:43', NULL),
+(803, 12, '2022-04-06 14:10:44', NULL),
+(804, 1, NULL, '2022-04-06 14:11:57'),
+(805, 9, '2022-04-06 14:12:17', NULL),
+(806, 2, '2022-04-06 14:14:33', NULL),
+(807, 9, NULL, '2022-04-06 14:17:58'),
+(808, 9, '2022-04-06 14:18:03', NULL),
+(809, 12, '2022-04-06 14:18:10', NULL),
+(810, 9, '2022-04-06 14:24:29', NULL),
+(811, 9, '2022-04-06 14:28:59', NULL),
+(812, 9, '2022-04-06 14:28:59', NULL),
+(813, 10, '2022-04-06 14:50:16', NULL),
+(814, 13, '2022-04-06 14:59:33', NULL),
+(815, 12, NULL, '2022-04-06 15:01:01'),
+(816, 3, '2022-04-06 15:01:33', NULL),
+(817, 8, '2022-04-06 15:05:56', NULL),
+(818, 11, '2022-04-06 15:06:50', NULL),
+(819, 7, '2022-04-06 15:14:11', NULL),
+(820, 13, '2022-04-06 15:30:14', NULL),
+(821, 5, '2022-04-06 15:30:55', NULL),
+(822, 2, '2022-04-06 15:36:05', NULL),
+(823, 11, '2022-04-06 15:56:18', NULL),
+(824, 12, '2022-04-06 15:57:22', NULL),
+(825, 8, '2022-04-06 16:01:30', NULL),
+(826, 7, '2022-04-06 16:01:41', NULL),
+(827, 7, '2022-04-06 16:02:56', NULL),
+(828, 6, '2022-04-06 16:03:28', NULL),
+(829, 13, NULL, '2022-04-06 16:04:38'),
+(830, 13, '2022-04-06 16:04:53', NULL),
+(831, 10, '2022-04-06 16:28:13', NULL),
+(832, 7, '2022-04-06 16:37:32', NULL),
+(833, 12, '2022-04-06 16:42:01', NULL),
+(834, 7, NULL, '2022-04-06 16:44:29'),
+(835, 7, '2022-04-06 16:44:31', NULL),
+(836, 7, NULL, '2022-04-06 16:46:24'),
+(837, 7, '2022-04-06 16:47:06', NULL),
+(838, 7, '2022-04-06 16:48:12', NULL),
+(839, 7, NULL, '2022-04-06 16:49:31'),
+(840, 7, '2022-04-06 16:49:37', NULL),
+(841, 7, '2022-04-06 16:51:39', NULL),
+(842, 1, '2022-04-06 16:56:55', NULL),
+(843, 13, '2022-04-06 16:57:49', NULL),
+(844, 10, '2022-04-06 17:14:46', NULL),
+(845, 7, '2022-04-06 17:18:10', NULL),
+(846, 3, '2022-04-06 17:25:53', NULL),
+(847, 2, '2022-04-06 17:27:35', NULL),
+(848, 13, '2022-04-06 17:39:26', NULL),
+(849, 6, '2022-04-06 17:43:56', NULL),
+(850, 7, '2022-04-06 17:48:59', NULL),
+(851, 7, '2022-04-06 17:54:08', NULL),
+(852, 1, '2022-04-06 17:58:41', NULL),
+(853, 11, NULL, '2022-04-06 18:23:48'),
+(854, 13, '2022-04-06 19:53:45', NULL),
+(855, 13, '2022-04-06 20:00:56', NULL),
+(856, 1, '2022-04-07 01:10:59', NULL),
+(857, 4, '2022-04-07 08:32:56', NULL),
+(858, 13, '2022-04-07 08:41:46', NULL),
+(859, 7, '2022-04-07 08:43:11', NULL),
+(860, 8, '2022-04-07 08:51:38', NULL),
+(861, 3, '2022-04-07 08:54:09', NULL),
+(862, 9, '2022-04-07 08:54:25', NULL),
+(863, 13, '2022-04-07 08:58:17', NULL),
+(864, 5, '2022-04-07 09:00:36', NULL),
+(865, 4, '2022-04-07 09:01:09', NULL),
+(866, 10, '2022-04-07 09:08:18', NULL),
+(867, 6, '2022-04-07 09:14:49', NULL),
+(868, 13, '2022-04-07 09:55:25', NULL),
+(869, 8, '2022-04-07 09:57:51', NULL),
+(870, 7, '2022-04-07 10:03:54', NULL),
+(871, 13, '2022-04-07 10:12:21', NULL),
+(872, 2, '2022-04-07 10:14:44', NULL),
+(873, 1, '2022-04-07 10:16:36', NULL),
+(874, 10, '2022-04-07 10:21:16', NULL),
+(875, 13, '2022-04-07 10:38:33', NULL),
+(876, 7, '2022-04-07 10:43:45', NULL),
+(877, 12, '2022-04-07 10:49:25', NULL),
+(878, 2, '2022-04-07 10:56:34', NULL),
+(879, 13, '2022-04-07 10:59:06', NULL),
+(880, 1, '2022-04-07 11:19:23', NULL),
+(881, 11, '2022-04-07 11:30:22', NULL),
+(882, 13, '2022-04-07 11:34:20', NULL),
+(883, 8, '2022-04-07 11:34:59', NULL),
+(884, 10, '2022-04-07 11:37:40', NULL),
+(885, 13, '2022-04-07 11:37:50', NULL),
+(886, 2, '2022-04-07 11:45:23', NULL),
+(887, 13, '2022-04-07 12:00:29', NULL),
+(888, 13, '2022-04-07 12:07:22', NULL),
+(889, 12, '2022-04-07 12:08:08', NULL),
+(890, 3, NULL, '2022-04-07 12:19:36'),
+(891, 12, '2022-04-07 12:19:45', NULL),
+(892, 8, '2022-04-07 12:20:58', NULL),
+(893, 13, '2022-04-07 12:36:03', NULL),
+(894, 9, '2022-04-07 12:41:03', NULL),
+(895, 13, '2022-04-07 12:50:58', NULL),
+(896, 5, '2022-04-07 12:51:03', NULL),
+(897, 12, NULL, '2022-04-07 12:54:19'),
+(898, 10, '2022-04-07 12:55:56', NULL),
+(899, 3, '2022-04-07 12:56:41', NULL),
+(900, 13, '2022-04-07 13:01:45', NULL),
+(901, 1, '2022-04-07 13:04:23', NULL),
+(902, 13, '2022-04-07 13:07:24', NULL),
+(903, 13, '2022-04-07 13:14:10', NULL),
+(904, 9, '2022-04-07 13:27:41', NULL),
+(905, 13, '2022-04-07 13:35:42', NULL),
+(906, 7, '2022-04-07 13:37:30', NULL),
+(907, 8, '2022-04-07 13:37:44', NULL),
+(908, 2, '2022-04-07 14:06:45', NULL),
+(909, 7, '2022-04-07 14:23:51', NULL),
+(910, 12, '2022-04-07 14:37:58', NULL),
+(911, 13, '2022-04-07 14:38:31', NULL),
+(912, 12, '2022-04-07 14:43:50', NULL),
+(913, 6, '2022-04-07 14:48:20', NULL),
+(914, 4, '2022-04-07 15:01:09', NULL),
+(915, 9, '2022-04-07 15:04:28', NULL),
+(916, 9, '2022-04-07 15:04:29', NULL),
+(917, 11, '2022-04-07 15:09:58', NULL),
+(918, 8, '2022-04-07 15:16:33', NULL),
+(919, 12, NULL, '2022-04-07 15:16:46'),
+(920, 13, '2022-04-07 15:21:20', NULL),
+(921, 3, '2022-04-07 15:23:32', NULL),
+(922, 1, '2022-04-07 15:26:28', NULL),
+(923, 13, '2022-04-07 15:46:44', NULL),
+(924, 9, '2022-04-07 15:49:54', NULL),
+(925, 2, '2022-04-07 15:56:53', NULL),
+(926, 11, '2022-04-07 15:57:47', NULL),
+(927, 7, '2022-04-07 16:04:56', NULL),
+(928, 3, '2022-04-07 16:19:16', NULL),
+(929, 13, '2022-04-07 16:21:22', NULL),
+(930, 5, '2022-04-07 16:28:22', NULL),
+(931, 5, '2022-04-07 16:28:25', NULL),
+(932, 10, '2022-04-07 16:28:58', NULL),
+(933, 9, '2022-04-07 16:47:36', NULL),
+(934, 13, '2022-04-07 16:51:47', NULL),
+(935, 7, '2022-04-07 17:14:31', NULL),
+(936, 5, '2022-04-07 17:34:06', NULL),
+(937, 8, '2022-04-07 17:34:56', NULL),
+(938, 3, '2022-04-07 17:36:13', NULL),
+(939, 11, NULL, '2022-04-07 17:41:17'),
+(940, 7, '2022-04-07 17:44:36', NULL),
+(941, 10, '2022-04-07 17:45:46', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `actmindiaria`
+--
+
+CREATE TABLE `actmindiaria` (
+  `id_ActMinDiaria` int(11) NOT NULL,
+  `id_proyecto` int(11) NOT NULL,
+  `nProyecto` int(11) NOT NULL,
+  `linkComActMinDia` text DEFAULT NULL,
+  `textSupervision` varchar(200) DEFAULT NULL,
+  `fecha_hoyV` date DEFAULT NULL,
+  `fecha_hoyS` date DEFAULT NULL,
+  `borrado` char(1) DEFAULT '0',
+  `fecha_creacionV` datetime DEFAULT NULL,
+  `fecha_creacionS` datetime DEFAULT NULL,
+  `fecha_mod` datetime DEFAULT NULL,
+  `fecha_borrado` datetime DEFAULT NULL,
+  `id_capCV` int(11) DEFAULT 0,
+  `id_capCS` int(11) DEFAULT 0,
+  `id_capM` int(11) DEFAULT 0,
+  `id_capB` int(11) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1549,7 +1807,93 @@ INSERT INTO `bitacora` (`id_bitacora`, `id_proyecto`, `etapa`, `fechar_borrado`,
 (644, 233, 'Proyecto avanzó a 2.6 Proyectos con Código Identificador', NULL, '2022-04-05 16:46:23', NULL, 0, 8, 0),
 (645, 394, 'Creación de nuevo proyecto', NULL, NULL, '2022-04-05 16:55:30', 0, 0, 3),
 (646, 177, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-05 17:06:40', NULL, 0, 7, 0),
-(647, 264, 'Proyecto avanzó a 2.5 Alta Proyecto', NULL, '2022-04-05 18:01:53', NULL, 0, 6, 0);
+(647, 264, 'Proyecto avanzó a 2.5 Alta Proyecto', NULL, '2022-04-05 18:01:53', NULL, 0, 6, 0),
+(648, 97, 'Proyecto regresado a 2.4.1 Proyectos Activos para realizar Solicitud', NULL, '2022-04-06 08:53:38', NULL, 0, 6, 0),
+(649, 395, 'Creación de nuevo proyecto', NULL, NULL, '2022-04-06 09:10:15', 0, 0, 3),
+(650, 396, 'Creación de nuevo proyecto', NULL, NULL, '2022-04-06 09:19:20', 0, 0, 3),
+(651, 397, 'Creación de nuevo proyecto', NULL, NULL, '2022-04-06 09:24:14', 0, 0, 3),
+(652, 398, 'Creación de nuevo proyecto', NULL, NULL, '2022-04-06 09:30:57', 0, 0, 3),
+(653, 177, 'Proyecto avanzó a 2.5 Alta Proyecto', NULL, '2022-04-06 09:52:51', NULL, 0, 6, 0),
+(654, 286, 'Proyecto avanzó a 2.6 Proyectos con Código Identificador', NULL, '2022-04-06 10:09:42', NULL, 0, 8, 0),
+(655, 245, 'Proyecto avanzó a 2.5 Alta Proyecto', NULL, '2022-04-06 10:51:03', NULL, 0, 6, 0),
+(656, 399, 'Creación de nuevo proyecto', NULL, NULL, '2022-04-06 11:11:01', 0, 0, 3),
+(657, 145, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-06 11:13:33', NULL, 0, 7, 0),
+(658, 400, 'Creación de nuevo proyecto', NULL, NULL, '2022-04-06 11:41:21', 0, 0, 3),
+(659, 370, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-06 11:55:56', NULL, 0, 7, 0),
+(660, 400, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-06 12:13:34', NULL, 0, 3, 0),
+(661, 400, 'Proyecto avanzó a 2.5 Alta Proyecto', NULL, '2022-04-06 12:25:46', NULL, 0, 13, 0),
+(662, 32, 'Proyecto Completo Borrado', '2022-04-06 12:57:17', NULL, NULL, 2, 0, 0),
+(663, 208, 'Proyecto avanzó a 2.5 Alta Proyecto', NULL, '2022-04-06 13:24:01', NULL, 0, 6, 0),
+(664, 297, 'Proyecto avanzó a 2.6 Proyectos con Código Identificador', NULL, '2022-04-06 13:42:42', NULL, 0, 8, 0),
+(665, 345, 'Proyecto avanzó a 2.7 Supervisión de Registro Código Identificador', NULL, '2022-04-06 14:01:51', NULL, 0, 11, 0),
+(666, 146, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-06 15:16:04', NULL, 0, 7, 0),
+(667, 97, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-06 15:21:30', NULL, 0, 3, 0),
+(668, 327, 'Proyecto avanzó a 2.7 Supervisión de Registro Código Identificador', NULL, '2022-04-06 15:24:48', NULL, 0, 11, 0),
+(669, 278, 'Proyecto avanzó a 2.7 Supervisión de Registro Código Identificador', NULL, '2022-04-06 15:30:44', NULL, 0, 11, 0),
+(670, 145, 'Proyecto avanzó a 2.5 Alta Proyecto', NULL, '2022-04-06 15:39:04', NULL, 0, 13, 0),
+(671, 264, 'Proyecto avanzó a 2.6 Proyectos con Código Identificador', NULL, '2022-04-06 16:04:56', NULL, 0, 8, 0),
+(672, 370, 'Proyecto avanzó a 2.5 Alta Proyecto', NULL, '2022-04-06 16:05:17', NULL, 0, 6, 0),
+(673, 396, 'Proyecto Completo Borrado', '2022-04-06 16:32:43', NULL, NULL, 2, 0, 0),
+(674, 397, 'Proyecto Completo Borrado', '2022-04-06 16:32:52', NULL, NULL, 2, 0, 0),
+(675, 223, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-06 16:39:02', NULL, 0, 7, 0),
+(676, 374, 'Proyecto avanzó a 2.6 Proyectos con Código Identificador', NULL, '2022-04-06 16:44:27', NULL, 0, 8, 0),
+(677, 312, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-06 16:45:25', NULL, 0, 7, 0),
+(678, 370, 'Proyecto avanzó a 2.6 Proyectos con Código Identificador', NULL, '2022-04-06 17:25:39', NULL, 0, 8, 0),
+(679, 401, 'Creación de nuevo proyecto', NULL, NULL, '2022-04-06 17:29:04', 0, 0, 3),
+(680, 273, 'Proyecto avanzó a 2.7 Supervisión de Registro Código Identificador', NULL, '2022-04-06 17:34:23', NULL, 0, 11, 0),
+(681, 83, 'Proyecto avanzó a 2.7 Supervisión de Registro Código Identificador', NULL, '2022-04-06 17:41:27', NULL, 0, 11, 0),
+(682, 402, 'Creación de nuevo proyecto', NULL, NULL, '2022-04-06 17:52:19', 0, 0, 3),
+(683, 402, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-06 17:56:37', NULL, 0, 7, 0),
+(684, 0, 'Creación de nuevo proyecto', NULL, NULL, '2022-04-07 09:28:35', 0, 0, 3),
+(685, 0, 'Creación de nuevo proyecto', NULL, NULL, '2022-04-07 09:35:52', 0, 0, 3),
+(686, 388, 'Proyecto avanzó a 2.6 Proyectos con Código Identificador', NULL, '2022-04-07 09:58:37', NULL, 0, 8, 0),
+(687, 362, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-07 10:01:23', NULL, 0, 3, 0),
+(688, 362, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-07 10:01:23', NULL, 0, 3, 0),
+(689, 97, 'Proyecto avanzó a 2.6 Proyectos con Código Identificador', NULL, '2022-04-07 10:19:18', NULL, 0, 8, 0),
+(690, 362, 'Proyecto avanzó a 2.6 Proyectos con Código Identificador', NULL, '2022-04-07 10:21:49', NULL, 0, 8, 0),
+(691, 0, 'Creación de nuevo proyecto', NULL, NULL, '2022-04-07 10:26:33', 0, 0, 3),
+(692, 0, 'Creación de nuevo proyecto', NULL, NULL, '2022-04-07 10:28:10', 0, 0, 3),
+(693, 158, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-07 10:45:31', NULL, 0, 7, 0),
+(694, 158, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-07 10:45:31', NULL, 0, 7, 0),
+(695, 403, 'Creación de nuevo proyecto', NULL, NULL, '2022-04-07 11:18:57', 0, 0, 3),
+(696, 404, 'Creación de nuevo proyecto', NULL, NULL, '2022-04-07 11:22:33', 0, 0, 3),
+(697, 405, 'Creación de nuevo proyecto', NULL, NULL, '2022-04-07 11:30:38', 0, 0, 3),
+(698, 406, 'Creación de nuevo proyecto', NULL, NULL, '2022-04-07 11:35:15', 0, 0, 3),
+(699, 407, 'Creación de nuevo proyecto', NULL, NULL, '2022-04-07 11:38:56', 0, 0, 3),
+(700, 407, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-07 11:41:29', NULL, 0, 3, 0),
+(701, 405, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-07 11:42:36', NULL, 0, 3, 0),
+(702, 403, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-07 11:43:34', NULL, 0, 3, 0),
+(703, 383, 'Proyecto Completo Borrado', '2022-04-07 11:56:11', NULL, NULL, 2, 0, 0),
+(704, 158, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-07 11:57:05', NULL, 0, 3, 0),
+(705, 408, 'Creación de nuevo proyecto', NULL, NULL, '2022-04-07 12:12:14', 0, 0, 3),
+(706, 408, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-07 12:16:04', NULL, 0, 3, 0),
+(707, 283, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-07 12:58:38', NULL, 0, 3, 0),
+(708, 158, 'Proyecto avanzó a 2.5 Alta Proyecto', NULL, '2022-04-07 13:17:59', NULL, 0, 13, 0),
+(709, 274, 'Proyecto avanzó a 2.7 Supervisión de Registro Código Identificador', NULL, '2022-04-07 13:35:07', NULL, 0, 11, 0),
+(710, 252, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-07 13:39:20', NULL, 0, 7, 0),
+(711, 407, 'Proyecto avanzó a 2.6 Proyectos con Código Identificador', NULL, '2022-04-07 13:41:44', NULL, 0, 8, 0),
+(712, 407, 'Proyecto avanzó a 2.6 Proyectos con Código Identificador', NULL, '2022-04-07 13:48:30', NULL, 0, 8, 0),
+(713, 405, 'Proyecto avanzó a 2.6 Proyectos con Código Identificador', NULL, '2022-04-07 13:52:51', NULL, 0, 8, 0),
+(714, 243, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-07 14:28:25', NULL, 0, 7, 0),
+(715, 252, 'Proyecto avanzó a 2.5 Alta Proyecto', NULL, '2022-04-07 15:02:47', NULL, 0, 13, 0),
+(716, 389, 'Proyecto avanzó a 2.7 Supervisión de Registro Código Identificador', NULL, '2022-04-07 15:19:25', NULL, 0, 11, 0),
+(717, 312, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-07 15:25:01', NULL, 0, 3, 0),
+(718, 402, 'Proyecto avanzó a 2.5 Alta Proyecto', NULL, '2022-04-07 15:30:31', NULL, 0, 13, 0),
+(719, 158, 'Proyecto avanzó a 2.6 Proyectos con Código Identificador', NULL, '2022-04-07 15:47:29', NULL, 0, 8, 0),
+(720, 403, 'Proyecto avanzó a 2.6 Proyectos con Código Identificador', NULL, '2022-04-07 16:18:11', NULL, 0, 8, 0),
+(721, 408, 'Proyecto avanzó a 2.5 Alta Proyecto', NULL, '2022-04-07 16:22:02', NULL, 0, 13, 0),
+(722, 283, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-07 16:50:22', NULL, 0, 3, 0),
+(723, 283, 'Proyecto avanzó a 2.5 Alta Proyecto', NULL, '2022-04-07 16:53:26', NULL, 0, 13, 0),
+(724, 286, 'Proyecto avanzó a 2.7 Supervisión de Registro Código Identificador', NULL, '2022-04-07 16:59:06', NULL, 0, 11, 0),
+(725, 297, 'Proyecto avanzó a 2.7 Supervisión de Registro Código Identificador', NULL, '2022-04-07 17:02:44', NULL, 0, 11, 0),
+(726, 264, 'Proyecto avanzó a 2.7 Supervisión de Registro Código Identificador', NULL, '2022-04-07 17:16:50', NULL, 0, 11, 0),
+(727, 292, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-07 17:18:23', NULL, 0, 7, 0),
+(728, 372, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-07 17:21:30', NULL, 0, 7, 0),
+(729, 374, 'Proyecto avanzó a 2.7 Supervisión de Registro Código Identificador', NULL, '2022-04-07 17:23:31', NULL, 0, 11, 0),
+(730, 370, 'Proyecto avanzó a 2.7 Supervisión de Registro Código Identificador', NULL, '2022-04-07 17:27:53', NULL, 0, 11, 0),
+(731, 97, 'Proyecto avanzó a 2.7 Supervisión de Registro Código Identificador', NULL, '2022-04-07 17:38:10', NULL, 0, 11, 0),
+(732, 44, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-07 17:41:27', NULL, 0, 3, 0),
+(733, 51, 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta', NULL, '2022-04-07 17:42:28', NULL, 0, 7, 0);
 
 -- --------------------------------------------------------
 
@@ -1905,7 +2249,7 @@ INSERT INTO `capvalorventas` (`id_capValorVentas`, `id_proyecto`, `capValVenta`,
 (333, 359, 10, '1', '2022-04-01 12:17:44'),
 (334, 360, 10, '1', '2022-04-01 17:54:21'),
 (335, 361, 10, '1', '2022-04-01 17:55:02'),
-(336, 362, 10, '1', '2022-04-02 09:53:38'),
+(336, 362, 2, '1', '2022-04-06 14:16:43'),
 (337, 363, 10, '1', '2022-04-02 10:03:00'),
 (338, 364, 10, '1', '2022-04-02 09:52:41'),
 (339, 365, 10, '1', '2022-04-02 10:03:18'),
@@ -1925,7 +2269,7 @@ INSERT INTO `capvalorventas` (`id_capValorVentas`, `id_proyecto`, `capValVenta`,
 (353, 376, 10, '1', '2022-04-04 17:00:08'),
 (354, 377, 10, '1', '2022-04-04 17:00:44'),
 (355, 378, 0, '0', NULL),
-(356, 379, 0, '0', NULL),
+(356, 379, 10, '1', '2022-04-06 10:45:43'),
 (357, 380, 10, '1', '2022-04-04 17:01:14'),
 (358, 381, 10, '1', '2022-04-05 18:33:15'),
 (359, 382, 10, '1', '2022-04-05 18:33:43'),
@@ -1934,13 +2278,31 @@ INSERT INTO `capvalorventas` (`id_capValorVentas`, `id_proyecto`, `capValVenta`,
 (362, 385, 10, '1', '2022-04-05 18:35:19'),
 (363, 386, 10, '1', '2022-04-05 18:35:57'),
 (364, 387, 10, '1', '2022-04-05 18:36:25'),
-(365, 388, 0, '0', NULL),
+(365, 388, 10, '1', '2022-04-06 10:44:35'),
 (366, 389, 10, '1', '2022-04-05 18:37:01'),
 (367, 390, 10, '1', '2022-04-05 18:37:28'),
 (368, 391, 10, '1', '2022-04-05 18:37:50'),
 (369, 392, 10, '1', '2022-04-05 18:38:14'),
 (370, 393, 10, '1', '2022-04-05 18:38:43'),
-(371, 394, 10, '1', '2022-04-05 18:39:02');
+(371, 394, 10, '1', '2022-04-05 18:39:02'),
+(372, 395, 10, '1', '2022-04-06 14:57:31'),
+(373, 396, 10, '1', '2022-04-06 14:57:54'),
+(374, 397, 10, '1', '2022-04-06 14:58:08'),
+(375, 398, 10, '1', '2022-04-06 14:56:42'),
+(376, 399, 10, '1', '2022-04-06 14:55:45'),
+(377, 400, 10, '1', '2022-04-06 14:54:48'),
+(378, 401, 10, '1', '2022-04-06 17:39:47'),
+(379, 402, 0, '0', NULL),
+(380, 0, 0, '0', NULL),
+(381, 0, 0, '0', NULL),
+(382, 0, 0, '0', NULL),
+(383, 0, 0, '0', NULL),
+(384, 403, 0, '0', NULL),
+(385, 404, 0, '0', NULL),
+(386, 405, 0, '0', NULL),
+(387, 406, 0, '0', NULL),
+(388, 407, 0, '0', NULL),
+(389, 408, 0, '0', NULL);
 
 -- --------------------------------------------------------
 
@@ -2331,7 +2693,19 @@ INSERT INTO `clientes` (`id_cliente`, `nombres`, `aPaternoCliente`, `aMaternoCli
 (355, 'Francisco José ', 'Gonzalez ', 'Solis', 'C. Ingenieros no. 746', 'Jardines de Guadalupe', 'Zapopan', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(333) 459-7206', 'sin@correo.com', '0', '', '2022-04-05 11:54:35', NULL, 3, NULL),
 (356, 'Miguel', 'Bautista', 'Hernandez', 'C. Arq. Fernando Gonzalez Gortazar no. 6', 'Residencial Huerta Viejta', 'Ixtlahuacan de los membrillos', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(332) 382-9844', 'mikeyflaus_1@hotmail.com', '0', '', '2022-04-05 13:01:02', NULL, 3, NULL),
 (357, 'Elvia ', 'Ley', 'Galvez', 'Jardines  de almudaina no. 103', 'coto español 4,valle imperial', 'zapopan', 'Jalisco', '(333) 404-5944', '(332) 811-2425', '(333) 118-8187', 'sin@correo.com', '0', '', '2022-04-05 15:25:41', NULL, 3, NULL),
-(358, 'Fernando', 'Padilla', 'Romo', 'Herrera y Cairo no. ', 'Centro', 'Guadalajara', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(333) 409-2609', 'fernandopadillar@hotmail.com', '0', '', '2022-04-05 16:13:14', NULL, 3, NULL);
+(358, 'Fernando', 'Padilla', 'Romo', 'Herrera y Cairo no. ', 'Centro', 'Guadalajara', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(333) 409-2609', 'fernandopadillar@hotmail.com', '0', '', '2022-04-05 16:13:14', NULL, 3, NULL),
+(359, 'Juan Pablo', 'Gonzalez', 'Godoy', 'C. Francisco Javier Mina', 'Atemajac del valle', 'Zapopan', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(332) 184-0914', 'sin@correo.com', '0', '', '2022-04-06 09:18:01', NULL, 3, NULL),
+(360, 'José Luis ', 'Ramirez ', 'Cardenas', 'Ruben rodriguez no. 478', 'Insurgentes', 'Guadalajara', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(332) 614-2195', 'sin@correo.com', '0', '', '2022-04-06 09:23:00', NULL, 3, NULL),
+(361, 'Julio ', 'Cordova Rodriguez', 'Mitzy Daniela Medina Padilla', 'Ahuehuete no. 1844', 'Paraisos del colli', 'Zapopan', 'Jalisco', '(000) 000-0000', '(332) 022-2541', '(331) 147-6000', 'sin@correo.com', '0', '', '2022-04-06 09:28:41', NULL, 3, NULL),
+(362, 'Octavio ', 'Montoya', 'Sonia Angelica Ramirez Arzate', 'Av. México no. 345', 'Vallarta San Jorge', 'Zapopan', 'Jalisco', '(000) 000-0000', '(331) 267-5148', '(331) 728-0050', 'soniarzate1@hotmail.com', '0', '', '2022-04-06 11:08:16', NULL, 3, NULL),
+(363, 'Ismael', 'Topete', 'Mendoza', '-', 'Col. Francisco Villa', 'Guadalajara', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(331) 154-6861', 'sin@correo.com', '0', '', '2022-04-06 11:40:03', NULL, 3, NULL),
+(364, 'Lizeth Alejandra ', 'Garcia ', 'Ornelas', 'Cuahutemoc no. 19 ', 'Guadalupe', 'Tala', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(384) 115-6996', 'sin@correo.com', '0', '', '2022-04-06 17:27:18', NULL, 3, NULL),
+(365, 'Luis Miguel Eduardo', 'Garibay', 'Mendoza', 'C. Juan Sebastian El Cano no. 2792', 'Fraccionamiento Colon Indistrial', 'Guadalajara', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(331) 011-4182', 'l_garibay01@yahoo.com.mx', '0', '', '2022-04-07 09:25:40', NULL, 3, NULL),
+(366, 'José Enrique ', 'Garcia', 'Campos', 'C. Hacienda Malva no. 54', 'Fraccionamiento Hacienda Real', 'Tonalá', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(333) 129-9700', 'sin@correo.com', '0', '', '2022-04-07 11:21:00', NULL, 3, NULL),
+(367, 'Juan Francisco', 'Padilla', 'Garcia', 'C. Paseo de los Claveles no. 27', 'La Martinica', 'Zapopan', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(331) 453-6279', 'sin@correo.com', '0', '', '2022-04-07 11:24:48', NULL, 3, NULL),
+(368, 'Mauricio', 'Gonzalez', 'Ramirez', 'And. Tamuin no. 3064', 'pinar de la calma', 'zapopan', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(331) 289-0184', 'sin@correo.com', '0', '', '2022-04-07 11:31:57', NULL, 3, NULL),
+(369, 'Juan José', 'Castillo', 'coronado', '-', '-', '-', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(331) 395-8266', 'sin@correo.com', '0', '', '2022-04-07 11:36:52', NULL, 3, NULL),
+(370, 'Israel ', 'Chavez', 'Rangel', 'Privada San carlosno. 208', 'El Campanario', 'Zapopan', 'Jalisco', '(000) 000-0000', '(000) 000-0000', '(332) 700-8870', 'sin@correo.com', '0', '', '2022-04-07 12:09:42', NULL, 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -2406,7 +2780,7 @@ INSERT INTO `comasesor` (`id_comAsesor`, `id_proyecto`, `nProyecto`, `id_asesor`
 (6, 283, 11626, 2, '0', '2022-04-02 10:15:20', NULL, 12, 0),
 (7, 271, 11614, 2, '0', '2022-04-02 10:21:19', NULL, 12, 0),
 (8, 295, 11638, 2, '0', '2022-04-04 09:49:14', NULL, 12, 0),
-(9, 112, 11455, 2, '0', '2022-04-04 09:51:09', NULL, 12, 0),
+(245, 112, 11455, 6, '0', '2022-04-07 11:57:43', NULL, 2, 0),
 (10, 291, 11634, 2, '0', '2022-04-04 09:57:00', NULL, 12, 0),
 (11, 90, 11433, 2, '0', '2022-04-04 10:10:44', NULL, 12, 0),
 (12, 90, 11433, 2, '0', '2022-04-04 10:10:44', NULL, 12, 0),
@@ -2507,14 +2881,14 @@ INSERT INTO `comasesor` (`id_comAsesor`, `id_proyecto`, `nProyecto`, `id_asesor`
 (107, 96, 11439, 6, '0', '2022-04-05 14:10:37', NULL, 7, 0),
 (108, 105, 11448, 6, '0', '2022-04-05 14:11:03', NULL, 7, 0),
 (109, 102, 11445, 6, '0', '2022-04-05 14:11:26', NULL, 7, 0),
-(110, 72, 11415, 2, '0', '2022-04-05 14:12:18', NULL, 7, 0),
+(248, 401, 11752, 1, '0', '2022-04-07 12:21:18', NULL, 12, 0),
 (111, 106, 11449, 2, '0', '2022-04-05 14:14:26', NULL, 7, 0),
 (112, 107, 11450, 6, '0', '2022-04-05 14:14:36', NULL, 7, 0),
-(113, 72, 11415, 2, '0', '2022-04-05 14:14:50', NULL, 7, 0),
+(243, 72, 11415, 6, '0', '2022-04-07 11:55:18', NULL, 2, 0),
 (114, 107, 11450, 6, '0', '2022-04-05 14:15:26', NULL, 7, 0),
 (115, 98, 11441, 6, '0', '2022-04-05 14:16:10', NULL, 7, 0),
 (116, 99, 11442, 6, '0', '2022-04-05 14:17:06', NULL, 7, 0),
-(117, 86, 11428, 2, '0', '2022-04-05 14:18:46', NULL, 7, 0),
+(244, 86, 11428, 6, '0', '2022-04-07 11:57:17', NULL, 2, 0),
 (118, 108, 11451, 2, '0', '2022-04-05 14:19:16', NULL, 7, 0),
 (119, 110, 11453, 6, '0', '2022-04-05 14:19:33', NULL, 7, 0),
 (120, 111, 11454, 6, '0', '2022-04-05 14:19:53', NULL, 7, 0),
@@ -2575,7 +2949,7 @@ INSERT INTO `comasesor` (`id_comAsesor`, `id_proyecto`, `nProyecto`, `id_asesor`
 (175, 181, 11524, 1, '0', '2022-04-05 14:51:02', NULL, 7, 0),
 (176, 228, 11571, 5, '0', '2022-04-05 14:51:38', NULL, 7, 0),
 (177, 252, 11595, 1, '0', '2022-04-05 14:52:03', NULL, 7, 0),
-(178, 330, 11678, 2, '0', '2022-04-05 14:53:15', NULL, 7, 0),
+(247, 330, 11678, 6, '0', '2022-04-07 11:58:52', NULL, 2, 0),
 (179, 184, 11527, 6, '0', '2022-04-05 14:53:30', NULL, 7, 0),
 (180, 184, 11527, 6, '0', '2022-04-05 14:54:02', NULL, 7, 0),
 (181, 200, 11543, 6, '0', '2022-04-05 14:54:19', NULL, 7, 0),
@@ -2592,7 +2966,7 @@ INSERT INTO `comasesor` (`id_comAsesor`, `id_proyecto`, `nProyecto`, `id_asesor`
 (192, 268, 11611, 6, '0', '2022-04-05 14:58:20', NULL, 7, 0),
 (193, 302, 11645, 1, '0', '2022-04-05 15:00:02', NULL, 7, 0),
 (194, 312, 11655, 1, '0', '2022-04-05 15:00:42', NULL, 7, 0),
-(195, 186, 11529, 2, '0', '2022-04-05 15:01:16', NULL, 7, 0),
+(246, 186, 11529, 6, '0', '2022-04-07 11:58:24', NULL, 2, 0),
 (196, 172, 11515, 6, '0', '2022-04-05 15:01:54', NULL, 7, 0),
 (197, 216, 11559, 5, '0', '2022-04-05 15:02:14', NULL, 7, 0),
 (198, 354, 11702, 1, '0', '2022-04-05 15:02:34', NULL, 7, 0),
@@ -2630,7 +3004,23 @@ INSERT INTO `comasesor` (`id_comAsesor`, `id_proyecto`, `nProyecto`, `id_asesor`
 (230, 380, 11731, 3, '0', '2022-04-05 15:22:08', NULL, 7, 0),
 (231, 384, 11735, 5, '0', '2022-04-05 15:22:24', NULL, 7, 0),
 (232, 378, 11729, 6, '0', '2022-04-05 15:23:06', NULL, 7, 0),
-(233, 293, 11636, 5, '0', '2022-04-05 15:25:21', NULL, 7, 0);
+(233, 293, 11636, 5, '0', '2022-04-05 15:25:21', NULL, 7, 0),
+(234, 399, 11750, 5, '0', '2022-04-06 12:36:51', NULL, 2, 0),
+(235, 392, 11743, 5, '0', '2022-04-06 14:06:14', NULL, 12, 0),
+(236, 390, 11741, 5, '0', '2022-04-06 14:19:22', NULL, 12, 0),
+(237, 400, 11751, 3, '0', '2022-04-06 14:32:45', NULL, 12, 0),
+(238, 393, 11744, 2, '0', '2022-04-06 14:34:27', NULL, 12, 0),
+(239, 398, 11749, 5, '0', '2022-04-06 14:40:05', NULL, 12, 0),
+(240, 395, 11746, 2, '0', '2022-04-06 14:44:03', NULL, 12, 0),
+(241, 391, 11742, 5, '0', '2022-04-06 15:58:33', NULL, 12, 0),
+(242, 394, 11745, 1, '0', '2022-04-06 16:37:09', NULL, 2, 0),
+(258, 402, 11753, 5, '0', '2022-04-07 12:43:45', NULL, 12, 0),
+(250, 403, 11758, 3, '0', '2022-04-07 12:24:25', NULL, 12, 0),
+(257, 404, 11759, 5, '0', '2022-04-07 12:40:51', NULL, 12, 0),
+(252, 405, 11760, 3, '0', '2022-04-07 12:27:59', NULL, 12, 0),
+(256, 406, 11761, 5, '0', '2022-04-07 12:37:43', NULL, 12, 0),
+(254, 407, 11762, 3, '0', '2022-04-07 12:30:18', NULL, 12, 0),
+(255, 408, 11763, 2, '0', '2022-04-07 12:33:18', NULL, 12, 0);
 
 -- --------------------------------------------------------
 
@@ -2867,7 +3257,89 @@ INSERT INTO `complacas` (`id_complaca`, `id_proyecto`, `nProyecto`, `linkComPlac
 (147, 303, 11646, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1027215121334720/', '0', '2022-04-04 13:02:22', NULL, 9, 0),
 (148, 370, 11721, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1027215121334720/', '0', '2022-04-04 13:10:16', NULL, 9, 0),
 (149, 380, 11731, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1027332497989649/', '0', '2022-04-04 18:13:11', NULL, 9, 0),
-(150, 378, 11729, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1027326477990251/', '0', '2022-04-04 18:14:27', NULL, 9, 0);
+(150, 378, 11729, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1027326477990251/', '0', '2022-04-04 18:14:27', NULL, 9, 0),
+(151, 3, 11346, 'Arranque de Sistema', '0', '2022-04-07 11:47:20', NULL, 2, 0),
+(152, 5, 11348, 'Arranque de Sistema', '0', '2022-04-07 11:47:29', NULL, 2, 0),
+(153, 6, 11349, 'Arranque de Sistema', '0', '2022-04-07 11:47:37', NULL, 2, 0),
+(154, 7, 11350, 'Arranque de Sistema', '0', '2022-04-07 11:47:46', NULL, 2, 0),
+(155, 403, 11758, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1027332497989649/', '0', '2022-04-07 12:47:25', NULL, 9, 0),
+(156, 393, 11744, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1029026564486909/', '0', '2022-04-07 12:55:52', NULL, 9, 0),
+(157, 407, 11762, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1029030461153186/', '0', '2022-04-07 13:02:25', NULL, 9, 0),
+(158, 408, 11763, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1029031907819708/', '0', '2022-04-07 13:04:35', NULL, 9, 0),
+(159, 405, 11760, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1029033167819582/', '0', '2022-04-07 13:07:03', NULL, 9, 0),
+(160, 402, 11753, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1029034294486136/', '0', '2022-04-07 13:10:03', NULL, 9, 0),
+(161, 394, 11745, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1029038151152417/', '0', '2022-04-07 13:16:33', NULL, 9, 0),
+(162, 374, 11725, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1027239624665603/', '0', '2022-04-07 13:32:40', NULL, 9, 0),
+(163, 401, 11752, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1029052191151013/', '0', '2022-04-07 13:50:31', NULL, 9, 0),
+(164, 406, 11761, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1029053067817592/', '0', '2022-04-07 13:53:00', NULL, 9, 0),
+(165, 404, 11759, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1029055271150705/', '0', '2022-04-07 13:57:54', NULL, 9, 0),
+(166, 400, 11751, 'Arranque de Sistema', '0', '2022-04-07 15:10:51', NULL, 4, 0),
+(167, 359, 11707, 'Arranque de Sistema', '0', '2022-04-07 15:14:58', NULL, 4, 0),
+(168, 358, 11706, 'Arranque de Sistema', '0', '2022-04-07 15:15:44', NULL, 4, 0),
+(169, 356, 11704, 'Arranque de Sistema', '0', '2022-04-07 15:16:45', NULL, 4, 0),
+(170, 355, 11703, 'Arranque de Sistema', '0', '2022-04-07 15:17:24', NULL, 4, 0),
+(171, 353, 11701, 'Arranque de Sistema', '0', '2022-04-07 15:19:16', NULL, 4, 0),
+(172, 352, 11700, 'Arranque de Sistema', '0', '2022-04-07 15:19:59', NULL, 4, 0),
+(173, 351, 11699, 'Arranque de Sistema', '0', '2022-04-07 15:20:44', NULL, 4, 0),
+(174, 350, 11698, 'Arranque de Sistema', '0', '2022-04-07 15:21:28', NULL, 4, 0),
+(175, 349, 11697, 'Arranque de Sistema', '0', '2022-04-07 15:22:05', NULL, 4, 0),
+(176, 348, 11696, 'Arranque de Sistema', '0', '2022-04-07 15:22:41', NULL, 4, 0),
+(177, 346, 11694, 'Arranque de Sistema', '0', '2022-04-07 15:23:21', NULL, 4, 0),
+(178, 345, 11693, 'Arranque de Sistema', '0', '2022-04-07 15:23:59', NULL, 4, 0),
+(179, 8, 11351, 'Arranque de Sistema', '0', '2022-04-07 15:28:20', NULL, 4, 0),
+(180, 344, 11692, 'Arranque de Sistema', '0', '2022-04-07 15:31:07', NULL, 4, 0),
+(181, 342, 11690, 'Arranque de Sistema', '0', '2022-04-07 15:32:13', NULL, 4, 0),
+(182, 341, 11689, 'Arranque de Sistema', '0', '2022-04-07 15:32:52', NULL, 4, 0),
+(183, 338, 11686, 'Arranque de Sistema', '0', '2022-04-07 15:33:30', NULL, 4, 0),
+(184, 336, 11684, 'Arranque de Sistema', '0', '2022-04-07 15:34:11', NULL, 4, 0),
+(185, 333, 11681, 'Arranque de Sistema', '0', '2022-04-07 15:34:49', NULL, 4, 0),
+(186, 329, 11677, 'Arranque de Sistema', '0', '2022-04-07 15:35:32', NULL, 4, 0),
+(187, 323, 11671, 'Arranque de Sistema', '0', '2022-04-07 15:36:07', NULL, 4, 0),
+(188, 320, 11668, 'Arranque de Sistema', '0', '2022-04-07 15:36:54', NULL, 4, 0),
+(189, 317, 11665, 'Arranque de Sistema', '0', '2022-04-07 15:37:15', NULL, 4, 0),
+(190, 314, 11662, 'Arranque de Sistema', '0', '2022-04-07 15:39:23', NULL, 4, 0),
+(191, 309, 11652, 'Arranque de Sistema', '0', '2022-04-07 15:40:33', NULL, 4, 0),
+(192, 308, 11651, 'Arranque de Sistema', '0', '2022-04-07 15:41:31', NULL, 4, 0),
+(193, 307, 11650, 'Arranque de Sistema', '0', '2022-04-07 15:42:08', NULL, 4, 0),
+(194, 305, 11648, 'Arranque de Sistema', '0', '2022-04-07 15:42:45', NULL, 4, 0),
+(195, 301, 11644, 'Arranque de Sistema', '0', '2022-04-07 15:43:28', NULL, 4, 0),
+(196, 300, 11643, 'Arranque de Sistema', '0', '2022-04-07 15:44:02', NULL, 4, 0),
+(197, 296, 11639, 'Arranque de Sistema', '0', '2022-04-07 15:44:42', NULL, 4, 0),
+(198, 293, 11636, 'Arranque de Sistema', '0', '2022-04-07 15:45:33', NULL, 4, 0),
+(199, 290, 11633, 'Arranque de Sistema', '0', '2022-04-07 15:46:14', NULL, 4, 0),
+(200, 287, 11630, 'Arranque de Sistema', '0', '2022-04-07 15:47:03', NULL, 4, 0),
+(201, 285, 11628, 'Arranque de Sistema', '0', '2022-04-07 15:47:54', NULL, 4, 0),
+(202, 284, 11627, 'Arranque de Sistema', '0', '2022-04-07 15:48:39', NULL, 4, 0),
+(203, 282, 11625, 'Arranque de Sistema', '0', '2022-04-07 15:49:31', NULL, 4, 0),
+(204, 281, 11624, 'Arranque de Sistema', '0', '2022-04-07 15:50:29', NULL, 4, 0),
+(205, 280, 11623, 'Arranque de Sistema', '0', '2022-04-07 15:51:24', NULL, 4, 0),
+(206, 280, 11623, 'Arranque de Sistema', '0', '2022-04-07 15:51:24', NULL, 4, 0),
+(207, 279, 11622, 'Arranque de Sistema', '0', '2022-04-07 15:52:06', NULL, 4, 0),
+(208, 277, 11620, 'Arranque de Sistema', '0', '2022-04-07 15:52:44', NULL, 4, 0),
+(209, 276, 11619, 'Arranque de Sistema', '0', '2022-04-07 15:53:21', NULL, 4, 0),
+(210, 268, 11611, 'Arranque de Sistema', '0', '2022-04-07 15:54:29', NULL, 4, 0),
+(211, 267, 11610, 'Arranque de Sistema', '0', '2022-04-07 15:55:07', NULL, 4, 0),
+(212, 263, 11606, 'Arranque de Sistema', '0', '2022-04-07 15:55:53', NULL, 4, 0),
+(213, 260, 11603, 'Arranque de Sistema', '0', '2022-04-07 15:56:39', NULL, 4, 0),
+(214, 259, 11602, 'Arranque de Sistema', '0', '2022-04-07 15:57:13', NULL, 4, 0),
+(215, 258, 11601, 'Arranque de Sistema', '0', '2022-04-07 15:57:52', NULL, 4, 0),
+(216, 257, 11600, 'Arranque de Sistema', '0', '2022-04-07 15:58:33', NULL, 4, 0),
+(217, 255, 11598, 'Arranque de Sistema', '0', '2022-04-07 16:08:32', NULL, 4, 0),
+(218, 254, 11597, 'Arranque de Sistema', '0', '2022-04-07 16:09:31', NULL, 4, 0),
+(219, 250, 11593, 'Arranque de Sistema', '0', '2022-04-07 16:10:27', NULL, 4, 0),
+(220, 248, 11591, 'Arranque de Sistema', '0', '2022-04-07 16:12:35', NULL, 4, 0),
+(221, 247, 11590, 'Arranque de Sistema', '0', '2022-04-07 16:13:34', NULL, 4, 0),
+(222, 246, 11589, 'Arranque de Sistema', '0', '2022-04-07 16:14:22', NULL, 4, 0),
+(223, 244, 11587, 'Arranque de Sistema', '0', '2022-04-07 16:15:02', NULL, 4, 0),
+(224, 240, 11583, 'Arranque de Sistema', '0', '2022-04-07 16:16:26', NULL, 4, 0),
+(225, 239, 11582, 'Arranque de Sistema', '0', '2022-04-07 16:17:04', NULL, 4, 0),
+(226, 238, 11581, 'Arranque de Sistema', '0', '2022-04-07 16:18:09', NULL, 4, 0),
+(227, 236, 11579, 'Arranque de Sistema', '0', '2022-04-07 16:18:54', NULL, 4, 0),
+(228, 235, 11578, 'Arranque de Sistema', '0', '2022-04-07 16:19:39', NULL, 4, 0),
+(229, 234, 11577, 'Arranque de Sistema', '0', '2022-04-07 16:20:25', NULL, 4, 0),
+(230, 233, 11576, 'Arranque de Sistema', '0', '2022-04-07 16:23:10', NULL, 4, 0),
+(231, 232, 11575, 'Arranque de Sistema', '0', '2022-04-07 16:23:49', NULL, 4, 0),
+(232, 118, 11461, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1029121554477410/', '0', '2022-04-07 16:48:39', NULL, 9, 0);
 
 -- --------------------------------------------------------
 
@@ -3001,7 +3473,73 @@ INSERT INTO `comsupervision` (`id_comSupervision`, `id_proyecto`, `textSupervisi
 (107, 45, '1', 'asesor', '1', '2022-04-02 14:52:29', NULL, NULL, 2, 0),
 (108, 113, '1', 'asesor', '1', '2022-04-02 14:52:45', NULL, NULL, 2, 0),
 (109, 380, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1027332497989649/', 'placas', '1', '2022-04-05 10:15:17', NULL, NULL, 4, 0),
-(110, 378, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1027332497989649/', 'placas', '1', '2022-04-05 10:17:00', NULL, NULL, 4, 0);
+(110, 378, 'https://jsolautomotriz.workplace.com/groups/1023023355087230/permalink/1027332497989649/', 'placas', '1', '2022-04-05 10:17:00', NULL, NULL, 4, 0),
+(111, 3, 'Arranque de Sistema', 'placas', '1', '2022-04-07 11:48:02', NULL, NULL, 2, 0),
+(112, 359, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:15:22', NULL, NULL, 4, 0),
+(113, 358, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:16:02', NULL, NULL, 4, 0),
+(114, 357, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:16:28', NULL, NULL, 4, 0),
+(115, 356, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:17:05', NULL, NULL, 4, 0),
+(116, 355, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:17:44', NULL, NULL, 4, 0),
+(117, 354, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:18:57', NULL, NULL, 4, 0),
+(118, 353, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:19:42', NULL, NULL, 4, 0),
+(119, 352, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:20:16', NULL, NULL, 4, 0),
+(120, 351, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:21:01', NULL, NULL, 4, 0),
+(121, 350, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:21:46', NULL, NULL, 4, 0),
+(122, 349, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:22:22', NULL, NULL, 4, 0),
+(123, 348, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:22:58', NULL, NULL, 4, 0),
+(124, 346, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:23:40', NULL, NULL, 4, 0),
+(125, 345, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:27:42', NULL, NULL, 4, 0),
+(126, 8, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:30:25', NULL, NULL, 4, 0),
+(127, 344, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:31:28', NULL, NULL, 4, 0),
+(128, 342, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:32:29', NULL, NULL, 4, 0),
+(129, 341, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:33:09', NULL, NULL, 4, 0),
+(130, 338, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:33:45', NULL, NULL, 4, 0),
+(131, 336, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:34:29', NULL, NULL, 4, 0),
+(132, 333, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:35:05', NULL, NULL, 4, 0),
+(133, 323, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:36:26', NULL, NULL, 4, 0),
+(134, 317, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:37:37', NULL, NULL, 4, 0),
+(135, 316, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:38:18', NULL, NULL, 4, 0),
+(136, 314, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:39:40', NULL, NULL, 4, 0),
+(137, 309, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:40:56', NULL, NULL, 4, 0),
+(138, 308, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:41:50', NULL, NULL, 4, 0),
+(139, 307, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:42:25', NULL, NULL, 4, 0),
+(140, 305, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:43:04', NULL, NULL, 4, 0),
+(141, 301, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:43:46', NULL, NULL, 4, 0),
+(142, 300, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:44:19', NULL, NULL, 4, 0),
+(143, 296, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:45:01', NULL, NULL, 4, 0),
+(144, 293, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:45:53', NULL, NULL, 4, 0),
+(145, 290, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:46:40', NULL, NULL, 4, 0),
+(146, 287, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:47:23', NULL, NULL, 4, 0),
+(147, 285, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:48:15', NULL, NULL, 4, 0),
+(148, 284, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:48:59', NULL, NULL, 4, 0),
+(149, 282, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:49:49', NULL, NULL, 4, 0),
+(150, 281, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:50:48', NULL, NULL, 4, 0),
+(151, 280, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:51:49', NULL, NULL, 4, 0),
+(152, 279, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:52:23', NULL, NULL, 4, 0),
+(153, 277, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:53:01', NULL, NULL, 4, 0),
+(154, 276, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:53:38', NULL, NULL, 4, 0),
+(155, 268, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:54:48', NULL, NULL, 4, 0),
+(156, 267, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:55:25', NULL, NULL, 4, 0),
+(157, 263, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:56:15', NULL, NULL, 4, 0),
+(158, 260, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:56:57', NULL, NULL, 4, 0),
+(159, 259, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:57:31', NULL, NULL, 4, 0),
+(160, 258, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:58:12', NULL, NULL, 4, 0),
+(161, 257, 'Arranque de Sistema', 'placas', '1', '2022-04-07 15:59:39', NULL, NULL, 4, 0),
+(162, 255, 'Arranque de Sistema', 'placas', '1', '2022-04-07 16:09:08', NULL, NULL, 4, 0),
+(163, 254, 'Arranque de Sistema', 'placas', '1', '2022-04-07 16:09:56', NULL, NULL, 4, 0),
+(164, 250, 'Arranque de Sistema', 'placas', '1', '2022-04-07 16:10:54', NULL, NULL, 4, 0),
+(165, 248, 'Arranque de Sistema', 'placas', '1', '2022-04-07 16:13:06', NULL, NULL, 4, 0),
+(166, 247, 'Arranque de Sistema', 'placas', '1', '2022-04-07 16:13:57', NULL, NULL, 4, 0),
+(167, 246, 'Arranque de Sistema', 'placas', '1', '2022-04-07 16:14:41', NULL, NULL, 4, 0),
+(168, 244, 'Arranque de Sistema', 'placas', '1', '2022-04-07 16:16:03', NULL, NULL, 4, 0),
+(169, 240, 'Arranque de Sistema', 'placas', '1', '2022-04-07 16:16:45', NULL, NULL, 4, 0),
+(170, 239, 'Arranque de Sistema', 'placas', '1', '2022-04-07 16:17:23', NULL, NULL, 4, 0),
+(171, 238, 'Arranque de Sistema', 'placas', '1', '2022-04-07 16:18:27', NULL, NULL, 4, 0),
+(172, 236, 'Arranque de Sistema', 'placas', '1', '2022-04-07 16:19:18', NULL, NULL, 4, 0),
+(173, 235, 'Arranque de Sistema', 'placas', '1', '2022-04-07 16:20:00', NULL, NULL, 4, 0),
+(174, 234, 'Arranque de Sistema', 'placas', '1', '2022-04-07 16:20:51', NULL, NULL, 4, 0),
+(175, 233, 'Arranque de Sistema', 'placas', '1', '2022-04-07 16:23:34', NULL, NULL, 4, 0),
+(176, 232, 'Arranque de Sistema', 'placas', '1', '2022-04-07 16:24:05', NULL, NULL, 4, 0);
 
 -- --------------------------------------------------------
 
@@ -3023,9 +3561,9 @@ CREATE TABLE `comverifdiariaveh` (
   `fecha_mod` datetime DEFAULT NULL,
   `fecha_borrado` datetime DEFAULT NULL,
   `id_capCV` int(11) DEFAULT NULL,
-  `id_capCS` int(11) NOT NULL,
+  `id_capCS` int(11) DEFAULT 0,
   `id_capM` int(11) DEFAULT NULL,
-  `id_capB` int(11) NOT NULL DEFAULT 0
+  `id_capB` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -3043,9 +3581,187 @@ INSERT INTO `comverifdiariaveh` (`id_comverifdiariaveh`, `id_proyecto`, `nProyec
 (9, 335, 11683, 'ESPERA DE TRANSMISION COMPLETA, LA QUE TRAIA ESTABA QUEMADA COMPLETAMENTE', NULL, '2022-04-05', NULL, '0', '2022-04-05 16:41:25', NULL, NULL, NULL, 7, 0, NULL, 0),
 (10, 288, 11631, 'SURTIDO DE REFACCIONES', NULL, '2022-04-05', NULL, '0', '2022-04-05 16:44:25', NULL, NULL, NULL, 7, 0, NULL, 0),
 (11, 261, 11604, 'REVISION DE SELENOIDES', NULL, '2022-04-05', NULL, '0', '2022-04-05 16:46:12', NULL, NULL, NULL, 7, 0, NULL, 0),
-(12, 245, 11588, 'PRUEBA FINAL', NULL, '2022-04-05', NULL, '0', '2022-04-05 16:46:42', NULL, NULL, NULL, 7, 0, NULL, 0),
-(13, 245, 11588, 'PRUEBA FINAL', NULL, '2022-04-05', NULL, '0', '2022-04-05 17:13:10', NULL, NULL, NULL, 7, 0, NULL, 0),
-(14, 245, 11588, 'PRUEBAS FINALES', NULL, '2022-04-05', NULL, '0', '2022-04-05 17:13:43', NULL, NULL, NULL, 7, 0, NULL, 0);
+(12, 375, 11726, 'pruebaprueba', NULL, '2022-04-06', NULL, '0', '2022-04-06 10:49:04', NULL, NULL, NULL, 2, NULL, NULL, 0),
+(13, 26, 11369, 'Surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 11:09:47', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(14, 57, 11400, 'surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 11:10:11', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(15, 60, 11403, 'En espera de control', NULL, '2022-04-06', NULL, '0', '2022-04-06 11:56:50', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(16, 76, 11419, 'Surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 11:57:30', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(17, 117, 11460, 'Armado de transmision', NULL, '2022-04-06', NULL, '0', '2022-04-06 11:58:05', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(18, 123, 11466, 'Desarmado de transmision', NULL, '2022-04-06', NULL, '0', '2022-04-06 11:59:01', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(19, 136, 11479, 'Montado de transmision', NULL, '2022-04-06', NULL, '0', '2022-04-06 11:59:19', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(20, 142, 11485, 'Revisión codigos de motor para solicitud de alta', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:00:37', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(21, 143, 11486, 'desmontado de transmisión', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:01:52', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(22, 181, 11524, 'Surtido de piezas (caja completa)', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:02:41', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(23, 208, 11551, 'Prueba final', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:03:56', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(24, 203, 11546, 'surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:04:25', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(25, 223, 11566, 'Surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:04:49', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(26, 261, 11604, 'Prueba final', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:06:03', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(27, 288, 11631, 'Surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:06:30', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(28, 312, 11655, 'Montado de transmision', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:08:59', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(29, 372, 11723, 'surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:09:54', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(30, 368, 11719, 'Desmontado de transmisión', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:10:26', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(31, 361, 11709, 'Surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:11:17', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(32, 354, 11702, 'En diagnostico', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:12:45', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(33, 32, 11375, 'Revisión de ticket con cosas pendientes (bateria, Birlo, tapiceria y sonido en rueda)', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:14:55', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(34, 44, 11387, 'Poniendo control para prueba final', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:15:30', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(35, 45, 11388, 'armado de transmision', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:16:06', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(36, 51, 11394, 'Desmontado para correccion de fugas', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:21:42', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(37, 62, 11405, 'En espera de cita para revision de computadora, y autorizacion de reparacion por cliente', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:22:14', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(38, 66, 11409, 'Surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:22:32', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(39, 89, 11431, 'Espera de control para prueba final', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:22:54', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(40, 94, 11437, 'En escaneo de unidad para revision de codigos', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:23:23', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(41, 124, 11467, 'Armado de transmision', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:23:56', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(42, 384, 11735, 'Revision de falla', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:24:17', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(43, 131, 11474, 'revisión de falla y búsqueda de pila', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:25:08', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(44, 139, 11482, 'Surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:26:43', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(45, 146, 11489, 'Pruebas finales', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:28:28', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(46, 148, 11491, 'Unidad lista, falla de motor cliente decide no retirar unidad', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:29:51', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(47, 154, 11497, 'Armado de transmsion', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:30:20', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(48, 189, 11532, 'Surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:30:57', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(49, 170, 11513, 'Surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:31:35', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(50, 147, 11489, 'En espera de transmisión', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:32:15', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(51, 213, 11556, 'En espera de refacción (cajc completa)', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:33:19', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(52, 326, 11674, 'Refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:33:42', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(53, 201, 11544, 'Surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:34:05', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(54, 313, 11661, 'Montado de transmision', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:37:41', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(55, 251, 11594, 'Montado de transmisión', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:38:27', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(56, 376, 11727, 'Revisión de falla', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:39:54', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(57, 373, 11724, 'Terminar de desmontar, para desarmado de transmision', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:40:24', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(58, 371, 11722, 'Se programa para desmontado', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:40:59', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(59, 365, 11713, 'Programado para desmontar', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:41:29', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(60, 364, 11712, 'En diagnostico', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:42:02', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(61, 360, 11708, 'Por desmontar', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:42:19', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(62, 352, 11700, 'Surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:42:36', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(63, 91, 11434, 'Armado de transmision y surtido de aro dentado', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:44:48', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(64, 228, 11571, 'Revision de falla', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:45:28', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(65, 341, 11689, 'Armado de transmisión y surtido de aro dentado', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:46:16', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(66, 347, 11695, 'Surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:48:59', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(67, 205, 11548, 'Prueba larga para detectar falla', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:50:33', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(68, 316, 11664, 'Armado de transmision', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:52:11', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(69, 340, 11688, 'Por desmontarse', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:54:14', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(70, 204, 11547, 'Por desmontar', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:54:55', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(71, 216, 11559, 'Listo para entrega', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:55:46', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(72, 320, 11668, 'Desarmado', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:59:02', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(73, 343, 11691, 'Revisión de falla', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:59:37', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(74, 294, 11637, 'Surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 12:59:56', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(75, 266, 11609, 'Por desmontar', NULL, '2022-04-06', NULL, '0', '2022-04-06 13:06:29', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(76, 311, 11654, 'surtido', NULL, '2022-04-06', NULL, '0', '2022-04-06 13:06:57', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(77, 336, 11684, 'armado', NULL, '2022-04-06', NULL, '0', '2022-04-06 13:07:18', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(78, 256, 11599, 'surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 13:10:11', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(79, 252, 11595, 'surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 13:10:36', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(80, 292, 11635, 'Surtido de flecha', NULL, '2022-04-06', NULL, '0', '2022-04-06 13:10:50', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(81, 379, 11730, 'surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 13:12:27', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(82, 357, 11705, 'surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 13:12:39', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(83, 302, 11645, 'desarmado', NULL, '2022-04-06', NULL, '0', '2022-04-06 13:13:21', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(84, 344, 11692, 'MONTADO DE TRANSMISION', NULL, '2022-04-06', NULL, '0', '2022-04-06 13:14:22', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(85, 226, 11569, 'Por desmontar', NULL, '2022-04-06', NULL, '0', '2022-04-06 13:15:27', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(86, 351, 11699, 'Desmontado de transmisión', NULL, '2022-04-06', NULL, '0', '2022-04-06 13:16:18', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(87, 350, 11698, 'Revisión para desmontado', NULL, '2022-04-06', NULL, '0', '2022-04-06 13:17:18', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(88, 335, 11683, 'REFACCIONES', NULL, '2022-04-06', NULL, '0', '2022-04-06 16:05:38', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(89, 137, 11480, 'REFACCIONES', NULL, '2022-04-06', NULL, '0', '2022-04-06 16:06:40', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(90, 322, 11670, 'Refas', NULL, '2022-04-06', NULL, '0', '2022-04-06 16:09:26', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(91, 390, 11741, 'En diagnostico', NULL, '2022-04-06', NULL, '0', '2022-04-06 16:14:29', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(92, 391, 11742, 'Surtido de refacciones', NULL, '2022-04-06', NULL, '0', '2022-04-06 16:18:45', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(93, 392, 11743, 'Desmontado', NULL, '2022-04-06', NULL, '0', '2022-04-06 16:19:50', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(94, 399, 11750, 'Diagnostico', NULL, '2022-04-06', NULL, '0', '2022-04-06 16:20:44', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(95, 293, 11636, 'Desmontado', NULL, '2022-04-06', NULL, '0', '2022-04-06 16:36:10', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(96, 398, 11749, 'Por ingresar a taller', NULL, '2022-04-06', NULL, '0', '2022-04-06 16:36:36', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(97, 26, 11369, 'Desarmado de transmision', NULL, '2022-04-07', NULL, '0', '2022-04-07 08:44:05', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(98, 57, 11400, 'Surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 08:44:25', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(99, 60, 11403, 'Desmontado de caja', NULL, '2022-04-07', NULL, '0', '2022-04-07 08:44:59', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(100, 76, 11419, 'surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 08:45:16', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(101, 117, 11460, 'Armado de transmision', NULL, '2022-04-07', NULL, '0', '2022-04-07 08:45:34', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(102, 123, 11466, 'Desarmado de transmision', NULL, '2022-04-07', NULL, '0', '2022-04-07 08:46:14', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(103, 136, 11479, 'Surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 08:46:47', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(104, 143, 11486, 'Desarmado de transmisión', NULL, '2022-04-07', NULL, '0', '2022-04-07 08:48:08', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(105, 142, 11485, 'Pruebas largas', NULL, '2022-04-07', NULL, '0', '2022-04-07 08:49:24', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(106, 181, 11524, 'Surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 08:50:06', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(107, 203, 11546, 'Surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 08:50:41', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(108, 223, 11566, 'Alta', NULL, '2022-04-07', NULL, '0', '2022-04-07 08:54:41', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(109, 252, 11595, 'Surtido refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 08:56:04', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(110, 256, 11599, 'Surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 08:57:04', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(111, 261, 11604, 'Pruebas largas', NULL, '2022-04-07', NULL, '0', '2022-04-07 08:58:17', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(112, 288, 11631, 'Surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 08:58:46', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(113, 302, 11645, 'Armado', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:01:36', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(114, 292, 11635, 'Surtido de refacciones de flecha', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:02:07', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(115, 312, 11655, 'Armado de caja', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:02:37', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(116, 318, 11666, 'Surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:03:09', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(117, 394, 11745, 'En revision de falla', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:06:14', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(118, 51, 11394, 'Pruebas largas', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:08:40', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(119, 62, 11405, 'Tema electrónico en espera de cita con proveedor', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:09:36', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(120, 66, 11409, 'Surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:09:51', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(121, 89, 11431, 'Armado de caja', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:10:07', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(122, 91, 11434, 'Surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:10:21', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(123, 124, 11467, 'Armado de caja', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:10:46', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(124, 94, 11437, 'Revision de falla', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:11:05', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(125, 352, 11700, 'Surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:11:50', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(126, 131, 11474, 'Prueba y bateria', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:12:46', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(127, 139, 11482, 'Surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:13:12', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(128, 147, 11490, 'Surtido de transmision', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:13:35', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(129, 148, 11491, 'Unidad lista para entrega, cliente decide no recogerla', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:13:57', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(130, 154, 11497, 'Desarmado de caja', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:14:22', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(131, 170, 11513, 'surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:19:17', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(132, 201, 11544, 'surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:19:42', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(133, 189, 11532, 'surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:21:52', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(134, 204, 11547, 'Desmontado de transmision', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:22:11', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(135, 311, 11654, 'surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:24:31', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(136, 294, 11637, 'Surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:25:01', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(137, 213, 11556, 'surtido', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:25:31', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(138, 293, 11636, 'Diagnostico de unidad', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:25:59', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(139, 266, 11609, 'Surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:28:05', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(140, 251, 11594, 'surtido', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:28:50', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(141, 205, 11548, 'revision ', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:29:09', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(142, 216, 11559, 'Unidad lista para entrega', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:29:35', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(143, 226, 11569, 'desmontado de caja', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:29:57', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(144, 228, 11571, 'revision de falla', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:30:16', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(145, 399, 11750, 'Ingresando a taller programada para desmontar', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:30:44', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(146, 313, 11661, 'Montado de transmision', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:31:32', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(147, 320, 11668, 'Desmontado', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:32:03', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(148, 361, 11709, 'surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:33:07', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(149, 372, 11723, 'surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:33:37', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(150, 335, 11683, 'surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:33:54', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(151, 354, 11702, 'surtido de refacciones', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:34:15', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(152, 362, 11710, 'Diagnostico', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:35:03', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(153, 367, 11718, 'por desmontar', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:35:50', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(154, 379, 11730, 'surtido', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:36:47', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(155, 368, 11719, 'Desarmado', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:37:10', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(156, 375, 11726, 'Por desmontar', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:37:26', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(157, 357, 11705, 'srtido', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:37:43', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(158, 326, 11674, 'surtido', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:38:17', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(159, 340, 11688, 'surtido', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:39:01', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(160, 373, 11724, 'surtido', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:39:29', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(161, 92, 11435, 'surtido', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:40:01', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(162, 341, 11689, 'Surtido de refas', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:40:22', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(163, 343, 11691, 'surtido', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:40:42', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(164, 344, 11692, 'surtido', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:41:22', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(165, 347, 11695, 'surtido', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:41:45', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(166, 384, 11735, 'revision de falla', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:42:11', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(167, 376, 11727, 'revision de falla', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:42:24', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(168, 371, 11722, 'desmontando', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:42:38', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(169, 365, 11713, 'Desmontado', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:42:54', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(170, 364, 11712, 'por ingresar a desmontar', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:43:14', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(171, 351, 11699, 'surtido', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:43:33', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(172, 360, 11708, 'desmontado', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:44:00', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(173, 392, 11743, 'Desmontado', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:44:42', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(174, 391, 11742, 'Surtido', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:44:59', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(175, 390, 11741, 'Diagnostico', NULL, '2022-04-07', NULL, '0', '2022-04-07 09:45:43', NULL, NULL, NULL, 7, NULL, NULL, 0),
+(176, 408, 11763, 'En solicitud de alta.', NULL, '2022-04-07', NULL, '0', '2022-04-07 14:46:41', NULL, NULL, NULL, 12, NULL, NULL, 0),
+(177, 395, 11746, 'Se està corrigiendo fuga empacando nuevamente.', NULL, '2022-04-07', NULL, '0', '2022-04-07 14:48:44', NULL, NULL, NULL, 12, NULL, NULL, 0),
+(178, 325, 11673, 'Se desarmò, se realizò revision y se armò nuevamente, no se encotrò falla.', NULL, '2022-04-07', NULL, '0', '2022-04-07 14:49:46', NULL, NULL, NULL, 12, NULL, NULL, 0),
+(179, 324, 11672, 'Se desmontò y se mandò a torno para corregir medida, ya que es la que generaba que tuviera la fuga.', NULL, '2022-04-07', NULL, '0', '2022-04-07 14:51:33', NULL, NULL, NULL, 12, NULL, NULL, 0),
+(180, 295, 11638, 'Se desmontò, se encuentra en espera de desarmado.', NULL, '2022-04-07', NULL, '0', '2022-04-07 14:53:17', NULL, NULL, NULL, 12, NULL, NULL, 0),
+(181, 291, 11634, 'Se està bajando control para mandarlo a revision.', NULL, '2022-04-07', NULL, '0', '2022-04-07 14:54:06', NULL, NULL, NULL, 12, NULL, NULL, 0),
+(182, 283, 11626, 'Se encuentra en espera de alta.', NULL, '2022-04-07', NULL, '0', '2022-04-07 14:54:57', NULL, NULL, NULL, 12, NULL, NULL, 0),
+(183, 271, 11614, 'En espera de refacciones.', NULL, '2022-04-07', NULL, '0', '2022-04-07 14:55:37', NULL, NULL, NULL, 12, NULL, NULL, 0),
+(184, 237, 11580, 'Se bajò el gobernador y se dio la indicacion por parte del armador de bajar la caja tambien, se està bajand caja.', NULL, '2022-04-07', NULL, '0', '2022-04-07 14:58:44', NULL, NULL, NULL, 12, NULL, NULL, 0),
+(185, 212, 11555, 'Se bajò control de valvulas,  para su reemplazo.', NULL, '2022-04-07', NULL, '0', '2022-04-07 15:04:17', NULL, NULL, NULL, 12, NULL, NULL, 0),
+(186, 113, 11456, 'En refacciones.', NULL, '2022-04-07', NULL, '0', '2022-04-07 15:05:00', NULL, NULL, NULL, 12, NULL, NULL, 0),
+(187, 108, 11451, 'En espera de confirmacion de cita para eparacion de computadora.', NULL, '2022-04-07', NULL, '0', '2022-04-07 15:06:10', NULL, NULL, NULL, 12, NULL, NULL, 0),
+(188, 106, 11449, 'En espera de prueba para diagnostico', NULL, '2022-04-07', NULL, '0', '2022-04-07 15:06:46', NULL, NULL, NULL, 12, NULL, NULL, 0),
+(189, 90, 11433, 'Se pondràn nuevamente selenoides paara hacer prueba.', NULL, '2022-04-07', NULL, '0', '2022-04-07 15:09:44', NULL, NULL, NULL, 12, NULL, NULL, 0),
+(190, 61, 11404, 'Caja desarmada, en espera de que terminen de armarla.', NULL, '2022-04-07', NULL, '0', '2022-04-07 15:12:22', NULL, NULL, NULL, 12, NULL, NULL, 0),
+(191, 45, 11388, 'Se bajò caja.', NULL, '2022-04-07', NULL, '0', '2022-04-07 15:13:00', NULL, NULL, NULL, 12, NULL, NULL, 0),
+(192, 44, 11387, 'En pruebas finales.', NULL, '2022-04-07', NULL, '0', '2022-04-07 15:13:24', NULL, NULL, NULL, 12, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -3231,7 +3947,20 @@ INSERT INTO `desglocecodid` (`id_desgloceCodId`, `id_proyecto`, `valCobProyBase`
 (153, 387, '1,600.00', '28398', 5, '0', 'N/A', 1, '64.00', 'N/A', 5, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-05 14:00:39', NULL, 8, NULL),
 (154, 386, '650.00', '28353', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-05 15:32:56', NULL, 8, NULL),
 (155, 389, '1,600.00', '28351', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-05 15:45:09', NULL, 8, NULL),
-(156, 233, '50,000.00', '           28352   / 27990', 3, '0', 'N/A', 1, '8,000.00', 'N/A', 3, '8,000.00', 'N/A', 3, '0', 'N/A', 1, '0', '2022-04-05 16:46:23', NULL, 8, NULL);
+(156, 233, '50,000.00', '           28352   / 27990', 3, '0', 'N/A', 1, '8,000.00', 'N/A', 3, '8,000.00', 'N/A', 3, '0', 'N/A', 1, '0', '2022-04-05 16:46:23', NULL, 8, NULL),
+(157, 286, '11,000.00', '28401', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-06 10:09:42', NULL, 8, NULL),
+(158, 297, '1.00', '28402', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-06 13:42:42', NULL, 8, NULL),
+(159, 264, '20,000.00', '28404', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-06 16:04:56', NULL, 8, NULL),
+(160, 374, '1.00', '28405', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-06 16:44:27', NULL, 8, NULL),
+(161, 370, '1.00', '28406', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-06 17:25:39', NULL, 8, NULL),
+(162, 388, '1.00', '28457', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-07 09:58:37', NULL, 8, NULL),
+(163, 97, '1.00', '28408', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-07 10:19:18', NULL, 8, NULL),
+(164, 362, '3,000.00', '28458', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-07 10:21:49', NULL, 8, NULL),
+(165, 407, '1,400.00', '28461', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-07 13:41:44', NULL, 8, NULL),
+(166, 407, '1,400.00', '28461', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-07 13:48:30', NULL, 8, NULL),
+(167, 405, '1,200.00', '28462', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-07 13:52:51', NULL, 8, NULL),
+(168, 158, '13,000.00', '28466', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-07 15:47:29', NULL, 8, NULL),
+(169, 403, '1,400.00', '28467', 4, '0', 'N/A', 1, '224.00', 'N/A', 4, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-07 16:18:11', NULL, 8, NULL);
 
 -- --------------------------------------------------------
 
@@ -3422,7 +4151,20 @@ INSERT INTO `desglocecodidbitacora` (`id_desgloceCodId`, `id_proyecto`, `valCobP
 (153, 387, '1,600.00', '28398', 5, '0', 'N/A', 1, '64.00', 'N/A', 5, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-05 14:00:39', NULL, 8, NULL),
 (154, 386, '650.00', '28353', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-05 15:32:56', NULL, 8, NULL),
 (155, 389, '1,600.00', '28351', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-05 15:45:09', NULL, 8, NULL),
-(156, 233, '50,000.00', '           28352   / 27990', 3, '0', 'N/A', 1, '8,000.00', 'N/A', 3, '8,000.00', 'N/A', 3, '0', 'N/A', 1, '0', '2022-04-05 16:46:23', NULL, 8, NULL);
+(156, 233, '50,000.00', '           28352   / 27990', 3, '0', 'N/A', 1, '8,000.00', 'N/A', 3, '8,000.00', 'N/A', 3, '0', 'N/A', 1, '0', '2022-04-05 16:46:23', NULL, 8, NULL),
+(157, 286, '11,000.00', '28401', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-06 10:09:42', NULL, 8, NULL),
+(158, 297, '1.00', '28402', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-06 13:42:42', NULL, 8, NULL),
+(159, 264, '20,000.00', '28404', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-06 16:04:56', NULL, 8, NULL),
+(160, 374, '1.00', '28405', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-06 16:44:27', NULL, 8, NULL),
+(161, 370, '1.00', '28406', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-06 17:25:39', NULL, 8, NULL),
+(162, 388, '1.00', '28457', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-07 09:58:37', NULL, 8, NULL),
+(163, 97, '1.00', '28408', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-07 10:19:18', NULL, 8, NULL),
+(164, 362, '3,000.00', '28458', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-07 10:21:49', NULL, 8, NULL),
+(165, 407, '1,400.00', '28461', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-07 13:41:44', NULL, 8, NULL),
+(166, 407, '1,400.00', '28461', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-07 13:48:30', NULL, 8, NULL),
+(167, 405, '1,200.00', '28462', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-07 13:52:51', NULL, 8, NULL),
+(168, 158, '13,000.00', '28466', 2, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-07 15:47:29', NULL, 8, NULL),
+(169, 403, '1,400.00', '28467', 4, '0', 'N/A', 1, '224.00', 'N/A', 4, '0', 'N/A', 1, '0', 'N/A', 1, '0', '2022-04-07 16:18:11', NULL, 8, NULL);
 
 -- --------------------------------------------------------
 
@@ -3640,7 +4382,24 @@ INSERT INTO `linkvideos` (`id_linkVideo`, `link`, `fecha_creacion`, `fecha_mod`,
 (166, 'sin video', '2022-04-05 12:57:16', NULL, 6, NULL),
 (167, 'sin video', '2022-04-05 14:07:08', NULL, 6, NULL),
 (168, 'Sin video', '2022-04-05 16:44:14', NULL, 6, NULL),
-(169, 'https://jsolautomotriz.workplace.com/groups/470705204019136/permalink/656097702146551/', '2022-04-05 18:01:53', NULL, 6, NULL);
+(169, 'https://jsolautomotriz.workplace.com/groups/470705204019136/permalink/656097702146551/', '2022-04-05 18:01:53', NULL, 6, NULL),
+(170, 'https://jsolautomotriz.workplace.com/groups/470705204019136/permalink/656452215444433/', '2022-04-06 09:52:51', NULL, 6, NULL),
+(171, 'https://jsolautomotriz.workplace.com/groups/470705204019136/permalink/656477522108569/', '2022-04-06 10:51:03', NULL, 6, NULL),
+(172, 'Sin video', '2022-04-06 12:25:46', NULL, 13, NULL),
+(173, 'https://jsolautomotriz.workplace.com/groups/470705204019136/permalink/656557535433901/', '2022-04-06 13:24:01', NULL, 6, NULL),
+(174, 'https://jsolautomotriz.workplace.com/groups/470705204019136/permalink/656579915431663/', '2022-04-06 15:39:04', NULL, 13, NULL),
+(175, 'https://jsolautomotriz.workplace.com/groups/470705204019136/permalink/656621018760886/', '2022-04-06 16:05:17', NULL, 6, NULL),
+(176, 'https://jsolautomotriz.workplace.com/groups/470705204019136/permalink/656636962092625/', '2022-04-07 09:13:01', NULL, 13, NULL),
+(177, 'Sin video', '2022-04-07 10:13:06', NULL, 13, NULL),
+(178, 'Sin video ', '2022-04-07 11:44:26', NULL, 13, NULL),
+(179, 'Sin video', '2022-04-07 11:46:34', NULL, 13, NULL),
+(180, 'Sin video', '2022-04-07 11:47:56', NULL, 13, NULL),
+(181, 'https://jsolautomotriz.workplace.com/groups/470705204019136/permalink/657126632043658/', '2022-04-07 12:56:48', NULL, 13, NULL),
+(182, 'https://jsolautomotriz.workplace.com/groups/470705204019136/permalink/657062952050026/', '2022-04-07 13:17:59', NULL, 13, NULL),
+(183, 'https://jsolautomotriz.workplace.com/groups/470705204019136/permalink/657176508705337/', '2022-04-07 15:02:47', NULL, 13, NULL),
+(184, 'Sin video', '2022-04-07 15:30:31', NULL, 13, NULL),
+(185, 'https://jsolautomotriz.workplace.com/groups/470705204019136/permalink/657208708702117/', '2022-04-07 16:22:02', NULL, 13, NULL),
+(186, 'Sin video ', '2022-04-07 16:53:26', NULL, 13, NULL);
 
 -- --------------------------------------------------------
 
@@ -4186,7 +4945,10 @@ INSERT INTO `modelos` (`id_modelo`, `id_marca`, `modelo`, `fecha_creacion`, `fec
 (472, 34, 'Torrent', '2022-03-25 11:36:03', NULL, 3, NULL),
 (473, 43, 'clásico', '2022-04-01 10:34:01', NULL, 3, NULL),
 (474, 19, 'QX70', '2022-04-01 17:13:37', NULL, 3, NULL),
-(475, 43, 'Cargo van', '2022-04-04 10:36:37', NULL, 3, NULL);
+(475, 43, 'Cargo van', '2022-04-04 10:36:37', NULL, 3, NULL),
+(476, 27, '2', '2022-04-07 09:26:31', NULL, 3, NULL),
+(477, 12, 'contour', '2022-04-07 11:33:00', NULL, 3, NULL),
+(478, 7, 'Traverse', '2022-04-07 11:37:47', NULL, 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -4629,7 +5391,25 @@ INSERT INTO `nproyectos` (`id_nProyecto`, `id_proyecto`, `fecha_creacion`, `fech
 (11742, 391, '2022-04-05 13:19:28', NULL, 3, NULL),
 (11743, 392, '2022-04-05 15:32:00', NULL, 3, NULL),
 (11744, 393, '2022-04-05 16:20:00', NULL, 3, NULL),
-(11745, 394, '2022-04-05 16:55:30', NULL, 3, NULL);
+(11745, 394, '2022-04-05 16:55:30', NULL, 3, NULL),
+(11746, 395, '2022-04-06 09:10:15', NULL, 3, NULL),
+(11747, 396, '2022-04-06 09:19:20', NULL, 3, NULL),
+(11748, 397, '2022-04-06 09:24:14', NULL, 3, NULL),
+(11749, 398, '2022-04-06 09:30:57', NULL, 3, NULL),
+(11750, 399, '2022-04-06 11:11:01', NULL, 3, NULL),
+(11751, 400, '2022-04-06 11:41:21', NULL, 3, NULL),
+(11752, 401, '2022-04-06 17:29:04', NULL, 3, NULL),
+(11753, 402, '2022-04-06 17:52:19', NULL, 3, NULL),
+(11754, 0, '2022-04-07 09:28:35', NULL, 3, NULL),
+(11755, 0, '2022-04-07 09:35:52', NULL, 3, NULL),
+(11756, 0, '2022-04-07 10:26:33', NULL, 3, NULL),
+(11757, 0, '2022-04-07 10:28:10', NULL, 3, NULL),
+(11758, 403, '2022-04-07 11:18:57', NULL, 3, NULL),
+(11759, 404, '2022-04-07 11:22:33', NULL, 3, NULL),
+(11760, 405, '2022-04-07 11:30:38', NULL, 3, NULL),
+(11761, 406, '2022-04-07 11:35:15', NULL, 3, NULL),
+(11762, 407, '2022-04-07 11:38:56', NULL, 3, NULL),
+(11763, 408, '2022-04-07 12:12:14', NULL, 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -4782,6 +5562,12 @@ CREATE TABLE `permisos` (
   `eliComVerifDiariaVehv` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
   `eliComVerifDiariaVehSuper` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
   `verTablaComVerifDiariaVeh` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
+  `regComActMinDia` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
+  `regComSuperActMinDia` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
+  `eliComActMinDia` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
+  `eliComSuperActMinDia` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
+  `verGralActMinDia` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
+  `verTablaActMinDia` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
   `id_usuario` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
@@ -4789,19 +5575,20 @@ CREATE TABLE `permisos` (
 -- Volcado de datos para la tabla `permisos`
 --
 
-INSERT INTO `permisos` (`id_permiso`, `verTablaUsuario`, `editarUsu`, `asignarCon`, `eliminarUsu`, `asignarPer`, `nuevoUsu`, `verTablaMarca`, `regMarca`, `modMarca`, `eliminaMar`, `verTablaModelo`, `regModelo`, `modModelo`, `eliminarMod`, `verTablaAnio`, `regAnios`, `modAnios`, `eliminarAnio`, `regColor`, `modColor`, `eliminarCol`, `verTablaColor`, `verTablaSemana`, `regSemana`, `eliSemana`, `regSemanaCobro`, `eliSemanaCobro`, `verTablaSemanaCobro`, `verTablaAgente`, `regAgente`, `eliAgente`, `regFormaPago`, `eliFormaPago`, `verTablaFormaPago`, `regPermiso`, `modPermiso`, `eliPermiso`, `verTablaVeh`, `regVehiculo`, `modVehiculo`, `eliVehiculo`, `verTablaCli`, `regCliente`, `modCliente`, `eliCliente`, `regProyecto`, `listProyecto`, `modProyecto`, `eliProyecto`, `pdfProyecto`, `verGralProy`, `regCapValVenInicial`, `verGralCapValVenInicial`, `perRegCapValVenInicial`, `verTablaCapValVenInicial`, `verTablaProyAct`, `verTablaRegSolAltProy`, `regSolAltProy`, `pdfRegSolAltProy`, `eliRegSolAltProy`, `verObsRegSolAltProy`, `regAlta`, `eliAlta`, `pdfAlta`, `verLinkObsAlta`, `verTablaAlta`, `regCodIdentificador`, `eliCodIdentificador`, `pdfCodIdentificador`, `verLinkObsIdentificador`, `verTablaCodIdentificador`, `vertablaDadosAltaAsignarCodId`, `verGralDadosAltaAsignarCodId`, `regSuperCodIdentificador`, `eliSuperCodIdentificador`, `verLinkObsSuperIdentificador`, `verTablaSuperCodIdentificador`, `verTablaTecArmador`, `regTecArmador`, `modTecArmador`, `eliTecArmador`, `verTablaTecMontador`, `regTecMontador`, `modTecMontador`, `eliTecMontador`, `pdfRepVVAvsVCodID`, `verGralRepVVAvsVCodID`, `verTablaRepVVAvsVCodID`, `regMotivoSupVVAvsVCodID`, `modMotivoSupVVAvsVCodID`, `pdfRepVVIvsVVA`, `verGralRepVVIvsVVA`, `verTablaRepVVIvsVVA`, `regMotivoSupVVIvsVVA`, `modMotivoSupVVIvsVVA`, `regComPlacas`, `eliComPlacas`, `regComPlacasSuper`, `eliComPlacasSuper`, `verGralComPlacas`, `verTablaComPlacas`, `regComKm`, `eliComKm`, `regComKmSuper`, `eliComKmSuper`, `verGralComKm`, `verTablaComKm`, `regComImg`, `eliComImg`, `regComImgSuper`, `eliComImgSuper`, `verGralComImg`, `verTablaComImg`, `regComCliente`, `eliComCliente`, `regComClienteSuper`, `eliComClienteSuper`, `verGralComCliente`, `verTablaComCliente`, `regComDocuFirm`, `eliComDocuFirm`, `regComDocuFirmSuper`, `eliComDocuFirmSuper`, `verGralComDocuFirm`, `verTablaComDocuFirm`, `regComGarantia`, `eliComGarantia`, `regComGarantiaSuper`, `eliComGarantiaSuper`, `verGralComGarantia`, `verTablaComGarantia`, `regComAsesor`, `eliComAsesor`, `regComAsesorSuper`, `eliComAsesorSuper`, `verGralComAsesor`, `verTablaComAsesor`, `regComVerifDiariaVeh`, `regComVerifDiariaVehSuper`, `verGralComVerifDiariaVeh`, `eliComVerifDiariaVehv`, `eliComVerifDiariaVehSuper`, `verTablaComVerifDiariaVeh`, `id_usuario`) VALUES
-(1, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 1),
-(2, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 2),
-(3, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '0', '0', '1', '1', '0', '0', '1', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '0', '0', '1', '1', '0', '0', '1', '1', '0', '0', '1', '0', '0', '0', '0', '0', '0', '1', '1', '1', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 3),
-(4, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '1', '0', '1', '1', '1', '0', '0', '1', '0', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '1', '0', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 4),
-(5, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '1', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1', 5),
-(6, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1', '1', '1', '0', '1', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 6),
-(7, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '1', '1', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '1', '1', '0', '0', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '1', '1', '1', '0', '1', '0', '0', '1', 7),
-(8, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '1', '1', '1', '1', '0', '1', '1', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 8),
-(9, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '0', '0', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 9),
-(10, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1', '1', '1', '1', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 10),
-(11, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 11),
-(12, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '0', '0', '1', '1', '1', '0', '1', '0', '0', '1', 12);
+INSERT INTO `permisos` (`id_permiso`, `verTablaUsuario`, `editarUsu`, `asignarCon`, `eliminarUsu`, `asignarPer`, `nuevoUsu`, `verTablaMarca`, `regMarca`, `modMarca`, `eliminaMar`, `verTablaModelo`, `regModelo`, `modModelo`, `eliminarMod`, `verTablaAnio`, `regAnios`, `modAnios`, `eliminarAnio`, `regColor`, `modColor`, `eliminarCol`, `verTablaColor`, `verTablaSemana`, `regSemana`, `eliSemana`, `regSemanaCobro`, `eliSemanaCobro`, `verTablaSemanaCobro`, `verTablaAgente`, `regAgente`, `eliAgente`, `regFormaPago`, `eliFormaPago`, `verTablaFormaPago`, `regPermiso`, `modPermiso`, `eliPermiso`, `verTablaVeh`, `regVehiculo`, `modVehiculo`, `eliVehiculo`, `verTablaCli`, `regCliente`, `modCliente`, `eliCliente`, `regProyecto`, `listProyecto`, `modProyecto`, `eliProyecto`, `pdfProyecto`, `verGralProy`, `regCapValVenInicial`, `verGralCapValVenInicial`, `perRegCapValVenInicial`, `verTablaCapValVenInicial`, `verTablaProyAct`, `verTablaRegSolAltProy`, `regSolAltProy`, `pdfRegSolAltProy`, `eliRegSolAltProy`, `verObsRegSolAltProy`, `regAlta`, `eliAlta`, `pdfAlta`, `verLinkObsAlta`, `verTablaAlta`, `regCodIdentificador`, `eliCodIdentificador`, `pdfCodIdentificador`, `verLinkObsIdentificador`, `verTablaCodIdentificador`, `vertablaDadosAltaAsignarCodId`, `verGralDadosAltaAsignarCodId`, `regSuperCodIdentificador`, `eliSuperCodIdentificador`, `verLinkObsSuperIdentificador`, `verTablaSuperCodIdentificador`, `verTablaTecArmador`, `regTecArmador`, `modTecArmador`, `eliTecArmador`, `verTablaTecMontador`, `regTecMontador`, `modTecMontador`, `eliTecMontador`, `pdfRepVVAvsVCodID`, `verGralRepVVAvsVCodID`, `verTablaRepVVAvsVCodID`, `regMotivoSupVVAvsVCodID`, `modMotivoSupVVAvsVCodID`, `pdfRepVVIvsVVA`, `verGralRepVVIvsVVA`, `verTablaRepVVIvsVVA`, `regMotivoSupVVIvsVVA`, `modMotivoSupVVIvsVVA`, `regComPlacas`, `eliComPlacas`, `regComPlacasSuper`, `eliComPlacasSuper`, `verGralComPlacas`, `verTablaComPlacas`, `regComKm`, `eliComKm`, `regComKmSuper`, `eliComKmSuper`, `verGralComKm`, `verTablaComKm`, `regComImg`, `eliComImg`, `regComImgSuper`, `eliComImgSuper`, `verGralComImg`, `verTablaComImg`, `regComCliente`, `eliComCliente`, `regComClienteSuper`, `eliComClienteSuper`, `verGralComCliente`, `verTablaComCliente`, `regComDocuFirm`, `eliComDocuFirm`, `regComDocuFirmSuper`, `eliComDocuFirmSuper`, `verGralComDocuFirm`, `verTablaComDocuFirm`, `regComGarantia`, `eliComGarantia`, `regComGarantiaSuper`, `eliComGarantiaSuper`, `verGralComGarantia`, `verTablaComGarantia`, `regComAsesor`, `eliComAsesor`, `regComAsesorSuper`, `eliComAsesorSuper`, `verGralComAsesor`, `verTablaComAsesor`, `regComVerifDiariaVeh`, `regComVerifDiariaVehSuper`, `verGralComVerifDiariaVeh`, `eliComVerifDiariaVehv`, `eliComVerifDiariaVehSuper`, `verTablaComVerifDiariaVeh`, `regComActMinDia`, `regComSuperActMinDia`, `eliComActMinDia`, `eliComSuperActMinDia`, `verGralActMinDia`, `verTablaActMinDia`, `id_usuario`) VALUES
+(1, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '0', '0', '0', '0', '0', 1),
+(2, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '0', '0', '0', '0', '0', 2),
+(3, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '0', '0', '1', '1', '0', '0', '1', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '0', '0', '1', '1', '0', '0', '1', '1', '0', '0', '1', '0', '0', '0', '0', '0', '0', '1', '1', '1', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 3),
+(4, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '1', '0', '1', '1', '1', '0', '0', '1', '0', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '1', '0', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 4),
+(5, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '1', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1', '0', '0', '0', '0', '0', '0', 5),
+(6, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1', '1', '1', '0', '1', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 6),
+(7, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '1', '1', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '1', '1', '0', '0', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '0', '1', '0', '0', '1', '0', '0', '0', '0', '0', '0', 7),
+(8, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '1', '1', '1', '1', '0', '1', '1', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 8),
+(9, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '0', '0', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 9),
+(10, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1', '1', '1', '1', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1', '0', '0', '0', '0', '0', '0', 10),
+(11, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 11),
+(12, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '0', '0', '1', '1', '1', '0', '1', '0', '0', '1', '0', '0', '0', '0', '0', '0', 12),
+(13, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1', '1', '1', '0', '1', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 13);
 
 -- --------------------------------------------------------
 
@@ -4828,6 +5615,7 @@ CREATE TABLE `proyectos` (
   `comSuperGarantia` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
   `comSuperAsesor` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
   `comSuperVerifDiariaVeh` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
+  `comSuperActMinDia` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
   `descripServ1` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `descripServ2` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `proyectoActivo` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -4843,6 +5631,7 @@ CREATE TABLE `proyectos` (
   `comGarantia` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
   `comAsesor` char(1) COLLATE utf8mb4_spanish_ci DEFAULT '0',
   `comVerifDiariaVeh` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
+  `comActMinDia` char(1) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '0',
   `fecha_creacion` datetime DEFAULT NULL,
   `fecha_mod` datetime DEFAULT NULL,
   `fecha_borrado` datetime DEFAULT NULL,
@@ -4855,372 +5644,386 @@ CREATE TABLE `proyectos` (
 -- Volcado de datos para la tabla `proyectos`
 --
 
-INSERT INTO `proyectos` (`id_proyecto`, `id_cliente`, `id_vehiculo`, `nOrden`, `nProyecto`, `tipoReparacion`, `km`, `valorVenta`, `diagnostico`, `estadoProyectoEliminado`, `comSuperPlaca`, `comSuperKm`, `comSuperImg`, `comSuperCliente`, `comSuperDocuFirm`, `comSuperGarantia`, `comSuperAsesor`, `comSuperVerifDiariaVeh`, `descripServ1`, `descripServ2`, `proyectoActivo`, `registroSolicitud`, `altaProyecto`, `proyCodIdentificador`, `superCodIdentificador`, `comPlacas`, `comKm`, `comImg`, `comCliente`, `comDocuFirm`, `comGarantia`, `comAsesor`, `comVerifDiariaVeh`, `fecha_creacion`, `fecha_mod`, `fecha_borrado`, `id_capC`, `id_capM`, `id_capB`) VALUES
-(1, 3, 4, 220919, 11344, 'N', '218,989 km', '1,600.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-01 15:40:31', NULL, NULL, 3, NULL, NULL),
-(2, 4, 5, 220920, 11345, 'GR', '108,811 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-01 17:54:45', NULL, NULL, 3, NULL, NULL),
-(3, 6, 6, 220921, 11346, 'N', '100,000 km', '15,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnóstico', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-02 09:03:50', NULL, NULL, 3, NULL, NULL),
-(5, 8, 8, 220923, 11348, 'N', '99,747 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-02 09:19:28', '2022-03-02 09:35:51', NULL, 3, 3, NULL),
-(6, 9, 9, 220924, 11349, 'N', '236,001 km', '650.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-02 09:35:21', NULL, NULL, 3, NULL, NULL),
-(7, 10, 10, 220925, 11350, 'N', '144,996 km', '10,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-02 10:20:27', NULL, NULL, 3, NULL, NULL),
-(8, 11, 11, 220926, 11351, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-02 11:22:50', NULL, NULL, 3, NULL, NULL),
-(9, 12, 12, 220927, 11352, 'N', '210,544 km', '14,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-02 11:47:48', NULL, NULL, 3, NULL, NULL),
-(10, 13, 13, 220928, 11353, 'GR', '302,651 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar Transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-02 12:54:35', NULL, NULL, 3, NULL, NULL),
-(11, 15, 14, 220929, 11354, 'N', '1 km', '13,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-02 15:18:23', NULL, NULL, 3, NULL, NULL),
-(12, 16, 15, 220930, 11355, 'GR', '129,117 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-02 16:29:15', NULL, NULL, 3, NULL, NULL),
-(13, 17, 16, 220931, 11356, 'N', '103,935 km', '1,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-03 10:39:15', NULL, NULL, 3, NULL, NULL),
-(14, 18, 17, 220932, 11357, 'N', '1 km', '10,500.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-03 10:47:53', NULL, NULL, 3, NULL, NULL),
-(15, 19, 18, 220933, 11358, 'N', '1 km', '20,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-03 11:07:44', '2022-03-03 13:16:16', NULL, 3, 3, NULL),
-(16, 20, 19, 220934, 11359, 'N', '1 km', '20,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-03 11:18:17', NULL, NULL, 3, NULL, NULL),
-(17, 21, 20, 220935, 11360, 'N', '234,184 km', '14,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión autoḿática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-03 13:05:29', NULL, NULL, 3, NULL, NULL),
-(18, 22, 21, 220936, 11361, 'N', '245,047 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-03 14:17:23', NULL, NULL, 3, NULL, NULL),
-(19, 23, 22, 220937, 11362, 'GR', '263,385 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-03 17:39:49', NULL, NULL, 3, NULL, NULL),
-(20, 24, 23, 220938, 11363, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-04 10:44:38', NULL, NULL, 3, NULL, NULL),
-(21, 25, 24, 220939, 11364, 'GR', '183,818 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-04 11:26:54', NULL, NULL, 3, NULL, NULL),
-(23, 27, 26, 220941, 11366, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-04 13:24:02', NULL, NULL, 3, NULL, NULL),
-(24, 28, 27, 220942, 11367, 'N', '95,986 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-04 14:52:29', NULL, NULL, 3, NULL, NULL),
-(25, 29, 28, 220943, 11368, 'N', '1 km', '14,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-04 17:11:07', NULL, NULL, 3, NULL, NULL),
-(26, 30, 29, 220944, 11369, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-05 09:06:00', NULL, NULL, 3, NULL, NULL),
-(27, 31, 30, 220945, 11370, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-05 09:12:35', NULL, NULL, 3, NULL, NULL),
-(28, 32, 31, 110946, 11371, 'N', '146,542 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-05 09:16:07', NULL, NULL, 3, NULL, NULL),
-(29, 33, 32, 220946, 11372, 'N', '1 km', '11,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-05 10:06:30', NULL, NULL, 3, NULL, NULL),
-(30, 34, 33, 220947, 11373, 'N', '119,003 km', '1,900.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-05 11:00:26', NULL, NULL, 3, NULL, NULL),
-(31, 35, 34, 220948, 11374, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-05 12:42:52', NULL, NULL, 3, NULL, NULL),
-(32, 36, 35, 220949, 11375, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-05 12:49:45', NULL, NULL, 3, NULL, NULL),
-(33, 37, 36, 220950, 11376, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automàtica', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-05 13:04:58', NULL, NULL, 3, NULL, NULL),
-(35, 39, 38, 221002, 11378, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-07 09:29:05', '2022-03-07 09:54:34', NULL, 3, 3, NULL),
-(36, 40, 39, 221003, 11379, 'GR', '249,476 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-07 09:36:09', NULL, NULL, 3, NULL, NULL),
-(37, 41, 40, 221004, 11380, 'N', '137,525 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-07 09:40:32', NULL, NULL, 3, NULL, NULL),
-(38, 42, 41, 221005, 11381, 'GR', '231,645 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-07 09:46:40', NULL, NULL, 3, NULL, NULL),
-(41, 45, 44, 221008, 11384, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-07 10:45:01', NULL, NULL, 3, NULL, NULL),
-(42, 46, 45, 221009, 11385, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-07 12:14:24', NULL, NULL, 3, NULL, NULL),
-(43, 47, 46, 221010, 11386, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-07 12:47:21', NULL, NULL, 3, NULL, NULL),
-(44, 48, 47, 221011, 11387, 'N', '232,196 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '1', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-07 13:13:49', NULL, NULL, 3, NULL, NULL),
-(45, 49, 48, 221012, 11388, 'GR', '270,292 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '1', '0', 'Revisar transmsión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-07 13:28:20', '2022-03-07 14:40:28', NULL, 3, 3, NULL),
-(46, 50, 49, 221013, 11389, 'N', '1 km', '13,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-07 14:51:01', NULL, NULL, 3, NULL, NULL),
-(47, 51, 50, 221014, 11390, 'N', '88,219 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automatica', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-07 16:23:15', NULL, NULL, 3, NULL, NULL),
-(48, 52, 51, 221015, 11391, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-07 16:47:32', NULL, NULL, 3, NULL, NULL),
-(49, 54, 53, 221016, 11392, 'N', '0 km', '13,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'REPARACION', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-08 09:51:56', NULL, NULL, 3, NULL, NULL),
-(51, 56, 55, 221018, 11394, 'N', '217,741 km', '6,000.00', '', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'EMPACADA', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-08 10:39:42', NULL, NULL, 3, NULL, NULL),
-(52, 57, 56, 221019, 11395, 'N', '157,377 km', '18,000.00', '****', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'reparación de transmisión ', '*****', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-08 13:09:41', NULL, NULL, 3, NULL, NULL),
-(54, 60, 58, 221021, 11397, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'REPARACIÓN DE TRANSMISIÓN', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-08 15:37:41', NULL, NULL, 3, NULL, NULL),
-(55, 53, 52, 220238, 11398, 'N', '1 km', '1.00', 'Fecha ingreso 15/01/2022\r\nNúmero orden 220238\r\nNúmero de proyecto 11027', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 15/01/2022\r\nNúmero orden 220238\r\nNúmero de proyecto 11027', 'Fecha ingreso 15/01/2022\r\nNúmero orden 220238\r\nNúmero de proyecto 11027', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-08 16:01:13', NULL, NULL, 4, NULL, NULL),
-(56, 61, 59, 220341, 11399, 'GR', '1 km', '1.00', 'Fecha ingreso 21/01/2022\r\nNúmero orden 220341\r\nNúmero de proyecto 11068', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 21/01/2022\r\nNúmero orden 220341\r\nNúmero de proyecto 11068', 'Fecha ingreso 21/01/2022\r\nNúmero orden 220341\r\nNúmero de proyecto 11068', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-08 16:05:44', NULL, NULL, 4, NULL, NULL),
-(57, 62, 60, 220345, 11400, 'N', '158,235 km', '1.00', 'Fecha ingreso 22/01/2022\r\nNúmero orden 220345\r\nNúmero de proyecto 11072\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 22/01/2022\r\nNúmero orden 220345\r\nNúmero de proyecto 11072\r\n', 'Fecha ingreso 22/01/2022\r\nNúmero orden 220345\r\nNúmero de proyecto 11072\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-08 16:13:04', NULL, NULL, 4, NULL, NULL),
-(58, 63, 61, 220316, 11401, 'N', '197,467 km', '1.00', 'Fecha ingreso 18/01/2022\r\nNúmero orden 220316\r\nNúmero de proyecto 11043', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 18/01/2022\r\nNúmero orden 220316\r\nNúmero de proyecto 11043', 'Fecha ingreso 18/01/2022\r\nNúmero orden 220316\r\nNúmero de proyecto 11043', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-08 16:19:01', NULL, '2022-04-01 13:03:44', 4, NULL, 2),
-(59, 64, 62, 220412, 11402, 'GR', '1 km', '1.00', 'Fecha ingreso 24/01/2022\r\nNúmero orden 220412\r\nNúmero de proyecto 11085', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 24/01/2022\r\nNúmero orden 220412\r\nNúmero de proyecto 11085', 'Fecha ingreso 24/01/2022\r\nNúmero orden 220412\r\nNúmero de proyecto 11085', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-08 16:23:41', NULL, NULL, 4, NULL, NULL),
-(60, 65, 63, 220420, 11403, 'N', '1 km', '1.00', 'Fecha ingreso 25/01/2022\r\nNúmero orden 220420\r\nNúmero de proyecto 11093\r\n', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 25/01/2022\r\nNúmero orden 220420\r\nNúmero de proyecto 11093\r\n', 'Fecha ingreso 25/01/2022\r\nNúmero orden 220420\r\nNúmero de proyecto 11093\r\n', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-08 16:28:58', NULL, NULL, 4, NULL, NULL),
-(61, 66, 64, 220436, 11404, 'GR', '1 km', '1.00', 'Fecha ingreso 28/01/2022\r\nNúmero orden 220436\r\nNúmero de proyecto 11109', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/01/2022\r\nNúmero orden 220436\r\nNúmero de proyecto 11109', 'Fecha ingreso 28/01/2022\r\nNúmero orden 220436\r\nNúmero de proyecto 11109', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-08 16:33:05', NULL, NULL, 4, NULL, NULL),
-(62, 67, 65, 220450, 11405, 'GR', '1 km', '1.00', 'Fecha ingreso 29/01/2022\r\nNúmero orden 220450\r\nNúmero de proyecto 11124', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 29/01/2022\r\nNúmero orden 220450\r\nNúmero de proyecto 11124', 'Fecha ingreso 29/01/2022\r\nNúmero orden 220450\r\nNúmero de proyecto 11124', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-08 16:47:03', NULL, NULL, 4, NULL, NULL),
-(63, 68, 66, 220441, 11406, 'N', '1 km', '1.00', 'Fecha ingreso 28/01/2022\r\nNúmero orden 220441\r\nNúmero de proyecto 11115\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/01/2022\r\nNúmero orden 220441\r\nNúmero de proyecto 11115\r\n', 'Fecha ingreso 28/01/2022\r\nNúmero orden 220441\r\nNúmero de proyecto 11115\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0000-00-00 00:00:00', NULL, NULL, 4, NULL, NULL),
-(64, 69, 67, 220520, 11407, 'GR', '1 km', '1.00', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220520\r\nNúmero de proyecto 11145\r\ncolor Plata', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220520\r\nNúmero de proyecto 11145', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220520\r\nNúmero de proyecto 11145', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-08 16:58:02', NULL, NULL, 4, NULL, NULL),
-(65, 70, 68, 220521, 11408, 'GR', '1 km', '1.00', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220521\r\nNúmero de proyecto 11146', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220521\r\nNúmero de proyecto 11146', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220521\r\nNúmero de proyecto 11146', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-08 17:04:26', NULL, NULL, 4, NULL, NULL),
-(66, 72, 69, 220522, 11409, 'GR', '1 km', '1.00', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220522\r\nNúmero de proyecto 11147', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220522\r\nNúmero de proyecto 11147', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220522\r\nNúmero de proyecto 11147', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 09:25:39', NULL, NULL, 4, NULL, NULL),
-(68, 73, 71, 220529, 11411, 'GR', '1 km', '1.00', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220529\r\nNúmero de proyecto 11156', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220529\r\nNúmero de proyecto 11156', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220529\r\nNúmero de proyecto 11156', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 09:30:26', NULL, NULL, 4, NULL, NULL),
-(69, 75, 72, 220531, 11412, 'GR', '1 km', '1.00', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220531\r\nNúmero de proyecto 11158\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220531\r\nNúmero de proyecto 11158\r\n', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220531\r\nNúmero de proyecto 11158\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 09:35:52', NULL, NULL, 4, NULL, NULL),
-(71, 76, 74, 220536, 11414, 'GR', '1 km', '1.00', 'Fecha ingreso 04/02/2022\r\nNúmero orden 220536\r\nNúmero de proyecto 11163\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 04/02/2022\r\nNúmero orden 220536\r\nNúmero de proyecto 11163\r\n', 'Fecha ingreso 04/02/2022\r\nNúmero orden 220536\r\nNúmero de proyecto 11163\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 09:41:43', NULL, NULL, 4, NULL, NULL),
-(72, 77, 75, 220537, 11415, 'GR', '1 km', '1.00', 'Fecha ingreso 04/02/2022\r\nNúmero orden 220537\r\nNúmero de proyecto 11164', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 04/02/2022\r\nNúmero orden 220537\r\nNúmero de proyecto 11164', 'Fecha ingreso 04/02/2022\r\nNúmero orden 220537\r\nNúmero de proyecto 11164', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 09:47:52', NULL, NULL, 4, NULL, NULL),
-(74, 79, 76, 220535, 11416, 'N', '1 km', '1.00', 'Fecha ingreso 03/02/2022\r\nNúmero orden \r\nNúmero de proyecto 11162\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220535\r\nNúmero de proyecto 11162\r\n', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220535\r\nNúmero de proyecto 11162\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 09:59:21', NULL, NULL, 4, NULL, NULL),
-(75, 80, 78, 220533, 11418, 'N', '173,243 km', '1.00', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220533\r\nNúmero de proyecto 11160', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220533\r\nNúmero de proyecto 11160', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220533\r\nNúmero de proyecto 11160', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 10:03:46', NULL, NULL, 4, NULL, NULL),
-(76, 81, 80, 221025, 11419, 'N', '98,260 km', '27,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 10:06:59', NULL, NULL, 3, NULL, NULL),
-(77, 82, 79, 220527, 11420, 'N', '1 km', '1.00', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220527\r\nNúmero de proyecto 11152', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220527\r\nNúmero de proyecto 11152', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220527\r\nNúmero de proyecto 11152', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 10:08:23', NULL, NULL, 4, NULL, NULL),
-(78, 83, 81, 220511, 11421, 'N', '140,886 km', '1.00', 'Fecha ingreso 01/02/2022\r\nNúmero orden 220511\r\nNúmero de proyecto 11136', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 01/02/2022\r\nNúmero orden 220511\r\nNúmero de proyecto 11136', 'Fecha ingreso 01/02/2022\r\nNúmero orden 220511\r\nNúmero de proyecto 11136', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 10:25:07', NULL, NULL, 4, NULL, NULL),
-(79, 84, 82, 220504, 11422, 'N', '131,793 km', '1.00', 'Fecha ingreso 31/01/2022\r\nNúmero orden 220504\r\nNúmero de proyecto 11128\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 31/01/2022\r\nNúmero orden 220504\r\nNúmero de proyecto 11128\r\n', 'Fecha ingreso 31/01/2022\r\nNúmero orden 220504\r\nNúmero de proyecto 11128\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0000-00-00 00:00:00', NULL, NULL, 4, NULL, NULL),
-(80, 85, 83, 220610, 11423, 'GR', '1 km', '1.00', 'Fecha ingreso 08/02/2022\r\nNúmero orden 220610\r\nNúmero de proyecto 11189', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 08/02/2022\r\nNúmero orden 220610\r\nNúmero de proyecto 11189', 'Fecha ingreso 08/02/2022\r\nNúmero orden 220610\r\nNúmero de proyecto 11189', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 10:33:42', NULL, NULL, 4, NULL, NULL),
-(81, 86, 84, 220625, 11424, 'GR', '1 km', '1.00', 'Fecha ingreso 09/02/2022\r\nNúmero orden 220625\r\nNúmero de proyecto 11204\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 09/02/2022\r\nNúmero orden 220625\r\nNúmero de proyecto 11204\r\n', 'Fecha ingreso 09/02/2022\r\nNúmero orden 220625\r\nNúmero de proyecto 11204\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 10:38:37', NULL, NULL, 4, NULL, NULL),
-(82, 69, 67, 220628, 11425, 'GR', '1 km', '1.00', 'Fecha ingreso 10/02/2022\r\nNúmero orden 220628\r\nNúmero de proyecto 11207', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 10/02/2022\r\nNúmero orden 220628\r\nNúmero de proyecto 11207', 'Fecha ingreso 10/02/2022\r\nNúmero orden 220628\r\nNúmero de proyecto 11207', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 10:42:31', NULL, NULL, 4, NULL, NULL),
-(83, 63, 85, 220638, 11426, 'GR', '1 km', '1.00', 'Fecha ingreso 11/02/2022\r\nNúmero orden 220638\r\nNúmero de proyecto 11217\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 11/02/2022\r\nNúmero orden 220638\r\nNúmero de proyecto 11217\r\n', 'Fecha ingreso 11/02/2022\r\nNúmero orden 220638\r\nNúmero de proyecto 11217\r\n', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-09 11:12:47', NULL, NULL, 4, NULL, NULL),
-(84, 16, 15, 220629, 11427, 'GR', '1 km', '1.00', 'Fecha ingreso 10/02/2022\r\nNúmero orden 220629\r\nNúmero de proyecto 11208', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 10/02/2022\r\nNúmero orden 220629\r\nNúmero de proyecto 11208', 'Fecha ingreso 10/02/2022\r\nNúmero orden 220629\r\nNúmero de proyecto 11208', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 11:17:07', NULL, NULL, 4, NULL, NULL),
-(85, 87, 99, 221026, 11428, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico ', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-09 11:50:54', '2022-03-09 14:26:42', NULL, 3, 3, NULL),
-(86, 88, 86, 220639, 11428, 'GR', '1 km', '1.00', 'Fecha ingreso 11/02/2022\r\nNúmero orden 220639\r\nNúmero de proyecto 11218', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 11/02/2022\r\nNúmero orden 220639\r\nNúmero de proyecto 11218', 'Fecha ingreso 11/02/2022\r\nNúmero orden 220639\r\nNúmero de proyecto 11218', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 11:51:14', NULL, NULL, 4, NULL, NULL),
-(87, 89, 88, 220644, 11430, 'GR', '1 km', '1.00', 'Fecha ingreso 12/02/2022\r\nNúmero orden 220644\r\nNúmero de proyecto 11223\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 12/02/2022\r\nNúmero orden 220644\r\nNúmero de proyecto 11223\r\n', 'Fecha ingreso 12/02/2022\r\nNúmero orden 220644\r\nNúmero de proyecto 11223\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 11:55:02', NULL, NULL, 4, NULL, NULL),
-(88, 90, 90, 221027, 11431, 'N', '123,773 km', '6,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y Dirección', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-09 11:58:39', NULL, NULL, 3, NULL, NULL),
-(89, 91, 89, 220703, 11431, 'GR', '153,983 km', '1.00', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220703\r\nNúmero de proyecto 11228', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220703\r\nNúmero de proyecto 11228', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220703\r\nNúmero de proyecto 11228', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 11:59:15', NULL, NULL, 4, NULL, NULL),
-(90, 92, 91, 220706, 11433, 'GR', '1 km', '1.00', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220706\r\nNúmero de proyecto 11231\r\n', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220706\r\nNúmero de proyecto 11231\r\n', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220706\r\nNúmero de proyecto 11231\r\n', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 12:03:11', NULL, NULL, 4, NULL, NULL),
-(91, 93, 92, 220707, 11434, 'GR', '1 km', '1.00', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220707\r\nNúmero de proyecto 11232\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220707\r\nNúmero de proyecto 11232\r\n', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220707\r\nNúmero de proyecto 11232\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 12:07:15', NULL, NULL, 4, NULL, NULL),
-(92, 94, 93, 220717, 11435, 'GR', '138,028 km', '1.00', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220717\r\nNúmero de proyecto 11242', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220717\r\nNúmero de proyecto 11242', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220717\r\nNúmero de proyecto 11242', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 12:14:51', NULL, NULL, 4, NULL, NULL),
-(93, 95, 94, 220718, 11436, 'GR', '1 km', '1.00', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220718\r\nNúmero de proyecto 11243', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220718\r\nNúmero de proyecto 11243', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220718\r\nNúmero de proyecto 11243', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 12:23:27', NULL, NULL, 4, NULL, NULL),
-(94, 96, 95, 220723, 11437, 'GR', '1 km', '1.00', 'Fecha ingreso 16/02/2022\r\nNúmero orden 220723\r\nNúmero de proyecto 11248', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 16/02/2022\r\nNúmero orden 220723\r\nNúmero de proyecto 11248', 'Fecha ingreso 16/02/2022\r\nNúmero orden 220723\r\nNúmero de proyecto 11248', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 12:42:41', NULL, NULL, 4, NULL, NULL),
-(95, 63, 85, 220732, 11438, 'GR', '197,696 km', '1.00', 'Fecha ingreso 17/02/2022\r\nNúmero orden 220732\r\nNúmero de proyecto 11257', '0', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 17/02/2022\r\nNúmero orden 220732\r\nNúmero de proyecto 11257', 'Fecha ingreso 17/02/2022\r\nNúmero orden 220732\r\nNúmero de proyecto 11257', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-09 12:45:37', NULL, '2022-04-01 13:03:56', 4, NULL, 2),
-(96, 97, 96, 220737, 11439, 'N', '1 km', '1.00', 'Fecha ingreso 17/02/2022\r\nNúmero orden 220737\r\nNúmero de proyecto 11262', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 17/02/2022\r\nNúmero orden 220737\r\nNúmero de proyecto 11262', 'Fecha ingreso 17/02/2022\r\nNúmero orden 220737\r\nNúmero de proyecto 11262', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 12:50:53', NULL, NULL, 4, NULL, NULL),
-(97, 98, 98, 221028, 11440, 'N', '149,999 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '1', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 12:55:20', NULL, NULL, 3, NULL, NULL),
-(98, 99, 97, 220722, 11441, 'N', '88,982 km', '1.00', 'Fecha ingreso 17/02/2022\r\nNúmero orden 220722\r\nNúmero de proyecto 11247', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 17/02/2022\r\nNúmero orden 220722\r\nNúmero de proyecto 11247', 'Fecha ingreso 17/02/2022\r\nNúmero orden 220722\r\nNúmero de proyecto 11247', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 12:56:14', NULL, NULL, 4, NULL, NULL),
-(99, 100, 100, 220719, 11442, 'N', '231,149 km', '1.00', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220719\r\nNúmero de proyecto 11244\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220719\r\nNúmero de proyecto 11244\r\n', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220719\r\nNúmero de proyecto 11244\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 14:25:25', NULL, NULL, 4, NULL, NULL),
-(100, 101, 101, 220713, 11443, 'N', '254,628 km', '1.00', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220713\r\nNúmero de proyecto 11238\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220713\r\nNúmero de proyecto 11238\r\n', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220713\r\nNúmero de proyecto 11238\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 14:29:57', NULL, NULL, 4, NULL, NULL),
-(101, 102, 102, 220712, 11444, 'N', '226,163 km', '1.00', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220712\r\nNúmero de proyecto 11237\r\n', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220712\r\nNúmero de proyecto 11237\r\n', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220712\r\nNúmero de proyecto 11237\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-09 14:33:48', NULL, '2022-03-25 12:46:02', 4, NULL, 2),
-(102, 103, 103, 220710, 11445, 'N', '295,704 km', '1.00', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220710\r\nNúmero de proyecto 11235', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220710\r\nNúmero de proyecto 11235', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220710\r\nNúmero de proyecto 11235', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 14:38:17', NULL, NULL, 4, NULL, NULL),
-(103, 48, 47, 220701, 11446, 'N', '231,251 km', '1.00', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220701\r\nNúmero de proyecto 11226\r\n', '0', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220701\r\nNúmero de proyecto 11226\r\n', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220701\r\nNúmero de proyecto 11226\r\n', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-09 14:40:41', NULL, '2022-04-01 13:03:24', 4, NULL, 2),
-(104, 104, 104, 220343, 11447, 'N', '1 km', '1.00', 'Fecha ingreso 22/01/2022\r\nNúmero orden 220343\r\nNúmero de proyecto 11070\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 22/01/2022\r\nNúmero orden 220343\r\nNúmero de proyecto 11070\r\n', 'Fecha ingreso 22/01/2022\r\nNúmero orden 220343\r\nNúmero de proyecto 11070\r\n', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-09 14:49:12', NULL, NULL, 4, NULL, NULL),
-(105, 105, 106, 220111, 11448, 'N', '1 km', '1.00', 'Fecha ingreso 14/01/2022\r\nNúmero orden 220111\r\nNúmero de proyecto 10944', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 14/01/2022\r\nNúmero orden 220111\r\nNúmero de proyecto 10944', 'Fecha ingreso 14/01/2022\r\nNúmero orden 220111\r\nNúmero de proyecto 10944', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 14:58:55', NULL, NULL, 4, NULL, NULL),
-(106, 36, 35, 215033, 11449, 'N', '1 km', '1.00', 'Fecha ingreso 18/12/2021\r\nNúmero orden 215033\r\nNúmero de proyecto 10868', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 18/12/2021\r\nNúmero orden 215033\r\nNúmero de proyecto 10868', 'Fecha ingreso 18/12/2021\r\nNúmero orden 215033\r\nNúmero de proyecto 10868', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 15:01:25', NULL, NULL, 4, NULL, NULL),
-(107, 106, 107, 212508, 11450, 'GR', '192,303 km', '1.00', 'Fecha ingreso 07/08/2021\r\nNúmero orden 212508\r\nNúmero de proyecto 9659\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 07/08/2021\r\nNúmero orden 212508\r\nNúmero de proyecto 9659\r\n', 'Fecha ingreso 07/08/2021\r\nNúmero orden 212508\r\nNúmero de proyecto 9659\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 15:12:06', NULL, NULL, 4, NULL, NULL),
-(108, 107, 108, 211312, 11451, 'GR', '121,893 km', '1.00', 'Fecha ingreso 07/08/2021\r\nNúmero orden 211312\r\nNúmero de proyecto 9029', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 07/08/2021\r\nNúmero orden 211312\r\nNúmero de proyecto 9029', 'Fecha ingreso 07/08/2021\r\nNúmero orden 211312\r\nNúmero de proyecto 9029', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 15:17:09', NULL, NULL, 4, NULL, NULL),
-(109, 108, 109, 211933, 11452, 'GR', '125,737 km', '1.00', 'Fecha ingreso 20/08/2021\r\nNúmero orden 211933\r\nNúmero de proyecto 9379', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 20/08/2021\r\nNúmero orden 211933\r\nNúmero de proyecto 9379', 'Fecha ingreso 20/08/2021\r\nNúmero orden 211933\r\nNúmero de proyecto 9379', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 15:23:30', NULL, NULL, 4, NULL, NULL),
-(110, 109, 110, 213830, 11453, 'GR', '1 km', '1.00', 'Fecha ingreso 23/09/2021\r\nNúmero orden 213830\r\nNúmero de proyecto 10373', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 23/09/2021\r\nNúmero orden 213830\r\nNúmero de proyecto 10373', 'Fecha ingreso 23/09/2021\r\nNúmero orden 213830\r\nNúmero de proyecto 10373', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 15:27:16', NULL, NULL, 4, NULL, NULL),
-(111, 110, 111, 212910, 11454, 'N', '1 km', '1.00', 'Fecha ingreso 19/07/2021\r\nNúmero orden 212910\r\nNúmero de proyecto 9893', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 19/07/2021\r\nNúmero orden 212910\r\nNúmero de proyecto 9893', 'Fecha ingreso 19/07/2021\r\nNúmero orden 212910\r\nNúmero de proyecto 9893', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 15:30:44', NULL, NULL, 4, NULL, NULL),
-(112, 111, 112, 214121, 11455, 'GR', '1 km', '1.00', 'Fecha ingreso 23/02/2022\r\nNúmero orden 214121\r\nNúmero de proyecto 10485', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 23/02/2022\r\nNúmero orden 214121\r\nNúmero de proyecto 10485', 'Fecha ingreso 23/02/2022\r\nNúmero orden 214121\r\nNúmero de proyecto 10485', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 15:34:23', NULL, NULL, 4, NULL, NULL),
-(113, 112, 113, 214440, 11456, 'GR', '124,482 km', '1.00', 'Fecha ingreso 05/11/2021\r\nNúmero orden 214440\r\nNúmero de proyecto 10622', '1', '1', '0', '0', '0', '0', '0', '1', '0', 'Fecha ingreso 05/11/2021\r\nNúmero orden 214440\r\nNúmero de proyecto 10622', 'Fecha ingreso 05/11/2021\r\nNúmero orden 214440\r\nNúmero de proyecto 10622', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 15:38:17', NULL, NULL, 4, NULL, NULL),
-(114, 113, 114, 213144, 11457, 'GR', '1 km', '1.00', 'Fecha ingreso 07/08/2021\r\nNúmero orden 213144\r\nNúmero de proyecto 10056', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 07/08/2021\r\nNúmero orden 213144\r\nNúmero de proyecto 10056', 'Fecha ingreso 07/08/2021\r\nNúmero orden 213144\r\nNúmero de proyecto 10056', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-09 15:42:54', NULL, NULL, 4, NULL, NULL),
-(116, 115, 116, 221030, 11459, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-09 17:16:20', NULL, NULL, 3, NULL, NULL),
-(117, 116, 117, 221031, 11460, 'N', '1 km', '1.00', 'Fuga de aceite', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-10 09:29:43', NULL, NULL, 3, NULL, NULL),
-(118, 118, 118, 220804, 11461, 'GR', '118,463 km', '1.00', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220804\r\nNúmero de proyecto 11276', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220804\r\nNúmero de proyecto 11276', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220804\r\nNúmero de proyecto 11276', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-10 09:48:18', NULL, NULL, 4, NULL, NULL),
-(119, 119, 120, 214139, 11462, 'N', '105,269 km', '1.00', 'Fecha ingreso 15/10/2021\r\nNúmero orden 214139\r\nNúmero de proyecto 10505', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 15/10/2021\r\nNúmero orden 214139\r\nNúmero de proyecto 10505', 'Fecha ingreso 15/10/2021\r\nNúmero orden 214139\r\nNúmero de proyecto 10505', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-10 09:56:44', NULL, NULL, 4, NULL, NULL),
-(121, 120, 121, 220428, 11464, 'GR', '1 km', '1.00', 'Fecha ingreso 27/01/2022\r\nNúmero orden 220428\r\nNúmero de proyecto 11101', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 27/01/2022\r\nNúmero orden 220428\r\nNúmero de proyecto 11101', 'Fecha ingreso 27/01/2022\r\nNúmero orden 220428\r\nNúmero de proyecto 11101', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-10 10:04:12', NULL, NULL, 4, NULL, NULL),
-(122, 121, 122, 220310, 11465, 'N', '135,399 km', '1.00', 'Fecha ingreso 18/01/2022\r\nNúmero orden 220310\r\nNúmero de proyecto 11037', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 18/01/2022\r\nNúmero orden 220310\r\nNúmero de proyecto 11037', 'Fecha ingreso 18/01/2022\r\nNúmero orden 220310\r\nNúmero de proyecto 11037', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-10 10:11:14', NULL, NULL, 4, NULL, NULL),
-(123, 122, 123, 214429, 11466, 'GR', '1 km', '1.00', 'Fecha ingreso 04/11/2021\r\nNúmero orden 214429\r\nNúmero de proyecto 10610', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 04/11/2021\r\nNúmero orden 214429\r\nNúmero de proyecto 10610', 'Fecha ingreso 04/11/2021\r\nNúmero orden 214429\r\nNúmero de proyecto 10610', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-10 10:18:24', NULL, NULL, 4, NULL, NULL),
-(124, 123, 124, 214225, 11467, 'GR', '290,463 km', '1.00', 'Fecha ingreso 22/10/2021\r\nNúmero orden 214225\r\nNúmero de proyecto 10539', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 22/10/2021\r\nNúmero orden 214225\r\nNúmero de proyecto 10539', 'Fecha ingreso 22/10/2021\r\nNúmero orden 214225\r\nNúmero de proyecto 10539', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-10 10:22:38', NULL, NULL, 4, NULL, NULL),
-(125, 124, 125, 221032, 11468, 'N', '112,289 km', '18,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-10 12:45:21', NULL, NULL, 3, NULL, NULL),
-(126, 126, 126, 221033, 11469, 'N', '268,692 km', '5,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación y switch de presión', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-10 15:39:19', NULL, NULL, 3, NULL, NULL),
-(129, 129, 130, 221037, 11472, 'N', '392,147 km', '15,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-10 16:27:09', NULL, NULL, 3, NULL, NULL),
-(130, 130, 131, 221038, 11473, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-10 16:35:24', NULL, NULL, 3, NULL, NULL),
-(131, 131, 132, 221039, 11474, 'GR', '165,543 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-10 16:42:16', NULL, NULL, 3, NULL, NULL),
-(132, 132, 133, 221040, 11475, 'GR', '624,644 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-10 16:52:52', NULL, NULL, 3, NULL, NULL),
-(134, 134, 135, 221042, 11477, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automátic', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-10 17:21:06', NULL, NULL, 3, NULL, NULL),
-(136, 135, 137, 214419, 11479, 'GR', '104,454 km', '1.00', 'Fecha ingreso 03/11/2021\r\nNúmero orden 214419\r\nNúmero de proyecto 10601', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 03/11/2021\r\nNúmero orden 214419\r\nNúmero de proyecto 10601', 'Fecha ingreso 03/11/2021\r\nNúmero orden 214419\r\nNúmero de proyecto 10601', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 10:45:55', NULL, NULL, 4, NULL, NULL),
-(137, 136, 138, 213524, 11480, 'GR', '1 km', '1.00', 'Fecha ingreso 01/09/2021\r\nNúmero orden 213524\r\nNúmero de proyecto 10226\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 01/09/2021\r\nNúmero orden 213524\r\nNúmero de proyecto 10226\r\n', 'Fecha ingreso 01/09/2021\r\nNúmero orden 213524\r\nNúmero de proyecto 10226\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 10:50:34', NULL, NULL, 4, NULL, NULL),
-(138, 137, 139, 220437, 11481, 'GR', '1 km', '1.00', 'Fecha ingreso 28/01/2022\r\nNúmero orden 220437\r\nNúmero de proyecto 11110\r\n', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/01/2022\r\nNúmero orden 220437\r\nNúmero de proyecto 11110\r\n', 'Fecha ingreso 28/01/2022\r\nNúmero orden 220437\r\nNúmero de proyecto 11110\r\n', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 10:55:00', NULL, NULL, 4, NULL, NULL),
-(139, 138, 140, 220138, 11482, 'GR', '1 km', '1.00', 'Fecha ingreso 07/01/2022\r\nNúmero orden 220138\r\nNúmero de proyecto 10971', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 07/01/2022\r\nNúmero orden 220138\r\nNúmero de proyecto 10971', 'Fecha ingreso 07/01/2022\r\nNúmero orden 220138\r\nNúmero de proyecto 10971', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 10:58:47', NULL, NULL, 4, NULL, NULL),
-(140, 140, 142, 220318, 11483, 'N', '1 km', '1.00', 'Fecha ingreso 19/01/2022\r\nNúmero orden 220318\r\nNúmero de proyecto 11045', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 19/01/2022\r\nNúmero orden 220318\r\nNúmero de proyecto 11045', 'Fecha ingreso 19/01/2022\r\nNúmero orden 220318\r\nNúmero de proyecto 11045', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 11:07:03', NULL, NULL, 4, NULL, NULL),
-(142, 141, 144, 220135, 11485, 'GR', '1 km', '1.00', 'Fecha ingreso 06/01/2022\r\nNúmero orden 220135\r\nNúmero de proyecto 10968', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 06/01/2022\r\nNúmero orden 220135\r\nNúmero de proyecto 10968', 'Fecha ingreso 06/01/2022\r\nNúmero orden 220135\r\nNúmero de proyecto 10968', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 11:14:57', NULL, NULL, 4, NULL, NULL),
-(143, 142, 145, 214307, 11486, 'GR', '1 km', '1.00', 'Fecha ingreso 09/12/2021\r\nNúmero orden 214307\r\nNúmero de proyecto 10554', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 09/12/2021\r\nNúmero orden 214307\r\nNúmero de proyecto 10554', 'Fecha ingreso 09/12/2021\r\nNúmero orden 214307\r\nNúmero de proyecto 10554', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 11:18:32', NULL, NULL, 4, NULL, NULL),
-(144, 143, 146, 220503, 11487, 'N', '161,117 km', '1.00', 'Fecha ingreso 19/02/2022\r\nNúmero orden 220503\r\nNúmero de proyecto 11127', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 19/02/2022\r\nNúmero orden 220503\r\nNúmero de proyecto 11127', 'Fecha ingreso 19/02/2022\r\nNúmero orden 220503\r\nNúmero de proyecto 11127', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 11:22:25', NULL, NULL, 4, NULL, NULL),
-(145, 144, 147, 220519, 11488, 'GR', '88,352 km', '1.00', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220519\r\nNúmero de proyecto 11144', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220519\r\nNúmero de proyecto 11144', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220519\r\nNúmero de proyecto 11144', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 11:39:18', NULL, NULL, 4, NULL, NULL),
-(146, 145, 149, 221044, 11489, 'GR', '80,745 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 11:44:00', NULL, NULL, 3, NULL, NULL),
-(147, 146, 148, 212439, 11489, 'GR', '115,650 km', '1.00', 'Fecha ingreso 04/08/2021\r\nNúmero orden 212439\r\nNúmero de proyecto 9641', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 04/08/2021\r\nNúmero orden 212439\r\nNúmero de proyecto 9641', 'Fecha ingreso 04/08/2021\r\nNúmero orden 212439\r\nNúmero de proyecto 9641', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 11:45:02', NULL, NULL, 4, NULL, NULL),
-(148, 147, 150, 214513, 11491, 'GR', '143,505 km', '1.00', 'Fecha ingreso 09/11/2021\r\nNúmero orden 214513\r\nNúmero de proyecto 10643\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 09/11/2021\r\nNúmero orden 214513\r\nNúmero de proyecto 10643\r\n', 'Fecha ingreso 09/11/2021\r\nNúmero orden 214513\r\nNúmero de proyecto 10643\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 11:51:17', NULL, NULL, 4, NULL, NULL),
-(149, 148, 151, 221045, 11492, 'N', '176,635 km', '6,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y empacada de transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-11 11:53:13', NULL, NULL, 3, NULL, NULL),
-(150, 149, 152, 214632, 11493, 'GR', '1 km', '1.00', 'Fecha ingreso 19/11/2021\r\nNúmero orden 214632\r\nNúmero de proyecto 10698', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 19/11/2021\r\nNúmero orden 214632\r\nNúmero de proyecto 10698', 'Fecha ingreso 19/11/2021\r\nNúmero orden 214632\r\nNúmero de proyecto 10698', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 11:56:05', NULL, NULL, 4, NULL, NULL),
-(152, 150, 153, 214617, 11495, 'GR', '1 km', '1.00', 'Fecha ingreso 17/11/2021\r\nNúmero orden 214617\r\nNúmero de proyecto 10683', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 17/11/2021\r\nNúmero orden 214617\r\nNúmero de proyecto 10683', 'Fecha ingreso 17/11/2021\r\nNúmero orden 214617\r\nNúmero de proyecto 10683', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 12:05:00', NULL, NULL, 4, NULL, NULL),
-(153, 151, 154, 214431, 11496, 'N', '1 km', '1.00', 'Fecha ingreso 04/11/2021\r\nNúmero orden 214431\r\nNúmero de proyecto 10613\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 04/11/2021\r\nNúmero orden 214431\r\nNúmero de proyecto 10613\r\n', 'Fecha ingreso 04/11/2021\r\nNúmero orden 214431\r\nNúmero de proyecto 10613\r\n', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-11 12:09:14', NULL, NULL, 4, NULL, NULL);
-INSERT INTO `proyectos` (`id_proyecto`, `id_cliente`, `id_vehiculo`, `nOrden`, `nProyecto`, `tipoReparacion`, `km`, `valorVenta`, `diagnostico`, `estadoProyectoEliminado`, `comSuperPlaca`, `comSuperKm`, `comSuperImg`, `comSuperCliente`, `comSuperDocuFirm`, `comSuperGarantia`, `comSuperAsesor`, `comSuperVerifDiariaVeh`, `descripServ1`, `descripServ2`, `proyectoActivo`, `registroSolicitud`, `altaProyecto`, `proyCodIdentificador`, `superCodIdentificador`, `comPlacas`, `comKm`, `comImg`, `comCliente`, `comDocuFirm`, `comGarantia`, `comAsesor`, `comVerifDiariaVeh`, `fecha_creacion`, `fecha_mod`, `fecha_borrado`, `id_capC`, `id_capM`, `id_capB`) VALUES
-(154, 152, 155, 220340, 11497, 'GR', '146,175 km', '1.00', 'Fecha ingreso 21/01/2022\r\nNúmero orden 220340\r\nNúmero de proyecto 11067', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 21/01/2022\r\nNúmero orden 220340\r\nNúmero de proyecto 11067', 'Fecha ingreso 21/01/2022\r\nNúmero orden 220340\r\nNúmero de proyecto 11067', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 12:16:08', NULL, NULL, 4, NULL, NULL),
-(158, 156, 158, 221050, 11501, 'N', '722 km', '13,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 13:41:49', NULL, NULL, 3, NULL, NULL),
-(159, 157, 159, 221051, 11502, 'N', '133,097 km', '1.00', 'Se neutraliza la transmisión', '1', '0', '0', '0', '0', '0', '0', '0', '0', '- Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-11 13:48:28', NULL, NULL, 3, NULL, NULL),
-(160, 158, 160, 220603, 11503, 'N', '1 km', '1.00', 'Fecha ingreso 08/02/2022\r\nNúmero orden 220603\r\nNúmero de proyecto 11182', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 08/02/2022\r\nNúmero orden 220603\r\nNúmero de proyecto 11182', 'Fecha ingreso 08/02/2022\r\nNúmero orden 220603\r\nNúmero de proyecto 11182', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 14:14:08', NULL, NULL, 4, NULL, NULL),
-(161, 159, 161, 220604, 11504, 'N', '1 km', '1.00', 'Fecha ingreso 08/02/2022\r\nNúmero orden 220604\r\nNúmero de proyecto 11183', '0', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 08/02/2022\r\nNúmero orden 220604\r\nNúmero de proyecto 11183', 'Fecha ingreso 08/02/2022\r\nNúmero orden 220604\r\nNúmero de proyecto 11183', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-11 14:20:45', NULL, '2022-04-01 13:04:11', 4, NULL, 2),
-(162, 2, 3, 220918, 11505, 'N', '131,873 km', '1.00', 'Fecha ingreso 01/03/2022\r\nNúmero orden 220918\r\nNúmero de proyecto 11343', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 01/03/2022\r\nNúmero orden 220918\r\nNúmero de proyecto 11343', 'Fecha ingreso 01/03/2022\r\nNúmero orden 220918\r\nNúmero de proyecto 11343', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 16:05:13', NULL, NULL, 4, NULL, NULL),
-(163, 160, 162, 220903, 11506, 'N', '1 km', '1.00', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220903\r\nNúmero de proyecto 11328', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220903\r\nNúmero de proyecto 11328', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220903\r\nNúmero de proyecto 11328', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 16:11:46', NULL, NULL, 4, NULL, NULL),
-(164, 161, 163, 220904, 11507, 'N', '1 km', '1.00', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220904\r\nNúmero de proyecto 11329', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220904\r\nNúmero de proyecto 11329', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220904\r\nNúmero de proyecto 11329', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 16:15:22', NULL, NULL, 4, NULL, NULL),
-(165, 162, 164, 220906, 11508, 'N', '159,659 km', '1.00', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220906\r\nNúmero de proyecto 11331\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220906\r\nNúmero de proyecto 11331\r\n', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220906\r\nNúmero de proyecto 11331\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 16:23:54', NULL, NULL, 4, NULL, NULL),
-(166, 163, 165, 220907, 11509, 'N', '1 km', '1.00', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220907\r\nNúmero de proyecto 11332', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220907\r\nNúmero de proyecto 11332', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220907\r\nNúmero de proyecto 11332', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-11 16:29:04', NULL, NULL, 4, NULL, NULL),
-(168, 165, 167, 220910, 11511, 'N', '79,677 km', '1.00', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220910\r\nNúmero de proyecto 11335', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220910\r\nNúmero de proyecto 11335', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220910\r\nNúmero de proyecto 11335', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 16:37:35', NULL, NULL, 4, NULL, NULL),
-(169, 166, 168, 220909, 11512, 'N', '1 km', '1.00', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220909\r\nNúmero de proyecto 11334', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220909\r\nNúmero de proyecto 11334', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220909\r\nNúmero de proyecto 11334', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 16:41:32', NULL, NULL, 4, NULL, NULL),
-(170, 167, 169, 220913, 11513, 'N', '1 km', '1.00', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220913\r\nNúmero de proyecto 11338', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220913\r\nNúmero de proyecto 11338', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220913\r\nNúmero de proyecto 11338', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 16:45:28', NULL, NULL, 4, NULL, NULL),
-(171, 168, 170, 220152, 11514, 'N', '140,845 km', '10,000.00', '- no camina', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-11 16:46:45', NULL, NULL, 3, NULL, NULL),
-(172, 169, 171, 220801, 11515, 'N', '1 km', '1.00', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220801\r\nNúmero de proyecto 11273', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220801\r\nNúmero de proyecto 11273', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220801\r\nNúmero de proyecto 11273', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 17:07:47', NULL, NULL, 4, NULL, NULL),
-(173, 170, 172, 220803, 11516, 'N', '1 km', '1.00', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220803\r\nNúmero de proyecto 11275\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220803\r\nNúmero de proyecto 11275\r\n', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220803\r\nNúmero de proyecto 11275\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 17:11:32', NULL, NULL, 4, NULL, NULL),
-(174, 171, 173, 220805, 11517, 'N', '1 km', '1.00', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220805\r\nNúmero de proyecto 11278', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220805\r\nNúmero de proyecto 11278', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220805\r\nNúmero de proyecto 11278', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 17:15:44', NULL, NULL, 4, NULL, NULL),
-(175, 172, 174, 220806, 11518, 'N', '1 km', '1.00', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220806\r\nNúmero de proyecto 11279', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220806\r\nNúmero de proyecto 11279', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220806\r\nNúmero de proyecto 11279', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-11 17:19:07', NULL, NULL, 4, NULL, NULL),
-(177, 173, 175, 220836, 11520, 'N', '1 km', '1.00', 'Fecha ingreso 26/02/2022\r\nNúmero orden 220836\r\nNúmero de proyecto 11320', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 26/02/2022\r\nNúmero orden 220836\r\nNúmero de proyecto 11320', 'Fecha ingreso 26/02/2022\r\nNúmero orden 220836\r\nNúmero de proyecto 11320', '0', '1', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-12 09:08:24', NULL, NULL, 4, NULL, NULL),
-(178, 133, 134, 220338, 11521, 'N', '161,024 km', '1.00', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220338\r\nNúmero de proyecto 11312', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220338\r\nNúmero de proyecto 11312', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220338\r\nNúmero de proyecto 11312', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-12 09:10:59', NULL, NULL, 4, NULL, NULL),
-(180, 175, 176, 220836, 11522, 'N', '1 km', '1.00', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220836\r\nNúmero de proyecto 11310', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220836\r\nNúmero de proyecto 11310', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220836\r\nNúmero de proyecto 11310', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-12 09:14:49', NULL, NULL, 4, NULL, NULL),
-(181, 176, 178, 220832, 11524, 'N', '1 km', '1.00', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220832\r\nNúmero de proyecto 11306', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220832\r\nNúmero de proyecto 11306', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220832\r\nNúmero de proyecto 11306', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-12 09:23:02', NULL, NULL, 4, NULL, NULL),
-(182, 177, 180, 220155, 11525, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-12 09:26:17', NULL, NULL, 3, NULL, NULL),
-(183, 178, 179, 220831, 11526, 'N', '1 km', '1.00', 'Fecha ingreso 02/03/2022\r\nNúmero orden 220831\r\nNúmero de proyecto 11305', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 02/03/2022\r\nNúmero orden 220831\r\nNúmero de proyecto 11305', 'Fecha ingreso 02/03/2022\r\nNúmero orden 220831\r\nNúmero de proyecto 11305', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-12 09:27:34', NULL, NULL, 4, NULL, NULL),
-(184, 179, 181, 220829, 11527, 'N', '106,019 km', '1.00', 'Fecha ingreso 24/02/2022\r\nNúmero orden 220829\r\nNúmero de proyecto 11303', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 24/02/2022\r\nNúmero orden 220829\r\nNúmero de proyecto 11303', 'Fecha ingreso 24/02/2022\r\nNúmero orden 220829\r\nNúmero de proyecto 11303', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-12 09:31:29', NULL, NULL, 4, NULL, NULL),
-(185, 180, 182, 220826, 11528, 'N', '239,377 km', '1.00', 'Fecha ingreso 24/02/2022\r\nNúmero orden 220826\r\nNúmero de proyecto 11300', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 24/02/2022\r\nNúmero orden 220826\r\nNúmero de proyecto 11300', 'Fecha ingreso 24/02/2022\r\nNúmero orden 220826\r\nNúmero de proyecto 11300', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-12 09:40:15', NULL, NULL, 4, NULL, NULL),
-(186, 173, 183, 220820, 11529, 'N', '1 km', '1.00', 'Fecha ingreso 23/02/2022\r\nNúmero orden 220820\r\nNúmero de proyecto 11293', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 23/02/2022\r\nNúmero orden 220820\r\nNúmero de proyecto 11293', 'Fecha ingreso 23/02/2022\r\nNúmero orden 220820\r\nNúmero de proyecto 11293', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-12 09:42:31', NULL, NULL, 4, NULL, NULL),
-(187, 181, 184, 220816, 11530, 'N', '112,568 km', '1.00', 'Fecha ingreso 23/02/2022\r\nNúmero orden 220816\r\nNúmero de proyecto 11289', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 23/02/2022\r\nNúmero orden 220816\r\nNúmero de proyecto 11289', 'Fecha ingreso 23/02/2022\r\nNúmero orden 220816\r\nNúmero de proyecto 11289', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-12 09:45:46', NULL, NULL, 4, NULL, NULL),
-(189, 183, 186, 220157, 11532, 'N', '234,294 km', '25,000.00', 'OJO: falla encendido\r\nTrae cortacorriente\r\nCheck prendido \r\n\r\nFallas: Fuga de presión\r\nSegunda a tercera no entra cambio y se jalonea', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-12 10:02:29', NULL, NULL, 3, NULL, NULL),
-(192, 99, 97, 220160, 11535, 'N', '88,982 km', '45,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-12 12:58:16', NULL, NULL, 3, NULL, NULL),
-(193, 188, 122, 220161, 11536, 'N', '135,399 km', '10,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-12 13:00:57', NULL, NULL, 3, NULL, NULL),
-(194, 189, 174, 220162, 11537, 'N', '185,590 km', '13,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-12 13:03:26', NULL, NULL, 3, NULL, NULL),
-(195, 190, 189, 220162, 11538, 'GR', '42,967 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-.', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-12 13:09:35', NULL, NULL, 3, NULL, NULL),
-(197, 179, 181, 220165, 11540, 'N', '106,019 km', '20,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-12 13:35:37', NULL, NULL, 3, NULL, NULL),
-(198, 97, 96, 220166, 11541, 'N', '1 km', '28,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-12 13:38:19', NULL, NULL, 3, NULL, NULL),
-(199, 162, 164, 220167, 11542, 'N', '159,659 km', '20,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-12 13:47:13', NULL, NULL, 3, NULL, NULL),
-(200, 191, 191, 221101, 11543, 'N', '1 km', '13,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-14 08:46:33', NULL, NULL, 3, NULL, NULL),
-(201, 192, 192, 221102, 11544, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-14 10:27:12', NULL, NULL, 3, NULL, NULL),
-(202, 193, 193, 221103, 11545, 'GR', '148,938 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-14 11:39:58', NULL, NULL, 3, NULL, NULL),
-(203, 194, 194, 221104, 11546, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-14 12:22:04', NULL, NULL, 3, NULL, NULL),
-(204, 195, 195, 221105, 11547, 'N', '213,451 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-14 12:38:30', NULL, NULL, 3, NULL, NULL),
-(205, 197, 196, 221105, 11548, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmsión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-14 14:40:13', NULL, NULL, 3, NULL, NULL),
-(206, 198, 197, 221106, 11549, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-14 14:45:56', NULL, NULL, 3, NULL, NULL),
-(207, 199, 198, 221107, 11550, 'N', '223,685 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y empacada de transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-14 14:52:20', NULL, NULL, 3, NULL, NULL),
-(208, 200, 199, 221108, 11551, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '1', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-14 14:57:33', NULL, NULL, 3, NULL, NULL),
-(209, 201, 200, 221109, 11552, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-14 15:01:36', NULL, NULL, 3, NULL, NULL),
-(211, 203, 202, 221111, 11554, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-14 15:11:13', NULL, NULL, 3, NULL, NULL),
-(212, 204, 203, 221112, 11555, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-14 15:23:44', NULL, NULL, 3, NULL, NULL),
-(213, 205, 204, 221113, 11556, 'N', '1 km', '25,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-14 15:32:06', NULL, NULL, 3, NULL, NULL),
-(215, 207, 206, 221115, 11558, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-14 17:21:38', NULL, NULL, 3, NULL, NULL),
-(216, 208, 207, 221116, 11559, 'N', '1 km', '15,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '.', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-14 17:30:56', NULL, NULL, 3, NULL, NULL),
-(217, 209, 208, 221117, 11560, 'N', '1 km', '1.00', '-', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-14 17:35:24', NULL, '2022-03-25 12:49:53', 3, NULL, 2),
-(219, 211, 210, 221119, 11562, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '.', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-14 17:44:05', NULL, NULL, 3, NULL, NULL),
-(220, 212, 211, 211120, 11563, 'N', '201,945 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de transmisión automática sin Gr', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-15 09:21:10', NULL, NULL, 3, NULL, NULL),
-(221, 213, 212, 221121, 11564, 'N', '88,360 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-15 09:38:49', NULL, NULL, 3, NULL, NULL),
-(222, 214, 213, 221122, 11565, 'N', '69,014 km', '1,600.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-15 11:42:48', NULL, NULL, 3, NULL, NULL),
-(223, 215, 214, 221123, 11566, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-15 11:53:24', NULL, NULL, 3, NULL, NULL),
-(224, 64, 62, 221124, 11567, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-15 12:01:14', NULL, NULL, 3, NULL, NULL),
-(225, 143, 215, 221125, 11568, 'N', '161,117 km', '13,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-15 12:33:06', NULL, NULL, 3, NULL, NULL),
-(226, 217, 216, 221126, 11569, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-15 15:51:18', NULL, NULL, 3, NULL, NULL),
-(227, 218, 217, 221127, 11570, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-15 15:55:53', NULL, NULL, 3, NULL, NULL),
-(228, 219, 218, 221128, 11571, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', 'autorizo expresamente que pueden llevarse mi vehiculo a domicilio de empleados para resguardo. ', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-15 17:00:42', NULL, NULL, 3, NULL, NULL),
-(229, 220, 219, 221128, 11572, 'N', '100,925 km', '1,600.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-16 11:12:19', NULL, NULL, 3, NULL, NULL),
-(230, 221, 220, 221129, 11573, 'N', '1 km', '16,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diangostico', '-', '0', '0', '1', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-16 11:55:34', NULL, NULL, 3, NULL, NULL),
-(231, 222, 221, 221130, 11574, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-16 12:00:40', NULL, NULL, 3, NULL, NULL),
-(232, 208, 207, 221131, 11575, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '1', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-16 12:05:30', NULL, NULL, 3, NULL, NULL),
-(233, 224, 222, 221132, 11576, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-16 12:09:54', NULL, NULL, 3, NULL, NULL),
-(234, 225, 223, 221133, 11577, 'N', '1 km', '36,000.00', '.', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-16 12:22:24', NULL, NULL, 3, NULL, NULL),
-(235, 226, 224, 221134, 11578, 'N', '1 km', '15,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diangostico', '-', '0', '0', '1', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-16 12:27:11', NULL, NULL, 3, NULL, NULL),
-(236, 105, 106, 221135, 11579, 'N', '1 km', '22,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-16 12:34:49', NULL, NULL, 3, NULL, NULL),
-(237, 209, 225, 221136, 11580, 'N', '1 km', '13,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-16 12:39:29', NULL, NULL, 3, NULL, NULL),
-(238, 210, 226, 221137, 11581, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-16 12:58:13', NULL, NULL, 3, NULL, NULL),
-(239, 202, 201, 221138, 11582, 'N', '1 km', '17,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '.', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-16 13:02:59', NULL, NULL, 3, NULL, NULL),
-(240, 211, 227, 221139, 11583, 'N', '1 km', '13,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-16 13:16:10', NULL, NULL, 3, NULL, NULL),
-(241, 102, 102, 221140, 11584, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'diagnostico y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-16 13:24:45', NULL, NULL, 3, NULL, NULL),
-(242, 228, 228, 221141, 11585, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'diagnostico', '.', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-16 13:32:46', NULL, NULL, 3, NULL, NULL),
-(243, 229, 229, 221142, 11586, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-16 13:58:25', NULL, NULL, 3, NULL, NULL),
-(244, 230, 230, 221142, 11587, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automatica', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-16 15:53:50', NULL, NULL, 3, NULL, NULL),
-(245, 231, 231, 221143, 11588, 'N', '245,988 km', '14,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '1', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '2022-03-16 17:07:08', NULL, NULL, 3, NULL, NULL),
-(246, 232, 232, 221144, 11589, 'N', '134,250 km', '1.00', 'Falla: Se queda sin reversa', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', 'Nota: Marcar a ambo números, el papá quiere estar enterado. ', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-17 09:38:05', NULL, NULL, 3, NULL, NULL),
-(247, 233, 233, 221145, 11590, 'N', '180,494 km', '13,000.00', 'Falla Reversa\r\nTira aceite de reten\r\nRevisar chicote', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '.', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-17 10:40:00', NULL, NULL, 3, NULL, NULL),
-(248, 234, 234, 221146, 11591, 'GR', '147,134 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-17 11:22:50', NULL, NULL, 3, NULL, NULL),
-(249, 235, 235, 221147, 11592, 'N', '143,208 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-17 11:41:39', NULL, NULL, 3, NULL, NULL),
-(250, 236, 236, 221148, 11593, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '.', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-17 12:08:55', NULL, NULL, 3, NULL, NULL),
-(251, 237, 237, 221149, 11594, 'N', '1 km', '12,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-17 13:52:49', NULL, NULL, 3, NULL, NULL),
-(252, 238, 238, 221150, 11595, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-17 16:33:52', NULL, NULL, 3, NULL, NULL),
-(253, 239, 239, 221151, 11596, 'N', '1 km', '15,000.00', 'OJO: Como extra revisar enfriador y chicote', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y reparación de la transmisión automática', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-17 16:40:33', NULL, NULL, 3, NULL, NULL),
-(254, 240, 240, 221152, 11597, 'N', '129,409 km', '1,800.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-18 09:13:08', NULL, NULL, 3, NULL, NULL),
-(255, 241, 241, 221153, 11598, 'N', '69,277 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-18 09:24:57', NULL, NULL, 3, NULL, NULL),
-(256, 242, 242, 221154, 11599, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-18 09:54:50', NULL, NULL, 3, NULL, NULL),
-(257, 243, 243, 221155, 11600, 'N', '95,072 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-18 10:57:28', NULL, NULL, 3, NULL, NULL),
-(258, 244, 244, 221129, 11601, 'N', '151,531 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-18 13:29:22', NULL, NULL, 3, NULL, NULL),
-(259, 245, 245, 221157, 11602, 'N', '69,651 km', '1,600.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '.', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-19 09:24:57', NULL, NULL, 3, NULL, NULL),
-(260, 164, 166, 221158, 11603, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '1', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-19 09:42:42', NULL, NULL, 3, NULL, NULL),
-(261, 246, 246, 221159, 11604, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '2022-03-19 10:18:47', NULL, NULL, 3, NULL, NULL),
-(262, 247, 247, 221160, 11605, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-19 12:20:36', NULL, NULL, 3, NULL, NULL),
-(263, 248, 248, 221161, 11606, 'N', '103,171 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-19 12:24:01', NULL, NULL, 3, NULL, NULL),
-(264, 249, 249, 221201, 11607, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-.', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-22 09:12:07', NULL, NULL, 3, NULL, NULL),
-(265, 250, 250, 221202, 11608, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '.', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-22 09:21:14', NULL, NULL, 3, NULL, NULL),
-(266, 251, 251, 221203, 11609, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-22 09:28:48', NULL, NULL, 3, NULL, NULL),
-(267, 252, 252, 2201204, 11610, 'N', '138,848 km', '5,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y empacada de transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-22 10:05:29', NULL, NULL, 3, NULL, NULL),
-(268, 253, 253, 221205, 11611, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '1', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-22 10:19:45', NULL, NULL, 3, NULL, NULL),
-(269, 254, 254, 221206, 11612, 'GR', '119,155 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '1', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-22 10:22:49', NULL, NULL, 3, NULL, NULL),
-(270, 255, 255, 221207, 11613, 'GR', '234,951 km', '1.00', '-', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '.-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-22 12:14:21', NULL, '2022-04-02 10:14:49', 3, NULL, 2),
-(271, 256, 256, 221208, 11614, 'GR', '177,491 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-22 12:17:43', NULL, NULL, 3, NULL, NULL),
-(272, 257, 258, 221209, 11615, 'N', '265,981 km', '12,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-22 17:16:54', NULL, NULL, 3, NULL, NULL),
-(273, 258, 259, 221210, 11616, 'N', '241,241 km', '12,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-22 17:21:54', NULL, NULL, 3, NULL, NULL),
-(274, 259, 260, 221211, 11617, 'N', '1 km', '13,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-22 17:43:07', NULL, NULL, 3, NULL, NULL),
-(275, 260, 261, 221212, 11618, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-23 11:10:12', NULL, NULL, 3, NULL, NULL),
-(276, 261, 262, 221213, 11619, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-23 11:15:19', NULL, NULL, 3, NULL, NULL),
-(277, 262, 263, 221214, 11620, 'GR', '1 km', '1.00', '- ', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-23 11:19:33', NULL, NULL, 3, NULL, NULL),
-(278, 263, 264, 221215, 11621, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-23 11:43:55', NULL, NULL, 3, NULL, NULL),
-(279, 264, 265, 221216, 11622, 'N', '243,007 km', '15,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-23 12:06:38', NULL, NULL, 3, NULL, NULL),
-(280, 265, 266, 221217, 11623, 'N', '142,930 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-23 12:20:57', NULL, NULL, 3, NULL, NULL),
-(281, 266, 267, 221218, 11624, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '.', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-23 12:33:37', NULL, NULL, 3, NULL, NULL),
-(282, 267, 268, 221219, 11625, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-23 13:21:09', NULL, NULL, 3, NULL, NULL),
-(283, 255, 255, 221119, 11626, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automatica', '.', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-23 14:19:08', NULL, NULL, 3, NULL, NULL),
-(284, 268, 269, 221219, 11627, 'N', '116,885 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-23 15:54:35', NULL, NULL, 3, NULL, NULL),
-(285, 269, 270, 221220, 11628, 'N', '223,529 km', '1,600.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-24 09:05:43', NULL, NULL, 3, NULL, NULL),
-(286, 270, 271, 221221, 11629, 'N', '1 km', '11,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-24 09:24:59', NULL, NULL, 3, NULL, NULL),
-(287, 271, 272, 221222, 11630, 'N', '167,292 km', '1,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-24 09:32:56', NULL, NULL, 3, NULL, NULL),
-(288, 272, 273, 221222, 11631, 'N', '1 km', '1.00', 'si prende, ya no camina\r\n', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '2022-03-24 09:44:27', NULL, NULL, 3, NULL, NULL),
-(289, 273, 274, 221223, 11632, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-24 11:22:39', NULL, NULL, 3, NULL, NULL),
-(290, 274, 275, 221223, 11633, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-24 12:05:25', NULL, NULL, 3, NULL, NULL),
-(291, 275, 276, 221225, 11634, 'GR', '141,859 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-24 13:16:26', NULL, NULL, 3, NULL, NULL),
-(292, 276, 277, 221226, 11635, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-24 13:29:52', NULL, NULL, 3, NULL, NULL),
-(293, 277, 278, 221227, 11636, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-24 15:08:40', NULL, NULL, 3, NULL, NULL),
-(294, 278, 279, 221228, 11637, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática-.', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-24 16:37:06', NULL, NULL, 3, NULL, NULL),
-(295, 209, 280, 221129, 11638, 'GR', '266,435 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-24 16:56:21', NULL, NULL, 3, NULL, NULL),
-(296, 10, 10, 221229, 11639, 'GR', '1 km', '1.00', '-1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática-', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-24 17:02:24', NULL, NULL, 3, NULL, NULL),
-(297, 279, 281, 211231, 11640, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-25 09:04:47', NULL, NULL, 3, NULL, NULL),
-(298, 151, 154, 221232, 11641, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-25 09:09:43', NULL, NULL, 3, NULL, NULL),
-(299, 280, 150, 221233, 11642, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Cambio de transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-25 09:26:57', NULL, NULL, 3, NULL, NULL),
-(300, 281, 282, 221234, 11643, 'N', '133,244 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-25 10:34:54', NULL, NULL, 3, NULL, NULL),
-(301, 282, 283, 221235, 11644, 'N', '176,726 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática-', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-25 11:39:43', NULL, NULL, 3, NULL, NULL),
-(302, 283, 284, 211236, 11645, 'N', '1 km', '12,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática.', '.', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-25 12:20:29', NULL, NULL, 3, NULL, NULL),
-(303, 177, 180, 221237, 11646, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-25 15:06:02', NULL, NULL, 3, NULL, NULL),
-(304, 284, 285, 221237, 11647, 'N', '1 km', '5,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Afinación y empacada de transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-25 15:52:24', NULL, NULL, 3, NULL, NULL),
-(305, 285, 286, 221238, 11648, 'N', '125,539 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-25 16:43:05', NULL, NULL, 3, NULL, NULL),
-(306, 286, 287, 221239, 11649, 'GR', '1 km', '1.00', 'Tira aceite, no conectaron los focos de reversa, la prende enfrió en reversa patea', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-26 08:46:30', NULL, NULL, 3, NULL, NULL),
-(307, 287, 288, 221239, 11650, 'N', '252,778 km', '650.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-26 09:19:47', NULL, NULL, 3, NULL, NULL),
-(308, 288, 289, 221240, 11651, 'N', '70,012 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-26 09:24:46', NULL, NULL, 3, NULL, NULL),
-(309, 289, 290, 221241, 11652, 'N', '202,456 km', '1,400.00', '- transmisio', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-26 09:44:41', NULL, NULL, 3, NULL, NULL),
-(310, 290, 291, 221242, 11653, 'N', '1 km', '15,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-26 11:11:31', NULL, NULL, 3, NULL, NULL),
-(311, 291, 292, 221243, 11654, 'N', '1 km', '23,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-26 11:15:03', NULL, NULL, 3, NULL, NULL),
-(312, 292, 293, 221244, 11655, 'N', '1 km', '25,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '.', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-26 12:23:52', NULL, NULL, 3, NULL, NULL),
-(313, 293, 294, 221301, 11661, 'N', '1 km', '12,000.00', 'Trae fuga', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-28 11:39:51', NULL, NULL, 3, NULL, NULL),
-(314, 294, 295, 221302, 11662, 'N', '32,468 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-28 11:47:47', NULL, NULL, 3, NULL, NULL),
-(315, 295, 297, 221303, 11663, 'N', '1 km', '6,650.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-28 11:54:27', NULL, NULL, 3, NULL, NULL),
-(316, 296, 298, 221304, 11664, 'N', '1 km', '15,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-28 12:00:52', NULL, NULL, 3, NULL, NULL),
-(317, 297, 299, 221305, 11665, 'N', '186,130 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-28 12:15:02', NULL, NULL, 3, NULL, NULL),
-(318, 298, 300, 221306, 11666, 'N', '187,299 km', '12,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-28 12:39:36', NULL, NULL, 3, NULL, NULL),
-(319, 21, 20, 221307, 11667, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-28 13:30:41', NULL, NULL, 3, NULL, NULL),
-(320, 299, 301, 221308, 11668, 'N', '1 km', '11,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-28 16:34:52', NULL, NULL, 3, NULL, NULL),
-(321, 300, 302, 221309, 11669, 'N', '198,499 km', '850.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-29 09:26:27', NULL, NULL, 3, NULL, NULL),
-(322, 301, 303, 221310, 11670, 'N', '1 km', '20,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-29 09:50:26', NULL, NULL, 3, NULL, NULL),
-(323, 302, 304, 221311, 11671, 'GR', '1 km', '1.00', 'Se patinan las velocidades', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '1', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-29 10:05:26', NULL, NULL, 3, NULL, NULL),
-(324, 303, 305, 221312, 11672, 'N', '1 km', '1.00', 'Tira un golpeteo y tira aceite', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-29 10:10:42', NULL, NULL, 3, NULL, NULL),
-(325, 304, 306, 221313, 11673, 'GR', '1 km', '1.00', 'pierde fuerza y se escucha forzada', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-29 10:14:30', NULL, NULL, 3, NULL, NULL),
-(326, 138, 140, 221314, 11674, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-29 10:18:11', NULL, NULL, 3, NULL, NULL),
-(327, 305, 307, 221315, 11675, 'N', '143,937 km', '4,500.00', 'Se prendio Check engine, al escanear arroja codigo de transmisión. ', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Servicio de Mtto y cuerpo de válvulas', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-29 11:02:23', NULL, NULL, 3, NULL, NULL),
-(328, 306, 308, 221316, 11676, 'N', '1 km', '650.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-29 12:02:30', NULL, NULL, 3, NULL, NULL),
-(329, 307, 309, 221317, 11677, 'N', '20,778 km', '1,600.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-29 13:02:39', NULL, NULL, 3, NULL, NULL),
-(330, 308, 310, 221317, 11678, 'N', '248,893 km', '20,000.00', 'Testigo encendido de bateria, sin ninguna falla.\r\nTestigo de transmisión, se patina de 2da a 3era y después entra normal llegando a un limite de velocidad. ', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-29 17:00:24', NULL, NULL, 3, NULL, NULL),
-(331, 200, 199, 221318, 11679, 'GR', '1 km', '1.00', '-', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-29 17:42:04', NULL, '2022-04-02 10:54:35', 3, NULL, 2),
-(332, 309, 311, 221319, 11680, 'GR', '1 km', '1.00', 'TIRA ACEITE CLIENTE MENCIONA QUE NO PUEDE REVISAR LOS NIVELES POR QUE NO PUEDE ABRIR EL COBRE POR EL GOLPE QUE NOSOTROS LE DIMOS A SU CARRO DESEA QUE SE LE DE SOLUCION A ESO TAMBIÉN', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-30 08:48:35', NULL, NULL, 3, NULL, NULL);
-INSERT INTO `proyectos` (`id_proyecto`, `id_cliente`, `id_vehiculo`, `nOrden`, `nProyecto`, `tipoReparacion`, `km`, `valorVenta`, `diagnostico`, `estadoProyectoEliminado`, `comSuperPlaca`, `comSuperKm`, `comSuperImg`, `comSuperCliente`, `comSuperDocuFirm`, `comSuperGarantia`, `comSuperAsesor`, `comSuperVerifDiariaVeh`, `descripServ1`, `descripServ2`, `proyectoActivo`, `registroSolicitud`, `altaProyecto`, `proyCodIdentificador`, `superCodIdentificador`, `comPlacas`, `comKm`, `comImg`, `comCliente`, `comDocuFirm`, `comGarantia`, `comAsesor`, `comVerifDiariaVeh`, `fecha_creacion`, `fecha_mod`, `fecha_borrado`, `id_capC`, `id_capM`, `id_capB`) VALUES
-(333, 310, 312, 221320, 11681, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '1', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-30 08:55:10', NULL, NULL, 3, NULL, NULL),
-(334, 180, 182, 221321, 11682, 'GR', '1 km', '1.00', 'a no avanzo ya lo llevo a la revisión de chicote y le dijeron que no era el chicote', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-30 09:00:24', NULL, NULL, 3, NULL, NULL),
-(335, 311, 313, 221321, 11683, 'N', '1 km', '23,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '2022-03-30 09:14:32', NULL, NULL, 3, NULL, NULL),
-(336, 312, 314, 221323, 11684, 'N', '1 km', '13,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '.', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-30 09:20:30', NULL, NULL, 3, NULL, NULL),
-(337, 313, 315, 211324, 11685, 'N', '1 km', '18,000.00', 'No hace cambios, se mueve la palanca, pero no entran velocidades. ', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-30 10:19:40', NULL, NULL, 3, NULL, NULL),
-(338, 314, 316, 221324, 11686, 'N', '58,721 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-30 10:34:10', NULL, NULL, 3, NULL, NULL),
-(339, 137, 139, 211326, 11687, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automatica', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '2022-03-30 13:04:53', NULL, NULL, 3, NULL, NULL),
-(340, 315, 317, 221327, 11688, 'N', '1 km', '28,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-30 15:51:30', NULL, NULL, 3, NULL, NULL),
-(341, 316, 318, 221328, 11689, 'N', '496,618 km', '12,000.00', 'Aro dentado', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico ', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-30 15:58:43', NULL, NULL, 3, NULL, NULL),
-(342, 224, 222, 221328, 11690, 'N', '1 km', '58,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Almacenamiento', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-30 16:46:12', NULL, NULL, 3, NULL, NULL),
-(343, 317, 319, 221329, 11691, 'N', '1 km', '40,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-31 08:49:39', NULL, NULL, 3, NULL, NULL),
-(344, 318, 320, 221330, 11692, 'N', '1 km', '6,500.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y empacada de transmisisón automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-31 09:09:01', NULL, NULL, 3, NULL, NULL),
-(345, 319, 321, 221331, 11693, 'N', '1 km', '1,600.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-31 09:22:57', NULL, NULL, 3, NULL, NULL),
-(346, 158, 160, 221332, 11694, 'GR', '1 km', '1.00', 'se forza en primera y segunda', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisisón automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-31 10:28:24', NULL, NULL, 3, NULL, NULL),
-(347, 320, 322, 221333, 11695, 'GR', '1 km', '1.00', 'tira aceite y huele muchísimo a quemado, no acelera', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisisón automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-03-31 10:36:12', NULL, NULL, 3, NULL, NULL),
-(348, 236, 236, 221334, 11696, 'N', '1 km', '1.00', 'YA NO CAMINA', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-31 10:44:39', NULL, NULL, 3, NULL, NULL),
-(349, 321, 323, 221335, 11697, 'N', '1 km', '2,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '2022-03-31 10:59:46', NULL, NULL, 3, NULL, NULL),
-(350, 322, 324, 221336, 11698, 'GR', '1 km', '1.00', 'ya no camina', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '.', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-31 11:13:56', NULL, NULL, 3, NULL, NULL),
-(351, 323, 325, 221337, 11699, 'N', '1 km', '15,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-31 11:47:21', NULL, NULL, 3, NULL, NULL),
-(352, 324, 326, 221338, 11700, 'N', '167,530 km', '20,000.00', 'Patina 2da y tercera', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-31 15:02:37', NULL, NULL, 3, NULL, NULL),
-(353, 322, 324, 221339, 11701, 'GR', '1 km', '1.00', 'ya no camina', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automatica', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-03-31 16:21:05', NULL, NULL, 3, NULL, NULL),
-(354, 325, 327, 221340, 11702, 'N', '1 km', '15,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '.-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-04-01 09:54:16', NULL, NULL, 3, NULL, NULL),
-(355, 326, 328, 221341, 11703, 'N', '1 km', '1.00', 'NO ACEPTA LOS CAMBIOS', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-04-01 10:00:07', NULL, NULL, 3, NULL, NULL),
-(356, 266, 267, 221342, 11704, 'N', '1 km', '1.00', 'TIRA ACEITE, Y EN OCASIONES DEJA DE CAMINAR', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-04-01 10:03:44', NULL, NULL, 3, NULL, NULL),
-(357, 327, 329, 221343, 11705, 'GR', '1 km', '1.00', 'Esta tirando aceite de transmisión, la reversa reacciona lento y cuando entra la segunda rechina la transmisión', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-.', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-04-01 10:08:44', NULL, NULL, 3, NULL, NULL),
-(358, 328, 330, 221344, 11706, 'N', '124,622 km', '1,600.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisisón automática', '-', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '0', '0', '2022-04-01 10:37:58', NULL, NULL, 3, NULL, NULL),
-(359, 329, 331, 221345, 11707, 'N', '78,480 km', '1,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisisón automática', '-', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '0', '0', '2022-04-01 11:53:04', NULL, NULL, 3, NULL, NULL),
-(360, 330, 332, 221346, 11708, 'N', '1 km', '30,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-04-01 15:45:23', NULL, NULL, 3, NULL, NULL),
-(361, 331, 333, 221347, 11709, 'N', '152,858 km', '22,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y repración de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '2022-04-01 16:37:14', NULL, NULL, 3, NULL, NULL),
-(362, 332, 334, 221348, 11710, 'N', '1 km', '10,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisisón automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '2022-04-01 17:15:50', NULL, NULL, 3, NULL, NULL),
-(363, 333, 335, 221349, 11711, 'N', '64,240 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '2022-04-02 08:47:51', NULL, NULL, 3, NULL, NULL),
-(364, 300, 302, 221350, 11712, 'N', '198,499 km', '11,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-04-02 08:56:45', NULL, NULL, 3, NULL, NULL),
-(365, 334, 336, 221351, 11713, 'N', '167,748 km', '14,000.00', 'Barrida de las velocidades', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-04-02 09:37:17', NULL, NULL, 3, NULL, NULL),
-(366, 335, 337, 221352, 11715, 'N', '114,623 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '0', '0', '2022-04-02 11:55:29', NULL, NULL, 3, NULL, NULL),
-(367, 336, 339, 221401, 11718, 'N', '1 km', '15,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '2022-04-04 08:47:07', NULL, NULL, 3, NULL, NULL),
-(368, 89, 88, 221402, 11719, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '2022-04-04 08:53:34', NULL, NULL, 3, NULL, NULL),
-(369, 337, 340, 221403, 11720, 'GR', '1 km', '1.00', 'el carro sigue igual tiembla mucho cuando le meto la reversa y sigue tirando aceite de la transmisión', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-04-04 09:00:28', NULL, NULL, 3, NULL, NULL),
-(370, 177, 180, 221404, 11721, 'N', '1 km', '1.00', 'no camina llego en grúa a, alcalde', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-04-04 09:24:48', NULL, NULL, 3, NULL, NULL),
-(371, 338, 341, 221405, 11722, 'GR', '1 km', '1.00', 'continuó fallando tira aceite', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-04-04 09:29:16', NULL, NULL, 3, NULL, NULL),
-(372, 339, 342, 221406, 11723, 'N', '210,523 km', '5,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y empacada de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '2022-04-04 09:46:08', NULL, NULL, 3, NULL, NULL),
-(373, 340, 343, 221407, 11724, 'N', '210,729 km', '11,000.00', 'Golpeteos fuertes', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la tranmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-04-04 10:00:10', NULL, NULL, 3, NULL, NULL),
-(374, 342, 344, 221408, 11725, 'N', '1 km', '20,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '1', '0', '0', '0', '0', '0', 0, '0', '0', '0', '0', '2022-04-04 10:41:11', NULL, NULL, 3, NULL, NULL),
-(375, 344, 345, 221409, 11726, 'N', '155,795 km', '20,000.00', 'Se patina, se revoluciona, se neutraliza y tiro aceite. ', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la tranmsisión automática', '.', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '2022-04-04 10:47:37', NULL, NULL, 3, NULL, NULL),
-(376, 345, 346, 221410, 11727, 'N', '1 km', '17,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisisón automática', '.', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-04-04 12:46:08', NULL, NULL, 3, NULL, NULL),
-(377, 346, 347, 221411, 11728, 'N', '80,532 km', '1,600.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '0', '0', '2022-04-04 15:34:31', NULL, NULL, 3, NULL, NULL),
-(378, 347, 348, 221412, 11729, 'N', '1 km', '0.00', 'Se patina', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '2022-04-04 15:44:32', NULL, NULL, 3, NULL, NULL),
-(379, 348, 349, 221413, 11730, 'N', '1 km', '0.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-04-04 15:54:00', NULL, NULL, 3, NULL, NULL),
-(380, 349, 350, 221414, 11731, 'N', '1 km', '20,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '2022-04-04 16:08:45', NULL, NULL, 3, NULL, NULL),
-(381, 171, 173, 221415, 11732, 'GR', '1 km', '1.00', 'TRUENA AL CAMBIAR VELOCIDADES', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisisón automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-04-05 09:01:35', NULL, NULL, 3, NULL, NULL),
-(382, 350, 351, 221416, 11733, 'GR', '1 km', '1.00', 'PIERDE ACELERACION Y NO ACEPTA CAMBIOS, SE JALONEA, Y EN OCASIONES DEJA DE AVANZAR, LA ESCANEARON Y LE INDICARON QUE ERA SOLENOIDES Y CUERPO DE VALVULAS', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'REVISAR TRANSMISION AUTOMATICA', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-04-05 09:07:31', NULL, NULL, 3, NULL, NULL),
-(383, 88, 86, 221417, 11734, 'GR', '1 km', '1.00', 'ya no camino', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmsión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-04-05 09:12:06', NULL, NULL, 3, NULL, NULL),
-(384, 199, 198, 221418, 11735, 'GR', '1 km', '1.00', 'TIRA ACEITE', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'REVISAR TRANSMISION AUTOMATICA', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-04-05 09:14:01', NULL, NULL, 3, NULL, NULL),
-(385, 351, 352, 221419, 11736, 'N', '127,276 km', '1,500.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '0', '1', '2022-04-05 09:22:37', NULL, NULL, 3, NULL, NULL),
-(386, 352, 353, 221420, 11737, 'N', '153,702 km', '650.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '0', '0', '2022-04-05 09:46:03', NULL, NULL, 3, NULL, NULL),
-(387, 353, 354, 221421, 11738, 'N', '90,467 km', '1,600.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '0', '1', '2022-04-05 10:28:22', NULL, NULL, 3, NULL, NULL),
-(388, 354, 355, 221422, 11739, 'N', '116,183 km', '0.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '1', 'Diagnostico', '-', '0', '0', '1', '0', '0', '0', '0', '0', 0, '0', '0', '0', '1', '2022-04-05 10:56:17', NULL, NULL, 3, NULL, NULL),
-(389, 355, 356, 221422, 11740, 'N', '109,281 km', '1,600.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisisón automática', '-', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '1', '0', '2022-04-05 11:56:07', NULL, NULL, 3, NULL, NULL),
-(390, 356, 357, 221423, 11741, 'N', '1 km', '15,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '0', '0', '2022-04-05 13:04:10', NULL, NULL, 3, NULL, NULL),
-(391, 222, 358, 221424, 11742, 'N', '1 km', '15,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '0', '0', '2022-04-05 13:19:28', NULL, NULL, 3, NULL, NULL),
-(392, 357, 359, 221423, 11743, 'N', '1 km', '10,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '0', '0', '2022-04-05 15:32:00', NULL, NULL, 3, NULL, NULL),
-(393, 358, 360, 221424, 11744, 'N', '1 km', '12,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '0', '0', '2022-04-05 16:20:00', NULL, NULL, 3, NULL, NULL),
-(394, 76, 74, 221425, 11745, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisisón automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '0', '0', '2022-04-05 16:55:30', NULL, NULL, 3, NULL, NULL);
+INSERT INTO `proyectos` (`id_proyecto`, `id_cliente`, `id_vehiculo`, `nOrden`, `nProyecto`, `tipoReparacion`, `km`, `valorVenta`, `diagnostico`, `estadoProyectoEliminado`, `comSuperPlaca`, `comSuperKm`, `comSuperImg`, `comSuperCliente`, `comSuperDocuFirm`, `comSuperGarantia`, `comSuperAsesor`, `comSuperVerifDiariaVeh`, `comSuperActMinDia`, `descripServ1`, `descripServ2`, `proyectoActivo`, `registroSolicitud`, `altaProyecto`, `proyCodIdentificador`, `superCodIdentificador`, `comPlacas`, `comKm`, `comImg`, `comCliente`, `comDocuFirm`, `comGarantia`, `comAsesor`, `comVerifDiariaVeh`, `comActMinDia`, `fecha_creacion`, `fecha_mod`, `fecha_borrado`, `id_capC`, `id_capM`, `id_capB`) VALUES
+(1, 3, 4, 220919, 11344, 'N', '218,989 km', '1,600.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-01 15:40:31', NULL, NULL, 3, NULL, NULL),
+(2, 4, 5, 220920, 11345, 'GR', '108,811 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-01 17:54:45', NULL, NULL, 3, NULL, NULL),
+(3, 6, 6, 220921, 11346, 'N', '100,000 km', '15,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnóstico', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-02 09:03:50', NULL, NULL, 3, NULL, NULL),
+(5, 8, 8, 220923, 11348, 'N', '99,747 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-02 09:19:28', '2022-03-02 09:35:51', NULL, 3, 3, NULL),
+(6, 9, 9, 220924, 11349, 'N', '236,001 km', '650.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-02 09:35:21', NULL, NULL, 3, NULL, NULL),
+(7, 10, 10, 220925, 11350, 'N', '144,996 km', '10,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-02 10:20:27', NULL, NULL, 3, NULL, NULL),
+(8, 11, 11, 220926, 11351, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-02 11:22:50', NULL, NULL, 3, NULL, NULL),
+(9, 12, 12, 220927, 11352, 'N', '210,544 km', '14,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-02 11:47:48', NULL, NULL, 3, NULL, NULL),
+(10, 13, 13, 220928, 11353, 'GR', '302,651 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar Transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-02 12:54:35', NULL, NULL, 3, NULL, NULL),
+(11, 15, 14, 220929, 11354, 'N', '1 km', '13,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-02 15:18:23', NULL, NULL, 3, NULL, NULL),
+(12, 16, 15, 220930, 11355, 'GR', '129,117 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-02 16:29:15', NULL, NULL, 3, NULL, NULL),
+(13, 17, 16, 220931, 11356, 'N', '103,935 km', '1,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-03 10:39:15', NULL, NULL, 3, NULL, NULL),
+(14, 18, 17, 220932, 11357, 'N', '1 km', '10,500.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-03 10:47:53', NULL, NULL, 3, NULL, NULL),
+(15, 19, 18, 220933, 11358, 'N', '1 km', '20,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-03 11:07:44', '2022-03-03 13:16:16', NULL, 3, 3, NULL),
+(16, 20, 19, 220934, 11359, 'N', '1 km', '20,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-03 11:18:17', NULL, NULL, 3, NULL, NULL),
+(17, 21, 20, 220935, 11360, 'N', '234,184 km', '14,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión autoḿática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-03 13:05:29', NULL, NULL, 3, NULL, NULL),
+(18, 22, 21, 220936, 11361, 'N', '245,047 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-03 14:17:23', NULL, NULL, 3, NULL, NULL),
+(19, 23, 22, 220937, 11362, 'GR', '263,385 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-03 17:39:49', NULL, NULL, 3, NULL, NULL),
+(20, 24, 23, 220938, 11363, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-04 10:44:38', NULL, NULL, 3, NULL, NULL),
+(21, 25, 24, 220939, 11364, 'GR', '183,818 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-04 11:26:54', NULL, NULL, 3, NULL, NULL),
+(23, 27, 26, 220941, 11366, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-04 13:24:02', NULL, NULL, 3, NULL, NULL),
+(24, 28, 27, 220942, 11367, 'N', '95,986 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-04 14:52:29', NULL, NULL, 3, NULL, NULL),
+(25, 29, 28, 220943, 11368, 'N', '1 km', '14,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-04 17:11:07', NULL, NULL, 3, NULL, NULL),
+(26, 30, 29, 220944, 11369, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-05 09:06:00', NULL, NULL, 3, NULL, NULL),
+(27, 31, 30, 220945, 11370, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-05 09:12:35', NULL, NULL, 3, NULL, NULL),
+(28, 32, 31, 110946, 11371, 'N', '146,542 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-05 09:16:07', NULL, NULL, 3, NULL, NULL),
+(29, 33, 32, 220946, 11372, 'N', '1 km', '11,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-05 10:06:30', NULL, NULL, 3, NULL, NULL),
+(30, 34, 33, 220947, 11373, 'N', '119,003 km', '1,900.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-05 11:00:26', NULL, NULL, 3, NULL, NULL),
+(31, 35, 34, 220948, 11374, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-05 12:42:52', NULL, NULL, 3, NULL, NULL),
+(32, 36, 35, 220949, 11375, 'GR', '1 km', '1.00', '-', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-05 12:49:45', NULL, '2022-04-06 12:57:17', 3, NULL, 2),
+(33, 37, 36, 220950, 11376, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automàtica', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-05 13:04:58', NULL, NULL, 3, NULL, NULL),
+(35, 39, 38, 221002, 11378, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-07 09:29:05', '2022-03-07 09:54:34', NULL, 3, 3, NULL),
+(36, 40, 39, 221003, 11379, 'GR', '249,476 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-07 09:36:09', NULL, NULL, 3, NULL, NULL),
+(37, 41, 40, 221004, 11380, 'N', '137,525 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-07 09:40:32', NULL, NULL, 3, NULL, NULL),
+(38, 42, 41, 221005, 11381, 'GR', '231,645 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-07 09:46:40', NULL, NULL, 3, NULL, NULL),
+(41, 45, 44, 221008, 11384, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-07 10:45:01', NULL, NULL, 3, NULL, NULL),
+(42, 46, 45, 221009, 11385, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-07 12:14:24', NULL, NULL, 3, NULL, NULL),
+(43, 47, 46, 221010, 11386, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-07 12:47:21', NULL, NULL, 3, NULL, NULL),
+(44, 48, 47, 221011, 11387, 'N', '232,196 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '1', '0', '0', 'Revisar transmisión automática', '-', '0', '1', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-07 13:13:49', NULL, NULL, 3, NULL, NULL),
+(45, 49, 48, 221012, 11388, 'GR', '270,292 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '1', '0', '0', 'Revisar transmsión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-07 13:28:20', '2022-03-07 14:40:28', NULL, 3, 3, NULL),
+(46, 50, 49, 221013, 11389, 'N', '1 km', '13,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-07 14:51:01', NULL, NULL, 3, NULL, NULL),
+(47, 51, 50, 221014, 11390, 'N', '88,219 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automatica', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-07 16:23:15', NULL, NULL, 3, NULL, NULL),
+(48, 52, 51, 221015, 11391, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-07 16:47:32', NULL, NULL, 3, NULL, NULL),
+(49, 54, 53, 221016, 11392, 'N', '0 km', '13,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'REPARACION', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-08 09:51:56', NULL, NULL, 3, NULL, NULL),
+(51, 56, 55, 221018, 11394, 'N', '217,741 km', '6,000.00', '', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'EMPACADA', '-', '0', '1', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-08 10:39:42', NULL, NULL, 3, NULL, NULL),
+(52, 57, 56, 221019, 11395, 'N', '157,377 km', '18,000.00', '****', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'reparación de transmisión ', '*****', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-08 13:09:41', NULL, NULL, 3, NULL, NULL),
+(54, 60, 58, 221021, 11397, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'REPARACIÓN DE TRANSMISIÓN', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-08 15:37:41', NULL, NULL, 3, NULL, NULL),
+(55, 53, 52, 220238, 11398, 'N', '1 km', '1.00', 'Fecha ingreso 15/01/2022\r\nNúmero orden 220238\r\nNúmero de proyecto 11027', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 15/01/2022\r\nNúmero orden 220238\r\nNúmero de proyecto 11027', 'Fecha ingreso 15/01/2022\r\nNúmero orden 220238\r\nNúmero de proyecto 11027', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-08 16:01:13', NULL, NULL, 4, NULL, NULL),
+(56, 61, 59, 220341, 11399, 'GR', '1 km', '1.00', 'Fecha ingreso 21/01/2022\r\nNúmero orden 220341\r\nNúmero de proyecto 11068', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 21/01/2022\r\nNúmero orden 220341\r\nNúmero de proyecto 11068', 'Fecha ingreso 21/01/2022\r\nNúmero orden 220341\r\nNúmero de proyecto 11068', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-08 16:05:44', NULL, NULL, 4, NULL, NULL),
+(57, 62, 60, 220345, 11400, 'N', '158,235 km', '1.00', 'Fecha ingreso 22/01/2022\r\nNúmero orden 220345\r\nNúmero de proyecto 11072\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 22/01/2022\r\nNúmero orden 220345\r\nNúmero de proyecto 11072\r\n', 'Fecha ingreso 22/01/2022\r\nNúmero orden 220345\r\nNúmero de proyecto 11072\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-08 16:13:04', NULL, NULL, 4, NULL, NULL),
+(58, 63, 61, 220316, 11401, 'N', '197,467 km', '1.00', 'Fecha ingreso 18/01/2022\r\nNúmero orden 220316\r\nNúmero de proyecto 11043', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 18/01/2022\r\nNúmero orden 220316\r\nNúmero de proyecto 11043', 'Fecha ingreso 18/01/2022\r\nNúmero orden 220316\r\nNúmero de proyecto 11043', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-08 16:19:01', NULL, '2022-04-01 13:03:44', 4, NULL, 2),
+(59, 64, 62, 220412, 11402, 'GR', '1 km', '1.00', 'Fecha ingreso 24/01/2022\r\nNúmero orden 220412\r\nNúmero de proyecto 11085', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 24/01/2022\r\nNúmero orden 220412\r\nNúmero de proyecto 11085', 'Fecha ingreso 24/01/2022\r\nNúmero orden 220412\r\nNúmero de proyecto 11085', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-08 16:23:41', NULL, NULL, 4, NULL, NULL),
+(60, 65, 63, 220420, 11403, 'N', '1 km', '1.00', 'Fecha ingreso 25/01/2022\r\nNúmero orden 220420\r\nNúmero de proyecto 11093\r\n', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 25/01/2022\r\nNúmero orden 220420\r\nNúmero de proyecto 11093\r\n', 'Fecha ingreso 25/01/2022\r\nNúmero orden 220420\r\nNúmero de proyecto 11093\r\n', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-08 16:28:58', NULL, NULL, 4, NULL, NULL),
+(61, 66, 64, 220436, 11404, 'GR', '1 km', '1.00', 'Fecha ingreso 28/01/2022\r\nNúmero orden 220436\r\nNúmero de proyecto 11109', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/01/2022\r\nNúmero orden 220436\r\nNúmero de proyecto 11109', 'Fecha ingreso 28/01/2022\r\nNúmero orden 220436\r\nNúmero de proyecto 11109', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-08 16:33:05', NULL, NULL, 4, NULL, NULL),
+(62, 67, 65, 220450, 11405, 'GR', '1 km', '1.00', 'Fecha ingreso 29/01/2022\r\nNúmero orden 220450\r\nNúmero de proyecto 11124', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 29/01/2022\r\nNúmero orden 220450\r\nNúmero de proyecto 11124', 'Fecha ingreso 29/01/2022\r\nNúmero orden 220450\r\nNúmero de proyecto 11124', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-08 16:47:03', NULL, NULL, 4, NULL, NULL),
+(63, 68, 66, 220441, 11406, 'N', '1 km', '1.00', 'Fecha ingreso 28/01/2022\r\nNúmero orden 220441\r\nNúmero de proyecto 11115\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/01/2022\r\nNúmero orden 220441\r\nNúmero de proyecto 11115\r\n', 'Fecha ingreso 28/01/2022\r\nNúmero orden 220441\r\nNúmero de proyecto 11115\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '0000-00-00 00:00:00', NULL, NULL, 4, NULL, NULL),
+(64, 69, 67, 220520, 11407, 'GR', '1 km', '1.00', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220520\r\nNúmero de proyecto 11145\r\ncolor Plata', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220520\r\nNúmero de proyecto 11145', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220520\r\nNúmero de proyecto 11145', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-08 16:58:02', NULL, NULL, 4, NULL, NULL),
+(65, 70, 68, 220521, 11408, 'GR', '1 km', '1.00', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220521\r\nNúmero de proyecto 11146', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220521\r\nNúmero de proyecto 11146', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220521\r\nNúmero de proyecto 11146', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-08 17:04:26', NULL, NULL, 4, NULL, NULL),
+(66, 72, 69, 220522, 11409, 'GR', '1 km', '1.00', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220522\r\nNúmero de proyecto 11147', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220522\r\nNúmero de proyecto 11147', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220522\r\nNúmero de proyecto 11147', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-09 09:25:39', NULL, NULL, 4, NULL, NULL),
+(68, 73, 71, 220529, 11411, 'GR', '1 km', '1.00', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220529\r\nNúmero de proyecto 11156', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220529\r\nNúmero de proyecto 11156', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220529\r\nNúmero de proyecto 11156', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 09:30:26', NULL, NULL, 4, NULL, NULL),
+(69, 75, 72, 220531, 11412, 'GR', '1 km', '1.00', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220531\r\nNúmero de proyecto 11158\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220531\r\nNúmero de proyecto 11158\r\n', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220531\r\nNúmero de proyecto 11158\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 09:35:52', NULL, NULL, 4, NULL, NULL),
+(71, 76, 74, 220536, 11414, 'GR', '1 km', '1.00', 'Fecha ingreso 04/02/2022\r\nNúmero orden 220536\r\nNúmero de proyecto 11163\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 04/02/2022\r\nNúmero orden 220536\r\nNúmero de proyecto 11163\r\n', 'Fecha ingreso 04/02/2022\r\nNúmero orden 220536\r\nNúmero de proyecto 11163\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 09:41:43', NULL, NULL, 4, NULL, NULL),
+(72, 77, 75, 220537, 11415, 'GR', '1 km', '1.00', 'Fecha ingreso 04/02/2022\r\nNúmero orden 220537\r\nNúmero de proyecto 11164', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 04/02/2022\r\nNúmero orden 220537\r\nNúmero de proyecto 11164', 'Fecha ingreso 04/02/2022\r\nNúmero orden 220537\r\nNúmero de proyecto 11164', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 09:47:52', NULL, NULL, 4, NULL, NULL),
+(74, 79, 76, 220535, 11416, 'N', '1 km', '1.00', 'Fecha ingreso 03/02/2022\r\nNúmero orden \r\nNúmero de proyecto 11162\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220535\r\nNúmero de proyecto 11162\r\n', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220535\r\nNúmero de proyecto 11162\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 09:59:21', NULL, NULL, 4, NULL, NULL),
+(75, 80, 78, 220533, 11418, 'N', '173,243 km', '1.00', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220533\r\nNúmero de proyecto 11160', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220533\r\nNúmero de proyecto 11160', 'Fecha ingreso 03/02/2022\r\nNúmero orden 220533\r\nNúmero de proyecto 11160', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 10:03:46', NULL, NULL, 4, NULL, NULL),
+(76, 81, 80, 221025, 11419, 'N', '98,260 km', '27,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-09 10:06:59', NULL, NULL, 3, NULL, NULL),
+(77, 82, 79, 220527, 11420, 'N', '1 km', '1.00', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220527\r\nNúmero de proyecto 11152', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220527\r\nNúmero de proyecto 11152', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220527\r\nNúmero de proyecto 11152', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 10:08:23', NULL, NULL, 4, NULL, NULL),
+(78, 83, 81, 220511, 11421, 'N', '140,886 km', '1.00', 'Fecha ingreso 01/02/2022\r\nNúmero orden 220511\r\nNúmero de proyecto 11136', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 01/02/2022\r\nNúmero orden 220511\r\nNúmero de proyecto 11136', 'Fecha ingreso 01/02/2022\r\nNúmero orden 220511\r\nNúmero de proyecto 11136', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 10:25:07', NULL, NULL, 4, NULL, NULL),
+(79, 84, 82, 220504, 11422, 'N', '131,793 km', '1.00', 'Fecha ingreso 31/01/2022\r\nNúmero orden 220504\r\nNúmero de proyecto 11128\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 31/01/2022\r\nNúmero orden 220504\r\nNúmero de proyecto 11128\r\n', 'Fecha ingreso 31/01/2022\r\nNúmero orden 220504\r\nNúmero de proyecto 11128\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '0000-00-00 00:00:00', NULL, NULL, 4, NULL, NULL),
+(80, 85, 83, 220610, 11423, 'GR', '1 km', '1.00', 'Fecha ingreso 08/02/2022\r\nNúmero orden 220610\r\nNúmero de proyecto 11189', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 08/02/2022\r\nNúmero orden 220610\r\nNúmero de proyecto 11189', 'Fecha ingreso 08/02/2022\r\nNúmero orden 220610\r\nNúmero de proyecto 11189', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 10:33:42', NULL, NULL, 4, NULL, NULL),
+(81, 86, 84, 220625, 11424, 'GR', '1 km', '1.00', 'Fecha ingreso 09/02/2022\r\nNúmero orden 220625\r\nNúmero de proyecto 11204\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 09/02/2022\r\nNúmero orden 220625\r\nNúmero de proyecto 11204\r\n', 'Fecha ingreso 09/02/2022\r\nNúmero orden 220625\r\nNúmero de proyecto 11204\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 10:38:37', NULL, NULL, 4, NULL, NULL),
+(82, 69, 67, 220628, 11425, 'GR', '1 km', '1.00', 'Fecha ingreso 10/02/2022\r\nNúmero orden 220628\r\nNúmero de proyecto 11207', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 10/02/2022\r\nNúmero orden 220628\r\nNúmero de proyecto 11207', 'Fecha ingreso 10/02/2022\r\nNúmero orden 220628\r\nNúmero de proyecto 11207', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 10:42:31', NULL, NULL, 4, NULL, NULL),
+(83, 63, 85, 220638, 11426, 'GR', '1 km', '1.00', 'Fecha ingreso 11/02/2022\r\nNúmero orden 220638\r\nNúmero de proyecto 11217\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 11/02/2022\r\nNúmero orden 220638\r\nNúmero de proyecto 11217\r\n', 'Fecha ingreso 11/02/2022\r\nNúmero orden 220638\r\nNúmero de proyecto 11217\r\n', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-09 11:12:47', NULL, NULL, 4, NULL, NULL),
+(84, 16, 15, 220629, 11427, 'GR', '1 km', '1.00', 'Fecha ingreso 10/02/2022\r\nNúmero orden 220629\r\nNúmero de proyecto 11208', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 10/02/2022\r\nNúmero orden 220629\r\nNúmero de proyecto 11208', 'Fecha ingreso 10/02/2022\r\nNúmero orden 220629\r\nNúmero de proyecto 11208', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 11:17:07', NULL, NULL, 4, NULL, NULL),
+(85, 87, 99, 221026, 11428, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico ', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-09 11:50:54', '2022-03-09 14:26:42', NULL, 3, 3, NULL),
+(86, 88, 86, 220639, 11428, 'GR', '1 km', '1.00', 'Fecha ingreso 11/02/2022\r\nNúmero orden 220639\r\nNúmero de proyecto 11218', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 11/02/2022\r\nNúmero orden 220639\r\nNúmero de proyecto 11218', 'Fecha ingreso 11/02/2022\r\nNúmero orden 220639\r\nNúmero de proyecto 11218', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 11:51:14', NULL, NULL, 4, NULL, NULL),
+(87, 89, 88, 220644, 11430, 'GR', '1 km', '1.00', 'Fecha ingreso 12/02/2022\r\nNúmero orden 220644\r\nNúmero de proyecto 11223\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 12/02/2022\r\nNúmero orden 220644\r\nNúmero de proyecto 11223\r\n', 'Fecha ingreso 12/02/2022\r\nNúmero orden 220644\r\nNúmero de proyecto 11223\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 11:55:02', NULL, NULL, 4, NULL, NULL),
+(88, 90, 90, 221027, 11431, 'N', '123,773 km', '6,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y Dirección', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-09 11:58:39', NULL, NULL, 3, NULL, NULL),
+(89, 91, 89, 220703, 11431, 'GR', '153,983 km', '1.00', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220703\r\nNúmero de proyecto 11228', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220703\r\nNúmero de proyecto 11228', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220703\r\nNúmero de proyecto 11228', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-09 11:59:15', NULL, NULL, 4, NULL, NULL),
+(90, 92, 91, 220706, 11433, 'GR', '1 km', '1.00', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220706\r\nNúmero de proyecto 11231\r\n', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220706\r\nNúmero de proyecto 11231\r\n', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220706\r\nNúmero de proyecto 11231\r\n', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-09 12:03:11', NULL, NULL, 4, NULL, NULL),
+(91, 93, 92, 220707, 11434, 'GR', '1 km', '1.00', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220707\r\nNúmero de proyecto 11232\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220707\r\nNúmero de proyecto 11232\r\n', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220707\r\nNúmero de proyecto 11232\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-09 12:07:15', NULL, NULL, 4, NULL, NULL),
+(92, 94, 93, 220717, 11435, 'GR', '138,028 km', '1.00', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220717\r\nNúmero de proyecto 11242', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220717\r\nNúmero de proyecto 11242', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220717\r\nNúmero de proyecto 11242', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-09 12:14:51', NULL, NULL, 4, NULL, NULL),
+(93, 95, 94, 220718, 11436, 'GR', '1 km', '1.00', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220718\r\nNúmero de proyecto 11243', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220718\r\nNúmero de proyecto 11243', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220718\r\nNúmero de proyecto 11243', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 12:23:27', NULL, NULL, 4, NULL, NULL),
+(94, 96, 95, 220723, 11437, 'GR', '1 km', '1.00', 'Fecha ingreso 16/02/2022\r\nNúmero orden 220723\r\nNúmero de proyecto 11248', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 16/02/2022\r\nNúmero orden 220723\r\nNúmero de proyecto 11248', 'Fecha ingreso 16/02/2022\r\nNúmero orden 220723\r\nNúmero de proyecto 11248', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-09 12:42:41', NULL, NULL, 4, NULL, NULL),
+(95, 63, 85, 220732, 11438, 'GR', '197,696 km', '1.00', 'Fecha ingreso 17/02/2022\r\nNúmero orden 220732\r\nNúmero de proyecto 11257', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 17/02/2022\r\nNúmero orden 220732\r\nNúmero de proyecto 11257', 'Fecha ingreso 17/02/2022\r\nNúmero orden 220732\r\nNúmero de proyecto 11257', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-09 12:45:37', NULL, '2022-04-01 13:03:56', 4, NULL, 2),
+(96, 97, 96, 220737, 11439, 'N', '1 km', '1.00', 'Fecha ingreso 17/02/2022\r\nNúmero orden 220737\r\nNúmero de proyecto 11262', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 17/02/2022\r\nNúmero orden 220737\r\nNúmero de proyecto 11262', 'Fecha ingreso 17/02/2022\r\nNúmero orden 220737\r\nNúmero de proyecto 11262', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 12:50:53', NULL, NULL, 4, NULL, NULL),
+(97, 98, 98, 221028, 11440, 'N', '149,999 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 12:55:20', NULL, NULL, 3, NULL, NULL),
+(98, 99, 97, 220722, 11441, 'N', '88,982 km', '1.00', 'Fecha ingreso 17/02/2022\r\nNúmero orden 220722\r\nNúmero de proyecto 11247', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 17/02/2022\r\nNúmero orden 220722\r\nNúmero de proyecto 11247', 'Fecha ingreso 17/02/2022\r\nNúmero orden 220722\r\nNúmero de proyecto 11247', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 12:56:14', NULL, NULL, 4, NULL, NULL),
+(99, 100, 100, 220719, 11442, 'N', '231,149 km', '1.00', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220719\r\nNúmero de proyecto 11244\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220719\r\nNúmero de proyecto 11244\r\n', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220719\r\nNúmero de proyecto 11244\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 14:25:25', NULL, NULL, 4, NULL, NULL),
+(100, 101, 101, 220713, 11443, 'N', '254,628 km', '1.00', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220713\r\nNúmero de proyecto 11238\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220713\r\nNúmero de proyecto 11238\r\n', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220713\r\nNúmero de proyecto 11238\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 14:29:57', NULL, NULL, 4, NULL, NULL),
+(101, 102, 102, 220712, 11444, 'N', '226,163 km', '1.00', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220712\r\nNúmero de proyecto 11237\r\n', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220712\r\nNúmero de proyecto 11237\r\n', 'Fecha ingreso 15/02/2022\r\nNúmero orden 220712\r\nNúmero de proyecto 11237\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-09 14:33:48', NULL, '2022-03-25 12:46:02', 4, NULL, 2),
+(102, 103, 103, 220710, 11445, 'N', '295,704 km', '1.00', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220710\r\nNúmero de proyecto 11235', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220710\r\nNúmero de proyecto 11235', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220710\r\nNúmero de proyecto 11235', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 14:38:17', NULL, NULL, 4, NULL, NULL),
+(103, 48, 47, 220701, 11446, 'N', '231,251 km', '1.00', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220701\r\nNúmero de proyecto 11226\r\n', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220701\r\nNúmero de proyecto 11226\r\n', 'Fecha ingreso 14/02/2022\r\nNúmero orden 220701\r\nNúmero de proyecto 11226\r\n', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-09 14:40:41', NULL, '2022-04-01 13:03:24', 4, NULL, 2),
+(104, 104, 104, 220343, 11447, 'N', '1 km', '1.00', 'Fecha ingreso 22/01/2022\r\nNúmero orden 220343\r\nNúmero de proyecto 11070\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 22/01/2022\r\nNúmero orden 220343\r\nNúmero de proyecto 11070\r\n', 'Fecha ingreso 22/01/2022\r\nNúmero orden 220343\r\nNúmero de proyecto 11070\r\n', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-09 14:49:12', NULL, NULL, 4, NULL, NULL),
+(105, 105, 106, 220111, 11448, 'N', '1 km', '1.00', 'Fecha ingreso 14/01/2022\r\nNúmero orden 220111\r\nNúmero de proyecto 10944', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 14/01/2022\r\nNúmero orden 220111\r\nNúmero de proyecto 10944', 'Fecha ingreso 14/01/2022\r\nNúmero orden 220111\r\nNúmero de proyecto 10944', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 14:58:55', NULL, NULL, 4, NULL, NULL),
+(106, 36, 35, 215033, 11449, 'N', '1 km', '1.00', 'Fecha ingreso 18/12/2021\r\nNúmero orden 215033\r\nNúmero de proyecto 10868', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 18/12/2021\r\nNúmero orden 215033\r\nNúmero de proyecto 10868', 'Fecha ingreso 18/12/2021\r\nNúmero orden 215033\r\nNúmero de proyecto 10868', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-09 15:01:25', NULL, NULL, 4, NULL, NULL),
+(107, 106, 107, 212508, 11450, 'GR', '192,303 km', '1.00', 'Fecha ingreso 07/08/2021\r\nNúmero orden 212508\r\nNúmero de proyecto 9659\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 07/08/2021\r\nNúmero orden 212508\r\nNúmero de proyecto 9659\r\n', 'Fecha ingreso 07/08/2021\r\nNúmero orden 212508\r\nNúmero de proyecto 9659\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 15:12:06', NULL, NULL, 4, NULL, NULL),
+(108, 107, 108, 211312, 11451, 'GR', '121,893 km', '1.00', 'Fecha ingreso 07/08/2021\r\nNúmero orden 211312\r\nNúmero de proyecto 9029', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 07/08/2021\r\nNúmero orden 211312\r\nNúmero de proyecto 9029', 'Fecha ingreso 07/08/2021\r\nNúmero orden 211312\r\nNúmero de proyecto 9029', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-09 15:17:09', NULL, NULL, 4, NULL, NULL),
+(109, 108, 109, 211933, 11452, 'GR', '125,737 km', '1.00', 'Fecha ingreso 20/08/2021\r\nNúmero orden 211933\r\nNúmero de proyecto 9379', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 20/08/2021\r\nNúmero orden 211933\r\nNúmero de proyecto 9379', 'Fecha ingreso 20/08/2021\r\nNúmero orden 211933\r\nNúmero de proyecto 9379', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 15:23:30', NULL, NULL, 4, NULL, NULL),
+(110, 109, 110, 213830, 11453, 'GR', '1 km', '1.00', 'Fecha ingreso 23/09/2021\r\nNúmero orden 213830\r\nNúmero de proyecto 10373', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 23/09/2021\r\nNúmero orden 213830\r\nNúmero de proyecto 10373', 'Fecha ingreso 23/09/2021\r\nNúmero orden 213830\r\nNúmero de proyecto 10373', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 15:27:16', NULL, NULL, 4, NULL, NULL),
+(111, 110, 111, 212910, 11454, 'N', '1 km', '1.00', 'Fecha ingreso 19/07/2021\r\nNúmero orden 212910\r\nNúmero de proyecto 9893', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 19/07/2021\r\nNúmero orden 212910\r\nNúmero de proyecto 9893', 'Fecha ingreso 19/07/2021\r\nNúmero orden 212910\r\nNúmero de proyecto 9893', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 15:30:44', NULL, NULL, 4, NULL, NULL),
+(112, 111, 112, 214121, 11455, 'GR', '1 km', '1.00', 'Fecha ingreso 23/02/2022\r\nNúmero orden 214121\r\nNúmero de proyecto 10485', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 23/02/2022\r\nNúmero orden 214121\r\nNúmero de proyecto 10485', 'Fecha ingreso 23/02/2022\r\nNúmero orden 214121\r\nNúmero de proyecto 10485', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 15:34:23', NULL, NULL, 4, NULL, NULL),
+(113, 112, 113, 214440, 11456, 'GR', '124,482 km', '1.00', 'Fecha ingreso 05/11/2021\r\nNúmero orden 214440\r\nNúmero de proyecto 10622', '1', '1', '0', '0', '0', '0', '0', '1', '0', '0', 'Fecha ingreso 05/11/2021\r\nNúmero orden 214440\r\nNúmero de proyecto 10622', 'Fecha ingreso 05/11/2021\r\nNúmero orden 214440\r\nNúmero de proyecto 10622', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-09 15:38:17', NULL, NULL, 4, NULL, NULL),
+(114, 113, 114, 213144, 11457, 'GR', '1 km', '1.00', 'Fecha ingreso 07/08/2021\r\nNúmero orden 213144\r\nNúmero de proyecto 10056', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 07/08/2021\r\nNúmero orden 213144\r\nNúmero de proyecto 10056', 'Fecha ingreso 07/08/2021\r\nNúmero orden 213144\r\nNúmero de proyecto 10056', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-09 15:42:54', NULL, NULL, 4, NULL, NULL),
+(116, 115, 116, 221030, 11459, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-09 17:16:20', NULL, NULL, 3, NULL, NULL),
+(117, 116, 117, 221031, 11460, 'N', '1 km', '1.00', 'Fuga de aceite', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-10 09:29:43', NULL, NULL, 3, NULL, NULL),
+(118, 118, 118, 220804, 11461, 'GR', '118,463 km', '1.00', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220804\r\nNúmero de proyecto 11276', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220804\r\nNúmero de proyecto 11276', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220804\r\nNúmero de proyecto 11276', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-10 09:48:18', NULL, NULL, 4, NULL, NULL),
+(119, 119, 120, 214139, 11462, 'N', '105,269 km', '1.00', 'Fecha ingreso 15/10/2021\r\nNúmero orden 214139\r\nNúmero de proyecto 10505', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 15/10/2021\r\nNúmero orden 214139\r\nNúmero de proyecto 10505', 'Fecha ingreso 15/10/2021\r\nNúmero orden 214139\r\nNúmero de proyecto 10505', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-10 09:56:44', NULL, NULL, 4, NULL, NULL),
+(121, 120, 121, 220428, 11464, 'GR', '1 km', '1.00', 'Fecha ingreso 27/01/2022\r\nNúmero orden 220428\r\nNúmero de proyecto 11101', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 27/01/2022\r\nNúmero orden 220428\r\nNúmero de proyecto 11101', 'Fecha ingreso 27/01/2022\r\nNúmero orden 220428\r\nNúmero de proyecto 11101', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-10 10:04:12', NULL, NULL, 4, NULL, NULL),
+(122, 121, 122, 220310, 11465, 'N', '135,399 km', '1.00', 'Fecha ingreso 18/01/2022\r\nNúmero orden 220310\r\nNúmero de proyecto 11037', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 18/01/2022\r\nNúmero orden 220310\r\nNúmero de proyecto 11037', 'Fecha ingreso 18/01/2022\r\nNúmero orden 220310\r\nNúmero de proyecto 11037', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-10 10:11:14', NULL, NULL, 4, NULL, NULL),
+(123, 122, 123, 214429, 11466, 'GR', '1 km', '1.00', 'Fecha ingreso 04/11/2021\r\nNúmero orden 214429\r\nNúmero de proyecto 10610', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 04/11/2021\r\nNúmero orden 214429\r\nNúmero de proyecto 10610', 'Fecha ingreso 04/11/2021\r\nNúmero orden 214429\r\nNúmero de proyecto 10610', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-10 10:18:24', NULL, NULL, 4, NULL, NULL),
+(124, 123, 124, 214225, 11467, 'GR', '290,463 km', '1.00', 'Fecha ingreso 22/10/2021\r\nNúmero orden 214225\r\nNúmero de proyecto 10539', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 22/10/2021\r\nNúmero orden 214225\r\nNúmero de proyecto 10539', 'Fecha ingreso 22/10/2021\r\nNúmero orden 214225\r\nNúmero de proyecto 10539', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-10 10:22:38', NULL, NULL, 4, NULL, NULL),
+(125, 124, 125, 221032, 11468, 'N', '112,289 km', '18,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-10 12:45:21', NULL, NULL, 3, NULL, NULL),
+(126, 126, 126, 221033, 11469, 'N', '268,692 km', '5,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación y switch de presión', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-10 15:39:19', NULL, NULL, 3, NULL, NULL),
+(129, 129, 130, 221037, 11472, 'N', '392,147 km', '15,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-10 16:27:09', NULL, NULL, 3, NULL, NULL),
+(130, 130, 131, 221038, 11473, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-10 16:35:24', NULL, NULL, 3, NULL, NULL),
+(131, 131, 132, 221039, 11474, 'GR', '165,543 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-10 16:42:16', NULL, NULL, 3, NULL, NULL),
+(132, 132, 133, 221040, 11475, 'GR', '624,644 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-10 16:52:52', NULL, NULL, 3, NULL, NULL),
+(134, 134, 135, 221042, 11477, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automátic', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-10 17:21:06', NULL, NULL, 3, NULL, NULL),
+(136, 135, 137, 214419, 11479, 'GR', '104,454 km', '1.00', 'Fecha ingreso 03/11/2021\r\nNúmero orden 214419\r\nNúmero de proyecto 10601', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 03/11/2021\r\nNúmero orden 214419\r\nNúmero de proyecto 10601', 'Fecha ingreso 03/11/2021\r\nNúmero orden 214419\r\nNúmero de proyecto 10601', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-11 10:45:55', NULL, NULL, 4, NULL, NULL),
+(137, 136, 138, 213524, 11480, 'GR', '1 km', '1.00', 'Fecha ingreso 01/09/2021\r\nNúmero orden 213524\r\nNúmero de proyecto 10226\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 01/09/2021\r\nNúmero orden 213524\r\nNúmero de proyecto 10226\r\n', 'Fecha ingreso 01/09/2021\r\nNúmero orden 213524\r\nNúmero de proyecto 10226\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-11 10:50:34', NULL, NULL, 4, NULL, NULL),
+(138, 137, 139, 220437, 11481, 'GR', '1 km', '1.00', 'Fecha ingreso 28/01/2022\r\nNúmero orden 220437\r\nNúmero de proyecto 11110\r\n', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/01/2022\r\nNúmero orden 220437\r\nNúmero de proyecto 11110\r\n', 'Fecha ingreso 28/01/2022\r\nNúmero orden 220437\r\nNúmero de proyecto 11110\r\n', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-11 10:55:00', NULL, NULL, 4, NULL, NULL),
+(139, 138, 140, 220138, 11482, 'GR', '1 km', '1.00', 'Fecha ingreso 07/01/2022\r\nNúmero orden 220138\r\nNúmero de proyecto 10971', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 07/01/2022\r\nNúmero orden 220138\r\nNúmero de proyecto 10971', 'Fecha ingreso 07/01/2022\r\nNúmero orden 220138\r\nNúmero de proyecto 10971', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-11 10:58:47', NULL, NULL, 4, NULL, NULL),
+(140, 140, 142, 220318, 11483, 'N', '1 km', '1.00', 'Fecha ingreso 19/01/2022\r\nNúmero orden 220318\r\nNúmero de proyecto 11045', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 19/01/2022\r\nNúmero orden 220318\r\nNúmero de proyecto 11045', 'Fecha ingreso 19/01/2022\r\nNúmero orden 220318\r\nNúmero de proyecto 11045', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-11 11:07:03', NULL, NULL, 4, NULL, NULL),
+(142, 141, 144, 220135, 11485, 'GR', '1 km', '1.00', 'Fecha ingreso 06/01/2022\r\nNúmero orden 220135\r\nNúmero de proyecto 10968', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 06/01/2022\r\nNúmero orden 220135\r\nNúmero de proyecto 10968', 'Fecha ingreso 06/01/2022\r\nNúmero orden 220135\r\nNúmero de proyecto 10968', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-11 11:14:57', NULL, NULL, 4, NULL, NULL),
+(143, 142, 145, 214307, 11486, 'GR', '1 km', '1.00', 'Fecha ingreso 09/12/2021\r\nNúmero orden 214307\r\nNúmero de proyecto 10554', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 09/12/2021\r\nNúmero orden 214307\r\nNúmero de proyecto 10554', 'Fecha ingreso 09/12/2021\r\nNúmero orden 214307\r\nNúmero de proyecto 10554', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-11 11:18:32', NULL, NULL, 4, NULL, NULL),
+(144, 143, 146, 220503, 11487, 'N', '161,117 km', '1.00', 'Fecha ingreso 19/02/2022\r\nNúmero orden 220503\r\nNúmero de proyecto 11127', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 19/02/2022\r\nNúmero orden 220503\r\nNúmero de proyecto 11127', 'Fecha ingreso 19/02/2022\r\nNúmero orden 220503\r\nNúmero de proyecto 11127', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-11 11:22:25', NULL, NULL, 4, NULL, NULL),
+(145, 144, 147, 220519, 11488, 'GR', '88,352 km', '1.00', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220519\r\nNúmero de proyecto 11144', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220519\r\nNúmero de proyecto 11144', 'Fecha ingreso 02/02/2022\r\nNúmero orden 220519\r\nNúmero de proyecto 11144', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-11 11:39:18', NULL, NULL, 4, NULL, NULL),
+(146, 145, 149, 221044, 11489, 'GR', '80,745 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '1', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-11 11:44:00', NULL, NULL, 3, NULL, NULL),
+(147, 146, 148, 212439, 11490, 'GR', '115,650 km', '1.00', 'Fecha ingreso 04/08/2021\r\nNúmero orden 212439\r\nNúmero de proyecto 9641', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 04/08/2021\r\nNúmero orden 212439\r\nNúmero de proyecto 9641', 'Fecha ingreso 04/08/2021\r\nNúmero orden 212439\r\nNúmero de proyecto 9641', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-11 11:45:02', NULL, NULL, 4, NULL, NULL),
+(148, 147, 150, 214513, 11491, 'GR', '143,505 km', '1.00', 'Fecha ingreso 09/11/2021\r\nNúmero orden 214513\r\nNúmero de proyecto 10643\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 09/11/2021\r\nNúmero orden 214513\r\nNúmero de proyecto 10643\r\n', 'Fecha ingreso 09/11/2021\r\nNúmero orden 214513\r\nNúmero de proyecto 10643\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-11 11:51:17', NULL, NULL, 4, NULL, NULL),
+(149, 148, 151, 221045, 11492, 'N', '176,635 km', '6,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y empacada de transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-11 11:53:13', NULL, NULL, 3, NULL, NULL);
+INSERT INTO `proyectos` (`id_proyecto`, `id_cliente`, `id_vehiculo`, `nOrden`, `nProyecto`, `tipoReparacion`, `km`, `valorVenta`, `diagnostico`, `estadoProyectoEliminado`, `comSuperPlaca`, `comSuperKm`, `comSuperImg`, `comSuperCliente`, `comSuperDocuFirm`, `comSuperGarantia`, `comSuperAsesor`, `comSuperVerifDiariaVeh`, `comSuperActMinDia`, `descripServ1`, `descripServ2`, `proyectoActivo`, `registroSolicitud`, `altaProyecto`, `proyCodIdentificador`, `superCodIdentificador`, `comPlacas`, `comKm`, `comImg`, `comCliente`, `comDocuFirm`, `comGarantia`, `comAsesor`, `comVerifDiariaVeh`, `comActMinDia`, `fecha_creacion`, `fecha_mod`, `fecha_borrado`, `id_capC`, `id_capM`, `id_capB`) VALUES
+(150, 149, 152, 214632, 11493, 'GR', '1 km', '1.00', 'Fecha ingreso 19/11/2021\r\nNúmero orden 214632\r\nNúmero de proyecto 10698', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 19/11/2021\r\nNúmero orden 214632\r\nNúmero de proyecto 10698', 'Fecha ingreso 19/11/2021\r\nNúmero orden 214632\r\nNúmero de proyecto 10698', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-11 11:56:05', NULL, NULL, 4, NULL, NULL),
+(152, 150, 153, 214617, 11495, 'GR', '1 km', '1.00', 'Fecha ingreso 17/11/2021\r\nNúmero orden 214617\r\nNúmero de proyecto 10683', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 17/11/2021\r\nNúmero orden 214617\r\nNúmero de proyecto 10683', 'Fecha ingreso 17/11/2021\r\nNúmero orden 214617\r\nNúmero de proyecto 10683', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-11 12:05:00', NULL, NULL, 4, NULL, NULL),
+(153, 151, 154, 214431, 11496, 'N', '1 km', '1.00', 'Fecha ingreso 04/11/2021\r\nNúmero orden 214431\r\nNúmero de proyecto 10613\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 04/11/2021\r\nNúmero orden 214431\r\nNúmero de proyecto 10613\r\n', 'Fecha ingreso 04/11/2021\r\nNúmero orden 214431\r\nNúmero de proyecto 10613\r\n', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-11 12:09:14', NULL, NULL, 4, NULL, NULL),
+(154, 152, 155, 220340, 11497, 'GR', '146,175 km', '1.00', 'Fecha ingreso 21/01/2022\r\nNúmero orden 220340\r\nNúmero de proyecto 11067', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 21/01/2022\r\nNúmero orden 220340\r\nNúmero de proyecto 11067', 'Fecha ingreso 21/01/2022\r\nNúmero orden 220340\r\nNúmero de proyecto 11067', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-11 12:16:08', NULL, NULL, 4, NULL, NULL),
+(158, 156, 158, 221050, 11501, 'N', '722 km', '13,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-11 13:41:49', NULL, NULL, 3, NULL, NULL),
+(159, 157, 159, 221051, 11502, 'N', '133,097 km', '1.00', 'Se neutraliza la transmisión', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '- Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-11 13:48:28', NULL, NULL, 3, NULL, NULL),
+(160, 158, 160, 220603, 11503, 'N', '1 km', '1.00', 'Fecha ingreso 08/02/2022\r\nNúmero orden 220603\r\nNúmero de proyecto 11182', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 08/02/2022\r\nNúmero orden 220603\r\nNúmero de proyecto 11182', 'Fecha ingreso 08/02/2022\r\nNúmero orden 220603\r\nNúmero de proyecto 11182', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-11 14:14:08', NULL, NULL, 4, NULL, NULL),
+(161, 159, 161, 220604, 11504, 'N', '1 km', '1.00', 'Fecha ingreso 08/02/2022\r\nNúmero orden 220604\r\nNúmero de proyecto 11183', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 08/02/2022\r\nNúmero orden 220604\r\nNúmero de proyecto 11183', 'Fecha ingreso 08/02/2022\r\nNúmero orden 220604\r\nNúmero de proyecto 11183', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-11 14:20:45', NULL, '2022-04-01 13:04:11', 4, NULL, 2),
+(162, 2, 3, 220918, 11505, 'N', '131,873 km', '1.00', 'Fecha ingreso 01/03/2022\r\nNúmero orden 220918\r\nNúmero de proyecto 11343', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 01/03/2022\r\nNúmero orden 220918\r\nNúmero de proyecto 11343', 'Fecha ingreso 01/03/2022\r\nNúmero orden 220918\r\nNúmero de proyecto 11343', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-11 16:05:13', NULL, NULL, 4, NULL, NULL),
+(163, 160, 162, 220903, 11506, 'N', '1 km', '1.00', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220903\r\nNúmero de proyecto 11328', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220903\r\nNúmero de proyecto 11328', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220903\r\nNúmero de proyecto 11328', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-11 16:11:46', NULL, NULL, 4, NULL, NULL),
+(164, 161, 163, 220904, 11507, 'N', '1 km', '1.00', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220904\r\nNúmero de proyecto 11329', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220904\r\nNúmero de proyecto 11329', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220904\r\nNúmero de proyecto 11329', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-11 16:15:22', NULL, NULL, 4, NULL, NULL),
+(165, 162, 164, 220906, 11508, 'N', '159,659 km', '1.00', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220906\r\nNúmero de proyecto 11331\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220906\r\nNúmero de proyecto 11331\r\n', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220906\r\nNúmero de proyecto 11331\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-11 16:23:54', NULL, NULL, 4, NULL, NULL),
+(166, 163, 165, 220907, 11509, 'N', '1 km', '1.00', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220907\r\nNúmero de proyecto 11332', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220907\r\nNúmero de proyecto 11332', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220907\r\nNúmero de proyecto 11332', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-11 16:29:04', NULL, NULL, 4, NULL, NULL),
+(168, 165, 167, 220910, 11511, 'N', '79,677 km', '1.00', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220910\r\nNúmero de proyecto 11335', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220910\r\nNúmero de proyecto 11335', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220910\r\nNúmero de proyecto 11335', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-11 16:37:35', NULL, NULL, 4, NULL, NULL),
+(169, 166, 168, 220909, 11512, 'N', '1 km', '1.00', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220909\r\nNúmero de proyecto 11334', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220909\r\nNúmero de proyecto 11334', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220909\r\nNúmero de proyecto 11334', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-11 16:41:32', NULL, NULL, 4, NULL, NULL),
+(170, 167, 169, 220913, 11513, 'N', '1 km', '1.00', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220913\r\nNúmero de proyecto 11338', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220913\r\nNúmero de proyecto 11338', 'Fecha ingreso 28/02/2022\r\nNúmero orden 220913\r\nNúmero de proyecto 11338', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-11 16:45:28', NULL, NULL, 4, NULL, NULL),
+(171, 168, 170, 220152, 11514, 'N', '140,845 km', '10,000.00', '- no camina', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-11 16:46:45', NULL, NULL, 3, NULL, NULL),
+(172, 169, 171, 220801, 11515, 'N', '1 km', '1.00', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220801\r\nNúmero de proyecto 11273', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220801\r\nNúmero de proyecto 11273', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220801\r\nNúmero de proyecto 11273', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-11 17:07:47', NULL, NULL, 4, NULL, NULL),
+(173, 170, 172, 220803, 11516, 'N', '1 km', '1.00', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220803\r\nNúmero de proyecto 11275\r\n', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220803\r\nNúmero de proyecto 11275\r\n', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220803\r\nNúmero de proyecto 11275\r\n', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-11 17:11:32', NULL, NULL, 4, NULL, NULL),
+(174, 171, 173, 220805, 11517, 'N', '1 km', '1.00', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220805\r\nNúmero de proyecto 11278', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220805\r\nNúmero de proyecto 11278', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220805\r\nNúmero de proyecto 11278', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-11 17:15:44', NULL, NULL, 4, NULL, NULL),
+(175, 172, 174, 220806, 11518, 'N', '1 km', '1.00', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220806\r\nNúmero de proyecto 11279', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220806\r\nNúmero de proyecto 11279', 'Fecha ingreso 21/02/2022\r\nNúmero orden 220806\r\nNúmero de proyecto 11279', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-11 17:19:07', NULL, NULL, 4, NULL, NULL),
+(177, 173, 175, 220836, 11520, 'N', '1 km', '1.00', 'Fecha ingreso 26/02/2022\r\nNúmero orden 220836\r\nNúmero de proyecto 11320', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 26/02/2022\r\nNúmero orden 220836\r\nNúmero de proyecto 11320', 'Fecha ingreso 26/02/2022\r\nNúmero orden 220836\r\nNúmero de proyecto 11320', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-12 09:08:24', NULL, NULL, 4, NULL, NULL),
+(178, 133, 134, 220338, 11521, 'N', '161,024 km', '1.00', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220338\r\nNúmero de proyecto 11312', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220338\r\nNúmero de proyecto 11312', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220338\r\nNúmero de proyecto 11312', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-12 09:10:59', NULL, NULL, 4, NULL, NULL),
+(180, 175, 176, 220836, 11522, 'N', '1 km', '1.00', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220836\r\nNúmero de proyecto 11310', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220836\r\nNúmero de proyecto 11310', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220836\r\nNúmero de proyecto 11310', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-12 09:14:49', NULL, NULL, 4, NULL, NULL),
+(181, 176, 178, 220832, 11524, 'N', '1 km', '1.00', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220832\r\nNúmero de proyecto 11306', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220832\r\nNúmero de proyecto 11306', 'Fecha ingreso 25/02/2022\r\nNúmero orden 220832\r\nNúmero de proyecto 11306', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-12 09:23:02', NULL, NULL, 4, NULL, NULL),
+(182, 177, 180, 220155, 11525, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-12 09:26:17', NULL, NULL, 3, NULL, NULL),
+(183, 178, 179, 220831, 11526, 'N', '1 km', '1.00', 'Fecha ingreso 02/03/2022\r\nNúmero orden 220831\r\nNúmero de proyecto 11305', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 02/03/2022\r\nNúmero orden 220831\r\nNúmero de proyecto 11305', 'Fecha ingreso 02/03/2022\r\nNúmero orden 220831\r\nNúmero de proyecto 11305', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-12 09:27:34', NULL, NULL, 4, NULL, NULL),
+(184, 179, 181, 220829, 11527, 'N', '106,019 km', '1.00', 'Fecha ingreso 24/02/2022\r\nNúmero orden 220829\r\nNúmero de proyecto 11303', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 24/02/2022\r\nNúmero orden 220829\r\nNúmero de proyecto 11303', 'Fecha ingreso 24/02/2022\r\nNúmero orden 220829\r\nNúmero de proyecto 11303', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-12 09:31:29', NULL, NULL, 4, NULL, NULL),
+(185, 180, 182, 220826, 11528, 'N', '239,377 km', '1.00', 'Fecha ingreso 24/02/2022\r\nNúmero orden 220826\r\nNúmero de proyecto 11300', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 24/02/2022\r\nNúmero orden 220826\r\nNúmero de proyecto 11300', 'Fecha ingreso 24/02/2022\r\nNúmero orden 220826\r\nNúmero de proyecto 11300', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-12 09:40:15', NULL, NULL, 4, NULL, NULL),
+(186, 173, 183, 220820, 11529, 'N', '1 km', '1.00', 'Fecha ingreso 23/02/2022\r\nNúmero orden 220820\r\nNúmero de proyecto 11293', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 23/02/2022\r\nNúmero orden 220820\r\nNúmero de proyecto 11293', 'Fecha ingreso 23/02/2022\r\nNúmero orden 220820\r\nNúmero de proyecto 11293', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-12 09:42:31', NULL, NULL, 4, NULL, NULL),
+(187, 181, 184, 220816, 11530, 'N', '112,568 km', '1.00', 'Fecha ingreso 23/02/2022\r\nNúmero orden 220816\r\nNúmero de proyecto 11289', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Fecha ingreso 23/02/2022\r\nNúmero orden 220816\r\nNúmero de proyecto 11289', 'Fecha ingreso 23/02/2022\r\nNúmero orden 220816\r\nNúmero de proyecto 11289', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-12 09:45:46', NULL, NULL, 4, NULL, NULL),
+(189, 183, 186, 220157, 11532, 'N', '234,294 km', '25,000.00', 'OJO: falla encendido\r\nTrae cortacorriente\r\nCheck prendido \r\n\r\nFallas: Fuga de presión\r\nSegunda a tercera no entra cambio y se jalonea', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-12 10:02:29', NULL, NULL, 3, NULL, NULL),
+(192, 99, 97, 220160, 11535, 'N', '88,982 km', '45,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-12 12:58:16', NULL, NULL, 3, NULL, NULL),
+(193, 188, 122, 220161, 11536, 'N', '135,399 km', '10,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-12 13:00:57', NULL, NULL, 3, NULL, NULL),
+(194, 189, 174, 220162, 11537, 'N', '185,590 km', '13,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-12 13:03:26', NULL, NULL, 3, NULL, NULL),
+(195, 190, 189, 220162, 11538, 'GR', '42,967 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-.', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-12 13:09:35', NULL, NULL, 3, NULL, NULL),
+(197, 179, 181, 220165, 11540, 'N', '106,019 km', '20,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-12 13:35:37', NULL, NULL, 3, NULL, NULL),
+(198, 97, 96, 220166, 11541, 'N', '1 km', '28,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-12 13:38:19', NULL, NULL, 3, NULL, NULL),
+(199, 162, 164, 220167, 11542, 'N', '159,659 km', '20,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-12 13:47:13', NULL, NULL, 3, NULL, NULL),
+(200, 191, 191, 221101, 11543, 'N', '1 km', '13,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-14 08:46:33', NULL, NULL, 3, NULL, NULL),
+(201, 192, 192, 221102, 11544, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-14 10:27:12', NULL, NULL, 3, NULL, NULL),
+(202, 193, 193, 221103, 11545, 'GR', '148,938 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-14 11:39:58', NULL, NULL, 3, NULL, NULL),
+(203, 194, 194, 221104, 11546, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-14 12:22:04', NULL, NULL, 3, NULL, NULL),
+(204, 195, 195, 221105, 11547, 'N', '213,451 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-14 12:38:30', NULL, NULL, 3, NULL, NULL),
+(205, 197, 196, 221105, 11548, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmsión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-14 14:40:13', NULL, NULL, 3, NULL, NULL),
+(206, 198, 197, 221106, 11549, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-14 14:45:56', NULL, NULL, 3, NULL, NULL),
+(207, 199, 198, 221107, 11550, 'N', '223,685 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y empacada de transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-14 14:52:20', NULL, NULL, 3, NULL, NULL),
+(208, 200, 199, 221108, 11551, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-14 14:57:33', NULL, NULL, 3, NULL, NULL),
+(209, 201, 200, 221109, 11552, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-14 15:01:36', NULL, NULL, 3, NULL, NULL),
+(211, 203, 202, 221111, 11554, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-14 15:11:13', NULL, NULL, 3, NULL, NULL),
+(212, 204, 203, 221112, 11555, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-14 15:23:44', NULL, NULL, 3, NULL, NULL),
+(213, 205, 204, 221113, 11556, 'N', '1 km', '25,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-14 15:32:06', NULL, NULL, 3, NULL, NULL),
+(215, 207, 206, 221115, 11558, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-14 17:21:38', NULL, NULL, 3, NULL, NULL),
+(216, 208, 207, 221116, 11559, 'N', '1 km', '15,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '.', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-14 17:30:56', NULL, NULL, 3, NULL, NULL),
+(217, 209, 208, 221117, 11560, 'N', '1 km', '1.00', '-', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-14 17:35:24', NULL, '2022-03-25 12:49:53', 3, NULL, 2),
+(219, 211, 210, 221119, 11562, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '.', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-14 17:44:05', NULL, NULL, 3, NULL, NULL),
+(220, 212, 211, 211120, 11563, 'N', '201,945 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de transmisión automática sin Gr', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-15 09:21:10', NULL, NULL, 3, NULL, NULL),
+(221, 213, 212, 221121, 11564, 'N', '88,360 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-15 09:38:49', NULL, NULL, 3, NULL, NULL),
+(222, 214, 213, 221122, 11565, 'N', '69,014 km', '1,600.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-15 11:42:48', NULL, NULL, 3, NULL, NULL),
+(223, 215, 214, 221123, 11566, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-15 11:53:24', NULL, NULL, 3, NULL, NULL),
+(224, 64, 62, 221124, 11567, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-15 12:01:14', NULL, NULL, 3, NULL, NULL),
+(225, 143, 215, 221125, 11568, 'N', '161,117 km', '13,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-15 12:33:06', NULL, NULL, 3, NULL, NULL),
+(226, 217, 216, 221126, 11569, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-15 15:51:18', NULL, NULL, 3, NULL, NULL),
+(227, 218, 217, 221127, 11570, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-15 15:55:53', NULL, NULL, 3, NULL, NULL),
+(228, 219, 218, 221128, 11571, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', 'autorizo expresamente que pueden llevarse mi vehiculo a domicilio de empleados para resguardo. ', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-15 17:00:42', NULL, NULL, 3, NULL, NULL),
+(229, 220, 219, 221128, 11572, 'N', '100,925 km', '1,600.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-16 11:12:19', NULL, NULL, 3, NULL, NULL),
+(230, 221, 220, 221129, 11573, 'N', '1 km', '16,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diangostico', '-', '0', '0', '1', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-16 11:55:34', NULL, NULL, 3, NULL, NULL),
+(231, 222, 221, 221130, 11574, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-16 12:00:40', NULL, NULL, 3, NULL, NULL),
+(232, 208, 207, 221131, 11575, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-16 12:05:30', NULL, NULL, 3, NULL, NULL),
+(233, 224, 222, 221132, 11576, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-16 12:09:54', NULL, NULL, 3, NULL, NULL),
+(234, 225, 223, 221133, 11577, 'N', '1 km', '36,000.00', '.', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-16 12:22:24', NULL, NULL, 3, NULL, NULL),
+(235, 226, 224, 221134, 11578, 'N', '1 km', '15,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diangostico', '-', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-16 12:27:11', NULL, NULL, 3, NULL, NULL),
+(236, 105, 106, 221135, 11579, 'N', '1 km', '22,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-16 12:34:49', NULL, NULL, 3, NULL, NULL),
+(237, 209, 225, 221136, 11580, 'N', '1 km', '13,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-16 12:39:29', NULL, NULL, 3, NULL, NULL),
+(238, 210, 226, 221137, 11581, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-16 12:58:13', NULL, NULL, 3, NULL, NULL),
+(239, 202, 201, 221138, 11582, 'N', '1 km', '17,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '.', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-16 13:02:59', NULL, NULL, 3, NULL, NULL),
+(240, 211, 227, 221139, 11583, 'N', '1 km', '13,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-16 13:16:10', NULL, NULL, 3, NULL, NULL),
+(241, 102, 102, 221140, 11584, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'diagnostico y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-16 13:24:45', NULL, NULL, 3, NULL, NULL),
+(242, 228, 228, 221141, 11585, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'diagnostico', '.', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-16 13:32:46', NULL, NULL, 3, NULL, NULL),
+(243, 229, 229, 221142, 11586, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '1', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-16 13:58:25', NULL, NULL, 3, NULL, NULL),
+(244, 230, 230, 221142, 11587, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automatica', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-16 15:53:50', NULL, NULL, 3, NULL, NULL),
+(245, 231, 231, 221143, 11588, 'N', '245,988 km', '14,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-16 17:07:08', NULL, NULL, 3, NULL, NULL),
+(246, 232, 232, 221144, 11589, 'N', '134,250 km', '1.00', 'Falla: Se queda sin reversa', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', 'Nota: Marcar a ambo números, el papá quiere estar enterado. ', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-17 09:38:05', NULL, NULL, 3, NULL, NULL),
+(247, 233, 233, 221145, 11590, 'N', '180,494 km', '13,000.00', 'Falla Reversa\r\nTira aceite de reten\r\nRevisar chicote', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '.', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-17 10:40:00', NULL, NULL, 3, NULL, NULL),
+(248, 234, 234, 221146, 11591, 'GR', '147,134 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-17 11:22:50', NULL, NULL, 3, NULL, NULL),
+(249, 235, 235, 221147, 11592, 'N', '143,208 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-17 11:41:39', NULL, NULL, 3, NULL, NULL),
+(250, 236, 236, 221148, 11593, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '.', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-17 12:08:55', NULL, NULL, 3, NULL, NULL),
+(251, 237, 237, 221149, 11594, 'N', '1 km', '12,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-17 13:52:49', NULL, NULL, 3, NULL, NULL),
+(252, 238, 238, 221150, 11595, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-17 16:33:52', NULL, NULL, 3, NULL, NULL),
+(253, 239, 239, 221151, 11596, 'N', '1 km', '15,000.00', 'OJO: Como extra revisar enfriador y chicote', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y reparación de la transmisión automática', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-17 16:40:33', NULL, NULL, 3, NULL, NULL),
+(254, 240, 240, 221152, 11597, 'N', '129,409 km', '1,800.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-18 09:13:08', NULL, NULL, 3, NULL, NULL),
+(255, 241, 241, 221153, 11598, 'N', '69,277 km', '1,400.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-18 09:24:57', NULL, NULL, 3, NULL, NULL),
+(256, 242, 242, 221154, 11599, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-18 09:54:50', NULL, NULL, 3, NULL, NULL),
+(257, 243, 243, 221155, 11600, 'N', '95,072 km', '1,400.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-18 10:57:28', NULL, NULL, 3, NULL, NULL),
+(258, 244, 244, 221129, 11601, 'N', '151,531 km', '1,400.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-18 13:29:22', NULL, NULL, 3, NULL, NULL),
+(259, 245, 245, 221157, 11602, 'N', '69,651 km', '1,600.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '.', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-19 09:24:57', NULL, NULL, 3, NULL, NULL),
+(260, 164, 166, 221158, 11603, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-19 09:42:42', NULL, NULL, 3, NULL, NULL),
+(261, 246, 246, 221159, 11604, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-19 10:18:47', NULL, NULL, 3, NULL, NULL),
+(262, 247, 247, 221160, 11605, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-19 12:20:36', NULL, NULL, 3, NULL, NULL),
+(263, 248, 248, 221161, 11606, 'N', '103,171 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-19 12:24:01', NULL, NULL, 3, NULL, NULL),
+(264, 249, 249, 221201, 11607, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-.', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-22 09:12:07', NULL, NULL, 3, NULL, NULL),
+(265, 250, 250, 221202, 11608, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '.', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-22 09:21:14', NULL, NULL, 3, NULL, NULL),
+(266, 251, 251, 221203, 11609, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-22 09:28:48', NULL, NULL, 3, NULL, NULL),
+(267, 252, 252, 2201204, 11610, 'N', '138,848 km', '5,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y empacada de transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-22 10:05:29', NULL, NULL, 3, NULL, NULL),
+(268, 253, 253, 221205, 11611, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-22 10:19:45', NULL, NULL, 3, NULL, NULL),
+(269, 254, 254, 221206, 11612, 'GR', '119,155 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '1', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-22 10:22:49', NULL, NULL, 3, NULL, NULL),
+(270, 255, 255, 221207, 11613, 'GR', '234,951 km', '1.00', '-', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '.-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-22 12:14:21', NULL, '2022-04-02 10:14:49', 3, NULL, 2),
+(271, 256, 256, 221208, 11614, 'GR', '177,491 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-22 12:17:43', NULL, NULL, 3, NULL, NULL),
+(272, 257, 258, 221209, 11615, 'N', '265,981 km', '12,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-22 17:16:54', NULL, NULL, 3, NULL, NULL),
+(273, 258, 259, 221210, 11616, 'N', '241,241 km', '12,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-22 17:21:54', NULL, NULL, 3, NULL, NULL),
+(274, 259, 260, 221211, 11617, 'N', '1 km', '13,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-22 17:43:07', NULL, NULL, 3, NULL, NULL),
+(275, 260, 261, 221212, 11618, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-23 11:10:12', NULL, NULL, 3, NULL, NULL),
+(276, 261, 262, 221213, 11619, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-23 11:15:19', NULL, NULL, 3, NULL, NULL),
+(277, 262, 263, 221214, 11620, 'GR', '1 km', '1.00', '- ', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-23 11:19:33', NULL, NULL, 3, NULL, NULL),
+(278, 263, 264, 221215, 11621, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-23 11:43:55', NULL, NULL, 3, NULL, NULL),
+(279, 264, 265, 221216, 11622, 'N', '243,007 km', '15,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-23 12:06:38', NULL, NULL, 3, NULL, NULL),
+(280, 265, 266, 221217, 11623, 'N', '142,930 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-23 12:20:57', NULL, NULL, 3, NULL, NULL),
+(281, 266, 267, 221218, 11624, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '.', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-23 12:33:37', NULL, NULL, 3, NULL, NULL),
+(282, 267, 268, 221219, 11625, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-23 13:21:09', NULL, NULL, 3, NULL, NULL),
+(283, 255, 255, 221119, 11626, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automatica', '.', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-23 14:19:08', NULL, NULL, 3, NULL, NULL),
+(284, 268, 269, 221219, 11627, 'N', '116,885 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-23 15:54:35', NULL, NULL, 3, NULL, NULL),
+(285, 269, 270, 221220, 11628, 'N', '223,529 km', '1,600.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-24 09:05:43', NULL, NULL, 3, NULL, NULL),
+(286, 270, 271, 221221, 11629, 'N', '1 km', '11,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-24 09:24:59', NULL, NULL, 3, NULL, NULL),
+(287, 271, 272, 221222, 11630, 'N', '167,292 km', '1,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-24 09:32:56', NULL, NULL, 3, NULL, NULL),
+(288, 272, 273, 221222, 11631, 'N', '1 km', '1.00', 'si prende, ya no camina\r\n', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-24 09:44:27', NULL, NULL, 3, NULL, NULL),
+(289, 273, 274, 221223, 11632, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-24 11:22:39', NULL, NULL, 3, NULL, NULL),
+(290, 274, 275, 221223, 11633, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-24 12:05:25', NULL, NULL, 3, NULL, NULL),
+(291, 275, 276, 221225, 11634, 'GR', '141,859 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-24 13:16:26', NULL, NULL, 3, NULL, NULL),
+(292, 276, 277, 221226, 11635, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '1', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-24 13:29:52', NULL, NULL, 3, NULL, NULL),
+(293, 277, 278, 221227, 11636, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-24 15:08:40', NULL, NULL, 3, NULL, NULL),
+(294, 278, 279, 221228, 11637, 'N', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática-.', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-24 16:37:06', NULL, NULL, 3, NULL, NULL),
+(295, 209, 280, 221129, 11638, 'GR', '266,435 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-24 16:56:21', NULL, NULL, 3, NULL, NULL),
+(296, 10, 10, 221229, 11639, 'GR', '1 km', '1.00', '-1', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática-', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-24 17:02:24', NULL, NULL, 3, NULL, NULL),
+(297, 279, 281, 211231, 11640, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-25 09:04:47', NULL, NULL, 3, NULL, NULL),
+(298, 151, 154, 221232, 11641, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-25 09:09:43', NULL, NULL, 3, NULL, NULL),
+(299, 280, 150, 221233, 11642, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Cambio de transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-25 09:26:57', NULL, NULL, 3, NULL, NULL),
+(300, 281, 282, 221234, 11643, 'N', '133,244 km', '1,400.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-25 10:34:54', NULL, NULL, 3, NULL, NULL),
+(301, 282, 283, 221235, 11644, 'N', '176,726 km', '1,400.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática-', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-25 11:39:43', NULL, NULL, 3, NULL, NULL),
+(302, 283, 284, 211236, 11645, 'N', '1 km', '12,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática.', '.', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-25 12:20:29', NULL, NULL, 3, NULL, NULL),
+(303, 177, 180, 221237, 11646, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-25 15:06:02', NULL, NULL, 3, NULL, NULL),
+(304, 284, 285, 221237, 11647, 'N', '1 km', '5,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación y empacada de transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-25 15:52:24', NULL, NULL, 3, NULL, NULL),
+(305, 285, 286, 221238, 11648, 'N', '125,539 km', '1,400.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-25 16:43:05', NULL, NULL, 3, NULL, NULL),
+(306, 286, 287, 221239, 11649, 'GR', '1 km', '1.00', 'Tira aceite, no conectaron los focos de reversa, la prende enfrió en reversa patea', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-26 08:46:30', NULL, NULL, 3, NULL, NULL),
+(307, 287, 288, 221239, 11650, 'N', '252,778 km', '650.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-26 09:19:47', NULL, NULL, 3, NULL, NULL),
+(308, 288, 289, 221240, 11651, 'N', '70,012 km', '1,400.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-26 09:24:46', NULL, NULL, 3, NULL, NULL),
+(309, 289, 290, 221241, 11652, 'N', '202,456 km', '1,400.00', '- transmisio', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-26 09:44:41', NULL, NULL, 3, NULL, NULL),
+(310, 290, 291, 221242, 11653, 'N', '1 km', '15,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-26 11:11:31', NULL, NULL, 3, NULL, NULL),
+(311, 291, 292, 221243, 11654, 'N', '1 km', '23,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-26 11:15:03', NULL, NULL, 3, NULL, NULL),
+(312, 292, 293, 221244, 11655, 'N', '1 km', '25,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '.', '0', '1', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-26 12:23:52', NULL, NULL, 3, NULL, NULL),
+(313, 293, 294, 221301, 11661, 'N', '1 km', '12,000.00', 'Trae fuga', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-28 11:39:51', NULL, NULL, 3, NULL, NULL),
+(314, 294, 295, 221302, 11662, 'N', '32,468 km', '1,400.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-28 11:47:47', NULL, NULL, 3, NULL, NULL),
+(315, 295, 297, 221303, 11663, 'N', '1 km', '6,650.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-28 11:54:27', NULL, NULL, 3, NULL, NULL),
+(316, 296, 298, 221304, 11664, 'N', '1 km', '15,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-28 12:00:52', NULL, NULL, 3, NULL, NULL),
+(317, 297, 299, 221305, 11665, 'N', '186,130 km', '1,400.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-28 12:15:02', NULL, NULL, 3, NULL, NULL),
+(318, 298, 300, 221306, 11666, 'N', '187,299 km', '12,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-28 12:39:36', NULL, NULL, 3, NULL, NULL),
+(319, 21, 20, 221307, 11667, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-28 13:30:41', NULL, NULL, 3, NULL, NULL),
+(320, 299, 301, 221308, 11668, 'N', '1 km', '11,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-28 16:34:52', NULL, NULL, 3, NULL, NULL),
+(321, 300, 302, 221309, 11669, 'N', '198,499 km', '850.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-29 09:26:27', NULL, NULL, 3, NULL, NULL),
+(322, 301, 303, 221310, 11670, 'N', '1 km', '20,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-29 09:50:26', NULL, NULL, 3, NULL, NULL);
+INSERT INTO `proyectos` (`id_proyecto`, `id_cliente`, `id_vehiculo`, `nOrden`, `nProyecto`, `tipoReparacion`, `km`, `valorVenta`, `diagnostico`, `estadoProyectoEliminado`, `comSuperPlaca`, `comSuperKm`, `comSuperImg`, `comSuperCliente`, `comSuperDocuFirm`, `comSuperGarantia`, `comSuperAsesor`, `comSuperVerifDiariaVeh`, `comSuperActMinDia`, `descripServ1`, `descripServ2`, `proyectoActivo`, `registroSolicitud`, `altaProyecto`, `proyCodIdentificador`, `superCodIdentificador`, `comPlacas`, `comKm`, `comImg`, `comCliente`, `comDocuFirm`, `comGarantia`, `comAsesor`, `comVerifDiariaVeh`, `comActMinDia`, `fecha_creacion`, `fecha_mod`, `fecha_borrado`, `id_capC`, `id_capM`, `id_capB`) VALUES
+(323, 302, 304, 221311, 11671, 'GR', '1 km', '1.00', 'Se patinan las velocidades', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-29 10:05:26', NULL, NULL, 3, NULL, NULL),
+(324, 303, 305, 221312, 11672, 'N', '1 km', '1.00', 'Tira un golpeteo y tira aceite', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-29 10:10:42', NULL, NULL, 3, NULL, NULL),
+(325, 304, 306, 221313, 11673, 'GR', '1 km', '1.00', 'pierde fuerza y se escucha forzada', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-29 10:14:30', NULL, NULL, 3, NULL, NULL),
+(326, 138, 140, 221314, 11674, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-29 10:18:11', NULL, NULL, 3, NULL, NULL),
+(327, 305, 307, 221315, 11675, 'N', '143,937 km', '4,500.00', 'Se prendio Check engine, al escanear arroja codigo de transmisión. ', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Servicio de Mtto y cuerpo de válvulas', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-29 11:02:23', NULL, NULL, 3, NULL, NULL),
+(328, 306, 308, 221316, 11676, 'N', '1 km', '650.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-29 12:02:30', NULL, NULL, 3, NULL, NULL),
+(329, 307, 309, 221317, 11677, 'N', '20,778 km', '1,600.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-29 13:02:39', NULL, NULL, 3, NULL, NULL),
+(330, 308, 310, 221317, 11678, 'N', '248,893 km', '20,000.00', 'Testigo encendido de bateria, sin ninguna falla.\r\nTestigo de transmisión, se patina de 2da a 3era y después entra normal llegando a un limite de velocidad. ', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-29 17:00:24', NULL, NULL, 3, NULL, NULL),
+(331, 200, 199, 221318, 11679, 'GR', '1 km', '1.00', '-', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-29 17:42:04', NULL, '2022-04-02 10:54:35', 3, NULL, 2),
+(332, 309, 311, 221319, 11680, 'GR', '1 km', '1.00', 'TIRA ACEITE CLIENTE MENCIONA QUE NO PUEDE REVISAR LOS NIVELES POR QUE NO PUEDE ABRIR EL COBRE POR EL GOLPE QUE NOSOTROS LE DIMOS A SU CARRO DESEA QUE SE LE DE SOLUCION A ESO TAMBIÉN', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-30 08:48:35', NULL, NULL, 3, NULL, NULL),
+(333, 310, 312, 221320, 11681, 'N', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-30 08:55:10', NULL, NULL, 3, NULL, NULL),
+(334, 180, 182, 221321, 11682, 'GR', '1 km', '1.00', 'a no avanzo ya lo llevo a la revisión de chicote y le dijeron que no era el chicote', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-30 09:00:24', NULL, NULL, 3, NULL, NULL),
+(335, 311, 313, 221321, 11683, 'N', '1 km', '23,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-30 09:14:32', NULL, NULL, 3, NULL, NULL),
+(336, 312, 314, 221323, 11684, 'N', '1 km', '13,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '.', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-30 09:20:30', NULL, NULL, 3, NULL, NULL),
+(337, 313, 315, 211324, 11685, 'N', '1 km', '18,000.00', 'No hace cambios, se mueve la palanca, pero no entran velocidades. ', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-30 10:19:40', NULL, NULL, 3, NULL, NULL),
+(338, 314, 316, 221324, 11686, 'N', '58,721 km', '1,400.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-30 10:34:10', NULL, NULL, 3, NULL, NULL),
+(339, 137, 139, 211326, 11687, 'GR', '1 km', '1.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automatica', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-30 13:04:53', NULL, NULL, 3, NULL, NULL),
+(340, 315, 317, 221327, 11688, 'N', '1 km', '28,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-30 15:51:30', NULL, NULL, 3, NULL, NULL),
+(341, 316, 318, 221328, 11689, 'N', '496,618 km', '12,000.00', 'Aro dentado', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico ', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-30 15:58:43', NULL, NULL, 3, NULL, NULL),
+(342, 224, 222, 221328, 11690, 'N', '1 km', '58,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Almacenamiento', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-30 16:46:12', NULL, NULL, 3, NULL, NULL),
+(343, 317, 319, 221329, 11691, 'N', '1 km', '40,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-31 08:49:39', NULL, NULL, 3, NULL, NULL),
+(344, 318, 320, 221330, 11692, 'N', '1 km', '6,500.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y empacada de transmisisón automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-31 09:09:01', NULL, NULL, 3, NULL, NULL),
+(345, 319, 321, 221331, 11693, 'N', '1 km', '1,600.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-31 09:22:57', NULL, NULL, 3, NULL, NULL),
+(346, 158, 160, 221332, 11694, 'GR', '1 km', '1.00', 'se forza en primera y segunda', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisisón automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-31 10:28:24', NULL, NULL, 3, NULL, NULL),
+(347, 320, 322, 221333, 11695, 'GR', '1 km', '1.00', 'tira aceite y huele muchísimo a quemado, no acelera', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisisón automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-31 10:36:12', NULL, NULL, 3, NULL, NULL),
+(348, 236, 236, 221334, 11696, 'N', '1 km', '1.00', 'YA NO CAMINA', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-31 10:44:39', NULL, NULL, 3, NULL, NULL),
+(349, 321, 323, 221335, 11697, 'N', '1 km', '2,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-03-31 10:59:46', NULL, NULL, 3, NULL, NULL),
+(350, 322, 324, 221336, 11698, 'GR', '1 km', '1.00', 'ya no camina', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '.', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-31 11:13:56', NULL, NULL, 3, NULL, NULL),
+(351, 323, 325, 221337, 11699, 'N', '1 km', '15,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-31 11:47:21', NULL, NULL, 3, NULL, NULL),
+(352, 324, 326, 221338, 11700, 'N', '167,530 km', '20,000.00', 'Patina 2da y tercera', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-03-31 15:02:37', NULL, NULL, 3, NULL, NULL),
+(353, 322, 324, 221339, 11701, 'GR', '1 km', '1.00', 'ya no camina', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automatica', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-03-31 16:21:05', NULL, NULL, 3, NULL, NULL),
+(354, 325, 327, 221340, 11702, 'N', '1 km', '15,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '.-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-01 09:54:16', NULL, NULL, 3, NULL, NULL),
+(355, 326, 328, 221341, 11703, 'N', '1 km', '1.00', 'NO ACEPTA LOS CAMBIOS', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-04-01 10:00:07', NULL, NULL, 3, NULL, NULL),
+(356, 266, 267, 221342, 11704, 'N', '1 km', '1.00', 'TIRA ACEITE, Y EN OCASIONES DEJA DE CAMINAR', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-04-01 10:03:44', NULL, NULL, 3, NULL, NULL),
+(357, 327, 329, 221343, 11705, 'GR', '1 km', '1.00', 'Esta tirando aceite de transmisión, la reversa reacciona lento y cuando entra la segunda rechina la transmisión', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-.', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-01 10:08:44', NULL, NULL, 3, NULL, NULL),
+(358, 328, 330, 221344, 11706, 'N', '124,622 km', '1,600.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisisón automática', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-04-01 10:37:58', NULL, NULL, 3, NULL, NULL),
+(359, 329, 331, 221345, 11707, 'N', '78,480 km', '1,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisisón automática', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-04-01 11:53:04', NULL, NULL, 3, NULL, NULL),
+(360, 330, 332, 221346, 11708, 'N', '1 km', '30,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-01 15:45:23', NULL, NULL, 3, NULL, NULL),
+(361, 331, 333, 221347, 11709, 'N', '152,858 km', '22,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y repración de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-01 16:37:14', NULL, NULL, 3, NULL, NULL),
+(362, 332, 334, 221348, 11710, 'N', '1 km', '50,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisisón automática', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-01 17:15:50', NULL, NULL, 3, NULL, NULL),
+(363, 333, 335, 221349, 11711, 'N', '64,240 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-04-02 08:47:51', NULL, NULL, 3, NULL, NULL),
+(364, 300, 302, 221350, 11712, 'N', '198,499 km', '11,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-02 08:56:45', NULL, NULL, 3, NULL, NULL),
+(365, 334, 336, 221351, 11713, 'N', '167,748 km', '14,000.00', 'Barrida de las velocidades', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-02 09:37:17', NULL, NULL, 3, NULL, NULL),
+(366, 335, 337, 221352, 11715, 'N', '114,623 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-04-02 11:55:29', NULL, NULL, 3, NULL, NULL),
+(367, 336, 339, 221401, 11718, 'N', '1 km', '15,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-04 08:47:07', NULL, NULL, 3, NULL, NULL),
+(368, 89, 88, 221402, 11719, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-04 08:53:34', NULL, NULL, 3, NULL, NULL),
+(369, 337, 340, 221403, 11720, 'GR', '1 km', '1.00', 'el carro sigue igual tiembla mucho cuando le meto la reversa y sigue tirando aceite de la transmisión', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-04-04 09:00:28', NULL, NULL, 3, NULL, NULL),
+(370, 177, 180, 221404, 11721, 'N', '1 km', '1.00', 'no camina llego en grúa a, alcalde', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-04-04 09:24:48', NULL, NULL, 3, NULL, NULL),
+(371, 338, 341, 221405, 11722, 'GR', '1 km', '1.00', 'continuó fallando tira aceite', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-04 09:29:16', NULL, NULL, 3, NULL, NULL),
+(372, 339, 342, 221406, 11723, 'N', '210,523 km', '5,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y empacada de la transmisión automática', '-', '0', '1', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-04 09:46:08', NULL, NULL, 3, NULL, NULL),
+(373, 340, 343, 221407, 11724, 'N', '210,729 km', '11,000.00', 'Golpeteos fuertes', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la tranmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-04 10:00:10', NULL, NULL, 3, NULL, NULL),
+(374, 342, 344, 221408, 11725, 'N', '1 km', '20,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '0', '0', '0', '0', '1', '1', '0', '0', 0, '0', '0', '0', '0', '0', '2022-04-04 10:41:11', NULL, NULL, 3, NULL, NULL),
+(375, 344, 345, 221409, 11726, 'N', '155,795 km', '20,000.00', 'Se patina, se revoluciona, se neutraliza y tiro aceite. ', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la tranmsisión automática', '.', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-04 10:47:37', NULL, NULL, 3, NULL, NULL),
+(376, 345, 346, 221410, 11727, 'N', '1 km', '17,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisisón automática', '.', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-04 12:46:08', NULL, NULL, 3, NULL, NULL),
+(377, 346, 347, 221411, 11728, 'N', '80,532 km', '1,600.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-04-04 15:34:31', NULL, NULL, 3, NULL, NULL),
+(378, 347, 348, 221412, 11729, 'N', '1 km', '0.00', 'Se patina', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-04-04 15:44:32', NULL, NULL, 3, NULL, NULL),
+(379, 348, 349, 221413, 11730, 'N', '1 km', '13,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-04 15:54:00', NULL, NULL, 3, NULL, NULL),
+(380, 349, 350, 221414, 11731, 'N', '1 km', '20,000.00', '-', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-04 16:08:45', NULL, NULL, 3, NULL, NULL),
+(381, 171, 173, 221415, 11732, 'GR', '1 km', '1.00', 'TRUENA AL CAMBIAR VELOCIDADES', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisisón automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-04-05 09:01:35', NULL, NULL, 3, NULL, NULL),
+(382, 350, 351, 221416, 11733, 'GR', '1 km', '1.00', 'PIERDE ACELERACION Y NO ACEPTA CAMBIOS, SE JALONEA, Y EN OCASIONES DEJA DE AVANZAR, LA ESCANEARON Y LE INDICARON QUE ERA SOLENOIDES Y CUERPO DE VALVULAS', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'REVISAR TRANSMISION AUTOMATICA', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-04-05 09:07:31', NULL, NULL, 3, NULL, NULL),
+(383, 88, 86, 221417, 11734, 'GR', '1 km', '1.00', 'ya no camino', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmsión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-04-05 09:12:06', NULL, '2022-04-07 11:56:11', 3, NULL, 2),
+(384, 199, 198, 221418, 11735, 'GR', '1 km', '1.00', 'TIRA ACEITE', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'REVISAR TRANSMISION AUTOMATICA', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-05 09:14:01', NULL, NULL, 3, NULL, NULL),
+(385, 351, 352, 221419, 11736, 'N', '127,276 km', '1,500.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '0', '1', '0', '2022-04-05 09:22:37', NULL, NULL, 3, NULL, NULL),
+(386, 352, 353, 221420, 11737, 'N', '153,702 km', '650.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-04-05 09:46:03', NULL, NULL, 3, NULL, NULL),
+(387, 353, 354, 221421, 11738, 'N', '90,467 km', '1,600.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '0', '1', '0', '2022-04-05 10:28:22', NULL, NULL, 3, NULL, NULL),
+(388, 354, 355, 221422, 11739, 'N', '116,183 km', '3,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '1', '0', 'Diagnostico', '-', '0', '0', '0', '1', '0', '0', '0', '0', 0, '0', '0', '0', '1', '0', '2022-04-05 10:56:17', NULL, NULL, 3, NULL, NULL),
+(389, 355, 356, 221422, 11740, 'N', '109,281 km', '1,600.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisisón automática', '-', '0', '0', '0', '0', '1', '0', '0', '0', 0, '0', '0', '1', '0', '0', '2022-04-05 11:56:07', NULL, NULL, 3, NULL, NULL),
+(390, 356, 357, 221423, 11741, 'N', '1 km', '15,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-05 13:04:10', NULL, NULL, 3, NULL, NULL),
+(391, 222, 358, 221424, 11742, 'N', '1 km', '15,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-05 13:19:28', NULL, NULL, 3, NULL, NULL),
+(392, 357, 359, 221423, 11743, 'N', '1 km', '10,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-05 15:32:00', NULL, NULL, 3, NULL, NULL),
+(393, 358, 360, 221424, 11744, 'N', '1 km', '12,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y posible reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-04-05 16:20:00', NULL, NULL, 3, NULL, NULL),
+(394, 76, 74, 221425, 11745, 'GR', '1 km', '1.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisisón automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-05 16:55:30', NULL, NULL, 3, NULL, NULL),
+(395, 118, 118, 221426, 11746, 'GR', '1 km', '1.00', 'TIRA ACEITE, Y TRUENA AL METER VELOCIDADES', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'REVISAR TRANSMISION AUTOMATICA', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-06 09:10:15', NULL, NULL, 3, NULL, NULL),
+(396, 359, 361, 221427, 11747, 'GR', '1 km', '1.00', 'no hace cambios, palanca esta trabada', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-04-06 09:19:20', NULL, '2022-04-06 16:32:43', 3, NULL, 2),
+(397, 360, 362, 221427, 11748, 'GR', '1 km', '1.00', 'TIRA ACEITE', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'REVISAR TRANSMISION AUTOMATICA', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '0', '0', '0', '2022-04-06 09:24:14', NULL, '2022-04-06 16:32:52', 3, NULL, 2),
+(398, 361, 363, 221428, 11749, 'N', '1 km', '18,000.00', 'no entra 3era ni 4ta', '1', '0', '0', '0', '0', '0', '0', '0', '1', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-06 09:30:57', NULL, NULL, 3, NULL, NULL),
+(399, 362, 364, 221429, 11750, 'N', '1,924 km', '20,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '0', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-06 11:11:01', NULL, NULL, 3, NULL, NULL),
+(400, 363, 365, 221430, 11751, 'N', '88,574 km', '1,400.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-04-06 11:41:21', NULL, NULL, 3, NULL, NULL),
+(401, 364, 366, 221431, 11752, 'N', '1 km', '14,000.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Diagnostico', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-04-06 17:29:04', NULL, NULL, 3, NULL, NULL),
+(402, 65, 367, 221432, 11753, 'N', '125,630 km', '0.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '.', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-04-06 17:52:19', NULL, NULL, 3, NULL, NULL),
+(403, 365, 368, 221433, 11758, 'N', '145,546 km', '0.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisisón automática', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-04-07 11:18:57', NULL, NULL, 3, NULL, NULL),
+(404, 366, 369, 221434, 11759, 'N', '49,370 km', '0.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisisón automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-04-07 11:22:33', NULL, NULL, 3, NULL, NULL),
+(405, 367, 370, 221435, 11760, 'N', '1 km', '0.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisiñon automática', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-04-07 11:30:38', NULL, NULL, 3, NULL, NULL),
+(406, 368, 371, 221436, 11761, 'N', '187,308 km', '0.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Dx y reparación de la transmisión automática', '-', '1', '0', '0', '0', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-04-07 11:35:15', NULL, NULL, 3, NULL, NULL),
+(407, 369, 372, 221437, 11762, 'N', '87,515 km', '0.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Afinación de la transmisión automática', '-', '0', '0', '0', '1', '0', '1', '0', '0', 0, '0', '0', '1', '0', '0', '2022-04-07 11:38:56', NULL, NULL, 3, NULL, NULL),
+(408, 370, 373, 221438, 11763, 'GR', '1 km', '0.00', '-', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Revisar transmisión automática', '-', '0', '0', '1', '0', '0', '1', '0', '0', 0, '0', '0', '1', '1', '0', '2022-04-07 12:12:14', NULL, NULL, 3, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -5404,7 +6207,6 @@ INSERT INTO `registroalta` (`id_regAlta`, `folioRegAlta`, `id_proyecto`, `id_lin
 (156, 'Alta-00157', 366, 156, '.', '0 Dia(s), 1 h. 22 m. 10 s.', '0', '0', 'Activo', '2022-04-02 13:40:43', NULL, 6, 0),
 (157, 'Alta-00158', 332, 157, '.', '0 Dia(s), 22 h. 28 m. 11 s.', '0', '0', 'Activo', '2022-04-03 11:07:29', NULL, 6, 0),
 (158, 'Alta-00159', 253, 158, '.', '2 Dia(s), 3 h. 15 m. 39 s.', '0', '0', 'Activo', '2022-04-04 16:39:45', NULL, 6, 0),
-(159, 'Alta-00159', 253, 159, '.', '2 Dia(s), 3 h. 29 m. 58 s.', '0', '0', 'Activo', '2022-04-04 16:54:04', NULL, 6, 0),
 (160, 'Alta-00161', 377, 160, '.', '0 Dia(s), 1 h. 18 m. 29 s.', '0', '0', 'Activo', '2022-04-04 16:55:19', NULL, 6, 0),
 (161, 'Alta-00162', 374, 161, '.', '0 Dia(s), 0 h. 11 m. 56 s.', '0', '0', 'Activo', '2022-04-04 16:57:10', NULL, 6, 0),
 (162, 'Alta-00163', 43, 162, '.', '2 Dia(s), 19 h. 51 m. 19 s.', '0', '0', 'Activo', '2022-04-05 09:13:36', NULL, 6, 0),
@@ -5414,7 +6216,24 @@ INSERT INTO `registroalta` (`id_regAlta`, `folioRegAlta`, `id_proyecto`, `id_lin
 (166, 'Alta-00167', 385, 166, '.', '0 Dia(s), 1 h. 6 m. 48 s.', '0', '0', 'Activo', '2022-04-05 12:57:16', NULL, 6, 0),
 (167, 'Alta-00168', 389, 167, '.', '0 Dia(s), 0 h. 21 m. 53 s.', '0', '0', 'Activo', '2022-04-05 14:07:08', NULL, 6, 0),
 (168, 'Alta-00169', 388, 168, '.', '0 Dia(s), 0 h. 38 m. 28 s.', '0', '0', 'Activo', '2022-04-05 16:44:14', NULL, 6, 0),
-(169, 'Alta-00170', 264, 169, '.', '0 Dia(s), 5 h. 41 m. 0 s.', '0', '0', 'Activo', '2022-04-05 18:01:53', NULL, 6, 0);
+(169, 'Alta-00170', 264, 169, '.', '0 Dia(s), 5 h. 41 m. 0 s.', '0', '0', 'Activo', '2022-04-05 18:01:53', NULL, 6, 0),
+(170, 'Alta-00171', 177, 170, '.', '0 Dia(s), 16 h. 46 m. 11 s.', '0', '0', 'Activo', '2022-04-06 09:52:51', NULL, 6, 0),
+(171, 'Alta-00172', 245, 171, 'Soportes de motor dañados códigos de motor y dirección hidráulica fugas', '1 Dia(s), 0 h. 53 m. 0 s.', '0', '0', 'Activo', '2022-04-06 10:51:03', NULL, 6, 0),
+(172, 'Alta-00173', 400, 172, '.', '0 Dia(s), 0 h. 12 m. 12 s.', '0', '0', 'Activo', '2022-04-06 12:25:46', NULL, 13, 0),
+(173, 'Alta-00174', 208, 173, 'falla en el sensor de cigüeñal revisar líneas o sensor ', '7 Dia(s), 3 h. 41 m. 17 s.', '0', '0', 'Activo', '2022-04-06 13:24:01', NULL, 6, 0),
+(174, 'Alta-00175', 145, 174, 'Las terminales ya están apretadas ', '0 Dia(s), 4 h. 25 m. 31 s.', '0', '0', 'Activo', '2022-04-06 15:39:04', NULL, 13, 0),
+(175, 'Alta-00176', 370, 175, '.', '0 Dia(s), 4 h. 9 m. 21 s.', '0', '0', 'Activo', '2022-04-06 16:05:17', NULL, 6, 0),
+(176, 'Alta-00177', 97, 176, '.', '0 Dia(s), 17 h. 51 m. 31 s.', '0', '0', 'Activo', '2022-04-07 09:13:01', NULL, 13, 0),
+(177, 'Alta-00178', 362, 177, '.', '0 Dia(s), 0 h. 11 m. 43 s.', '0', '0', 'Activo', '2022-04-07 10:13:06', NULL, 13, 0),
+(178, 'Alta-00179', 407, 178, '.', '0 Dia(s), 0 h. 2 m. 57 s.', '0', '0', 'Activo', '2022-04-07 11:44:26', NULL, 13, 0),
+(179, 'Alta-00180', 405, 179, '.', '0 Dia(s), 0 h. 3 m. 58 s.', '0', '0', 'Activo', '2022-04-07 11:46:34', NULL, 13, 0),
+(180, 'Alta-00181', 403, 180, '.', '0 Dia(s), 0 h. 4 m. 22 s.', '0', '0', 'Activo', '2022-04-07 11:47:56', NULL, 13, 0),
+(181, 'Alta-00182', 223, 181, '.', '0 Dia(s), 20 h. 17 m. 46 s.', '0', '0', 'Activo', '2022-04-07 12:56:48', NULL, 13, 0),
+(182, 'Alta-00183', 158, 182, '.', '5 Dia(s), 20 h. 11 m. 47 s.', '0', '0', 'Activo', '2022-04-07 13:17:59', NULL, 13, 0),
+(183, 'Alta-00184', 252, 183, '.', '0 Dia(s), 1 h. 23 m. 27 s.', '0', '0', 'Activo', '2022-04-07 15:02:47', NULL, 13, 0),
+(184, 'Alta-00185', 402, 184, '.', '0 Dia(s), 21 h. 33 m. 54 s.', '0', '0', 'Activo', '2022-04-07 15:30:31', NULL, 13, 0),
+(185, 'Alta-00186', 408, 185, '.', '0 Dia(s), 4 h. 5 m. 58 s.', '0', '0', 'Activo', '2022-04-07 16:22:02', NULL, 13, 0),
+(186, 'Alta-00187', 283, 186, 'Cliente se la lleva en grua', '0 Dia(s), 0 h. 3 m. 4 s.', '0', '0', 'Activo', '2022-04-07 16:53:26', NULL, 13, 0);
 
 -- --------------------------------------------------------
 
@@ -5611,7 +6430,24 @@ INSERT INTO `registroaltabitacora` (`id_regAlta`, `folioRegAlta`, `id_proyecto`,
 (167, 'Alta-00167', 385, 166, '.', '0 Dia(s), 1 h. 6 m. 48 s.', '0', '0', 'Activo', '2022-04-05 12:57:16', NULL, 6, 0),
 (168, 'Alta-00168', 389, 167, '.', '0 Dia(s), 0 h. 21 m. 53 s.', '0', '0', 'Activo', '2022-04-05 14:07:08', NULL, 6, 0),
 (169, 'Alta-00169', 388, 168, '.', '0 Dia(s), 0 h. 38 m. 28 s.', '0', '0', 'Activo', '2022-04-05 16:44:14', NULL, 6, 0),
-(170, 'Alta-00170', 264, 169, '.', '0 Dia(s), 5 h. 41 m. 0 s.', '0', '0', 'Activo', '2022-04-05 18:01:53', NULL, 6, 0);
+(170, 'Alta-00170', 264, 169, '.', '0 Dia(s), 5 h. 41 m. 0 s.', '0', '0', 'Activo', '2022-04-05 18:01:53', NULL, 6, 0),
+(171, 'Alta-00171', 177, 170, '.', '0 Dia(s), 16 h. 46 m. 11 s.', '0', '0', 'Activo', '2022-04-06 09:52:51', NULL, 6, 0),
+(172, 'Alta-00172', 245, 171, 'Soportes de motor dañados códigos de motor y dirección hidráulica fugas', '1 Dia(s), 0 h. 53 m. 0 s.', '0', '0', 'Activo', '2022-04-06 10:51:03', NULL, 6, 0),
+(173, 'Alta-00173', 400, 172, '.', '0 Dia(s), 0 h. 12 m. 12 s.', '0', '0', 'Activo', '2022-04-06 12:25:46', NULL, 13, 0),
+(174, 'Alta-00174', 208, 173, 'falla en el sensor de cigüeñal revisar líneas o sensor ', '7 Dia(s), 3 h. 41 m. 17 s.', '0', '0', 'Activo', '2022-04-06 13:24:01', NULL, 6, 0),
+(175, 'Alta-00175', 145, 174, 'Las terminales ya están apretadas ', '0 Dia(s), 4 h. 25 m. 31 s.', '0', '0', 'Activo', '2022-04-06 15:39:04', NULL, 13, 0),
+(176, 'Alta-00176', 370, 175, '.', '0 Dia(s), 4 h. 9 m. 21 s.', '0', '0', 'Activo', '2022-04-06 16:05:17', NULL, 6, 0),
+(177, 'Alta-00177', 97, 176, '.', '0 Dia(s), 17 h. 51 m. 31 s.', '0', '0', 'Activo', '2022-04-07 09:13:01', NULL, 13, 0),
+(178, 'Alta-00178', 362, 177, '.', '0 Dia(s), 0 h. 11 m. 43 s.', '0', '0', 'Activo', '2022-04-07 10:13:06', NULL, 13, 0),
+(179, 'Alta-00179', 407, 178, '.', '0 Dia(s), 0 h. 2 m. 57 s.', '0', '0', 'Activo', '2022-04-07 11:44:26', NULL, 13, 0),
+(180, 'Alta-00180', 405, 179, '.', '0 Dia(s), 0 h. 3 m. 58 s.', '0', '0', 'Activo', '2022-04-07 11:46:34', NULL, 13, 0),
+(181, 'Alta-00181', 403, 180, '.', '0 Dia(s), 0 h. 4 m. 22 s.', '0', '0', 'Activo', '2022-04-07 11:47:56', NULL, 13, 0),
+(182, 'Alta-00182', 223, 181, '.', '0 Dia(s), 20 h. 17 m. 46 s.', '0', '0', 'Activo', '2022-04-07 12:56:48', NULL, 13, 0),
+(183, 'Alta-00183', 158, 182, '.', '5 Dia(s), 20 h. 11 m. 47 s.', '0', '0', 'Activo', '2022-04-07 13:17:59', NULL, 13, 0),
+(184, 'Alta-00184', 252, 183, '.', '0 Dia(s), 1 h. 23 m. 27 s.', '0', '0', 'Activo', '2022-04-07 15:02:47', NULL, 13, 0),
+(185, 'Alta-00185', 402, 184, '.', '0 Dia(s), 21 h. 33 m. 54 s.', '0', '0', 'Activo', '2022-04-07 15:30:31', NULL, 13, 0),
+(186, 'Alta-00186', 408, 185, '.', '0 Dia(s), 4 h. 5 m. 58 s.', '0', '0', 'Activo', '2022-04-07 16:22:02', NULL, 13, 0),
+(187, 'Alta-00187', 283, 186, 'Cliente se la lleva en grua', '0 Dia(s), 0 h. 3 m. 4 s.', '0', '0', 'Activo', '2022-04-07 16:53:26', NULL, 13, 0);
 
 -- --------------------------------------------------------
 
@@ -5749,24 +6585,37 @@ INSERT INTO `registrocodidenti` (`id_regcodidenti`, `folioCodID`, `id_proyecto`,
 (130, 'CodID-00130', 349, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-03-31 15:07:45', NULL, 8, 0),
 (131, 'CodID-00131', 327, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-03-31 17:10:32', NULL, 8, 0),
 (132, 'CodID-00132', 358, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-01 12:16:25', NULL, 8, 0),
-(133, 'CodID-00133', 278, 5, '0', 'Activo', '0', '0', '2022-04-01 16:11:51', NULL, 8, 0),
-(134, 'CodID-00134', 116, 5, '0', 'Activo', '0', '0', '2022-04-01 16:24:03', NULL, 8, 0),
-(135, 'CodID-00135', 359, 5, '0', 'Activo', '0', '0', '2022-04-01 16:28:18', NULL, 8, 0),
-(136, 'CodID-00136', 363, 5, '0', 'Activo', '0', '0', '2022-04-02 11:42:05', NULL, 8, 0),
-(137, 'CodID-00137', 273, 5, '0', 'Activo', '0', '0', '2022-04-02 11:54:45', NULL, 8, 0),
-(138, 'CodID-00138', 83, 5, '0', 'Activo', '0', '0', '2022-04-02 12:29:18', NULL, 8, 0),
-(139, 'CodID-00139', 366, 5, '0', 'Activo', '0', '0', '2022-04-04 10:38:53', NULL, 8, 0),
-(140, 'CodID-00140', 52, 6, '0', 'Activo', '0', '0', '2022-04-04 14:02:11', NULL, 8, 0),
-(141, 'CodID-00141', 249, 6, '0', 'Activo', '0', '0', '2022-04-04 14:04:43', NULL, 8, 0),
-(142, 'CodID-00142', 253, 6, '0', 'Activo', '0', '0', '2022-04-04 17:19:55', NULL, 8, 0),
-(143, 'CodID-00143', 377, 6, '0', 'Activo', '0', '0', '2022-04-04 17:55:47', NULL, 8, 0),
-(144, 'CodID-00144', 274, 6, '0', 'Activo', '0', '0', '2022-04-05 09:47:15', NULL, 8, 0),
-(145, 'CodID-00145', 104, 6, '0', 'Activo', '0', '0', '2022-04-05 10:36:30', NULL, 8, 0),
-(146, 'CodID-00146', 385, 6, '0', 'Activo', '0', '0', '2022-04-05 13:13:55', NULL, 8, 0),
-(147, 'CodID-00147', 387, 6, '0', 'Activo', '0', '0', '2022-04-05 14:00:39', NULL, 8, 0),
-(148, 'CodID-00148', 386, 6, '0', 'Activo', '0', '0', '2022-04-05 15:32:56', NULL, 8, 0),
-(149, 'CodID-00149', 389, 6, '0', 'Activo', '0', '0', '2022-04-05 15:45:09', NULL, 8, 0),
-(150, 'CodID-00150', 233, 6, '0', 'Activo', '0', '0', '2022-04-05 16:46:23', NULL, 8, 0);
+(133, 'CodID-00133', 278, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-01 16:11:51', NULL, 8, 0),
+(134, 'CodID-00134', 116, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-01 16:24:03', NULL, 8, 0),
+(135, 'CodID-00135', 359, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-01 16:28:18', NULL, 8, 0),
+(136, 'CodID-00136', 363, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-02 11:42:05', NULL, 8, 0),
+(137, 'CodID-00137', 273, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-02 11:54:45', NULL, 8, 0),
+(138, 'CodID-00138', 83, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-02 12:29:18', NULL, 8, 0),
+(139, 'CodID-00139', 366, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-04 10:38:53', NULL, 8, 0),
+(140, 'CodID-00140', 52, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-04 14:02:11', NULL, 8, 0),
+(141, 'CodID-00141', 249, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-04 14:04:43', NULL, 8, 0),
+(142, 'CodID-00142', 253, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-04 17:19:55', NULL, 8, 0),
+(143, 'CodID-00143', 377, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-04 17:55:47', NULL, 8, 0),
+(144, 'CodID-00144', 274, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-05 09:47:15', NULL, 8, 0),
+(145, 'CodID-00145', 104, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-05 10:36:30', NULL, 8, 0),
+(146, 'CodID-00146', 385, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-05 13:13:55', NULL, 8, 0),
+(147, 'CodID-00147', 387, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-05 14:00:39', NULL, 8, 0),
+(148, 'CodID-00148', 386, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-05 15:32:56', NULL, 8, 0),
+(149, 'CodID-00149', 389, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-05 15:45:09', NULL, 8, 0),
+(150, 'CodID-00150', 233, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-05 16:46:23', NULL, 8, 0),
+(151, 'CodID-00151', 286, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-06 10:09:42', NULL, 8, 0),
+(152, 'CodID-00152', 297, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-06 13:42:42', NULL, 8, 0),
+(153, 'CodID-00153', 264, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-06 16:04:56', NULL, 8, 0),
+(154, 'CodID-00154', 374, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-06 16:44:27', NULL, 8, 0),
+(155, 'CodID-00155', 370, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-06 17:25:39', NULL, 8, 0),
+(156, 'CodID-00156', 388, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-07 09:58:37', NULL, 8, 0),
+(157, 'CodID-00157', 97, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-07 10:19:18', NULL, 8, 0),
+(158, 'CodID-00158', 362, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-07 10:21:49', NULL, 8, 0),
+(159, 'CodID-00159', 407, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-07 13:41:44', NULL, 8, 0),
+(160, 'CodID-00159', 407, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-07 13:48:30', NULL, 8, 0),
+(161, 'CodID-00161', 405, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-07 13:52:51', NULL, 8, 0),
+(162, 'CodID-00162', 158, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-07 15:47:29', NULL, 8, 0),
+(163, 'CodID-00163', 403, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-07 16:18:11', NULL, 8, 0);
 
 -- --------------------------------------------------------
 
@@ -5925,24 +6774,37 @@ INSERT INTO `registrocodidentibitacora` (`id_regcodidenti`, `folioCodID`, `id_pr
 (130, 'CodID-00130', 349, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-03-31 15:07:45', NULL, 8, 0),
 (131, 'CodID-00131', 327, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-03-31 17:10:32', NULL, 8, 0),
 (132, 'CodID-00132', 358, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-01 12:16:25', NULL, 8, 0),
-(133, 'CodID-00133', 278, 5, '0', 'Activo', '0', '0', '2022-04-01 16:11:51', NULL, 8, 0),
-(134, 'CodID-00134', 116, 5, '0', 'Activo', '0', '0', '2022-04-01 16:24:03', NULL, 8, 0),
-(135, 'CodID-00135', 359, 5, '0', 'Activo', '0', '0', '2022-04-01 16:28:18', NULL, 8, 0),
-(136, 'CodID-00136', 363, 5, '0', 'Activo', '0', '0', '2022-04-02 11:42:05', NULL, 8, 0),
-(137, 'CodID-00137', 273, 5, '0', 'Activo', '0', '0', '2022-04-02 11:54:45', NULL, 8, 0),
-(138, 'CodID-00138', 83, 5, '0', 'Activo', '0', '0', '2022-04-02 12:29:18', NULL, 8, 0),
-(139, 'CodID-00139', 366, 5, '0', 'Activo', '0', '0', '2022-04-04 10:38:53', NULL, 8, 0),
-(140, 'CodID-00140', 52, 6, '0', 'Activo', '0', '0', '2022-04-04 14:02:11', NULL, 8, 0),
-(141, 'CodID-00141', 249, 6, '0', 'Activo', '0', '0', '2022-04-04 14:04:43', NULL, 8, 0),
-(142, 'CodID-00142', 253, 6, '0', 'Activo', '0', '0', '2022-04-04 17:19:55', NULL, 8, 0),
-(143, 'CodID-00143', 377, 6, '0', 'Activo', '0', '0', '2022-04-04 17:55:47', NULL, 8, 0),
-(144, 'CodID-00144', 274, 6, '0', 'Activo', '0', '0', '2022-04-05 09:47:15', NULL, 8, 0),
-(145, 'CodID-00145', 104, 6, '0', 'Activo', '0', '0', '2022-04-05 10:36:30', NULL, 8, 0),
-(146, 'CodID-00146', 385, 6, '0', 'Activo', '0', '0', '2022-04-05 13:13:55', NULL, 8, 0),
-(147, 'CodID-00147', 387, 6, '0', 'Activo', '0', '0', '2022-04-05 14:00:39', NULL, 8, 0),
-(148, 'CodID-00148', 386, 6, '0', 'Activo', '0', '0', '2022-04-05 15:32:56', NULL, 8, 0),
-(149, 'CodID-00149', 389, 6, '0', 'Activo', '0', '0', '2022-04-05 15:45:09', NULL, 8, 0),
-(150, 'CodID-00150', 233, 6, '0', 'Activo', '0', '0', '2022-04-05 16:46:23', NULL, 8, 0);
+(133, 'CodID-00133', 278, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-01 16:11:51', NULL, 8, 0),
+(134, 'CodID-00134', 116, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-01 16:24:03', NULL, 8, 0),
+(135, 'CodID-00135', 359, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-01 16:28:18', NULL, 8, 0),
+(136, 'CodID-00136', 363, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-02 11:42:05', NULL, 8, 0),
+(137, 'CodID-00137', 273, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-02 11:54:45', NULL, 8, 0),
+(138, 'CodID-00138', 83, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-02 12:29:18', NULL, 8, 0),
+(139, 'CodID-00139', 366, 5, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-04 10:38:53', NULL, 8, 0),
+(140, 'CodID-00140', 52, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-04 14:02:11', NULL, 8, 0),
+(141, 'CodID-00141', 249, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-04 14:04:43', NULL, 8, 0),
+(142, 'CodID-00142', 253, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-04 17:19:55', NULL, 8, 0),
+(143, 'CodID-00143', 377, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-04 17:55:47', NULL, 8, 0),
+(144, 'CodID-00144', 274, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-05 09:47:15', NULL, 8, 0),
+(145, 'CodID-00145', 104, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-05 10:36:30', NULL, 8, 0),
+(146, 'CodID-00146', 385, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-05 13:13:55', NULL, 8, 0),
+(147, 'CodID-00147', 387, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-05 14:00:39', NULL, 8, 0),
+(148, 'CodID-00148', 386, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-05 15:32:56', NULL, 8, 0),
+(149, 'CodID-00149', 389, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-05 15:45:09', NULL, 8, 0),
+(150, 'CodID-00150', 233, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-05 16:46:23', NULL, 8, 0),
+(151, 'CodID-00151', 286, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-06 10:09:42', NULL, 8, 0),
+(152, 'CodID-00152', 297, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-06 13:42:42', NULL, 8, 0),
+(153, 'CodID-00153', 264, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-06 16:04:56', NULL, 8, 0),
+(154, 'CodID-00154', 374, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-06 16:44:27', NULL, 8, 0),
+(155, 'CodID-00155', 370, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-06 17:25:39', NULL, 8, 0),
+(156, 'CodID-00156', 388, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-07 09:58:37', NULL, 8, 0),
+(157, 'CodID-00157', 97, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-07 10:19:18', NULL, 8, 0),
+(158, 'CodID-00158', 362, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-07 10:21:49', NULL, 8, 0),
+(159, 'CodID-00159', 407, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-07 13:41:44', NULL, 8, 0),
+(160, 'CodID-00159', 407, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-07 13:48:30', NULL, 8, 0),
+(161, 'CodID-00161', 405, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-07 13:52:51', NULL, 8, 0),
+(162, 'CodID-00162', 158, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-07 15:47:29', NULL, 8, 0),
+(163, 'CodID-00163', 403, 6, '0', 'Supervisión Código Identificador', '1', '0', '2022-04-07 16:18:11', NULL, 8, 0);
 
 -- --------------------------------------------------------
 
@@ -6140,11 +7002,29 @@ INSERT INTO `registrosolicitud` (`id_regSolicitud`, `folioRegSolicitud`, `id_pro
 (204, 'Solicitud_Alta-00203', 385, '1,600.00', 6, '1 Mes de Garantia\r\nProximo Servicio de Afinación 147, 276km', '1 Mes de Garantia\r\nProximo Servicio de Afinación 147, 276km', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-05 11:50:28', NULL, 3, NULL),
 (205, 'Solicitud_Alta-00204', 386, '650.00', 6, '1 Mes de garantia por fugas\r\npróximo servicio de afinación 173, 702km', '1 Mes de garantia por fugas\r\npróximo servicio de afinación 173, 702km', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-05 11:52:50', NULL, 3, NULL),
 (206, 'Solicitud_Alta-00205', 387, '1,600.00', 6, '1 mes de fugas\r\nPróximo servicio de afinación 110, 467km ', '1 mes de fugas\r\nPróximo servicio de afinación 110, 467km ', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-05 11:58:55', NULL, 3, NULL),
-(207, 'Solicitud_Alta-00205', 97, '1.00', 6, 'Fuga Aceite motor\r\nAlineacion', 'Fuga Aceite motor\r\nAlineacion', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-05 12:02:55', NULL, 7, NULL),
 (208, 'Solicitud_Alta-00207', 264, '20,000.00', 6, 'Fuga de aceite de motor\r\nChicote desgaste\r\nCodigos de motor\r\n4*4 falla', 'Fuga de aceite de motor\r\nChicote desgaste\r\nCodigos de motor\r\n4*4 falla', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-05 12:20:53', NULL, 3, NULL),
 (209, 'Solicitud_Alta-00208', 389, '1,600.00', 6, '1 mes de garantia por fugas\r\nPróximo servicio de afinación 129, 281km ', '1 mes de garantia por fugas\r\nPróximo servicio de afinación 129, 281km', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-05 13:45:15', NULL, 3, NULL),
 (210, 'Solicitud_Alta-00209', 388, '3,000.00', 6, '1 Mes de Garantia por fugas\r\nPróximo Servicio de afianción 136, 183km', '1 Mes de Garantia por fugas\r\nPróximo Servicio de afianción 136, 183km', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-05 16:05:46', NULL, 3, NULL),
-(211, 'Solicitud_Alta-00210', 177, '70,000.00', 6, '.', '.', '1', '6', '4', '1', '1', '0', 'Activo', '2022-04-05 17:06:40', NULL, 7, NULL);
+(211, 'Solicitud_Alta-00210', 177, '70,000.00', 6, '.', '.', '1', '6', '4', '1', '1', '0', 'Activo', '2022-04-05 17:06:40', NULL, 7, NULL),
+(212, 'Solicitud_Alta-00211', 145, '1.00', 6, 'Soportes', 'Soportes', '2', '3', '1', '1', '1', '0', 'Activo', '2022-04-06 11:13:33', NULL, 7, NULL),
+(213, 'Solicitud_Alta-00212', 370, '1.00', 6, 'SUSPENSION', 'SUSPENSION', '2', '8', '1', '1', '1', '0', 'Activo', '2022-04-06 11:55:56', NULL, 7, NULL),
+(214, 'Solicitud_Alta-00213', 400, '1,400.00', 6, '1 mes de garantia por fugas\r\nPróximo servicio de afinación de 108, 574km', '1 mes de garantia por fugas\r\nPróximo servicio de afinación de 108, 574km', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-06 12:13:34', NULL, 3, NULL),
+(215, 'Solicitud_Alta-00214', 146, '1.00', 6, 'Falla motor\r\nJuego en diferencial\r\nSoportes\r\nDesgaste en Chicote\r\nCódigos y falla de motor', 'Falla motor\r\nJuego en diferencial\r\nSoportes\r\nDesgaste en Chicote\r\nCódigos y falla de motor', '3', '9', '1', '1', '1', '0', 'Activo', '2022-04-06 15:16:04', NULL, 7, NULL),
+(216, 'Solicitud_Alta-00215', 97, '1.00', 6, 'Fuga de aceite de motor\r\nAlineación', 'Fuga de aceite de motor\r\nAlineación', '2', '9', '1', '1', '1', '0', 'Activo', '2022-04-06 15:21:30', NULL, 3, NULL),
+(217, 'Solicitud_Alta-00216', 223, '12,000.00', 6, '*OJO NO PROBAR*\r\nTienen agua los inyectores\r\nAgua en tanque de gasolina\r\nFalla de motor', 'Tienen agua los inyectores\r\nAgua en tanque de gasolina\r\nFalla de motor', '2', '2', '1', '1', '1', '0', 'Activo', '2022-04-06 16:39:02', NULL, 7, NULL),
+(218, 'Solicitud_Alta-00217', 402, '30,000.00', 6, 'Códigos \r\n*CAN Engine Speed\r\n054147', 'Códigos \r\n*CAN Engine Speed\r\n054147', '2', '4', '1', '1', '1', '0', 'Activo', '2022-04-06 17:56:37', NULL, 7, NULL),
+(219, 'Solicitud_Alta-00218', 362, '1,500.00', 6, '-', '-', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-07 10:01:23', NULL, 3, NULL),
+(220, 'Solicitud_Alta-00219', 407, '1,400.00', 6, '1 Mes de Garantias por fugas\r\nPróximo Servicio de Afinación de  la transmisión automática 107, 515km ', '1 Mes de Garantias por fugas\r\nPróximo Servicio de Afinación de  la transmisión automática 107, 515km ', '3', '7', '1', '1', '1', '0', 'Activo', '2022-04-07 11:41:29', NULL, 3, NULL),
+(221, 'Solicitud_Alta-00220', 405, '1,200.00', 6, 'Próximo servicio de afinación de la transmisión automática al 07 de Abril 22', 'Próximo servicio de afinación de la transmisión automática al 07 de Abril 22', '1', '7', '7', '1', '1', '0', 'Activo', '2022-04-07 11:42:36', NULL, 3, NULL),
+(222, 'Solicitud_Alta-00221', 403, '1,400.00', 6, '1 mes de garnatia por fugas\r\nPróximo Servicio de Afinación de transmisión automática es 165, 546 km ', '1 mes de garnatia por fugas\r\nPróximo Servicio de Afinación de transmisión automática es 165, 546 km ', '1', '7', '1', '1', '1', '0', 'Activo', '2022-04-07 11:43:34', NULL, 3, NULL),
+(223, 'Solicitud_Alta-00222', 408, '1.00', 6, 'Suspensión\r\nAmortiguadores', 'Suspensión\r\nAmortiguadores', '4', '3', '1', '1', '1', '0', 'Activo', '2022-04-07 12:16:04', NULL, 3, NULL),
+(224, 'Solicitud_Alta-00191', 158, '13,000.00', 5, 'Varilla esta hechiza', 'Varilla esta hechiza', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-01 17:06:12', NULL, 7, NULL),
+(225, 'Solicitud_Alta-00223', 252, '10,000.00', 6, 'Fuga aceite motor\r\nChicote sobre marcha\r\nFuga aceite dirección\r\nFalla motor', 'Fuga aceite motor\r\nChicote sobre marcha\r\nFuga aceite dirección\r\nFalla motor', '4', '6', '1', '1', '1', '0', 'Activo', '2022-04-07 13:39:20', NULL, 7, NULL),
+(226, 'Solicitud_Alta-00224', 243, '25,000.00', 6, 'Fuga aceite de motor\r\nAlineación ', 'Fuga aceite de motor\r\nAlineación ', '2', '9', '1', '1', '1', '0', 'Activo', '2022-04-07 14:28:25', NULL, 7, NULL),
+(227, 'Solicitud_Alta-00225', 283, '1.00', 6, 'Cambiar sensor de velocidad\r\nsuspension y soportes\r\nfuga de aceite de motor', 'Cambiar sensor de velocidad\r\nsuspension y soportes\r\nfuga de aceite de motor', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-07 16:50:22', NULL, 3, NULL),
+(228, 'Solicitud_Alta-00226', 292, '11,000.00', 6, 'Falla Motor\r\nCarburador falla\r\nSuspension y soportes', 'Falla Motor\r\nCarburador falla\r\nSuspension y soportes', '2', '2', '1', '1', '1', '0', 'Activo', '2022-04-07 17:18:23', NULL, 7, NULL),
+(229, 'Solicitud_Alta-00227', 372, '5,000.00', 6, 'Juego en diferencial', 'Juego en diferencial', '2', '5', '1', '1', '1', '0', 'Activo', '2022-04-07 17:21:30', NULL, 7, NULL),
+(230, 'Solicitud_Alta-00228', 44, '1.00', 6, '-', '-', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-07 17:41:27', NULL, 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -6384,11 +7264,29 @@ INSERT INTO `registrosolicitudbitacora` (`id_regSolicitud`, `folioRegSolicitud`,
 (204, 'Solicitud_Alta-00204', 386, '650.00', 6, '1 Mes de garantia por fugas\r\npróximo servicio de afinación 173, 702km', '1 Mes de garantia por fugas\r\npróximo servicio de afinación 173, 702km', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-05 11:52:50', NULL, 3, NULL),
 (205, 'Solicitud_Alta-00205', 387, '1,600.00', 6, '1 mes de fugas\r\nPróximo servicio de afinación 110, 467km ', '1 mes de fugas\r\nPróximo servicio de afinación 110, 467km ', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-05 11:58:55', NULL, 3, NULL),
 (206, 'Solicitud_Alta-00205', 97, '1.00', 6, 'Fuga Aceite motor\r\nAlineacion', 'Fuga Aceite motor\r\nAlineacion', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-05 12:02:55', NULL, 7, NULL),
-(207, 'Solicitud_Alta-00207', 264, '20,000.00', 6, 'Fuga de aceite de motor\r\nChicote desgaste\r\nCodigos de motor\r\n4*4 falla', 'Fuga de aceite de motor\r\nChicote desgaste\r\nCodigos de motor\r\n4*4 falla', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-05 12:20:53', NULL, 3, NULL),
+(207, 'Solicitud_Alta-00207', 264, '20,000.00', 6, 'Fuga de aceite de motor\r\nChicote desgaste\r\nCodigos de motor\r\n4*4 falla', 'Fuga de aceite de motor\r\nChicote desgaste\r\nCodigos de motor\r\n4*4 falla', '1', '1', '1', '1', '1', '1', 'Borrado de 2.4.2 Solicitud Alta Proyecto', '2022-04-05 12:20:53', '2022-04-06 08:53:38', 3, 6),
 (208, 'Solicitud_Alta-00208', 389, '1,600.00', 6, '1 mes de garantia por fugas\r\nPróximo servicio de afinación 129, 281km ', '1 mes de garantia por fugas\r\nPróximo servicio de afinación 129, 281km', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-05 13:45:15', NULL, 3, NULL);
 INSERT INTO `registrosolicitudbitacora` (`id_regSolicitud`, `folioRegSolicitud`, `id_proyecto`, `valorVentaAlta`, `id_semana`, `inspecCalidad`, `observCliente`, `tecArmador`, `tecMontador1`, `tecMontador2`, `tecMontador3`, `tecMontador4`, `borrado`, `status`, `fecha_creacion`, `fecha_borrado`, `id_capC`, `id_capB`) VALUES
 (209, 'Solicitud_Alta-00209', 388, '3,000.00', 6, '1 Mes de Garantia por fugas\r\nPróximo Servicio de afianción 136, 183km', '1 Mes de Garantia por fugas\r\nPróximo Servicio de afianción 136, 183km', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-05 16:05:46', NULL, 3, NULL),
-(210, 'Solicitud_Alta-00210', 177, '70,000.00', 6, '.', '.', '1', '6', '4', '1', '1', '0', 'Activo', '2022-04-05 17:06:40', NULL, 7, NULL);
+(210, 'Solicitud_Alta-00210', 177, '70,000.00', 6, '.', '.', '1', '6', '4', '1', '1', '0', 'Activo', '2022-04-05 17:06:40', NULL, 7, NULL),
+(211, 'Solicitud_Alta-00211', 145, '1.00', 6, 'Soportes', 'Soportes', '2', '3', '1', '1', '1', '0', 'Activo', '2022-04-06 11:13:33', NULL, 7, NULL),
+(212, 'Solicitud_Alta-00212', 370, '1.00', 6, 'SUSPENSION', 'SUSPENSION', '2', '8', '1', '1', '1', '0', 'Activo', '2022-04-06 11:55:56', NULL, 7, NULL),
+(213, 'Solicitud_Alta-00213', 400, '1,400.00', 6, '1 mes de garantia por fugas\r\nPróximo servicio de afinación de 108, 574km', '1 mes de garantia por fugas\r\nPróximo servicio de afinación de 108, 574km', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-06 12:13:34', NULL, 3, NULL),
+(214, 'Solicitud_Alta-00214', 146, '1.00', 6, 'Falla motor\r\nJuego en diferencial\r\nSoportes\r\nDesgaste en Chicote\r\nCódigos y falla de motor', 'Falla motor\r\nJuego en diferencial\r\nSoportes\r\nDesgaste en Chicote\r\nCódigos y falla de motor', '3', '9', '1', '1', '1', '0', 'Activo', '2022-04-06 15:16:04', NULL, 7, NULL),
+(215, 'Solicitud_Alta-00215', 97, '1.00', 6, 'Fuga de aceite de motor\r\nAlineación', 'Fuga de aceite de motor\r\nAlineación', '2', '9', '1', '1', '1', '0', 'Activo', '2022-04-06 15:21:30', NULL, 3, NULL),
+(216, 'Solicitud_Alta-00216', 223, '12,000.00', 6, '*OJO NO PROBAR*\r\nTienen agua los inyectores\r\nAgua en tanque de gasolina\r\nFalla de motor', 'Tienen agua los inyectores\r\nAgua en tanque de gasolina\r\nFalla de motor', '2', '2', '1', '1', '1', '0', 'Activo', '2022-04-06 16:39:02', NULL, 7, NULL),
+(217, 'Solicitud_Alta-00217', 402, '30,000.00', 6, 'Códigos \r\n*CAN Engine Speed\r\n054147', 'Códigos \r\n*CAN Engine Speed\r\n054147', '2', '4', '1', '1', '1', '0', 'Activo', '2022-04-06 17:56:37', NULL, 7, NULL),
+(218, 'Solicitud_Alta-00218', 362, '1,500.00', 6, '-', '-', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-07 10:01:23', NULL, 3, NULL),
+(219, 'Solicitud_Alta-00219', 407, '1,400.00', 6, '1 Mes de Garantias por fugas\r\nPróximo Servicio de Afinación de  la transmisión automática 107, 515km ', '1 Mes de Garantias por fugas\r\nPróximo Servicio de Afinación de  la transmisión automática 107, 515km ', '3', '7', '1', '1', '1', '0', 'Activo', '2022-04-07 11:41:29', NULL, 3, NULL),
+(220, 'Solicitud_Alta-00220', 405, '1,200.00', 6, 'Próximo servicio de afinación de la transmisión automática al 07 de Abril 22', 'Próximo servicio de afinación de la transmisión automática al 07 de Abril 22', '1', '7', '7', '1', '1', '0', 'Activo', '2022-04-07 11:42:36', NULL, 3, NULL),
+(221, 'Solicitud_Alta-00221', 403, '1,400.00', 6, '1 mes de garnatia por fugas\r\nPróximo Servicio de Afinación de transmisión automática es 165, 546 km ', '1 mes de garnatia por fugas\r\nPróximo Servicio de Afinación de transmisión automática es 165, 546 km ', '1', '7', '1', '1', '1', '0', 'Activo', '2022-04-07 11:43:34', NULL, 3, NULL),
+(222, 'Solicitud_Alta-00222', 408, '1.00', 6, 'Suspensión\r\nAmortiguadores', 'Suspensión\r\nAmortiguadores', '4', '3', '1', '1', '1', '0', 'Activo', '2022-04-07 12:16:04', NULL, 3, NULL),
+(223, 'Solicitud_Alta-00223', 252, '10,000.00', 6, 'Fuga aceite motor\r\nChicote sobre marcha\r\nFuga aceite dirección\r\nFalla motor', 'Fuga aceite motor\r\nChicote sobre marcha\r\nFuga aceite dirección\r\nFalla motor', '4', '6', '1', '1', '1', '0', 'Activo', '2022-04-07 13:39:20', NULL, 7, NULL),
+(224, 'Solicitud_Alta-00224', 243, '25,000.00', 6, 'Fuga aceite de motor\r\nAlineación ', 'Fuga aceite de motor\r\nAlineación ', '2', '9', '1', '1', '1', '0', 'Activo', '2022-04-07 14:28:25', NULL, 7, NULL),
+(225, 'Solicitud_Alta-00225', 283, '1.00', 6, 'Cambiar sensor de velocidad\r\nsuspension y soportes\r\nfuga de aceite de motor', 'Cambiar sensor de velocidad\r\nsuspension y soportes\r\nfuga de aceite de motor', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-07 16:50:22', NULL, 3, NULL),
+(226, 'Solicitud_Alta-00226', 292, '11,000.00', 6, 'Falla Motor\r\nCarburador falla\r\nSuspension y soportes', 'Falla Motor\r\nCarburador falla\r\nSuspension y soportes', '2', '2', '1', '1', '1', '0', 'Activo', '2022-04-07 17:18:23', NULL, 7, NULL),
+(227, 'Solicitud_Alta-00227', 372, '5,000.00', 6, 'Juego en diferencial', 'Juego en diferencial', '2', '5', '1', '1', '1', '0', 'Activo', '2022-04-07 17:21:30', NULL, 7, NULL),
+(228, 'Solicitud_Alta-00228', 44, '1.00', 6, '-', '-', '1', '1', '1', '1', '1', '0', 'Activo', '2022-04-07 17:41:27', NULL, 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -6607,7 +7505,20 @@ INSERT INTO `supervisado` (`id_supervisado`, `folioSupervision`, `id_regcodident
 (101, 'Supervisión-00101', 119, 304, '28044', '1', '2022-04-01 12:19:15', 11),
 (102, 'Supervisión-00102', 125, 49, '28047', '1', '2022-04-01 12:30:29', 11),
 (103, 'Supervisión-00103', 127, 339, '28048', '1', '2022-04-01 12:36:43', 11),
-(104, 'Supervisión-00104', 130, 349, '28053', '1', '2022-04-01 13:31:22', 11);
+(104, 'Supervisión-00104', 130, 349, '28053', '1', '2022-04-01 13:31:22', 11),
+(105, 'Supervisión-00105', 126, 345, '28103, 28104', '1', '2022-04-06 14:01:51', 11),
+(106, 'Supervisión-00106', 131, 327, '28106, 28107', '1', '2022-04-06 15:24:48', 11),
+(107, 'Supervisión-00107', 133, 278, '28110', '1', '2022-04-06 15:30:44', 11),
+(108, 'Supervisión-00108', 137, 273, '28168', '1', '2022-04-06 17:34:23', 11),
+(109, 'Supervisión-00109', 138, 83, '28169', '1', '2022-04-06 17:41:27', 11),
+(110, 'Supervisión-00110', 144, 274, '28348', '1', '2022-04-07 13:35:07', 11),
+(111, 'Supervisión-00111', 149, 389, '28351', '1', '2022-04-07 15:19:25', 11),
+(112, 'Supervisión-00112', 151, 286, '28401', '1', '2022-04-07 16:59:06', 11),
+(113, 'Supervisión-00113', 152, 297, '28402', '1', '2022-04-07 17:02:44', 11),
+(114, 'Supervisión-00114', 153, 264, '28404', '1', '2022-04-07 17:16:50', 11),
+(115, 'Supervisión-00115', 154, 374, '28405', '1', '2022-04-07 17:23:31', 11),
+(116, 'Supervisión-00116', 155, 370, '28406', '1', '2022-04-07 17:27:53', 11),
+(117, 'Supervisión-00117', 157, 97, '28408', '1', '2022-04-07 17:38:10', 11);
 
 -- --------------------------------------------------------
 
@@ -6736,7 +7647,20 @@ INSERT INTO `supervisadobitacora` (`id_supervisado`, `folioSupervision`, `id_reg
 (101, 'Supervisión-00101', 119, 304, '28044', '1', '2022-04-01 12:19:15', NULL, 11, NULL),
 (102, 'Supervisión-00102', 125, 49, '28047', '1', '2022-04-01 12:30:29', NULL, 11, NULL),
 (103, 'Supervisión-00103', 127, 339, '28048', '1', '2022-04-01 12:36:43', NULL, 11, NULL),
-(104, 'Supervisión-00104', 130, 349, '28053', '1', '2022-04-01 13:31:22', NULL, 11, NULL);
+(104, 'Supervisión-00104', 130, 349, '28053', '1', '2022-04-01 13:31:22', NULL, 11, NULL),
+(105, 'Supervisión-00105', 126, 345, '28103, 28104', '1', '2022-04-06 14:01:51', NULL, 11, NULL),
+(106, 'Supervisión-00106', 131, 327, '28106, 28107', '1', '2022-04-06 15:24:48', NULL, 11, NULL),
+(107, 'Supervisión-00107', 133, 278, '28110', '1', '2022-04-06 15:30:44', NULL, 11, NULL),
+(108, 'Supervisión-00108', 137, 273, '28168', '1', '2022-04-06 17:34:23', NULL, 11, NULL),
+(109, 'Supervisión-00109', 138, 83, '28169', '1', '2022-04-06 17:41:27', NULL, 11, NULL),
+(110, 'Supervisión-00110', 144, 274, '28348', '1', '2022-04-07 13:35:07', NULL, 11, NULL),
+(111, 'Supervisión-00111', 149, 389, '28351', '1', '2022-04-07 15:19:25', NULL, 11, NULL),
+(112, 'Supervisión-00112', 151, 286, '28401', '1', '2022-04-07 16:59:06', NULL, 11, NULL),
+(113, 'Supervisión-00113', 152, 297, '28402', '1', '2022-04-07 17:02:44', NULL, 11, NULL),
+(114, 'Supervisión-00114', 153, 264, '28404', '1', '2022-04-07 17:16:50', NULL, 11, NULL),
+(115, 'Supervisión-00115', 154, 374, '28405', '1', '2022-04-07 17:23:31', NULL, 11, NULL),
+(116, 'Supervisión-00116', 155, 370, '28406', '1', '2022-04-07 17:27:53', NULL, 11, NULL),
+(117, 'Supervisión-00117', 157, 97, '28408', '1', '2022-04-07 17:38:10', NULL, 11, NULL);
 
 -- --------------------------------------------------------
 
@@ -6763,7 +7687,8 @@ INSERT INTO `tecarmadores` (`id_tecArmador`, `tecArmador`, `fecha_creacion`, `fe
 (3, 'Juan Rivera', '2022-04-05 16:49:05', NULL, 7, NULL),
 (4, 'Dagoberto Ortega', '2022-04-05 16:49:13', NULL, 7, NULL),
 (5, 'Giovanni Miranda', '2022-04-05 16:49:22', NULL, 7, NULL),
-(6, 'Jesus Gómez', '2022-04-05 16:49:41', NULL, 7, NULL);
+(6, 'Jesus Gómez', '2022-04-05 16:49:41', NULL, 7, NULL),
+(7, 'AOG', '2022-04-06 16:43:04', NULL, 7, NULL);
 
 -- --------------------------------------------------------
 
@@ -6796,8 +7721,38 @@ INSERT INTO `tecmontadores` (`id_tecMontador`, `tecMontador`, `fecha_creacion`, 
 (9, 'Héctor Hernandez', '2022-04-05 16:57:33', NULL, 7, NULL),
 (10, 'Moisés Arceo', '2022-04-05 16:57:42', NULL, 7, NULL),
 (11, 'Héctor Medrano(Jr)', '2022-04-05 16:59:03', NULL, 7, NULL),
-(12, 'Luis Gallegos', '2022-04-05 16:59:31', NULL, 7, NULL);
+(12, 'Luis Gallegos', '2022-04-05 16:59:31', NULL, 7, NULL),
+(13, 'Jesus Gomez', '2022-04-06 16:43:16', NULL, 7, NULL),
+(14, 'Ruth Nájera', '2022-04-06 16:43:41', NULL, 7, NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `test`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `test` (
+`id_proyecto` int(11)
+,`nProyecto` int(11)
+,`nOrden` int(11)
+,`comPlacas` char(1)
+,`estadoProyectoEliminado` char(1)
+,`comSuperPlaca` char(1)
+,`nombres` varchar(40)
+,`aPaternoCliente` varchar(30)
+,`aMaternoCliente` varchar(30)
+,`placa` varchar(10)
+,`marca` varchar(30)
+,`modelo` varchar(50)
+,`anio` varchar(4)
+,`color` varchar(40)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
 
 CREATE TABLE `usuarios` (
   `id_usuario` int(11) NOT NULL,
@@ -6825,19 +7780,72 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombres`, `aPaterno`, `aMaterno`, `usuario`, `email`, `tel`, `pass`, `admin`, `eliminado`, `fecha_eliminado`, `fecha_creacion`, `fecha_mod`, `id_captC`, `id_captM`, `estatus`, `ultima_conexion`, `super`) VALUES
-(1, 'Jose Uriel', 'Guerra', 'Trinidad', 'super', 'a@a.com', '2212096482', 'admin', '1', '0', NULL, '2022-02-27 21:27:25', '2022-02-27 21:27:25', 1, 0, 'Online', '2022-04-05 16:59:58', 1),
-(2, 'Sebastian', 'Ortiz', 'Lomeli', 'admin', 'a@a.a', '(000) 000-0000', 'JSOLsistema1', '1', '0', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0, 'Online', '2022-04-05 16:31:29', 1),
-(3, 'Fatima', 'Ocegueda', 'Ramirez', 'fatima_ocegueda', 'servicio.ortiz.trans@gmail.com', '(333) 333-3333', 'fatimaservicio87', '0', '0', NULL, '2022-03-01 11:52:28', '2022-03-01 11:57:26', 2, 2, 'Online', '2022-04-05 17:35:56', 0),
-(4, 'Jessica', 'Ruiz', 'Hernández', 'jessica_ruiz', 'jessicarz.jsol@gmail.com', '(333) 333-3333', 'Jessica1910', '0', '0', NULL, '2022-03-05 11:46:20', NULL, 2, 0, 'Online', '2022-04-05 15:00:22', 0),
-(5, 'Lucero Engracia', 'Romo', 'Salas', 'lucero_romo', 'luceroromosalas@gmail.com', '(333) 333-3333', 'vico2308', '0', '0', NULL, '2022-03-07 14:05:32', NULL, 2, 0, 'Online', '2022-04-05 12:36:51', 0),
-(6, 'Edgar Isaac', 'Ramirez', 'Cano', 'edgar_isaac', 'isaacrmz00@gmail.com', '(333) 333-3333', 'Isaac123456', '0', '0', NULL, '2022-03-10 12:01:30', NULL, 2, 0, 'Online', '2022-04-05 18:00:50', 0),
-(7, 'Danira', 'Vallin', 'Espinoza', 'danira_vallin', 'sayetsi666@gmail.com', '(333) 333-3333', 'DRJKVW1n9j', '0', '0', NULL, '2022-03-10 12:37:38', NULL, 2, 0, 'Online', '2022-04-05 17:17:48', 0),
-(8, 'Guadalupe', 'Ortiz', 'Cabezas', 'guadalupe_ortiz', 'ortizconvertidores@gmail.com', '(333) 333-3333', 'JSOLctas1', '0', '0', NULL, '2022-03-14 13:17:57', NULL, 2, 0, 'Online', '2022-04-05 17:25:10', 0),
-(9, 'Karla Patricia', 'Gonzalez', 'Padilla', 'karla_gonzalez', 'patriciagopadilla0107@gmail.com', '(333) 333-3333', 'Karla0107', '0', '0', NULL, '2022-03-14 16:05:19', NULL, 2, 0, 'Online', '2022-04-05 13:43:04', 0),
-(10, 'Ana Lilia', 'Nuñez', 'Ramirez', 'ana_lilia', 'anaservicioortiz@gmail.com', '(333) 333-3333', 'MATTSS', '0', '0', NULL, '2022-03-22 11:34:51', NULL, 2, 0, 'Online', '2022-04-05 18:31:39', 0),
-(11, 'Juan Manuel', 'Soto', 'Escalante', 'juan_manuel', 'jsoljuanmanuelsoto@gmail.com', '(333) 333-3333', 'Abilene13', '0', '0', NULL, '2022-03-23 13:58:18', NULL, 2, 0, 'Online', '2022-04-01 13:23:32', 0),
-(12, 'Maria de Lourdes', 'Davalos ', 'Gonzalez', 'lourdes_davalos', 'jsollulu@gmail.com', '(333) 333-3333', 'lulusol', '0', '0', NULL, '2022-03-26 11:23:39', NULL, 2, 0, 'Online', '2022-04-05 16:55:39', 0);
+(1, 'Jose Uriel', 'Guerra', 'Trinidad', 'super', 'a@a.com', '2212096482', 'admin', '1', '0', NULL, '2022-02-27 21:27:25', '2022-02-27 21:27:25', 1, 0, 'Online', '2022-04-07 15:26:28', 1),
+(2, 'Sebastian', 'Ortiz', 'Lomeli', 'admin', 'a@a.a', '(000) 000-0000', 'JSOLsistema1', '1', '0', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0, 'Online', '2022-04-07 15:56:53', 1),
+(3, 'Fatima', 'Ocegueda', 'Ramirez', 'fatima_ocegueda', 'servicio.ortiz.trans@gmail.com', '(333) 333-3333', 'fatimaservicio87', '0', '0', NULL, '2022-03-01 11:52:28', '2022-03-01 11:57:26', 2, 2, 'Online', '2022-04-07 17:36:13', 0),
+(4, 'Jessica', 'Ruiz', 'Hernández', 'jessica_ruiz', 'jessicarz.jsol@gmail.com', '(333) 333-3333', 'Jessica1910', '0', '0', NULL, '2022-03-05 11:46:20', NULL, 2, 0, 'Online', '2022-04-07 15:01:09', 0),
+(5, 'Lucero Engracia', 'Romo', 'Salas', 'lucero_romo', 'luceroromosalas@gmail.com', '(333) 333-3333', 'vico2308', '0', '0', NULL, '2022-03-07 14:05:32', NULL, 2, 0, 'Online', '2022-04-07 17:34:06', 0),
+(6, 'Edgar Isaac', 'Ramirez', 'Cano', 'edgar_isaac', 'isaacrmz00@gmail.com', '(333) 333-3333', 'Isaac123456', '0', '0', NULL, '2022-03-10 12:01:30', NULL, 2, 0, 'Online', '2022-04-07 14:48:20', 0),
+(7, 'Danira', 'Vallin', 'Espinoza', 'danira_vallin', 'sayetsi666@gmail.com', '(333) 333-3333', 'DRJKVW1n9j', '0', '0', NULL, '2022-03-10 12:37:38', NULL, 2, 0, 'Online', '2022-04-07 17:44:36', 0),
+(8, 'Guadalupe', 'Ortiz', 'Cabezas', 'guadalupe_ortiz', 'ortizconvertidores@gmail.com', '(333) 333-3333', 'JSOLctas1', '0', '0', NULL, '2022-03-14 13:17:57', NULL, 2, 0, 'Online', '2022-04-07 17:34:56', 0),
+(9, 'Karla Patricia', 'Gonzalez', 'Padilla', 'karla_gonzalez', 'patriciagopadilla0107@gmail.com', '(333) 333-3333', 'Karla0107', '0', '0', NULL, '2022-03-14 16:05:19', NULL, 2, 0, 'Online', '2022-04-07 16:47:36', 0),
+(10, 'Ana Lilia', 'Nuñez', 'Ramirez', 'ana_lilia', 'anaservicioortiz@gmail.com', '(333) 333-3333', 'MATTSS', '0', '0', NULL, '2022-03-22 11:34:51', NULL, 2, 0, 'Online', '2022-04-07 17:45:46', 0),
+(11, 'Juan Manuel', 'Soto', 'Escalante', 'juan_manuel', 'jsoljuanmanuelsoto@gmail.com', '(333) 333-3333', 'Abilene13', '0', '0', NULL, '2022-03-23 13:58:18', NULL, 2, 0, 'Offline', '2022-04-07 15:57:47', 0),
+(12, 'Maria de Lourdes', 'Davalos ', 'Gonzalez', 'lourdes_davalos', 'jsollulu@gmail.com', '(333) 333-3333', 'lulusol', '0', '0', NULL, '2022-03-26 11:23:39', NULL, 2, 0, 'Offline', '2022-04-07 14:43:50', 0),
+(13, 'Miguel Angel ', 'García', 'Cortes', 'miguel_angel', 'servicio.ortiz.miguelangel@gmail.com', '(333) 333-3333', 'qwertyasdfgh12', '0', '0', NULL, '2022-04-06 11:32:29', NULL, 2, 0, 'Online', '2022-04-07 16:51:47', 0);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `vconsultasupercodid`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `vconsultasupercodid` (
+`id_proyecto` int(11)
+,`nProyecto` int(11)
+,`folioRegSolicitud` varchar(25)
+,`inspecCalidad` varchar(300)
+,`observCliente` varchar(300)
+,`id_regAlta` int(11)
+,`folioRegAlta` varchar(25)
+,`observAudiFinal` varchar(300)
+,`cronometro` varchar(30)
+,`link` text
+,`borrado` char(1)
+,`regSolfecha` datetime
+,`regAltaFecha` datetime
+,`regCodIdFechas` datetime
+,`RSNombre` varchar(40)
+,`RSPaterno` varchar(30)
+,`RSMaterno` varchar(30)
+,`RANombre` varchar(40)
+,`RAPaterno` varchar(30)
+,`RAMaterno` varchar(30)
+,`RCNombre` varchar(40)
+,`RCPaterno` varchar(30)
+,`RCMaterno` varchar(30)
+,`valCobProyBase` varchar(12)
+,`codIdProyBase` varchar(50)
+,`id_pagoProyBase` int(11)
+,`valCobProyExtra` varchar(12)
+,`codIdProyExtra` varchar(50)
+,`valCobComBan` varchar(12)
+,`codIdComBan` varchar(50)
+,`valCobPen` varchar(12)
+,`codIdPension` varchar(50)
+,`valCobOtros` varchar(12)
+,`codIdOtros` varchar(50)
+,`DFecha` datetime
+,`formaProyBase` varchar(40)
+,`formaProyExtra` varchar(40)
+,`formaComBan` varchar(40)
+,`formaCobPen` varchar(40)
+,`formaOtros` varchar(40)
+,`compCodId` varchar(50)
+,`Fecha` datetime
+);
+
+-- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `vehiculos`
@@ -7218,11 +8226,163 @@ INSERT INTO `vehiculos` (`id_vehiculo`, `id_marca`, `id_modelo`, `id_anio`, `pla
 (357, 12, 112, 36, '729ZXD', 3, '2022-04-05 13:03:01', NULL, 3, 0),
 (358, 12, 109, 28, ' JRH2460', 5, '2022-04-05 13:18:19', NULL, 3, 0),
 (359, 10, 428, 27, 'JFL4532', 7, '2022-04-05 15:29:23', NULL, 3, 0),
-(360, 7, 34, 30, 'JAR2895', 7, '2022-04-05 16:14:00', NULL, 3, 0);
+(360, 7, 34, 30, 'JAR2895', 7, '2022-04-05 16:14:00', NULL, 3, 0),
+(361, 12, 117, 27, 'JEW7318 ', 1, '2022-04-06 09:18:33', NULL, 3, 0),
+(362, 32, 379, 44, 'TMC6336', 2, '2022-04-06 09:23:31', NULL, 3, 0),
+(363, 7, 50, 35, 'JUO5607', 2, '2022-04-06 09:29:32', NULL, 3, 0),
+(364, 12, 113, 43, 'JJM5055', 1, '2022-04-06 11:10:01', NULL, 3, 0),
+(365, 32, 379, 44, 'JRB8546', 7, '2022-04-06 11:40:32', NULL, 3, 0),
+(366, 32, 368, 34, '79732J2', 5, '2022-04-06 17:27:46', NULL, 3, 0),
+(367, 4, 18, 37, 'JFX7511', 2, '2022-04-06 17:51:22', NULL, 3, 0),
+(368, 27, 476, 43, 'JNU5807', 3, '2022-04-07 09:26:50', NULL, 3, 0),
+(369, 32, 464, 46, 'JMP8129', 7, '2022-04-07 11:21:47', NULL, 3, 0),
+(370, 7, 52, 37, 'ZFJ029B', 4, '2022-04-07 11:29:05', NULL, 3, 0),
+(371, 12, 477, 30, 'JGV4744', 7, '2022-04-07 11:33:31', NULL, 3, 0),
+(372, 7, 478, 42, 'JRM7838', 7, '2022-04-07 11:38:10', NULL, 3, 0),
+(373, 32, 379, 38, 'JMX2436 ', 7, '2022-04-07 12:10:14', NULL, 3, 0);
 
+-- --------------------------------------------------------
 
+--
+-- Estructura Stand-in para la vista `verificacion`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `verificacion` (
+`id_proyecto` int(11)
+,`nProyecto` int(11)
+,`nOrden` int(11)
+,`comVerifDiariaVeh` char(1)
+,`estadoProyectoEliminado` char(1)
+,`comSuperVerifDiariaVeh` char(1)
+,`placa` varchar(10)
+,`marca` varchar(30)
+,`modelo` varchar(50)
+,`anio` varchar(4)
+,`color` varchar(40)
+,`FV` date
+,`FS` date
+,`id_comverifdiariaveh` int(11)
+,`asesor` varchar(40)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `vplacas`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `vplacas` (
+`id_proyecto` int(11)
+,`nProyecto` int(11)
+,`nOrden` int(11)
+,`comPlacas` char(1)
+,`estadoProyectoEliminado` char(1)
+,`comSuperPlaca` char(1)
+,`nombres` varchar(40)
+,`aPaternoCliente` varchar(30)
+,`aMaternoCliente` varchar(30)
+,`placa` varchar(10)
+,`marca` varchar(30)
+,`modelo` varchar(50)
+,`anio` varchar(4)
+,`color` varchar(40)
+,`linkComPlaca` text
+,`fecha_creacion` datetime
+,`UPN` varchar(40)
+,`UPP` varchar(30)
+,`UPM` varchar(30)
+,`textSupervision` varchar(200)
+,`CSF` datetime
+,`UCSN` varchar(40)
+,`UCSP` varchar(30)
+,`UCSM` varchar(30)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `vsupercodid`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `vsupercodid` (
+`id_proyecto` int(11)
+,`nProyecto` int(11)
+,`nOrden` int(11)
+,`valorVenta` varchar(12)
+,`placa` varchar(10)
+,`color` varchar(40)
+,`marca` varchar(30)
+,`modelo` varchar(50)
+,`anio` varchar(4)
+,`valorVentaAlta` varchar(12)
+,`id_regcodidenti` int(11)
+,`semana` varchar(7)
+,`semanaCobro` varchar(7)
+,`valCobProyBase` varchar(12)
+,`codIdProyBase` varchar(50)
+,`compCodId` varchar(50)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `test`
+--
+DROP TABLE IF EXISTS `test`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `test`  AS SELECT `p`.`id_proyecto` AS `id_proyecto`, `p`.`nProyecto` AS `nProyecto`, `p`.`nOrden` AS `nOrden`, `p`.`comPlacas` AS `comPlacas`, `p`.`estadoProyectoEliminado` AS `estadoProyectoEliminado`, `p`.`comSuperPlaca` AS `comSuperPlaca`, `c`.`nombres` AS `nombres`, `c`.`aPaternoCliente` AS `aPaternoCliente`, `c`.`aMaternoCliente` AS `aMaternoCliente`, `v`.`placa` AS `placa`, `m`.`marca` AS `marca`, `mo`.`modelo` AS `modelo`, `a`.`anio` AS `anio`, `co`.`color` AS `color` FROM ((((((`proyectos` `p` join `vehiculos` `v` on(`p`.`id_vehiculo` = `v`.`id_vehiculo`)) join `colores` `co` on(`v`.`id_color` = `co`.`id_color`)) join `marcas` `m` on(`v`.`id_marca` = `m`.`id_marca`)) join `modelos` `mo` on(`v`.`id_modelo` = `mo`.`id_modelo`)) join `anios` `a` on(`v`.`id_anio` = `a`.`id_anio`)) join `clientes` `c` on(`p`.`id_cliente` = `c`.`id_cliente`)) ORDER BY `p`.`nProyecto` DESC ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `vconsultasupercodid`
+--
+DROP TABLE IF EXISTS `vconsultasupercodid`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vconsultasupercodid`  AS SELECT `p`.`id_proyecto` AS `id_proyecto`, `p`.`nProyecto` AS `nProyecto`, `rs`.`folioRegSolicitud` AS `folioRegSolicitud`, `rs`.`inspecCalidad` AS `inspecCalidad`, `rs`.`observCliente` AS `observCliente`, `ra`.`id_regAlta` AS `id_regAlta`, `ra`.`folioRegAlta` AS `folioRegAlta`, `ra`.`observAudiFinal` AS `observAudiFinal`, `ra`.`cronometro` AS `cronometro`, `lv`.`link` AS `link`, `rc`.`borrado` AS `borrado`, `rs`.`fecha_creacion` AS `regSolfecha`, `ra`.`fecha_creacion` AS `regAltaFecha`, `rc`.`fecha_creacion` AS `regCodIdFechas`, `urs`.`nombres` AS `RSNombre`, `urs`.`aPaterno` AS `RSPaterno`, `urs`.`aMaterno` AS `RSMaterno`, `ura`.`nombres` AS `RANombre`, `ura`.`aPaterno` AS `RAPaterno`, `ura`.`aMaterno` AS `RAMaterno`, `urc`.`nombres` AS `RCNombre`, `urc`.`aPaterno` AS `RCPaterno`, `urc`.`aMaterno` AS `RCMaterno`, `d`.`valCobProyBase` AS `valCobProyBase`, `d`.`codIdProyBase` AS `codIdProyBase`, `d`.`id_pagoProyBase` AS `id_pagoProyBase`, `d`.`valCobProyExtra` AS `valCobProyExtra`, `d`.`codIdProyExtra` AS `codIdProyExtra`, `d`.`valCobComBan` AS `valCobComBan`, `d`.`codIdComBan` AS `codIdComBan`, `d`.`valCobPen` AS `valCobPen`, `d`.`codIdPension` AS `codIdPension`, `d`.`valCobOtros` AS `valCobOtros`, `d`.`codIdOtros` AS `codIdOtros`, `d`.`fecha_creacion` AS `DFecha`, `f`.`formaPago` AS `formaProyBase`, `fe`.`formaPago` AS `formaProyExtra`, `fb`.`formaPago` AS `formaComBan`, `fp`.`formaPago` AS `formaCobPen`, `fo`.`formaPago` AS `formaOtros`, `su`.`compCodId` AS `compCodId`, `su`.`fecha_creacion` AS `Fecha` FROM ((((((((((((((`proyectos` `p` join `registrosolicitud` `rs` on(`p`.`id_proyecto` = `rs`.`id_proyecto`)) left join `registroalta` `ra` on(`p`.`id_proyecto` = `ra`.`id_proyecto`)) left join `linkvideos` `lv` on(`ra`.`id_link` = `lv`.`id_linkVideo`)) left join `registrocodidenti` `rc` on(`p`.`id_proyecto` = `rc`.`id_proyecto`)) left join `usuarios` `urs` on(`rs`.`id_capC` = `urs`.`id_usuario`)) left join `usuarios` `ura` on(`ra`.`id_capC` = `ura`.`id_usuario`)) left join `usuarios` `urc` on(`rc`.`id_capC` = `urc`.`id_usuario`)) left join `desglocecodid` `d` on(`p`.`id_proyecto` = `d`.`id_proyecto`)) left join `formapagos` `f` on(`d`.`id_pagoProyBase` = `f`.`id_formaPago`)) left join `formapagos` `fe` on(`d`.`id_pagoProyExtra` = `fe`.`id_formaPago`)) left join `formapagos` `fb` on(`d`.`id_pagoComBan` = `fb`.`id_formaPago`)) left join `formapagos` `fp` on(`d`.`id_pagoPension` = `fp`.`id_formaPago`)) left join `formapagos` `fo` on(`d`.`id_pagoOtros` = `fo`.`id_formaPago`)) left join `supervisado` `su` on(`p`.`id_proyecto` = `su`.`id_proyecto`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `verificacion`
+--
+DROP TABLE IF EXISTS `verificacion`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `verificacion`  AS SELECT `p`.`id_proyecto` AS `id_proyecto`, `p`.`nProyecto` AS `nProyecto`, `p`.`nOrden` AS `nOrden`, `p`.`comVerifDiariaVeh` AS `comVerifDiariaVeh`, `p`.`estadoProyectoEliminado` AS `estadoProyectoEliminado`, `p`.`comSuperVerifDiariaVeh` AS `comSuperVerifDiariaVeh`, `v`.`placa` AS `placa`, `m`.`marca` AS `marca`, `mo`.`modelo` AS `modelo`, `a`.`anio` AS `anio`, `co`.`color` AS `color`, max(`cv`.`fecha_hoyV`) AS `FV`, max(`cv`.`fecha_hoyS`) AS `FS`, max(`cv`.`id_comverifdiariaveh`) AS `id_comverifdiariaveh`, `ase`.`asesor` AS `asesor` FROM ((((((((`proyectos` `p` join `vehiculos` `v` on(`p`.`id_vehiculo` = `v`.`id_vehiculo`)) join `colores` `co` on(`v`.`id_color` = `co`.`id_color`)) join `marcas` `m` on(`v`.`id_marca` = `m`.`id_marca`)) join `modelos` `mo` on(`v`.`id_modelo` = `mo`.`id_modelo`)) join `anios` `a` on(`v`.`id_anio` = `a`.`id_anio`)) left join `comverifdiariaveh` `cv` on(`p`.`id_proyecto` = `cv`.`id_proyecto`)) left join `comasesor` `ca` on(`p`.`id_proyecto` = `ca`.`id_proyecto`)) left join `asesores` `ase` on(`ca`.`id_asesor` = `ase`.`id_asesor`)) WHERE `p`.`proyectoActivo` = 1 AND `p`.`estadoProyectoEliminado` = 1 OR `p`.`registroSolicitud` = 1 GROUP BY `p`.`id_proyecto` ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `vplacas`
+--
+DROP TABLE IF EXISTS `vplacas`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vplacas`  AS SELECT `p`.`id_proyecto` AS `id_proyecto`, `p`.`nProyecto` AS `nProyecto`, `p`.`nOrden` AS `nOrden`, `p`.`comPlacas` AS `comPlacas`, `p`.`estadoProyectoEliminado` AS `estadoProyectoEliminado`, `p`.`comSuperPlaca` AS `comSuperPlaca`, `c`.`nombres` AS `nombres`, `c`.`aPaternoCliente` AS `aPaternoCliente`, `c`.`aMaternoCliente` AS `aMaternoCliente`, `v`.`placa` AS `placa`, `m`.`marca` AS `marca`, `mo`.`modelo` AS `modelo`, `a`.`anio` AS `anio`, `co`.`color` AS `color`, `cp`.`linkComPlaca` AS `linkComPlaca`, `cp`.`fecha_creacion` AS `fecha_creacion`, `up`.`nombres` AS `UPN`, `up`.`aPaterno` AS `UPP`, `up`.`aMaterno` AS `UPM`, `cs`.`textSupervision` AS `textSupervision`, `cs`.`fecha_registro` AS `CSF`, `ucs`.`nombres` AS `UCSN`, `ucs`.`aPaterno` AS `UCSP`, `ucs`.`aMaterno` AS `UCSM` FROM ((((((((((`proyectos` `p` join `vehiculos` `v` on(`p`.`id_vehiculo` = `v`.`id_vehiculo`)) join `colores` `co` on(`v`.`id_color` = `co`.`id_color`)) join `marcas` `m` on(`v`.`id_marca` = `m`.`id_marca`)) join `modelos` `mo` on(`v`.`id_modelo` = `mo`.`id_modelo`)) join `anios` `a` on(`v`.`id_anio` = `a`.`id_anio`)) join `clientes` `c` on(`p`.`id_cliente` = `c`.`id_cliente`)) left join `complacas` `cp` on(`p`.`id_proyecto` = `cp`.`id_proyecto`)) left join `usuarios` `up` on(`cp`.`id_capC` = `up`.`id_usuario`)) left join `comsupervision` `cs` on(`p`.`id_proyecto` = `cs`.`id_proyecto`)) left join `usuarios` `ucs` on(`cs`.`id_capC` = `ucs`.`id_usuario`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `vsupercodid`
+--
+DROP TABLE IF EXISTS `vsupercodid`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vsupercodid`  AS SELECT `p`.`id_proyecto` AS `id_proyecto`, `p`.`nProyecto` AS `nProyecto`, `p`.`nOrden` AS `nOrden`, `p`.`valorVenta` AS `valorVenta`, `v`.`placa` AS `placa`, `co`.`color` AS `color`, `m`.`marca` AS `marca`, `mo`.`modelo` AS `modelo`, `a`.`anio` AS `anio`, `rs`.`valorVentaAlta` AS `valorVentaAlta`, `rc`.`id_regcodidenti` AS `id_regcodidenti`, `s`.`semana` AS `semana`, `sc`.`semanaCobro` AS `semanaCobro`, `d`.`valCobProyBase` AS `valCobProyBase`, `d`.`codIdProyBase` AS `codIdProyBase`, `su`.`compCodId` AS `compCodId` FROM (((((((((((`proyectos` `p` join `vehiculos` `v` on(`p`.`id_vehiculo` = `v`.`id_vehiculo`)) join `colores` `co` on(`v`.`id_color` = `co`.`id_color`)) join `marcas` `m` on(`v`.`id_marca` = `m`.`id_marca`)) join `modelos` `mo` on(`v`.`id_modelo` = `mo`.`id_modelo`)) join `anios` `a` on(`v`.`id_anio` = `a`.`id_anio`)) join `registrosolicitud` `rs` on(`p`.`id_proyecto` = `rs`.`id_proyecto`)) join `registrocodidenti` `rc` on(`p`.`id_proyecto` = `rc`.`id_proyecto`)) join `semanascobro` `sc` on(`rc`.`id_semanaCobro` = `sc`.`id_semanaCobro`)) join `semanas` `s` on(`rs`.`id_semana` = `s`.`id_semana`)) join `desglocecodid` `d` on(`p`.`id_proyecto` = `d`.`id_proyecto`)) join `supervisado` `su` on(`p`.`id_proyecto` = `su`.`id_proyecto`)) WHERE `p`.`superCodIdentificador` = 1 AND `d`.`borrado` = 0 ;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `acceso`
+--
 ALTER TABLE `acceso`
   ADD PRIMARY KEY (`id_acceso`);
+
+--
+-- Indices de la tabla `actmindiaria`
+--
+ALTER TABLE `actmindiaria`
+  ADD PRIMARY KEY (`id_ActMinDiaria`);
 
 --
 -- Indices de la tabla `agentes`
@@ -7490,7 +8650,13 @@ ALTER TABLE `vehiculos`
 -- AUTO_INCREMENT de la tabla `acceso`
 --
 ALTER TABLE `acceso`
-  MODIFY `id_acceso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=740;
+  MODIFY `id_acceso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=942;
+
+--
+-- AUTO_INCREMENT de la tabla `actmindiaria`
+--
+ALTER TABLE `actmindiaria`
+  MODIFY `id_ActMinDiaria` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `agentes`
@@ -7526,19 +8692,19 @@ ALTER TABLE `asesores`
 -- AUTO_INCREMENT de la tabla `bitacora`
 --
 ALTER TABLE `bitacora`
-  MODIFY `id_bitacora` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=648;
+  MODIFY `id_bitacora` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=734;
 
 --
 -- AUTO_INCREMENT de la tabla `capvalorventas`
 --
 ALTER TABLE `capvalorventas`
-  MODIFY `id_capValorVentas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=372;
+  MODIFY `id_capValorVentas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=390;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=359;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=371;
 
 --
 -- AUTO_INCREMENT de la tabla `colores`
@@ -7550,7 +8716,7 @@ ALTER TABLE `colores`
 -- AUTO_INCREMENT de la tabla `comasesor`
 --
 ALTER TABLE `comasesor`
-  MODIFY `id_comAsesor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=234;
+  MODIFY `id_comAsesor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259;
 
 --
 -- AUTO_INCREMENT de la tabla `comclientes`
@@ -7580,31 +8746,31 @@ ALTER TABLE `comkilometrajes`
 -- AUTO_INCREMENT de la tabla `complacas`
 --
 ALTER TABLE `complacas`
-  MODIFY `id_complaca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+  MODIFY `id_complaca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=233;
 
 --
 -- AUTO_INCREMENT de la tabla `comsupervision`
 --
 ALTER TABLE `comsupervision`
-  MODIFY `id_comSupervision` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `id_comSupervision` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 
 --
 -- AUTO_INCREMENT de la tabla `comverifdiariaveh`
 --
 ALTER TABLE `comverifdiariaveh`
-  MODIFY `id_comverifdiariaveh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_comverifdiariaveh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=193;
 
 --
 -- AUTO_INCREMENT de la tabla `desglocecodid`
 --
 ALTER TABLE `desglocecodid`
-  MODIFY `id_desgloceCodId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
+  MODIFY `id_desgloceCodId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
 
 --
 -- AUTO_INCREMENT de la tabla `desglocecodidbitacora`
 --
 ALTER TABLE `desglocecodidbitacora`
-  MODIFY `id_desgloceCodId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
+  MODIFY `id_desgloceCodId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
 
 --
 -- AUTO_INCREMENT de la tabla `formapagos`
@@ -7616,7 +8782,7 @@ ALTER TABLE `formapagos`
 -- AUTO_INCREMENT de la tabla `linkvideos`
 --
 ALTER TABLE `linkvideos`
-  MODIFY `id_linkVideo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
+  MODIFY `id_linkVideo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=187;
 
 --
 -- AUTO_INCREMENT de la tabla `marcas`
@@ -7628,7 +8794,7 @@ ALTER TABLE `marcas`
 -- AUTO_INCREMENT de la tabla `modelos`
 --
 ALTER TABLE `modelos`
-  MODIFY `id_modelo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=476;
+  MODIFY `id_modelo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=479;
 
 --
 -- AUTO_INCREMENT de la tabla `modulos`
@@ -7640,55 +8806,55 @@ ALTER TABLE `modulos`
 -- AUTO_INCREMENT de la tabla `nproyectos`
 --
 ALTER TABLE `nproyectos`
-  MODIFY `id_nProyecto` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11746;
+  MODIFY `id_nProyecto` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11764;
 
 --
 -- AUTO_INCREMENT de la tabla `permisos`
 --
 ALTER TABLE `permisos`
-  MODIFY `id_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=395;
+  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=409;
 
 --
 -- AUTO_INCREMENT de la tabla `registroalta`
 --
 ALTER TABLE `registroalta`
-  MODIFY `id_regAlta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
+  MODIFY `id_regAlta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=187;
 
 --
 -- AUTO_INCREMENT de la tabla `registroaltabitacora`
 --
 ALTER TABLE `registroaltabitacora`
-  MODIFY `id_regAlta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
+  MODIFY `id_regAlta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=188;
 
 --
 -- AUTO_INCREMENT de la tabla `registrocodidenti`
 --
 ALTER TABLE `registrocodidenti`
-  MODIFY `id_regcodidenti` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+  MODIFY `id_regcodidenti` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
 
 --
 -- AUTO_INCREMENT de la tabla `registrocodidentibitacora`
 --
 ALTER TABLE `registrocodidentibitacora`
-  MODIFY `id_regcodidenti` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+  MODIFY `id_regcodidenti` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
 
 --
 -- AUTO_INCREMENT de la tabla `registrosolicitud`
 --
 ALTER TABLE `registrosolicitud`
-  MODIFY `id_regSolicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=212;
+  MODIFY `id_regSolicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=231;
 
 --
 -- AUTO_INCREMENT de la tabla `registrosolicitudbitacora`
 --
 ALTER TABLE `registrosolicitudbitacora`
-  MODIFY `id_regSolicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
+  MODIFY `id_regSolicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=229;
 
 --
 -- AUTO_INCREMENT de la tabla `repvalvenaltavsvalcodid`
@@ -7718,34 +8884,39 @@ ALTER TABLE `semanascobro`
 -- AUTO_INCREMENT de la tabla `supervisado`
 --
 ALTER TABLE `supervisado`
-  MODIFY `id_supervisado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id_supervisado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 
 --
 -- AUTO_INCREMENT de la tabla `supervisadobitacora`
 --
 ALTER TABLE `supervisadobitacora`
-  MODIFY `id_supervisado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id_supervisado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 
 --
 -- AUTO_INCREMENT de la tabla `tecarmadores`
 --
 ALTER TABLE `tecarmadores`
-  MODIFY `id_tecArmador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_tecArmador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `tecmontadores`
 --
 ALTER TABLE `tecmontadores`
-  MODIFY `id_tecMontador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_tecMontador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `vehiculos`
 --
 ALTER TABLE `vehiculos`
-  MODIFY `id_vehiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=361;
+  MODIFY `id_vehiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=374;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

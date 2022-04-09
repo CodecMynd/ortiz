@@ -1,14 +1,14 @@
 <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.5.3/dist/clipboard.min.js"></script>
 <?php
-$query = "SELECT P.id_proyecto, P.nProyecto, RS.folioRegSolicitud, RS.inspecCalidad, RS.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, Ra.cronometro, LV.link, RC.borrado, RC.folioCodID,
+$query = "SELECT P.id_proyecto, P.nProyecto, RS.folioRegSolicitud, RS.inspecCalidad, RS.observCliente, 
+RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, 
+LV.link, RC.borrado, RC.folioCodID, RC.supervisionValores,
 RS.fecha_creacion AS regSolfecha,
 RA.fecha_creacion AS regAltaFecha,
 RC.fecha_creacion AS regCodIdFechas,
-
 URS.nombres AS RSNombre , URS.aPaterno AS RSPaterno, URS.aMaterno AS RSMaterno,
 URA.nombres AS RANombre, URA.aPaterno AS RAPaterno, URA.aMaterno AS RAMaterno,
 URC.nombres AS RCNombre, URC.aPaterno AS RCPaterno, URC.aMaterno AS RCMaterno,
-
 D.valCobProyBase, D.codIdProyBase, D.id_pagoProyBase, D.valCobProyExtra, D.codIdProyExtra, D.valCobComBan, D.codIdComBan,D.valCobPen, D.codIdPension, D.valCobOtros, D.codIdOtros, 
 F.formaPago AS formaProyBase, FE.formaPago AS formaProyExtra, FB.formaPago AS formaComBan, FP.formaPago AS formaCobPen, FO.formaPago AS formaOtros
 FROM proyectos P 
@@ -30,17 +30,170 @@ $respuesta = mysqli_query($conexion, $query);
 $row = $respuesta->fetch_assoc();
 
 ?>
-<div class="modal fade" id="verLinkVideoCodId-<?php echo $row['id_proyecto'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="verGralRepVVAvsVCodID-<?php echo $row['id_proyecto'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Registro con Código Identificador: Folio <strong><?php echo $row['folioCodID'] ?></strong></h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Supervisión Valor Alta Vs. Valor Código Identificador: Folio <strong><?php echo $row['folioCodID'] ?></strong></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
 
             <div class="card-body">
+                <div class="card card-secondary card-outline collapsed-card">
+                    <div class="card-header">
+                        <h2 class="card-title"><strong>Usuario, Fecha y Hora de Captura Supervisión: Código <?php echo $codIdProyBase ?></strong></h2>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool text-dark " data-card-widget="collapse">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <?php
+                    $S = $row['supervisionValores'];
+
+                    if ($S == 1) {
+                        $query2 = "SELECT P.id_proyecto, R.motivo, R.fecha_registro, R.fecha_mod,
+                        UC.nombres AS UCNombre, UC.aPaterno AS UCPaterno, UC.aMaterno AS UCMaterno,
+                        UM.nombres AS UMNombre, UM.aPaterno AS UMPaterno, UM.aMaterno AS UMMaterno
+                        FROM proyectos P 
+                        INNER JOIN repvalvenaltavsvalcodid R ON P.id_proyecto = R.id_proyecto
+                        INNER JOIN usuarios UC ON R.id_capC = UC.id_usuario
+                        INNER JOIN usuarios UM ON R.id_capM = UM.id_usuario
+                        WHERE P.id_proyecto = $idP";
+                        $respuesta2 = mysqli_query($conexion, $query2);
+                        $row2 = $respuesta2->fetch_assoc();
+
+                        if (isset($row2['motivo'])) {
+                            $M = $row2['motivo'];
+                        }
+                        if (isset($row2['fecha_registro'])) {
+                            $FR = $row2['fecha_registro'];
+                        }
+                        if (isset($row2['fecha_mod'])) {
+                            $FM = $row2['fecha_mod'];
+                        }
+                        if (isset($row2['UCNombre'])) {
+                            $NCC = $row2['UCNombre'];
+                        }
+                        if (isset($row2['UCPaterno'])) {
+                            $PCC = $row2['UCPaterno'];
+                        }
+                        if (isset($row2['UCMaterno'])) {
+                            $MCC = $row2['UCMaterno'];
+                        }
+                        if (isset($row2['UMNombre'])) {
+                            $NCM = $row2['UMNombre'];
+                        }
+                        if (isset($row2['UMPaterno'])) {
+                            $PCM = $row2['UMPaterno'];
+                        }
+                        if (isset($row2['UMMaterno'])) {
+                            $MCM = $row2['UMMaterno'];
+                        }
+                    ?>
+                        <div class="card-body">
+                            <div class="col-md-12 col-sm-12 my-1">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-12 col-sm-12 my-1">
+                                        <div class="form-group-input" style="border: 1px solid #CED4DA;">
+                                            <label class="pl-2 mb-2">¿Motivo?</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fa-solid fa-comments"></i></span>
+                                                </div>
+                                                <textarea name="motivo" id="motivo" class="form-control" rows="4" placeholder="Max. 200 caracteres" readonly><?php if (!isset($M)) {
+                                                                                                                                                                    echo 'Sin Agregar Motivo Supervisión';
+                                                                                                                                                                } else {
+                                                                                                                                                                    echo $M;
+                                                                                                                                                                } ?>
+                                                    </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="col-md-5 col-sm-12  form-group">
+                                        <div class="input-group form-floating">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa-solid fa-calendar-check"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" value="<?php if (!isset($NCC) and !isset($PCC) and !isset($MCC)) {
+                                                                                                echo 'Sin Agregar Motivo Supervisión';
+                                                                                            } else {
+                                                                                                echo $NCC . ' ' . $PCC . ' ' . $MCC;
+                                                                                            } ?>" readonly>
+                                            <label for="floatingInput" class="pl-5">Capturista: Supervisión </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 col-sm-12  form-group">
+                                        <div class="input-group form-floating">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa-solid fa-calendar-check"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" value="<?php if (!isset($FR)) {
+                                                                                                echo 'Sin Agregar Motivo Supervisión';
+                                                                                            } else {
+                                                                                                echo $FR;
+                                                                                            } ?>" readonly>
+                                            <label for="floatingInput" class="pl-5">Fecha: Registro Supervisión</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>              
+                </div>
+
+                <div class="card card-secondary card-outline collapsed-card">
+                    <div class="card-header">
+                        <h2 class="card-title"><strong>Usuario, Fecha y Hora de Captura Supervisión: Código <?php echo $codIdProyBase ?></strong></h2>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool text-dark " data-card-widget="collapse">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                        <div class="card-body">
+                            <div class="col-md-12 col-sm-12 my-1">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-5 col-sm-12  form-group">
+                                        <div class="input-group form-floating">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa-solid fa-calendar-check"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" value="<?php if (!isset($NCM) and !isset($PCM) and !isset($MCM)) {
+                                                                                                echo 'Sin Agregar Motivo Supervisión';
+                                                                                            } else {
+                                                                                                echo $NCM . ' ' . $PCM . ' ' . $MCM;
+                                                                                            } ?>" readonly>
+                                            <label for="floatingInput" class="pl-5">Capturista: Modificación </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 col-sm-12  form-group">
+                                        <div class="input-group form-floating">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa-solid fa-calendar-check"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" value="<?php if (!isset($FM)) {
+                                                                                                echo 'Sin Agregar Motivo Supervisión';
+                                                                                            } else {
+                                                                                                echo $FM;
+                                                                                            } ?>" readonly>
+                                            <label for="floatingInput" class="pl-5">Fecha: Modificación Supervisión</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+                <hr>
+                <h5 class="mt-3">Registro con Código Identificador: Folio <strong><?php echo $row['folioCodID'] ?></strong></h5>
+                <hr>
                 <div class="card card-secondary card-outline collapsed-card">
                     <div class="card-header">
                         <h2 class="card-title"><strong>Desgloce de Cobro de (código identificador: <?php echo $codIdProyBase ?>)</strong></h2>
@@ -251,7 +404,7 @@ $row = $respuesta->fetch_assoc();
                                         <div class='input-group-prepend'>
                                             <span class='input-group-text'><i class='fa-solid fa-user'></i></span>
                                         </div>
-                                        <input name='' id='modelo' type='text' class='form-control' value='<?php echo $RCCapturista = $row['RCNombre'].' '.$row['RCPaterno'].' '.$row['RCMaterno'] ?>' readonly>
+                                        <input name='' id='modelo' type='text' class='form-control' value='<?php echo $RCCapturista = $row['RCNombre'] . ' ' . $row['RCPaterno'] . ' ' . $row['RCMaterno'] ?>' readonly>
                                         <label for='floatingInput' class='pl-5'>Capturista: Registro Proyectos con Código Identificador</label>
                                     </div>
                                 </div>
@@ -338,7 +491,7 @@ $row = $respuesta->fetch_assoc();
                                         <div class='input-group-prepend'>
                                             <span class='input-group-text'><i class='fa-solid fa-user'></i></span>
                                         </div>
-                                        <input name='' id='modelo' type='text' class='form-control' value='<?php echo $RACapturista = $row['RANombre'].' '.$row['RAPaterno'].' '.$row['RAMaterno']?>' readonly>
+                                        <input name='' id='modelo' type='text' class='form-control' value='<?php echo $RACapturista = $row['RANombre'] . ' ' . $row['RAPaterno'] . ' ' . $row['RAMaterno'] ?>' readonly>
                                         <label for='floatingInput' class='pl-5'>Capturista: Registro de Alta Proyecto</label>
                                     </div>
                                 </div>
@@ -416,7 +569,7 @@ $row = $respuesta->fetch_assoc();
                                     <div class='input-group-prepend'>
                                         <span class='input-group-text'><i class='fa-solid fa-user'></i></span>
                                     </div>
-                                    <input name='' id='modelo' type='text' class='form-control' value='<?php echo $RSCapturista =  $row['RSNombre'].' '.$row['RSPaterno'].' '.$row['RSMaterno'] ?>' readonly>
+                                    <input name='' id='modelo' type='text' class='form-control' value='<?php echo $RSCapturista =  $row['RSNombre'] . ' ' . $row['RSPaterno'] . ' ' . $row['RSMaterno'] ?>' readonly>
                                     <label for='floatingInput' class='pl-5'>Capturista: Registro Solicitud de Alta Proyecto</label>
                                 </div>
                             </div>

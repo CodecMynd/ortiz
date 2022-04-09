@@ -1,22 +1,22 @@
-<div class="modal fade" id="regresarRegCodIdentificador<?php echo $row['id_proyecto'] ?>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade regresarRegCodIdentificador" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">
-                    ¿Deseas eliminar este Registro de Código Identificador?
+                    ¿Deseas eliminar este Número de Proyecto de comprobación?
                 </h5>
             </div>
             <div class="modal-body text-center">
                 <strong class="margin-auto__content">
-                    <?php echo $codIdProyBase ?>
+                    <span id="numP"></span>
                 </strong>
             </div>
-            <!-- <form id="formRegresarRegCodIdentificador" action="../update/updateRegresarRegCodIdentificador.php" method="POST"> -->
-            <form id="formRegresarRegCodIdentificador">
+            <form id="formRegresarRegCodIdentificador" action="../update/updateRegresarRegCodIdentificador.php" method="POST">
+            <!-- <form id="formRegresarRegCodIdentificador"> -->
                 <div class="modal-footer">
-                    <input type="hidden" name="id_regcodidenti" id="id_regcodidenti" value="<?php echo $id_regcodidenti ?>">
-                    <input type="hidden" name="id_proyecto" id="id_proyecto" value="<?php echo $row['id_proyecto'] ?>">
-                    <input type="hidden" name="codIdProyBase" id="codIdProyBase" value="<?php echo $row['codIdProyBase'] ?>">
+                    <input type="hidden" name="id_regcodidenti" id="id_regcodidenti" value="">
+                    <input type="hidden" name="id_proyecto" id="id_proyecto" value="">
+                    <input type="hidden" name="codIdProyBase" id="codIdProyBase" value="">
                     <button type="submit" id="btnRegresarRegCodIdentificador" class="btn btn-secondary btn-block"><i class="fa-solid fa-ban"></i> Eliminar</buttom> <br>
                     <button data-dismiss="modal" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Cancelar">Salir</button>
                 </div>

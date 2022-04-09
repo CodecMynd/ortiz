@@ -73,8 +73,8 @@ require '../components/head-dataTables.php';
                                                 </div>
                                             </div>
                                         </div>
-                                        <div id="cargarSuperCodIdentificadorTabla"></div>
                                     </div>
+                                    <div id="cargarSuperCodIdentificadorTabla"></div>
                                 </div>
                             </div>
                         </div>

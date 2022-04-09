@@ -174,6 +174,8 @@ require '../components/head-dataTables.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>ID</th>
+                                                <th>Folio Supervisión</th>
                                                 <th>Código Identificador</th>
                                                 <th>Comprobación Código Identificador</th>
                                                 <th>Núm. Proyecto</th>
@@ -195,6 +197,8 @@ require '../components/head-dataTables.php';
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
+                                                <th>ID</th>
+                                                <th>Folio Supervisión</th>
                                                 <th>Código Identificador</th>
                                                 <th>Comprobación Código Identificador</th>
                                                 <th>Núm. Proyecto</th>
@@ -348,7 +352,7 @@ require '../components/head-dataTables.php';
 </html>
 <!-- VISTA 
 CREATE VIEW vsupercodid as 
-SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, Co.color, M.marca, Mo.modelo, A.anio, RS.valorVentaAlta, RC.id_regcodidenti,S.semana, SC.semanaCobro, D.valCobProyBase, D.codIdProyBase, SU.compCodId
+SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, Co.color, M.marca, Mo.modelo, A.anio, RS.valorVentaAlta, RC.id_regcodidenti,S.semana, SC.semanaCobro, D.valCobProyBase, D.codIdProyBase, SU.compCodId, SU.folioSupervision
 FROM proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -361,4 +365,5 @@ INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
 INNER JOIN semanas S ON RS.id_semana = S.id_semana
 INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto 
 INNER JOIN supervisado SU ON P.id_proyecto = SU.id_proyecto
-WHERE superCodIdentificador = 1 AND D.borrado = 0-->
+WHERE superCodIdentificador = 1 AND D.borrado = 0
+-->

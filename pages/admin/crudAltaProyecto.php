@@ -3,6 +3,15 @@ require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
 <title>Tabla Alta Proyecto | <?php echo $nomComp ?></title>
+<script>
+    function abrirModal1(id_proyecto, nProyecto, id_regAlta) {
+        $("#btnModal-regresarAltaProyecto").click();
+        $("#id_proyecto").val(id_proyecto);
+        $("#id_regAlta").val(id_regAlta);
+        $("#nProyecto").val(nProyecto);
+        ("#numP1").html(nProyecto);
+    }
+</script>
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
@@ -49,55 +58,7 @@ require '../components/head-dataTables.php';
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
-                                <!-- consulta sql -->
-                                <?php
-                                $cont = 0;
-                                if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.altaProyecto, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio, 
-                                    R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.fecha_creacion AS regSolFecha_creacion, 
-                                    RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, LV.link, RA.fecha_creacion AS regAltaFecha_creacion, 
-                                    Co.color, S.semana, 
-                                    U.nombres AS regAltaNombre, U.aPaterno AS regAltaPaterno, U.aMaterno AS regAltaMaterno, Us.nombres AS regSolNombres, Us.aPaterno AS regSolPaterno, Us.aMaterno AS regSolMaterno
-                                    FROM proyectos P 
-                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-                                    INNER JOIN colores Co ON V.id_color = Co.id_color
-                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
-                                    INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
-                                    INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto 
-                                    INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
-                                    INNER JOIN semanas S ON R.id_semana = S.id_semana
-                                    INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
-                                    INNER JOIN usuarios U ON RA.id_capC = U.id_usuario
-                                    INNER JOIN usuarios Us ON R.id_capC = Us.id_usuario
-                                    WHERE altaProyecto = 1 ORDER BY nProyecto DESC";
-                                } else if ($verTablaAlta == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.altaProyecto, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio, 
-                                    R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.fecha_creacion AS regSolFecha_creacion, 
-                                    RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, LV.link, RA.fecha_creacion AS regAltaFecha_creacion, 
-                                    Co.color, S.semana, 
-                                    U.nombres AS regAltaNombre, U.aPaterno AS regAltaPaterno, U.aMaterno AS regAltaMaterno, Us.nombres AS regSolNombres, Us.aPaterno AS regSolPaterno, Us.aMaterno AS regSolMaterno
-                                    FROM proyectos P 
-                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-                                    INNER JOIN colores Co ON V.id_color = Co.id_color
-                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
-                                    INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
-                                    INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto 
-                                    INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
-                                    INNER JOIN semanas S ON R.id_semana = S.id_semana
-                                    INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
-                                    INNER JOIN usuarios U ON RA.id_capC = U.id_usuario
-                                    INNER JOIN usuarios Us ON R.id_capC = Us.id_usuario
-                                    WHERE altaProyecto = 1 ORDER BY nProyecto DESC";
-                                } else {
-                                    $query = "SELECT id_proyecto
-                                    FROM proyectos WHERE id_proyecto = 0";
-                                }
-                                $resultado = mysqli_query($conexion, $query);
-                                ?>
+
                                 <div class="card-body">
                                     <?php
                                     if ($super == 1) {
@@ -111,6 +72,7 @@ require '../components/head-dataTables.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>ID</th>
                                                 <th>Fecha Registro</th>
                                                 <th>Cronometro Respuesta a solicitud de Alta</th>
                                                 <th>Núm. Proyecto</th>
@@ -126,122 +88,11 @@ require '../components/head-dataTables.php';
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <?php
-                                            while ($row = $resultado->fetch_assoc()) {
-                                                $idP = $row['id_proyecto'];
-                                                $folioRegAlta = $row['folioRegAlta'];
-                                                $id_regAlta = $row['id_regAlta'];
-                                                $regAltaCapturista = $row['regAltaNombre'] . ' ' . $row['regAltaPaterno'] . ' ' . $row['regAltaMaterno'];
-                                                $regAltaFecha_creacion = $row['regAltaFecha_creacion'];
-                                                $regSolCapturista = $row['regSolNombres'] . ' ' . $row['regSolPaterno'] . ' ' . $row['regSolMaterno'];
-                                                $regSolFecha_creacion = $row['regSolFecha_creacion'];
-                                            ?>
-                                                <tr>
-                                                    <td>
-                                                        <?php $cont++;
-                                                        echo $cont;
-                                                        ?>
-                                                    </td>
-                                                    <td style="width: 10%;">
-                                                        <?php echo $row['regAltaFecha_creacion'] ?>
-                                                    </td>
-                                                    <td style="width: 10%;">
-                                                        <?php echo $row['cronometro'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['nProyecto']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['nOrden'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['marca'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['modelo'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['anio'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['placa'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['color'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['semana'] ?>
-                                                    </td>
-                                                    <td style="width:12%">
-                                                        <?php echo $row['valorVenta'] ?>
-                                                    </td>
-                                                    <td style="width:12%">
-                                                        <?php echo $row['valorVentaAlta'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <div class="input-group input-group-sm mb-3">
-                                                            <div class="input-group-prepend">
-                                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Marcas"> Acciones</span>
-                                                                </button>
-                                                                <ul class="dropdown-menu" style="min-width: 2em">
-                                                                    <div class="btn-group">
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.5.2 Eliminar Registro Alta Proyecto">
-                                                                                <?php if ($super == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target="#regresarAltaProy<?php echo $row['id_proyecto'] ?>"><i class="fas fa-trash-alt"></i></a>
-                                                                                <?php  } else if ($eliAlta == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target="#regresarAltaProy<?php echo $row['id_proyecto'] ?>"><i class="fas fa-trash-alt"></i></a>
-                                                                                <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="eliAlta"><i class="fas fa-trash-alt"></i></a>
-                                                                                <?php } ?>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li class="dropdown-item">
-                                                                            <!-- repAltaCob permiso -->
-                                                                            <span data-toggle="tooltip" title="2.5.3 Descarga PDF Registro Alta Proyecto">
-                                                                                <?php if ($super == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../components/altaProyecto.php?id=<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-file-pdf"></i>
-                                                                                    </a>
-                                                                                <?php  } else if ($pdfAlta == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../components/altaProyecto.php?id=<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-file-pdf"></i>
-                                                                                    </a>
-                                                                                <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="pdfAlta"><i class="fa-solid fa-file-pdf"></i>
-                                                                                    </a>
-                                                                                <?php } ?>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.5.4 Ver Link de Video, Observaciones y Generales">
-                                                                                <?php if ($super == 1) { ?>
-                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target=".verLinkVideo-<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></button>
-                                                                                <?php  } else if ($verLinkObsAlta == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".verLinkVideo-<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></a>
-                                                                                <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="verLinkObsAlta"><i class="fa-solid fa-comments"></i>
-                                                                                    </a>
-                                                                                <?php } ?>
-                                                                            </span>
-                                                                        </li>
-                                                                    </div>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <?php
-                                                require '../components/modal-regresarAltaProyecto.php';
-                                                require '../components/modal-verAltaProyecto.php';
-                                                ?>
-                                            <?php
-                                            }
-                                            desconectar();
-                                            ?>
-                                        </tbody>
+                                        <tbody></tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
+                                                <th>ID</th>
                                                 <th>Fecha Registro</th>
                                                 <th>Cronometro Respuesta a solicitud de Alta</th>
                                                 <th>Núm. Proyecto</th>
@@ -258,6 +109,14 @@ require '../components/head-dataTables.php';
                                             </tr>
                                         </tfoot>
                                     </table>
+                                    <button id="btnModal-regresarAltaProyecto" class="btn btn-white" data-toggle="modal" data-target=".regresarAltaProy"></button>
+                                    <?php
+                                    require '../components/modal-regresarAltaProyecto.php';
+                                    ?>
+                                    <?php
+
+                                    desconectar();
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -404,3 +263,23 @@ require '../components/head-dataTables.php';
     </script>
 
     </html>
+    <!-- CREATE VIEW valtaproyecto as 
+SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.altaProyecto, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio, 
+R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.fecha_creacion AS regSolFecha_creacion, 
+RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, LV.link, RA.fecha_creacion AS regAltaFecha_creacion, 
+Co.color, S.semana, 
+U.nombres AS regAltaNombre, U.aPaterno AS regAltaPaterno, U.aMaterno AS regAltaMaterno, Us.nombres AS regSolNombres, Us.aPaterno AS regSolPaterno, Us.aMaterno AS regSolMaterno
+FROM proyectos P 
+INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
+INNER JOIN colores Co ON V.id_color = Co.id_color
+INNER JOIN marcas M ON V.id_marca = M.id_marca 
+INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
+INNER JOIN anios A ON V.id_anio = A.id_anio 
+INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
+INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto 
+INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
+INNER JOIN semanas S ON R.id_semana = S.id_semana
+INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
+INNER JOIN usuarios U ON RA.id_capC = U.id_usuario
+INNER JOIN usuarios Us ON R.id_capC = Us.id_usuario
+WHERE altaProyecto = 1 ORDER BY nProyecto DESC -->

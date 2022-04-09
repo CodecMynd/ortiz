@@ -189,7 +189,7 @@ require '../components/head-dataTables.php';
                         
                                 <div class="card-body">
                                     <?php
-                                    echo $regComPlacas;
+                                    $regComPlacas;
                                     if ($super == 1) {
                                     } else if ($verTablaComPlacas == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
@@ -201,6 +201,7 @@ require '../components/head-dataTables.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>ID</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -219,6 +220,7 @@ require '../components/head-dataTables.php';
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
+                                                <th>ID</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -273,7 +275,9 @@ require '../components/head-dataTables.php';
 </body>
 
 </html>
-<!-- SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.comPlacas, P.estadoProyectoEliminado, P.comSuperPlaca,
+<!-- 
+CREATE VIEW vplacas as 
+SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.comPlacas, P.estadoProyectoEliminado, P.comSuperPlaca,
 C.nombres, C.aPaternoCliente, C.aMaternoCliente,
 V.placa, M.marca, Mo.modelo, A.anio, Co.color,
 CP.linkComPlaca, CP.fecha_creacion,
@@ -290,4 +294,5 @@ INNER JOIN clientes C on P.id_cliente = C.id_cliente
 LEFT JOIN complacas CP ON P.id_proyecto = CP.id_proyecto
 LEFT JOIN usuarios UP ON CP.id_capC = UP.id_usuario
 LEFT JOIN comsupervision CS ON P.id_proyecto = CS.id_proyecto
-LEFT JOIN usuarios UCS ON CS.id_capC = UCS.id_usuario -->
+LEFT JOIN usuarios UCS ON CS.id_capC = UCS.id_usuario 
+-->

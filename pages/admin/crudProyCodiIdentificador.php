@@ -4,6 +4,16 @@ require '../components/head-dataTables.php';
 ?>
 <title>Tabla Proyectos con Código Identificador | <?php echo $nomComp ?></title>
 <link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">
+<script>
+    function abrirModal1(id_proyecto, nProyecto, id_regcodidenti, codIdProyBase) {
+        $("#btnModal-regresarRegCodIdentificador").click();
+        $("#id_proyecto").val(id_proyecto);
+        $("#nProyecto").val(nProyecto);
+        $("#id_regcodidenti").val(id_regcodidenti);
+        $("#codIdProyBase").val(codIdProyBase);
+        $("#numP").html(nProyecto);
+    }
+</script>
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
@@ -51,48 +61,7 @@ require '../components/head-dataTables.php';
                                     </div>
                                 </div>
                                 <!-- consulta sql -->
-                                <?php
-                                $cont = 0;
-                                if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, 
-                                    V.placa, Co.color, M.marca, Mo.modelo, A.anio, 
-                                    RS.valorVentaAlta, RC.id_regcodidenti, RC.borrado, RC.folioCodID, RC.fecha_creacion,
-                                    S.semana, SC.semanaCobro, D.valCobProyBase, D.codIdProyBase
-                                    FROM proyectos P 
-                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-                                    INNER JOIN colores Co ON V.id_color = Co.id_color
-                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
-                                    INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto  
-                                    INNER JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
-                                    INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
-                                    INNER JOIN semanas S ON RS.id_semana = S.id_semana
-                                    INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto
-                                    WHERE proyCodIdentificador = 1 AND RC.borrado = 0  ORDER BY nProyecto DESC ";
-                                } else if ($verTablaCodIdentificador == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, 
-                                    V.placa, Co.color, M.marca, Mo.modelo, A.anio, 
-                                    RS.valorVentaAlta, RC.id_regcodidenti, RC.borrado, RC.folioCodID, RC.fecha_creacion,
-                                    S.semana, SC.semanaCobro, D.valCobProyBase, D.codIdProyBase
-                                    FROM proyectos P 
-                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-                                    INNER JOIN colores Co ON V.id_color = Co.id_color
-                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
-                                    INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto  
-                                    INNER JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
-                                    INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
-                                    INNER JOIN semanas S ON RS.id_semana = S.id_semana
-                                    INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto
-                                    WHERE proyCodIdentificador = 1 AND RC.borrado = 0  ORDER BY nProyecto DESC";
-                                } else {
-                                    $query = "SELECT id_proyecto
-                                    FROM proyectos WHERE id_proyecto = 0";
-                                }
-                                $resultado = mysqli_query($conexion, $query);
-                                ?>
+
                                 <div class="card-body">
                                     <?php
                                     if ($super == 1) {
@@ -107,6 +76,7 @@ require '../components/head-dataTables.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>ID</th>
                                                 <th>Fecha Registro</th>
                                                 <th>Código Identificador Valor Base</th>
                                                 <th>Núm Código ID</th>
@@ -125,127 +95,11 @@ require '../components/head-dataTables.php';
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <?php
-                                            while ($row = $resultado->fetch_assoc()) {
-                                                $idP = $row['id_proyecto'];
-                                                $codIdProyBase = $row['codIdProyBase'];
-                                                $id_regcodidenti = $row['id_regcodidenti'];
-                                            ?>
-                                                <tr>
-                                                    <td>
-                                                        <?php $cont++;
-                                                        echo $cont;
-                                                        ?>
-                                                    </td>
-                                                    <td style="width:10%">
-                                                        <?php echo $row['fecha_creacion'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['codIdProyBase'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['folioCodID'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['nProyecto']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['nOrden'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['marca'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['modelo'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['anio'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['placa'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['color'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['semana'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['semanaCobro'] ?>
-                                                    </td>
-                                                    <td style="width: 9%;">
-                                                        <?php echo $row['valorVenta'] ?>
-                                                    </td>
-                                                    <td style="width: 9%;">
-                                                        <?php echo $row['valorVentaAlta'] ?>
-                                                    </td>
-                                                    <td style="width: 9%;">
-                                                        <?php echo $row['valCobProyBase'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <div class="input-group input-group-sm mb-3">
-                                                            <div class="input-group-prepend">
-                                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Marcas"> Acciones</span>
-                                                                </button>
-                                                                <ul class="dropdown-menu" style="min-width: 2em">
-                                                                    <div class="btn-group">
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.6.2 Eliminar Registro Código Identificador">
-                                                                                <?php if ($super == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target="#regresarRegCodIdentificador<?php echo $row['id_proyecto'] ?>"><i class="fas fa-trash-alt"></i></a>
-                                                                                <?php  } else if ($eliCodIdentificador == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target="#regresarRegCodIdentificador<?php echo $row['id_proyecto'] ?>"><i class="fas fa-trash-alt"></i></a>
-                                                                                <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="eliCodIdentificador"><i class="fas fa-trash-alt"></i></a>
-                                                                                <?php } ?>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li class="dropdown-item">
-                                                                            <!-- repAltaCob permiso -->
-                                                                            <span data-toggle="tooltip" title="2.6.3 Descarga PDF Registro Código Identificador">
-                                                                                <?php if ($super == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../components/regCodIdentificador.php?id=<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-file-pdf"></i>
-                                                                                    </a>
-                                                                                <?php  } else if ($pdfCodIdentificador == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../components/regCodIdentificador.php?id=<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-file-pdf"></i>
-                                                                                    </a>
-                                                                                <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="pdfCodIdentificador"><i class="fa-solid fa-file-pdf"></i>
-                                                                                    </a>
-                                                                                <?php } ?>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.6.4 Ver Link de Video, Observaciones y Generales">
-                                                                                <?php if ($super == 1) { ?>
-                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#verLinkVideoCodId-<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></button>
-                                                                                <?php  } else if ($verLinkObsIdentificador == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target="#verLinkVideoCodId-<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></a>
-                                                                                <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="verLinkObsIdentificador"><i class="fa-solid fa-comments"></i>
-                                                                                    </a>
-                                                                                <?php } ?>
-                                                                            </span>
-                                                                        </li>
-                                                                    </div>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <?php
-                                                require '../components/modal-regresarRegCodIdentificador.php';
-                                                require '../components/modal-verRegCodIdentificador.php';
-                                                ?>
-                                            <?php
-                                            }
-                                            desconectar();
-                                            ?>
-                                        </tbody>
+                                        <tbody></tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
+                                                <th>ID</th>
                                                 <th>Fecha Registro</th>
                                                 <th>Código Identificador Valor Base</th>
                                                 <th>Núm Código ID</th>
@@ -265,6 +119,11 @@ require '../components/head-dataTables.php';
                                             </tr>
                                         </tfoot>
                                     </table>
+                                    <button id="btnModal-regresarRegCodIdentificador" class="btn btn-white" data-toggle="modal" data-target=".regresarRegCodIdentificador"></button>
+                                    <?php
+                                    require '../components/modal-regresarRegCodIdentificador.php';
+                                    desconectar();
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -438,3 +297,21 @@ require '../components/head-dataTables.php';
 </script>
 
 </html>
+
+<!-- CREATE VIEW vcodidenti AS 
+SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, 
+V.placa, Co.color, M.marca, Mo.modelo, A.anio, 
+RS.valorVentaAlta, RC.id_regcodidenti, RC.borrado, RC.folioCodID, RC.fecha_creacion,
+S.semana, SC.semanaCobro, D.valCobProyBase, D.codIdProyBase
+FROM proyectos P 
+INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
+INNER JOIN colores Co ON V.id_color = Co.id_color
+INNER JOIN marcas M ON V.id_marca = M.id_marca 
+INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
+INNER JOIN anios A ON V.id_anio = A.id_anio 
+INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto  
+INNER JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
+INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
+INNER JOIN semanas S ON RS.id_semana = S.id_semana
+INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto
+WHERE proyCodIdentificador = 1 AND RC.borrado = 0   -->

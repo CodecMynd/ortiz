@@ -11,17 +11,17 @@
             <?php
             $cont = 0;
                 $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.altaProyecto, V.placa, M.marca, Mo.modelo, A.anio, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, LV.link, Co.color
-                                    FROM proyectos P 
-                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-                                    INNER JOIN colores Co ON V.id_color = Co.id_color
-                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
-                                    INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
-                                    INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto 
-                                    INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
-                                    INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
-                                    WHERE altaProyecto = 1 ORDER BY nProyecto ASC";
+            FROM proyectos P 
+            INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
+            INNER JOIN colores Co ON V.id_color = Co.id_color
+            INNER JOIN marcas M ON V.id_marca = M.id_marca 
+            INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
+            INNER JOIN anios A ON V.id_anio = A.id_anio 
+            INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
+            INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto 
+            INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
+            INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
+            WHERE altaProyecto = 1 ORDER BY nProyecto ASC";
             $resultado = mysqli_query($conexion, $query);
             ?>
             <div class="card-body">
@@ -29,6 +29,7 @@
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>ID</th>
                             <th>Núm. Folio de Alta</th>
                             <th>Núm. Folio Solicitud Alta</th>
                             <th>Núm. Proyecto</th>
@@ -54,6 +55,9 @@
                                     <?php $cont++;
                                     echo $cont;
                                     ?>
+                                </td>
+                                <td>
+                                    <?php echo "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>"?>
                                 </td>
                                 <td>
                                     <?php echo $row['folioRegAlta'] ?>
@@ -97,6 +101,7 @@
                     <tfoot>
                         <tr>
                             <th>#</th>
+                            <th>ID</th>
                             <th>Núm. Folio de Alta</th>
                             <th>Núm. folio Solicitud Alta</th>
                             <th>Núm. Proyecto</th>

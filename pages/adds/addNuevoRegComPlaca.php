@@ -23,34 +23,32 @@ if ($linkComPlaca == '') {
   exit;
 } else {
 
+  $conexion->autocommit(FALSE);
   try {
-    $conexion->autocommit(FALSE);
 
     // Registrar motivo de supervision
     $query = "INSERT INTO complacas(id_proyecto, nProyecto, linkComPlaca, fecha_creacion, id_capC) VALUES ('$id_proyecto', '$nProyecto', '$linkComPlaca', '$date', '$id')";
     $resultado = mysqli_query($conexion, $query);
-    //var_dump($query);
+    // var_dump($query);
 
     // Actualizar supervision valores
     $queryP = "UPDATE proyectos SET comPlacas = 1 WHERE id_proyecto = '$id_proyecto' AND nProyecto = '$nProyecto' ";
     $resultadoP = mysqli_query($conexion, $queryP);
     // var_dump($queryP);
 
-    $conexion->autocommit(TRUE);
-    
-      echo '<script>
-            alert("¡Link de comprobación Ingresado correctamente")
-            window.history.go(-1);
-            </script>';
-  
+    $conexion->commit();
 
+    echo '<script>
+           alert("¡Link de comprobación Ingresado correctamente")
+           window.history.go(-1);
+            </script>';
   } catch (Exception $e) {
     $conexion->rollback();
 
     echo '<script>
-          alert("¡Error interno! Por favor repórtelo inmediatamente a el área de Soporte")
-          window.history.go(-1);
-          </script>';
+           alert("¡Error interno! Por favor repórtelo inmediatamente a el área de Soporte")
+           window.history.go(-1);
+           </script>';
   }
 }
 desconectar();

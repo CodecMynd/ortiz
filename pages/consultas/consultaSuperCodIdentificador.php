@@ -1,15 +1,15 @@
 <?php
 require '../components/query.php';
 // if ($super == 1 OR $verTablaComPlacas == 1) {
-	if ($super == 1 OR $verTablaSuperCodIdentificador == 1) {
-$query = "SELECT id_proyecto, codIdProyBase, compCodId, 
-	nProyecto, nOrden, marca, modelo, anio, placa, color, 
+if ($super == 1 OR $verTablaSuperCodIdentificador == 1) {
+$query = "SELECT id_proyecto, codIdProyBase, compCodId, folioSupervision ,
+	nProyecto, nOrden, marca, modelo, anio, placa, color,
 	semana, semanaCobro, valorVenta, valorVentaAlta, valCobProyBase
-	FROM vsupercodid 
+	FROM vsupercodid
 	ORDER BY nProyecto DESC";
 }else{
-	// $query = "SELECT id_proyecto
-	// FROM proyectos WHERE id_proyecto = 0";
+	$query = "SELECT id_proyecto
+	FROM proyectos WHERE id_proyecto = 0";
 }
 
 $resultado = mysqli_query($conexion, $query);
@@ -23,7 +23,7 @@ while ($row = $resultado->fetch_assoc()) {
 	$codIdProyBase = $row['codIdProyBase'];
 
 
-	// 2.7.2 Eliminar Supervisión de Registro Código Identificador 
+	// 2.7.2 Eliminar Supervisión de Registro Código Identificador
 	if ($super == 1) {
 		$outputBtns1 = "<a href='#' onclick='abrirModal1(\"" . $idP . "\",\"".$codIdProyBase."\")' class='btn btn-secondary' ><i class='fas fa-trash-alt'></i></a>";
 	} else if ($eliSuperCodIdentificador == 1) {
@@ -44,21 +44,23 @@ while ($row = $resultado->fetch_assoc()) {
 	$cont++;
 	$datos[] = array(
 		"0" => $cont,
-		"1" => $row['codIdProyBase'],
-		"2" => $row['compCodId'],
-		"3" => $row['nProyecto'],
-		"4" => $row['nOrden'],
-		"5" => $row['marca'],
-		"6" => $row['modelo'],
-		"7" => $row['anio'],
-		"8" => $row['placa'],
-		"9" => $row['color'],
-		"10" => $row['semana'],
-		"11" => $row['semanaCobro'],
-		"12" => $row['valorVenta'],
-		"13" => $row['valorVentaAlta'],
-		"14" => $row['valCobProyBase'],
-		"15" => "<div class='input-group input-group-sm mb-3'>
+		"1" => "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>",
+		"2" => $row['folioSupervision'],
+		"3" => $row['codIdProyBase'],
+		"4" => $row['compCodId'],
+		"5" => $row['nProyecto'],
+		"6" => $row['nOrden'],
+		"7" => $row['marca'],
+		"8" => $row['modelo'],
+		"9" => $row['anio'],
+		"10" => $row['placa'],
+		"11" => $row['color'],
+		"12" => $row['semana'],
+		"13" => $row['semanaCobro'],
+		"14" => $row['valorVenta'],
+		"15" => $row['valorVentaAlta'],
+		"16" => $row['valCobProyBase'],
+		"17" => "<div class='input-group input-group-sm mb-3'>
 						<div class='input-group-prepend'>
 							<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración tabla Marcas'> Acciones</span>
 							</button>
