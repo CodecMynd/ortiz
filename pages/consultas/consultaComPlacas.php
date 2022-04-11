@@ -11,14 +11,12 @@
 	UCSN, UCSP, UCSM
 	FROM vplacas 
 	ORDER BY nProyecto DESC";
-
 }else{
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";
 }
 $resultado = mysqli_query($conexion, $query);
 $cont = 0;
-
 
 	while ($row = $resultado->fetch_assoc()) {
 		$outputBtns1 = "";
@@ -34,7 +32,6 @@ $cont = 0;
 		$Eliminado = $row['estadoProyectoEliminado'];
 		$nOrden = $row['nOrden'];
 	
-
 		// 2.3.9.1 Registrar Comprobación de Placa
 		if ($Eliminado == 0) {
 			$outputBtns1 = "<a class='btn btn-outline-danger' id='eliminado'><i class='fa-solid fa-ban'></i></a>";
@@ -113,7 +110,7 @@ $cont = 0;
 		$cont++;
 		$datos[] = array(
 			"0" => $cont,
-			"1" => $row['id_proyecto'],
+			"1" => "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>",
 			"2" => $row['nProyecto'],
 			"3" => $row['nOrden'],
 			"4" => $row['marca'],
@@ -123,11 +120,8 @@ $cont = 0;
 			"8" => $row['color'],
 			"9" => $row['nombres'] . ' ' . $row['aPaternoCliente'] . ' ' . $row['aMaternoCliente'],
 			"10" => ($Eliminado == 0)? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
-
 			"11" => ($cP == 0)? '<h6><span class="badge badge-danger badge-pill">Sin Comprobar Placas</span></h6>' : '<h6><span class="badge badge-success badge-pill">Placa Comprobada</span></h6>',
-
 			"12" => ($cS == 0)? '<h6><span class="badge badge-danger badge-pill">No Supervisado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Supervisado</span></h6>',
-			
 			"13" => "<div class='input-group input-group-sm mb-3'>
 						<div class='input-group-prepend'>
 							<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración tabla Comprobación de Placas'> Acciones</span>

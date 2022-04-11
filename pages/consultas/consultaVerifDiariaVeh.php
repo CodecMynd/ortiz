@@ -1,9 +1,13 @@
 <?php
 require '../components/query.php';
-
+if ($super == 1 OR $verTablaComVerifDiariaVeh == 1) {
 $query = "SELECT * FROM verificacion
 ORDER BY nProyecto  DESC";
 
+}else{
+	$query = "SELECT id_proyecto
+	FROM proyectos WHERE id_proyecto = 0";
+}
 
 $resultado = mysqli_query($conexion, $query);
 $cont = 0;

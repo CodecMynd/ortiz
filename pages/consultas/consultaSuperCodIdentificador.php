@@ -1,6 +1,7 @@
 <?php
 require '../components/query.php';
 // if ($super == 1 OR $verTablaComPlacas == 1) {
+	
 if ($super == 1 OR $verTablaSuperCodIdentificador == 1) {
 $query = "SELECT id_proyecto, codIdProyBase, compCodId, folioSupervision ,
 	nProyecto, nOrden, marca, modelo, anio, placa, color,
@@ -62,7 +63,7 @@ while ($row = $resultado->fetch_assoc()) {
 		"16" => $row['valCobProyBase'],
 		"17" => "<div class='input-group input-group-sm mb-3'>
 						<div class='input-group-prepend'>
-							<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración tabla Marcas'> Acciones</span>
+							<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración tabla Supervisión Codigo Identificador'> Acciones</span>
 							</button>
 							<ul class='dropdown-menu' style='min-width: 2em'>
 								<div class='btn-group'>

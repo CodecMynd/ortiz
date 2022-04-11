@@ -169,6 +169,7 @@ $query = "UPDATE permisos SET verTablaUsuario = '$verTablaUsuario', editarUsu = 
                    <p><strong>¡Los permisos se actualizaron correctamente!</strong></p>
                    </div>";
  } else {
+    echo 'Error detectado: ',  $e->getMessage(), "\n";
     echo "<div class='alert alert-danger' role='role'>
     <p><strong>¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte</strong></p>
     <a href='https://jsolautomotriz.workplace.com/groups/504053034641133'  target='_blank' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Area de Soporte'>¡Reporta aqui! <i class='fa-solid fa-triangle-exclamation parpadea'></i></a>

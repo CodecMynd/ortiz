@@ -45,7 +45,7 @@ if ($linkComPlaca == '') {
   } catch (Exception $e) {
     $conexion->rollback();
     echo '<script>
-          alert("¡Error interno! Por favor repórtelo inmediatamente a el área de Soporte")
+          alert(¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte, Error detectado: '.$e->getMessage().' )
           window.history.go(-1);
           </script>';
   }

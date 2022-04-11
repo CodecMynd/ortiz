@@ -23,8 +23,8 @@ if ($textSupervision == '') {
 </div>";
     exit;
 } else {
+    $conexion->autocommit(FALSE);
      try {
-         $conexion->autocommit(FALSE);
         // Registrar comprobación de supervision
         $query = "UPDATE actmindiaria SET textSupervision = '$textSupervision', fecha_hoyS = '$fecha_hoyS', fecha_creacionS = '$date', id_capCS = '$id' WHERE id_ActMinDiaria = '$id_ActMinDiaria' ";
         $resultado = mysqli_query($conexion, $query);
@@ -35,7 +35,7 @@ if ($textSupervision == '') {
         $resultadoP = mysqli_query($conexion, $queryP);
         // var_dump($queryP);
 
-         $conexion->autocommit(TRUE);
+         $conexion->commit();
          echo "<div class='alert alert-success' role='alert'>
         <p><strong>¡Supervisión de Comprobación de Actividad Mínima Diaria ingresada correctamente!</strong></p>
         </div>";
@@ -45,6 +45,7 @@ if ($textSupervision == '') {
         </script>';
      } catch (Exception $e) {
          $conexion->rollback();
+         echo 'Error detectado: ',  $e->getMessage(), "\n";
          echo "<div class='alert alert-danger' role='role'>
          <h5>Analisis del Falló : (' . $conexion->errno . ') '. $conexion->error;</h5>  
         <p><strong>¡Error interno:! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte</strong></p>

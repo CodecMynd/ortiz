@@ -15,7 +15,6 @@ $data['fecha'] = $date;
 $marca = strtotime($data['fecha']);
 $fecha = strftime('%A %e de %B de %Y', $marca);
 
-
 $id = $_SESSION['id_usuario'];
 
 $id_cliente = $_POST['id_cliente'];
@@ -30,6 +29,8 @@ $diagnostico = $_POST['diagnostico'];
 $descripServ1 = $_POST['descripServ1'];
 $descripServ2 = $_POST['descripServ2'];
 
+$conexion->autocommit(FALSE);
+try {
 
     // Insertamos tabla proyectos
     $query = "INSERT INTO proyectos(id_cliente, id_vehiculo, nOrden, nProyecto, tipoReparacion, km, valorVenta, diagnostico, descripServ1, descripServ2, fecha, fecha_creacion, id_capC) VALUES ( '$id_cliente', '$id_vehiculo', '$nOrden', '$nProyecto', '$tipoReparacion', '$km', '$valorVenta', '$diagnostico', '$descripServ1', '$descripServ2', '$date', '$date', '$id')";
@@ -45,17 +46,19 @@ $descripServ2 = $_POST['descripServ2'];
 
     // var_dump($queryNp);
 
-if ($resultado) {
+    $conexion->commit();
     echo "<div class='alert alert-success' role='alert'>
-            <p><strong>Proyecto ingresado correctamente!</strong></p>
-            </div>";
-} else {
+    <p><strong>Proyecto actualizado correctamente!</strong></p>
+    </div>";
+
+} catch (Exception $e) {
+    $conexion->rollback();
+    echo 'Error detectado: ',  $e->getMessage(), "\n";
     echo "<div class='alert alert-danger' role='role'>
     <p><strong>¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte</strong></p>
     <a href='https://jsolautomotriz.workplace.com/groups/504053034641133'  target='_blank' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Area de Soporte'>¡Reporta aqui! <i class='fa-solid fa-triangle-exclamation parpadea'></i></a>
     </div>";
 }
-
 desconectar();
 ?>
 <script type="text/javascript">

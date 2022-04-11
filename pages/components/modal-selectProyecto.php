@@ -28,6 +28,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>ID</th>
                                 <th>Núm. Proyecto</th>
                                 <th>Núm. Orden</th>
                                 <th>Marca</th>
@@ -47,6 +48,9 @@
                                         <?php $cont++;
                                         echo $cont;
                                         ?>
+                                    </td>
+                                    <td>
+                                        <span class='badge badge-dark badge-pill'><?php echo$row['id_proyecto'] ?></span>
                                     </td>
                                     <td style="width: 50%;">
                                         <?php echo $row['nProyecto']; ?>
@@ -74,7 +78,6 @@
                                     </td>
                                 </tr>
                             <?php
-                                require '../components/modal-eliminarProyecto.php';
                             }
                             desconectar();
                             ?>
@@ -82,6 +85,7 @@
                         <tfoot>
                             <tr>
                                 <th>#</th>
+                                <th>ID</th>
                                 <th>Núm. Proyecto</th>
                                 <th>Núm. Orden</th>
                                 <th>Marca</th>

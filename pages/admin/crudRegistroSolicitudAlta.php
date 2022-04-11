@@ -18,6 +18,16 @@ require '../components/head-dataTables.php';
         }
     }
 </style>
+<script>
+    function abrirModal1(id_proyecto, nProyecto, id_regSolicitud) {
+        $("#btbModal-regresarRegSolAltProy").click();
+        $("#id_proyecto").val(id_proyecto);
+        $("#id_regSolicitud").val(id_regSolicitud);
+        $("#nProyecto").html(nProyecto);
+
+
+    }
+</script>
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
@@ -64,53 +74,6 @@ require '../components/head-dataTables.php';
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
-                                <!-- consulta sql -->
-                                <?php
-                                $cont = 0;
-                                if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio, R.id_regSolicitud, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.borrado, R.fecha_creacion, Co.color, S.semana, U.nombres, U.aPaterno, U.aMaterno,
-                                    TA.tecArmador, TM1.tecMontador AS TM1, TM2.tecMontador AS TM2, TM3.tecMontador AS TM3, TM4.tecMontador AS TM4
-                                    FROM proyectos P 
-                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-                                    INNER JOIN colores Co ON V.id_color = Co.id_color
-                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
-                                    INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
-                                    INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto
-                                    INNER JOIN semanas S ON R.id_semana = S.id_semana
-                                    INNER JOIN usuarios U ON R.id_capC = U.id_usuario
-                                    INNER JOIN tecarmadores TA ON R.tecArmador = TA.id_tecArmador
-                                    INNER JOIN tecmontadores TM1 ON R.tecMontador1 = TM1.id_tecMontador
-                                    INNER JOIN tecmontadores TM2 ON R.tecMontador2 = TM2.id_tecMontador
-                                    INNER JOIN tecmontadores TM3 ON R.tecMontador3 = TM3.id_tecMontador
-                                    INNER JOIN tecmontadores TM4 ON R.tecMontador4 = TM4.id_tecMontador
-                                    WHERE P.registroSolicitud = 1 AND R.borrado = 0 ORDER BY fecha_creacion DESC";
-                                } else if ($verTablaRegSolAltProy == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio,  R.id_regSolicitud, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.borrado, R.fecha_creacion, Co.color, S.semana, U.nombres, U.aPaterno, U.aMaterno,
-                                    TA.tecArmador, TM1.tecMontador AS TM1, TM2.tecMontador AS TM2, TM3.tecMontador AS TM3, TM4.tecMontador AS TM4
-                                    FROM proyectos P 
-                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-                                    INNER JOIN colores Co ON V.id_color = Co.id_color
-                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
-                                    INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
-                                    INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto
-                                    INNER JOIN semanas S ON R.id_semana = S.id_semana
-                                    INNER JOIN usuarios U ON R.id_capC = U.id_usuario
-                                    INNER JOIN tecarmadores TA ON R.tecArmador = TA.id_tecArmador
-                                    INNER JOIN tecmontadores TM1 ON R.tecMontador1 = TM1.id_tecMontador
-                                    INNER JOIN tecmontadores TM2 ON R.tecMontador2 = TM2.id_tecMontador
-                                    INNER JOIN tecmontadores TM3 ON R.tecMontador3 = TM3.id_tecMontador
-                                    INNER JOIN tecmontadores TM4 ON R.tecMontador4 = TM4.id_tecMontador
-                                    WHERE P.registroSolicitud = 1 AND R.borrado = 0 ORDER BY fecha_creacion DESC";
-                                } else {
-                                    $query = "SELECT id_proyecto
-                                    FROM proyectos WHERE id_proyecto = 0";
-                                }
-                                $resultado = mysqli_query($conexion, $query);
-                                ?>
                                 <div class="card-body">
                                     <?php
                                     if ($super == 1) {
@@ -124,6 +87,7 @@ require '../components/head-dataTables.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>ID</th>
                                                 <th>Fecha Registro Solicitud de Alta</th>
                                                 <th>Cronometro Solicitud en espera de Alta</th>
                                                 <th>Núm. Folio Solicitud Alta</th>
@@ -140,139 +104,11 @@ require '../components/head-dataTables.php';
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <?php
-                                            while ($row = $resultado->fetch_assoc()) {
-                                                $inspecCalidad = $row['inspecCalidad'];
-                                                $observCliente = $row['observCliente'];
-                                                $id_regSolicitud = $row['id_regSolicitud'];
-                                                $id_proyecto = $row['id_proyecto'];
-                                                $capturista = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
-                                                $fecha_creacion = $row['fecha_creacion'];
-                                                $tecArmador = $row['tecArmador']; 
-                                                $TM1 = $row['TM1']; 
-                                                $TM2 = $row['TM2']; 
-                                                $TM3 = $row['TM3']; 
-                                                $TM4 = $row['TM4'];
-                                            ?>
-                                                <tr>
-                                                    <td>
-                                                        <?php $cont++;
-                                                        echo $cont;
-                                                        ?>
-                                                    </td>
-                                                    <td style="width: 12%">
-                                                        <?php echo $fecha_creacion ?>
-                                                    </td>
-                                                    <td style="width: 12%">
-                                                        <?php
-                                                        $fecha1 = new DateTime($date);
-                                                        $fecha2 = new DateTime($fecha_creacion);
-
-                                                        $diff = $fecha1->diff($fecha2);
-
-                                                        echo $cronometro = $diff->days . " Dia(s), " . $diff->h . ' h. ' . $diff->i . " m. " . $diff->s . ' s.';
-                                                        ?>
-                                                    </td>
-                                                    <td style="width: 10%">
-                                                        <?php echo $row['folioRegSolicitud'] ?>
-                                                    </td>
-                                                    <td style="width: 10%">
-                                                        <?php echo $row['nProyecto']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['nOrden'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['marca'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['modelo'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['anio'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['placa'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['color'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['semana'] ?>
-                                                    </td>
-                                                    <td style="width: 10%">
-                                                        <?php echo $row['valorVenta'] ?>
-                                                    </td>
-                                                    <td style="width: 10%">
-                                                        <?php echo $row['valorVentaAlta'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <div class="input-group input-group-sm mb-3">
-                                                            <div class="input-group-prepend">
-                                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Usuarios"> Acciones</span>
-                                                                </button>
-                                                                <ul class="dropdown-menu" style="min-width: 2em;">
-                                                                    <div class="btn-group">
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.4.4 Descarga PDF Registro de Solicitud Alta Proyecto">
-                                                                                <?php if ($super == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../components/solicitudAlta.php?id=<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-file-pdf"></i>
-                                                                                    </a>
-                                                                                <?php  } else if ($pdfRegSolAltProy == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../components/solicitudAlta.php?id=<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-file-pdf"></i>
-                                                                                    </a>
-                                                                                <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="pdfRegSolAltProy"><i class="fa-solid fa-file-pdf"></i>
-                                                                                    </a>
-                                                                                <?php } ?>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.4.5 Eliminar Registro de Solicitud Alta Proyecto">
-                                                                                <?php if ($super == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target="#regresarRegSolAltProy<?php echo $row['id_proyecto'] ?>"><i class="fas fa-trash-alt"></i>
-                                                                                    </a>
-                                                                                <?php  } else if ($eliRegSolAltProy == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target="#regresarRegSolAltProy<?php echo $row['id_proyecto'] ?>"><i class="fas fa-trash-alt"></i>
-                                                                                    </a>
-                                                                                <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="eliRegSolAltProy"><i class="fas fa-trash-alt"></i>
-                                                                                    </a>
-                                                                                <?php } ?>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.4.6 Ver Observaciones Registro de Solicitud Alta Proyecto">
-                                                                                <?php if ($super == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".verComentRegSolAltProy<?php echo $id_proyecto ?>"><i class="fa-solid fa-comments"></i></a>
-                                                                                <?php  } else if ($eliProyecto == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".verComentRegSolAltProy<?php echo $id_proyecto ?>"><i class="fa-solid fa-comments"></i>
-                                                                                    </a>
-                                                                                <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="verComentRegSolAltProy"><i class="fa-solid fa-comments"></i>
-                                                                                    </a>
-                                                                                <?php } ?>
-                                                                            </span>
-                                                                        </li>
-                                                                    </div>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <?php
-                                                require '../components/modal-regresarRegSolAltProy.php';
-                                                require '../components/modal-verRegSolAltProy.php';
-                                                ?>
-                                            <?php
-                                            }
-                                            desconectar();
-                                            ?>
-                                        </tbody>
+                                        <tbody></tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
+                                                <th>ID</th>
                                                 <th>Fecha Registro Solicitud de Alta</th>
                                                 <th>Cronometro Solicitud en espera de Alta</th>
                                                 <th>Núm. Folio Solicitud Alta</th>
@@ -290,6 +126,15 @@ require '../components/head-dataTables.php';
                                             </tr>
                                         </tfoot>
                                     </table>
+                                    <button id="btbModal-regresarRegSolAltProy" class="btn btn-white" data-toggle="modal" data-target=".regresarRegSolAltProy"></button>
+                                    <?php
+                                    require '../components/modal-regresarRegSolAltProy.php';
+                                    // require '../components/modal-verRegSolAltProy.php';
+                                    ?>
+                                    <?php
+
+                                    desconectar();
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -365,3 +210,24 @@ require '../components/head-dataTables.php';
 
 
 </html>
+<!-- 
+SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, M.marca, Mo.modelo, 
+A.anio, R.id_regSolicitud, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.borrado, R.fecha_creacion, 
+Co.color, S.semana, U.nombres, U.aPaterno, U.aMaterno,
+TA.tecArmador, TM1.tecMontador AS TM1, TM2.tecMontador AS TM2, TM3.tecMontador AS TM3, TM4.tecMontador AS TM4
+FROM proyectos P 
+INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
+INNER JOIN colores Co ON V.id_color = Co.id_color
+INNER JOIN marcas M ON V.id_marca = M.id_marca 
+INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
+INNER JOIN anios A ON V.id_anio = A.id_anio 
+INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
+INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto
+INNER JOIN semanas S ON R.id_semana = S.id_semana
+INNER JOIN usuarios U ON R.id_capC = U.id_usuario
+INNER JOIN tecarmadores TA ON R.tecArmador = TA.id_tecArmador
+INNER JOIN tecmontadores TM1 ON R.tecMontador1 = TM1.id_tecMontador
+INNER JOIN tecmontadores TM2 ON R.tecMontador2 = TM2.id_tecMontador
+INNER JOIN tecmontadores TM3 ON R.tecMontador3 = TM3.id_tecMontador
+INNER JOIN tecmontadores TM4 ON R.tecMontador4 = TM4.id_tecMontador
+WHERE P.registroSolicitud = 1 AND R.borrado = 0 ORDER BY fecha_creacion DESC -->

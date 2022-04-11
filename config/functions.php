@@ -15,6 +15,9 @@ function conectar()
 
     //conexion produccion hostinger
     // $conexion = mysqli_connect('localhost', 'u910288658_jsolautomotriz', 'jsolAutomotriz2022@', 'u910288658_jsolautomotriz');
+
+    //conexion prueba hostinger
+    // $conexion = mysqli_connect('localhost', 'u910288658_pruebas', 'jsolAutomotriz2022@', 'u910288658_pruebas');
     
 
     mysqli_set_charset($conexion, 'utf8');

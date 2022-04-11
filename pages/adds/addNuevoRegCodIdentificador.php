@@ -100,7 +100,7 @@ if ($id_semanaCobro == 0) {
         $resultadoD = mysqli_query($conexion, $queryD);
         // var_dump($queryD);
 
-        $queryDB = "INSERT INTO desglocecodidBitacora(id_proyecto, valCobProyBase, codIdProyBase, id_pagoProyBase, valCobProyExtra, codIdProyExtra, id_pagoProyExtra, valCobComBan, codIdComBan, id_pagoComBan, valCobPen, codIdPension, id_pagoPension, valCobOtros, codIdOtros, id_pagoOtros, fecha_creacion, id_capC) VALUES ('$id_proyecto', '$valCobProyBase', '$codIdProyBase', '$id_pagoProyBase', '$valCobProyExtra', '$codIdProyExtra', '$id_pagoProyExtra', '$valCobComBan', '$codIdComBan', '$id_pagoComBan', '$valCobPen', '$codIdPension', '$id_pagoPension', '$valCobOtros', '$codIdOtros', '$id_pagoOtros', '$date', '$id')";
+        $queryDB = "INSERT INTO desglocecodidbitacora(id_proyecto, valCobProyBase, codIdProyBase, id_pagoProyBase, valCobProyExtra, codIdProyExtra, id_pagoProyExtra, valCobComBan, codIdComBan, id_pagoComBan, valCobPen, codIdPension, id_pagoPension, valCobOtros, codIdOtros, id_pagoOtros, fecha_creacion, id_capC) VALUES ('$id_proyecto', '$valCobProyBase', '$codIdProyBase', '$id_pagoProyBase', '$valCobProyExtra', '$codIdProyExtra', '$id_pagoProyExtra', '$valCobComBan', '$codIdComBan', '$id_pagoComBan', '$valCobPen', '$codIdPension', '$id_pagoPension', '$valCobOtros', '$codIdOtros', '$id_pagoOtros', '$date', '$id')";
         $resultadoDB = mysqli_query($conexion, $queryDB);
         // var_dump($queryD);
 

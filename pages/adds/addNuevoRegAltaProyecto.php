@@ -38,8 +38,8 @@ if ($link == '') {
     exit;
 } else {
 
+    $conexion->autocommit(FALSE);
     try {
-        $conexion->autocommit(FALSE);
 
         // Insertamos tabla linkvideos
         $queryL = "INSERT INTO linkvideos(link, fecha_creacion, id_capC) VALUES ( '$link','$date', '$id')";
@@ -67,7 +67,7 @@ if ($link == '') {
         $queryBI = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
         $resultadoBI = mysqli_query($conexion, $queryBI);
 
-        $conexion->autocommit(TRUE);
+        $conexion->commit();
         echo "<div class='alert alert-success' role='alert'>
               <p><strong>Registro de Alta Proyecto ingresado correctamente!</strong></p>
               </div>
@@ -76,6 +76,7 @@ if ($link == '') {
               </div>";
     } catch (Exception $e) {
         $conexion->rollback();
+        echo 'Error detectado: ',  $e->getMessage(), "\n";
         echo "<div class='alert alert-danger' role='role'>
               <p><strong>¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte</strong></p>
               <a href='https://jsolautomotriz.workplace.com/groups/504053034641133'  target='_blank' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Area de Soporte'>¡Reporta aqui! <i class='fa-solid fa-triangle-exclamation parpadea'></i></a>

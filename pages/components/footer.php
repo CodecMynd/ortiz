@@ -6,7 +6,7 @@
         </div>
         <div class="col-4">
             <div class="float-right d-sm-inline ml-5 pl-5">
-                 <!-- v. 1.1.080422 -- Producción -->
+                 <!-- v. 1.1.090422 -- Producción -->
                  v. 1.1.9 beta -- Pruebas  
             </div>
         </div>

@@ -26,7 +26,7 @@ if ($marca == '' || $modelo == '' || $anio == '' || $placa == '' || $color == ''
     $query = "INSERT INTO vehiculos(id_marca, id_modelo, id_anio, placa, id_color, fecha_creacion, id_captC ) VALUES ('$marca' , '$modelo', '$anio', '$placa', '$color', '$date', '$id' )";
     // var_dump($query);
     $verificar_vehiculo = mysqli_query($conexion, "SELECT id_marca, id_modelo, id_anio, placa, id_color FROM vehiculos WHERE id_marca = '$marca' AND id_modelo = '$modelo' AND id_anio = '$anio' AND placa = '$placa' AND id_color = '$color' ");
-// var_dump($query);
+    // var_dump($query);
     if (mysqli_num_rows($verificar_vehiculo) > 0) {
         echo
         "<div class='alert alert-danger' role='role'>
@@ -40,6 +40,7 @@ if ($marca == '' || $modelo == '' || $anio == '' || $placa == '' || $color == ''
             <p><strong>Permiso ingresado correctamente!</strong></p>
             </div>";
         } else {
+            echo 'Error detectado: ',  $e->getMessage(), "\n";
             echo "<div class='alert alert-danger' role='role'>
         <p><strong>¡Error interno:! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte</strong></p>
         </div>";

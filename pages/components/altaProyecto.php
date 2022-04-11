@@ -210,7 +210,7 @@ $id_proyecto = $_GET['id'];
 $query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, Co.color, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, RA.fecha_creacion, RA.observAudiFinal, S.semana, RA.folioRegAlta, LV.link 
 FROM proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-INNER JOIN registroAlta RA ON P.id_proyecto = RA.id_proyecto 
+INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
 INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
 INNER JOIN marcas M ON V.id_marca = M.id_marca 
 INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
