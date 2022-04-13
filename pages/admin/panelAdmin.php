@@ -20,11 +20,11 @@ require '../components/head-main.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-12 textB">
-                            <h1 class="m-0 bienvenido" >Bienvenido <?php if ($admin == 1) {
-                                                                                            echo 'Admin';
-                                                                                        } else {
-                                                                                            echo 'Usuario';
-                                                                                        } ?>: <strong><?php echo $nomComp ?></strong></h1>
+                            <h1 class="m-0 bienvenido">Bienvenido <?php if ($admin == 1) {
+                                                                        echo 'Admin';
+                                                                    } else {
+                                                                        echo 'Usuario';
+                                                                    } ?>: <strong><?php echo $nomComp ?></strong></h1>
 
                         </div>
                     </div>
@@ -38,19 +38,22 @@ require '../components/head-main.php';
                         <div class="col-lg-2 col-4">
                             <div class="small-box bg-secondary">
                                 <div class="inner">
-                                    <h3><?php echo mysqli_num_rows($count_reg_usuarios); ?></h3>
-                                    <p>Usuarios</p>
+                                    <h5 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_mensajeSI); ?></strong></h5>
+                                    <p style="margin-bottom: 0px;">Sin comprobar</p>
+                                    <h5 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_mensajeNO); ?></strong></h5>
+                                    <p style="margin-bottom: 0px;">Comprobados</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fa-solid fa-users"></i>
+                                    <i class="fa-solid fa-comment-sms"></i>
                                 </div>
                                 <?php if ($passUser == 'SIN_PASSWORD') {
                                     echo '';
                                 } else {
-                                    echo '<a href="crudUsuarios.php" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
+                                    echo '<small class="small-box-footer">Estatus para envío de mensajes</small>';
                                 } ?>
                             </div>
                         </div>
+
 
                         <div class="col-lg-2 col-4">
                             <div class="small-box bg-secondary">
@@ -129,7 +132,7 @@ require '../components/head-main.php';
                                     <p>Destajos Técnicos</p>
                                 </div>
                                 <div class="icon">
-                                <i class="fa-solid fa-money-bill-1-wave"></i>
+                                    <i class="fa-solid fa-money-bill-1-wave"></i>
                                 </div>
                                 <?php if ($passUser == 'SIN_PASSWORD') {
                                     echo '';

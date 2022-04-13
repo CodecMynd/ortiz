@@ -2,7 +2,7 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>CRUD Verificacion Diaria Vehículos Activos | <?php echo $nomComp ?></title>
+<title>CRUD Estatus para envío de mensajes | <?php echo $nomComp ?></title>
 <script>
     //  function abrirModal1($id_proyecto, $nProyecto, $id_comverifdiariaveh) {
     //     $("#btModal-eliminarConmVerifDiariaVeh").click();
@@ -25,7 +25,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Tabla 2.3.2.2 Verificacion Diaria Vehículos Activos</h1>
+                            <h1 class="m-0">Tabla 2.3.2.2 Estatus para Envío de Mensajes</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>

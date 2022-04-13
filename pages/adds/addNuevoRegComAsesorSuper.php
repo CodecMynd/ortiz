@@ -1,7 +1,7 @@
 <?php
 require '../../config/functions.php';
 if (!haIniciadoSesion()) {
-    header('Location: ../../../index.php');
+   header('Location: ../../../index.php');
 }
 
 conectar();
@@ -15,24 +15,30 @@ $textSupervision =  $_POST['textSupervision'];
 $tipoComprobacion = 'asesor';
 $estado = 1;
 $comSuperAsesor = 1;
-// Registrar comprobación de supervision
-$query = "INSERT INTO comsupervision(id_proyecto, textSupervision, tipoComprobacion, estado, fecha_registro, id_capC) VALUES ('$id_proyecto', '$textSupervision', '$tipoComprobacion', '$estado', '$date', '$id')";
-$resultado = mysqli_query($conexion, $query);
-//var_dump($query);
 
-// Actualizar proyecto
-$queryP = "UPDATE proyectos SET comSuperAsesor = '$comSuperAsesor' WHERE id_proyecto = '$id_proyecto' ";
-$resultadoP = mysqli_query($conexion, $queryP);
-//var_dump($queryP);
+$conexion->autocommit(FALSE);
+try {
+   // Registrar comprobación de supervision
+   $query = "INSERT INTO comsupervision(id_proyecto, textSupervision, tipoComprobacion, estado, fecha_registro, id_capC) VALUES ('$id_proyecto', '$textSupervision', '$tipoComprobacion', '$estado', '$date', '$id')";
+   $resultado = mysqli_query($conexion, $query);
+   //var_dump($query);
 
-   if ($resultadoP) {
-      echo '<script>
-      window.history.go(-1);
-   </script>';
-   } else {
-    echo '<script>
-           alert("¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte, Error detectado: '.$e->getMessage().'")
-           window.history.go(-1);
-           </script>';
-   }
- desconectar();
+   // Actualizar proyecto
+   $queryP = "UPDATE proyectos SET comSuperAsesor = '$comSuperAsesor' WHERE id_proyecto = '$id_proyecto' ";
+   $resultadoP = mysqli_query($conexion, $queryP);
+   //var_dump($queryP);
+
+   $conexion->commit();
+   echo '<script>
+         alert("Supervisión de Comprobación de Asignacion de Asesor Ingresado correctamente")
+         window.history.go(-1);
+         </script>';
+} catch (Exception $e) {
+   $conexion->rollback();
+   echo '<script>
+         alert(¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte, Error detectado: ' . $e->getMessage() . ' )
+         window.history.go(-1);
+         </script>';
+}
+
+desconectar();

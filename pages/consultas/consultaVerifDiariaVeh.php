@@ -100,6 +100,7 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns1 = "<a href='../adds/formAddVerificacionDiaria.php?id={$idP}' class='btn btn-secondary'><i class='fa-solid fa-pencil'></i></a>";
 	} else if ($super == 1 and ($fechaV ==  $fecha_sistema)) {
 		$outputBtns1 = "<a class='btn btn-outline-danger' id='yaRegistrado'><i class='fa-solid fa-pencil'></i></a>";
+
 	} else if ($regComVerifDiariaVeh == 1 and ($hoyV  == '')) {
 		$outputBtns1 = "<a href='../adds/formAddVerificacionDiaria.php?id={$idP}' class='btn btn-secondary'><i class='fa-solid fa-pencil'></i></a>";
 	} else if ($regComVerifDiariaVeh == 1 and ($fechaV <> $fecha_sistema)) {
@@ -107,7 +108,7 @@ while ($row = $resultado->fetch_assoc()) {
 	} else if ($regComVerifDiariaVeh == 1 and ($fechaV ==  $fecha_sistema)) {
 		$outputBtns1 = "<a class='btn btn-outline-danger' id='yaRegistrado'><i class='fa-solid fa-pencil'></i></a>";
 	} else {
-		$outputBtns1 = "<a class='btn btn-outline-danger' id='regComVerifDiariaVeh'><i class='fa-solid fa-spell-check?></i></a>";
+		$outputBtns1 = "<a class='btn btn-outline-danger' id='regComVerifDiariaVeh'><i class='fa-solid fa-pencil'></i></a>";
 	}
 
 
@@ -142,7 +143,7 @@ while ($row = $resultado->fetch_assoc()) {
 	} else if ($regComVerifDiariaVehSuper == 1 and ($fechaS ==  $fecha_sistema)) {
 		$outputBtns3 = "<a class='btn btn-outline-danger' id='yaRegistrado'><i class='fa-solid fa-pencil'></i></a>";
 	} else {
-		$outputBtns3 = "<a class='btn btn-outline-danger' id='regComSuperActMinDia'><i class='fa-solid fa-spell-check?></i></a>";
+		$outputBtns3 = "<a class='btn btn-outline-danger' id='regComSuperActMinDia'><i class='fa-solid fa-spell-check'></i></a>";
 	}
 
 

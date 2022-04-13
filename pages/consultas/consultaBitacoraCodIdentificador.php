@@ -1,7 +1,7 @@
 <?php
 require '../components/query.php';
 // if ($super == 1 OR $verTablaComPlacas == 1) {
-if ($super == 1 OR $verTablaCodIdentificador == 1) {
+if ($super == 1 OR $verTablaSuperCodIdentificador == 1) {
 $query = "SELECT id_proyecto, nProyecto, nOrden, valorVenta, id_regcodidenti,codIdProyBase,
 placa, color, marca, modelo, anio, 
 valorVentaAlta, id_regcodidenti, borrado, folioCodID, fecha_creacion,

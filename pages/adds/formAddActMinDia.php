@@ -40,6 +40,9 @@ require '../components/head-main.php';
                             <div class="card border-card">
                                 <div class="card-header border-nav">
                                     <h3 class="card-title">(*) Campos requeridos</h3>
+                                    <div class="card-tools">
+                                    <strong>Número de proyecto: <?php echo $nP ?></strong>
+                                    </div>
                                 </div>
                                 <form id="formNuevoRegComActMinDia" autocomplete="off">
                                 <input type="hidden" name="id_proyecto" id="id_proyecto" value="<?php echo $id_proyecto ?>">

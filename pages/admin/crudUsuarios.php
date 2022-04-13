@@ -45,6 +45,10 @@ require '../components/head-dataTables.php';
                                         <?php } ?>
 
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                        <?php if ($super == 1) { ?>
+                                        <a href="../consultas/tablaConsultaAccesos.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Ver Acceso de Usuarios al Sistema"><i class="fa-solid fa-door-open"></i></a>
+                                        <?php } ?>
+
                                     </div>
                                 </div>
                                 <!-- consulta sql -->

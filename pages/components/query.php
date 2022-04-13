@@ -232,9 +232,15 @@ $count_reg_proyectos = mysqli_query($conexion, "SELECT id_proyecto FROM proyecto
 $count_reg_proyectosE = mysqli_query($conexion, "SELECT id_proyecto FROM proyectos WHERE estadoProyectoEliminado = 0 ");
 
 
+//# Estatus par aenvio de mensajes (suma de sin registro)
+$count_reg_mensajeSI = mysqli_query($conexion, "SELECT fecha_hoyV FROM mensaje WHERE fecha_hoyV IS NULL AND estadoProyectoEliminado = 1");
+
+$count_reg_mensajeNO = mysqli_query($conexion, "SELECT fecha_hoyV FROM mensaje WHERE fecha_hoyV <> '0000-00-00' AND estadoProyectoEliminado = 1");
 
 
-// <form action="../delete/deleteAsesor.php" method="post">
-//     <input type="text" name="id_asesor" value="2">
-//     <button type="submit">enviar</button>
-// </form>
+// CREATE VIEW mensaje as
+// SELECT P.id_proyecto, P.estadoProyectoEliminado,                                 
+// CV.fecha_hoyV, CV.fecha_hoyS
+// FROM proyectos P
+// LEFT JOIN comverifdiariaveh CV ON P.id_proyecto = CV.id_proyecto 
+// GROUP BY P.id_proyecto;

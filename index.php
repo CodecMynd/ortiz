@@ -4,7 +4,7 @@ if(haIniciadoSesion()){
     if($_SESSION['admin'] == 1){
         header('Location: pages/admin/panelAdmin.php');
     }else if($_SESSION['admin'] == 0){
-        header('Location: pages/user/panelUsuario.php');
+        header('Location: pages/admin/panelAdmin.php');
     }
 }
 

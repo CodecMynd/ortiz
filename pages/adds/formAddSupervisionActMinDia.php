@@ -43,10 +43,11 @@ require '../components/head-main.php';
             <!-- Form editar usuario -->
             <?php
              $id_ActMinDiaria = $_GET['id'];
-             $query = "SELECT id_proyecto FROM actmindiaria WHERE id_ActMinDiaria = $id_ActMinDiaria";
+             $query = "SELECT id_proyecto, nProyecto FROM actmindiaria WHERE id_ActMinDiaria = $id_ActMinDiaria";
              $respuesta = mysqli_query($conexion, $query);
              $row = $respuesta->fetch_assoc();
              $id_proyecto = $row['id_proyecto'];
+             $nP = $row['nProyecto'];
             ?>
             <section class="content">
                 <div class="container-fluid">
@@ -55,6 +56,9 @@ require '../components/head-main.php';
                             <div class="card border-card">
                                 <div class="card-header border-nav">
                                     <h3 class="card-title">(*) Campos requeridos</h3>
+                                    <div class="card-tools">
+                                    <strong>Número de proyecto: <?php echo $nP ?></strong>
+                                    </div>
                                 </div>
                                 <form id="formNuevoRegComActMinDiaSuper" autocomplete="off">
                                     <input type="hidden" name="id_ActMinDiaria" id="id_ActMinDiaria" value="<?php echo $id_ActMinDiaria ?>">

@@ -6,19 +6,39 @@ if (!haIniciadoSesion()) {
 conectar();
 ini_set('date.timezone',  'America/Mexico_City');
 $date = date('Y-m-d H:i:s');
-$id = $_SESSION['id'];
+$id = $_SESSION['id_usuario'];
 
-$id_proyecto = $_POST['id'];
+$id_proyecto = $_POST['id_proyecto4'];
+$id_comSupervision = $_POST['id_comSupervision4'];
 $comSuperAsesor = 0;
 $tipoComprobacion = 'asesor';
 
-$queryD = ("DELETE FROM comsupervision WHERE id_proyecto = $id_proyecto AND tipoComprobacion = '$tipoComprobacion'");
-$resultadoD = mysqli_query($conexion, $queryD);
+$conexion->autocommit(FALSE);
+try {
+
+  $queryD = ("DELETE FROM comsupervision WHERE id_comSupervision = $id_comSupervision");
+  $resultadoD = mysqli_query($conexion, $queryD);
+  // var_dump($queryD);
 
 
-$queryU = "UPDATE proyectos SET comSuperAsesor = '$comSuperAsesor' WHERE id_proyecto = $id_proyecto";
-$resultadoU = mysqli_query($conexion, $queryU);
+
+  $queryU = "UPDATE proyectos SET comSuperAsesor = '$comSuperAsesor' WHERE id_proyecto = $id_proyecto";
+  $resultadoU = mysqli_query($conexion, $queryU);
+  // var_dump($queryU);
+
+  $conexion->commit();
+
+  echo '<script>
+            alert("Supervisión eliminada correctamente")
+            window.history.go(-1);
+             </script>';
+} catch (Exception $e) {
+  $conexion->rollback();
+
+  echo '<script>
+          alert(¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte, Error detectado: ' . $e->getMessage() . ' )
+          window.history.go(-1);
+          </script>';
+}
 
 desconectar();
-
-?>

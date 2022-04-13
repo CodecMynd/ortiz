@@ -7,26 +7,27 @@ function conectar()
     // conexion local
     $conexion = mysqli_connect('localhost', 'root', '', 'db_ortiz');
 
-    //conexion pruebas
+    //conexion pruebas antigua
     // $conexion = mysqli_connect('den1.mysql6.gear.host', 'dbortiz', 'Tv4O~77K-R7j', 'dbortiz');
 
-    //conexion produccion
+    //conexion produccion antigua
     // $conexion = mysqli_connect('den1.mysql6.gear.host', 'jsolautomotriz', 'Sk4Ot??17QLC', 'jsolautomotriz');
-
-    //conexion produccion hostinger
-    // $conexion = mysqli_connect('localhost', 'u910288658_jsolautomotriz', 'jsolAutomotriz2022@', 'u910288658_jsolautomotriz');
-
-    //conexion prueba hostinger
-    // $conexion = mysqli_connect('localhost', 'u910288658_pruebas', 'jsolAutomotriz2022@', 'u910288658_pruebas');
     
 
-    mysqli_set_charset($conexion, 'utf8');
+    //conexion produccion hostinger actual
+    // $conexion = mysqli_connect('localhost', 'u910288658_jsolautomotriz', 'jsolAutomotriz2022@', 'u910288658_jsolautomotriz');
 
-    //   if (mysqli_connect_error()) {
-    //      echo "Error al conectarse con MySQL debido al error ".$conexion->connect_error;
-    //   } else {
-    //   echo 'conectado';
-    //   }
+    //conexion prueba hostinger actual
+    //$conexion = mysqli_connect('localhost', 'u910288658_pruebas', 'wly#Wk[1|wI', 'u910288658_pruebas');
+    
+
+     mysqli_set_charset($conexion, 'utf8');
+
+        // if (mysqli_connect_error()) {
+        //    echo "Error al conectarse con MySQL debido al error ".$conexion->connect_error;
+        // } else {
+        // echo 'conectado';
+        // }
 
 }
 
@@ -38,6 +39,7 @@ function validarLogin($usuario, $pass)
 
     $consulta = sprintf("SELECT * FROM usuarios WHERE usuario = '" . $usuario . "' AND pass = '" . $pass . "'  ");
     $respuesta = mysqli_query($conexion, $consulta);
+
 
     if ($fila = mysqli_fetch_row($respuesta)) {
         session_start();

@@ -54,11 +54,11 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1) {
-                                    $query = "SELECT id_semanaCobro, semanaCobro FROM semanasCobro WHERE borrado = 0 ORDER BY semanaCobro DESC";
+                                    $query = "SELECT id_semanaCobro, semanaCobro FROM semanascobro WHERE borrado = 0 ORDER BY semanaCobro DESC";
                                 } else if ($verTablaSemanaCobro == 1) {
-                                    $query = "SELECT id_semanaCobro, semanaCobro FROM semanasCobro WHERE borrado = 0 ORDER BY semanaCobro DESC";
+                                    $query = "SELECT id_semanaCobro, semanaCobro FROM semanascobro WHERE borrado = 0 ORDER BY semanaCobro DESC";
                                 } else {
-                                    $query = "SELECT id_semanaCobro,semanaCobro FROM semanasCobro WHERE id_semanaCobro = 0";
+                                    $query = "SELECT id_semanaCobro,semanaCobro FROM semanascobro WHERE id_semanaCobro = 0";
                                 }
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>

@@ -1,4 +1,4 @@
-<div class="modal fade borrarComAsesor<?php echo $row["id_proyecto"] ?> " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade eliminarComAsesor" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,13 +8,17 @@
             </div>
             <div class="modal-body text-center">
                 <strong class="margin-auto__content">
-                <?php echo $row['nProyecto']; ?>
+                    <span id="tituloModal3"></span>
                 </strong>
             </div>
-            <div class="modal-footer">
-                <buttom type="submit" data-dismiss="modal" id="<?php echo $row['id_proyecto']; ?>" class="btn btn-secondary btn-block btnBorrarComAsesor" data-toggle="tooltip" data-placement="bottom" title="Estas de acuerdo en eliminar "><i class="fa-solid fa-ban"></i> Eliminar</buttom>
-                <a data-dismiss="modal" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Cancelar"><i class="fa-solid fa-xmark"></i> Salir</a>
-            </div>
+            <form action="../delete/deleteComAsesor.php" method="POST">
+                <div class="modal-footer">
+                    <input type="hidden" name="id_proyecto3" id="id_proyecto3">
+                    <input type="hidden" name="id_comAsesor3" id="id_comAsesor3">
+                    <button type="submit" class="btn btn-secondary"><i class="fas fa-pen"></i> Guardar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>
+                </div>
+            </form>
             <div class="pie">
                 <h5>2.3.15.2 Eliminar Comprobación de Asesor</h5>
             </div>

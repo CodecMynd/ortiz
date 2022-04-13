@@ -4,20 +4,20 @@ $result = mysqli_query($conexion, $query1) or die(mysqli_error($conexion));
 ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<div class="modal fade regComAsesor-<?php echo $idP ?>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade regComAsesor" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">
-                    Registrar Comprobacion de Asignacion de Asesor de Número de Proyecto: <?php echo $nP ?>
+                    Registrar Comprobacion de Asignacion de Asesor de Número de Proyecto: <span id="tituloModal"></span> 
                 </h5>
             </div>
             <form id="formNuevoRegComAsesor" action="../adds/addNuevoRegComAsesor.php" method="POST">  
             <!-- <form id="formNuevoRegComAsesor"> -->
                 <div class="modal-body">
                     <div class='row justify-content-center'>
-                        <input type="hidden" name="id_proyecto" id="id_proyecto" value="<?php echo $idP ?>">
-                        <input type="hidden" name="nProyecto" id="nProyecto" value="<?php echo $nP ?>">
+                        <input type="hidden" name="id_proyecto" id="id_proyecto" value="">
+                        <input type="hidden" name="nProyecto" id="nProyecto" value="">
                         <div class='col-md-8 col-sm-12 mb-2 form-group'>
                             <div class='input-group'>
                                 <label for='asesor' class='pl-5 parpadea'>Asesor <small>(requerido)</small></label>
@@ -47,25 +47,3 @@ $result = mysqli_query($conexion, $query1) or die(mysqli_error($conexion));
         </div>
     </div>
 </div>
-<script>
-    //    // 2.3.15.1  Registro Comprobación de Asesor--------------------------------------------------------------------
-    //    $(document).ready(function() {
-    //         $('#btnNuevoRegComAsesor').click(function() {
-    //             $.ajax({
-    //                     url: '../adds/addNuevoRegComAsesor.php',
-    //                     type: 'POST',
-    //                     data: $('#formNuevoRegComAsesor').serialize(),
-    //                 })
-    //                 .done(function(res) {
-    //                     $('#respuestaNuevogComAsesor').html(res)
-    //                 })
-    //         });
-    //     });
-    //     //Ocultar boton por 5 minutos para evitar el doble submit
-    //     $("#btnNuevoRegComAsesor").on('click', function() {
-    //         $("#btnNuevoRegComAsesor").css('visibility', 'hidden');
-    //         setTimeout(function() {
-    //             $("#btnNuevoRegComAsesor").css('visibility', 'visible');
-    //         }, 300000);
-    //     });
-</script>
