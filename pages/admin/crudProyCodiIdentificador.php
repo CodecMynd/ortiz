@@ -58,7 +58,11 @@ require '../components/head-dataTables.php';
                                         <a href="crudSuperCodiIdentificador.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Ver Tabla 2.7 Supervisión de Registro Código Identificador"><i class="fa-solid fa-eye"></i>&nbsp;&nbsp;<i class="fa-solid fa-angle-right"></i></a> -->
 
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
-                                        <a href="../consultas/tablaBitacoraCodigoIdentificador.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Tabla 2.6.6 Bitácora Código Identificador"><i class="fa-solid fa-list-ol"></i></a>
+                                        <?php if ($super == 1 OR $verTablaBitCodIdentificador) { ?>
+                                        <a href="../consultas/tablaBitacoraCodigoIdentificador.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Tabla 2.6.7 Bitácora Código Identificador"><i class="fa-solid fa-list-ol"></i></a>
+                                        <?php } else{
+                                            echo '<a type="button" id="verTablaBitCodIdentificador" class="btn btn-danger btn-inline" data-toggle="tooltip" data-placement="bottom" title="Tabla 2.6.7 Bitácora Código Identificador"><i class="fa-solid fa-list-ol"></i></a>';
+                                        } ?>
                                     </div>
                                 </div>
                                 <!-- consulta sql -->
@@ -216,10 +220,10 @@ require '../components/head-dataTables.php';
             })
         });
 
-        // pdfCodIdentificador 2.6.3 DESCARGAR PDF CODIGO IDENTIFICADOR  --------------------------------------------------------------
+        // pdfCodIdentificador  2.6.3 DESCARGAR PDF REGISTRO CODIGO IDENTIFICADOR  --------------------------------------------------------------
         $(document).ready(function() {
             $("#pdfCodIdentificador").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.5.3 DESCARGAR PDF REGISTRO CODIGO IDENTIFICADOR, consulta al administrador!")
+                toastr["error"]("¡No tienes acceso a: 2.6.3 DESCARGAR PDF REGISTRO CODIGO IDENTIFICADOR, consulta al administrador!")
 
                 tostadas.opciones = {
                     "botóncerrar": falso,
@@ -241,10 +245,10 @@ require '../components/head-dataTables.php';
             })
         });
 
-        // verLinkObsIdentificador 2.6.4 VER TABLA ALTAS  --------------------------------------------------------------
+        // verLinkObsIdentificador 2.6.4 VER LINK DE VIDEO EN VIVO Y OBSERVACIONES  --------------------------------------------------------------
         $(document).ready(function() {
             $("#verLinkObsIdentificador").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.5.4 VER LINK DE VIDEO EN VIVO Y OBSERVACIONES, consulta al administrador!")
+                toastr["error"]("¡No tienes acceso a: 2.6.4 VER LINK DE VIDEO EN VIVO Y OBSERVACIONES, consulta al administrador!")
 
                 tostadas.opciones = {
                     "botóncerrar": falso,
@@ -266,10 +270,35 @@ require '../components/head-dataTables.php';
             })
         });
 
-        // varTablaAlta 2.5.4 VER TABLA ALTAS  --------------------------------------------------------------
+        // verTablaCodIdentificador  2.6.4 VER TABLA PROYECTOS CON CODIGO IDENTIFICADOR  --------------------------------------------------------------
         $(document).ready(function() {
             $("#verTablaCodIdentificador").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.5.4 VER TABLA PROYECTOS CON CODIGO IDENTIFICADOR, consulta al administrador!")
+                toastr["error"]("¡No tienes acceso a: 2.6.4 VER TABLA PROYECTOS CON CODIGO IDENTIFICADOR, consulta al administrador!")
+
+                tostadas.opciones = {
+                    "botóncerrar": falso,
+                    "depuración": cierto,
+                    "newestOnTop": falso,
+                    "barra de progreso": falso,
+                    "positionClass": "brindis arriba a la derecha",
+                    "prevenir duplicados": falso,
+                    "onclick": nulo,
+                    "showDuration": "400",
+                    "ocultarDuración": "1000",
+                    "tiempo de espera": "5000",
+                    "tiempo de espera extendido": "1200",
+                    "showEasing": "oscilación",
+                    "hideEasing": "lineal",
+                    "showMethod": "fundido de entrada",
+                    "hideMethod": "desaparecer"
+                }
+            })
+        });
+
+           // verTablaBitCodIdentificador 2.6.6 VER TABLA BITACORA CODIGO IDENTIFICADOR  --------------------------------------------------------------
+           $(document).ready(function() {
+            $("#verTablaCodIdentificador").click(function() {
+                toastr["error"]("¡No tienes acceso a: 2.6.6 VER TABLA BITACORA CODIGO IDENTIFICADOR, consulta al administrador!")
 
                 tostadas.opciones = {
                     "botóncerrar": falso,

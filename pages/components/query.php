@@ -10,6 +10,7 @@ ini_set('date.timezone', 'America/Mexico_City');
 $date = date('Y-m-d H:i:s');
 $dateFront = date('d-m-Y H:i:s');
 $fecha_sistema = date('d-m-Y');
+$fecha_mensaje = date('Y-m-d');
 
 //query usuarios ------------------------------------------------------------------------------------------
 $query = mysqli_query($conexion, "SELECT * FROM usuarios WHERE id_usuario = $id");
@@ -42,6 +43,7 @@ $resultColor = mysqli_query($conexion, $sql) or die(mysqli_error($conexion));
 // query Permisos ------------------------------------------------------------------------------------------
 $query = mysqli_query($conexion, "SELECT * FROM permisos WHERE id_usuario = $id");
 while ($row = mysqli_fetch_array($query)) {
+    $indMensajes = $row['indMensajes'];
     $verTablaUsuario = $row['verTablaUsuario'];
     $editarUsu = $row['editarUsu'];
     $asignarCon = $row['asignarCon'];
@@ -127,6 +129,12 @@ while ($row = mysqli_fetch_array($query)) {
     $regTecMontador = $row['regTecMontador'];
     $modTecMontador = $row['modTecMontador'];
     $eliTecMontador = $row['eliTecMontador'];
+    $regAsesor = $row['regAsesor'];
+    $modAsesor = $row['modAsesor'];
+    $eliAsesor = $row['eliAsesor'];
+    $verTablaAsesor = $row['verTablaAsesor'];
+    $verPermisoUsuario = $row['verPermisoUsuario'];
+    $verTablaPermisoUsuario = $row['verTablaPermisoUsuario'];
     $pdfRepVVAvsVCodID = $row['pdfRepVVAvsVCodID'];
     $verGralRepVVAvsVCodID = $row['verGralRepVVAvsVCodID'];
     $verTablaRepVVAvsVCodID = $row['verTablaRepVVAvsVCodID'];
@@ -193,6 +201,9 @@ while ($row = mysqli_fetch_array($query)) {
     $eliComSuperActMinDia = $row['eliComSuperActMinDia'];
     $verGralActMinDia = $row['verGralActMinDia'];
     $verTablaActMinDia = $row['verTablaActMinDia'];
+    $consSolAltaProy = $row['consSolAltaProy'];
+    $consAltaProy = $row['consAltaProy'];
+    $consCodId = $row['consCodId'];
 
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
     if ($passUser === 'SIN_PASSWORD') {
@@ -233,10 +244,11 @@ $count_reg_proyectosE = mysqli_query($conexion, "SELECT id_proyecto FROM proyect
 
 
 //# Estatus par aenvio de mensajes (suma de sin registro)
-$count_reg_mensajeSI = mysqli_query($conexion, "SELECT fecha_hoyV FROM mensaje WHERE fecha_hoyV IS NULL AND estadoProyectoEliminado = 1");
+$count_reg_mensajeNO = mysqli_query($conexion, "SELECT fecha_hoyV FROM comverifdiariaveh WHERE fecha_hoyV = '$fecha_mensaje'  GROUP by id_proyecto");
+// $count_reg_mensajeSI = mysqli_query($conexion, "SELECT fecha_hoyV FROM mensaje WHERE fecha_hoyV IS NULL AND estadoProyectoEliminado = 1");
 
-$count_reg_mensajeNO = mysqli_query($conexion, "SELECT fecha_hoyV FROM mensaje WHERE fecha_hoyV <> '0000-00-00' AND estadoProyectoEliminado = 1");
-
+$count_reg_mensajeSI = mysqli_query($conexion, "SELECT fecha_hoyV FROM comverifdiariaveh WHERE fecha_hoyV <> '0000-00-00' or fecha_hoyV is null GROUP by id_proyecto");
+// $count_reg_mensajeNO = mysqli_query($conexion, "SELECT fecha_hoyV FROM mensaje WHERE fecha_hoyV <> $fecha_mensaje AND estadoProyectoEliminado = 1");
 
 // CREATE VIEW mensaje as
 // SELECT P.id_proyecto, P.estadoProyectoEliminado,                                 
@@ -244,3 +256,5 @@ $count_reg_mensajeNO = mysqli_query($conexion, "SELECT fecha_hoyV FROM mensaje W
 // FROM proyectos P
 // LEFT JOIN comverifdiariaveh CV ON P.id_proyecto = CV.id_proyecto 
 // GROUP BY P.id_proyecto;
+
+

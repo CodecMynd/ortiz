@@ -13,6 +13,7 @@ require 'query.php';
     <meta name="author" content="ISC Jose Uriel Guerra Trinidad">
     <meta name="copyright" content="Servicio Ortiz Transmisiones Automaticas Taller de reparación de automóviles">
     <meta name="robots" content="index">
+    <!-- <meta http-equiv="refresh" content="3" /> -->
     <!-- Favicon -->
     <link rel="icon" href="../../src/img/logos/favicon.png" type="image/gif" sizes="32x32">
     <link rel="shortcut icon" href="../../src/img/logos/favicon.png" type="image/gif" sizes="32x32">

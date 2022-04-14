@@ -31,7 +31,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-8">
-                            <h1 class="m-0">Tabla 2.6.6 Reporte de Altas Por Asignar Código ID</h1>
+                            <h1 class="m-0">Tabla 2.6.6.1 Reporte de Altas Por Asignar Código ID</h1>
                         </div>
                         <div class="col-sm-4 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -177,7 +177,7 @@ require '../components/head-dataTables.php';
                                                                 <ul class="dropdown-menu" style="min-width: 2em">
                                                                     <div class="btn-group">                                                            
                                                                         <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.6.6.1 Ver Link de Video, Observaciones y Generales">
+                                                                            <span data-toggle="tooltip" title="2.6.6.2 Ver Link de Video, Observaciones y Generales">
                                                                                 <?php if ($super == 1) { ?>
                                                                                     <button class="btn btn-secondary" data-toggle="modal" data-target=".verGralDadosAltaAsignarCodId-<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></button>
                                                                                 <?php  } else if ($verGralDadosAltaAsignarCodId == 1) { ?>

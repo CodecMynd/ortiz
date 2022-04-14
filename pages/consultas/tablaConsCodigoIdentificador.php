@@ -27,7 +27,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-8">
-                            <h1 class="m-0">Tabla 2.6.6 Bitácora Código Identificador</h1>
+                            <h1 class="m-0">Tabla 2.8.3 Consecutivo de  Código Identificador <small>(Solo Consulta)</small></h1>
                         </div>
                         <div class="col-sm-4 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -53,7 +53,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-body">
                                     <?php
                                     if ($super == 1) {
-                                    } else if ($verTablaCodIdentificador == 0) { ?>
+                                    } else if ($consCodId == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
@@ -80,7 +80,7 @@ require '../components/head-dataTables.php';
                                                 <th>Valor Venta Inicial</th>
                                                 <th>Valor Venta Alta</th>
                                                 <th>Valor Cobro Proyecto Base</th>
-                                                <th>Acciones</th>
+                                                <!-- <th>Acciones</th> -->
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
@@ -103,7 +103,7 @@ require '../components/head-dataTables.php';
                                                 <th class="suma"></th>
                                                 <th class="suma"></th>
                                                 <th class="suma"></th>
-                                                <th>Acciones</th>
+                                                <!-- <th>Acciones</th> -->
                                             </tr>
                                         </tfoot>
                                     </table>

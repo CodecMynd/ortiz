@@ -32,19 +32,15 @@ require '../components/head-dataTables.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-md-4 col-sm-12">
+                        <div class="col-md-5 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
                                     <h3 class="card-title">Asesores dados de alta en el sistema</h3>
                                     <div class="card-tools">
-                                        <?php if ($super == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formAddAsesor.php" data-toggle="tooltip" data-placement="left" title="1.10 Registro de Asesor"> <i class="fa-solid fa-users-gear"></i>&nbsp;&nbsp; Registro de Asesor</a>
-
-                                        <?php } else if ($regAsesor == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formAddAsesor.php" data-toggle="tooltip" data-placement="left" title="1.10 Registro de Asesor" type="button" class="btn btn-outline-danger" id="regTecMontador" data-toggle="tooltip" data-placement="left" title="1.10 Registro de Asesor"> <i class="fa-solid fa-users-gear"></i>&nbsp;&nbsp; Registro de Asesor</a>
-
+                                        <?php if ($super == 1 OR $regAsesor == 1) { ?>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formAddAsesor.php" data-toggle="tooltip" data-placement="left" title="1.10.1 Registro de Asesor"> <i class="fa-solid fa-users-gear"></i>&nbsp;&nbsp; Registro de Asesor</a>
                                         <?php } else { ?>
-                                            <a type="button" class="btn btn-outline-danger" id="regTecMontador" data-toggle="tooltip" data-placement="left" title="1.10 Registro de Asesor"> <i class="fa-solid fa-users-gear"></i>&nbsp;&nbsp; Registro de Asesor</a>
+                                            <a type="button" class="btn btn-outline-danger" id="regAsesor" data-toggle="tooltip" data-placement="left" title="1.10 Registro de Asesor"> <i class="fa-solid fa-users-gear"></i>&nbsp;&nbsp; Registro de Asesor</a>
                                             
                                            <?php } ?>
 
@@ -107,7 +103,7 @@ require '../components/head-dataTables.php';
                                                                                 <?php if ($super == 1) { ?>
                                                                                     <a class="btn btn-secondary" href="../update/formUpdateAsesor.php?id=<?php echo $row['id_asesor'] ?>"><i class="fas fa-edit"></i>
                                                                                     </a>
-                                                                                <?php  } else if ($modTecMontador == 1) { ?>
+                                                                                <?php  } else if ($modAsesor == 1) { ?>
                                                                                     <a class="btn btn-secondary" href="../update/formUpdateAsesor.php?id=<?php echo $row['id_asesor'] ?>"><i class="fas fa-edit"></i>
                                                                                     </a>
                                                                                 <?php } else { ?>
@@ -171,7 +167,79 @@ require '../components/head-dataTables.php';
     require '../components/scripts-dataTables.php';
     ?>
     <!-- avisos -->
-    <script src="../../src/js/toastr.js"></script>
+
+    <script>
+// regAsesopr 1.10.1 REGISTRO DE ASESOR  --------------------------------------------------------------
+$(document).ready(function () {
+    $("#regAsesor").click(function () {
+        toastr["error"]("¡No tienes acceso a: 1.10.1 REGISTRO DE ASESOR, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+
+    // modAsesor  1.10.2 MODIFICAR ASESOR ---------------------------------------------------
+    $("#modAsesor").click(function () {
+        toastr["error"]("¡No tienes acceso a: 1.10.2 MODIFICAR ASESOR, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+
+    // eliAsesor  1.10.3 ELIMNAR ASESOR ---------------------------------------------------
+    $("#eliAsesor").click(function () {
+        toastr["error"]("¡No tienes acceso a: 1.10.3 ELIMNAR ASESOR, consulta al administrador!")
+
+        tostadas.opciones = {
+            "botóncerrar": falso,
+            "depuración": cierto,
+            "newestOnTop": falso,
+            "barra de progreso": falso,
+            "positionClass": "brindis arriba a la derecha",
+            "prevenir duplicados": falso,
+            "onclick": nulo,
+            "showDuration": "400",
+            "ocultarDuración": "1000",
+            "tiempo de espera": "5000",
+            "tiempo de espera extendido": "1200",
+            "showEasing": "oscilación",
+            "hideEasing": "lineal",
+            "showMethod": "fundido de entrada",
+            "hideMethod": "desaparecer"
+        }
+    })
+});
+    </script>
 
 </body>
 

@@ -2,7 +2,7 @@
 
 require '../components/head-main.php';
 ?>
-<title>1.1.4 Asignar Permisos | <?php echo $nomComp ?></title>
+<title>Lista 1.11.1 Ver Permisos de Usuarios | <?php echo $nomComp ?></title>
 
 </head>
 
@@ -17,7 +17,7 @@ require '../components/head-main.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-6">
-                            <h1 class="float-left m-0">1.1.4 Asignar Permisos</h1>
+                            <h1 class="float-left m-0">Lista 1.11.1 Ver Permisos de Usuarios</h1>
                         </div>
                         <div class="col-sm-6 ">
                             <h5 class="float-right">Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -50,7 +50,7 @@ require '../components/head-main.php';
                         <div class="col-12">
                             <div class="card border-card">
                                 <div class="card-header border-nav">
-                                    <h2 class="card-title">*Asignar permisos a: <strong><?php echo $nombreComp ?></strong> </h2>
+                                    <h2 class="card-title">*Permisos Asignados a: <strong><?php echo $nombreComp ?></strong> </h2>
                                     <div class="card-tools">
                                         <a href="javascript:history.go(-1)" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
                                     </div>
@@ -62,10 +62,10 @@ require '../components/head-main.php';
                                         <div class="card-body">
                                             <section class="content">
                                                 <div class="container-fluid">
-                                                    <h5 class="mb-2">Habilita los check para asignar los Permisos</h5>
+                                                    <h5 class="mb-2"><strong>Lista solo de consulta</strong></h5>
                                                     <div class="row justify-content-center">
-                                                         <!-- 0.0 Indicadores -->
-                                                         <div class="col-12">
+                                                        <!-- 0.0 Indicadores -->
+                                                        <div class="col-12">
                                                             <div class="card card-secondary card-outline collapsed-card">
                                                                 <div class="card-header">
                                                                     <h2 class="card-title"><strong>0.0 Indicadores</strong></h2>
@@ -82,9 +82,9 @@ require '../components/head-main.php';
                                                                                 <div class="info-box">
                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-chart-line"></i></span>
                                                                                     <div class="info-box-content">
-                                                                                        <span class="info-box-text">0.1 Estatus Para  Envío de Mensajes</span>
+                                                                                        <span class="info-box-text">0.1 Estatus Para Envío de Mensajes</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="indMensajes" id="indMensajes" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" value="1" <?php if ($rowPer['indMensajes'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </button>
@@ -2259,7 +2259,8 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </button>
                                                                         </div>
-                                                                    
+
+
                                                                         <div class="col-md-12 col-sm-6 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -2372,8 +2373,8 @@ require '../components/head-main.php';
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                          <!-- >2.8 Consecutivos -->
-                                                          <div class="col-12">
+                                                        <!-- >2.8 Consecutivos -->
+                                                        <div class="col-12">
                                                             <div class="card card-secondary card-outline collapsed-card">
                                                                 <div class="card-header">
                                                                     <h2 class="card-title"><strong>2.8 Consecutivos</strong></h2>
@@ -2563,9 +2564,6 @@ require '../components/head-main.php';
                                         <div class="card-footer border-footer">
                                             <div class="row justify-content-left">
                                                 <div class="col-md-2 col-sm-12 align-self-center">
-                                                    <buttom type="submit" id="btnUpdatePermisoUsuario" name="save" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Guardar "><i class="fas fa-pen"></i> Guardar</buttom>
-                                                </div>
-                                                <div class="col-md-2 col-sm-12 align-self-center">
                                                     <a href="javascript:history.go(-1)" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
                                                 </div>
                                                 <br>
@@ -2579,39 +2577,6 @@ require '../components/head-main.php';
                                         </div>
                                     </div>
                                 </form>
-                                <div class="col-12">
-                                    <div class="card card-secondary card-outline collapsed-card">
-                                        <div class="card-header">
-                                            <h2 class="card-title"><strong>Asignar Todo / Quitar Todo</strong></h2>
-                                            <div class="card-tools">
-                                                <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
-                                                    <i class="fas fa-plus"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="card-body">
-                                            <form id="formAsigPermAdmin">
-                                                <div class="row justify-content-center">
-                                                    <div class="col-md-12 text-center">
-                                                        <p>Botón para <strong>Asignar</strong> todos los permisos ó <strong>Quitar</strong> todos los permisos</p>
-                                                        <hr>
-                                                    </div>
-                                                    <div class="col-md-4 col-sm-6 col-12 cuadro">
-                                                        <button type="button" class="btn btn-permisos">
-                                                            <input type="hidden" name="usuario" id="usuario" value="<?php echo $id_usuario ?>">
-                                                            <span class="info-box-text"> <input type="checkbox" name="admin" id="admin" data-toggle="toggle" data-on="Todos" data-off="Ninguno" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1"></span>
-                                                            <buttom type="submit" id="btnUpdateAdmin" name="save" class="btn btn-secondary btn-inline-block" data-toggle="tooltip" data-placement="bottom" title="Guardar "><i class="fas fa-pen"></i> Guardar</buttom>
-                                                            <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
-                                                        </button>
-                                                    </div>
-                                                    <div class="col-md-12 col-sm-12 align-self-center mt-2">
-                                                        <div id="respuestaUpdatePermisoAdmin"></div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -2627,82 +2592,6 @@ require '../components/head-main.php';
     require '../components/scripts-main.php';
     ?>
 </body>
-<script>
-    // Actualizar permisos a usuarios --------------------------------------------
-    $('#btnUpdatePermisoUsuario').click(function() {
-        $.ajax({
-                url: 'updatePermisoUsuario.php',
-                type: 'POST',
-                data: $('#formAsigPermUsuario').serialize(),
-            })
-            .done(function(res) {
-                $('#respuestaUpdatePermisoUsuario').html(res)
-            })
-    });
 
-    //Ocultar boton por 5 minutos para evitar el doble submit
-    $("#btnUpdatePermisoUsuario").on('click', function() {
-        $("#btnUpdatePermisoUsuario").css('visibility', 'hidden');
-        setTimeout(function() {
-            $("#btnUpdatePermisoUsuario").css('visibility', 'visible');
-        }, 300000);
-    });
-
-    // Actualizar permisos a usuarios --------------------------------------------
-    $('#btnUpdateAdmin').click(function() {
-        $.ajax({
-                url: 'updatePermisoAdmin.php',
-                type: 'POST',
-                data: $('#formAsigPermAdmin').serialize(),
-            })
-            .done(function(res) {
-                $('#respuestaUpdatePermisoAdmin').html(res)
-            })
-    });
-
-    //Ocultar boton por 5 minutos para evitar el doble submit
-    $("#btnUpdateAdmin").on('click', function() {
-        $("#btnUpdateAdmin").css('visibility', 'hidden');
-        setTimeout(function() {
-            $("#btnUpdateAdmin").css('visibility', 'visible');
-        }, 300000);
-    });
-</script>
 
 </html>
-<!-- <div class="col-md-3 col-sm-6 col-12">
-    <button type="button" class="btn btn-permisos">
-        <div class="info-box">
-            <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check-double"></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">1.5.1 Registro de Permiso</span>
-                <span class="info-box-text"> <input type="checkbox" name="regPermiso" id="regPermiso" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regPermiso'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
-            </div>
-        </div>
-    </button>
-</div>
-<div class="col-md-3 col-sm-6 col-12">
-    <button type="button" class="btn btn-permisos">
-        <div class="info-box">
-            <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check-double"></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">1.5.2 Modificar Permiso</span>
-                <span class="info-box-text"> <input type="checkbox" name="modPermiso" id="modPermiso" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['modPermiso'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
-            </div>
-        </div>
-    </button>
-</div>
-<div class="col-md-3 col-sm-6 col-12">
-    <button type="button" class="btn btn-permisos">
-        <div class="info-box">
-            <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check-double"></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">1.5.3 Eliminar Permiso</span>
-                <span class="info-box-text"> <input type="checkbox" name="eliPermiso" id="eliPermiso" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliPermiso'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
-            </div>
-        </div>
-    </button>
-</div> -->

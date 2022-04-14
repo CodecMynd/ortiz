@@ -3,10 +3,10 @@
         <a href="../admin/panelAdmin.php" class="navbar-brand">
             <img src="../../src/img/logos/logo.png" alt="JSOL Automotriz Logo" class="brand-image  elevation-5" style="opacity: .8; height:4rem">
             <!-- Produccion -->
-         <!-- <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span> </a>    -->
+            <!-- <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span></a> -->
 
         <!-- test -->
-        <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span>  
+        <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span>
         </a>
 
         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,13 +17,16 @@
         <div class="collapse navbar-collapse order-3" id="navbarCollapse">
             <!-- Left navbar links -->
             <div class="btn-group" role="group" aria-label="Basic example">
-                <a href="../admin/panelAdmin.php" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Ir al Inicio">| <i class="fa-solid fa-house-user"></i></a>
-                <a class="nav-link" data-widget="fullscreen" href="#" role="button" data-toggle="tooltip" data-placement="bottom" title="Expandir pantalla completa"><i class="fas fa-expand-arrows-alt"></i></a>
+                <a href="../admin/panelAdmin.php" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Ir al Inicio" style="padding-left: 5px;padding-right: 5px;">| <i class="fa-solid fa-house-user"></i></a>
+                <?php if ($super == 1) { ?>
+                    <a href="#" type="button" class="nav-link" data-toggle="modal" data-target="#exampleModalCenter" data-toggle="tooltip" data-placement="bottom" title="Mostrar contadores de proyectos" style="padding-left: 5px;padding-right: 5px;"><i class="fa-solid fa-eye"></i></a>
+                <?php } ?>
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button" data-toggle="tooltip" data-placement="bottom" title="Expandir pantalla completa" style="padding-left: 5px;padding-right: 5px;"><i class="fas fa-expand-arrows-alt"></i></a>
                 <?php if ($passUser == 'SIN_PASSWORD') {
-                    echo '<a class="nav-link parpadea" data-toggle="dropdown" href="#" >
+                    echo '<a class="nav-link parpadea" data-toggle="dropdown" href="#" style="padding-left: 5px;padding-right: 5px;">
             <i class="fa-solid fa-user fa-2x" data-toggle="tooltip" data-placement="bottom" title="Ir a mi perfil"></i> |</a>';
                 } else {
-                    echo '<a class="nav-link" data-toggle="dropdown" href="#">
+                    echo '<a class="nav-link" data-toggle="dropdown" href="#" style="padding-left: 5px;padding-right: 5px;">
                <i class="fa-solid fa-user" data-toggle="tooltip" data-placement="bottom" title="Ir a mi perfil"></i> |</a>';
                 } ?>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -46,13 +49,13 @@
                                                                                                                                                             } else {
                                                                                                                                                                 echo 'text-dark ';
                                                                                                                                                             } ?> ">1.0 Catálogos</a>
-                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style="columns:2; width: 240%">
+                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style="columns:3; width: 350%;">
                         <li><a href="../admin/crudUsuarios.php" class="dropdown-item">1.1 Usuarios </a></li>
                         <li><a href="../admin/crudMarcas.php" class="dropdown-item">1.2 Marcas </a></li>
                         <li><a href="../admin/crudModelos.php" class="dropdown-item">1.3 Modelos </a></li>
                         <li><a href="../admin/crudAnios.php" class="dropdown-item">1.4 Años </a></li>
                         <li><a href="../admin/crudColores.php" class="dropdown-item">1.5 Colores </a></li>
-                        <li class="dropdown-submenu dropdown-hover">
+                        <li class="dropdown-submenu dropdown-hover ">
                             <a id="dropdownSubMenu1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">1.6 Semanas &nbsp;</a>
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                                 <li><a href="../admin/crudSemanas.php" class="dropdown-item">1.6.1 Semanas de Alta</a></li>
@@ -69,6 +72,7 @@
                             </ul>
                         </li>
                         <li><a href="../admin/crudAsesor.php" class="dropdown-item">1.10 Asesor</a></li>
+                        <li><a href="../admin/crudVerPermisosUsuarios.php" class="dropdown-item">1.11 Permisos</a></li>
 
 
                         <!-- <?php if ($super == 1) { ?>
@@ -120,7 +124,16 @@
                             </ul>
                         </li>
                         <li><a href="../admin/crudSuperCodiIdentificador.php" class="dropdown-item ">2.7 Supervisión Código Identificador </a></li>
-                        <li><a href="../admin/crudBitacoraProyecto.php" class="dropdown-item disabled">2.8 Bitacora de Proyecto </a></li>
+                        <li class="dropdown-submenu dropdown-hover">
+                            <a id="dropdownSubMenu1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">2.8 Consecutivos</a>
+                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                <li><a href="" class="dropdown-item disabled">2.8.1 Consecutivo Solicitud Alta de Proyectos </a></li>
+                                <li><a href="" class="dropdown-item disabled">2.8.2 Consecutivo Alta de Proyectos </a></li>
+                                <li><a href="../consultas/tablaConsCodigoIdentificador.php" class="dropdown-item">2.8.3 Consecutivo de Códigos Identificadores </a></li>
+                            </ul>
+                        </li>
+           
+                        <!-- <li><a href="../admin/crudBitacoraProyecto.php" class="dropdown-item disabled">2.8 Bitacora de Proyecto </a></li> -->
 
                     </ul>
                 </li>
@@ -152,3 +165,104 @@
 
     </ul>
 </nav>
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Contadores</h5>
+                <div class="card-tools">
+                <small><strong>*Visible solo Administrador</strong></small>
+                </div>
+            </div>
+            <div class="card-body ">
+                <div class="row justify-content-center">
+
+                    <div class="col-sm-6 col-md-2">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                            <div class="info-box-content">
+                                <h6 class="info-box-number text-center">Activos</h6>
+                                <h4 class="text-center">
+                                    <?php echo mysqli_num_rows($count_reg_proyectoActivo); ?>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-2">
+                        <div class="info-box mb-3">
+                            <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                            <div class="info-box-content">
+                                <h6 class="info-box-number text-center">Solicitud Alta</h6>
+                                <h4 class="text-center">
+                                    <?php echo mysqli_num_rows($count_reg_registroSolicitud); ?>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-2">
+                        <div class="info-box mb-3">
+                            <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                            <div class="info-box-content">
+                                <h6 class="info-box-number text-center">Alta Proyecto</h6>
+                                <h4 class="text-center">
+                                    <?php echo mysqli_num_rows($count_reg_altaProyecto); ?>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-2">
+                        <div class="info-box mb-3">
+                            <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                            <div class="info-box-content">
+                                <h6 class="info-box-number text-center">Código ID</h6>
+                                <h4 class="text-center">
+                                    <?php echo mysqli_num_rows($count_reg_proyCodIdentificador); ?>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-2">
+                        <div class="info-box mb-3">
+                            <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                            <div class="info-box-content">
+                                <h6 class="info-box-number text-center">Supervisión</h6>
+                                <h4 class="text-center">
+                                    <?php echo mysqli_num_rows($count_reg_superCodIdentificador); ?>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-6 col-md-3">
+                        <div class="info-box mb-3">
+                            <span class="info-box-icon bg-info elevation-1"><i class="fa-solid fa-arrow-up-1-9"></i></span>
+                            <div class="info-box-content">
+                                <h6 class="info-box-number text-center">Total Proyectos</h6>
+                                <h4 class="text-center">
+                                    <?php echo mysqli_num_rows($count_reg_proyectos); ?>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="info-box mb-3">
+                            <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-trash-can"></i></span>
+                            <div class="info-box-content">
+                                <h6 class="info-box-number text-center">Proyectos Eliminados</h6>
+                                <h4 class="text-center">
+                                    <?php echo mysqli_num_rows($count_reg_proyectosE); ?>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -24,7 +24,7 @@ require '../components/head-main.php';
                                                                         echo 'Admin';
                                                                     } else {
                                                                         echo 'Usuario';
-                                                                    } ?>: <strong><?php echo $nomComp ?></strong></h1>
+                                                                    } ?>: <strong><?php echo $nomComp?></strong></h1>
 
                         </div>
                     </div>
@@ -35,6 +35,7 @@ require '../components/head-main.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
+                    <?php if ($super == 1 OR $indMensajes == 1) { ?>
                         <div class="col-lg-2 col-4">
                             <div class="small-box bg-secondary">
                                 <div class="inner">
@@ -46,13 +47,10 @@ require '../components/head-main.php';
                                 <div class="icon">
                                     <i class="fa-solid fa-comment-sms"></i>
                                 </div>
-                                <?php if ($passUser == 'SIN_PASSWORD') {
-                                    echo '';
-                                } else {
-                                    echo '<small class="small-box-footer">Estatus para envío de mensajes</small>';
-                                } ?>
+                                <small class="small-box-footer">Estatus Para Envío de Mensajes</small>
                             </div>
                         </div>
+                    <?php }  ?>
 
 
                         <div class="col-lg-2 col-4">

@@ -24,10 +24,10 @@ require '../components/head-dataTables.php';
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
-                        <div class="col-sm-6">
+                        <div class="col-sm-8 col-md-8">
                             <h1 class="m-0">Tabla 2.3.2.2 Estatus para Envío de Mensajes</h1>
                         </div>
-                        <div class="col-sm-6 ">
+                        <div class="col-sm-4 col-md-4 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
                         </div>
                     </div>
@@ -125,19 +125,6 @@ require '../components/head-dataTables.php';
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
-                                <!-- consulta sql -->
-                                <?php
-                                // $cont = 0;
-                                // if ($super == 1) {
-                                //     $query = "SELECT * FROM verificacion LIMIT 10";
-                                // } else if ($verTablaComVerifDiariaVeh == 1) {
-                                //     $query = "SELECT * FROM verificacion";
-                                // } else {
-                                //     $query = "SELECT id_proyecto
-                                //     FROM proyectos WHERE id_proyecto = 0";
-                                // }
-                                // $resultado = mysqli_query($conexion, $query);
-                                ?>
                                 <div class="card-body">
                                     <?php
                                     if ($super == 1) {
@@ -151,6 +138,7 @@ require '../components/head-dataTables.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>ID</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -170,6 +158,7 @@ require '../components/head-dataTables.php';
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
+                                                <th>ID</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
