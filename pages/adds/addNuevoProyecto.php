@@ -37,9 +37,9 @@ if ($id_cliente == '' || $id_vehiculo == ''  || $nProyecto == '' || $tipoReparac
     </div>";
     exit;
 } else {
-    $conexion->autocommit(FALSE);
-
+    
     try {
+        $conexion->autocommit(FALSE);
         // Insertamos tabla proyectos
         $query = "INSERT INTO proyectos(id_cliente, id_vehiculo, nOrden, nProyecto, tipoReparacion, km, valorVenta, diagnostico, descripServ1, descripServ2, proyectoActivo, registroSolicitud, altaProyecto, proyCodIdentificador, fecha_creacion, id_capC) VALUES ( '$id_cliente', '$id_vehiculo', '$nOrden', '$nProyecto', '$tipoReparacion', '$km', '$valorVenta', '$diagnostico', '$descripServ1', '$descripServ2',1,0,0,0, '$date', '$id')";
         $resultado = mysqli_query($conexion, $query);
@@ -60,7 +60,7 @@ if ($id_cliente == '' || $id_vehiculo == ''  || $nProyecto == '' || $tipoReparac
         $resultadoBI = mysqli_query($conexion, $queryBI);
         // var_dump($queryBI);
 
-        $conexion->commit();
+        $conexion->commit(TRUE);
         echo "<div class='alert alert-success' role='alert'>
                <p><strong>Proyecto ingresado correctamente!</strong></p>
             </div>

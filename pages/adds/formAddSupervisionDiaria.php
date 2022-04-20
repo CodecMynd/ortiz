@@ -42,11 +42,14 @@ require '../components/head-main.php';
             <!-- /titulo y brandcrumb -->
             <!-- Form editar usuario -->
             <?php
-             $id_comverifdiariaveh = $_GET['id'];
-             $query = "SELECT id_proyecto FROM comverifdiariaveh WHERE id_comverifdiariaveh = $id_comverifdiariaveh";
-             $respuesta = mysqli_query($conexion, $query);
-             $row = $respuesta->fetch_assoc();
-             $id_proyecto = $row['id_proyecto'];
+            $id_comverifdiariaveh = $_GET['id'];
+            $id_proyecto = $_GET['idP'];
+            $asesor = $_GET['asesor'];
+            $nP = $_GET['nP'];
+            $query = "SELECT id_proyecto FROM comverifdiariaveh WHERE id_comverifdiariaveh = $id_comverifdiariaveh";
+            $respuesta = mysqli_query($conexion, $query);
+            $row = $respuesta->fetch_assoc();
+            $id_proyecto = $row['id_proyecto'];
             ?>
             <section class="content">
                 <div class="container-fluid">
@@ -61,6 +64,28 @@ require '../components/head-main.php';
                                     <input type="hidden" name="id_proyecto" id="id_proyecto" value="<?php echo $id_proyecto ?>">
                                     <div class="card-body">
                                         <div class="row justify-content-center">
+                                            <div class="col-md-4 col-sm-12 my-1">
+                                                <label class="ml-5 mb-2">Número de Proyecto</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"> <i class="fa-solid fa-hashtag"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Campo en automatico" value="<?php echo $nP ?>" disabled readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8 col-sm-12 my-1">
+                                                <label class="ml-5 mb-2">Asesor</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fa-solid fa-user-gear"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Campo en automatico" value="<?php if ($asesor == '') {
+                                                                                                                                                                                    echo "Sin Asesor";
+                                                                                                                                                                                } else {
+                                                                                                                                                                                    echo $asesor;
+                                                                                                                                                                                } ?>" disabled readonly>
+                                                </div>
+                                            </div>
                                             <div class='col-md-12 col-sm-12 my-1'>
                                                 <div class='form-group-input' style='border: 1px solid #CED4DA;'>
                                                     <label class='pl-2 mb-2'>*Supervisión Link de Video en Vivo<small> Campo requerido</small></label>

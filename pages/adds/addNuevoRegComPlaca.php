@@ -46,7 +46,7 @@ if ($linkComPlaca == '') {
     $conexion->rollback();
 
     echo '<script>
-           alert(¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte, Error detectado: '.$e->getMessage().' )
+           alert(¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte, Error detectado: ' . $e->getMessage() . ' )
            window.history.go(-1);
            </script>';
   }

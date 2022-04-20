@@ -1927,7 +1927,7 @@ require '../components/head-main.php';
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
-                                                                                    <h2 class="card-title"><strong>2.3.15 Comprobación de Asignación de Asesor</strong></h2>
+                                                                                    <h2 class="card-title"><strong>2.3.15.1 Comprobación de Asignación de Asesor</strong></h2>
                                                                                     <div class="card-tools">
                                                                                         <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
                                                                                             <i class="fas fa-plus"></i>
@@ -1936,67 +1936,67 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                                 <div class="card-body">
                                                                                     <div class="row justify-content-center">
-                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
                                                                                             <button type="button" class="btn btn-permisos">
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">2.3.15.1 Registro Comprobación de Asesor</span>
+                                                                                                        <span class="info-box-text">2.3.15.1.1 Registrar Comprobación de Asesor</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="regComAsesor" id="regComAsesor" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComAsesor'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                 else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
                                                                                         </div>
-                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
                                                                                             <button type="button" class="btn btn-permisos">
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">2.3.15.2 Eliminar Comprobación de Asesor</span>
+                                                                                                        <span class="info-box-text">2.3.15.1.2 Eliminar Comprobación de Asesor</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="eliComAsesor" id="eliComAsesor" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComAsesor'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                 else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
                                                                                         </div>
-                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
                                                                                             <button type="button" class="btn btn-permisos">
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">2.3.15.3 Registro Supervisión de Comprobación de Asesor</span>
+                                                                                                        <span class="info-box-text">2.3.15.1.3 Registrar Supervisión Comprobación de Asesor</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="regComAsesorSuper" id="regComAsesorSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComAsesorSuper'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                             else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
                                                                                         </div>
-                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
                                                                                             <button type="button" class="btn btn-permisos">
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">2.3.15.4 Eliminar Supervisión de Comprobación de Asesor</span>
+                                                                                                        <span class="info-box-text">2.3.15.1.4 Eliminar Supervisión de Comprobación de Asesor</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="eliComAsesorSuper" id="eliComAsesorSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComAsesorSuper'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                             else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
                                                                                         </div>
-                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
                                                                                             <button type="button" class="btn btn-permisos">
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">2.3.15.5 Ver Generales Comprobación de Asesor</span>
+                                                                                                        <span class="info-box-text">2.3.15.1.5 Ver Comprobación y Supervisión de Asesor</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="verGralComAsesor" id="verGralComAsesor" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComAsesor'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                         else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
                                                                                         </div>
-                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
                                                                                             <button type="button" class="btn btn-permisos">
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
@@ -2390,7 +2390,7 @@ require '../components/head-main.php';
                                                                                 <div class="info-box">
                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-list-ol"></i></span>
                                                                                     <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.8.1 Consecutivos Solicitud Alta de Proyectos</span>
+                                                                                        <span class="info-box-text">2.8.1 Consecutivos Solicitud Alta Proyectos</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="consSolAltaProy" id="consSolAltaProy" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['consSolAltaProy'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                         else echo ''; ?>></span>
                                                                                     </div>

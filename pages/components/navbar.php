@@ -105,7 +105,14 @@
                                 <li><a href="../admin/crudComprobacionClientes.php" class="dropdown-item ">2.3.12 Comprobación INE Clientes </a></li>
                                 <li><a href="../admin/crudComprobacionDocuFirm.php" class="dropdown-item ">2.3.13 Comprobación Documentación Firmada Ingreso Vehículo</a></li>
                                 <li><a href="../admin/crudComprobacionGarantia.php" class="dropdown-item ">2.3.14 Comprobación de Garantia</a></li>
-                                <li><a href="../admin/crudComprobacionAsignarAsesor.php" class="dropdown-item ">2.3.15 Asignación de Asesor</a></li>
+
+                                <li class="btn-group dropleft dropdown-hover">
+                                    <a id="dropdownSubMenu1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">2.3.15 Asesores</a>
+                                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                        <li><a href="../admin/crudComprobacionAsignarAsesor.php" class="dropdown-item ">2.3.15.1 Asignación de Asesor</a></li>
+                                        <li><a href="../admin/crudSolicitudCambioAsesor.php" class="dropdown-item">2.3.15.2 Solicitud Cambio de Asesor</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                         <li class="dropdown-submenu dropdown-hover">
@@ -127,12 +134,12 @@
                         <li class="dropdown-submenu dropdown-hover">
                             <a id="dropdownSubMenu1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">2.8 Consecutivos</a>
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                                <li><a href="" class="dropdown-item disabled">2.8.1 Consecutivo Solicitud Alta de Proyectos </a></li>
-                                <li><a href="" class="dropdown-item disabled">2.8.2 Consecutivo Alta de Proyectos </a></li>
-                                <li><a href="../consultas/tablaConsCodigoIdentificador.php" class="dropdown-item">2.8.3 Consecutivo de Códigos Identificadores </a></li>
+                                <li><a href="../consultas/tablaConsSolicitudAlta.php" class="dropdown-item">2.8.1 Consecutivo Solicitud Alta de Proyectos </a></li>
+                                <li><a href="../consultas/tablaConsAltaProyecto.php" class="dropdown-item">2.8.2 Consecutivo Alta de Proyectos </a></li>
+                                <li><a href="../consultas/tablaConsCodigoIdentificador.php" class="dropdown-item">2.8.3 Consecutivo Códigos Identificadores </a></li>
                             </ul>
                         </li>
-           
+
                         <!-- <li><a href="../admin/crudBitacoraProyecto.php" class="dropdown-item disabled">2.8 Bitacora de Proyecto </a></li> -->
 
                     </ul>
@@ -173,7 +180,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">Contadores</h5>
                 <div class="card-tools">
-                <small><strong>*Visible solo Administrador</strong></small>
+                    <small><strong>*Visible solo Administrador</strong></small>
                 </div>
             </div>
             <div class="card-body ">

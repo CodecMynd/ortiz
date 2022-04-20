@@ -22,11 +22,18 @@ $cont = 0;
 		$outputBtns1 = "";
 		$outputBtns2 = "";
 		$outputBtns3 = "";
+		$cronometro = "";
 
 		$idP = $row['id_proyecto'];
 		$nP = $row['nProyecto'];
 		$folioRegAlta = $row['folioRegAlta'];
 		$id_regAlta = $row['id_regAlta'];
+
+		if(empty($row['cronometro'])){
+			$cronometro = "Sin Registro";
+		}else{
+			$cronometro = $row['cronometro'];
+		}
 
 
 		// 2.5.2 Eliminar Registro Alta Proyecto
@@ -63,19 +70,20 @@ $cont = 0;
 			"0" => $cont,
 			"1" => "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>",
 			"2" => $row['regAltaFecha_creacion'],
-			"3" => $row['cronometro'],
-			"4" => $row['nProyecto'],
-			"5" => $row['nOrden'],
-			"6" => $row['marca'],
-			"7" => $row['modelo'],
-			"8" => $row['anio'],
-			"9" => $row['placa'],
-			"10" =>$row['color'],
-			"11" => $row['semana'],
-			"12" => $row['valorVenta'],
-			"13" => $row['valorVentaAlta'],
+			"3" => $row['folioRegAlta'],
+			"4" => $cronometro,
+			"5" => $row['nProyecto'],
+			"6" => $row['nOrden'],
+			"7" => $row['marca'],
+			"8" => $row['modelo'],
+			"9" => $row['anio'],
+			"10" => $row['placa'],
+			"11" => $row['color'],
+			"12" => $row['semana'],
+			"13" => $row['valorVenta'],
+			"14" => $row['valorVentaAlta'],
 			
-			"14" => "<div class='input-group input-group-sm mb-3'>
+			"15" => "<div class='input-group input-group-sm mb-3'>
 						<div class='input-group-prepend'>
 							<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración tabla Alta Proyecto'> Acciones</span>
 							</button>

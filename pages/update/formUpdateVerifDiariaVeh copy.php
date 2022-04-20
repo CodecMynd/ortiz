@@ -54,21 +54,19 @@ require '../components/head-dataTables.php';
                                 </div>
                                 <?php
                                 $id_proyecto = $_GET['id'];
-
+                                $asesor = $_GET['asesor'];
                                 $cont = 0;
                                 // $query = "SELECT * FROM verificacion WHERE id_Proyecto = $id_proyecto";
                                 $query = "SELECT P.id_proyecto, P.nProyecto, P.comSuperVerifDiariaVeh, P.comVerifDiariaVeh,
                                 V.id_comverifdiariaveh, V.linkComVerifDiariaVeh, V.textSupervision, 
-                                V.fecha_hoyV AS FV, V.fecha_hoyS AS FS, ASE.asesor,
+                                V.fecha_hoyV AS FV, V.fecha_hoyS AS FS,
                                 UV.nombres AS nombreV, UV.aPaterno AS paternoV, UV.aMaterno AS maternoV,
                                 US.nombres AS nombreS, US.aPaterno AS paternoS, US.aMaterno AS maternoS
                                 from proyectos P
                                 INNER JOIN comverifdiariaveh V ON P.id_proyecto = V.id_proyecto
-                                LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
-                                LEFT JOIN asesores ASE ON CA.id_asesor = ASE.id_asesor
                                 LEFT JOIN usuarios UV ON V.id_capCV = UV.id_usuario
                                 LEFT JOIN usuarios US ON V.id_capCS = US.id_usuario
-                                WHERE P.id_Proyecto = $id_proyecto ORDER BY id_comverifdiariaveh DESC";
+                                WHERE P.id_Proyecto = $id_proyecto ORDER BY id_comverifdiariaveh DESC;";
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
                                 <div class="card-body">
@@ -76,6 +74,7 @@ require '../components/head-dataTables.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>Id</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Link Verificación</th>
                                                 <th>Capturista Verificador</th>
@@ -98,8 +97,6 @@ require '../components/head-dataTables.php';
                                                 $fecha = new DateTime($hoyS);
                                                 $fechaS = $fecha->format('d-m-Y');
 
-                                                $asesor = $row['asesor'];
-
                                                 $hoyV = $row['FV'];
                                                 $fecha = new DateTime($hoyV);
                                                 $fechaV = $fecha->format('d-m-Y');
@@ -114,6 +111,9 @@ require '../components/head-dataTables.php';
                                                         <?php $cont++;
                                                         echo $cont;
                                                         ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $idV ?>
                                                     </td>
                                                     <td style="width: 7%;">
                                                         <?php echo $row['nProyecto'] ?>
@@ -135,11 +135,11 @@ require '../components/head-dataTables.php';
                                                     </td>
                                                     <td>
                                                         <?php
-                                                        	if ($asesor == '') {
-                                                                echo "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>";
-                                                            } else {
-                                                                echo "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>";
-                                                            }
+                                                        if ($asesor == '') {
+                                                            echo "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>";
+                                                        } else {
+                                                            echo "<h6><span class='badge badge-success badge-pill'>{$asesor}</span></h6>";
+                                                        }
                                                         ?>
                                                     </td>
                                                     <td style="width: 15%;">
@@ -156,6 +156,12 @@ require '../components/head-dataTables.php';
                                                             echo $fecha_m_d_y = $fecha->format('d-m-Y');
                                                         }
                                                         ?>
+                                                        <!-- <?php
+                                                                // if ($hoyS != '0000-00-00' || $hoyS == '') {
+                                                                //     $fecha = new DateTime($hoyS);
+                                                                //     echo $fecha_m_d_y = $fecha->format('d-m-Y');
+                                                                // }
+                                                                ?> -->
                                                     </td>
 
                                                     <td>
@@ -167,9 +173,14 @@ require '../components/head-dataTables.php';
                                                                     <div class="btn-group">
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="2.3.2.2.4 Eliminar Comprobación Link de Video en Vivo">
-                                                                                <?php if ($super == 1 or $eliComVerifDiariaVehv == 1) { ?>
-                                                                                    <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComVerifDiaria-<?php $hoyV?>'><i class='fas fa-trash-alt'></i></a>
-
+                                                                                <?php if ($super == 1 and $com == 0) {
+                                                                                    echo '<a class="btn btn-outline-danger" id="yaRegistro"><i class="fas fa-trash-alt"></i></a>';
+                                                                                } else if ($super == 1 and $com == 1) { ?>
+                                                                                    <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComVerifDiaria-<?php $row['id_comverifdiariaveh'] ?>'><i class='fas fa-trash-alt'></i></a>
+                                                                                <?php } else if ($eliComVerifDiariaVehv == 1 and $com == 0) {
+                                                                                    echo '<a class="btn btn-outline-danger" id="yaRegistro"><i class="fas fa-trash-alt"></i></a>';
+                                                                                } else if ($eliComVerifDiariaVehv == 1 and $com == 1) { ?>
+                                                                                    <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComVerifDiaria-<?php $row['id_comverifdiariaveh'] ?>'><i class='fas fa-trash-alt'></i></a>
                                                                                 <?php } else {
                                                                                     echo '<a class="btn btn-outline-danger" id="eliComVerifDiariaVehv"><i class="fas fa-trash-alt"></i></a>';
                                                                                 }
@@ -181,11 +192,11 @@ require '../components/head-dataTables.php';
                                                                                 <?php if ($super == 1 and $sup == 0) {
                                                                                     echo '<a class="btn btn-outline-danger" id="yaRegistro"><i class="fas fa-trash-alt"></i></a>';
                                                                                 } else if ($super == 1 and $sup == 1) { ?>
-                                                                                    <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComSuperDiaria-<?php $row['id_comverifdiariaveh']?>'><i class='fas fa-trash-alt'></i></a>
+                                                                                    <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComSuperDiaria-<?php $row['id_comverifdiariaveh'] ?>'><i class='fas fa-trash-alt'></i></a>
                                                                                 <?php } else if ($eliComVerifDiariaVehSuper == 1 and $sup == 0) {
                                                                                     echo '<a class="btn btn-outline-danger" id="sinEliminar"><i class="fas fa-trash-alt"></i></a>';
                                                                                 } else if ($eliComVerifDiariaVehSuper == 1 and $sup == 1) { ?>
-                                                                                   <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComSuperDiaria-<?php $row['id_comverifdiariaveh']?>'><i class='fas fa-trash-alt'></i></a>
+                                                                                    <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComSuperDiaria-<?php $row['id_comverifdiariaveh'] ?>'><i class='fas fa-trash-alt'></i></a>
                                                                                 <?php } else {
                                                                                     echo '<a class="btn btn-outline-danger" id="eliComVerifDiariaVehSuper"><i class="fas fa-trash-alt"></i></a>';
                                                                                 }
@@ -196,7 +207,7 @@ require '../components/head-dataTables.php';
                                                                 </ul>
                                                             </div>
                                                         </div>
-                                                    </td> 
+                                                    </td>
                                                 </tr>
                                                 <?php
                                                 include '../components/modal-eliminarComVerifDiaria.php';
@@ -210,6 +221,7 @@ require '../components/head-dataTables.php';
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
+                                                <th>ID</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Link Verificación</th>
                                                 <th>Capturista Verificador</th>

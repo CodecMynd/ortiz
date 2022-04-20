@@ -41,7 +41,7 @@ $result = mysqli_query($conexion, $query1) or die(mysqli_error($conexion));
                 </div>
             </form>
             <div class="pie">
-                <h5>2.3.15.1 Registrar Comprobación de Asignacion Asesor</h5>
+                <h5>2.3.15.1.1 Registrar Comprobación de Asignacion Asesor</h5>
                 <div id="respuestaNuevogComAsesor"></div>
             </div>
         </div>

@@ -31,7 +31,7 @@
                 </div>
             </form>
             <div class="pie">
-                <h5>2.3.15.3 Registrar Supervisión Comprobación de Asesor</h5>
+                <h5>2.3.15.1.3 Registrar Supervisión Comprobación de Asesor</h5>
             </div>
         </div>
     </div>

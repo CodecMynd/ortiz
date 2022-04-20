@@ -1,5 +1,12 @@
 <?php
 require '../components/head-main.php';
+require '../components/head-dataTables.php';
+
+//# Estatus para envio de mensajes (suma de registro COMPROBADOS)
+$count_reg_mensajeSI = mysqli_query($conexion, "SELECT FV FROM verificacion WHERE FV = '$fecha_mensaje'  GROUP by id_proyecto");
+
+//# Estatus para envio de mensajes (suma de registro SIN COMPROBAR)
+$count_reg_mensajeNO = mysqli_query($conexion, "SELECT FV FROM verificacion WHERE FV <> '$fecha_mensaje' OR FV is null GROUP by id_proyecto");
 ?>
 <title>Panel <?php if ($admin == 1) {
                     echo 'Admin';
@@ -30,7 +37,6 @@ require '../components/head-main.php';
                     </div>
                 </div>
             </div>
-
             <!-- small box-->
             <section class="content">
                 <div class="container-fluid">
@@ -40,14 +46,14 @@ require '../components/head-main.php';
                             <div class="small-box bg-secondary">
                                 <div class="inner">
                                     <h5 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_mensajeSI); ?></strong></h5>
-                                    <p style="margin-bottom: 0px;">Sin comprobar</p>
-                                    <h5 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_mensajeNO); ?></strong></h5>
                                     <p style="margin-bottom: 0px;">Comprobados</p>
+                                    <h5 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_mensajeNO); ?></strong></h5>
+                                    <p style="margin-bottom: 0px;">Sin Comprobar/Sin Registro</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fa-solid fa-comment-sms"></i>
                                 </div>
-                                <small class="small-box-footer">Estatus Para Envío de Mensajes</small>
+                                <a href="#" data-toggle="modal" data-target=".verIndAsesores" class="small-box-footer"><small>Estatus Para Envío de Mensajes </small><i class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                     <?php }  ?>
@@ -151,7 +157,10 @@ require '../components/head-main.php';
     </div>
     <?php
     require '../components/scripts-main.php';
-    require '../components/modal-sinPass.php'
+    require '../components/modal-sinPass.php';
+    require '../components/modal-verIndAsesores.php';
+    require '../components/scripts-dataTables.php';
+    
     ?>
 </body>
 

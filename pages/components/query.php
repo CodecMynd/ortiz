@@ -243,13 +243,6 @@ $count_reg_proyectos = mysqli_query($conexion, "SELECT id_proyecto FROM proyecto
 $count_reg_proyectosE = mysqli_query($conexion, "SELECT id_proyecto FROM proyectos WHERE estadoProyectoEliminado = 0 ");
 
 
-//# Estatus par aenvio de mensajes (suma de sin registro)
-$count_reg_mensajeNO = mysqli_query($conexion, "SELECT fecha_hoyV FROM comverifdiariaveh WHERE fecha_hoyV = '$fecha_mensaje'  GROUP by id_proyecto");
-// $count_reg_mensajeSI = mysqli_query($conexion, "SELECT fecha_hoyV FROM mensaje WHERE fecha_hoyV IS NULL AND estadoProyectoEliminado = 1");
-
-$count_reg_mensajeSI = mysqli_query($conexion, "SELECT fecha_hoyV FROM comverifdiariaveh WHERE fecha_hoyV <> '0000-00-00' or fecha_hoyV is null GROUP by id_proyecto");
-// $count_reg_mensajeNO = mysqli_query($conexion, "SELECT fecha_hoyV FROM mensaje WHERE fecha_hoyV <> $fecha_mensaje AND estadoProyectoEliminado = 1");
-
 // CREATE VIEW mensaje as
 // SELECT P.id_proyecto, P.estadoProyectoEliminado,                                 
 // CV.fecha_hoyV, CV.fecha_hoyS

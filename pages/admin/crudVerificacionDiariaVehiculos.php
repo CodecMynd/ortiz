@@ -33,7 +33,7 @@ require '../components/head-dataTables.php';
                     </div>
                 </div>
             </div>
-            <!-- Registros -->
+            <!-- Contador -->
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
@@ -448,4 +448,7 @@ INNER JOIN anios A ON V.id_anio = A.id_anio
 LEFT JOIN comverifdiariaveh CV ON P.id_proyecto = CV.id_proyecto
 LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
 LEFT JOIN asesores ASE ON CA.id_asesor = ASE.id_asesor
-WHERE P.proyectoActivo = 1 AND P.estadoProyectoEliminado = 1 OR P.registroSolicitud = 1 GROUP BY P.id_proyecto -->
+WHERE P.proyectoActivo = 1 AND P.estadoProyectoEliminado = 1 OR P.registroSolicitud = 1 GROUP BY P.id_proyecto 
+;
+
+-->

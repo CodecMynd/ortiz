@@ -18,7 +18,7 @@ function conectar()
     // $conexion = mysqli_connect('localhost', 'u910288658_jsolautomotriz', 'jsolAutomotriz2022@', 'u910288658_jsolautomotriz');
 
     //conexion prueba hostinger actual
-    //$conexion = mysqli_connect('localhost', 'u910288658_pruebas', 'wly#Wk[1|wI', 'u910288658_pruebas');
+    // $conexion = mysqli_connect('localhost', 'u910288658_pruebas', 'NX:Iuq>u1@', 'u910288658_pruebas');
     
 
      mysqli_set_charset($conexion, 'utf8');

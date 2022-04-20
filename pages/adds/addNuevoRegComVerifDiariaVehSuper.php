@@ -35,15 +35,25 @@ if ($textSupervision == '') {
         $resultadoP = mysqli_query($conexion, $queryP);
         // var_dump($queryP);
 
+        // ingresar datos a tabla indicador de mensajes diarios
+        $queryM = "UPDATE indmensajes SET fecha_hoyS = '$fecha_hoyS', fecha_creacionS = '$date', id_capS = '$id' WHERE id_comverifdiariaveh = '$id_comverifdiariaveh' ";
+        $resultadoM =mysqli_query($conexion, $queryM);
+        // var_dump($queryM);
+
          $conexion->autocommit(TRUE);
          echo "<div class='alert alert-success' role='alert'>
-     <p><strong>¡Supervisión Link de Video en Vivo ingresado correctamente!</strong></p>
-     </div>";
+         <p><strong>Registro de Supervisión diaria ingresada correctamente!</strong></p>
+         </div>";
+         echo '<script>
+         alert("Registro de Supervisión diaria ingresada correctamente");
+         window.location.href = "../admin/crudVerificacionDiariaVehiculos.php";
+         </script>';
      } catch (Exception $e) {
          $conexion->rollback();
          echo "<div class='alert alert-danger' role='role'>
-     <p><strong>¡Error interno:! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte</strong></p>
-     </div>";
+                <p><strong>¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte</strong></p>
+                <a href='https://jsolautomotriz.workplace.com/groups/504053034641133'  target='_blank' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Area de Soporte'>¡Reporta aqui! <i class='fa-solid fa-triangle-exclamation parpadea'></i></a>
+               </div>";
      }
 }
 desconectar();

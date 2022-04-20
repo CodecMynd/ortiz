@@ -22,23 +22,23 @@ $queryS = "SELECT id_semana, semana, borrado FROM semanas WHERE borrado = 0 ORDE
 $resultSemanas = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
 
 // Query Tecnico Armador
-$queryTA = "SELECT id_tecArmador, tecArmador FROM tecarmadores  ORDER BY tecArmador ASC";
+$queryTA = "SELECT id_tecArmador, tecArmador FROM tecarmadores  ORDER BY id_tecArmador ASC";
 $resultTecArmador = mysqli_query($conexion, $queryTA) or die(mysqli_error($conexion));
 
 // Query Tecnico Montador 1
-$queryTM1 = "SELECT id_tecMontador, tecMontador FROM tecmontadores  ORDER BY tecMontador ASC";
+$queryTM1 = "SELECT id_tecMontador, tecMontador FROM tecmontadores  ORDER BY id_tecMontador ASC";
 $resultTM1 = mysqli_query($conexion, $queryTM1) or die(mysqli_error($conexion));
 
 // Query Tecnico Montador 2
-$queryTM2 = "SELECT id_tecMontador, tecMontador FROM tecmontadores  ORDER BY tecMontador ASC";
+$queryTM2 = "SELECT id_tecMontador, tecMontador FROM tecmontadores  ORDER BY id_tecMontador ASC";
 $resultTM2 = mysqli_query($conexion, $queryTM2) or die(mysqli_error($conexion));
 
 // Query Tecnico Montador 3
-$queryTM3 = "SELECT id_tecMontador, tecMontador FROM tecmontadores  ORDER BY tecMontador ASC";
+$queryTM3 = "SELECT id_tecMontador, tecMontador FROM tecmontadores  ORDER BY id_tecMontador ASC";
 $resultTM3 = mysqli_query($conexion, $queryTM3) or die(mysqli_error($conexion));
 
 // Query Tecnico Montador 4
-$queryTM4 = "SELECT id_tecMontador, tecMontador FROM tecmontadores  ORDER BY tecMontador ASC";
+$queryTM4 = "SELECT id_tecMontador, tecMontador FROM tecmontadores  ORDER BY id_tecMontador ASC";
 $resultTM4 = mysqli_query($conexion, $queryTM4) or die(mysqli_error($conexion));
 
 

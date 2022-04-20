@@ -2,16 +2,14 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>Tabla 2.8.3 Consecutivo Código Identificador | <?php echo $nomComp ?></title>
-<link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">
+<title>Tabla 2.8.2 Consecutivo Alta Proyecto | <?php echo $nomComp ?></title>
 <script>
-    function abrirModal1(id_proyecto, nProyecto, id_regcodidenti, codIdProyBase) {
-        $("#btnModal-regresarRegCodIdentificador").click();
+    function abrirModal1(id_proyecto, nProyecto, id_regAlta) {
+        $("#btnModal-regresarAltaProyecto").click();
         $("#id_proyecto").val(id_proyecto);
+        $("#id_regAlta").val(id_regAlta);
         $("#nProyecto").val(nProyecto);
-        $("#id_regcodidenti").val(id_regcodidenti);
-        $("#codIdProyBase").val(codIdProyBase);
-        $("#numP").html(nProyecto);
+        ("#numP1").html(nProyecto);
     }
 </script>
 </head>
@@ -27,7 +25,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-8">
-                            <h1 class="m-0">Tabla 2.8.3 Consecutivo Código Identificador <small>(Solo Consulta)</small></h1>
+                            <h1 class="m-0">Tabla 2.8.2 Consecutivo Alta Proyecto <small>(Solo Consulta)</small></h1>
                         </div>
                         <div class="col-sm-4 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -39,35 +37,33 @@ require '../components/head-dataTables.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-md-12 col-sm-11">
+                        <div class="col-md-12 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Bitácora de Código Identificador en el sistema</h3>
+                                    <h3 class="card-title">Bitácora de Alta Proyectos en el sistema</h3>
                                     <div class="card-tools">
                                         <a href="javascript:history.go(-1)" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
-                                <!-- consulta sql -->
 
                                 <div class="card-body">
                                     <?php
                                     if ($super == 1) {
-                                    } else if ($consCodId == 0) { ?>
+                                    } else if ($consAltaProy == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-
-                                    <table id="tableConsProyCodId" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                    <table id="tableConsAltaProy" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
-                                                <th>Fecha Registro</th>
-                                                <th>Código Identificador Valor Base</th>
-                                                <th>Núm Folio Código ID</th>
+                                                <th>Núm. Folio Solicitud</th>
+                                                <th>Núm. Folio Alta</th>
+                                                <th>Cronometro Respuesta a solicitud de Alta</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -76,12 +72,11 @@ require '../components/head-dataTables.php';
                                                 <th>Placas</th>
                                                 <th>Color</th>
                                                 <th>Semana de Alta</th>
-                                                <th>Semana de Cobro</th>
                                                 <th>Valor Venta Inicial</th>
                                                 <th>Valor Venta Alta</th>
-                                                <th>Valor Cobro Proyecto Base</th>
-                                                <th>Núm. Folio Solicitud Alta</th>
-                                                <th>Núm. Folio Alta</th>
+                                                <th>Fecha Registro Alta</th>
+                                                <th>Fecha Registro Solicitud Alta</th>
+                                                <!-- <th>Estatus del Proyecto</th> -->
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
@@ -89,9 +84,9 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
-                                                <th>Fecha Registro</th>
-                                                <th>Código Identificador Valor Base</th>
-                                                <th>Núm FolioCódigo ID</th>
+                                                <th>Núm. Folio Solicitud</th>
+                                                <th>Núm. Folio Alta</th>
+                                                <th>Cronometro Respuesta a solicitud de Alta</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -100,18 +95,20 @@ require '../components/head-dataTables.php';
                                                 <th>Placas</th>
                                                 <th>Color</th>
                                                 <th>Semana de Alta</th>
-                                                <th>Semana de Cobro</th>
                                                 <th class="suma"></th>
                                                 <th class="suma"></th>
-                                                <th class="suma"></th>
-                                                <th>Núm. Folio Solicitud Alta</th>
-                                                <th>Núm. Folio Alta</th>
+                                                <th>Fecha Registro Alta</th>
+                                                <th>Fecha Registro Solicitud Alta</th>
+                                                <!-- <th>Estatus del Proyecto</th> -->
                                             </tr>
                                         </tfoot>
                                     </table>
-                                    <button id="btnModal-regresarRegCodIdentificador" class="btn btn-white" data-toggle="modal" data-target=".regresarRegCodIdentificador"></button>
+                                    <button id="btnModal-regresarAltaProyecto" class="btn btn-white" data-toggle="modal" data-target=".regresarAltaProy"></button>
                                     <?php
-                                    require '../components/modal-regresarRegCodIdentificador.php';
+                                    require '../components/modal-regresarAltaProyecto.php';
+                                    ?>
+                                    <?php
+
                                     desconectar();
                                     ?>
                                 </div>
@@ -120,6 +117,7 @@ require '../components/head-dataTables.php';
                     </div>
                 </div>
             </section>
+            <!-- /table usuario -->
         </div>
         <?php
         require '../components/footer.php';
@@ -131,34 +129,11 @@ require '../components/head-dataTables.php';
     // Scripts dataTables
     require '../components/scripts-dataTables.php';
     ?>
-    <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
-
     <script>
-        // regresar a tabla registro solicitud
+        // regAlta 2.5.1 REGISTRO ALTA  --------------------------------------------------------------
         $(document).ready(function() {
-            $('#btnRegresarRegCodIdentificador').click(function() {
-                $.ajax({
-                        url: '../update/updateRegresarRegCodIdentificador.php',
-                        type: 'POST',
-                        data: $('#formRegresarRegCodIdentificador').serialize(),
-                    })
-                    .done(function(res) {
-                        $('#respuestaRegresarRegCodIdentificador').html(res)
-                    })
-            });
-
-        });
-        //Ocultar boton por 5 minutos para evitar el doble submit
-        $("#btnRegresarRegCodIdentificador").on('click', function() {
-            $("#btnRegresarRegCodIdentificador").css('visibility', 'hidden');
-            setTimeout(function() {
-                $("#btnRegresarRegCodIdentificador").css('visibility', 'visible');
-            }, 300000);
-        });
-        // regCodIdentificador 2.6.1 REGISTRO CODIGO IDENTIFICADOR  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#regCodIdentificador").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.5.1 REGISTRO DE CÓDIGO IDENTIFICADOR, consulta al administrador!")
+            $("#regAlta").click(function() {
+                toastr["error"]("¡No tienes acceso a: 2.5.1 REGISTRO ALTA PROYECTO, consulta al administrador!")
 
                 tostadas.opciones = {
                     "botóncerrar": falso,
@@ -180,10 +155,10 @@ require '../components/head-dataTables.php';
             })
         });
 
-        // eliCodIdentificador 2.6.2 ELIMINAR CODIGO IDENTIFICADOR  --------------------------------------------------------------
+        // eliAlta 2.5.2 ELIMINAR ALTA  --------------------------------------------------------------
         $(document).ready(function() {
-            $("#eliCodIdentificador").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.6.2 ELIMINAR CODIGO IDENTIFICADOR, consulta al administrador!")
+            $("#eliAlta").click(function() {
+                toastr["error"]("¡No tienes acceso a: 2.5.2 ELIMINAR ALTA PROYECTO, consulta al administrador!")
 
                 tostadas.opciones = {
                     "botóncerrar": falso,
@@ -205,10 +180,10 @@ require '../components/head-dataTables.php';
             })
         });
 
-        // pdfCodIdentificador 2.6.3 DESCARGAR PDF CODIGO IDENTIFICADOR  --------------------------------------------------------------
+        // repAltaCob 2.5.3 REPORTE ALTA POR COBRANZAS  --------------------------------------------------------------
         $(document).ready(function() {
-            $("#pdfCodIdentificador").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.5.3 DESCARGAR PDF REGISTRO CODIGO IDENTIFICADOR, consulta al administrador!")
+            $("#pdfAlta").click(function() {
+                toastr["error"]("¡No tienes acceso a: 2.5.3 REPORTE PDF ALTA PROYECTO, consulta al administrador!")
 
                 tostadas.opciones = {
                     "botóncerrar": falso,
@@ -230,9 +205,9 @@ require '../components/head-dataTables.php';
             })
         });
 
-        // verLinkObsIdentificador 2.6.4 VER TABLA ALTAS  --------------------------------------------------------------
+        // verLinkObsAlta 2.5.5 VER TABLA ALTAS  --------------------------------------------------------------
         $(document).ready(function() {
-            $("#verLinkObsIdentificador").click(function() {
+            $("#verLinkObsAlta").click(function() {
                 toastr["error"]("¡No tienes acceso a: 2.5.4 VER LINK DE VIDEO EN VIVO Y OBSERVACIONES, consulta al administrador!")
 
                 tostadas.opciones = {
@@ -255,10 +230,10 @@ require '../components/head-dataTables.php';
             })
         });
 
-        // varTablaAlta 2.5.4 VER TABLA ALTAS  --------------------------------------------------------------
+        // varTablaAlta 2.5.5 VER TABLA ALTAS  --------------------------------------------------------------
         $(document).ready(function() {
-            $("#verTablaCodIdentificador").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.5.4 VER TABLA PROYECTOS CON CODIGO IDENTIFICADOR, consulta al administrador!")
+            $("#varTablaAlta").click(function() {
+                toastr["error"]("¡No tienes acceso a: 2.5.4 VER TABLA ALTAS, consulta al administrador!")
 
                 tostadas.opciones = {
                     "botóncerrar": falso,
@@ -280,28 +255,25 @@ require '../components/head-dataTables.php';
             })
         });
     </script>
-</body>
-<script>
-    // copiar link al portapapeles
-    var clipboard = new Clipboard('.btn');
-</script>
 
-</html>
-
-<!-- 
-SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, 
-V.placa, Co.color, M.marca, Mo.modelo, A.anio, 
-RS.valorVentaAlta, RC.id_regcodidenti, RC.folioCodID, RC.fecha_creacion,
-S.semana, SC.semanaCobro, D.valCobProyBase, D.codIdProyBase
+    </html>
+    <!-- CREATE VIEW valtaproyecto as 
+SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.altaProyecto, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio, 
+R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.fecha_creacion AS regSolFecha_creacion, 
+RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, LV.link, RA.fecha_creacion AS regAltaFecha_creacion, 
+Co.color, S.semana, 
+U.nombres AS regAltaNombre, U.aPaterno AS regAltaPaterno, U.aMaterno AS regAltaMaterno, Us.nombres AS regSolNombres, Us.aPaterno AS regSolPaterno, Us.aMaterno AS regSolMaterno
 FROM proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 INNER JOIN colores Co ON V.id_color = Co.id_color
 INNER JOIN marcas M ON V.id_marca = M.id_marca 
 INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
 INNER JOIN anios A ON V.id_anio = A.id_anio 
-LEFT JOIN registrosolicitudbitacora RS ON P.id_proyecto = RS.id_proyecto  
-LEFT JOIN registrocodidentibitacora RC ON P.id_proyecto = RC.id_proyecto
-INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
-INNER JOIN semanas S ON RS.id_semana = S.id_semana
-LEFT JOIN desglocecodidbitacora D ON P.id_proyecto = D.id_proyecto  
-ORDER BY `RC`.`id_regcodidenti` ASC;-->
+INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
+INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto 
+INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
+INNER JOIN semanas S ON R.id_semana = S.id_semana
+INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
+INNER JOIN usuarios U ON RA.id_capC = U.id_usuario
+INNER JOIN usuarios Us ON R.id_capC = Us.id_usuario
+WHERE altaProyecto = 1 ORDER BY nProyecto DESC -->

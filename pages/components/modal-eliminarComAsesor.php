@@ -20,7 +20,7 @@
                 </div>
             </form>
             <div class="pie">
-                <h5>2.3.15.2 Eliminar Comprobación de Asesor</h5>
+                <h5>2.3.15.1.2 Eliminar Comprobación de Asesor</h5>
             </div>
         </div>
     </div>

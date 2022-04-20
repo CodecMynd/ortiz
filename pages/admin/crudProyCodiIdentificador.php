@@ -84,7 +84,7 @@ require '../components/head-dataTables.php';
                                                 <th>ID</th>
                                                 <th>Fecha Registro</th>
                                                 <th>Código Identificador Valor Base</th>
-                                                <th>Núm Código ID</th>
+                                                <th>Núm Folio Código ID</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -107,7 +107,7 @@ require '../components/head-dataTables.php';
                                                 <th>ID</th>
                                                 <th>Fecha Registro</th>
                                                 <th>Código Identificador Valor Base</th>
-                                                <th>Núm Código ID</th>
+                                                <th>Núm Folio Código ID</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>

@@ -28,10 +28,8 @@ require '../components/head-main.php';
             <!-- Form editar usuario -->
             <?php
             $id_proyecto = $_GET['id'];
-            $query = "SELECT id_proyecto, nProyecto FROM proyectos WHERE id_proyecto = $id_proyecto";
-            $respuesta = mysqli_query($conexion, $query);
-            $row = $respuesta->fetch_assoc();
-            $nP = $row['nProyecto'];
+            $asesor = $_GET['asesor'];
+            $nP = $_GET['nP'];
             ?>
             <section class="content">
                 <div class="container-fluid">
@@ -39,22 +37,43 @@ require '../components/head-main.php';
                         <div class="col-8">
                             <div class="card border-card">
                                 <div class="card-header border-nav">
-                                    <h3 class="card-title">(*) Campos requeridos</h3>
+                                    <h3 class="card-title">(*) Campos requeridos </h3>
                                 </div>
                                 <form id="formNuevoRegComVerifDiariaVeh" autocomplete="off">
-                                <input type="hidden" name="id_proyecto" id="id_proyecto" value="<?php echo $id_proyecto ?>">
-                                <input type="hidden" name="nProyecto" id="nProyecto" value="<?php echo $nP ?>"> 
+                                    <input type="hidden" name="id_proyecto" id="id_proyecto" value="<?php echo $id_proyecto ?>">
+                                    <input type="hidden" name="nProyecto" id="nProyecto" value="<?php echo $nP ?>">
+                                    <input type="hidden" name="asesor" id="asesor" value="<?php echo $asesor ?>">
                                     <div class="card-body">
                                         <div class="row justify-content-center">
-                                            <div class='col-md-12 col-sm-12 my-1'>
-                                                <div class='input-group form-floating mb-3'>
-                                                    <div class='input-group-prepend'>
-                                                        <span class='input-group-text mt-2'>
-                                                            <i class="fa-solid fa-link"></i>
-                                                        </span>
+                                            <div class="col-md-4 col-sm-12 my-1">
+                                                <label class="ml-5 mb-2">Número de Proyecto</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"> <i class="fa-solid fa-hashtag"></i></span>
                                                     </div>
-                                                    <input name='linkComVerifDiariaVeh' id='linkComVerifDiariaVeh' type='text' class='form-control' placeholder='Link de Video en Vivo' data-toggle='tooltip' data-placement='bottom' title='Ingresa Registrar Link de Video en Vivo'>
-                                                    <label for='floatingInput' class='pl-5'>*Link de Video en Vivo <small> Campo requerido</small></label>
+                                                    <input type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Campo en automatico" value="<?php echo $nP ?>" disabled readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8 col-sm-12 my-1">
+                                                <label class="ml-5 mb-2">Asesor</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fa-solid fa-user-gear"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Campo en automatico" value="<?php echo $asesor ?>" disabled readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 my-1">
+                                                <div class='form-group-input' style='border: 1px solid #CED4DA;'>
+                                                    <label class='pl-2 mb-2'>*Link de Video en Vivo<small> Campo requerido</small></label>
+                                                    <span data-toggle='tooltip' title='max. 200 caracteres'>
+                                                        <div class='input-group'>
+                                                            <div class='input-group-prepend'>
+                                                                <span class='input-group-text'><i class='fa-solid fa-comments'></i></span>
+                                                            </div>
+                                                            <textarea name='linkComVerifDiariaVeh' id='linkComVerifDiariaVeh' class='form-control' rows='2' placeholder='Max. 200 caracteres'></textarea>
+                                                        </div>
+                                                    </span>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 col-sm-12 my-1">

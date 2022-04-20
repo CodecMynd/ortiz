@@ -31,7 +31,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-8">
-                            <h1 class="m-0">Tabla 2.5.4 Ver Link de Video, Observaciones y Generales</h1>
+                            <h1 class="m-0">Tabla 2.3.15.1.5 Ver Comprobación y Supervisión de Asesor</h1>
                         </div>
                         <div class="col-sm-4">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -64,7 +64,7 @@ require '../components/head-dataTables.php';
                         <div class="col-md-12 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Proyectos Comprobado y Supervisados en el sistema</h3>
+                                    <h3 class="card-title">Registro Asesor Comprobado y Supervisados en el sistema</h3>
                                     <div class="card-tools">
                                         <a href="javascript:history.go(-1)" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
@@ -74,7 +74,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-body">
                                     <div class="card card-secondary card-outline collapsed-card">
                                         <div class="card-header">
-                                            <h2 class="card-title"><strong>Link de Comprobación de Asesor </strong></h2>
+                                            <h2 class="card-title"><strong>Comprobación de Asesor </strong></h2>
                                             <div class="card-tools">
                                                 <button type="button" class="btn btn-tool text-dark " data-card-widget="collapse">
                                                     <i class="fas fa-plus"></i>

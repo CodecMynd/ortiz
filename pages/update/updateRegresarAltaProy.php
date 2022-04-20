@@ -34,7 +34,7 @@ try {
   // echo '<br>';
 
   //Bitacora
-  $queryBI = "INSERT INTO bitacor(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
+  $queryBI = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
   $resultadoBI = mysqli_query($conexion, $queryBI);
   // var_dump($queryBI);
   // echo '<br>';

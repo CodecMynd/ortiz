@@ -74,6 +74,7 @@ require '../components/head-dataTables.php';
                                                 <th>#</th>
                                                 <th>ID</th>
                                                 <th>Fecha Registro</th>
+                                                <th>Folio Alta</th>
                                                 <th>Cronometro Respuesta a solicitud de Alta</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
@@ -94,6 +95,7 @@ require '../components/head-dataTables.php';
                                                 <th>#</th>
                                                 <th>ID</th>
                                                 <th>Fecha Registro</th>
+                                                <th>Folio Alta</th>
                                                 <th>Cronometro Respuesta a solicitud de Alta</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>

@@ -2,7 +2,7 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>CRUD Comprobación de Asignacion de Asesor | <?php echo $nomComp ?></title>
+<title>CRUD Solicitud Cambio de Asesor | <?php echo $nomComp ?></title>
 <style>
     @media (min-width:320px) and (max-width:425px) {
         .content-header {
@@ -63,7 +63,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-8">
-                            <h1 class="m-0">Tabla 2.3.15.1 Lista Comprobación de Asignacion de Asesor</h1>
+                            <h1 class="m-0">Tabla 2.3.15.2 Solicitud Cambio de Asesor</h1>
                         </div>
                         <div class="col-sm-4">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -162,6 +162,13 @@ require '../components/head-dataTables.php';
                                 <div class="card-header">
                                     <h3 class="card-title">Proyectos dados de alta en el sistema</h3>
                                     <div class="card-tools">
+                                    <?php if ($super == 1 OR $solCambioAsesor == 1) { ?>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formAddSolCambioAsesor.php" data-toggle="tooltip" data-placement="left" title="2.3.15.2.1 Registro Solicitud Cambio de Asesor">
+                                                <i class="fa-solid fa-users-gear"></i>&nbsp;&nbsp; Solicitud Cambio de Asesor</a>
+                                        <?php } else { ?>
+                                            <a type="button" class="btn btn-outline-danger" id="regSemana" data-toggle="tooltip" data-placement="left" title="2.3.15.2.1 Registro Solicitud Cambio de Asesor">
+                                                <i class="fa-solid fa-users-gear"></i>&nbsp;&nbsp; Solicitud Cambio de Asesor</a>
+                                        <?php } ?>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
@@ -169,7 +176,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-body">
                                     <?php
                                     if ($super == 1) {
-                                    } else if ($verTablaComAsesor == 0) { ?>
+                                    } else if ($verTablaSolCambioAsesor == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>

@@ -161,27 +161,27 @@ $cont = 0;
 		 					</button>
 		 					<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>
 		 						<li class='dropdown-item'>
-		 							<span data-toggle='tooltip' title='2.3.15.1 Registrar Comprobación de Asesor'>
+		 							<span data-toggle='tooltip' title='2.3.15.1.1 Registrar Comprobación de Asesor'>
 		 								".$outputBtns1."
 		 							</span>
 		 						</li>
 		 						<li class='dropdown-item'>
-		 							<span data-toggle='tooltip' title='2.3.15.3 Registrar Supervisión Comprobación de Asesor'>
+		 							<span data-toggle='tooltip' title='2.3.15.1.3 Registrar Supervisión Comprobación de Asesor'>
 		 								".$outputBtns2."
 		 							</span>
 		 						</li>	
 		 						<li class='dropdown-item'>
-		 							<span data-toggle='tooltip' title='2.3.15.5 Ver Generales Comprobación de Asesor'>
+		 							<span data-toggle='tooltip' title='2.3.15.1.5 Ver Comprobación y Supervisión de Asesor'>
 		 								".$outputBtns3."
 		 							</span>
 		 						</li>
 		 						<li class='dropdown-item'>
-		 							<span data-toggle='tooltip' title='2.3.15.2 Eliminar Comprobación de Asesor'>
+		 							<span data-toggle='tooltip' title='2.3.15.1.2 Eliminar Comprobación de Asesor'>
 		 								".$outputBtns4."
 		 							</span>
 		 						</li>
 		 						<li class='dropdown-item'>
-		 							<span data-toggle='tooltip' title='2.3.15.4 Eliminar Supervisión Comprobación de Asesor'>
+		 							<span data-toggle='tooltip' title='2.3.15.1.4 Eliminar Supervisión Comprobación de Asesor'>
 		 								".$outputBtns5."
 		 							</span>
 		 						</li>
