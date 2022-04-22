@@ -68,27 +68,26 @@ if ($id_semanaCobro == 0) {
     $conexion->autocommit(FALSE);
     try {
 
+        // Insertamos tabla registrocodidenti
+        $queryR = "INSERT INTO registrocodidenti(folioCodID, id_proyecto, id_semanaCobro, borrado, status, fecha_creacion, id_capC) VALUES ('$folioCodID', '$id_proyecto', '$id_semanaCobro', $borrado, '$status', '$date', '$id')";
+
+        $verificar_id = mysqli_query($conexion, "SELECT id_proyecto FROM registrocodidenti WHERE id_proyecto = '$id_proyecto'");
+        if (mysqli_num_rows($verificar_id) > 0) {
+            echo
+            "<div class='alert alert-danger' role='role'>
+                    <p><strong>¡Error, ID '$id_proyecto' ya se encuentra  registrado, Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte!</strong></p>
+                    </div>";
+            exit;
+        } else {
+            $resultadoR = mysqli_query($conexion, $queryR);
+            //   var_dump($queryR);
+        }
+
         // Ingresamos id a tabla proyectos modificar registros
         $queryP = "UPDATE proyectos SET altaProyecto = 0, proyCodIdentificador = 1 WHERE id_proyecto = $id_proyecto";
         $resultadoP = mysqli_query($conexion, $queryP);
         // var_dump($queryP);
         // echo '<br>';
-
-        // Insertamos tabla registrocodidenti
-        $queryR = "INSERT INTO registrocodidenti(folioCodID, id_proyecto, id_semanaCobro, borrado, status, fecha_creacion, id_capC) VALUES ('$folioCodID', '$id_proyecto', '$id_semanaCobro', $borrado, '$status', '$date', '$id')";
-
-        $verificar_folio = mysqli_query($conexion, "SELECT folioCodID FROM registrocodidenti WHERE folioCodID = '$folioCodID'");
-
-        if (mysqli_num_rows($verificar_folio) > 0) {
-            echo
-            "<div class='alert alert-danger' role='role'>
-            <p><strong>¡Error, este Número de Folio ya se encuentra  registrado, verifica por favor!</strong></p>
-            </div>";
-            exit;
-        } else {
-        $resultadoR = mysqli_query($conexion, $queryR);
-        //   var_dump($queryR);
-        }
 
         // Insertamos tabla registrocodidentibitacora
         $queryB = "INSERT INTO registrocodidentibitacora(folioCodID, id_proyecto, id_semanaCobro, borrado, status, fecha_creacion, id_capC) VALUES ('$folioCodID', '$id_proyecto', '$id_semanaCobro', $borrado, '$status', '$date', '$id')";

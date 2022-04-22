@@ -49,8 +49,19 @@ if ($link == '') {
 
         // Insertamos tabla registroalta
         $query = "INSERT INTO registroalta(folioRegAlta, id_proyecto, id_link, observAudiFinal, cronometro, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', '$cronometro', $borrado, '$status', '$date', '$id')";
-        $resultado = mysqli_query($conexion, $query);
-        //var_dump($query);
+
+        $verificar_id = mysqli_query($conexion, "SELECT id_proyecto FROM registroalta WHERE id_proyecto = '$id_proyecto' ");
+        if (mysqli_num_rows($verificar_id) > 0) {
+          echo
+          "<div class='alert alert-danger' role='role'>
+            <p><strong>¡Error, ID '$id_proyecto' ya se encuentra  registrado, Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte!</strong></p>
+            </div>";
+          exit;
+        } else {
+          $resultado = mysqli_query($conexion, $query);
+          // var_dump($query);
+        }
+
 
         // Insertamos tabla registroaltabitacora
         $query = "INSERT INTO registroaltabitacora(folioRegAlta, id_proyecto, id_link, observAudiFinal, cronometro, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', '$cronometro', $borrado, '$status', '$date', '$id')";

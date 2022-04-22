@@ -8,7 +8,7 @@
                 </h5>
             </div>
             <form id="formNuevoRegComPlacaSuper" action="../adds/addNuevoRegComPlacasSuper.php" method="POST">
-            <!-- <form id="formNuevoRegComPlacaSuper">  -->
+                <!-- <form id="formNuevoRegComPlacaSuper">  -->
                 <div class="modal-body">
                     <div class='row justify-content-center'>
                         <input type="hidden" name="id_proyecto2" id="id_proyecto2" value="">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="modal-footer text-left">
-                    <button type="submit"  class="btn btn-secondary"><i class="fa-solid fa-pencil"></i> Guardar</button>
+                    <button type="submit" class="btn btn-secondary"><i class="fa-solid fa-pencil"></i> Guardar</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>
                 </div>
             </form>

@@ -61,9 +61,9 @@ $cont = 0;
          } 
 
 		// 3.1.2 Modificar Motivo Supervisión
-		 if ($super == 1) { 
+		 if ($super == 1 && $Sup == 1) { 
 		 	$outputBtns2 = "<a href='../update/formUpdateMotivoSupVVAvsVCodID.php?id={$id_repVVAvsVCI}&nP={$nP}' class='btn btn-secondary'><i class='fa-solid fa-pen-to-square'></i></a>";
-		 } else if ($modMotivoSupVVAvsVCodID == 1) { 
+		 } else if ($modMotivoSupVVAvsVCodID == 1 && $Sup == 1) { 
 		 	$outputBtns2 = "<a href='../update/formUpdateMotivoSupVVAvsVCodID.php?id={$id_repVVAvsVCI}&nP={$nP}' class='btn btn-secondary'><i class='fa-solid fa-pen-to-square'></i></a>";
 		 } else { 
 		 	$outputBtns2 = "<a class='btn btn-outline-danger' id='modMotivoSupVVAvsVCodID'><i class='fa-solid fa-pen-to-square'></i></a>";

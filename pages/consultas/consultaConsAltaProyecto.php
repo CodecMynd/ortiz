@@ -47,27 +47,35 @@ $cont = 0;
 			$cronometro = $row['cronometro'];
 		}
 
+		if(empty($Eliminado)){
+			$outputBtns1 = "<span class='badge badge-danger badge-pill'>N/A</span>";
+		}else if($Eliminado == 1){
+			$outputBtns1 = "<h6><span class='badge badge-danger badge-pill'>Eliminado</span></h6>";
+		}else{
+			$outputBtns1 = "<h6><span class='badge badge-success badge-pill'>Activo</span></h6>";
+		}
 
 	
 		$cont++;
 		$datos[] = array(
 			"0" => $cont,
 			"1" => (empty($row['id_proyecto'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>",
-			"2" => (empty($row['folioRegSolicitud'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['folioRegSolicitud'],
+			"2" => ($Eliminado == 1)? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
 			"3" => "<strong>{$row['folioRegAlta']}</strong>",
-			"4" => $cronometro,
-			"5" => (empty($row['nProyecto'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['nProyecto'],
-			"6" => (empty($row['nOrden'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['nOrden'],
-			"7" => (empty($row['marca'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['marca'],
-			"8" => (empty($row['modelo'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['modelo'],
-			"9" => (empty($row['anio'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['anio'],
-			"10" => (empty($row['placa'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['placa'],
-			"11" => (empty($row['color'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['color'],
-			"12" => (empty($row['semana'])) ? "<span class='badge badge-danger badge-pill'>N/A</span" : $row['semana'],
-			"13" => (empty($row['valorVenta'])) ? 0.00 : $row['valorVenta'],
-			"14" => (empty($row['valorVentaAlta'])) ? 0.00 : $row['valorVentaAlta'],
-			"15" => (empty($row['Falta'])) ? "<span class='badge badge-danger badge-pill'>N/A</span" : $row['Falta'],
-			"16" => (empty($row['Fsol'])) ? "<span class='badge badge-danger badge-pill'>N/A</span" : $row['Fsol'],
+			"4" => (empty($row['folioRegSolicitud'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['folioRegSolicitud'],
+			"5" => $cronometro,
+			"6" => (empty($row['nProyecto'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['nProyecto'],
+			"7" => (empty($row['nOrden'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['nOrden'],
+			"8" => (empty($row['marca'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['marca'],
+			"9" => (empty($row['modelo'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['modelo'],
+			"10" => (empty($row['anio'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['anio'],
+			"11" => (empty($row['placa'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['placa'],
+			"12" => (empty($row['color'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['color'],
+			"13" => (empty($row['semana'])) ? "<span class='badge badge-danger badge-pill'>N/A</span" : $row['semana'],
+			"14" => (empty($row['valorVenta'])) ? 0.00 : $row['valorVenta'],
+			"15" => (empty($row['valorVentaAlta'])) ? 0.00 : $row['valorVentaAlta'],
+			"16" => (empty($row['Falta'])) ? "<span class='badge badge-danger badge-pill'>N/A</span" : $row['Falta'],
+			"17" => (empty($row['Fsol'])) ? "<span class='badge badge-danger badge-pill'>N/A</span" : $row['Fsol'],
 			// "17" => ($Eliminado == 1)? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
 
 

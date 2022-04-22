@@ -7,7 +7,7 @@ $id_proyecto = $_POST['idProyecto'];
 // Query principal
 $query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.comAsesor, P.estadoProyectoEliminado, P.comSuperAsesor,
 C.nombres, C.aPaternoCliente, C.aMaternoCliente,
-V.placa, M.marca, Mo.modelo, A.anio, Co.color, Ase.asesor, CA.id_comAsesor, CS.id_comSupervision
+V.placa, M.marca, Mo.modelo, A.anio, Co.color,Ase.id_asesor, Ase.asesor, CA.id_comAsesor, CS.id_comSupervision
 FROM proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 INNER JOIN colores Co On V.id_color = Co.id_color
@@ -23,24 +23,24 @@ $respuesta = mysqli_query($conexion, $query);
 $row  = $respuesta->fetch_assoc();
 
 // Query Asesor
-$queryA = "SELECT asesor FROM asesores ORDER BY asesor DESC";
+$queryA = "SELECT id_asesor, asesor FROM asesores ORDER BY asesor DESC";
 $resultAsesor = mysqli_query($conexion, $queryA) or die(mysqli_error($conexion));
 
 
 // Query Registro de folio Alta
-$queryP = 'SELECT MAX(id_regcodidenti) + 1 FROM registrocodidentibitacora';
+$queryP = 'SELECT MAX(id_cambioAsesor) + 1 FROM cambioasesores';
 $result = mysqli_query($conexion,  $queryP);
 $rowA = mysqli_fetch_row($result);
 
  //Prefijo folio
- $text = "CodID-00";
- $folioCodID = $text . '' . $rowA[0];
+ $text = "Cambio_Asesor-00";
+ $folioCambioAsesor = $text . '' . $rowA[0];
 
 
 if ($respuesta->num_rows  > 0) {
     $output = '';
     $output .= "
-    <div class='row justify-content-center'>
+<div class='row justify-content-center'>
     <div class='col-md-12 col-sm-12 my-4'>
         <div class='card card-secondary card-outline' style='height: 90%;'>
             <div class='card-header'>
@@ -117,7 +117,7 @@ if ($respuesta->num_rows  > 0) {
                         <div class='input-group-prepend'>
                             <span class='input-group-text'><i class='fa-solid fa-arrow-down-1-9'></i></span>
                         </div>
-                        <input name='folioRegAlta' id='folioRegAlta' type='text' class='form-control' placeholder='Número Folio de Cambio de Asesor' required maxlength='15' data-toggle='tooltip' data-placement='bottom' title='Número de  Folio Cambio de Asesor' value='' readonly>
+                        <input name='folioCambioAsesor' id='folioCambioAsesor' type='text' class='form-control' placeholder='Número Folio de Cambio de Asesor' required data-toggle='tooltip' data-placement='bottom' title='Número de  Folio Cambio de Asesor' value='{$folioCambioAsesor}' readonly>
                         <label for='floatingInput' class='pl-5'>*Núm. de Folio Cambio Asesor</label>
                     </div>
                 </div>
@@ -144,20 +144,21 @@ if ($respuesta->num_rows  > 0) {
                         <div class='input-group-prepend'>
                             <span class='input-group-text'><i class='fa-solid fa-arrow-down-1-9'></i></span>
                         </div>
-                        <input name='folioRegAlta' id='folioRegAlta' type='text' class='form-control' placeholder='Asesor Actual' required maxlength='15' data-toggle='tooltip' data-placement='bottom' title='Número de  Folio' value='{$row['asesor']}' readonly>
+                        <input name='id_asesor' id='id_asesor' type='hidden' value='{$row['id_asesor']}'>
+                        <input name='asesorActual' id='asesorActual' type='text' class='form-control' placeholder='Asesor Actual' required data-toggle='tooltip' data-placement='bottom' title='Número de  Folio' value='{$row['asesor']}' readonly>
                         <label for='floatingInput' class='pl-5'>*Asesor Actual</label>
                     </div>
                 </div>
 
                 <div class='col-md-10 col-sm-12 my-1'>
                     <div class='form-group-input' style='border: 1px solid #CED4DA;'>
-                        <label class='ml-5 mb-2'>*Motivo del Cambio</label>
-                        <span data-toggle='tooltip' title='max. 300 caracteres'>
+                        <label class='ml-5 mb-2 parpadea'>*Motivo del Cambio</label>
+                        <span data-toggle='tooltip' title='max. 200 caracteres'>
                             <div class='input-group'>
                                 <div class='input-group-prepend'>
                                     <span class='input-group-text'><i class='fa-solid fa-comment'></i></span>
                                 </div>
-                                <textarea name='observAudiFinal' id='observAudiFinal' class='form-control' rows='2' placeholder='Agregar el motivo del cambio de Asesor'></textarea>
+                                <textarea name='motivo' id='motivo' class='form-control' rows='2' placeholder='Agregar el motivo del cambio de Asesor' required maxlength='200'></textarea>
                             </div>
                         </span>
                     </div>
@@ -168,15 +169,16 @@ if ($respuesta->num_rows  > 0) {
                     <div class='row justify-content-center'>
                         <div class='col-md-4 col-sm-12 my-2'>
                             <div class='input-group'>
-                                <label for='color' class='pl-5 parpadea'>Asesor por Asignar</label>
-                                <select name='id_semanaCobro' id='id_semanaCobro' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona un Asesor de la lista' style='width: 100%;' required>
+                                <label for='color' class='pl-5 parpadea'>*Asesor por Asignar <small>*Ingresa un Asesor Diferente</small></label>
+                                <select name='asesorAsignado' id='asesorAsignado' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona un Asesor de la lista' style='width: 100%;' required>
                                     <option selected disabled>Selecciona</option>";
 
-    while ($rowAsesor = $resultAsesor->fetch_assoc()) {
-        $asesor = $rowAsesor['asesor'];
-        $output .= " <option value=$asesor> $asesor </option>";
-    }
-    $output .= "
+                                    while ($rowAsesor = $resultAsesor->fetch_assoc()) {
+                                        $asesor = $rowAsesor['asesor'];
+                                        $id_asesor = $rowAsesor['id_asesor'];
+                                        $output .= " <option value={$id_asesor}> $asesor </option>";
+                                    }
+                                    $output .= "
                                 </select>
                             </div>
                         </div>
@@ -206,18 +208,15 @@ if ($respuesta->num_rows  > 0) {
         <div class='card-footer border-footer'>
             <div class='row'>
                 <div class='col-md-2 col-sm-12 align-self-center'>
-                    <buttom type='submit' id='btnNuevoRegCodIdentificador' class='btn btn-secondary btn-block btnNuevoUsuario' data-toggle='tooltip' data-placement='bottom' title='Guardar '><i class='fas fa-pen'></i>
-                        Guardar</buttom>
+                    <buttom type='submit' id='btnNuevoSolCambioAsesor' class='btn btn-secondary btn-block btnNuevoUsuario' data-toggle='tooltip' data-placement='bottom' title='Guardar '><i class='fas fa-pen'></i> Guardar</buttom>
                 </div>
                 <div class='col-md-2 col-sm-12 align-self-center'>
-                    <a href='javascript:history.go(-1)' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Regresar página anterior'><i class='fa-solid fa-arrow-left'></i>
-                        Regresar</a>
+                    <a href='javascript:history.go(-1)' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Regresar página anterior'><i class='fa-solid fa-arrow-left'></i> Regresar</a>
                 </div>
-
                 <a href='javascript:location.reload()' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Actualizar página'><i class='fa-solid fa-arrows-rotate'></i></a>
                 <br>
                 <div class='col-md-12 col-sm-12 align-self-center mt-2'>
-                    <div id='respuestaRegAltaProyecto'></div>
+                    <div id='respuestaSolCambioAsesor'></div>
                 </div>
             </div>
         </div>
@@ -234,15 +233,15 @@ if ($respuesta->num_rows  > 0) {
 ?>
 <script>
     $(document).ready(function() {
-        $('#btnNuevoRegCodIdentificador').click(function() {
+        $('#btnNuevoSolCambioAsesor').click(function() {
             $.ajax({
-                    url: 'addNuevoRegCodIdentificador.php',
+                    url: 'addNuevaSolCambioAsesor.php',
                     type: 'POST',
-                    data: $('#formNuevoRegCodIdentificador').serialize(),
+                    data: $('#formNuevoSolCambioAsesor').serialize(),
 
                 })
                 .done(function(res) {
-                    $('#respuestaRegAltaProyecto').html(res)
+                    $('#respuestaSolCambioAsesor').html(res)
                 })
         });
     });

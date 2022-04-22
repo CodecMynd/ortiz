@@ -3,7 +3,6 @@
 	if ($super == 1 OR $verTablaComAsesor == 1) {
 
 	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.comAsesor, P.estadoProyectoEliminado, P.comSuperAsesor,
-	C.nombres, C.aPaternoCliente, C.aMaternoCliente,
 	V.placa, M.marca, Mo.modelo, A.anio, Co.color, Ase.asesor, CA.id_comAsesor, CS.id_comSupervision
 	FROM proyectos P 
 	INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
@@ -11,11 +10,11 @@
 	INNER JOIN marcas M ON V.id_marca = M.id_marca 
 	INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
 	INNER JOIN anios A ON V.id_anio = A.id_anio 
-	INNER JOIN clientes C on P.id_cliente = C.id_cliente
     LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
 	LEFT JOIN asesores Ase ON CA.id_asesor = Ase.id_asesor
     LEFT JOIN comsupervision CS ON P.id_proyecto = CS.id_proyecto
-	WHERE P.proyectoActivo = 1 AND P.estadoProyectoEliminado = 1 OR P.registroSolicitud OR P.altaProyecto
+	WHERE P.proyectoActivo = 1 AND P.estadoProyectoEliminado = 1 OR P.registroSolicitud = 1 OR P.altaProyecto = 1
+	GROUP BY P.id_proyecto
 	ORDER BY nProyecto DESC";
 }else{
 	$query = "SELECT id_proyecto
@@ -63,9 +62,6 @@ $cont = 0;
 		$outputBtns1 = "<button class='btn btn-secondary btn-sm cargarSolCambioAsesor' data-dismiss='modal' data-id_proyecto='{$row['id_proyecto']}'><i class='fa-solid fa-download'></i></button>";
 		
 
-
-	
-	
 		$cont++;
 		$datos[] = array(
 			"0" => $cont,

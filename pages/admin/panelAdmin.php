@@ -4,9 +4,10 @@ require '../components/head-dataTables.php';
 
 //# Estatus para envio de mensajes (suma de registro COMPROBADOS)
 $count_reg_mensajeSI = mysqli_query($conexion, "SELECT FV FROM verificacion WHERE FV = '$fecha_mensaje'  GROUP by id_proyecto");
-
 //# Estatus para envio de mensajes (suma de registro SIN COMPROBAR)
 $count_reg_mensajeNO = mysqli_query($conexion, "SELECT FV FROM verificacion WHERE FV <> '$fecha_mensaje' OR FV is null GROUP by id_proyecto");
+//# Estatus Solicitudes Cambios de Asesor
+$count_reg_cambioasesores = mysqli_query($conexion, "SELECT estatusEspera FROM `cambioasesores` WHERE estatusEspera = 1");
 ?>
 <title>Panel <?php if ($admin == 1) {
                     echo 'Admin';
@@ -31,7 +32,7 @@ $count_reg_mensajeNO = mysqli_query($conexion, "SELECT FV FROM verificacion WHER
                                                                         echo 'Admin';
                                                                     } else {
                                                                         echo 'Usuario';
-                                                                    } ?>: <strong><?php echo $nomComp?></strong></h1>
+                                                                    } ?>: <strong><?php echo $nomComp ?></strong></h1>
 
                         </div>
                     </div>
@@ -41,24 +42,36 @@ $count_reg_mensajeNO = mysqli_query($conexion, "SELECT FV FROM verificacion WHER
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                    <?php if ($super == 1 OR $indMensajes == 1) { ?>
+                        <?php if ($super == 1 or $indMensajes == 1) { ?>
+                            <div class="col-lg-2 col-4">
+                                <div class="small-box bg-secondary">
+                                    <div class="inner">
+                                        <h5 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_mensajeSI); ?></strong></h5>
+                                        <p style="margin-bottom: 0px;">Comprobados</p>
+                                        <h5 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_mensajeNO); ?></strong></h5>
+                                        <p style="margin-bottom: 0px;">Sin Comprobar/Sin Registro</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-comment-sms"></i>
+                                    </div>
+                                    <a href="#" data-toggle="modal" data-target=".verIndAsesores" class="small-box-footer"><small>Estatus Para Envío de Mensajes </small><i class="fa-solid fa-eye"></i></a>
+                                </div>
+                            </div>
+                        <?php }  ?>
                         <div class="col-lg-2 col-4">
                             <div class="small-box bg-secondary">
                                 <div class="inner">
-                                    <h5 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_mensajeSI); ?></strong></h5>
-                                    <p style="margin-bottom: 0px;">Comprobados</p>
-                                    <h5 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_mensajeNO); ?></strong></h5>
-                                    <p style="margin-bottom: 0px;">Sin Comprobar/Sin Registro</p>
+                                    <h3><?php echo mysqli_num_rows($count_reg_cambioasesores); ?></h3>
+                                    <p>Cambios de Asesor</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fa-solid fa-comment-sms"></i>
+                                    <i class="fa-solid fa-people-arrows-left-right"></i>
                                 </div>
-                                <a href="#" data-toggle="modal" data-target=".verIndAsesores" class="small-box-footer"><small>Estatus Para Envío de Mensajes </small><i class="fa-solid fa-eye"></i></a>
+                                <a href="../admin/crudSolicitudCambioAsesor.php" class="small-box-footer"><small>Cambios de Asesor en Espera</small> <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
-                    <?php }  ?>
 
-
+                        <?php if ($super == 1 or $indCambioAsesor == 1) { ?>
                         <div class="col-lg-2 col-4">
                             <div class="small-box bg-secondary">
                                 <div class="inner">
@@ -75,6 +88,7 @@ $count_reg_mensajeNO = mysqli_query($conexion, "SELECT FV FROM verificacion WHER
                                 } ?>
                             </div>
                         </div>
+                        <?php } ?>
 
                         <div class="col-lg-2 col-4">
                             <div class="small-box bg-secondary">
@@ -160,7 +174,7 @@ $count_reg_mensajeNO = mysqli_query($conexion, "SELECT FV FROM verificacion WHER
     require '../components/modal-sinPass.php';
     require '../components/modal-verIndAsesores.php';
     require '../components/scripts-dataTables.php';
-    
+
     ?>
 </body>
 

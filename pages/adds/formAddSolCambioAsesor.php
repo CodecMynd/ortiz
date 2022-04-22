@@ -24,7 +24,7 @@ require '../components/head-dataTables.php';
                 </div>
             </div>
             <!-- Registro Proyecto -->
-            <form id="formNuevoRegAltaProyecto">
+            <form id="formNuevoSolCambioAsesor">
                 <div class="card-body">
                     <section class="content">
                         <div class="container-fluid">
@@ -34,6 +34,8 @@ require '../components/head-dataTables.php';
                                         <div class="card-header border-nav">
                                             <h3 class="card-title">Registro de Solicitud para Cambio de Asesor</h3>
                                             <div class="card-tools">
+                                                <a type="button" href="javascript:history.go(-1)" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
+                                                <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                             </div>
                                         </div>
                                         <div class="card-body">
@@ -41,7 +43,7 @@ require '../components/head-dataTables.php';
                                                 <div class="col-md-4 col-sm-4 my-4">
                                                     <div class="card card-secondary card-outline" style="height: 90%; width:auto">
                                                         <div class="card-header">
-                                                            <h5 class="text-center"><i class="fa-solid fa-magnifying-glass"></i> Buscar <strong>Asesor Asignado al  Proyecto</strong></h5>
+                                                            <h5 class="text-center"><i class="fa-solid fa-magnifying-glass"></i> Buscar <strong>Asesor Asignado al Proyecto</strong></h5>
                                                         </div>
                                                         <div class="card-body d-flex justify-content-center align-items-center">
                                                             <div class="btn-group" role="group">
@@ -49,7 +51,7 @@ require '../components/head-dataTables.php';
                                                                     <div class="col-md-12">
                                                                         <div class="input-group form-group">
                                                                             <button class="btn btn-modal-selector" style="height:120px;" data-toggle="modal" data-target="#modalSelectSolCambioAsesor">
-                                                                            <i class="fa-solid fa-people-arrows-left-right fa-3x"></i>
+                                                                                <i class="fa-solid fa-people-arrows-left-right fa-3x"></i>
                                                                                 <h6>Asesor</h6>
                                                                             </button>
                                                                         </div>
@@ -89,8 +91,7 @@ require '../components/head-dataTables.php';
         $(document).ready(function() {
             $(":input").inputmask();
         });
-    </script>
-    <script>
+
         // 2.5.1  Registro Alta Proyectos cargar Modal  -----------------------------------------------
         $(document).on("click", ".cargarSolCambioAsesor", function() {
             var idProyecto = $(this).data('id_proyecto');

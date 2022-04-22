@@ -76,7 +76,7 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
-                                                <th>Fecha Registro Solicitud de Alta</th>
+                                                <th>Estatus Solicitud Alta</th>
                                                 <th>Núm. Folio Solicitud Alta</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
@@ -88,7 +88,7 @@ require '../components/head-dataTables.php';
                                                 <th>Semana de Alta</th>
                                                 <th>Valor Venta Inicial</th>
                                                 <th>Valor Venta Alta</th>
-                                                <th>Estatus del Proyecto</th>
+                                                <th>Fecha Registro Solicitud de Alta</th>
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
@@ -96,7 +96,7 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
-                                                <th>Fecha Registro Solicitud de Alta</th>
+                                                <th>Estatus Solicitud Alta</th>
                                                 <th>Núm. Folio Solicitud Alta</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
@@ -108,7 +108,7 @@ require '../components/head-dataTables.php';
                                                 <th>Semana de Alta</th>
                                                 <th class="suma"></th>
                                                 <th class="suma"></th>
-                                                <th>Estatus del Proyecto</th>
+                                                <th>Fecha Registro Solicitud de Alta</th>
                                             </tr>
                                         </tfoot>
                                     </table>

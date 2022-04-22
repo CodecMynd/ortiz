@@ -62,11 +62,9 @@ if (empty($valorVentaAlta)) {
         $query = "INSERT INTO registrosolicitud(folioRegSolicitud, id_proyecto, valorVentaAlta, id_semana, inspecCalidad, observCliente, tecArmador, tecMontador1, tecMontador2, tecMontador3, tecMontador4, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegSolicitud', $id_proyecto, '$valorVentaAlta', $id_semana, '$inspecCalidad', '$observCliente', '$tecArmador', '$tecMontador1', '$tecMontador2', '$tecMontador3', '$tecMontador4', $borrado, '$status', '$date', $id)";
 
         $verificar_id = mysqli_query($conexion, "SELECT id_proyecto FROM registrosolicitud WHERE id_proyecto = '$id_proyecto' ");
-
-
         if (mysqli_num_rows($verificar_id) > 0) {
             echo "<div class='alert alert-danger' role='role'>
-            <p><strong>¡Error, ID ya se encuentra  registrado, Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte!</strong></p>
+            <p><strong>¡Error, ID '$id_proyecto' ya se encuentra  registrado, Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte!</strong></p>
             </div>";
             exit;
         } else {

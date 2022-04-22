@@ -2,7 +2,7 @@
 	require '../components/query.php'; 
 	if ($super == 1 OR $consSolAltaProy == 1) {
 
-	$query = "SELECT R.folioRegSolicitud, R.id_regSolicitud,R.valorVentaAlta, R.fecha_creacion, R.borrado,
+	$query = "SELECT R.folioRegSolicitud, R.id_regSolicitud, R.valorVentaAlta, R.fecha_creacion, R.borrado,
 	P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta,
 	V.placa, Co.color, M.marca, Mo.modelo, A.anio, S.semana
 	FROM registrosolicitudbitacora R
@@ -48,7 +48,7 @@ $cont = 0;
 		$datos[] = array(
 			"0" => $cont,
 			"1" => (empty($idP)) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : "<span class='badge badge-dark badge-pill'>{$idP}</span>",
-			"2" => (empty($fecha_creacion)) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $fecha_creacion,
+			"2" => $outputBtns1,
 			"3" => "<strong>{$row['folioRegSolicitud']}</strong>",
 			"4" => (empty($nP)) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $nP,
 			"5" => (empty($row['nOrden'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['nOrden'],
@@ -60,7 +60,7 @@ $cont = 0;
 			"11" => (empty($row['semana'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>"  : $row['semana'],
 			"12" => (empty($row['valorVenta'])) ? 0.00 : $row['valorVenta'],
 			"13" => (empty($row['valorVentaAlta'])) ? 0.00 : $row['valorVentaAlta'],
-			"14" => $outputBtns1,
+			"14" => (empty($fecha_creacion)) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $fecha_creacion,
 
 		);
 	}

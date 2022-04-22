@@ -56,16 +56,16 @@ require '../components/head-dataTables.php';
                                     <?php
                                     $id_proyecto = $_GET['id'];
                                     $query1 = "SELECT P.id_proyecto, P.nProyecto, P.nOrden,
-                                    V.placa, Co.color, M.marca, Mo.modelo, An.anio, Ase.asesor
+                                    V.placa, Co.color, M.marca, Mo.modelo, An.anio, A.asesor
                                     from proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co ON V.id_color = Co.id_color
                                     INNER JOIN marcas M ON V.id_marca = M.id_marca 
                                     INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
                                     INNER JOIN anios An ON V.id_anio = An.id_anio 
-									LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
-                                    LEFT JOIN asesores Ase ON CA.id_asesor = CA.id_asesor
-                                    WHERE P.id_Proyecto =  $id_proyecto";
+                                   	LEFT JOIN comasesor C ON P.id_proyecto = C.id_proyecto
+                                    LEFT JOIN asesores A ON C.id_asesor = A.id_asesor
+                                    WHERE P.id_Proyecto = $id_proyecto";
                                     $resultado1 = mysqli_query($conexion, $query1);
                                     $row1 = $resultado1->fetch_assoc();
                                     ?>

@@ -19,35 +19,36 @@ require '../components/head-dataTables.php';
     }
 </style>
 <script>
-    function abrirModal1(id_proyecto, nProyecto) {
-        $("#btnModal-regComAsesor").click();
-        $("#id_proyecto").val(id_proyecto);
-        $("#nProyecto").val(nProyecto);
-        $("#tituloModal").html(nProyecto);
-    }
-    function abrirModal2(id_proyecto, nProyecto){
-        $("#btnModal-regComAsesorSuper").click();
-        $("#id_proyecto1").val(id_proyecto);
-        $("#nProyecto1").val(nProyecto);
-        $("#tituloModal1").html(nProyecto);
-    }
-    function abrirModal3(id_proyecto, nProyecto){
-        $("#btnModal-verGralComAsesor").click();
-        $("#id_proyecto2").val(id_proyecto);
-        $("#tituloModal2").html(nProyecto);
-    }
-    function abrirModal4(id_proyecto, nProyecto, id_comAsesor){
-        $("#btnModal-eliminarComAsesor").click();
-        $("#id_proyecto3").val(id_proyecto);
-        $("#id_comAsesor3").val(id_comAsesor);
-        $("#tituloModal3").html(nProyecto);
-    }
-    function abrirModal5(id_proyecto, nProyecto, id_comSupervision){
-        $("#btnModal-eliminarComAsesorSuper").click();
-        $("#id_proyecto4").val(id_proyecto);
-        $("#id_comSupervision4").val(id_comSupervision);
-        $("#tituloModal4").html(nProyecto);
-    }
+    //  function abrirModal1(id_proyecto, nProyecto, id_cambioAsesor) {
+    //      $("#btnModal-regCambioAsesorAutorizar").click();
+    //      $("#id_proyecto").val(id_proyecto);
+    //      $("#nProyecto").val(nProyecto);
+    //      $("#id_cambioAsesor").val(id_cambioAsesor);
+    //      $("#tituloModal").html(nProyecto);
+    //  }
+    // function abrirModal2(id_proyecto, nProyecto){
+    //     $("#btnModal-regComAsesorSuper").click();
+    //     $("#id_proyecto1").val(id_proyecto);
+    //     $("#nProyecto1").val(nProyecto);
+    //     $("#tituloModal1").html(nProyecto);
+    // }
+    // function abrirModal3(id_proyecto, nProyecto){
+    //     $("#btnModal-verGralComAsesor").click();
+    //     $("#id_proyecto2").val(id_proyecto);
+    //     $("#tituloModal2").html(nProyecto);
+    // }
+    // function abrirModal4(id_proyecto, nProyecto, id_comAsesor){
+    //     $("#btnModal-eliminarComAsesor").click();
+    //     $("#id_proyecto3").val(id_proyecto);
+    //     $("#id_comAsesor3").val(id_comAsesor);
+    //     $("#tituloModal3").html(nProyecto);
+    // }
+    // function abrirModal5(id_proyecto, nProyecto, id_comSupervision){
+    //     $("#btnModal-eliminarComAsesorSuper").click();
+    //     $("#id_proyecto4").val(id_proyecto);
+    //     $("#id_comSupervision4").val(id_comSupervision);
+    //     $("#tituloModal4").html(nProyecto);
+    // }
 </script>
 
 </head>
@@ -160,14 +161,12 @@ require '../components/head-dataTables.php';
                         <div class="col-md-12 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Proyectos dados de alta en el sistema</h3>
+                                    <h3 class="card-title">Solicitudes para cambio de Asesor</h3>
                                     <div class="card-tools">
                                     <?php if ($super == 1 OR $solCambioAsesor == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formAddSolCambioAsesor.php" data-toggle="tooltip" data-placement="left" title="2.3.15.2.1 Registro Solicitud Cambio de Asesor">
-                                                <i class="fa-solid fa-users-gear"></i>&nbsp;&nbsp; Solicitud Cambio de Asesor</a>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formAddSolCambioAsesor.php" data-toggle="tooltip" data-placement="left" title="2.3.15.2.1 Registro Solicitud Cambio de Asesor"><i class="fa-solid fa-people-arrows-left-right"></i>&nbsp;&nbsp; Solicitud Cambio de Asesor</a>
                                         <?php } else { ?>
-                                            <a type="button" class="btn btn-outline-danger" id="regSemana" data-toggle="tooltip" data-placement="left" title="2.3.15.2.1 Registro Solicitud Cambio de Asesor">
-                                                <i class="fa-solid fa-users-gear"></i>&nbsp;&nbsp; Solicitud Cambio de Asesor</a>
+                                            <a type="button" class="btn btn-outline-danger" id="regSemana" data-toggle="tooltip" data-placement="left" title="2.3.15.2.1 Registro Solicitud Cambio de Asesor"><i class="fa-solid fa-people-arrows-left-right"></i>&nbsp;&nbsp; Solicitud Cambio de Asesor</a>
                                         <?php } ?>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
@@ -182,11 +181,16 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tableComAsignarAsesor" class="table table-sm table-bordered table-striped">
+                                    <table id="tableSolCambiarAsesor" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
+                                                <th>Estado del Proyecto</th>
+                                                <th>Núm. Folio Cambio Asesor</th>
+                                                <th>Estado Solicitud Cambio Asesor</th>
+                                                <th>Asesor Actual</th>
+                                                <th>Asesor por Asignar</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -194,11 +198,6 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
-                                                <!-- <th>Cliente</th> -->
-                                                <th>Estado del Proyecto</th>
-                                                <th>Status Comprobación</th>
-                                                <th>Status Supervisión</th>
-                                                <th>Nombre Asesor</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -207,6 +206,11 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
+                                                <th>Estado del Proyecto</th>
+                                                <th>Núm. Folio Cambio Asesor</th>
+                                                <th>Estado Solicitud Cambio Asesor</th>
+                                                <th>Asesor Actual</th>
+                                                <th>Asesor por Asignar</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -214,26 +218,11 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
-                                                <!-- <th>Cliente</th> -->
-                                                <th>Estado del Proyecto</th>
-                                                <th>Status Comprobación</th>
-                                                <th>Status Supervisión</th>
-                                                <th>Nombre Asesor</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>
                                     </table>
-                                    <button id="btnModal-regComAsesor" class="btn btn-white" data-toggle="modal" data-target=".regComAsesor"></button>
-                                    <button id="btnModal-regComAsesorSuper" class="btn btn-white" data-toggle="modal" data-target=".regComAsesorSuper"></button>
-                                    <button id="btnModal-verGralComAsesor" class="btn btn-white" data-toggle="modal" data-target=".verGralComAsesor"></button>
-                                    <button id="btnModal-eliminarComAsesor" class="btn btn-white" data-toggle="modal" data-target=".eliminarComAsesor"></button>
-                                    <button id="btnModal-eliminarComAsesorSuper" class="btn btn-white" data-toggle="modal" data-target=".elimnarComAsesorSuper"></button>
                                     <?php
-                                    require '../components/modal-regComAsesor.php';
-                                    require '../components/modal-regComAsesorSuper.php';
-                                    require '../components/modal-eliminarComAsesor.php';
-                                    require '../components/modal-eliminarComAsesorSuper.php';
-
                                     desconectar();
                                     ?>
                                 </div>

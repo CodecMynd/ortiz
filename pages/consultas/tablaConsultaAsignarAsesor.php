@@ -49,7 +49,7 @@ require '../components/head-dataTables.php';
             U.nombres, U.aPaterno, U.aMaterno
             FROM proyectos P
             INNER JOIN comasesor C ON P.id_proyecto = C.id_proyecto
-            LEFT JOIN comsupervision CS ON P.id_proyecto = CS.id_proyecto
+            LEFT JOIN comsupervisionasesor CS ON P.id_proyecto = CS.id_proyecto
             LEFT JOIN asesores A ON C.id_asesor = A.id_asesor
             LEFT JOIN usuarios U ON C.id_capC = U.id_usuario
             LEFT JOIN usuarios UCS ON CS.id_capC = UCS.id_usuario

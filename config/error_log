@@ -1,0 +1,4 @@
+[11-Apr-2022 11:35:59 America/Mexico_City] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in /home/u910288658/domains/jsolautomotriz.online/public_html/pruebas/config/cerrar-sesion.php on line 18
+[18-Apr-2022 14:33:58 America/Mexico_City] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in /home/u910288658/domains/jsolautomotriz.online/public_html/pruebas/config/cerrar-sesion.php on line 18
+[18-Apr-2022 21:12:31 America/Mexico_City] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in /home/u910288658/domains/jsolautomotriz.online/public_html/pruebas/config/cerrar-sesion.php on line 18
+[18-Apr-2022 21:12:41 America/Mexico_City] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in /home/u910288658/domains/jsolautomotriz.online/public_html/pruebas/config/cerrar-sesion.php on line 18

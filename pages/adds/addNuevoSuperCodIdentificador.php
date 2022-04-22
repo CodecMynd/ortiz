@@ -29,6 +29,7 @@ try {
 
     // Ingresamos id a tabla proyectos modificar registros
     $queryP = "UPDATE proyectos SET proyCodIdentificador = 0, superCodIdentificador = 1  WHERE id_proyecto = $id_proyecto";
+
     $resultadoP = mysqli_query($conexion, $queryP);
     //var_dump($queryP);
 
@@ -50,13 +51,13 @@ try {
     if (mysqli_num_rows($verificar_folio) > 0) {
         echo
         "<div class='alert alert-danger' role='role'>
-        <p><strong>¡Error, este Número de Folio ya se encuentra  registrado, verifica por favor!</strong></p>
+        <p><strong>¡Error, este ID ya se encuentra  registrado, verifica por favor con el Área  Soporte!</strong></p>
         </div>";
         exit;
     } else {
-        
-    $resultadoS = mysqli_query($conexion, $queryS);
-    //var_dump($query);
+
+        $resultadoS = mysqli_query($conexion, $queryS);
+        //var_dump($query);
     }
 
     // Insertamos registro en tabla supervisado

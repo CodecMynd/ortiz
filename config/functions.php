@@ -6,19 +6,24 @@ function conectar()
     global $conexion;
     // conexion local
     $conexion = mysqli_connect('localhost', 'root', '', 'db_ortiz');
+    
+    //conexion produccion hostinger actual
+    // $conexion = mysqli_connect('localhost', 'u910288658_jsolautomotriz', 'jsolAutomotriz2022@', 'u910288658_jsolautomotriz');
 
+    //conexion prueba hostinger actual
+    // $conexion = mysqli_connect('localhost', 'u910288658_pruebas', '?r#?ML3C$U5', 'u910288658_pruebas');
+
+
+
+
+    //--------------------------------------------------------------------------------------------------------------
     //conexion pruebas antigua
     // $conexion = mysqli_connect('den1.mysql6.gear.host', 'dbortiz', 'Tv4O~77K-R7j', 'dbortiz');
 
     //conexion produccion antigua
     // $conexion = mysqli_connect('den1.mysql6.gear.host', 'jsolautomotriz', 'Sk4Ot??17QLC', 'jsolautomotriz');
-    
+    //--------------------------------------------------------------------------------------------------------------
 
-    //conexion produccion hostinger actual
-    // $conexion = mysqli_connect('localhost', 'u910288658_jsolautomotriz', 'jsolAutomotriz2022@', 'u910288658_jsolautomotriz');
-
-    //conexion prueba hostinger actual
-    // $conexion = mysqli_connect('localhost', 'u910288658_pruebas', 'NX:Iuq>u1@', 'u910288658_pruebas');
     
 
      mysqli_set_charset($conexion, 'utf8');

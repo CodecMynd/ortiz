@@ -65,6 +65,7 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
+                                                <th>Estatus Código Identificador</th>
                                                 <th>Fecha Registro</th>
                                                 <th>Código Identificador Valor Base</th>
                                                 <th>Núm Folio Código ID</th>
@@ -89,6 +90,7 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
+                                                <th>Estatus Código Identificador</th>
                                                 <th>Fecha Registro</th>
                                                 <th>Código Identificador Valor Base</th>
                                                 <th>Núm FolioCódigo ID</th>

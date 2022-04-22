@@ -4,7 +4,7 @@
 
 	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.comAsesor, P.estadoProyectoEliminado, P.comSuperAsesor,
 	C.nombres, C.aPaternoCliente, C.aMaternoCliente,
-	V.placa, M.marca, Mo.modelo, A.anio, Co.color, Ase.asesor, CA.id_comAsesor, CS.id_comSupervision
+	V.placa, M.marca, Mo.modelo, A.anio, Co.color, Ase.asesor, CA.id_comAsesor, CS.id_comSupervisionAsesor
 	FROM proyectos P 
 	INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 	INNER JOIN colores Co On V.id_color = Co.id_color
@@ -14,8 +14,8 @@
 	INNER JOIN clientes C on P.id_cliente = C.id_cliente
     LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
 	LEFT JOIN asesores Ase ON CA.id_asesor = Ase.id_asesor
-    LEFT JOIN comsupervision CS ON P.id_proyecto = CS.id_proyecto
-	WHERE P.proyectoActivo = 1 AND P.estadoProyectoEliminado = 1 OR P.registroSolicitud OR P.altaProyecto
+    LEFT JOIN comsupervisionasesor CS ON P.id_proyecto = CS.id_proyecto
+	WHERE P.proyectoActivo = 1 AND P.estadoProyectoEliminado = 1 OR P.registroSolicitud = 1 OR P.altaProyecto = 1
 	ORDER BY nProyecto DESC";
 }else{
 	$query = "SELECT id_proyecto
@@ -42,7 +42,7 @@ $cont = 0;
 		$Eliminado = $row['estadoProyectoEliminado'];
 		$asesor = $row['asesor'];
 		$id_comAsesor = $row['id_comAsesor'];
-		$id_comSupervision = $row['id_comSupervision'];
+		$id_comSupervision = $row['id_comSupervisionAsesor'];
 
 		if ($cA == 0) {
 			$comprobarAsesor = "<h6><span class='badge badge-danger badge-pill'>Sin Comprobar Asesor</span></h6>";

@@ -173,6 +173,22 @@
     </ul>
 </nav>
 
+<?php
+//# Proyectos Activos
+$count_reg_proyectoActivo = mysqli_query($conexion, "SELECT proyectoActivo FROM proyectos WHERE proyectoActivo = 1 AND estadoProyectoEliminado	 = 1 ");
+//# Registro Solicitud
+$count_reg_registroSolicitud = mysqli_query($conexion, "SELECT registroSolicitud FROM proyectos WHERE registroSolicitud = 1 AND estadoProyectoEliminado	 = 1 ");
+//# Alta Proyecto
+$count_reg_altaProyecto = mysqli_query($conexion, "SELECT altaProyecto FROM proyectos WHERE altaProyecto = 1 AND estadoProyectoEliminado = 1 ");
+//# Código Identificador
+$count_reg_proyCodIdentificador = mysqli_query($conexion, "SELECT proyCodIdentificador FROM proyectos WHERE proyCodIdentificador = 1 AND estadoProyectoEliminado = 1 ");
+//# Supervisión CodID
+$count_reg_superCodIdentificador = mysqli_query($conexion, "SELECT superCodIdentificador FROM proyectos WHERE superCodIdentificador = 1 AND estadoProyectoEliminado	 = 1 ");
+//# proyectos Registrados
+$count_reg_proyectos = mysqli_query($conexion, "SELECT id_proyecto FROM proyectos WHERE estadoProyectoEliminado = 1 ");
+//# proyectos Eliminados
+$count_reg_proyectosE = mysqli_query($conexion, "SELECT id_proyecto FROM proyectos WHERE estadoProyectoEliminado = 0 ");
+?>
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">

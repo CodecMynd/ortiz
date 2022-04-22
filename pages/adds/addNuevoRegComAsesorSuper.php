@@ -19,9 +19,19 @@ $comSuperAsesor = 1;
 $conexion->autocommit(FALSE);
 try {
    // Registrar comprobación de supervision
-   $query = "INSERT INTO comsupervision(id_proyecto, textSupervision, tipoComprobacion, estado, fecha_registro, id_capC) VALUES ('$id_proyecto', '$textSupervision', '$tipoComprobacion', '$estado', '$date', '$id')";
-   $resultado = mysqli_query($conexion, $query);
-   //var_dump($query);
+   $query = "INSERT INTO comsupervisionasesor(id_proyecto, textSupervision, tipoComprobacion, estado, fecha_registro, id_capC) VALUES ('$id_proyecto', '$textSupervision', '$tipoComprobacion', '$estado', '$date', '$id')";
+
+   $verificar_id = mysqli_query($conexion, "SELECT id_proyecto FROM comsupervisionasesor WHERE id_proyecto = '$id_proyecto'");
+   if (mysqli_num_rows($verificar_id) > 0) {
+      echo "<div class='alert alert-danger' role='role'>
+                    <p><strong>¡Error, ID '$id_proyecto' ya se encuentra  registrado, Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte!</strong></p>
+                  </div>";
+      exit;
+   } else {
+      $resultado = mysqli_query($conexion, $query);
+      //var_dump($query);
+   }
+
 
    // Actualizar proyecto
    $queryP = "UPDATE proyectos SET comSuperAsesor = '$comSuperAsesor' WHERE id_proyecto = '$id_proyecto' ";

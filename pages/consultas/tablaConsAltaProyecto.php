@@ -61,8 +61,9 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
-                                                <th>Núm. Folio Solicitud</th>
+                                                <th>Estatus Alta Proyecto</th>
                                                 <th>Núm. Folio Alta</th>
+                                                <th>Núm. Folio Solicitud Alta</th>
                                                 <th>Cronometro Respuesta a solicitud de Alta</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
@@ -76,7 +77,6 @@ require '../components/head-dataTables.php';
                                                 <th>Valor Venta Alta</th>
                                                 <th>Fecha Registro Alta</th>
                                                 <th>Fecha Registro Solicitud Alta</th>
-                                                <!-- <th>Estatus del Proyecto</th> -->
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
@@ -84,8 +84,9 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
-                                                <th>Núm. Folio Solicitud</th>
+                                                <th>Estatus Alta Proyecto</th>
                                                 <th>Núm. Folio Alta</th>
+                                                <th>Núm. Folio Solicitud Alta</th>
                                                 <th>Cronometro Respuesta a solicitud de Alta</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
@@ -99,7 +100,6 @@ require '../components/head-dataTables.php';
                                                 <th class="suma"></th>
                                                 <th>Fecha Registro Alta</th>
                                                 <th>Fecha Registro Solicitud Alta</th>
-                                                <!-- <th>Estatus del Proyecto</th> -->
                                             </tr>
                                         </tfoot>
                                     </table>
