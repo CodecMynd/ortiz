@@ -128,27 +128,27 @@ $cont = 0;
 							</button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='2.3.9.1 Registrar Comprobación de Placa'>
+									<span data-toggle='tooltip' title='2.3.9.1.1 Registrar Comprobación de Placa'>
 										".$outputBtns1."
 									</span>
 								</li>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='2.3.9.3 Registrar Supervisión Comprobación de Placa'>
+									<span data-toggle='tooltip' title='2.3.9.1.3 Registrar Supervisión Comprobación de Placa'>
 										".$outputBtns2."
 									</span>
 								</li>	
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='2.3.9.2 Eliminar Comprobación de Placa'>
+									<span data-toggle='tooltip' title='2.3.9.1.2 Eliminar Comprobación de Placa'>
 										".$outputBtns3."
 									</span>
 								</li>
 								<li class='dropdown-item?>
-									<span data-toggle='tooltip' title='2.3.9.4 Eliminar Supervisión Comprobación de Placa'>
+									<span data-toggle='tooltip' title='2.3.9.1.4 Eliminar Supervisión Comprobación de Placa'>
 										".$outputBtns5."
 									</span>
 								</li>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='2.3.9.5 Ver Generales Comprobación de Placas'>
+									<span data-toggle='tooltip' title='2.3.9.1.5 Ver Generales Comprobación de Placas'>
 										".$outputBtns4."
 									</span>
 								</li>

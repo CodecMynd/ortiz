@@ -111,9 +111,15 @@ require '../components/head-dataTables.php';
                                                         <?php echo $row['asesor'] ?>
                                                     </td>
                                                     <td style="width:20%">
-                                                        <button type="button" class="btn btn-sm btn-secondary">
-                                                            En uso <span class="badge badge-light"><?php echo $suma ?></span>
-                                                        </button>
+                                                    <?php if($suma == 0){
+                                                            echo "<button type='button' class='btn btn-sm btn-secondary' data-toggle='tooltip' data-placement='left' title='¡Este Asesor no está siendo utilizado por el momento, puedes eliminarlo sin problema!'>
+                                                                    Sin uso <span class='badge badge-danger parpadea'>{$suma}</span>
+                                                                </button>";
+                                                    }else{
+                                                            echo "<button type='button' class='btn btn-sm btn-secondary' data-toggle='tooltip' data-placement='left' title='¡Este Asesor está siendo utilizado por el momento, puedes consultar la Tabla 2.3.15.1 Lista Comprobación de Asignación de Asesor!'>
+                                                                    En uso <span class='badge badge-light'>{$suma}</span>
+                                                                </button>";
+                                                    } ?>
                                                     </td>
                                                     <td style="width: 20%">
                                                         <div class="input-group input-group-sm mb-3">

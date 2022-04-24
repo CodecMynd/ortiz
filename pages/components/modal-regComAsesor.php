@@ -9,7 +9,7 @@ $result = mysqli_query($conexion, $query1) or die(mysqli_error($conexion));
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">
-                    Registrar Comprobacion de Asignacion de Asesor de Número de Proyecto: <span id="tituloModal"></span> 
+                    Registrar Comprobacion de Asignación  de Asesor de Número de Proyecto: <span id="tituloModal"></span> 
                 </h5>
             </div>
             <form id="formNuevoRegComAsesor" action="../adds/addNuevoRegComAsesor.php" method="POST">  
@@ -41,7 +41,7 @@ $result = mysqli_query($conexion, $query1) or die(mysqli_error($conexion));
                 </div>
             </form>
             <div class="pie">
-                <h5>2.3.15.1.1 Registrar Comprobación de Asignacion Asesor</h5>
+                <h5>2.3.15.1.1 Registrar Comprobación de Asignación  Asesor</h5>
                 <div id="respuestaNuevogComAsesor"></div>
             </div>
         </div>

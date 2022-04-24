@@ -10,7 +10,7 @@
 	INNER JOIN marcas M ON V.id_marca = M.id_marca 
 	INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
 	INNER JOIN anios A ON V.id_anio = A.id_anio 
-    LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
+    INNER JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
 	LEFT JOIN asesores Ase ON CA.id_asesor = Ase.id_asesor
     LEFT JOIN comsupervision CS ON P.id_proyecto = CS.id_proyecto
 	WHERE P.proyectoActivo = 1 AND P.estadoProyectoEliminado = 1 OR P.registroSolicitud = 1 OR P.altaProyecto = 1

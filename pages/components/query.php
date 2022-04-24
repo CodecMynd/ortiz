@@ -45,6 +45,7 @@ $query = mysqli_query($conexion, "SELECT * FROM permisos WHERE id_usuario = $id"
 while ($row = mysqli_fetch_array($query)) {
     $indMensajes = $row['indMensajes'];
     $indCambioAsesor = $row['indCambioAsesor'];
+    $indCambioPlacas = $row['indCambioPlacas'];
     $verTablaUsuario = $row['verTablaUsuario'];
     $editarUsu = $row['editarUsu'];
     $asignarCon = $row['asignarCon'];
@@ -209,6 +210,10 @@ while ($row = mysqli_fetch_array($query)) {
     $cambioAsesorAutorizar = $row['cambioAsesorAutorizar'];
     $verGralcambioAsesorAutorizar = $row['verGralcambioAsesorAutorizar'];
     $verTablaSolCambioAsesor = $row['verTablaSolCambioAsesor'];
+    $solCambioPlacas = $row['solCambioPlacas'];
+    $cambioPlacasAutorizar = $row['cambioPlacasAutorizar'];
+    $verTablaSolCambioPlacas = $row['verTablaSolCambioPlacas'];
+    $verGralcambioPlacasAutorizar = $row['verGralcambioPlacasAutorizar'];
 
 
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
@@ -224,15 +229,15 @@ while ($row = mysqli_fetch_array($query)) {
 
 /// contadores de registros ------------------------------------------------------------------------------------------
 //# usuarios
-$count_reg_usuarios = mysqli_query($conexion, "SELECT id_usuario FROM usuarios ");
+// $count_reg_usuarios = mysqli_query($conexion, "SELECT id_usuario FROM usuarios ");
 // # marcas
-$count_reg_marcas = mysqli_query($conexion, "SELECT id_marca FROM marcas ");
+// $count_reg_marcas = mysqli_query($conexion, "SELECT id_marca FROM marcas ");
 //# modelos
-$count_reg_modelos = mysqli_query($conexion, "SELECT id_modelo FROM modelos ");
-//# vehiculos
-$count_reg_vehiculos = mysqli_query($conexion, "SELECT id_vehiculo FROM vehiculos ");
+// $count_reg_modelos = mysqli_query($conexion, "SELECT id_modelo FROM modelos ");
+// //# vehiculos
+// $count_reg_vehiculos = mysqli_query($conexion, "SELECT id_vehiculo FROM vehiculos ");
 //# clientes
-$count_reg_clientes = mysqli_query($conexion, "SELECT id_cliente FROM clientes ");
+// $count_reg_clientes = mysqli_query($conexion, "SELECT id_cliente FROM clientes ");
 
 
 
@@ -242,5 +247,3 @@ $count_reg_clientes = mysqli_query($conexion, "SELECT id_cliente FROM clientes "
 // FROM proyectos P
 // LEFT JOIN comverifdiariaveh CV ON P.id_proyecto = CV.id_proyecto 
 // GROUP BY P.id_proyecto;
-
-

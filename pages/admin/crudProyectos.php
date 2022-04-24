@@ -3,6 +3,14 @@ require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
 <title>CRUD Lista de Proyectos | <?php echo $nomComp ?></title>
+<script>
+      function abrirModal1(id_proyecto, nProyecto) {
+        $("#btnModal-eliminarProyecto").click();
+        $("#id_proyecto").val(id_proyecto);
+        $("#nProyecto").val(nProyecto);
+        $("#tituloModal1").html(nProyecto);
+    }
+</script>
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
@@ -28,7 +36,7 @@ require '../components/head-dataTables.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-11">
+                        <div class="col-12">
                             <div class="card card-secondary card-outline collapsed-card">
                                 <div class="card-header">
                                     <h2 class="card-title"><strong>Contadores</strong></h2>
@@ -133,7 +141,7 @@ require '../components/head-dataTables.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-md-11 col-sm-12">
+                        <div class="col-md-12 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
                                     <h3 class="card-title">Proyectos dados de alta en el sistema</h3>
@@ -155,40 +163,7 @@ require '../components/head-dataTables.php';
 
                                     </div>
                                 </div>
-                                <!-- consulta sql -->
-                                <!-- consulta sql -->
-                                <?php
-                                $cont = 0;
-                                if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, P.fecha_creacion, P.proyectoActivo, P.registroSolicitud, P.altaProyecto, P.proyCodIdentificador, P.superCodIdentificador, P.estadoProyectoEliminado,
-                                    V.placa, M.marca, Mo.modelo, A.anio, Co.color,
-                                    U.nombres, U.aPaterno, U.aMaterno
-                                    FROM proyectos P 
-                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-                                    INNER JOIN colores Co On V.id_color = Co.id_color
-                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
-                                    INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN usuarios U ON P.id_capC = U.id_usuario
-                                    ORDER BY nProyecto DESC";
-                                } else if ($listProyecto == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, P.fecha_creacion, P.proyectoActivo, P.registroSolicitud, P.altaProyecto, P.proyCodIdentificador, P.superCodIdentificador, P.estadoProyectoEliminado,
-                                    V.placa, M.marca, Mo.modelo, A.anio, Co.color,
-                                    U.nombres, U.aPaterno, U.aMaterno
-                                    FROM proyectos P 
-                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-                                    INNER JOIN colores Co On V.id_color = Co.id_color
-                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
-                                    INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN usuarios U ON P.id_capC = U.id_usuario
-                                    ORDER BY nProyecto DESC";
-                                } else {
-                                    $query = "SELECT id_proyecto
-                                    FROM proyectos WHERE id_proyecto = 0";
-                                }
-                                $resultado = mysqli_query($conexion, $query);
-                                ?>
+
                                 <div class="card-body">
                                     <?php
                                     if ($super == 1) {
@@ -198,10 +173,11 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tablePermisos" class="table table-sm table-bordered table-striped">
+                                    <table id="tablaListaProyectos" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>ID1</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -216,173 +192,11 @@ require '../components/head-dataTables.php';
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <?php
-                                            while ($row = $resultado->fetch_assoc()) {
-                                                $idP = $row['id_proyecto'];
-                                                $pActivo = $row['proyectoActivo'];
-                                                $row['nProyecto'];
-
-                                            ?>
-                                                <tr>
-                                                    <td>
-                                                        <?php $cont++;
-                                                        echo $cont;
-                                                        ?>
-                                                    </td>
-                                                    <td style="width: 12%;">
-                                                        <?php echo $row['nProyecto']; ?>
-                                                    </td>
-                                                    <td style="width: 10%;">
-                                                        <?php echo $row['nOrden'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['marca'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['modelo'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['anio'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['placa'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['color'] ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php
-                                                        $v = $row['valorVenta'];
-                                                        if ($v == 0.00) {
-                                                            echo '<h6><span class="badge badge-danger badge-pill">No modificado 0.00</span></h6>';
-                                                        } else {
-                                                            echo '<h6><span class="badge badge-success badge-pill">Actualizado</span></h6>';
-                                                        }
-                                                        ?>
-                                                    </td>
-                                                    <td style="width: 10%;">
-                                                        <?php echo $row['valorVenta'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php
-                                                        $Eliminado = $row['estadoProyectoEliminado'];
-                                                        if ($Eliminado == 0) {
-                                                            echo '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>';
-                                                        } else {
-                                                            echo '<h6><span class="badge badge-success badge-pill">Activo</span></h6>';
-                                                        }
-                                                        ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php
-                                                        $PA = $row['proyectoActivo'];
-                                                        $RS = $row['registroSolicitud'];
-                                                        $AP = $row['altaProyecto'];
-                                                        $CI = $row['proyCodIdentificador'];
-                                                        $SU = $row['superCodIdentificador'];
-
-                                                        if ($PA == 1) {
-                                                            echo '<h6><span class="badge badge-success badge-pill">Proyecto Activo</span></h6>';
-                                                        } else if ($RS == 1) {
-                                                            echo '<h6><span class="badge badge-success badge-pill">Solicitud Alta</span></h6>';
-                                                        } else if ($AP == 1) {
-                                                            echo '<h6><span class="badge badge-success badge-pill">Alta Proyecto</span></h6>';
-                                                        } else if ($CI == 1) {
-                                                            echo '<h6><span class="badge badge-success badge-pill">Código Identificador</span></h6>';
-                                                        } else if ($SU == 1) {
-                                                            echo '<h6><span class="badge badge-success badge-pill">Supervisión</span></h6>';
-                                                        } else {
-                                                            echo '<h6><span class="badge badge-Warning badge-pill">Sin Ubicación</span></h6>';
-                                                        }
-                                                        ?>
-                                                    </td>
-                                                    <td>
-                                                        <div class="input-group input-group-sm mb-3">
-                                                            <div class="input-group-prepend">
-                                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Usuarios"> Acciones</span>
-                                                                </button>
-                                                                <ul class="dropdown-menu" style="min-width:2em;">
-                                                                    <div class="btn-group">
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.3.3 Modificar Proyecto">
-                                                                                <?php if ($super == 1 and $Eliminado == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../update/formUpdateProyecto.php?id=<?php echo $row['id_proyecto'] ?>"><i class="fas fa-edit"></i></a>
-                                                                                <?php } else if ($super == 1 and $Eliminado == 0) {
-                                                                                    echo '<a class="btn btn-outline-danger" id="noModProyecto"><i class="fas fa-edit"></i></a>';
-                                                                                } else if ($modProyecto == 1 and $Eliminado == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../update/formUpdateProyecto.php?id=<?php echo $row['id_proyecto'] ?>"><i class="fas fa-edit"></i> </a>
-                                                                                <?php } else if ($modProyecto == 1 and $Eliminado == 0) {
-                                                                                    echo '<a class="btn btn-outline-danger" id="noModProyecto"><i class="fas fa-edit"></i></a>';
-                                                                                } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="modProyecto"><i class="fas fa-edit"></i></a>
-                                                                                <?php } ?>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.3.4 Eliminar Proyecto">
-                                                                                <?php
-                                                                                if ($super == 1 && $pActivo == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarProyecto<?php echo $row["id_proyecto"] ?> "><i class="fas fa-trash-alt"></i>
-                                                                                    </a>
-                                                                                <?php  } else if ($super == 1 && $pActivo == 0) {
-                                                                                    echo '<a class="btn btn-outline-danger" id="noEliProyecto"><i class="fas fa-trash-alt"></i>
-                                                                                </a>';
-                                                                                } else if ($eliProyecto == 1 && $pActivo == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".borrarProyecto<?php echo $row["id_proyecto"] ?>"><i class="fas fa-trash-alt"></i>
-                                                                                    </a>
-                                                                                <?php  } else if ($eliProyecto == 1 && $pActivo == 0) {
-                                                                                    echo '<a class="btn btn-outline-danger" id="noEliProyecto"><i class="fas fa-trash-alt"></i>
-                                                                                    </a>';
-                                                                                } else {
-                                                                                    echo '<a class="btn btn-outline-danger" id="eliProyecto"><i class="fas fa-trash-alt"></i>
-                                                                                </a>';
-                                                                                }
-                                                                                ?>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.3.5 Descarga PDF Proyecto">
-                                                                                <?php if ($super == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../components/ordenTrabajo.php?id=<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-file-pdf"></i>
-                                                                                    </a>
-                                                                                <?php  } else if ($pdfProyecto == 1) { ?>
-                                                                                    <a class="btn btn-secondary" href="../components/ordenTrabajo.php?id=<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-file-pdf"></i>
-                                                                                    </a>
-                                                                                <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="pdfProyecto"><i class="fa-solid fa-file-pdf"></i>
-                                                                                    </a>
-                                                                                <?php } ?>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.3.6 Ver Generales Lista de Proyectos">
-                                                                                <?php if ($super == 1) { ?>
-                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target=".verGralProy<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></button>
-                                                                                <?php  } else if ($verGralProy == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target=".verGralProy-<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></a>
-                                                                                <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="verGralProy"><i class="fa-solid fa-comments"></i>
-                                                                                    </a>
-                                                                                <?php } ?>
-                                                                            </span>
-                                                                        </li>
-                                                                    </div>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            <?php
-                                                require '../components/modal-eliminarProyecto.php';
-                                                require '../components/modal-verListaProy.php';
-                                            }
-                                            desconectar();
-                                            ?>
-                                        </tbody>
+                                        <tbody></tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
+                                                <th>ID</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -398,6 +212,12 @@ require '../components/head-dataTables.php';
                                             </tr>
                                         </tfoot>
                                     </table>
+                                    <button id="btnModal-eliminarProyecto" class="btn btn-white" data-toggle="modal" data-target=".borrarProyecto"></button>
+                                    <?php
+                                        require '../components/modal-eliminarProyecto.php';
+                                        // require '../components/modal-verListaProy.php';
+                                    desconectar();
+                                    ?>
                                     <!-- <div id="respuestaProyectoBorrado"></div> -->
                                 </div>
                             </div>

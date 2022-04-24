@@ -18,6 +18,22 @@ require '../components/head-dataTables.php';
         }
     }
 </style>
+<script>
+    function abrirModal1(id_proyecto, nProyecto) {
+        $("#btnModal-regMotivoSupVVIvsVVA").click();
+        $("#id_proyecto1").val(id_proyecto);
+        $("#nProyecto1").val(nProyecto);
+        $("#tituloModal1").html(nProyecto);
+    }
+
+    // function abrirModal2(id_proyecto, nProyecto, id_repVVAvsVCI, motivo) {
+    //     $("#btnModal-modMotivoSupVVAvsVCodID").click();
+    //     $("#id_proyecto2").val(id_proyecto);
+    //     $("#nProyecto2").val(nProyecto);
+    //     $("#motivo").html(motivo);
+    //     $("#tituloModal2").html(nProyecto);
+    // }
+    </script>
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
@@ -52,50 +68,6 @@ require '../components/head-dataTables.php';
                                     </div>
                                 </div>
                                 <!-- consulta sql -->
-                                <?php
-                                $cont = 0;
-                                if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, 
-                                    V.placa, Co.color, M.marca, Mo.modelo, A.anio, RS.valorVentaAlta,
-                                    RC.id_regcodidenti, RC.borrado, RC.folioCodID, RA.supervisionValores,
-                                    S.semana, SC.semanaCobro, D.codIdProyBase, D.valCobProyBase
-                                    FROM proyectos P 
-                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-                                    INNER JOIN colores Co ON V.id_color = Co.id_color
-                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
-                                    INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto
-                                    INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto  
-                                    INNER JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
-                                    INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
-                                    INNER JOIN semanas S ON RS.id_semana = S.id_semana
-                                    INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto
-                                    WHERE proyCodIdentificador = 1 AND RC.borrado = 0 AND P.valorVenta <> RS.valorVentaAlta  ORDER BY nProyecto DESC";
-                                } else if ($verTablaRepVVIvsVVA  == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, 
-                                    V.placa, Co.color, M.marca, Mo.modelo, A.anio, RS.valorVentaAlta,
-                                    RC.id_regcodidenti, RC.borrado, RC.folioCodID, RA.supervisionValores,
-                                    S.semana, SC.semanaCobro, D.codIdProyBase, D.valCobProyBase
-                                    FROM proyectos P 
-                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-                                    INNER JOIN colores Co ON V.id_color = Co.id_color
-                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
-                                    INNER JOIN anios A ON V.id_anio = A.id_anio 
-                                    INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto
-                                    INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto  
-                                    INNER JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
-                                    INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
-                                    INNER JOIN semanas S ON RS.id_semana = S.id_semana
-                                    INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto
-                                    WHERE proyCodIdentificador = 1 AND RC.borrado = 0 AND P.valorVenta <> RS.valorVentaAlta  ORDER BY nProyecto DESC";
-                                } else {
-                                    $query = "SELECT id_proyecto
-                                    FROM proyectos WHERE id_proyecto = 0";
-                                }
-                                $resultado = mysqli_query($conexion, $query);
-                                ?>
                                 <div class="card-body">
                                     <?php
                                     if ($super == 1) {
@@ -105,12 +77,13 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tableProyCodId" class="table table-sm table-bordered table-striped">
+                                    <table id="tableDifVentasInicialvsValAltas" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Código Identificador Valor Base</th>
-                                                <th>Núm Código ID</th>
+                                                <th>ID</th>
+                                                <!-- <th>Código Identificador Valor Base</th>
+                                                <th>Núm Código ID</th> -->
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -120,154 +93,21 @@ require '../components/head-dataTables.php';
                                                 <th>Color</th>
                                                 <th>Semana de Alta</th>
                                                 <th>Semana de Cobro</th>
-                                                <th>Valor Venta Inicial</th>
-                                                <th>Valor Venta Alta</th>
+                                                <th class="bg-secondary text-white">Valor Venta Inicial</th>
+                                                <th class="bg-secondary text-white">Valor Venta Alta</th>
                                                 <th>Valor Cobro Proyecto Base</th>
-                                                <th>Status</th>
+                                                <th>Etapa Proyecto</th>
+                                                <th>Status Supervisión</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <?php
-                                            while ($row = $resultado->fetch_assoc()) {
-                                                $idP = $row['id_proyecto'];
-                                                $codIdProyBase = $row['codIdProyBase'];
-                                                $id_regcodidenti = $row['id_regcodidenti'];
-                                                $VVA = $row["valorVentaAlta"];
-                                                $Sup = $row['supervisionValores'];
-                                            ?>
-                                                <tr>
-                                                    <td>
-                                                        <?php $cont++;
-                                                        echo $cont;
-                                                        ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['codIdProyBase'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['folioCodID'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['nProyecto']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['nOrden'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['marca'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['modelo'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['anio'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['placa'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['color'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['semana'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['semanaCobro'] ?>
-                                                    </td>
-                                                    <td style="min-width: 10%; background: gray; color: #fff;">
-                                                        <?php echo $row['valorVenta'] ?>
-                                                    </td>
-                                                    <td style="min-width: 10%; background: gray; color: #fff">
-                                                        <?php
-                                                        echo $row["valorVentaAlta"];
-                                                        ?>
-                                                    </td>
-                                                    <td style="min-width: 10%;">
-                                                        <?php echo $row['valCobProyBase'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php
-                                                        if ($Sup == 0) {
-                                                            echo '<h6><span class="badge badge-danger badge-pill">Sin Supervisión</span></h6>';
-                                                        } else if ($Sup == 1) {
-                                                            echo '<h6><span class="badge badge-success badge-pill">Supervisado</span></h6>';
-                                                        }
-                                                        ?>
-                                                    </td>
-                                                    <td>
-                                                        <div class=" input-group input-group-sm mb-3">
-                                                            <div class="input-group-prepend">
-                                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Marcas"> Acciones</span></button>
-                                                                <ul class="dropdown-menu" style="min-width: 2em">
-                                                                    <div class="btn-group">
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="3.2.1 Registrar Motivo Supervisión">
-                                                                                <?php if ($super == 1 && $Sup == 0) { ?>
-                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target=".regMotivoSupVVIvsVVA-<?php echo $idP ?>"><i class="fa-solid fa-pencil"></i>
-                                                                                    </button>
-                                                                                <?php } else if ($super == 1 && $Sup == 1) {
-                                                                                    echo '<a class="btn btn-outline-danger" id="regMotivoSupVVIvsVVA "><i class="fa-solid fa-pencil"></i>
-                                                                            </a>';
-                                                                                } else if ($regMotivoSupVVIvsVVA  == 1 && $Sup == 0) { ?>
-                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target=".regMotivoSupVVIvsVVA-<?php echo $idP ?>"><i class="fa-solid fa-pencil"></i>
-                                                                                    </button>
-                                                                                <?php  } else if ($regMotivoSupVVIvsVVA  == 1 && $Sup == 1) {
-                                                                                    echo '<a class="btn btn-outline-danger" id="regMotivoSupVVIvsVVA "><i class="fa-solid fa-pencil"></i>
-                                                                            </a>';
-                                                                                } else {
-                                                                                    echo '<a class="btn btn-outline-danger" id="regMotivoSupVVIvsVVA "><i class="fa-solid fa-pencil"></i>
-                                                                            </a>';
-                                                                                } ?>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="3.2.2 Modificar Motivo Supervisión">
-                                                                                <?php if ($super == 1) { ?>
-                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target=".modMotivoSupVVIvsVVA-<?php echo $row["id_proyecto"] ?>"><i class="fa-solid fa-pen-to-square"></i>
-                                                                                    </button>
-                                                                                <?php  } else if ($modMotivoSupVVIvsVVA == 1) { ?>
-                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target=".modMotivoSupVVIvsVVA-<?php echo $row["id_proyecto"] ?>"><i class="fa-solid fa-pen-to-square"></i>
-                                                                                    </button>
-                                                                                <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="modMotivoSupVVIvsVVA"><i class="fa-solid fa-pen-to-square"></i>
-                                                                                    </a>
-                                                                                <?php } ?>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="3.2.3 Ver Link de Video, Observaciones y Generales">
-                                                                                <?php if ($super == 1) { ?>
-                                                                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#verGralRepVVIvsVVA-<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></button>
-                                                                                <?php  } else if ($verGralRepVVIvsVVA  == 1) { ?>
-                                                                                    <a class="btn btn-secondary" data-toggle="modal" data-target="#verGralRepVVIvsVVA-<?php echo $row['id_proyecto'] ?>"><i class="fa-solid fa-eye"></i></a>
-                                                                                <?php } else { ?>
-                                                                                    <a class="btn btn-outline-danger" id="verGralRepVVIvsVVA"><i class="fa-solid fa-comments"></i>
-                                                                                    </a>
-                                                                                <?php } ?>
-                                                                            </span>
-                                                                        </li>
-                                                                    </div>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <?php
-                                                require '../components/modal-verRepDifValVenInicialvsValVenAlta.php';
-                                                require '../components/modal-regMotivoSupVVIvsVVA.php';
-                                                require '../components/modal-modMotivoSupVVIvsVVA.php';
-                                                ?>
-                                            <?php
-                                            }
-                                            desconectar();
-                                            ?>
-                                        </tbody>
+                                        <tbody></tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Código Identificador Valor Base</th>
-                                                <th>Núm Código ID</th>
+                                                <th>ID</th>
+                                                <!-- <th>Código Identificador Valor Base</th>
+                                                <th>Núm Código ID</th> -->
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -280,11 +120,18 @@ require '../components/head-dataTables.php';
                                                 <th class="suma"></th>
                                                 <th class="suma"></th>
                                                 <th class="suma"></th>
-                                                <th>Status</th>
+                                                <th>Etapa Proyecto</th>
+                                                <th>Status Supervisión</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>
                                     </table>
+                                    </table>
+                                    <button id="btnModal-regMotivoSupVVIvsVVA" class='btn btn-white' data-toggle='modal' data-target='.regMotivoSupVVIvsVVA'></button>
+                                    <?php
+                                        require '../components/modal-regMotivoSupVVIvsVVA.php';
+                                        desconectar();
+                                    ?>
                                 </div>
                             </div>
                         </div>

@@ -1411,7 +1411,7 @@ require '../components/head-main.php';
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
-                                                                                    <h2 class="card-title"><strong>2.3.9 Comprobación de Placas</strong></h2>
+                                                                                    <h2 class="card-title"><strong>2.3.9.1 Comprobación de Placas</strong></h2>
                                                                                     <div class="card-tools">
                                                                                         <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
                                                                                             <i class="fas fa-plus"></i>
@@ -1425,7 +1425,7 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">2.3.9.1 Registro Comprobación de Placa</span>
+                                                                                                        <span class="info-box-text">2.3.9.1.1 Registro Comprobación de Placa</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="regComPlacas" id="regComPlacas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComPlacas'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                 else echo ''; ?>></span>
                                                                                                     </div>
@@ -1437,7 +1437,7 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">2.3.9.2 Eliminar Comprobación de Placa</span>
+                                                                                                        <span class="info-box-text">2.3.9.1.2 Eliminar Comprobación de Placa</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="eliComPlacas" id="eliComPlacas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComPlacas'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                 else echo ''; ?>></span>
                                                                                                     </div>
@@ -1449,7 +1449,7 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">2.3.9.3 Registro Supervisión de Comprobación de Placa</span>
+                                                                                                        <span class="info-box-text">2.3.9.1.3 Registro Supervisión de Comprobación de Placa</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="regComPlacasSuper" id="regComPlacasSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComPlacasSuper'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                             else echo ''; ?>></span>
                                                                                                     </div>
@@ -1461,7 +1461,7 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">2.3.9.4 Eliminar Supervisión de Comprobación de Placa</span>
+                                                                                                        <span class="info-box-text">2.3.9.1.4 Eliminar Supervisión de Comprobación de Placa</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="eliComPlacasSuper" id="eliComPlacasSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComPlacasSuper'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                             else echo ''; ?>></span>
                                                                                                     </div>
@@ -1473,7 +1473,7 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">2.3.9.5 Ver Generales Comprobación de Placa</span>
+                                                                                                        <span class="info-box-text">2.3.9.1.5 Ver Generales Comprobación de Placa</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="verGralComPlacas" id="verGralComPlacas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComPlacas'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                         else echo ''; ?>></span>
                                                                                                     </div>
@@ -1485,8 +1485,73 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">2.3.9.6 Ver tabla Comprobación de Placa</span>
+                                                                                                        <span class="info-box-text">2.3.9.1.6 Ver tabla Comprobación de Placa</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="verTablaComPlacas" id="verTablaComPlacas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaComPlacas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                          <div class="col-md-12 col-sm-12 col-12">
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>2.3.9.2 Solicitud Cambio de Placas</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.9.2.1 Registro Solicitud Cambio de Placa</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="solCambioPlacas" id="solCambioPlacas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['solCambioPlacas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.9.2.2 Registrar Autorización Cambio de Placa</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="cambioPlacasAutorizar" id="cambioPlacasAutorizar" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['cambioPlacasAutorizar'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.9.2.3 Ver Generales Solicitud Cambio de Placa</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralcambioPlacasAutorizar" id="verGralcambioPlacasAutorizar" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralcambioPlacasAutorizar'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.9.2.4 Ver tabla Solicitud Cambio de Placa</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaSolCambioPlacas" id="verTablaSolCambioPlacas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaSolCambioPlacas'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                             else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>

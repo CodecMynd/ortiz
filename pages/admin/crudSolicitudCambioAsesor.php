@@ -166,7 +166,7 @@ require '../components/head-dataTables.php';
                                     <?php if ($super == 1 OR $solCambioAsesor == 1) { ?>
                                             <a type="button" class="btn btn-secondary" href="../adds/formAddSolCambioAsesor.php" data-toggle="tooltip" data-placement="left" title="2.3.15.2.1 Registro Solicitud Cambio de Asesor"><i class="fa-solid fa-people-arrows-left-right"></i>&nbsp;&nbsp; Solicitud Cambio de Asesor</a>
                                         <?php } else { ?>
-                                            <a type="button" class="btn btn-outline-danger" id="regSemana" data-toggle="tooltip" data-placement="left" title="2.3.15.2.1 Registro Solicitud Cambio de Asesor"><i class="fa-solid fa-people-arrows-left-right"></i>&nbsp;&nbsp; Solicitud Cambio de Asesor</a>
+                                            <a type="button" class="btn btn-outline-danger" id="solCambioAsesor" data-toggle="tooltip" data-placement="left" title="2.3.15.2.1 Registro Solicitud Cambio de Asesor"><i class="fa-solid fa-people-arrows-left-right"></i>&nbsp;&nbsp; Solicitud Cambio de Asesor</a>
                                         <?php } ?>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
@@ -187,6 +187,7 @@ require '../components/head-dataTables.php';
                                                 <th>#</th>
                                                 <th>ID</th>
                                                 <th>Estado del Proyecto</th>
+                                                <th>Etapa Proyecto</th>
                                                 <th>Núm. Folio Cambio Asesor</th>
                                                 <th>Estado Solicitud Cambio Asesor</th>
                                                 <th>Asesor Actual</th>
@@ -207,6 +208,7 @@ require '../components/head-dataTables.php';
                                                 <th>#</th>
                                                 <th>ID</th>
                                                 <th>Estado del Proyecto</th>
+                                                <th>Etapa Proyecto</th>
                                                 <th>Núm. Folio Cambio Asesor</th>
                                                 <th>Estado Solicitud Cambio Asesor</th>
                                                 <th>Asesor Actual</th>
@@ -246,135 +248,10 @@ require '../components/head-dataTables.php';
     <!-- avisos -->
     <script src="../../src/js/toastr.js"></script>
     <script>
-        // comprobar NO SE PUEDE HACER UNA SUPERVISION SIN HABER PRIMERO HECHO UNA COMPROBACION DE ASESORS --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#comprobar ").click(function() {
-                toastr["error"]("¡NO SE PUEDE HACER UNA SUPERVISIÓN SIN HABER PRIMERO HECHO UNA COMPROBACIÓN!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // comprobar NO SE PUEDE HACER UNA SUPERVISION SIN HABER PRIMERO HECHO UNA COMPROBACION DE ASESORS --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#elimina").click(function() {
-                toastr["error"]("¡NO SE PUEDE ELIMINAR UNA COMPROBACIÓN, PRIMERO ELIMINA LA SUPERVISIÓN!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // eliminado PROYECTO ELIMINADO, NO SE PUEDE REALIZAR ESTA ACCION --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#eliminado ").click(function() {
-                toastr["error"]("¡PROYECTO ELIMINADO, NO SE PUEDE REALIZAR ESTA ACCION!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // resgistra NO TIENE COMPROBACION, PRIMERO REGISTRA YA DESPUES PUEDES BORRAR --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#resgistra ").click(function() {
-                toastr["error"]("¡NO TIENE REGISTRO DE COMPROBACION!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // resgistra NO SE PUEDE VOLVER A REGISTRAR, PRIMERO ELIMINA Y VUELVE A REGISTRAR --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#yaRegistrado ").click(function() {
-                toastr["error"]("¡NO SE PUEDE VOLVER A REGISTRAR, ELIMINA Y VUELVE A REGISTRAR!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
         // regComAsesor 2.3.15.1 REGISTRAR COMPROBACIÓN DE ASESOR --------------------------------------------------------------
         $(document).ready(function() {
-            $("#regComAsesor ").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.9.1 REGISTRAR COMPROBACIÓN DE ASESOR, consulta al administrador!")
+            $("#solCambioAsesor").click(function() {
+                toastr["error"]("¡No tienes acceso a: 2.3.15.2.1 REGISTRO SOLICITUD DE CAMBIO DE ASESOR,, consulta al administrador!")
 
                 tostadas.opciones = {
                     "botóncerrar": falso,
@@ -398,58 +275,8 @@ require '../components/head-dataTables.php';
 
         // eliComAsesor 2.3.15.2 REGISTRAR COMPROBACIÓN DE ASESOR --------------------------------------------------------------
         $(document).ready(function() {
-            $("#eliComAsesor ").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.9.2 ELIMINAR COMPROBACIÓN DE ASESOR, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // regComAsesorSuper 2.3.15.3 REGISTRAR COMPROBACIÓN DE ASESOR --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#regComAsesorSuper ").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.9.3 REGISTRAR SUPERVISION DE COMPROBACIÓN DE ASESOR, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // eliComAsesorSuper 2.3.15.4  ELIMINAR SUPERVISION COMPROBACIÓN DE ASESOR --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#eliComAsesorSuper ").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.9.4 ELIMINAR SUPERVISIÓN DE COMPROBACIÓN DE ASESOR, consulta al administrador!")
+            $("#cambioAsesorAutorizar ").click(function() {
+                toastr["error"]("¡No tienes acceso a: 2.3.15.2.2 REGSITRAR AUTORIZACION CAMBIO DE ASESOR, consulta al administrador!")
 
                 tostadas.opciones = {
                     "botóncerrar": falso,

@@ -15,33 +15,44 @@ $motivo =  $_POST['motivo'];
 $supervisado = 1;
 $capMotivo = 1;
 
- try {
+try {
     $conexion->autocommit(FALSE);
-// Registrar motivo de supervision
-$query = "INSERT INTO repvalvenaltavsvalcodid(id_proyecto, motivo, capMotivo, fecha_registro, id_capC) VALUES ('$id_proyecto', '$motivo', '$capMotivo', '$date', '$id')";
-$resultado = mysqli_query($conexion, $query);
-// var_dump($query);
+    // Registrar motivo de supervision
+    $query = "INSERT INTO repvalvenaltavsvalcodid(id_proyecto, motivo, capMotivo, fecha_registro, id_capC) VALUES ('$id_proyecto', '$motivo', '$capMotivo', '$date', '$id')";
 
-// Actualizar supervision valores
-$queryR = "UPDATE registrocodidenti SET supervisionValores = 1 WHERE id_proyecto = '$id_proyecto'";
-$resultadoR = mysqli_query($conexion, $queryR);
-// var_dump($queryR);
+    $verificar_id = mysqli_query($conexion, "SELECT id_proyecto FROM repvalvenaltavsvalcodid WHERE id_proyecto = '$id_proyecto' ");
+    if (mysqli_num_rows($verificar_id) > 0) {
+        echo
+        "<div class='alert alert-danger' role='role'>
+    <p><strong>¡Error, ID '$id_proyecto' ya se encuentra  registrado, Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte!</strong></p>
+    </div>";
+        exit;
+    } else {
+        $resultado = mysqli_query($conexion, $query);
+        // var_dump($query);
+    }
 
-// Actualizar supervision valores
-$queryRB = "UPDATE registrocodidentibitacora SET supervisionValores = 1 WHERE id_proyecto = '$id_proyecto'";
-$resultadoRB = mysqli_query($conexion, $queryRB);
-// var_dump($queryR);
 
- $conexion->commit();
- echo '<script>
-         alert("Registro de Supervisión ingresado correctamente");
+    // Actualizar supervision valores
+    $queryR = "UPDATE registrocodidenti SET supervisionValores = 1 WHERE id_proyecto = '$id_proyecto'";
+    $resultadoR = mysqli_query($conexion, $queryR);
+    // var_dump($queryR);
+
+    // Actualizar supervision valores
+    $queryRB = "UPDATE registrocodidentibitacora SET supervisionValores = 1 WHERE id_proyecto = '$id_proyecto'";
+    $resultadoRB = mysqli_query($conexion, $queryRB);
+    // var_dump($queryR);
+
+    $conexion->commit();
+    echo '<script>
+         alert("Registro de Supervisión Valor Alta Vs. Valor Código Identificador ingresado correctamente");
          window.location.href = "../components/reporteDifValVenAltavsValCodId.php";
          </script>';
- } catch (Exception $e) {
- $conexion->rollback();
-       echo '<script>
-       alert("¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte, Error detectado: '.$e->getMessage().'")
+} catch (Exception $e) {
+    $conexion->rollback();
+    echo '<script>
+       alert("¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte, Error detectado: ' . $e->getMessage() . '")
        window.history.go(-1);
  </script>';
- }
+}
 desconectar();

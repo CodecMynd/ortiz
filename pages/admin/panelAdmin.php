@@ -8,6 +8,8 @@ $count_reg_mensajeSI = mysqli_query($conexion, "SELECT FV FROM verificacion WHER
 $count_reg_mensajeNO = mysqli_query($conexion, "SELECT FV FROM verificacion WHERE FV <> '$fecha_mensaje' OR FV is null GROUP by id_proyecto");
 //# Estatus Solicitudes Cambios de Asesor
 $count_reg_cambioasesores = mysqli_query($conexion, "SELECT estatusEspera FROM `cambioasesores` WHERE estatusEspera = 1");
+//# Estatus Solicitudes Cambios de Placas
+$count_reg_cambioplacas = mysqli_query($conexion, "SELECT estatusEspera FROM `cambioplacas` WHERE estatusEspera = 1");
 ?>
 <title>Panel <?php if ($admin == 1) {
                     echo 'Admin';
@@ -29,7 +31,7 @@ $count_reg_cambioasesores = mysqli_query($conexion, "SELECT estatusEspera FROM `
                     <div class="row my-3 mx-5">
                         <div class="col-sm-12 textB">
                             <h1 class="m-0 bienvenido">Bienvenido <?php if ($admin == 1) {
-                                                                        echo 'Admin';
+                                                                        echo 'Administrador';
                                                                     } else {
                                                                         echo 'Usuario';
                                                                     } ?>: <strong><?php echo $nomComp ?></strong></h1>
@@ -58,43 +60,44 @@ $count_reg_cambioasesores = mysqli_query($conexion, "SELECT estatusEspera FROM `
                                 </div>
                             </div>
                         <?php }  ?>
-                        <div class="col-lg-2 col-4">
-                            <div class="small-box bg-secondary">
-                                <div class="inner">
-                                    <h3><?php echo mysqli_num_rows($count_reg_cambioasesores); ?></h3>
-                                    <p>Cambios de Asesor</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa-solid fa-people-arrows-left-right"></i>
-                                </div>
-                                <a href="../admin/crudSolicitudCambioAsesor.php" class="small-box-footer"><small>Cambios de Asesor en Espera</small> <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
 
                         <?php if ($super == 1 or $indCambioAsesor == 1) { ?>
-                        <div class="col-lg-2 col-4">
-                            <div class="small-box bg-secondary">
-                                <div class="inner">
-                                    <h3><?php echo mysqli_num_rows($count_reg_marcas); ?></h3>
-                                    <p>Marcas</p>
+                            <div class="col-lg-2 col-4">
+                                <div class="small-box bg-secondary">
+                                    <div class="inner">
+                                        <h3><?php echo mysqli_num_rows($count_reg_cambioasesores); ?></h3>
+                                        <p>Cambios de Asesor</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-people-arrows-left-right"></i>
+                                    </div>
+                                    <a href="../admin/crudSolicitudCambioAsesor.php" class="small-box-footer"><small>Cambios de Asesor en Espera</small> <i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
-                                <div class="icon">
-                                    <i class="fa-solid fa-car"></i>
-                                </div>
-                                <?php if ($passUser == 'SIN_PASSWORD') {
-                                    echo '';
-                                } else {
-                                    echo '<a href="crudMarcas.php" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
-                                } ?>
                             </div>
-                        </div>
                         <?php } ?>
+
+                        <?php if ($super == 1 or $indCambioPlacas == 1) { ?>
+                            <div class="col-lg-2 col-4">
+                                <div class="small-box bg-secondary">
+                                    <div class="inner">
+                                        <h3><?php echo mysqli_num_rows($count_reg_cambioplacas); ?></h3>
+                                        <p>Cambios de Placas</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-hashtag"></i>
+                                    </div>
+                                    <a href="../admin/crudSolicitudCambioPlacas.php" class="small-box-footer"><small>Cambios de Placas en Espera</small> <i class="fas fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                        <?php } ?>
+
+
+
 
                         <div class="col-lg-2 col-4">
                             <div class="small-box bg-secondary">
                                 <div class="inner">
-                                    <!-- <h3><?php echo mysqli_num_rows($count_reg_modelos); ?><sup style="font-size: 20px">%</sup></h3> porcentaje-->
-                                    <h3><?php echo mysqli_num_rows($count_reg_modelos); ?></h3>
+                                    <h3>1</h3>
                                     <p>Modelos</p>
                                 </div>
                                 <div class="icon">
@@ -110,8 +113,7 @@ $count_reg_cambioasesores = mysqli_query($conexion, "SELECT estatusEspera FROM `
                         <div class="col-lg-2 col-4">
                             <div class="small-box bg-secondary">
                                 <div class="inner">
-                                    <!-- <h3><?php echo mysqli_num_rows($count_reg_modelos); ?><sup style="font-size: 20px">%</sup></h3> porcentaje-->
-                                    <h3><?php echo mysqli_num_rows($count_reg_vehiculos); ?></h3>
+                                    <h3>1</h3>
                                     <p>Vehículos</p>
                                 </div>
                                 <div class="icon">
@@ -128,8 +130,7 @@ $count_reg_cambioasesores = mysqli_query($conexion, "SELECT estatusEspera FROM `
                         <div class="col-lg-2 col-4">
                             <div class="small-box bg-secondary">
                                 <div class="inner">
-                                    <!-- <h3><?php echo mysqli_num_rows($count_reg_modelos); ?><sup style="font-size: 20px">%</sup></h3> porcentaje-->
-                                    <h3><?php echo mysqli_num_rows($count_reg_clientes); ?></h3>
+                                    <h3>1</h3>
                                     <p>Clientes</p>
                                 </div>
                                 <div class="icon">
@@ -142,24 +143,6 @@ $count_reg_cambioasesores = mysqli_query($conexion, "SELECT estatusEspera FROM `
                                 } ?>
                             </div>
                         </div>
-
-                        <div class="col-lg-2 col-4">
-                            <div class="small-box bg-secondary">
-                                <div class="inner">
-                                    <h3>65</h3>
-                                    <p>Destajos Técnicos</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa-solid fa-money-bill-1-wave"></i>
-                                </div>
-                                <?php if ($passUser == 'SIN_PASSWORD') {
-                                    echo '';
-                                } else {
-                                    echo '<a href="#" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
-                                } ?>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </section>

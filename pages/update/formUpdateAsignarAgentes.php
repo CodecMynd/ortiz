@@ -2,7 +2,7 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>Orden de Asignacion de Agentes de Servicio | <?php echo $nomComp ?></title>
+<title>Orden de Asignación  de Agentes de Servicio | <?php echo $nomComp ?></title>
 
 </head>
 
@@ -18,7 +18,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-7">
-                            <h1 class="m-0">Tabla 2.3.6 Orden de Asignacion de Agentes de Servicio</h1>
+                            <h1 class="m-0">Tabla 2.3.6 Orden de Asignación  de Agentes de Servicio</h1>
                         </div>
                         <div class="col-sm-5 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>

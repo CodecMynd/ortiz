@@ -48,9 +48,33 @@ $count_reg_asesor8SI = mysqli_query($conexion, "SELECT asesor, FV FROM verificac
 $count_reg_asesor8NO = mysqli_query($conexion, "SELECT asesor, FV FROM verificacion WHERE FV <> '$fecha_mensaje' AND asesor = 'Tlaquepaque C'");
 $count_reg_asesor8NULL = mysqli_query($conexion, "SELECT asesor, FV FROM verificacion WHERE FV IS NULL AND asesor = 'Tlaquepaque C'");
 
+// total de asesor Tlaquepaque D
+// $count_reg_asesor9 = mysqli_query($conexion, "SELECT asesor FROM verificacion WHERE asesor = 'Tlaquepaque D'");
+$count_reg_asesor9SI = mysqli_query($conexion, "SELECT asesor, FV FROM verificacion WHERE FV = '$fecha_mensaje' AND asesor = 'Tlaquepaque D'");
+$count_reg_asesor9NO = mysqli_query($conexion, "SELECT asesor, FV FROM verificacion WHERE FV <> '$fecha_mensaje' AND asesor = 'Tlaquepaque D'");
+$count_reg_asesor9NULL = mysqli_query($conexion, "SELECT asesor, FV FROM verificacion WHERE FV IS NULL AND asesor = 'Tlaquepaque D' ");
+
+// total de asesor Tlaquepaque E
+// $count_reg_asesor10 = mysqli_query($conexion, "SELECT asesor FROM verificacion WHERE asesor = 'Tlaquepaque E'");
+$count_reg_asesor10SI = mysqli_query($conexion, "SELECT asesor, FV FROM verificacion WHERE FV = '$fecha_mensaje' AND asesor = 'Tlaquepaque E'");
+$count_reg_asesor10NO = mysqli_query($conexion, "SELECT asesor, FV FROM verificacion WHERE FV <> '$fecha_mensaje' AND asesor = 'Tlaquepaque E'");
+$count_reg_asesor10NULL = mysqli_query($conexion, "SELECT asesor, FV FROM verificacion WHERE FV IS NULL AND asesor = 'Tlaquepaque E'");
+
+// total de asesor Tlaquepaque F
+// $count_reg_asesor11 = mysqli_query($conexion, "SELECT asesor FROM verificacion WHERE asesor = 'Tlaquepaque F'");
+$count_reg_asesor11SI = mysqli_query($conexion, "SELECT asesor, FV FROM verificacion WHERE FV = '$fecha_mensaje' AND asesor = 'Tlaquepaque F'");
+$count_reg_asesor11NO = mysqli_query($conexion, "SELECT asesor, FV FROM verificacion WHERE FV <> '$fecha_mensaje' AND asesor = 'Tlaquepaque F'");
+$count_reg_asesor11NULL = mysqli_query($conexion, "SELECT asesor, FV FROM verificacion WHERE FV IS NULL AND asesor = 'Tlaquepaque F'");
+
+// total de asesor Tlaquepaque G
+// $count_reg_asesor12 = mysqli_query($conexion, "SELECT asesor FROM verificacion WHERE asesor = 'Tlaquepaque G'");
+$count_reg_asesor12SI = mysqli_query($conexion, "SELECT asesor, FV FROM verificacion WHERE FV = '$fecha_mensaje' AND asesor = 'Tlaquepaque G'");
+$count_reg_asesor12NO = mysqli_query($conexion, "SELECT asesor, FV FROM verificacion WHERE FV <> '$fecha_mensaje' AND asesor = 'Tlaquepaque G'");
+$count_reg_asesor12NULL = mysqli_query($conexion, "SELECT asesor, FV FROM verificacion WHERE FV IS NULL AND asesor = 'Tlaquepaque G'");
+
 // total de asesor Sin Asesor
 //  $count_reg_asesor8 = mysqli_query($conexion, "SELECT asesor FROM verificacion WHERE asesor = 'Tlaquepaque C'");
- $count_reg_asesor9SI = mysqli_query($conexion, "SELECT asesor FROM verificacion WHERE asesor IS NULL ");
+ $count_reg_asesorSI = mysqli_query($conexion, "SELECT asesor FROM verificacion WHERE asesor IS NULL ");
 
 
 
@@ -152,11 +176,43 @@ $count_reg_asesor8NULL = mysqli_query($conexion, "SELECT asesor, FV FROM verific
                             <td><?php echo $fecha_mensaje?></td>
                         </tr>
                         <tr>
+                            <td>Tlaquepaque D</td>
+                            <td><strong><?php echo mysqli_num_rows($count_reg_asesor9SI) ?></strong></td>
+                            <td><?php echo mysqli_num_rows($count_reg_asesor9NO) ?></td>
+                            <td><?php echo mysqli_num_rows($count_reg_asesor9NULL) ?></td>
+                            <td class="celda"><?php echo mysqli_num_rows($count_reg_asesor8NO)+mysqli_num_rows($count_reg_asesor9NULL) ?></td>
+                            <td><?php echo $fecha_mensaje?></td>
+                        </tr>
+                        <tr>
+                            <td>Tlaquepaque E</td>
+                            <td><strong><?php echo mysqli_num_rows($count_reg_asesor10SI) ?></strong></td>
+                            <td><?php echo mysqli_num_rows($count_reg_asesor10NO) ?></td>
+                            <td><?php echo mysqli_num_rows($count_reg_asesor10NULL) ?></td>
+                            <td class="celda"><?php echo mysqli_num_rows($count_reg_asesor8NO)+mysqli_num_rows($count_reg_asesor10NULL) ?></td>
+                            <td><?php echo $fecha_mensaje?></td>
+                        </tr>
+                        <tr>
+                            <td>Tlaquepaque F</td>
+                            <td><strong><?php echo mysqli_num_rows($count_reg_asesor11SI) ?></strong></td>
+                            <td><?php echo mysqli_num_rows($count_reg_asesor11NO) ?></td>
+                            <td><?php echo mysqli_num_rows($count_reg_asesor11NULL) ?></td>
+                            <td class="celda"><?php echo mysqli_num_rows($count_reg_asesor8NO)+mysqli_num_rows($count_reg_asesor11NULL) ?></td>
+                            <td><?php echo $fecha_mensaje?></td>
+                        </tr>
+                        <tr>
+                            <td>Tlaquepaque G</td>
+                            <td><strong><?php echo mysqli_num_rows($count_reg_asesor12SI) ?></strong></td>
+                            <td><?php echo mysqli_num_rows($count_reg_asesor12NO) ?></td>
+                            <td><?php echo mysqli_num_rows($count_reg_asesor12NULL) ?></td>
+                            <td class="celda"><?php echo mysqli_num_rows($count_reg_asesor8NO)+mysqli_num_rows($count_reg_asesor12NULL) ?></td>
+                            <td><?php echo $fecha_mensaje?></td>
+                        </tr>
+                        <tr>
                             <td>Sin Asesor</td>
                             <td> 0 </td>
                             <td> 0 </td>
-                            <td> <?php echo mysqli_num_rows($count_reg_asesor9SI) ?> </td>
-                            <td class="celda"><?php echo mysqli_num_rows($count_reg_asesor9SI) ?></td>
+                            <td> <?php echo mysqli_num_rows($count_reg_asesorSI) ?> </td>
+                            <td class="celda"><?php echo mysqli_num_rows($count_reg_asesorSI) ?></td>
                             <td><?php echo $fecha_mensaje?></td>
                         </tr>
    

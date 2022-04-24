@@ -2,7 +2,7 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>CRUD Comprobación de Asignación  de Asesor | <?php echo $nomComp ?></title>
+<title>CRUD Solicitud Cambio de Placas | <?php echo $nomComp ?></title>
 <style>
     @media (min-width:320px) and (max-width:425px) {
         .content-header {
@@ -19,35 +19,36 @@ require '../components/head-dataTables.php';
     }
 </style>
 <script>
-    function abrirModal1(id_proyecto, nProyecto) {
-        $("#btnModal-regComAsesor").click();
-        $("#id_proyecto").val(id_proyecto);
-        $("#nProyecto").val(nProyecto);
-        $("#tituloModal").html(nProyecto);
-    }
-    function abrirModal2(id_proyecto, nProyecto){
-        $("#btnModal-regComAsesorSuper").click();
-        $("#id_proyecto1").val(id_proyecto);
-        $("#nProyecto1").val(nProyecto);
-        $("#tituloModal1").html(nProyecto);
-    }
-    function abrirModal3(id_proyecto, nProyecto){
-        $("#btnModal-verGralComAsesor").click();
-        $("#id_proyecto2").val(id_proyecto);
-        $("#tituloModal2").html(nProyecto);
-    }
-    function abrirModal4(id_proyecto, nProyecto, id_comAsesor){
-        $("#btnModal-eliminarComAsesor").click();
-        $("#id_proyecto3").val(id_proyecto);
-        $("#id_comAsesor3").val(id_comAsesor);
-        $("#tituloModal3").html(nProyecto);
-    }
-    function abrirModal5(id_proyecto, nProyecto, id_comSupervision){
-        $("#btnModal-eliminarComAsesorSuper").click();
-        $("#id_proyecto4").val(id_proyecto);
-        $("#id_comSupervision4").val(id_comSupervision);
-        $("#tituloModal4").html(nProyecto);
-    }
+    //  function abrirModal1(id_proyecto, nProyecto, id_cambioPlaca) {
+    //      $("#btnModal-regCambioPlacasAutorizar").click();
+    //      $("#id_proyecto").val(id_proyecto);
+    //      $("#nProyecto").val(nProyecto);
+    //      $("#id_cambioPlacas").val(id_cambioPlaca);
+    //      $("#tituloModal").html(nProyecto);
+    //  }
+    // function abrirModal2(id_proyecto, nProyecto){
+    //     $("#btnModal-regComPlacasSuper").click();
+    //     $("#id_proyecto1").val(id_proyecto);
+    //     $("#nProyecto1").val(nProyecto);
+    //     $("#tituloModal1").html(nProyecto);
+    // }
+    // function abrirModal3(id_proyecto, nProyecto){
+    //     $("#btnModal-verGralComPlacas").click();
+    //     $("#id_proyecto2").val(id_proyecto);
+    //     $("#tituloModal2").html(nProyecto);
+    // }
+    // function abrirModal4(id_proyecto, nProyecto, id_comPlacas){
+    //     $("#btnModal-eliminarComPlacas").click();
+    //     $("#id_proyecto3").val(id_proyecto);
+    //     $("#id_comPlacas3").val(id_comPlacas);
+    //     $("#tituloModal3").html(nProyecto);
+    // }
+    // function abrirModal5(id_proyecto, nProyecto, id_comSupervision){
+    //     $("#btnModal-eliminarComPlacasSuper").click();
+    //     $("#id_proyecto4").val(id_proyecto);
+    //     $("#id_comSupervision4").val(id_comSupervision);
+    //     $("#tituloModal4").html(nProyecto);
+    // }
 </script>
 
 </head>
@@ -63,7 +64,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-8">
-                            <h1 class="m-0">Tabla 2.3.15.1 Lista Comprobación de Asignación  de Asesor</h1>
+                            <h1 class="m-0">Tabla 2.3.9.2 Solicitud Cambio de Placas</h1>
                         </div>
                         <div class="col-sm-4">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -118,19 +119,19 @@ require '../components/head-dataTables.php';
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Código ID</h6>
-                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Supervisión</h6>
-                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -160,8 +161,13 @@ require '../components/head-dataTables.php';
                         <div class="col-md-12 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Proyectos dados de alta en el sistema</h3>
+                                    <h3 class="card-title">Solicitudes para cambio de Placas</h3>
                                     <div class="card-tools">
+                                    <?php if ($super == 1 OR $solCambioPlacas == 1) { ?>
+                                            <a type="button" class="btn btn-secondary" href="../adds/formAddSolCambioPlacas.php" data-toggle="tooltip" data-placement="left" title="2.3.9.2.1 Registro Solicitud Cambio de Placas"><i class="fa-solid fa-language"></i>&nbsp;&nbsp; Solicitud Cambio de Placas</a>
+                                        <?php } else { ?>
+                                            <a type="button" class="btn btn-outline-danger" id="solCambioPlacas" data-toggle="tooltip" data-placement="left" title="2.3.9.2.1 Registro Solicitud Cambio de Placas"><i class="fa-solid fa-language"></i>&nbsp;&nbsp; Solicitud Cambio de Placas</a>
+                                        <?php } ?>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
@@ -169,29 +175,29 @@ require '../components/head-dataTables.php';
                                 <div class="card-body">
                                     <?php
                                     if ($super == 1) {
-                                    } else if ($verTablaComAsesor == 0) { ?>
+                                    } else if ($verTablaSolCambioPlacas == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tableComAsignarAsesor" class="table table-sm table-bordered table-striped">
+                                    <table id="tableSolCambiarPlacas" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
+                                                <th>Estado del Proyecto</th>
+                                                <th>Etapa Proyecto</th>
+                                                <th>Núm. Folio Cambio Placas</th>
+                                                <th>Estado Solicitud Cambio Placas</th>
+                                                <th>Placas Actual</th>
+                                                <th>Placas por Asignar</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
                                                 <th>Año</th>
-                                                <th>Placas</th>
                                                 <th>Color</th>
-                                                <!-- <th>Cliente</th> -->
-                                                <th>Estado del Proyecto</th>
-                                                <th>Status Comprobación</th>
-                                                <th>Status Supervisión</th>
-                                                <th>Nombre Asesor</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -200,33 +206,23 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
+                                                <th>Estado del Proyecto</th>
+                                                <th>Etapa Proyecto</th>
+                                                <th>Núm. Folio Cambio Placas</th>
+                                                <th>Estado Solicitud Cambio Placas</th>
+                                                <th>Placas Actual</th>
+                                                <th>Placas por Asignar</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
                                                 <th>Año</th>
-                                                <th>Placas</th>
                                                 <th>Color</th>
-                                                <!-- <th>Cliente</th> -->
-                                                <th>Estado del Proyecto</th>
-                                                <th>Status Comprobación</th>
-                                                <th>Status Supervisión</th>
-                                                <th>Nombre Asesor</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>
                                     </table>
-                                    <button id="btnModal-regComAsesor" class="btn btn-white" data-toggle="modal" data-target=".regComAsesor"></button>
-                                    <button id="btnModal-regComAsesorSuper" class="btn btn-white" data-toggle="modal" data-target=".regComAsesorSuper"></button>
-                                    <button id="btnModal-verGralComAsesor" class="btn btn-white" data-toggle="modal" data-target=".verGralComAsesor"></button>
-                                    <button id="btnModal-eliminarComAsesor" class="btn btn-white" data-toggle="modal" data-target=".eliminarComAsesor"></button>
-                                    <button id="btnModal-eliminarComAsesorSuper" class="btn btn-white" data-toggle="modal" data-target=".elimnarComAsesorSuper"></button>
                                     <?php
-                                    require '../components/modal-regComAsesor.php';
-                                    require '../components/modal-regComAsesorSuper.php';
-                                    require '../components/modal-eliminarComAsesor.php';
-                                    require '../components/modal-eliminarComAsesorSuper.php';
-
                                     desconectar();
                                     ?>
                                 </div>
@@ -251,184 +247,11 @@ require '../components/head-dataTables.php';
     <script src="../../src/js/toastr.js"></script>
     <script>
         // comprobar NO SE PUEDE HACER UNA SUPERVISION SIN HABER PRIMERO HECHO UNA COMPROBACION DE ASESORS --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#comprobar ").click(function() {
-                toastr["error"]("¡NO SE PUEDE HACER UNA SUPERVISIÓN SIN HABER PRIMERO HECHO UNA COMPROBACIÓN!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // comprobar NO SE PUEDE HACER UNA SUPERVISION SIN HABER PRIMERO HECHO UNA COMPROBACION DE ASESORS --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#elimina").click(function() {
-                toastr["error"]("¡NO SE PUEDE ELIMINAR UNA COMPROBACIÓN, PRIMERO ELIMINA LA SUPERVISIÓN!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // eliminado PROYECTO ELIMINADO, NO SE PUEDE REALIZAR ESTA ACCION --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#eliminado ").click(function() {
-                toastr["error"]("¡PROYECTO ELIMINADO, NO SE PUEDE REALIZAR ESTA ACCION!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // resgistra NO TIENE COMPROBACION, PRIMERO REGISTRA YA DESPUES PUEDES BORRAR --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#resgistra ").click(function() {
-                toastr["error"]("¡NO TIENE REGISTRO DE COMPROBACION!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // resgistra NO SE PUEDE VOLVER A REGISTRAR, PRIMERO ELIMINA Y VUELVE A REGISTRAR --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#yaRegistrado ").click(function() {
-                toastr["error"]("¡NO SE PUEDE VOLVER A REGISTRAR, ELIMINA Y VUELVE A REGISTRAR!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // regComAsesor 2.3.15.1 REGISTRAR COMPROBACIÓN DE ASESOR --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#regComAsesor ").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.9.1 REGISTRAR COMPROBACIÓN DE ASESOR, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // eliComAsesor 2.3.15.2 REGISTRAR COMPROBACIÓN DE ASESOR --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#eliComAsesor ").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.9.2 ELIMINAR COMPROBACIÓN DE ASESOR, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
+  
         // regComAsesorSuper 2.3.15.3 REGISTRAR COMPROBACIÓN DE ASESOR --------------------------------------------------------------
         $(document).ready(function() {
-            $("#regComAsesorSuper ").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.9.3 REGISTRAR SUPERVISION DE COMPROBACIÓN DE ASESOR, consulta al administrador!")
+            $("#verGralcambioPlacasAutorizar ").click(function() {
+                toastr["error"]("¡No tienes acceso a: 2.3.9.2.3 Ver Generales Solicitud Cambio de Placas, consulta al administrador!")
 
                 tostadas.opciones = {
                     "botóncerrar": falso,
@@ -452,8 +275,8 @@ require '../components/head-dataTables.php';
 
         // eliComAsesorSuper 2.3.15.4  ELIMINAR SUPERVISION COMPROBACIÓN DE ASESOR --------------------------------------------------------------
         $(document).ready(function() {
-            $("#eliComAsesorSuper ").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.9.4 ELIMINAR SUPERVISIÓN DE COMPROBACIÓN DE ASESOR, consulta al administrador!")
+            $("#cambioPlacasAutorizar ").click(function() {
+                toastr["error"]("¡No tienes acceso a:2.3.9.2.2 Registrar Autorización Cambio de Placas, consulta al administrador!")
 
                 tostadas.opciones = {
                     "botóncerrar": falso,

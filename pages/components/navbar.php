@@ -5,8 +5,8 @@
             <!-- Produccion -->
             <!-- <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span></a> -->
 
-        <!-- test -->
-        <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span>
+            <!-- test -->
+            <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span>
         </a>
 
         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,8 +98,14 @@
                                 <li><a href="../admin/crudVerificacionDiariaVehiculos.php" class="dropdown-item ">2.3.2.2 Estatus para envío de Mensajes</a></li>
                                 <li><a href="../admin/crudActividadMinimaDiaria.php" class="dropdown-item ">2.3.4 Actividad Mínima Diaria</a></li>
                                 <li><a href="../adds/formAddCapValVenInicial.php" class="dropdown-item">2.3.7 Captura de Valor Venta Inicial </a></li>
-                                <li><a href="../update/formUpdateAsignarAgentes.php" class="dropdown-item disabled">2.3.8 Orden de Asignacion de Agentes Servicio </a></li>
-                                <li><a href="../admin/crudComprobacionPlacas.php" class="dropdown-item ">2.3.9 Comprobación de Placas </a></li>
+                                <li><a href="../update/formUpdateAsignarAgentes.php" class="dropdown-item disabled">2.3.8 Orden de Asignación de Agentes Servicio </a></li>
+                                <li class="btn-group dropleft dropdown-hover">
+                                    <a id="dropdownSubMenu1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">2.3.9 Placas </a>
+                                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-1 shadow bg-light">
+                                        <li><a href="../admin/crudComprobacionPlacas.php" class="dropdown-item ">2.3.9.1 Comprobación de Placas </a></li>
+                                        <li><a href="../admin/crudSolicitudCambioPlacas.php" class="dropdown-item ">2.3.9.2 Solicitud Cambio de Placas</a></li>
+                                    </ul>
+                                </li>
                                 <li><a href="../admin/crudComprobacionKm.php" class="dropdown-item ">2.3.10 Comprobación de Kilometraje </a></li>
                                 <li><a href="../admin/crudComprobacionImagenes.php" class="dropdown-item ">2.3.11 Comprobación 7 Imágenes </a></li>
                                 <li><a href="../admin/crudComprobacionClientes.php" class="dropdown-item ">2.3.12 Comprobación INE Clientes </a></li>
@@ -108,8 +114,8 @@
 
                                 <li class="btn-group dropleft dropdown-hover">
                                     <a id="dropdownSubMenu1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">2.3.15 Asesores</a>
-                                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                                        <li><a href="../admin/crudComprobacionAsignarAsesor.php" class="dropdown-item ">2.3.15.1 Asignación de Asesor</a></li>
+                                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-1 shadow bg-light">
+                                        <li><a href="../admin/crudComprobacionAsignarAsesor.php" class="dropdown-item">2.3.15.1 Asignación de Asesor</a></li>
                                         <li><a href="../admin/crudSolicitudCambioAsesor.php" class="dropdown-item">2.3.15.2 Solicitud Cambio de Asesor</a></li>
                                     </ul>
                                 </li>

@@ -1,15 +1,16 @@
-<div class="modal fade regMotivoSupVVIvsVVA-<?php echo $idP ?>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade regMotivoSupVVIvsVVA" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">
-                   Registrar Supervisión
+                   Registrar Supervisión Valor Venta Inicial Vs Valor Alta
                 </h5>
             </div>
             <form id="formNuevoRegMotivoSupVVAvsVCodID" action="../adds/addNuevoRegMotivoSupVVIvsVVA.php" method="POST"> 
                 <div class="modal-body">
                     <div class='row justify-content-center'>
-                        <input type="hidden" name="id_proyecto" id="id_proyecto" value="<?php echo $row['id_proyecto'] ?>">
+                    <h5>Número de Proyecto: <span id="tituloModal1"></span></h5>
+                        <input type="hidden" name="id_proyecto1" id="id_proyecto1" value="">
                         <div class='col-md-12 col-sm-12 my-1'>
                             <div class='form-group-input' style='border: 1px solid #CED4DA;'>
                                 <label class='pl-2 mb-2'>¿Motivo?</label>
@@ -31,7 +32,7 @@
                 </div>
             </form>
             <div class="pie">
-                <h5>3.1.1 Registrar Motivo Supervisión</h5>
+                <h5>3.2.1 Registrar Motivo Supervisión</h5>
             </div>
         </div>
     </div>

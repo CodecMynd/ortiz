@@ -2,7 +2,7 @@
 	require '../components/query.php'; 
 	if ($super == 1 OR $verTablaRepVVAvsVCodID == 1) {
 
-	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, 
+	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, P.proyectoActivo, P.registroSolicitud, P.altaProyecto, P.proyCodIdentificador, P.superCodIdentificador,
 	V.placa, Co.color, M.marca, Mo.modelo, A.anio, RS.valorVentaAlta,
 	RC.id_regcodidenti, RC.borrado, RC.folioCodID, RC.supervisionValores,
 	S.semana, SC.semanaCobro, D.codIdProyBase, D.valCobProyBase, RE.id_repVVAvsVCI, RE.motivo
@@ -31,6 +31,7 @@ $cont = 0;
 		$outputBtns2 = "";
 		$outputBtns3 = "";
 		$statusSuper = "";
+		$etapa = "";
 
 		$idP = $row['id_proyecto'];
 		$nP = $row['nProyecto'];
@@ -45,6 +46,27 @@ $cont = 0;
 			$statusSuper = "<h6><span class='badge badge-danger badge-pill'>Sin Supervisión</span></h6>";
 		} else if ($Sup == 1) {
 			$statusSuper = "<h6><span class='badge badge-success badge-pill'>Supervisado</span></h6>";
+		}
+
+		// Etapa del proyecto
+		$PA = $row['proyectoActivo'];
+		$RS = $row['registroSolicitud'];
+		$AP = $row['altaProyecto'];
+		$CI = $row['proyCodIdentificador'];
+		$SU = $row['superCodIdentificador'];
+
+		if ($PA == 1) {
+			$etapa = "<h6><span class='badge badge-success badge-pill'>Proyecto Activo</span></h6>";
+		} else if ($RS == 1) {
+			$etapa = "<h6><span class='badge badge-success badge-pill'>Solicitud Alta</span></h6>";
+		} else if ($AP == 1) {
+			$etapa = "<h6><span class='badge badge-success badge-pill'>Alta Proyecto</span></h6>";
+		} else if ($CI == 1) {
+			$etapa = "<h6><span class='badge badge-success badge-pill'>Código Identificador</span></h6>";
+		} else if ($SU == 1) {
+			$etapa = "<h6><span class='badge badge-success badge-pill'>Supervisión</span></h6>";
+		} else {
+			$etapa = "<h6><span class='badge badge-Warning badge-pill'>Sin Ubicación</span></h6>";
 		}
 	
 		// 3.1.1 Registrar Motivo Supervisión
@@ -71,9 +93,9 @@ $cont = 0;
 
 		// 3.1.3 Ver Link de Video, Observaciones y Generales
 		 if ($super == 1) { 
-		 	$outputBtns3 = "<a href='../components/verGralComVerifDiariaVeh.php?id={$idP}' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
+		 	$outputBtns3 = "<a href='../components/verGralRepVVAvsVCodID.php?id={$idP}' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
 		 } else if ($verGralRepVVAvsVCodID == 1) { 
-		 	$outputBtns3 = "<a href='../components/verGralComVerifDiariaVeh.php?id={$idP}' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
+		 	$outputBtns3 = "<a href='../components/verGralRepVVAvsVCodID.php?id={$idP}' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
 		 } else { 
 		 	$outputBtns3 = "<a class='btn btn-outline-danger' id='verGralRepVVAvsVCodID'><i class='fa-solid fa-comments'></i></a>";
 		 }
@@ -84,22 +106,23 @@ $cont = 0;
 		$datos[] = array(
 			"0" => $cont,
 			"1" => "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>",
-			"2" => $row['codIdProyBase'],
-			"3" => $row['folioCodID'],
-			"4" => $row['nProyecto'],
-			"5" => $row['nOrden'],
-			"6" => $row['marca'],
-			"7" => $row['modelo'],
-			"8" => $row['anio'],
-			"9" => $row['placa'],
-			"10" => $row['color'],
-			"11" => $row['semana'],
-			"12" => $row['semanaCobro'],
-			"13" => $row['valorVenta'],
-			"14" => $row['valorVentaAlta'],
-			"15" => $row['valCobProyBase'],
-			"16" => $statusSuper,
-			"17" => "<div class='input-group input-group-sm mb-3'>
+			// "2" => $row['codIdProyBase'],
+			// "3" => $row['folioCodID'],
+			"2" => $row['nProyecto'],
+			"3" => $row['nOrden'],
+			"4" => $row['marca'],
+			"5" => $row['modelo'],
+			"6" => $row['anio'],
+			"7" => $row['placa'],
+			"8" => $row['color'],
+			"9" => $row['semana'],
+			"10" => $row['semanaCobro'],
+			"11" => $row['valorVenta'],
+			"12" => "<strong>{$row['valorVentaAlta']}</strong>",
+			"13" => "<strong>{$row['valCobProyBase']}</strong>",
+			"14" => $etapa,
+			"15" => $statusSuper,
+			"16" => "<div class='input-group input-group-sm mb-3'>
 						<div class='input-group-prepend'>
 							<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración Reporte Diferencia Valor Alta Vs. Valor Código Identificador'> Acciones</span>
 							</button>

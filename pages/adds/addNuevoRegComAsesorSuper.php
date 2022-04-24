@@ -40,7 +40,7 @@ try {
 
    $conexion->commit();
    echo '<script>
-         alert("Supervisión de Comprobación de Asignacion de Asesor Ingresado correctamente")
+         alert("Supervisión de Comprobación de Asignación  de Asesor Ingresado correctamente")
          window.history.go(-1);
          </script>';
 } catch (Exception $e) {

@@ -10,15 +10,28 @@ $date = date('Y-m-d H:i:s');
 $id = $_SESSION['id_usuario'];
 
 
-$id_proyecto =  $_POST['id_proyecto'];
+$id_proyecto =  $_POST['id_proyecto1'];
 $motivo =  $_POST['motivo'];
 $supervisado = 1;
 $capMotivo = 1;
 
+try {
+   $conexion->autocommit(FALSE);
 // Registrar motivo de supervision
 $query = "INSERT INTO repvalveninicialvsvalvenalta(id_proyecto, motivo, capMotivo, fecha_registro, id_capC) VALUES ('$id_proyecto', '$motivo', '$capMotivo', '$date', '$id')";
-$resultado = mysqli_query($conexion, $query);
-// var_dump($query);
+
+$verificar_id = mysqli_query($conexion, "SELECT id_proyecto FROM repvalveninicialvsvalvenalta WHERE id_proyecto = '$id_proyecto' ");
+if (mysqli_num_rows($verificar_id) > 0) {
+    echo
+    "<div class='alert alert-danger' role='role'>
+<p><strong>¡Error, ID '$id_proyecto' ya se encuentra  registrado, Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte!</strong></p>
+</div>";
+    exit;
+} else {
+    $resultado = mysqli_query($conexion, $query);
+    // var_dump($query);
+}
+
 
 // Actualizar supervision valores
 $queryR = "UPDATE registroalta SET supervisionValores = 1 WHERE id_proyecto = '$id_proyecto'";
@@ -30,16 +43,16 @@ $queryRB = "UPDATE registroaltabitacora SET supervisionValores = 1 WHERE id_proy
 $resultadoRB = mysqli_query($conexion, $queryRB);
 // var_dump($queryR);
 
-     if ($resultadoRB) {
-        echo '<script>
-        window.history.go(-1);
-     </script>';
-     } else {
-        echo '<script>
-        alert("¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte, Error detectado: '.$e->getMessage().'")
-        window.history.go(-1);
+$conexion->commit();
+echo '<script>
+        alert("Registro de Supervisión Diferencia Valor Venta Inicial Vs Valor Alta ingresado correctamente");
+        window.location.href = "../components/reporteDifValVenAltavsValCodId.php";
         </script>';
-     }
+} catch (Exception $e) {
+$conexion->rollback();
+      echo '<script>
+      alert("¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte, Error detectado: '.$e->getMessage().'")
+      window.history.go(-1);
+</script>';
+}
 desconectar();
-?>
-

@@ -1,15 +1,15 @@
 <!-- Modal -->
-<div class="modal fade" id="modalSelectSolCambioAsesor" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modalSelectSolCambioPlacas" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Selecciona: Proyecto Para Cambiar de Asesor <strong>(Solo mostrara Proyectos con Asesor Asignado)</strong></h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Selecciona: Proyecto Para Cambiar de Placa</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="card-body">
-                <table id="tableCargarSolCambioAsesor" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                <table id="tableCargarSolCambioPlacas" class="table table-sm table-bordered table-striped" style="width: 100%;">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -19,10 +19,9 @@
                             <th>Marca</th>
                             <th>Modelo</th>
                             <th>Año</th>
-                            <th>Placas</th>
                             <th>Color</th>
+                            <th>Núm. de Placa</th>
                             <th>Estado del Proyecto</th>
-                            <th>Nombre Asesor</th>
                             <th>Descargar</th>
                         </tr>
                     </thead>
@@ -36,10 +35,9 @@
                             <th>Marca</th>
                             <th>Modelo</th>
                             <th>Año</th>
-                            <th>Placas</th>
                             <th>Color</th>
+                            <th>Núm. de Placa</th>
                             <th>Estado del Proyecto</th>
-                            <th>Nombre Asesor</th>
                             <th>Descargar</th>
                         </tr>
                     </tfoot>
