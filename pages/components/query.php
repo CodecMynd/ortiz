@@ -214,7 +214,12 @@ while ($row = mysqli_fetch_array($query)) {
     $cambioPlacasAutorizar = $row['cambioPlacasAutorizar'];
     $verTablaSolCambioPlacas = $row['verTablaSolCambioPlacas'];
     $verGralcambioPlacasAutorizar = $row['verGralcambioPlacasAutorizar'];
-
+    $regComDiaAltasAsignarCodId = $row['regComDiaAltasAsignarCodId'];
+    $regComDiaAltasAsignarCodIdSuper = $row['regComDiaAltasAsignarCodIdSuper'];
+    $eliComDiaAltasAsignarCodId = $row['eliComDiaAltasAsignarCodId'];
+    $verGralComDiaAltasAsignarCodId = $row['verGralComDiaAltasAsignarCodId'];
+    $eliComDiaAltasAsignarCodIdSuper = $row['eliComDiaAltasAsignarCodIdSuper'];
+    $vertablaComDiaAltasAsignarCodId = $row['vertablaComDiaAltasAsignarCodId'];
 
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
     if ($passUser === 'SIN_PASSWORD') {
@@ -227,23 +232,3 @@ while ($row = mysqli_fetch_array($query)) {
     }
 }
 
-/// contadores de registros ------------------------------------------------------------------------------------------
-//# usuarios
-// $count_reg_usuarios = mysqli_query($conexion, "SELECT id_usuario FROM usuarios ");
-// # marcas
-// $count_reg_marcas = mysqli_query($conexion, "SELECT id_marca FROM marcas ");
-//# modelos
-// $count_reg_modelos = mysqli_query($conexion, "SELECT id_modelo FROM modelos ");
-// //# vehiculos
-// $count_reg_vehiculos = mysqli_query($conexion, "SELECT id_vehiculo FROM vehiculos ");
-//# clientes
-// $count_reg_clientes = mysqli_query($conexion, "SELECT id_cliente FROM clientes ");
-
-
-
-// CREATE VIEW mensaje as
-// SELECT P.id_proyecto, P.estadoProyectoEliminado,                                 
-// CV.fecha_hoyV, CV.fecha_hoyS
-// FROM proyectos P
-// LEFT JOIN comverifdiariaveh CV ON P.id_proyecto = CV.id_proyecto 
-// GROUP BY P.id_proyecto;

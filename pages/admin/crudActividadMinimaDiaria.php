@@ -16,10 +16,10 @@ require '../components/head-dataTables.php';
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
-                        <div class="col-sm-6">
+                        <div class="col-sm-8 col-md-8 col-lg-8">
                             <h1 class="m-0">Tabla 2.3.4 Verificación Actividad Mínima Diaria</h1>
                         </div>
-                        <div class="col-sm-6 ">
+                        <div class="col-sm-4 col-md-4 col-lg-4">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
                         </div>
                     </div>
@@ -130,6 +130,7 @@ require '../components/head-dataTables.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>ID</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -149,6 +150,7 @@ require '../components/head-dataTables.php';
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
+                                                <th>ID</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -165,13 +167,7 @@ require '../components/head-dataTables.php';
                                             </tr>
                                         </tfoot>
                                     </table>
-
-                                    <!-- <button id="btModal-eliminarConmVerifDiariaVeh" class='btn btn-white' data-toggle='modal' data-target='.borrarComVerifDiariaVeh'></button> -->
-                                <?php
-                                // require '../components/modal-eliminarComVerifDiariaVeh.php';
-                                // require '../components/modal-eliminarComVerifDiariaVehSuper.php';
-                                // require '../components/modal-verGralComVerifDiariaVeh.php';
-                                            
+                                <?php                                            
                                     desconectar();
                                 ?>
                                 </div>

@@ -2,7 +2,7 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>Tabla Reporte de Altas Por Asignar Código ID | <?php echo $nomComp ?></title>
+<title>Tabla Comprobación Diaria de Altas Por Asignar Código ID | <?php echo $nomComp ?></title>
 <style>
     @media (min-width:320px) and (max-width:425px) {
         .content-header {
@@ -31,7 +31,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-8">
-                            <h1 class="m-0">Tabla 2.6.2 Reporte de Altas Por Asignar Código ID</h1>
+                            <h1 class="m-0">Tabla 2.6.3 Comprobación Diaria de Altas Por Asignar Código ID</h1>
                         </div>
                         <div class="col-sm-4 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -55,18 +55,18 @@ require '../components/head-dataTables.php';
                                 <div class="card-body">
                                     <?php
                                     if ($super == 1) {
-                                    } else if ($vertablaDadosAltaAsignarCodId == 0) { ?>
+                                    } else if ($vertablaComDiaAltasAsignarCodId == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tableDadosdeAlta" class="table table-sm table-bordered table-striped">
+                                    <table id="tableComDiaAltasAsignarCodId" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
-                                                <th>Cronometro Respuesta a solicitud de Alta</th>
+                                                <!-- <th>Cronometro Respuesta a solicitud de Alta</th> -->
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -77,6 +77,9 @@ require '../components/head-dataTables.php';
                                                 <th>Semana de Alta</th>
                                                 <th>Valor Venta Inicial</th>
                                                 <th>Valor Venta Alta</th>
+                                                <th>Status Comprobación</th>
+                                                <th>Status Supervisión</th>
+                                                <th>Último Registro</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -86,7 +89,7 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
-                                                <th>Cronometro Respuesta a solicitud de Alta</th>
+                                                <!-- <th>Cronometro Respuesta a solicitud de Alta</th> -->
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -97,6 +100,9 @@ require '../components/head-dataTables.php';
                                                 <th>Semana de Alta</th>
                                                 <th class="suma"></th>
                                                 <th class="suma"></th>
+                                                <th>Status Comprobación</th>
+                                                <th>Status Supervisión</th>
+                                                <th>Último Registro</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>

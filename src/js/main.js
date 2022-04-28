@@ -1146,26 +1146,7 @@ $("#btnUpdateProyectoDatosGral").on('click', function () {
 -
 -
 */
-// 2.3.4 Eliminar Proyectos ------------------------------------------------------------
-$('.btnBorrarProyecto').click(function (e) {
-    e.preventDefault();
-    if (confirm("¿Estás seguro de eliminar esta Proyecto? Una vez borrado ya no se podrá recuperar la información.")) {
-        var id = $(this).attr("id");
 
-        var dataString = 'id=' + id;
-        url = "../delete/deleteProyecto.php";
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: dataString,
-            success: function (data) {
-                window.location.href = "crudProyectos.php";
-                $('#respuestaProyectoBorrado').html(data);
-            }
-        });
-    }
-    return false;
-});
 /*
 -
 -

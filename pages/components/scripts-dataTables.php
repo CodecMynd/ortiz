@@ -186,75 +186,6 @@
                 }
             }).buttons().container().appendTo('#tableCapValVenInicial_wrapper .col-md-6:eq(0)');
 
-            // Tabla 2.6 Proyectos con Código Identificador
-            var tabla = $("#tableDadosdeAlta").DataTable({
-                "responsive": true,
-                "lengthChange": true,
-                "autoWidth": true,
-                "buttons": ["csv", "excel", "pdf", "colvis"],
-                "language": {
-
-                    "aria": {
-                        "sortAscending": "Activar para ordenar la columna de manera ascendente",
-                        "sortDescending": "Activar para ordenar la columna de manera descendente"
-                    },
-                    "buttons": {
-                        "collection": "Colección",
-                        "colvis": "Filtrar columnas",
-                        "colvisRestore": "Restaurar visibilidad",
-                        "copy": "Copiar",
-                        "copyKeys": "Presione ctrl o u2318 + C para copiar los datos de la tabla al portapapeles del sistema. <br \/> <br \/> Para cancelar, haga clic en este mensaje o presione escape.",
-                        "copySuccess": {
-                            "1": "Copiada 1 fila al portapapeles",
-                            "_": "Copiadas %d fila al portapapeles"
-                        },
-                        "copyTitle": "Copiar al portapapeles",
-                        "csv": "CSV",
-                        "excel": "Excel",
-                        "pageLength": {
-                            "-1": "Mostrar todas las filas",
-                            "_": "Mostrar %d filas"
-                        },
-                        "pdf": "PDF",
-                        "print": "Imprimir"
-                    },
-                    "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-                    "infoThousands": ",",
-                    "lengthMenu": "Mostrar _MENU_ registros",
-                    "loadingRecords": "Cargando...",
-                    "paginate": {
-                        "first": "Primero",
-                        "last": "Último",
-                        "next": "Siguiente",
-                        "previous": "Anterior"
-                    },
-                    "processing": "Procesando...",
-                    "search": "Buscar:",
-                    "decimal": ".",
-                    "emptyTable": "No hay datos disponibles en la tabla",
-                    "info": "Mostrando de _START_ al _END_ de  _TOTAL_ registros",
-                    "zeroRecords": "No se encontraron coincidencias"
-
-                },
-
-                "drawCallback": function() {
-                    //alert("La tabla se está recargando"); 
-                    var api = this.api();
-                    $(api.column(10).footer()).html(
-                        'Total: ' + api.column(10, {
-                            page: 'current'
-                        }).data().sum()
-                    )
-                    var api2 = this.api();
-                    $(api2.column(11).footer()).html(
-                        'Total: ' + api2.column(11, {
-                            page: 'current'
-                        }).data().sum()
-                    )
-                }
-            }).buttons().container().appendTo('#tableDadosdeAlta_wrapper .col-md-6:eq(0)');
-
             // Modal seleccionar Vehiculo
             var tabla = $("#tableSelectVehiculo").DataTable({
                 "responsive": true,
@@ -504,6 +435,7 @@
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": true,
+                "dom": 'PlBfrtip',
                 "buttons": ["csv", "excel", "pdf", "colvis"],
                 "ajax": {
                     url: "../consultas/consultaComPlacas.php",
@@ -513,6 +445,21 @@
                         console.log(e.responseText);
                     }
                 },
+                "searchPanes": {
+                    initCollapsed: true,
+                    dtOpts: {
+                        dom: 'tp',
+                        paging: 'true',
+                        //  pagingType:'simple',
+                        searching: true
+                    }
+                },
+                "columnDefs": [{
+                    searchPanes: {
+                        show: true
+                    },
+                    targets: [4, 5, 6, 7, 8, 9, 10, 11, 12],
+                }],
                 "language": {
                     "aria": {
                         "sortAscending": "Activar para ordenar la columna de manera ascendente",
@@ -652,7 +599,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
-            "dom": 'lBfrtip',
+            "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
                 url: "../consultas/consultaVerifDiariaVeh.php",
@@ -662,6 +609,21 @@
                     console.log(e.responseText);
                 }
             },
+            "searchPanes": {
+                initCollapsed: true,
+                dtOpts: {
+                    dom: 'tp',
+                    paging: 'true',
+                    //  pagingType:'simple',
+                    searching: true
+                }
+            },
+            "columnDefs": [{
+                searchPanes: {
+                    show: true
+                },
+                targets: [4, 5, 6, 7, 8, 9, 11, 12, 13],
+            }],
             "language": {
                 "aria": {
                     "sortAscending": "Activar para ordenar la columna de manera ascendente",
@@ -712,7 +674,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
-            "dom": 'lBfrtip',
+            "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
                 url: "../consultas/consultaActMinDia.php",
@@ -722,6 +684,21 @@
                     console.log(e.responseText);
                 }
             },
+            "searchPanes": {
+                initCollapsed: true,
+                dtOpts: {
+                    dom: 'tp',
+                    paging: 'true',
+                    //  pagingType:'simple',
+                    searching: true
+                }
+            },
+            "columnDefs": [{
+                searchPanes: {
+                    show: true
+                },
+                targets: [4, 5, 6, 7, 8, 9, 11, 12, 13],
+            }],
             "language": {
                 "aria": {
                     "sortAscending": "Activar para ordenar la columna de manera ascendente",
@@ -1202,7 +1179,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
-            "dom": 'lBfrtip',
+            "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
                 url: "../consultas/consultaConsSolicitudAlta.php",
@@ -1212,6 +1189,21 @@
                     console.log(e.responseText);
                 }
             },
+            "searchPanes": {
+                initCollapsed: true,
+                dtOpts: {
+                    dom: 'tp',
+                    paging: 'true',
+                    //  pagingType:'simple',
+                    searching: true
+                }
+            },
+            "columnDefs": [{
+                searchPanes: {
+                    show: false
+                },
+                targets: [0, 1, 3, 4, 5],
+            }],
             "language": {
 
                 "aria": {
@@ -1280,7 +1272,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
-            "dom": 'lBfrtip',
+            "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
                 url: "../consultas/consultaConsAltaProyecto.php",
@@ -1290,6 +1282,21 @@
                     console.log(e.responseText);
                 }
             },
+            "searchPanes": {
+                initCollapsed: true,
+                dtOpts: {
+                    dom: 'tp',
+                    paging: 'true',
+                    //  pagingType:'simple',
+                    searching: true
+                }
+            },
+            "columnDefs": [{
+                searchPanes: {
+                    show: false
+                },
+                targets: [0, 1, 3, 4, 5],
+            }],
             "language": {
 
                 "aria": {
@@ -1358,7 +1365,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
-            "dom": 'lBfrtip',
+            "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
                 url: "../consultas/consultaConsCodIdentificador.php",
@@ -1368,6 +1375,21 @@
                     console.log(e.responseText);
                 }
             },
+            "searchPanes": {
+                initCollapsed: true,
+                dtOpts: {
+                    dom: 'tp',
+                    paging: 'true',
+                    //  pagingType:'simple',
+                    searching: true
+                }
+            },
+            "columnDefs": [{
+                searchPanes: {
+                    show: false
+                },
+                targets: [0, 1, 3, 4, 5],
+            }],
             "language": {
 
                 "aria": {
@@ -1438,13 +1460,22 @@
 
         }).buttons().container().appendTo('#tableConsProyCodId_wrapper .col-md-6:eq(0)');
 
-        // Tabla Indicadores comprobados/no comprobados
+        // Tabla Indicadores comprobados/no comprobados 
         var tabla = $("#tableIndicadorAsesor").DataTable({
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+            "pageLength": 25,
             "dom": 'lBfrtip',
             "buttons": ["csv", "excel", "pdf"],
+            "ajax": {
+                url: "../consultas/consultaIndicadoresAsesores.php",
+                type: "get",
+                dataType: "json",
+                error: function(e) {
+                    console.log(e.responseText);
+                }
+            },
             "language": {
 
                 "aria": {
@@ -1475,7 +1506,7 @@
                 "infoFiltered": "(filtrado de un total de _MAX_ registros)",
                 "infoThousands": ",",
                 "lengthMenu": "Mostrar _MENU_ registros",
-                "loadingRecords": "Cargando...",
+                "loadingRecords": "Cargando la información...",
                 "paginate": {
                     "first": "Primero",
                     "last": "Último",
@@ -1494,14 +1525,8 @@
             "drawCallback": function() {
                 //alert("La tabla se está recargando"); 
                 var api = this.api();
-                $(api.column(1).footer()).html(
-                    'Total: ' + api.column(1, {
-                        page: 'current'
-                    }).data().sum()
-                )
-                var api2 = this.api();
-                $(api2.column(2).footer()).html(
-                    'Total: ' + api2.column(2, {
+                $(api.column(2).footer()).html(
+                    'Total: ' + api.column(2, {
                         page: 'current'
                     }).data().sum()
                 )
@@ -1513,7 +1538,13 @@
                 )
                 var api2 = this.api();
                 $(api2.column(4).footer()).html(
-                    'Total Columna: ' + api2.column(4, {
+                    'Total: ' + api2.column(4, {
+                        page: 'current'
+                    }).data().sum()
+                )
+                var api2 = this.api();
+                $(api2.column(5).footer()).html(
+                    'Total Columna: ' + api2.column(5, {
                         page: 'current'
                     }).data().sum()
                 )
@@ -1588,7 +1619,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
-            "dom": 'lBfrtip',
+            "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf"],
             "ajax": {
                 url: "../consultas/consultaDifValVenAltavsValCodId.php",
@@ -1596,6 +1627,35 @@
                 dataType: "json",
                 error: function(e) {
                     console.log(e.responseText);
+                }
+            },
+            "searchPanes": {
+                initCollapsed: true,
+                dtOpts: {
+                    dom: 'tp',
+                    paging: 'true',
+                    //  pagingType:'simple',
+                    searching: true
+                }
+            },
+            "columnDefs": [{
+                searchPanes: {
+                    show: true
+                },
+                targets: [4, 5, 6, 7, 8, 9, 10, 11, 12],
+            }],
+            "createdRow": function(row, data, index) {
+                if (data[12] > '1.00') {
+                    $('td', row).eq(12).css({
+                        'background-color': '#5A6268',
+                        'color': '#fff'
+                    });
+                }
+                if (data[13] > '1.00') {
+                    $('td', row).eq(13).css({
+                        'background-color': '#5A6268',
+                        'color': '#fff'
+                    });
                 }
             },
             "language": {
@@ -1734,7 +1794,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
-            "dom": 'lBfrtip',
+            "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
                 url: "../consultas/consultaCambiarPlacas.php",
@@ -1744,6 +1804,21 @@
                     console.log(e.responseText);
                 }
             },
+            "searchPanes": {
+                initCollapsed: true,
+                dtOpts: {
+                    dom: 'tp',
+                    paging: 'true',
+                    //  pagingType:'simple',
+                    searching: true
+                }
+            },
+            "columnDefs": [{
+                searchPanes: {
+                    show: true
+                },
+                targets: [2, 3, 5, 6, 7, 8, 9, 10, 11, 12],
+            }],
             "language": {
 
                 "aria": {
@@ -1885,6 +1960,20 @@
                 },
                 targets: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
             }],
+            "createdRow": function(row, data, index) {
+                if (data[11] > '1.00') {
+                    $('td', row).eq(11).css({
+                        'background-color': '#5A6268',
+                        'color': '#fff'
+                    });
+                }
+                if (data[12] > '1.00') {
+                    $('td', row).eq(12).css({
+                        'background-color': '#5A6268',
+                        'color': '#fff'
+                    });
+                }
+            },
             "language": {
 
                 "aria": {
@@ -1971,19 +2060,106 @@
             },
             "searchPanes": {
                 initCollapsed: true,
-                 dtOpts: {
-                     dom: 'tp',
-                     paging: 'true',
-                     pagingType:'simple',
-                     searching: true
-                 }
-             },
-              "columnDefs": [{
-                  searchPanes: {
-                      show: false
-                  },
-                  targets: [1,2],
-              }],
+                dtOpts: {
+                    dom: 'tp',
+                    paging: 'true',
+                    //  pagingType:'simple',
+                    searching: true
+                }
+            },
+            "columnDefs": [{
+                searchPanes: {
+                    show: false
+                },
+                targets: [0, 1, 2, 3],
+            }],
+            "language": {
+
+                "aria": {
+                    "sortAscending": "Activar para ordenar la columna de manera ascendente",
+                    "sortDescending": "Activar para ordenar la columna de manera descendente"
+                },
+                "buttons": {
+                    "collection": "Colección",
+                    "colvis": "Filtrar columnas",
+                    "colvisRestore": "Restaurar visibilidad",
+                    "copy": "Copiar",
+                    "copyKeys": "Presione ctrl o u2318 + C para copiar los datos de la tabla al portapapeles del sistema. <br \/> <br \/> Para cancelar, haga clic en este mensaje o presione escape.",
+                    "copySuccess": {
+                        "1": "Copiada 1 fila al portapapeles",
+                        "_": "Copiadas %d fila al portapapeles"
+                    },
+                    "copyTitle": "Copiar al portapapeles",
+                    "csv": "CSV",
+                    "excel": "Excel",
+                    "pageLength": {
+                        "-1": "Mostrar todas las filas",
+                        "_": "Mostrar %d filas"
+                    },
+                    "pdf": "PDF",
+                    "print": "Imprimir"
+                },
+                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "infoThousands": ",",
+                "lengthMenu": "Mostrar _MENU_ registros",
+                "loadingRecords": "Cargando...",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                },
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "decimal": ".",
+                "emptyTable": "No hay datos disponibles en la tabla",
+                "info": "Mostrando de _START_ al _END_ de  _TOTAL_ registros",
+                "zeroRecords": "No se encontraron coincidencias"
+
+            },
+            "drawCallback": function() {
+                //alert("La tabla se está recargando"); 
+                var api = this.api();
+                $(api.column(10).footer()).html(
+                    'Total: ' + api.column(10, {
+                        page: 'current'
+                    }).data().sum()
+                )
+            }
+
+        }).buttons().container().appendTo('#tablaListaProyectos_wrapper .col-md-6:eq(0)');
+
+        // Tabla 2.3.11 Lista Comprobación de 7 Imagenes
+        var tabla = $("#tableComImagenes").DataTable({
+            "responsive": true,
+            "lengthChange": true,
+            "autoWidth": true,
+            "dom": 'PlBfrtip',
+            "buttons": ["csv", "excel", "pdf"],
+            "ajax": {
+                url: "../consultas/consultaComImagenes.php",
+                type: "get",
+                dataType: "json",
+                error: function(e) {
+                    console.log(e.responseText);
+                }
+            },
+            "searchPanes": {
+                initCollapsed: true,
+                dtOpts: {
+                    dom: 'tp',
+                    paging: 'true',
+                    //  pagingType:'simple',
+                    searching: true
+                }
+            },
+            "columnDefs": [{
+                searchPanes: {
+                    show: true
+                },
+                targets: [4, 5, 6, 7, 8, 9, 10, 11, 12],
+            }],
             "language": {
 
                 "aria": {
@@ -2030,9 +2206,248 @@
 
             }
 
-        }).buttons().container().appendTo('#tablaListaProyectos_wrapper .col-md-6:eq(0)');
+        }).buttons().container().appendTo('#tableComImagenes_wrapper .col-md-6:eq(0)');
 
- 
+        // Tabla Tabla 2.6.2 Reporte de Altas Por Asignar Código ID
+        var tabla = $("#tableDadosdeAlta").DataTable({
+            "responsive": true,
+            "lengthChange": true,
+            "autoWidth": true,
+            "dom": 'PlBfrtip',
+            "buttons": ["csv", "excel", "pdf", "colvis"],
+            "ajax": {
+                url: "../consultas/consultaDadosAltaAsignarCodId.php",
+                type: "get",
+                dataType: "json",
+                error: function(e) {
+                    console.log(e.responseText);
+                }
+            },
+            "searchPanes": {
+                initCollapsed: true,
+                dtOpts: {
+                    dom: 'tp',
+                    paging: 'true',
+                    //  pagingType:'simple',
+                    searching: true
+                }
+            },
+            "columnDefs": [{
+                searchPanes: {
+                    show: false
+                },
+                targets: [1, 2],
+            }],
+            "language": {
+
+                "aria": {
+                    "sortAscending": "Activar para ordenar la columna de manera ascendente",
+                    "sortDescending": "Activar para ordenar la columna de manera descendente"
+                },
+                "buttons": {
+                    "collection": "Colección",
+                    "colvis": "Filtrar columnas",
+                    "colvisRestore": "Restaurar visibilidad",
+                    "copy": "Copiar",
+                    "copyKeys": "Presione ctrl o u2318 + C para copiar los datos de la tabla al portapapeles del sistema. <br \/> <br \/> Para cancelar, haga clic en este mensaje o presione escape.",
+                    "copySuccess": {
+                        "1": "Copiada 1 fila al portapapeles",
+                        "_": "Copiadas %d fila al portapapeles"
+                    },
+                    "copyTitle": "Copiar al portapapeles",
+                    "csv": "CSV",
+                    "excel": "Excel",
+                    "pageLength": {
+                        "-1": "Mostrar todas las filas",
+                        "_": "Mostrar %d filas"
+                    },
+                    "pdf": "PDF",
+                    "print": "Imprimir"
+                },
+                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "infoThousands": ",",
+                "lengthMenu": "Mostrar _MENU_ registros",
+                "loadingRecords": "Cargando...",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                },
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "decimal": ".",
+                "emptyTable": "No hay datos disponibles en la tabla",
+                "info": "Mostrando de _START_ al _END_ de  _TOTAL_ registros",
+                "zeroRecords": "No se encontraron coincidencias"
+
+            },
+
+            "drawCallback": function() {
+                //alert("La tabla se está recargando"); 
+                var api = this.api();
+                $(api.column(11).footer()).html(
+                    'Total: ' + api.column(11, {
+                        page: 'current'
+                    }).data().sum()
+                )
+                var api2 = this.api();
+                $(api2.column(12).footer()).html(
+                    'Total: ' + api2.column(12, {
+                        page: 'current'
+                    }).data().sum()
+                )
+            }
+        }).buttons().container().appendTo('#tableDadosdeAlta_wrapper .col-md-6:eq(0)');
+
+        // Tabla 2.6.3 Comprobación Diaria de Altas Por Asignar Código ID
+        var tabla = $("#tableComDiaAltasAsignarCodId").DataTable({
+            "responsive": true,
+            "lengthChange": true,
+            "autoWidth": true,
+            "dom": 'PlBfrtip',
+            "buttons": ["csv", "excel", "pdf", "colvis"],
+            "ajax": {
+                url: "../consultas/consultaComDiaAltasAsignarCodId.php",
+                type: "get",
+                dataType: "json",
+                error: function(e) {
+                    console.log(e.responseText);
+                }
+            },
+            "searchPanes": {
+                initCollapsed: true,
+                dtOpts: {
+                    dom: 'tp',
+                    paging: 'true',
+                    //  pagingType:'simple',
+                    searching: true
+                }
+            },
+            "columnDefs": [{
+                searchPanes: {
+                    show: true
+                },
+                targets: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            }],
+            "language": {
+
+                "aria": {
+                    "sortAscending": "Activar para ordenar la columna de manera ascendente",
+                    "sortDescending": "Activar para ordenar la columna de manera descendente"
+                },
+                "buttons": {
+                    "collection": "Colección",
+                    "colvis": "Filtrar columnas",
+                    "colvisRestore": "Restaurar visibilidad",
+                    "copy": "Copiar",
+                    "copyKeys": "Presione ctrl o u2318 + C para copiar los datos de la tabla al portapapeles del sistema. <br \/> <br \/> Para cancelar, haga clic en este mensaje o presione escape.",
+                    "copySuccess": {
+                        "1": "Copiada 1 fila al portapapeles",
+                        "_": "Copiadas %d fila al portapapeles"
+                    },
+                    "copyTitle": "Copiar al portapapeles",
+                    "csv": "CSV",
+                    "excel": "Excel",
+                    "pageLength": {
+                        "-1": "Mostrar todas las filas",
+                        "_": "Mostrar %d filas"
+                    },
+                    "pdf": "PDF",
+                    "print": "Imprimir"
+                },
+                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "infoThousands": ",",
+                "lengthMenu": "Mostrar _MENU_ registros",
+                "loadingRecords": "Cargando...",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                },
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "decimal": ".",
+                "emptyTable": "No hay datos disponibles en la tabla",
+                "info": "Mostrando de _START_ al _END_ de  _TOTAL_ registros",
+                "zeroRecords": "No se encontraron coincidencias"
+
+            },
+
+            "drawCallback": function() {
+                //alert("La tabla se está recargando"); 
+                var api = this.api();
+                $(api.column(10).footer()).html(
+                    'Total: ' + api.column(10, {
+                        page: 'current'
+                    }).data().sum()
+                )
+                var api2 = this.api();
+                $(api2.column(11).footer()).html(
+                    'Total: ' + api2.column(11, {
+                        page: 'current'
+                    }).data().sum()
+                )
+            }
+        }).buttons().container().appendTo('#tableComDiaAltasAsignarCodId_wrapper .col-md-6:eq(0)');
+
+        // Tabla 2.6.3.3 Ver Generales Verificación y Supervisión
+        var tabla = $("#tableVerGralDiaAltasAsignarCodId").DataTable({
+            "responsive": true,
+            "lengthChange": true,
+            "autoWidth": true,
+            "dom": 'lBfrtip',
+            "buttons": ["csv", "excel", "pdf", "colvis"],
+            "language": {
+
+                "aria": {
+                    "sortAscending": "Activar para ordenar la columna de manera ascendente",
+                    "sortDescending": "Activar para ordenar la columna de manera descendente"
+                },
+                "buttons": {
+                    "collection": "Colección",
+                    "colvis": "Filtrar columnas",
+                    "colvisRestore": "Restaurar visibilidad",
+                    "copy": "Copiar",
+                    "copyKeys": "Presione ctrl o u2318 + C para copiar los datos de la tabla al portapapeles del sistema. <br \/> <br \/> Para cancelar, haga clic en este mensaje o presione escape.",
+                    "copySuccess": {
+                        "1": "Copiada 1 fila al portapapeles",
+                        "_": "Copiadas %d fila al portapapeles"
+                    },
+                    "copyTitle": "Copiar al portapapeles",
+                    "csv": "CSV",
+                    "excel": "Excel",
+                    "pageLength": {
+                        "-1": "Mostrar todas las filas",
+                        "_": "Mostrar %d filas"
+                    },
+                    "pdf": "PDF",
+                    "print": "Imprimir"
+                },
+                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "infoThousands": ",",
+                "lengthMenu": "Mostrar _MENU_ registros",
+                "loadingRecords": "Cargando...",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                },
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "decimal": ".",
+                "emptyTable": "No hay datos disponibles en la tabla",
+                "info": "Mostrando de _START_ al _END_ de  _TOTAL_ registros",
+                "zeroRecords": "No se encontraron coincidencias"
+
+            }
+        }).buttons().container().appendTo('#tableVerGralDiaAltasAsignarCodId_wrapper .col-md-6:eq(0)');
+
         // --------------------------------------------------------------------------------------------------------
         // tabla de Prueba sin funcion
         var tabla = $("#tableComPlacasPrueba").DataTable({

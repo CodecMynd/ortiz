@@ -57,8 +57,7 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 $idP = $_GET['id'];
-                                if ($super == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.estadoProyectoEliminado, 
+                                $query = "SELECT P.id_proyecto, P.nProyecto, P.estadoProyectoEliminado, 
                                     CP.linkComPlaca, CP.fecha_creacion,
                                     UP.nombres AS UPN, UP.aPaterno AS UPP, UP.aMaterno AS UPM,
                                     CS.textSupervision, CS.fecha_registro AS CSF,
@@ -69,27 +68,10 @@ require '../components/head-dataTables.php';
                                     LEFT JOIN comsupervision CS ON P.id_proyecto = CS.id_proyecto
                                     LEFT JOIN usuarios UCS ON CS.id_capC = UCS.id_usuario
                                     WHERE P.id_proyecto = $idP";
-    
-                                } else if ($verGralComPlacas == 1) {
-                                    $query = "SELECT P.id_proyecto, P.nProyecto, P.estadoProyectoEliminado, 
-                                    CP.linkComPlaca, CP.fecha_creacion,
-                                    UP.nombres AS UPN, UP.aPaterno AS UPP, UP.aMaterno AS UPM,
-                                    CS.textSupervision, CS.fecha_registro AS CSF,
-                                    UCS.nombres AS UCSN, UCS.aPaterno AS UCSP, UCS.aMaterno AS UCSM
-                                    FROM proyectos P
-                                    LEFT JOIN complacas CP ON P.id_proyecto = CP.id_proyecto
-                                    LEFT JOIN usuarios UP ON CP.id_capC = UP.id_usuario
-                                    LEFT JOIN comsupervision CS ON P.id_proyecto = CS.id_proyecto
-                                    LEFT JOIN usuarios UCS ON CS.id_capC = UCS.id_usuario
-                                    WHERE P.id_proyecto = $idP";
-                                } else {
-                                    $query = "SELECT id_proyecto
-                                    FROM proyectos WHERE id_proyecto = 0";
-                                }
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
                                 <div class="card-body">
-                             
+
                                     <table id="tablePermisos" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
@@ -415,23 +397,3 @@ require '../components/head-dataTables.php';
 </body>
 
 </html>
-<!-- VISTA
-SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.comVerifDiariaVeh, P.estadoProyectoEliminado, P.comSuperVerifDiariaVeh,
-V.placa, M.marca, Mo.modelo, A.anio, Co.color,                                    
-CV.linkComVerifDiariaVeh, CV.textSupervision, MAX(CV.fecha_hoyV) AS FV, MAX(CV.fecha_hoyS) AS FS, MAX(CV.id_comverifdiariaveh) AS id_comverifdiariaveh,
-UV.nombres AS nombreV, UV.aPaterno AS paternoV, UV.aMaterno AS maternoV,
-US.nombres AS nombreS, US.aPaterno AS paternoS, US.aMaterno AS maternoS,
-ASE.asesor
-FROM proyectos P
-INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
-INNER JOIN colores Co On V.id_color = Co.id_color
-INNER JOIN marcas M ON V.id_marca = M.id_marca
-INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
-INNER JOIN anios A ON V.id_anio = A.id_anio
-LEFT JOIN comverifdiariaveh CV ON P.id_proyecto = CV.id_proyecto
-LEFT JOIN usuarios UV ON CV.id_capCV = UV.id_usuario
-LEFT JOIN usuarios US ON CV.id_capCS = US.id_usuario
-LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
-LEFT JOIN asesores ASE ON CA.id_asesor = ASE.id_asesor
-WHERE P.proyectoActivo = 1 AND P.estadoProyectoEliminado = 1 OR P.registroSolicitud = 1 GROUP BY P.id_proyecto  
-ORDER BY P.nProyecto  DESC; -->

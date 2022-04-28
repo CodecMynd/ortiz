@@ -280,7 +280,7 @@ require '../components/head-dataTables.php';
                                     </div>
                                     <div class="card card-secondary card-outline collapsed-card">
                                         <div class="card-header">
-                                            <h2 class="card-title"><strong>Usuario, Fecha y Hora de Captura: Código <?php echo $codIdProyBase ?></strong></h2>
+                                            <h2 class="card-title"><strong>Usuario, Fecha y Hora de Captura: Código <?php echo $row['codIdProyBase'] ?></strong></h2>
                                             <div class="card-tools">
                                                 <button type="button" class="btn btn-tool text-dark " data-card-widget="collapse">
                                                     <i class="fas fa-plus"></i>

@@ -52,14 +52,66 @@ require '../components/head-dataTables.php';
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
+                            
+                                <div class="card-body">
                                 <?php
                                 $id_proyecto = $_GET['id'];
+                                $query1 = "SELECT P.id_proyecto, P.nProyecto, P.nOrden,
+                                V.placa, Co.color, M.marca, Mo.modelo, An.anio, A.asesor
+                                from proyectos P 
+                                INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
+                                INNER JOIN colores Co ON V.id_color = Co.id_color
+                                INNER JOIN marcas M ON V.id_marca = M.id_marca 
+                                INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
+                                INNER JOIN anios An ON V.id_anio = An.id_anio 
+                                   LEFT JOIN comasesor C ON P.id_proyecto = C.id_proyecto
+                                LEFT JOIN asesores A ON C.id_asesor = A.id_asesor
+                                WHERE P.id_Proyecto = $id_proyecto";
+                                $resultado1 = mysqli_query($conexion, $query1);
+                                $row1 = $resultado1->fetch_assoc();
+                                ?>
+                                <table class="table table-sm table-bordered table-striped">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Núm. de Proyecto</th>
+                                            <th>Número de Orden</th>
+                                            <th>Marca</th>
+                                            <th>Modelo</th>
+                                            <th>Año</th>
+                                            <th>Placas</th>
+                                            <th>Color </th>
+                                            <th>Asesor</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th style="width: 5%;"><span class='badge badge-dark badge-pill'><?php echo $row1['id_proyecto'] ?></span></th>
+                                            <td style="width: 10%;"><?php echo $row1['nProyecto'] ?></td>
+                                            <td style="width: 10%;"><?php echo $row1['nOrden'] ?></td>
+                                            <td><?php echo $row1['marca'] ?></td>
+                                            <td><?php echo $row1['modelo'] ?></td>
+                                            <td><?php echo $row1['anio'] ?></td>
+                                            <td><?php echo $row1['placa'] ?></td>
+                                            <td><?php echo $row1['color'] ?></td>
+                                            <td><?php if (empty($row1['asesor'])) {
+                                                    echo 'Sin Asesor ';
+                                                } else {
+                                                    echo $row1['asesor'];
+                                                } ?></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <br>
+                                <hr>
+                                
 
+                                <?php
                                 $cont = 0;
                                 // $query = "SELECT * FROM verificacion WHERE id_Proyecto = $id_proyecto";
                                 $query = "SELECT P.id_proyecto, P.nProyecto, P.comSuperVerifDiariaVeh, P.comVerifDiariaVeh,
                                 V.id_comverifdiariaveh, V.linkComVerifDiariaVeh, V.textSupervision, 
-                                V.fecha_hoyV AS FV, V.fecha_hoyS AS FS, ASE.asesor,
+                                V.fecha_hoyV AS FV, V.fecha_hoyS AS FS, ASE.asesor, V.fecha_creacionV, V.fecha_creacionS,
                                 UV.nombres AS nombreV, UV.aPaterno AS paternoV, UV.aMaterno AS maternoV,
                                 US.nombres AS nombreS, US.aPaterno AS paternoS, US.aMaterno AS maternoS
                                 from proyectos P
@@ -71,7 +123,6 @@ require '../components/head-dataTables.php';
                                 WHERE P.id_Proyecto = $id_proyecto ORDER BY id_comverifdiariaveh DESC";
                                 $resultado = mysqli_query($conexion, $query);
                                 ?>
-                                <div class="card-body">
                                     <table id="tablePermisos" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
@@ -128,18 +179,19 @@ require '../components/head-dataTables.php';
                                                         <?php if (empty($hoyV)) {
                                                             echo '';
                                                         } else {
-                                                            $fecha = new DateTime($fechaV);
-                                                            echo $fecha_m_d_y = $fecha->format('d-m-Y');
+                                                            // $fecha = new DateTime($fechaV);
+                                                            // echo $fecha_m_d_y = $fecha->format('d-m-Y');
+                                                            echo $row['fecha_creacionV'];
                                                         }
                                                         ?>
                                                     </td>
                                                     <td>
                                                         <?php
-                                                        	if ($asesor == '') {
-                                                                echo "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>";
-                                                            } else {
-                                                                echo "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>";
-                                                            }
+                                                        if ($asesor == '') {
+                                                            echo "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>";
+                                                        } else {
+                                                            echo "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>";
+                                                        }
                                                         ?>
                                                     </td>
                                                     <td style="width: 15%;">
@@ -152,8 +204,9 @@ require '../components/head-dataTables.php';
                                                         <?php if (empty($hoyS)) {
                                                             echo '';
                                                         } else if ($hoyS != '0000-00-00') {
-                                                            $fecha = new DateTime($fechaS);
-                                                            echo $fecha_m_d_y = $fecha->format('d-m-Y');
+                                                            // $fecha = new DateTime($fechaS);
+                                                            // echo $fecha_m_d_y = $fecha->format('d-m-Y');
+                                                            echo $row['fecha_creacionS'];
                                                         }
                                                         ?>
                                                     </td>
@@ -168,7 +221,7 @@ require '../components/head-dataTables.php';
                                                                         <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="2.3.2.2.4 Eliminar Comprobación Link de Video en Vivo">
                                                                                 <?php if ($super == 1 or $eliComVerifDiariaVehv == 1) { ?>
-                                                                                    <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComVerifDiaria-<?php $hoyV?>'><i class='fas fa-trash-alt'></i></a>
+                                                                                    <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComVerifDiaria-<?php $hoyV ?>'><i class='fas fa-trash-alt'></i></a>
 
                                                                                 <?php } else {
                                                                                     echo '<a class="btn btn-outline-danger" id="eliComVerifDiariaVehv"><i class="fas fa-trash-alt"></i></a>';
@@ -181,11 +234,11 @@ require '../components/head-dataTables.php';
                                                                                 <?php if ($super == 1 and $sup == 0) {
                                                                                     echo '<a class="btn btn-outline-danger" id="yaRegistro"><i class="fas fa-trash-alt"></i></a>';
                                                                                 } else if ($super == 1 and $sup == 1) { ?>
-                                                                                    <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComSuperDiaria-<?php $row['id_comverifdiariaveh']?>'><i class='fas fa-trash-alt'></i></a>
+                                                                                    <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComSuperDiaria-<?php $row['id_comverifdiariaveh'] ?>'><i class='fas fa-trash-alt'></i></a>
                                                                                 <?php } else if ($eliComVerifDiariaVehSuper == 1 and $sup == 0) {
                                                                                     echo '<a class="btn btn-outline-danger" id="sinEliminar"><i class="fas fa-trash-alt"></i></a>';
                                                                                 } else if ($eliComVerifDiariaVehSuper == 1 and $sup == 1) { ?>
-                                                                                   <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComSuperDiaria-<?php $row['id_comverifdiariaveh']?>'><i class='fas fa-trash-alt'></i></a>
+                                                                                    <a class='btn btn-secondary' data-toggle='modal' data-target='.eliminarComSuperDiaria-<?php $row['id_comverifdiariaveh'] ?>'><i class='fas fa-trash-alt'></i></a>
                                                                                 <?php } else {
                                                                                     echo '<a class="btn btn-outline-danger" id="eliComVerifDiariaVehSuper"><i class="fas fa-trash-alt"></i></a>';
                                                                                 }
@@ -196,7 +249,7 @@ require '../components/head-dataTables.php';
                                                                 </ul>
                                                             </div>
                                                         </div>
-                                                    </td> 
+                                                    </td>
                                                 </tr>
                                                 <?php
                                                 include '../components/modal-eliminarComVerifDiaria.php';

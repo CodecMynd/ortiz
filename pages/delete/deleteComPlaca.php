@@ -9,12 +9,13 @@ $date = date('Y-m-d H:i:s');
 $id = $_SESSION['id_usuario'];
 
 $id_proyecto = $_POST['id_proyecto3'];
+$id_complaca = $_POST['id_complaca3'];
 $comPlacas = 0;
 
 $conexion->autocommit(FALSE);
 try {
 
-  $queryD = ("DELETE FROM complacas WHERE id_proyecto = $id_proyecto");
+  $queryD = ("DELETE FROM complacas WHERE id_complaca = $id_complaca");
   $resultadoD = mysqli_query($conexion, $queryD);
 
 
@@ -36,6 +37,4 @@ try {
   </script>';
 }
 
-// mysqli_free_result($resultadoD);
-// mysqli_free_result($resultadoU);
 desconectar();

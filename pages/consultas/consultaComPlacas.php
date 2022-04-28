@@ -6,11 +6,12 @@
 	nombres, aPaternoCliente, aMaternoCliente,
 	placa, marca, modelo, anio, color,
 	linkComPlaca, fecha_creacion,
+	id_complaca, id_comSupervision,
 	UPN, UPP, UPM,
 	textSupervision, CSF,
 	UCSN, UCSP, UCSM
 	FROM vplacas 
-	ORDER BY nProyecto DESC";
+	ORDER BY id_proyecto ASC";
 }else{
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";
@@ -31,6 +32,8 @@ $cont = 0;
 		$cS = $row['comSuperPlaca'];
 		$Eliminado = $row['estadoProyectoEliminado'];
 		$nOrden = $row['nOrden'];
+		$id_complaca = $row['id_complaca']; 
+		$id_comSupervision = $row['id_comSupervision'];
 	
 		// 2.3.9.1 Registrar Comprobación de Placa
 		if ($Eliminado == 0) {
@@ -80,11 +83,11 @@ $cont = 0;
 		} else if ($Eliminado == 0) {
 			$outputBtns3 = "<a class='btn btn-outline-danger' id='eliminado'><i class='fa-solid fa-ban'></i></a>";
 		} else if ($super == 1 && $cP == 1) { 
-			$outputBtns3 = "<a href='#' onclick='abrirModal3(".$idP.",".$nP.")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
+			$outputBtns3 = "<a href='#' onclick='abrirModal3(\"".$idP."\",\"".$nP."\",\"".$id_complaca."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
 		} else if ($super == 1 && $cP == 0) {
 			$outputBtns3 = "<a class='btn btn-outline-danger' id='resgistra'><i class='fas fa-trash-alt'></i></a>";
 		} else if ($eliComPlacas == 1 && $cP == 1) {
-			$outputBtns3 = "<a href='#' onclick='abrirModal3(".$idP.",".$nP.")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
+			$outputBtns3 = "<a href='#' onclick='abrirModal3(\"".$idP."\",\"".$nP."\",\"".$id_complaca."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
 		} else if ($eliComPlacas == 1 && $cP == 0) {
 			$outputBtns3 = "<a class='btn btn-outline-danger' id='noeliComPlacas'><i class='fas fa-trash-alt'></i></a>";
 		} else {
@@ -95,15 +98,15 @@ $cont = 0;
 		if ($Eliminado == 0) {
 			$outputBtns5 = "<a class='btn btn-outline-danger' id='eliminado'><i class='fa-solid fa-ban'></i></a>";
 		} else if ($super == 1 && $cS == 1) { 
-			$outputBtns5 = "<a  href='#' onclick='abrirModal4(".$idP.",".$nP.")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
+			$outputBtns5 = "<a  href='#' onclick='abrirModal4(\"".$idP."\",\"".$nP."\",\"".$id_comSupervision."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
 		} else if ($super == 1 && $cS == 0) {
-			$outputBtns5 = "<a class='btn btn-outline-danger' id='resgistra'><i class='fa-solid fa-eraser'></i></a>";
+			$outputBtns5 = "<a class='btn btn-outline-danger' id='resgistra'><i class='fa-solid fa-trash-alt'></i></a>";
 		} else if ($eliComPlacasSuper == 1 && $cS == 1) { 
-			$outputBtns5 = "<a  href='#' onclick='abrirModal4(".$idP.",".$nP.")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
+			$outputBtns5 = "<a  href='#' onclick='abrirModal4(\"".$idP."\",\"".$nP."\",\"".$id_comSupervision."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
 		} else if ($eliComPlacasSuper == 1 && $cS == 0) {
-			$outputBtns5 = "<a class='btn btn-outline-danger' id='noeliComPlacas'><i class='fa-solid fa-eraser'></i></a>";
+			$outputBtns5 = "<a class='btn btn-outline-danger' id='noeliComPlacas'><i class='fa-trash-alt'></i></a>";
 		} else {
-			$outputBtns5 = "<a class='btn btn-outline-danger' id='eliComPlacasSuper'><i class='fa-solid fa-eraser'></i></a>";
+			$outputBtns5 = "<a class='btn btn-outline-danger' id='eliComPlacasSuper'><i class='fa-trash-alt'></i></a>";
 		}
 
 

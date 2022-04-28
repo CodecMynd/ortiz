@@ -56,7 +56,7 @@ $count_reg_cambioplacas = mysqli_query($conexion, "SELECT estatusEspera FROM `ca
                                     <div class="icon">
                                         <i class="fa-solid fa-comment-sms"></i>
                                     </div>
-                                    <a href="#" data-toggle="modal" data-target=".verIndAsesores" class="small-box-footer"><small>Estatus Para Envío de Mensajes </small><i class="fa-solid fa-eye"></i></a>
+                                    <a href="../components/verIndicadoresAsesores.php" target="_blank" class="small-box-footer"><small>Estatus Para Envío de Mensajes </small><i class="fa-solid fa-eye"></i></a>
                                 </div>
                             </div>
                         <?php }  ?>
@@ -71,7 +71,7 @@ $count_reg_cambioplacas = mysqli_query($conexion, "SELECT estatusEspera FROM `ca
                                     <div class="icon">
                                         <i class="fa-solid fa-people-arrows-left-right"></i>
                                     </div>
-                                    <a href="../admin/crudSolicitudCambioAsesor.php" class="small-box-footer"><small>Cambios de Asesor en Espera</small> <i class="fas fa-arrow-circle-right"></i></a>
+                                    <a href="../admin/crudSolicitudCambioAsesor.php" class="small-box-footer"><small>Solicitud Asesor en Espera</small> <i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         <?php } ?>
@@ -86,13 +86,10 @@ $count_reg_cambioplacas = mysqli_query($conexion, "SELECT estatusEspera FROM `ca
                                     <div class="icon">
                                         <i class="fa-solid fa-hashtag"></i>
                                     </div>
-                                    <a href="../admin/crudSolicitudCambioPlacas.php" class="small-box-footer"><small>Cambios de Placas en Espera</small> <i class="fas fa-arrow-circle-right"></i></a>
+                                    <a href="../admin/crudSolicitudCambioPlacas.php" class="small-box-footer"><small>Solicitud Placas en Espera</small> <i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         <?php } ?>
-
-
-
 
                         <div class="col-lg-2 col-4">
                             <div class="small-box bg-secondary">
@@ -155,7 +152,7 @@ $count_reg_cambioplacas = mysqli_query($conexion, "SELECT estatusEspera FROM `ca
     <?php
     require '../components/scripts-main.php';
     require '../components/modal-sinPass.php';
-    require '../components/modal-verIndAsesores.php';
+    // require '../components/modal-verIndAsesores.php';
     require '../components/scripts-dataTables.php';
 
     ?>

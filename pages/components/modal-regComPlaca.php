@@ -27,6 +27,7 @@
                 </div>
                 <div class="modal-footer text-left">
                     <button type="submit" class="btn btn-secondary" ><i class="fas fa-pen"></i> Guardar</button>
+                    <button type="reset" class="btn btn-secondary"><i class="fas fa-broom"></i> Limpiar</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>
                 </div>
             </form>

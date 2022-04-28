@@ -126,9 +126,9 @@ while ($row = $resultado->fetch_assoc()) {
 	if ($Eliminado == 0) {
 		$outputBtns2 = "<a class='btn btn-outline-danger' id='eliminado'><i class='fa-solid fa-ban'></i></a>";
 	} else if ($super == 1) {
-		$outputBtns2 = "<a href='../update/formUpdateActMinDiaria.php?id={$idP}' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
+		$outputBtns2 = "<a href='../update/formUpdateActMinDiaria.php?id={$idP}' target='_blank' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
 	} else if ($verGralActMinDia == 1) {
-		$outputBtns2 = "<a href='../update/formUpdateActMinDiaria.php?id={$idP}' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
+		$outputBtns2 = "<a href='../update/formUpdateActMinDiaria.php?id={$idP}' target='_blank' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
 	} else {
 		$outputBtns2 = "<a class='btn btn-outline-danger' id='verGralActMinDia'><i class='fa-solid fa-comments'></i></a>";
 	}
@@ -153,7 +153,7 @@ while ($row = $resultado->fetch_assoc()) {
 	} else if ($regComSuperActMinDia == 1 and ($fechaS ==  $fecha_sistema)) {
 		$outputBtns3 = "<a class='btn btn-outline-danger' id='yaRegistrado'><i class='fa-solid fa-pencil'></i></a>";
 	} else {
-		$outputBtns3 = "<a class='btn btn-outline-danger' id='regComSuperActMinDia'><i class='fa-solid fa-spell-check?></i></a>";
+		$outputBtns3 = "<a class='btn btn-outline-danger' id='regComSuperActMinDia'><i class='fa-solid fa-pencil'></i></a>";
 	}
 
 
@@ -161,19 +161,20 @@ while ($row = $resultado->fetch_assoc()) {
 	$cont++;
 	$datos[] = array(
 		"0" => $cont,
-		"1" => $row['nProyecto'],
-		"2" => $row['nOrden'],
-		"3" => $row['marca'],
-		"4" => $row['modelo'],
-		"5" => $row['anio'],
-		"6" => $row['placa'],
-		"7" => $row['color'],
-		"8" => $validaAsesor,
-		"9" => $validaEstadoProyecto,
-		"10" => $validaCom,
-		"11" => $validaSup,
-		"12" => $validaUltReg,
-		"13" => "<div class='input-group input-group-sm mb-3'>
+		"1" => "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>",
+		"2" => $row['nProyecto'],
+		"3" => $row['nOrden'],
+		"4" => $row['marca'],
+		"5" => $row['modelo'],
+		"6" => $row['anio'],
+		"7" => $row['placa'],
+		"8" => $row['color'],
+		"9" => $validaAsesor,
+		"10" => $validaEstadoProyecto,
+		"11" => $validaCom,
+		"12" => $validaSup,
+		"13" => $validaUltReg,
+		"14" => "<div class='input-group input-group-sm mb-3'>
 		<div class='input-group-prepend'>
 			<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración tabla Verificación Diaria Vehículos Activos'> Acciones</span>
 			</button>

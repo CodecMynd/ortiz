@@ -3,10 +3,10 @@
         <a href="../admin/panelAdmin.php" class="navbar-brand">
             <img src="../../src/img/logos/logo.png" alt="JSOL Automotriz Logo" class="brand-image  elevation-5" style="opacity: .8; height:4rem">
             <!-- Produccion -->
-            <!-- <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span></a> -->
+            <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span></a>
 
             <!-- test -->
-            <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span>
+            <!-- <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span> -->
         </a>
 
         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,11 +106,11 @@
                                         <li><a href="../admin/crudSolicitudCambioPlacas.php" class="dropdown-item ">2.3.9.2 Solicitud Cambio de Placas</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="../admin/crudComprobacionKm.php" class="dropdown-item ">2.3.10 Comprobación de Kilometraje </a></li>
+                                <li><a href="../admin/crudComprobacionKm.php" class="dropdown-item disabled">2.3.10 Comprobación de Kilometraje </a></li>
                                 <li><a href="../admin/crudComprobacionImagenes.php" class="dropdown-item ">2.3.11 Comprobación 7 Imágenes </a></li>
-                                <li><a href="../admin/crudComprobacionClientes.php" class="dropdown-item ">2.3.12 Comprobación INE Clientes </a></li>
-                                <li><a href="../admin/crudComprobacionDocuFirm.php" class="dropdown-item ">2.3.13 Comprobación Documentación Firmada Ingreso Vehículo</a></li>
-                                <li><a href="../admin/crudComprobacionGarantia.php" class="dropdown-item ">2.3.14 Comprobación de Garantia</a></li>
+                                <li><a href="../admin/crudComprobacionClientes.php" class="dropdown-item disabled">2.3.12 Comprobación INE Clientes </a></li>
+                                <li><a href="../admin/crudComprobacionDocuFirm.php" class="dropdown-item disabled">2.3.13 Comprobación Documentación Firmada Ingreso Vehículo</a></li>
+                                <li><a href="../admin/crudComprobacionGarantia.php" class="dropdown-item disabled">2.3.14 Comprobación de Garantia</a></li>
 
                                 <li class="btn-group dropleft dropdown-hover">
                                     <a id="dropdownSubMenu1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">2.3.15 Asesores</a>
@@ -133,7 +133,8 @@
                             <a id="dropdownSubMenu1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">2.6 Proyectos Código Identificador</a>
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                                 <li><a href="../admin/crudProyCodiIdentificador.php" class="dropdown-item">2.6.1 Registro de Código Identificador </a></li>
-                                <li><a href="../components/tablaDadosAltaAsignarCodId.php" class="dropdown-item">2.6.6 Reporte de Alta por asignar Código</a></li>
+                                <li><a href="../components/tablaDadosAltaAsignarCodId.php" class="dropdown-item">2.6.2 Reporte de Alta por asignar Código ID</a></li>
+                                <li><a href="../admin/crudComDiariaAltasAsignarCodId.php" class="dropdown-item">2.6.3 Comprobación Diaria de Altas Por Asignar Código ID</a></li>
                             </ul>
                         </li>
                         <li><a href="../admin/crudSuperCodiIdentificador.php" class="dropdown-item ">2.7 Supervisión Código Identificador </a></li>

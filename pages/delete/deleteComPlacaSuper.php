@@ -9,13 +9,14 @@ $date = date('Y-m-d H:i:s');
 $id = $_SESSION['id_usuario'];
 
 $id_proyecto = $_POST['id_proyecto4'];
+$id_comSupervision = $_POST['id_comSupervision4'];
 $comSuperPlaca = 0;
 $tipoComprobacion = 'placas';
 
  try{
    $conexion->autocommit(FALSE);
 
-$queryD = ("DELETE FROM comsupervision WHERE id_proyecto = $id_proyecto AND tipoComprobacion = '$tipoComprobacion'");
+$queryD = ("DELETE FROM comsupervision WHERE id_comSupervision = $id_comSupervision ");
 $resultadoD = mysqli_query($conexion, $queryD);
 // var_dump($queryD);
 

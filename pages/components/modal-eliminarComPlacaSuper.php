@@ -15,6 +15,7 @@
             <form id="formEliminarRegComPlacaSuper" action="../delete/deleteComPlacaSuper.php" method="POST">
                 <div class="modal-footer text-left">
                     <input type="hidden" name="id_proyecto4" id="id_proyecto4" value="">
+                    <input type="hidden" name="id_comSupervision4" id="id_comSupervision4" value="">
                     <button type="submit" name="btnEliminarRegComPlaca" id="btnEliminarRegComPlaca" class="btn btn-secondary"><i class="fas fa-ban"></i> Eliminar</button>
                     <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Salir"><i class="fa-solid fa-circle-xmark"></i> Salir</a>
                 </div>

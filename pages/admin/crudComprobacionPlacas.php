@@ -19,17 +19,19 @@ require '../components/head-dataTables.php';
         $("#tituloModal2").html(nProyecto);
     }
 
-    function abrirModal3(id_proyecto, nProyecto) {
+    function abrirModal3(id_proyecto, nProyecto, id_complaca) {
         $("#btnMmodal-eliminarComPlaca").click();
         $("#id_proyecto3").val(id_proyecto);
         $("#nProyecto3").val(nProyecto);
+        $("#id_complaca3").val(id_complaca);
         $("#tituloModal3").html(nProyecto);
     }
 
-    function abrirModal4(id_proyecto, nProyecto) {
+    function abrirModal4(id_proyecto, nProyecto, id_comSupervision) {
         $("#btnMmodal-eliminarComPlacaSuper").click();
         $("#id_proyecto4").val(id_proyecto);
         $("#nProyecto4").val(nProyecto);
+        $("#id_comSupervision4").val(id_comSupervision);
         $("#tituloModal4").html(nProyecto);
     }
 

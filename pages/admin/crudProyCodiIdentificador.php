@@ -27,7 +27,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-5">
                         <div class="col-sm-8">
-                            <h1 class="m-0">Tabla 2.6 Proyectos con Código Identificador</h1>
+                            <h1 class="m-0">Tabla 2.6.1 Proyectos con Código Identificador</h1>
                         </div>
                         <div class="col-sm-4 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -44,25 +44,14 @@ require '../components/head-dataTables.php';
                                 <div class="card-header">
                                     <h3 class="card-title">Registro de Código Identificador en el sistema</h3>
                                     <div class="card-tools">
-                                        <?php if ($super == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/FormRegCodIdentificador.php" data-toggle="tooltip" data-placement="left" title="2.6.1 Registro de Código Identificador">
-                                                <i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Registro Código Identificador</a>
-                                        <?php } else if ($regCodIdentificador == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/FormRegCodIdentificador.php" data-toggle="tooltip" data-placement="left" title="2.6.1 Registro de Código Identificador">
-                                                <i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Registro Código Identificador</a>
+                                        <?php if ($super == 1 OR $regCodIdentificador == 1) { ?>
+                                            <a type="button" class="btn btn-secondary" href="../adds/FormRegCodIdentificador.php" data-toggle="tooltip" data-placement="left" title="2.6.1.1 Registro de Código Identificador"><i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Registro Código Identificador</a>
                                         <?php } else { ?>
-                                            <a type="button" class="btn btn-outline-danger" id="regCodIdentificador" data-toggle="tooltip" data-placement="left" title="2.6.1 Registro de Código Identificador">
+                                            <a type="button" class="btn btn-outline-danger" id="regCodIdentificador" data-toggle="tooltip" data-placement="left" title="2.6.1.1 Registro de Código Identificador">
                                                 <i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Registro Código Identificador</a>
                                         <?php } ?>
-                                        <!-- <a href="crudAltaProyecto.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Ver Tabla 2.5 Alta Proyecto"><i class="fa-solid fa-angle-left"></i>&nbsp;&nbsp;<i class="fa-solid fa-eye"></i></a>
-                                        <a href="crudSuperCodiIdentificador.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Ver Tabla 2.7 Supervisión de Registro Código Identificador"><i class="fa-solid fa-eye"></i>&nbsp;&nbsp;<i class="fa-solid fa-angle-right"></i></a> -->
 
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
-                                        <?php if ($super == 1 OR $verTablaBitCodIdentificador) { ?>
-                                        <a href="../consultas/tablaBitacoraCodigoIdentificador.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Tabla 2.6.7 Bitácora Código Identificador"><i class="fa-solid fa-list-ol"></i></a>
-                                        <?php } else{
-                                            echo '<a type="button" id="verTablaBitCodIdentificador" class="btn btn-danger btn-inline" data-toggle="tooltip" data-placement="bottom" title="Tabla 2.6.7 Bitácora Código Identificador"><i class="fa-solid fa-list-ol"></i></a>';
-                                        } ?>
                                     </div>
                                 </div>
                                 <!-- consulta sql -->

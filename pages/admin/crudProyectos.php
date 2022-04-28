@@ -4,7 +4,7 @@ require '../components/head-dataTables.php';
 ?>
 <title>CRUD Lista de Proyectos | <?php echo $nomComp ?></title>
 <script>
-      function abrirModal1(id_proyecto, nProyecto) {
+    function abrirModal1(id_proyecto, nProyecto) {
         $("#btnModal-eliminarProyecto").click();
         $("#id_proyecto").val(id_proyecto);
         $("#nProyecto").val(nProyecto);
@@ -177,7 +177,7 @@ require '../components/head-dataTables.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>ID1</th>
+                                                <th>ID</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -205,7 +205,7 @@ require '../components/head-dataTables.php';
                                                 <th>Placas</th>
                                                 <th>Color</th>
                                                 <th>Status Valor Venta Inicial</th>
-                                                <th>Valor Venta Inicial</th>
+                                                <th class="suma"></th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Etapa Proyecto</th>
                                                 <th>Acciones</th>
@@ -214,11 +214,9 @@ require '../components/head-dataTables.php';
                                     </table>
                                     <button id="btnModal-eliminarProyecto" class="btn btn-white" data-toggle="modal" data-target=".borrarProyecto"></button>
                                     <?php
-                                        require '../components/modal-eliminarProyecto.php';
-                                        // require '../components/modal-verListaProy.php';
+                                    require '../components/modal-eliminarProyecto.php';
                                     desconectar();
                                     ?>
-                                    <!-- <div id="respuestaProyectoBorrado"></div> -->
                                 </div>
                             </div>
                         </div>
@@ -289,30 +287,30 @@ require '../components/head-dataTables.php';
             })
         });
 
-        
+
         // Info Consulta --------------------------------------------------------------
         $(document).ready(function() {
             $("#info").click(function() {
-                    toastr["info"]("¡Última Actualizacion: <strong>06/04/2022</strong> -- Bloques !")
+                toastr["info"]("¡Última Actualizacion: <strong>06/04/2022</strong> -- Bloques !")
 
-                    toastr.options = {
-                        "closeButton": false,
-                        "debug": false,
-                        "newestOnTop": false,
-                        "progressBar": false,
-                        "positionClass": "toast-top-center",
-                        "preventDuplicates": false,
-                        "showDuration": "300",
-                        "hideDuration": "1000",
-                        "timeOut": "5000",
-                        "extendedTimeOut": "1000",
-                        "showEasing": "swing",
-                        "hideEasing": "linear",
-                        "showMethod": "fadeIn",
-                        "hideMethod": "fadeOut"
-                    }
-                })
-            });
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-center",
+                    "preventDuplicates": false,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+            })
+        });
     </script>
 </body>
 

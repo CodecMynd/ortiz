@@ -78,20 +78,20 @@ while ($row = $resultado->fetch_assoc()) {
 						<div class='input-group-prepend'>
 							<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración tabla Codigo Identificador'> Acciones</span>
 							</button>
-							<ul class='dropdown-menu' style='min-width: 2em'>
+							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>
 								<div class='btn-group'>
 									<li class='dropdown-item'>
-										<span data-toggle='tooltip' title='2.6.2 Eliminar Registro Código Identificador'>
+										<span data-toggle='tooltip' title='2.6.1.2 Eliminar Registro Código Identificador'>
 										".$outputBtns1."
 										</span>
 									</li>
 									<li class='dropdown-item'>
-										<span data-toggle='tooltip' title='2.6.3 Descarga PDF Registro Código Identificador'>
+										<span data-toggle='tooltip' title='2.6.1.3 Descarga PDF Registro Código Identificador'>
 										".$outputBtns2."
 										</span>
 									</li>
 									<li class='dropdown-item'>
-										<span data-toggle='tooltip' title='2.6.4 Ver Link de Video, Observaciones y Generales'>
+										<span data-toggle='tooltip' title='2.6.1.4 Ver Link de Video, Observaciones y Generales'>
 										".$outputBtns3."
 										</span>
 									</li>

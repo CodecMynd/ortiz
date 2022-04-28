@@ -73,6 +73,7 @@ require '../components/head-dataTables.php';
                                         <thead class="thead-dark">
                                             <tr>
                                                 <th>ID</th>
+                                                <th>Núm. de Proyecto</th>
                                                 <th>Número de Orden</th>
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
@@ -84,18 +85,19 @@ require '../components/head-dataTables.php';
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <th style="width: 5%;"><span class='badge badge-dark badge-pill'><?php echo $row1['id_proyecto']?></span></th>
+                                                <th style="width: 5%;"><span class='badge badge-dark badge-pill'><?php echo $row1['id_proyecto'] ?></span></th>
+                                                <td style="width: 10%;"><?php echo $row1['nProyecto'] ?></td>
                                                 <td style="width: 10%;"><?php echo $row1['nOrden'] ?></td>
                                                 <td><?php echo $row1['marca'] ?></td>
                                                 <td><?php echo $row1['modelo'] ?></td>
-                                                <th><?php echo $row1['anio'] ?></th>
+                                                <td><?php echo $row1['anio'] ?></td>
                                                 <td><?php echo $row1['placa'] ?></td>
                                                 <td><?php echo $row1['color'] ?></td>
-                                                <td><?php if(empty($row1['asesor'])){
-                                                    echo 'Sin registro ';
-                                                }else{
-                                                    echo $row1['asesor'];
-                                                } ?></td>
+                                                <td><?php if (empty($row1['asesor'])) {
+                                                        echo 'Sin Asesor ';
+                                                    } else {
+                                                        echo $row1['asesor'];
+                                                    } ?></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -106,7 +108,7 @@ require '../components/head-dataTables.php';
                                     $cont = 0;
                                     $query = "SELECT P.id_proyecto, P.nProyecto, P.comActMinDia, P.comSuperActMinDia, 
                                 V.placa, Co.color, M.marca, Mo.modelo, An.anio, 
-                                A.id_ActMinDiaria, A.linkComActMinDia, A.textSupervision, 
+                                A.id_ActMinDiaria, A.linkComActMinDia, A.textSupervision, A.fecha_creacionV, A.fecha_creacionS,
                                 A.fecha_hoyV AS FV, A.fecha_hoyS AS FS, 
                                 UV.nombres AS nombreV, UV.aPaterno AS paternoV, UV.aMaterno AS maternoV, 
                                 US.nombres AS nombreS, US.aPaterno AS paternoS, US.aMaterno AS maternoS 
@@ -174,8 +176,9 @@ require '../components/head-dataTables.php';
                                                         <?php if (empty($hoyV)) {
                                                             echo '';
                                                         } else {
-                                                            $fecha = new DateTime($fechaV);
-                                                            echo $fecha_m_d_y = $fecha->format('d-m-Y');
+                                                            // $fecha = new DateTime($fechaV);
+                                                            // echo $fecha_m_d_y = $fecha->format('d-m-Y');
+                                                            echo $row['fecha_creacionV'];
                                                         }
                                                         ?>
                                                     </td>
@@ -189,8 +192,9 @@ require '../components/head-dataTables.php';
                                                         <?php if (empty($hoyS)) {
                                                             echo '';
                                                         } else if ($hoyS != '0000-00-00') {
-                                                            $fecha = new DateTime($fechaS);
-                                                            echo $fecha_m_d_y = $fecha->format('d-m-Y');
+                                                            // $fecha = new DateTime($fechaS);
+                                                            // echo $fecha_m_d_y = $fecha->format('d-m-Y');
+                                                            echo $row['fecha_creacionS'];
                                                         }
                                                         ?>
                                                         <!-- <?php
