@@ -18,13 +18,14 @@ require '../components/head-dataTables.php';
             text-align: center;
         }
     }
+
     .celda {
-            background-color: #5A6268;
-            color: #fff;
-            font-size: 40;
-            font-weight: 900;
-            text-align: center;
-        }
+        background-color: #5A6268;
+        color: #fff;
+        font-size: 40;
+        font-weight: 900;
+        text-align: center;
+    }
 </style>
 </head>
 
@@ -37,7 +38,7 @@ require '../components/head-dataTables.php';
             <!-- titulo y brandcrumb -->
             <div class="content-header">
                 <div class="container-fluid">
-                    <div class="row my-3 mx-5">
+                    <div class="row my-3 mx-1">
                         <div class="col-sm-6">
                             <h1 class="float-left m-0">Indicador Estatus de Envío de Mensajes</h1>
                         </div>
@@ -54,12 +55,18 @@ require '../components/head-dataTables.php';
                         <div class="col-md-8 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header border-nav">
-                                    <h3 class="card-title">**Todos los campos son obligatorios</h3>
+                                    <h3 class="card-title">Datos de Consulta</h3>
                                     <div class="card-tools">
                                         <a href="javascript:history.go(-1)" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
+                                <?php
+                                //# Estatus Solicitudes Cambios de Placas
+                                $count_reg_null = mysqli_query($conexion, "SELECT count(asesor)
+                                FROM verificacion
+                                WHERE FV IS NULL AND asesor IS NULL GROUP BY id_proyecto");
+                                ?>
 
                                 <div class="modal-body">
                                     <table id="tableIndicadorAsesor" class="table table-sm table-bordered table-striped" style="width: 100%;">
@@ -89,6 +96,30 @@ require '../components/head-dataTables.php';
                                             </tr>
                                         </tfoot>
                                     </table>
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-4">
+                                            <table id="" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Sin Asesor</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="suma">
+                                                            <?php echo mysqli_num_rows($count_reg_null); ?>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Sin Asesor</th>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

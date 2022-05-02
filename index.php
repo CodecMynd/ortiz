@@ -33,13 +33,13 @@ conectar();
     <!-- Bootstrap CSS -->
     <link href="plugins/bootstrap/bootstrap-5.0.2.min.css" rel="stylesheet">
     <!-- Fontawesome Iconos -->
-    <link rel="stylesheet" href="plugins/fontawesome/fontawesome-free-6.0.0-web/css/all.min.css" />
+    <!-- <link rel="stylesheet" href="plugins/fontawesome/fontawesome-free-6.0.0-web/css/all.min.css" /> -->
     <!-- NProgress barra de progreso -->
-    <link rel="stylesheet" href="plugins/nprogress/nprogress.css">
+    <!-- <link rel="stylesheet" href="plugins/nprogress/nprogress.css"> -->
     <!-- Animate.css -->
-    <link rel="stylesheet" href="plugins/animate/animate.min.css">
+    <!-- <link rel="stylesheet" href="plugins/animate/animate.min.css"> -->
 
-    <link rel="stylesheet" href="plugins/nprogress/nprogress.css">
+    <!-- <link rel="stylesheet" href="plugins/nprogress/nprogress.css"> -->
     <!-- Estilo de tema personalizado -->
     <link rel="stylesheet" href="src/css/style.css">
 

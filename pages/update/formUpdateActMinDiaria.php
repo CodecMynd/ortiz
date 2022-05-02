@@ -30,7 +30,7 @@ require '../components/head-dataTables.php';
             <!-- titulo y brandcrumb -->
             <div class="content-header">
                 <div class="container-fluid">
-                    <div class="row my-3 mx-5">
+                    <div class="row my-3 mx-1">
                         <div class="col-sm-6">
                             <h1 class="float-left m-0">2.3.4.3 Ver Generales Actividad Mínima Diaria</h1>
                         </div>
@@ -48,7 +48,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-header border-nav">
                                     <h3 class="card-title">**Todos los campos son obligatorios</h3>
                                     <div class="card-tools">
-                                        <a href="javascript:history.go(-1)" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
+                                        <a href="../admin/crudActividadMinimaDiaria.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>

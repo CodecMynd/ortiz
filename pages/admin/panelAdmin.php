@@ -10,7 +10,23 @@ $count_reg_mensajeNO = mysqli_query($conexion, "SELECT FV FROM verificacion WHER
 $count_reg_cambioasesores = mysqli_query($conexion, "SELECT estatusEspera FROM `cambioasesores` WHERE estatusEspera = 1");
 //# Estatus Solicitudes Cambios de Placas
 $count_reg_cambioplacas = mysqli_query($conexion, "SELECT estatusEspera FROM `cambioplacas` WHERE estatusEspera = 1");
+
+// contador sin comprobar placas / sin supervision placas
+$querySinPlacas = "SELECT 
+(SELECT count(comPlacas)
+FROM proyectos
+WHERE complacas = 0
+) AS sin_comPlacas, 
+
+(SELECT count( comSuperPlaca)
+FROM proyectos
+WHERE comSuperPlaca = 0
+) AS sin_comSuperPlaca;";
+$resultado = mysqli_query($conexion, $querySinPlacas);
+$rowSP = $resultado->fetch_assoc();
 ?>
+
+
 <title>Panel <?php if ($admin == 1) {
                     echo 'Admin';
                 } else {
@@ -28,7 +44,7 @@ $count_reg_cambioplacas = mysqli_query($conexion, "SELECT estatusEspera FROM `ca
             <!-- titulo y brandcrumb -->
             <div class="content-header">
                 <div class="container-fluid">
-                    <div class="row my-3 mx-5">
+                    <div class="row my-3 mx-1">
                         <div class="col-sm-12 textB">
                             <h1 class="m-0 bienvenido">Bienvenido <?php if ($admin == 1) {
                                                                         echo 'Administrador';
@@ -91,22 +107,24 @@ $count_reg_cambioplacas = mysqli_query($conexion, "SELECT estatusEspera FROM `ca
                             </div>
                         <?php } ?>
 
-                        <div class="col-lg-2 col-4">
-                            <div class="small-box bg-secondary">
-                                <div class="inner">
-                                    <h3>1</h3>
-                                    <p>Modelos</p>
+                        <?php if ($super == 1 or $indSinComSupPlacas == 1) { ?>
+                            <div class="col-lg-2 col-4">
+                                <div class="small-box bg-secondary">
+                                    <div class="inner">
+                                        <h5 style="margin-bottom: 0px;"><strong><?php echo $rowSP['sin_comPlacas'] ?></strong></h5>
+                                        <p style="margin-bottom: 0px;">Sin Comprobar Placas</p>
+                                        <h5 style="margin-bottom: 0px;"><strong><?php echo $rowSP['sin_comSuperPlaca']?></strong></h5>
+                                        <p style="margin-bottom: 0px;">Sin Supervisar Placas</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-ban"></i>
+                                    </div>
+                                    <a href="../admin/crudComprobacionPlacas.php" class="small-box-footer"><small>Comprobación de Placas </small> <i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
-                                <div class="icon">
-                                    <i class="fa-solid fa-car-side"></i>
-                                </div>
-                                <?php if ($passUser == 'SIN_PASSWORD') {
-                                    echo '';
-                                } else {
-                                    echo '<a href="crudModelos.php" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
-                                } ?>
                             </div>
-                        </div>
+                        <?php } ?>
+
+
                         <div class="col-lg-2 col-4">
                             <div class="small-box bg-secondary">
                                 <div class="inner">

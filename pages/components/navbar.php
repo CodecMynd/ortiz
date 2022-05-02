@@ -3,10 +3,10 @@
         <a href="../admin/panelAdmin.php" class="navbar-brand">
             <img src="../../src/img/logos/logo.png" alt="JSOL Automotriz Logo" class="brand-image  elevation-5" style="opacity: .8; height:4rem">
             <!-- Produccion -->
-            <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span></a>
+            <!-- <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span></a> -->
 
             <!-- test -->
-            <!-- <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span> -->
+            <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span>
         </a>
 
         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -97,6 +97,9 @@
                                 <li><a href="../admin/crudProyectos.php" class="dropdown-item">2.3.2 Lista de Proyectos</a></li>
                                 <li><a href="../admin/crudVerificacionDiariaVehiculos.php" class="dropdown-item ">2.3.2.2 Estatus para envío de Mensajes</a></li>
                                 <li><a href="../admin/crudActividadMinimaDiaria.php" class="dropdown-item ">2.3.4 Actividad Mínima Diaria</a></li>
+                                <li><a href="../admin/crudAsignacionTop.php" class="dropdown-item ">2.3.5 Asignación de Top</a></li>
+                                <li><a href="../admin/crudAsesoramientoTecnico.php" class="dropdown-item">2.3.6 Programa de Asesoramiento Técnico</a></li>
+                                <li><a href="../admin/crudSegDiaAsesoramientoTecnico.php" class="dropdown-item">2.3.6.1 Seguimimiento Diario Programa de Asesoramiento Técnico</a></li>
                                 <li><a href="../adds/formAddCapValVenInicial.php" class="dropdown-item">2.3.7 Captura de Valor Venta Inicial </a></li>
                                 <li><a href="../update/formUpdateAsignarAgentes.php" class="dropdown-item disabled">2.3.8 Orden de Asignación de Agentes Servicio </a></li>
                                 <li class="btn-group dropleft dropdown-hover">
@@ -135,6 +138,7 @@
                                 <li><a href="../admin/crudProyCodiIdentificador.php" class="dropdown-item">2.6.1 Registro de Código Identificador </a></li>
                                 <li><a href="../components/tablaDadosAltaAsignarCodId.php" class="dropdown-item">2.6.2 Reporte de Alta por asignar Código ID</a></li>
                                 <li><a href="../admin/crudComDiariaAltasAsignarCodId.php" class="dropdown-item">2.6.3 Comprobación Diaria de Altas Por Asignar Código ID</a></li>
+                                <li><a href="../admin/crudSeguimientoDiarioCobranza.php" class="dropdown-item">2.6.4 Seguimiento Diario de Cobranza </a></li>
                             </ul>
                         </li>
                         <li><a href="../admin/crudSuperCodiIdentificador.php" class="dropdown-item ">2.7 Supervisión Código Identificador </a></li>

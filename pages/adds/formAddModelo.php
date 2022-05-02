@@ -14,7 +14,7 @@ require '../components/head-main.php';
             <!-- titulo y brandcrumb -->
             <div class="content-header">
                 <div class="container-fluid">
-                    <div class="row my-3 mx-5">
+                    <div class="row my-3 mx-1">
                         <div class="col-sm-6">
                             <h1 class="float-left m-0">1.3.1 Registro de Modelo</h1>
                         </div>
@@ -90,16 +90,9 @@ require '../components/head-main.php';
                                     </div>
                                     <div class="card-footer border-footer">
                                         <div class="row">
-                                            <?php if (mysqli_num_rows($count_reg_marcas) == 0) { ?>
-                                                <button type="button" class="btn btn-danger">
-                                                    Primero Agrega una Marca <span class="badge badge-light">0</span>
-                                                </button>
-                                            <?php
-                                            } else { ?>
-                                                <div class="col-md-2 col-sm-12 align-self-center">
-                                                    <buttom type="submit" id="btnNuevoModelo" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Guardar "><i class="fas fa-pen"></i> Guardar</buttom>
-                                                </div>
-                                            <?php } ?>
+                                            <div class="col-md-2 col-sm-12 align-self-center">
+                                                <buttom type="submit" id="btnNuevoModelo" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Guardar "><i class="fas fa-pen"></i> Guardar</buttom>
+                                            </div>
                                             <div class="col-md-2 col-sm-12 align-self-center">
                                                 <a href="javascript:history.go(-1)" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
                                             </div>

@@ -29,7 +29,7 @@ require '../components/head-dataTables.php';
             <!-- titulo y brandcrumb -->
             <div class="content-header">
                 <div class="container-fluid">
-                    <div class="row my-3 mx-5">
+                    <div class="row my-3 mx-1">
                         <div class="col-sm-8">
                             <h1 class="m-0">Tabla 2.3.6 Ver Generales Lista de Proyectos</h1>
                         </div>

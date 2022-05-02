@@ -15,7 +15,7 @@ require '../components/head-dataTables.php';
             <!-- titulo y brandcrumb -->
             <div class="content-header">
                 <div class="container-fluid">
-                    <div class="row my-3 mx-5">
+                    <div class="row my-3 mx-1">
                         <div class="col-sm-8 col-md-8 col-lg-8">
                             <h1 class="m-0">Tabla 2.3.4 Verificación Actividad Mínima Diaria</h1>
                         </div>
@@ -139,6 +139,7 @@ require '../components/head-dataTables.php';
                                                 <th>Placas</th>
                                                 <th>Color</th>
                                                 <th>Asesor</th>
+                                                <th>Top</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Status Comprobación</th>
                                                 <th>Status Supervisión</th>
@@ -159,6 +160,7 @@ require '../components/head-dataTables.php';
                                                 <th>Placas</th>
                                                 <th>Color</th>
                                                 <th>Asesor</th>
+                                                <th>Top</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Status Comprobación</th>
                                                 <th>Status Supervisión</th>

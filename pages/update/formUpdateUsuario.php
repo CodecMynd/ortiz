@@ -14,7 +14,7 @@ require '../components/head-main.php';
             <!-- titulo y brandcrumb -->
             <div class="content-header">
                 <div class="container-fluid">
-                    <div class="row my-3 mx-5">
+                    <div class="row my-3 mx-1">
                         <div class="col-sm-6">
                             <h1 class="m-0">1.1.1 Editar Usuario</h1>
                         </div>

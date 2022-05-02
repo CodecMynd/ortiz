@@ -29,7 +29,7 @@ require '../components/head-dataTables.php';
             <!-- titulo y brandcrumb -->
             <div class="content-header">
                 <div class="container-fluid">
-                    <div class="row my-3 mx-5">
+                    <div class="row my-3 mx-1">
                         <div class="col-sm-8">
                             <h1 class="m-0">Tabla 2.6.3 Comprobación Diaria de Altas Por Asignar Código ID</h1>
                         </div>
@@ -46,7 +46,7 @@ require '../components/head-dataTables.php';
                         <div class="col-md-12 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Dados de alta por asignar Código Identificador en el sistema</h3>
+                                    <h3 class="card-title">Datos de Comprobación Diaria de Altas Por Asignar Código ID en el sistema</h3>
                                     <div class="card-tools">
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>

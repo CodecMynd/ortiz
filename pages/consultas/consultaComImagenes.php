@@ -98,7 +98,7 @@ while ($row = $resultado->fetch_assoc()) {
      if ($Eliminado == 0) {
         $outputBtns = "<a class='btn btn-outline-danger' id='noComImg'><i class='fa-solid fa-ban'></i></a>";
     } else if ($super == 1 OR $eliComImgSuper == 1 && $comp == 0  && $sup == 0) { 
-        $outputBtns4 = "<a class='btn btn-outline-danger' id='noEliComImg'><i class='fa-solid fa-trash-alt'></i>1/a>";
+        $outputBtns4 = "<a class='btn btn-outline-danger' id='noEliComImg'><i class='fa-solid fa-trash-alt'></i></a>";
     } else if ($super == 1 OR $eliComImgSuper == 1 && $comp == 1  && $sup == 0) {
         $outputBtns4 = "<a class='btn btn-outline-danger' id='noEliComImg'><i class='fa-solid fa-trash-alt'></i></a>";
     } else if ($super == 1 OR $eliComImgSuper == 1 && $comp == 1  && $sup == 1) {

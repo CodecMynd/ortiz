@@ -29,7 +29,7 @@ require '../components/head-main.php';
             <!-- titulo y brandcrumb -->
             <div class="content-header">
                 <div class="container-fluid">
-                    <div class="row my-3 mx-5">
+                    <div class="row my-3 mx-1">
                         <div class="col-sm-8">
                             <h1 class="float-left m-0">2.3.2.2.3 Registrar Supervisión Link de Video en Vivo</h1>
                         </div>

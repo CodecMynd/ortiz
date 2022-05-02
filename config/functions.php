@@ -11,7 +11,7 @@ function conectar()
     // $conexion = mysqli_connect('localhost', 'u910288658_jsolautomotriz', 'jsolAutomotriz2022@', 'u910288658_jsolautomotriz');
 
     //conexion prueba hostinger actual
-    // $conexion = mysqli_connect('localhost', 'u910288658_pruebas', '?r#?ML3C$U5', 'u910288658_pruebas');
+    //$conexion = mysqli_connect('localhost', 'u910288658_pruebas', 'jsolAutomotriz2022@', 'u910288658_pruebas');
 
 
 
@@ -26,13 +26,13 @@ function conectar()
 
     
 
-     mysqli_set_charset($conexion, 'utf8');
+    //  mysqli_set_charset($conexion, 'utf8');
 
-        // if (mysqli_connect_error()) {
-        //    echo "Error al conectarse con MySQL debido al error ".$conexion->connect_error;
-        // } else {
-        // echo 'conectado';
-        // }
+    // if (mysqli_connect_error()) {
+    //    echo "Error al conectarse con MySQL debido al error ".$conexion->connect_error;
+    // } else {
+    // echo 'conectado';
+    // }
 
 }
 

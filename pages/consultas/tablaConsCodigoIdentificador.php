@@ -25,7 +25,7 @@ require '../components/head-dataTables.php';
             <!-- titulo y brandcrumb -->
             <div class="content-header">
                 <div class="container-fluid">
-                    <div class="row my-3 mx-5">
+                    <div class="row my-3 mx-1">
                         <div class="col-sm-8">
                             <h1 class="m-0">Tabla 2.8.3 Consecutivo Código Identificador <small>(Solo Consulta)</small></h1>
                         </div>

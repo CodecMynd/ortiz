@@ -30,7 +30,7 @@ require '../components/head-dataTables.php';
             <!-- titulo y brandcrumb -->
             <div class="content-header">
                 <div class="container-fluid">
-                    <div class="row my-3 mx-5">
+                    <div class="row my-3 mx-1">
                         <div class="col-sm-6">
                             <h1 class="float-left m-0">2.3.2.2.5 Ver Generales Verificación y Supervisión</h1>
                         </div>

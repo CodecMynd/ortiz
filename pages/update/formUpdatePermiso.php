@@ -15,7 +15,7 @@ require '../components/head-main.php';
             <!-- titulo y brandcrumb -->
             <div class="content-header">
                 <div class="container-fluid">
-                    <div class="row my-3 mx-5">
+                    <div class="row my-3 mx-1">
                         <div class="col-sm-6">
                             <h1 class="float-left m-0">1.1.4 Asignar Permisos</h1>
                         </div>
@@ -97,6 +97,18 @@ require '../components/head-main.php';
                                                                                         <span class="info-box-text">0.2 Estatus Para Cambio de Asesor</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="indCambioAsesor" id="indCambioAsesor" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" value="1" <?php if ($rowPer['indCambioAsesor'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                             else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-chart-line"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">0.3 Estatus Sin Comprobación Ni Supervisión de Placas</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="indSinComSupPlacas" id="indSinComSupPlacas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" value="1" <?php if ($rowPer['indSinComSupPlacas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </button>
@@ -1344,6 +1356,224 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+
+                                                                        <div class="col-md-12 col-sm-12 col-12">
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>2.3.5 Asignación de Top</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body ">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.5.1 Registro Motivo Asignación de Top</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regAsignacionTop" id="regAsignacionTop" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regAsignacionTop'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.5.2 Eliminar Motivo Asignación de Top</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliAsignacionTop" id="eliAsignacionTop" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliAsignacionTop'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.5.3 Ver Generales Asignación de Top</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralAsignacionTop" id="verGralAsignacionTop" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralAsignacionTop'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.5.4 Ver Tabla Asignación de Top</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="vertablaAsignacionTop" id="vertablaAsignacionTop" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['vertablaAsignacionTop'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-12 col-sm-12 col-12">
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>2.3.6 Programa de Asesoramiento Técnico</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body ">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.6.1 Registro Programa de Asesoramiento Técnico</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regAseTec" id="regAseTec" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regAseTec'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.6.2 Eliminar Programa de Asesoramiento Técnico</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliAseTec" id="eliAseTec" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliAseTec'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.6.3 Ver Generales Programa de Asesoramiento Técnico</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralAseTec" id="verGralAseTec" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralAseTec'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.6.4 Ver Tabla Programa de Asesoramiento Técnico</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="vertablaAseTec" id="vertablaAseTec" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['vertablaAseTec'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-12 col-sm-12 col-12">
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>2.3.6.1 Seguimiento Diario Programa de Asesoramiento Técnico</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.6.1.1 Registro Comprobación de Seguimiento Diario Programa de Asesoramiento Técnico</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComSegDiaAseTecnico" id="regComSegDiaAseTecnico" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComSegDiaAseTecnico'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.6.1.2 Registro Supervisión de Seguimiento Diario Programa de Asesoramiento Técnico</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regSuperSegDiaAseTecnico" id="regSuperSegDiaAseTecnico" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regSuperSegDiaAseTecnico'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.6.1.3 Ver Generales Seguimiento Diario Programa de Asesoramiento Técnico</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralSegDiaProAseTecnico" id="verGralSegDiaProAseTecnico" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralSegDiaProAseTecnico'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.6.1.4 Eliminar Comprobación de Seguimiento Diario Programa de Asesoramiento Técnico</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComSegDiaAseTecnico" id="eliComSegDiaAseTecnico" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComSegDiaAseTecnico'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.6.1.5 Eliminar Supervisión de Seguimiento Diario Programa de Asesoramiento Técnico</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComSegDiaAseTecnicoSuper" id="eliComSegDiaAseTecnicoSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComSegDiaAseTecnicoSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.4.6 Ver tabla Seguimiento Diario Programa de Asesoramiento Técnico</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaSegDiaProAseTecnico" id="verTablaSegDiaProAseTecnico" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaSegDiaProAseTecnico'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -1649,6 +1879,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -2381,7 +2612,7 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box-content">
                                                                                                     <span class="info-box-text">2.6.1.3 PDF Código Identificador</span>
                                                                                                     <span class="info-box-text"> <input type="checkbox" name="pdfCodIdentificador" id="pdfCodIdentificador" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['pdfCodIdentificador'] == 1) echo 'checked';
-                                                                                                                                        else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </button>
@@ -2473,7 +2704,7 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box-content">
                                                                                                     <span class="info-box-text">2.6.3.1 Registrar Comprobación Diaria de Altas Por Asignar Código ID</span>
                                                                                                     <span class="info-box-text"> <input type="checkbox" name="regComDiaAltasAsignarCodId" id="regComDiaAltasAsignarCodId" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComDiaAltasAsignarCodId'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </button>
@@ -2485,7 +2716,7 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box-content">
                                                                                                     <span class="info-box-text"> 2.6.3.2 Registrar Supervisión Diaria de Altas Por Asignar Código ID</span>
                                                                                                     <span class="info-box-text"> <input type="checkbox" name="regComDiaAltasAsignarCodIdSuper" id="regComDiaAltasAsignarCodIdSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComDiaAltasAsignarCodIdSuper'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </button>
@@ -2499,7 +2730,7 @@ require '../components/head-main.php';
                                                                                                     <span class="info-box-text">2.6.3.3 Ver Generales Verificación y Supervisión</span>
                                                                                                     <span class="info-box-text"> <input type="checkbox" name="verGralComDiaAltasAsignarCodId" id="verGralComDiaAltasAsignarCodId
                                                                                         " data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralComDiaAltasAsignarCodId'] == 1) echo 'checked';
-                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </button>
@@ -2511,7 +2742,7 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box-content">
                                                                                                     <span class="info-box-text">2.6.3.4 Eliminar Comprobación Link de Video en Vivo</span>
                                                                                                     <span class="info-box-text"> <input type="checkbox" name="eliComDiaAltasAsignarCodId" id="eliComDiaAltasAsignarCodId" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComDiaAltasAsignarCodId'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </button>
@@ -2523,7 +2754,7 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box-content">
                                                                                                     <span class="info-box-text">2.6.3.5 Eliminar Supervisión Link de Video en Vivo</span>
                                                                                                     <span class="info-box-text"> <input type="checkbox" name="eliComDiaAltasAsignarCodIdSuper" id="eliComDiaAltasAsignarCodIdSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComDiaAltasAsignarCodIdSuper'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </button>
@@ -2535,7 +2766,97 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box-content">
                                                                                                     <span class="info-box-text">2.6.3.6 Ver Tabla Comprobación Diaria de Altas Por Asignar Código ID</span>
                                                                                                     <span class="info-box-text"> <input type="checkbox" name="vertablaComDiaAltasAsignarCodId" id="vertablaComDiaAltasAsignarCodId" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['vertablaComDiaAltasAsignarCodId'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12 col-sm-6 col-12">
+                                                                        <div class="card card-info card-outline collapsed-card">
+                                                                            <div class="card-header">
+                                                                                <h2 class="card-title"><strong>2.6.4 Seguimiento Diario de Cobranza</strong></h2>
+                                                                                <div class="card-tools">
+                                                                                    <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                        <i class="fas fa-plus"></i>
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="card-body">
+                                                                                <div class="row justify-content-center">
+                                                                                    <div class="col-md-4 col-sm-6 col-12">
+                                                                                        <button type="button" class="btn btn-permisos">
+                                                                                            <div class="info-box">
+                                                                                                <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                <div class="info-box-content">
+                                                                                                    <span class="info-box-text">2.6.4.1 Registrar Comprobación de Seguimiento Diario de Cobranza</span>
+                                                                                                    <span class="info-box-text"> <input type="checkbox" name="regSeguimientoDiarioCobranza" id="regSeguimientoDiarioCobranza" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regSeguimientoDiarioCobranza'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="col-md-4 col-sm-6 col-12">
+                                                                                        <button type="button" class="btn btn-permisos">
+                                                                                            <div class="info-box">
+                                                                                                <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                <div class="info-box-content">
+                                                                                                    <span class="info-box-text">2.6.4.2 Registrar Supervisión de Seguimiento Diario de Cobranza</span>
+                                                                                                    <span class="info-box-text"> <input type="checkbox" name="regSeguimientoDiarioCobranzaSuper" id="regSeguimientoDiarioCobranzaSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regSeguimientoDiarioCobranzaSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </button>
+                                                                                    </div>
+
+                                                                                    <div class="col-md-4 col-sm-6 col-12">
+                                                                                        <button type="button" class="btn btn-permisos">
+                                                                                            <div class="info-box">
+                                                                                                <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                <div class="info-box-content">
+                                                                                                    <span class="info-box-text">2.6.4.3 Ver Generales Seguimiento Diario de Cobranza</span>
+                                                                                                    <span class="info-box-text"> <input type="checkbox" name="verGralSeguimientoDiarioCobranza" id="verGralSeguimientoDiarioCobranza
+                                                                                        " data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralSeguimientoDiarioCobranza'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="col-md-4 col-sm-6 col-12">
+                                                                                        <button type="button" class="btn btn-permisos">
+                                                                                            <div class="info-box">
+                                                                                                <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                <div class="info-box-content">
+                                                                                                    <span class="info-box-text">2.6.4.4 Eliminar Comprobación Seguimiento Diario de Cobranza</span>
+                                                                                                    <span class="info-box-text"> <input type="checkbox" name="eliSeguimientoDiarioCobranza" id="eliSeguimientoDiarioCobranza" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliSeguimientoDiarioCobranza'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="col-md-4 col-sm-6 col-12">
+                                                                                        <button type="button" class="btn btn-permisos">
+                                                                                            <div class="info-box">
+                                                                                                <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                <div class="info-box-content">
+                                                                                                    <span class="info-box-text">2.6.4.5 Eliminar Supervisón Seguimiento Diario de Cobranza</span>
+                                                                                                    <span class="info-box-text"> <input type="checkbox" name="eliSeguimientoDiarioCobranzaSuper" id="eliSeguimientoDiarioCobranzaSuper" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliSeguimientoDiarioCobranzaSuper'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="col-md-4 col-sm-6 col-12">
+                                                                                        <button type="button" class="btn btn-permisos">
+                                                                                            <div class="info-box">
+                                                                                                <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                <div class="info-box-content">
+                                                                                                    <span class="info-box-text">2.6.4.6 Ver Tabla Seguimiento Diario de Cobranza</span>
+                                                                                                    <span class="info-box-text"> <input type="checkbox" name="vertablaSeguimientoDiarioCobranza" id="vertablaSeguimientoDiarioCobranza" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['vertablaSeguimientoDiarioCobranza'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </button>
@@ -2652,15 +2973,7 @@ require '../components/head-main.php';
                                                                         </div>
                                                                         <div class="col-md-4 col-sm-6 col-12">
                                                                             <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-list-ol"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">2.8.3 Consecutivo Código Identificador</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="consCodId" id="consCodId
-                                                                                        " data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['consCodId'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
+
                                                                             </button>
                                                                         </div>
                                                                     </div>

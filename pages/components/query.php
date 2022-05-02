@@ -47,6 +47,7 @@ while ($row = mysqli_fetch_array($query)) {
     $indCambioAsesor = $row['indCambioAsesor'];
     $indCambioPlacas = $row['indCambioPlacas'];
     $verTablaUsuario = $row['verTablaUsuario'];
+    $indSinComSupPlacas = $row['indSinComSupPlacas'];
     $editarUsu = $row['editarUsu'];
     $asignarCon = $row['asignarCon'];
     $eliminarUsu = $row['eliminarUsu'];
@@ -220,6 +221,28 @@ while ($row = mysqli_fetch_array($query)) {
     $verGralComDiaAltasAsignarCodId = $row['verGralComDiaAltasAsignarCodId'];
     $eliComDiaAltasAsignarCodIdSuper = $row['eliComDiaAltasAsignarCodIdSuper'];
     $vertablaComDiaAltasAsignarCodId = $row['vertablaComDiaAltasAsignarCodId'];
+    $regSeguimientoDiarioCobranza = $row['regSeguimientoDiarioCobranza'];
+    $regSeguimientoDiarioCobranzaSuper = $row['regSeguimientoDiarioCobranzaSuper'];
+    $verGralSeguimientoDiarioCobranza = $row['verGralSeguimientoDiarioCobranza'];
+    $eliSeguimientoDiarioCobranza = $row['eliSeguimientoDiarioCobranza'];
+    $eliSeguimientoDiarioCobranzaSuper = $row['eliSeguimientoDiarioCobranzaSuper'];
+    $vertablaSeguimientoDiarioCobranza = $row['vertablaSeguimientoDiarioCobranza'];
+    $regAsignacionTop = $row['regAsignacionTop'];
+    $verGralAsignacionTop = $row['verGralAsignacionTop'];
+    $eliAsignacionTop = $row['eliAsignacionTop'];
+    $vertablaAsignacionTop = $row['vertablaAsignacionTop'];
+    $regAseTec = $row['regAseTec'];
+    $eliAseTec = $row['eliAseTec'];
+    $verGralAseTec = $row['verGralAseTec'];
+    $vertablaAseTec = $row['vertablaAseTec'];
+    $regComSegDiaAseTecnico = $row['regComSegDiaAseTecnico'];
+    $regSuperSegDiaAseTecnico = $row['regSuperSegDiaAseTecnico'];
+    $eliComSegDiaAseTecnico = $row['eliComSegDiaAseTecnico'];
+    $eliComSegDiaAseTecnicoSuper = $row['eliComSegDiaAseTecnicoSuper'];
+    $verGralSegDiaProAseTecnico = $row['verGralSegDiaProAseTecnico'];
+    $verTablaSegDiaProAseTecnico = $row['verTablaSegDiaProAseTecnico'];
+
+
 
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
     if ($passUser === 'SIN_PASSWORD') {
@@ -231,4 +254,3 @@ while ($row = mysqli_fetch_array($query)) {
 </script>';
     }
 }
-

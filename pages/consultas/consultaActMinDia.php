@@ -5,7 +5,7 @@ if($super == 1 OR $verTablaActMinDia == 1){
 $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.comActMinDia, P.estadoProyectoEliminado, P.comSuperActMinDia,
 V.placa, M.marca, Mo.modelo, A.anio, Co.color,                                    
 MAX(AM.fecha_hoyV) AS FV, MAX(AM.fecha_hoyS) AS FS, MAX(AM.id_ActMinDiaria) AS id_ActMinDiaria,
-ASE.asesor
+ASE.asesor, T.top
 FROM proyectos P
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
 INNER JOIN colores Co On V.id_color = Co.id_color
@@ -15,8 +15,9 @@ INNER JOIN anios A ON V.id_anio = A.id_anio
 LEFT JOIN actmindiaria AM ON P.id_proyecto = AM.id_proyecto
 LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
 LEFT JOIN asesores ASE ON CA.id_asesor = ASE.id_asesor
+LEFT JOIN tops T ON P.id_proyecto = T.id_proyecto
 WHERE P.proyectoActivo = 1 AND P.estadoProyectoEliminado = 1 OR P.registroSolicitud = 1 GROUP BY P.id_proyecto
-ORDER BY nProyecto  DESC ";
+ORDER BY nProyecto  DESC";
 }else{
 	$query = "SELECT id_proyecto FROM proyectos WHERE id_proyecto = 0";
 }
@@ -48,6 +49,7 @@ while ($row = $resultado->fetch_assoc()) {
 	$fechaS = $fecha->format('d-m-Y');
 	$fecha_sistema;
 	$id_ActMinDiaria = $row['id_ActMinDiaria'];
+	$top = $row['top'];
 
 
 	// Validar columna asesor 
@@ -55,6 +57,13 @@ while ($row = $resultado->fetch_assoc()) {
 		$validaAsesor = "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>";
 	} else {
 		$validaAsesor = "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>";
+	}
+
+	// valida columna Top
+	if ($top == 0) {
+		$validaTop = "<h6><span class='badge badge-ligth badge-pill top' data-toggle='tooltip' data-placement='bottom' title='Este Proyecto no es Top'><i class='fa-solid fa-star fa-2x' style='color:#CCCCCC'></i></span></h6>";
+	} else {
+		$validaTop = "<h6><span class='badge badge-ligth badge-pill top' data-toggle='tooltip' data-placement='bottom' title='Este Proyecto es Top'><i class='fa-solid fa-star fa-2x' style='color:#28A745'></i></span></h6>";
 	}
 
 	// validar columna estado del proyecto
@@ -119,7 +128,7 @@ while ($row = $resultado->fetch_assoc()) {
 	} else if ($regComActMinDia == 1 and ($fechaV ==  $fecha_sistema)) {
 		$outputBtns1 = "<a class='btn btn-outline-danger' id='yaRegistrado'><i class='fa-solid fa-pencil'></i></a>";
 	} else {
-		$outputBtns1 = "<a class='btn btn-outline-danger' id='regComActMinDia'><i class='fa-solid fa-spell-check?></i></a>";
+		$outputBtns1 = "<a class='btn btn-outline-danger' id='regComActMinDia'><i class='fa-solid fa-spell-check'></i></a>";
 	}
 
 	// 2.3.4.3 Ver Generales Actividad Mínima Diaria
@@ -138,13 +147,18 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns3 = "<a class='btn btn-outline-danger' id='eliminado'><i class='fa-solid fa-ban'></i></a>";
 	} else if ($super == 1 and ($hoyV  == '')) {
 		$outputBtns3 = "<a class='btn btn-outline-danger' id='elimina'><i class='fa-solid fa-pencil'></i></a>";
+	} else if ($super == 1 and ($fechaV <> $fecha_sistema)) {
+		$outputBtns3 = "<a class='btn btn-outline-danger' id='elimina'><i class='fa-solid fa-pencil'></i></a>";
 	} else if ($super == 1 and ($hoyS  == '')) {
 		$outputBtns3 = "<a href='../adds/formAddSupervisionActMinDia.php?id={$id_ActMinDiaria}' class='btn btn-secondary'><i class='fa-solid fa-pencil'></i></a>";
-	} else if ($super == 1 and ($fechaS <> $fecha_sistema)) {
+	} else if ($super == 1 and  ($fechaS <> $fecha_sistema)) {
 		$outputBtns3 = "<a href='../adds/formAddSupervisionActMinDia.php?id={$id_ActMinDiaria}' class='btn btn-secondary'><i class='fa-solid fa-pencil'></i></a>";
 	} else if ($super == 1 and ($fechaS ==  $fecha_sistema)) {
 		$outputBtns3 = "<a class='btn btn-outline-danger' id='yaRegistrado'><i class='fa-solid fa-pencil'></i></a>";
+		
 	} else if ($regComSuperActMinDia == 1 and ($hoyV  == '')) {
+		$outputBtns3 = "<a class='btn btn-outline-danger' id='elimina'><i class='fa-solid fa-pencil'></i></a>";
+	} else if ($regComSuperActMinDia == 1 and ($fechaV <> $fecha_sistema)) {
 		$outputBtns3 = "<a class='btn btn-outline-danger' id='elimina'><i class='fa-solid fa-pencil'></i></a>";
 	} else if ($regComSuperActMinDia == 1 and ($hoyS  == '')) {
 		$outputBtns3 = "<a href='../adds/formAddSupervisionActMinDia.php?id={$id_ActMinDiaria}' class='btn btn-secondary'><i class='fa-solid fa-pencil'></i></a>";
@@ -170,11 +184,12 @@ while ($row = $resultado->fetch_assoc()) {
 		"7" => $row['placa'],
 		"8" => $row['color'],
 		"9" => $validaAsesor,
-		"10" => $validaEstadoProyecto,
-		"11" => $validaCom,
-		"12" => $validaSup,
-		"13" => $validaUltReg,
-		"14" => "<div class='input-group input-group-sm mb-3'>
+		"10" => $validaTop,
+		"11" => $validaEstadoProyecto,
+		"12" => $validaCom,
+		"13" => $validaSup,
+		"14" => $validaUltReg,
+		"15" => "<div class='input-group input-group-sm mb-3'>
 		<div class='input-group-prepend'>
 			<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración tabla Verificación Diaria Vehículos Activos'> Acciones</span>
 			</button>
