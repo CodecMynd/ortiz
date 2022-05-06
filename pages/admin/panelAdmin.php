@@ -12,18 +12,57 @@ $count_reg_cambioasesores = mysqli_query($conexion, "SELECT estatusEspera FROM `
 $count_reg_cambioplacas = mysqli_query($conexion, "SELECT estatusEspera FROM `cambioplacas` WHERE estatusEspera = 1");
 
 // contador sin comprobar placas / sin supervision placas
-$querySinPlacas = "SELECT 
-(SELECT count(comPlacas)
-FROM proyectos
-WHERE complacas = 0
-) AS sin_comPlacas, 
+$query = "SELECT C.fecha_creacion,
+CS.fecha_registro
+FROM proyectos P
+LEFT JOIN complacas C ON P.id_proyecto = C.id_proyecto
+LEFT JOIN comsupervision CS ON P.id_proyecto = CS.id_proyecto";
 
-(SELECT count( comSuperPlaca)
-FROM proyectos
-WHERE comSuperPlaca = 0
-) AS sin_comSuperPlaca;";
-$resultado = mysqli_query($conexion, $querySinPlacas);
-$rowSP = $resultado->fetch_assoc();
+// $querySinPlacas = "SELECT 
+// (SELECT count(comPlacas)
+// FROM proyectos
+// WHERE complacas = 0
+// ) AS sin_comPlacas, 
+
+// (SELECT count( comSuperPlaca)
+// FROM proyectos
+// WHERE comSuperPlaca = 0
+// ) AS sin_comSuperPlaca;";
+// $resultado = mysqli_query($conexion, $querySinPlacas);
+// $rowSP = $resultado->fetch_assoc();
+
+$resultado = mysqli_query($conexion, $query);
+while ($row = $resultado->fetch_assoc()) {
+    $Fcom = $row['fecha_creacion'];
+    $Fsup = $row['fecha_registro'];
+    
+    // $dateC=date_create ($Fcom);
+    // $FC = date_format($dateC,"Y-m-d");
+
+    // $dateS=date_create ($Fsup);
+    // $FS = date_format($dateS,"Y-m-d");
+
+    // $dateFC = date("Y-m-d", strtotime($Fcom."- 2 days"));
+    $dateFC = date("Y-m-d", strtotime($fecha_mensaje."- 1 days"));
+    $dateFS = date("Y-m-d", strtotime($fecha_mensaje."- 1 days"));
+
+    $querySinPlacas = "SELECT 
+    (SELECT count(comPlacas)
+    FROM proyectos
+    WHERE complacas = 0 and fecha_creacion < '$dateFC'
+    ) AS sin_comPlacas, 
+    
+    (SELECT count( comSuperPlaca)
+    FROM proyectos
+    WHERE comSuperPlaca = 0 and fecha_creacion < '$dateFS'
+    ) AS sin_comSuperPlaca";
+    $resultado = mysqli_query($conexion, $querySinPlacas);
+    $rowSP = $resultado->fetch_assoc();
+
+
+
+}
+
 ?>
 
 
@@ -115,7 +154,7 @@ $rowSP = $resultado->fetch_assoc();
                                         <p style="margin-bottom: 0px;">Sin Comprobar Placas</p>
                                         <h5 style="margin-bottom: 0px;"><strong><?php echo $rowSP['sin_comSuperPlaca']?></strong></h5>
                                         <p style="margin-bottom: 0px;">Sin Supervisar Placas</p>
-                                    </div>
+                                    </div> 
                                     <div class="icon">
                                         <i class="fa-solid fa-ban"></i>
                                     </div>

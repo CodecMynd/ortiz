@@ -99,6 +99,13 @@ require '../components/head-dataTables.php';
                                         </div>
                                     </div>
                                 </div>
+                                <div class="card-footer" style="height: 50px;">
+                                    <marquee width="100%" behavior="alternate">
+                                        <marquee behavior="alternate">
+                                            <p>Consulta optimizada, ultima actualización: <strong>05/05/2022</strong></p>
+                                        </marquee>
+                                    </marquee>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -140,6 +147,7 @@ require '../components/head-dataTables.php';
                                                 <th>Color</th>
                                                 <th>Asesor</th>
                                                 <th>Top</th>
+                                                <th>Asesoramiento Técnico</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Status Comprobación</th>
                                                 <th>Status Supervisión</th>
@@ -147,7 +155,8 @@ require '../components/head-dataTables.php';
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody></tbody>
+                                        <tbody>
+                                        </tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
@@ -161,6 +170,7 @@ require '../components/head-dataTables.php';
                                                 <th>Color</th>
                                                 <th>Asesor</th>
                                                 <th>Top</th>
+                                                <th>Asesoramiento Técnico</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Status Comprobación</th>
                                                 <th>Status Supervisión</th>
@@ -169,17 +179,15 @@ require '../components/head-dataTables.php';
                                             </tr>
                                         </tfoot>
                                     </table>
-                                <?php                                            
+                                    <?php
                                     desconectar();
-                                ?>
+                                    ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- /table usuario -->
-
         </div>
         <?php
         require '../components/footer.php';
@@ -191,8 +199,19 @@ require '../components/head-dataTables.php';
     // Scripts dataTables
     require '../components/scripts-dataTables.php';
     ?>
+    <div id="divModal"></div>
+    <script>
+        function mostarDetalles(id_proyecto) {
+            var ruta = '../components/modal-VerGralActMinDiaria.php?id_proyecto=' + id_proyecto;
+            $.get(ruta, function(data) {
+                $('#divModal').html(data);
+                $('#modal-verGralActMinDiaria').modal('show');
+            });
+        }
+    </script>
+
+    </script>
     <!-- avisos -->
-    <!-- <script src="../../src/js/toastr.js"></script> -->
     <script>
         // sinRegistro ¡SIN REGISTRO, AGREGA UNA COMPROBACIÓN PARA HABILITAR ESTE BÓTON --------------------------------------------------------------
         $(document).ready(function() {
@@ -437,7 +456,3 @@ LEFT JOIN actmindiaria AM ON P.id_proyecto = AM.id_proyecto
 LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
 LEFT JOIN asesores ASE ON CA.id_asesor = ASE.id_asesor
 WHERE P.proyectoActivo = 1 AND P.estadoProyectoEliminado = 1 OR P.registroSolicitud = 1 GROUP BY P.id_proyecto;-->
-
-
-
-

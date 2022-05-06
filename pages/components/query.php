@@ -241,8 +241,12 @@ while ($row = mysqli_fetch_array($query)) {
     $eliComSegDiaAseTecnicoSuper = $row['eliComSegDiaAseTecnicoSuper'];
     $verGralSegDiaProAseTecnico = $row['verGralSegDiaProAseTecnico'];
     $verTablaSegDiaProAseTecnico = $row['verTablaSegDiaProAseTecnico'];
-
-
+    $regLinkRecPzsDanadas = $row['regLinkRecPzsDanadas'];
+    $eliLinkRecPzsDanadas = $row['eliLinkRecPzsDanadas'];
+    $verGralRecPzsDanadas = $row['verGralRecPzsDanadas'];
+    $regSolRecPzsDanadas = $row['regSolRecPzsDanadas'];
+    $eliSolRecPzsDanadas = $row['eliSolRecPzsDanadas'];
+    $verTablaRecPzsDanadas = $row['verTablaRecPzsDanadas'];
 
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
     if ($passUser === 'SIN_PASSWORD') {

@@ -27,16 +27,15 @@ if ($linkSegDiaProAseTecnico == '') {
 
         // Registrar motivo de supervision
         $query = "INSERT INTO segdiaproasetecnico(id_proyecto, nProyecto, linkSegDiaProAseTecnico, com, fecha_hoyV, fecha_creacionV, id_capCV) VALUES ('$id_proyecto', '$nProyecto', '$linkSegDiaProAseTecnico', '$com', '$fecha_hoyV', '$date', '$id')";
-
         $resultado = mysqli_query($conexion, $query);
         //var_dump($query);
 
            $conexion->commit();
                echo "<div class='alert alert-success' role='alert'>
-               <p><strong>Registro Comprobación Diaria de Programa de Asesoramiento Técnico!</strong></p>
+               <p><strong>Comprobación Diaria de Programa de Asesoramiento Técnico registrado Correctamente!</strong></p>
                </div>";
                echo '<script>
-               alert("Registro Comprobación Diaria de Programa de Asesoramiento Técnico");
+               alert("Comprobación Diaria de Programa de Asesoramiento Técnico registrado Correctamente");
                window.location.href = "../admin/crudSegDiaAsesoramientoTecnico.php";
                </script>';
        } catch (Exception $e) {

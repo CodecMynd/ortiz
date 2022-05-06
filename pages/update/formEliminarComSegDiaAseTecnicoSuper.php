@@ -41,7 +41,7 @@ require '../components/head-dataTables.php';
                 </div>
             </div>
             <?php
-            $id_SegDiaProAseTecnico = $_GET['id'];
+            $id_SegDiaProAseTecnicoSuper = $_GET['id'];
             $nP = $_GET['nP'];
             $fecha = $_GET['fecha'];
 
@@ -76,7 +76,7 @@ require '../components/head-dataTables.php';
                                             </div>
                                             <div class="modal-body text-center">
                                                 <div class='row justify-content-center'>
-                                                    <input type="hidden" name="id_SegDiaProAseTecnico" id="id_SegDiaProAseTecnico" value="<?php echo $id_SegDiaProAseTecnico ?>">
+                                                    <input type="hidden" name="id_SegDiaProAseTecnicoSuper" id="id_SegDiaProAseTecnicoSuper" value="<?php echo $id_SegDiaProAseTecnicoSuper ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -116,7 +116,7 @@ require '../components/head-dataTables.php';
         $(document).ready(function() {
             $('#btnDeleteSegDiaProAseTecnicoSuper').click(function() {
                 $.ajax({
-                        url: '../update/updateComSegDiaAseTecnicoSuper.php',
+                        url: '../delete/deleteComSegDiaAseTecnicoSuper.php',
                         type: 'POST',
                         data: $('#formDeleteSegDiaProAseTecnicoSuper').serialize(),
                     })

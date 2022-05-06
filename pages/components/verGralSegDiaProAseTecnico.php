@@ -53,10 +53,12 @@ require '../components/head-dataTables.php';
                                     </div>
                                 </div>
                                 <div class="card-body">
+                                    <h5 class="text-center"><strong> Consulta: Registros del Proyecto</strong></h5>
                                     <?php
                                     $id_proyecto = $_GET['id'];
                                     $query1 = "SELECT P.id_proyecto, P.nProyecto, P.nOrden,
-                                    V.placa, Co.color, M.marca, Mo.modelo, An.anio, A.asesor
+                                    V.placa, Co.color, M.marca, Mo.modelo, An.anio, A.asesor,
+                                    AST.motivo
                                     from proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -65,11 +67,12 @@ require '../components/head-dataTables.php';
                                     INNER JOIN anios An ON V.id_anio = An.id_anio 
                                    	LEFT JOIN comasesor C ON P.id_proyecto = C.id_proyecto
                                     LEFT JOIN asesores A ON C.id_asesor = A.id_asesor
+                                    LEFT JOIN asesoramientostecnicos AST ON P.id_proyecto = AST.id_proyecto
                                     WHERE P.id_Proyecto = $id_proyecto";
                                     $resultado1 = mysqli_query($conexion, $query1);
                                     $row1 = $resultado1->fetch_assoc();
                                     ?>
-                                    <table class="table table-sm table-bordered table-striped">
+                                    <table id="tableRegProyectos" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                         <thead class="thead-dark">
                                             <tr>
                                                 <th>ID</th>
@@ -81,6 +84,7 @@ require '../components/head-dataTables.php';
                                                 <th>Placas</th>
                                                 <th>Color </th>
                                                 <th>Asesor</th>
+                                                <th>Motivo Asesoramiento Técnico</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -97,31 +101,38 @@ require '../components/head-dataTables.php';
                                                         echo 'Sin Asesor ';
                                                     } else {
                                                         echo $row1['asesor'];
-                                                    } ?></td>
+                                                    } ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo (empty($row1['motivo'])) ? 'Sin Registro Motivo' : $row1['motivo'] ?>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <br>
                                     <hr>
+                                    <br>
+                                    <h5 class="text-center"><strong> Registros Seguimiento Diario Programa de Asesoramiento Técnico</strong></h5>
 
                                     <?php
                                     $cont = 0;
                                     $query = "SELECT P.id_proyecto, P.nProyecto,  
-                                    V.placa, Co.color, M.marca, Mo.modelo, An.anio, 
-                                    SD.id_SegDiaProAseTecnico, SD.linkSegDiaProAseTecnico, SD.textSupervision, SD.fecha_creacionV, SD.fecha_creacionS, SD.fecha_hoyV AS FV, SD.fecha_hoyS AS FS, 
-                                    SD.com, SD.sup,
-                                    UV.nombres AS nombreV, UV.aPaterno AS paternoV, UV.aMaterno AS maternoV, 
-                                    US.nombres AS nombreS, US.aPaterno AS paternoS, US.aMaterno AS maternoS 
-                                    from proyectos P 
+                                    V.placa, Co.color, M.marca, Mo.modelo, An.anio,
+                                    SD.id_SegDiaProAseTecnico, SD.linkSegDiaProAseTecnico, SD.fecha_hoyV AS FV, SD.com, SD.fecha_creacionV,
+                                    SDS.id_SegDiaProAseTecnicoSuper, SDS.textSupervision, SDS.sup, SDS.fecha_hoyS AS FS, SDS.fecha_creacionS,
+                                    U.nombres AS nombreV, U.aPaterno AS paternoV, U.aMaterno AS maternoV,
+                                    US.nombres AS nombreS, US.aPaterno AS paternoS, US.aMaterno AS maternoS
+                                    FROM proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co ON V.id_color = Co.id_color
                                     INNER JOIN marcas M ON V.id_marca = M.id_marca 
                                     INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
-                                    INNER JOIN anios An ON V.id_anio = An.id_anio 
+                                    INNER JOIN anios An ON V.id_anio = An.id_anio
                                     INNER JOIN segdiaproasetecnico SD ON P.id_proyecto = SD.id_proyecto 
-                                    LEFT JOIN usuarios UV ON SD.id_capCV = UV.id_usuario 
-                                    LEFT JOIN usuarios US ON SD.id_capCS = US.id_usuario 
-                                    WHERE P.id_Proyecto = $id_proyecto ORDER BY SD.id_SegDiaProAseTecnico DESC";
+                                    LEFT JOIN segdiaproasetecnicosuper SDS ON SD.id_SegDiaProAseTecnico = SDS.id_segDiaProAseTecnico
+                                    INNER JOIN usuarios U ON SD.id_capCV = U.id_usuario
+                                    LEFT JOIN usuarios US ON SDS.id_capCS = US.id_usuario
+                                    WHERE P.id_proyecto = $id_proyecto GROUP BY SD.id_SegDiaProAseTecnico;";
                                     $resultado = mysqli_query($conexion, $query);
                                     ?>
                                     <table id="tablePermisos" class="table table-sm table-bordered table-striped">
@@ -211,11 +222,11 @@ require '../components/head-dataTables.php';
                                                                                 <?php if ($super == 1 and $sup == 1) {
                                                                                     echo '<a class="btn btn-outline-danger" id="yaRegistro"><i class="fas fa-trash-alt"></i></a>';
                                                                                 } else if ($super == 1 and $sup == 0) { ?>
-                                                                                    <a href='../update/formEliminarComSegDiaAseTecnico.php?id=<?php echo $row['id_SegDiaProAseTecnico'] ?>&nP= <?php echo $row['nProyecto'] ?>&fecha=<?php echo $row['fecha_creacionV']?> ' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>
+                                                                                    <a href='../update/formEliminarComSegDiaAseTecnico.php?id=<?php echo $row['id_SegDiaProAseTecnico'] ?>&nP= <?php echo $row['nProyecto'] ?>&fecha=<?php echo $row['fecha_creacionV'] ?> ' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>
                                                                                 <?php } else if ($eliComActMinDia == 1 and $sup == 1) {
                                                                                     echo '<a class="btn btn-outline-danger" id="yaRegistro"><i class="fas fa-trash-alt"></i></a>';
                                                                                 } else if ($eliComActMinDia == 1 and $sup == 0) { ?>
-                                                                                   <a href='../update/formEliminarComSegDiaAseTecnico.php?id=<?php echo $row['id_SegDiaProAseTecnico'] ?>&nP= <?php echo $row['nProyecto'] ?>&fecha=<?php echo $row['fecha_creacionV']?> ' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>
+                                                                                    <a href='../update/formEliminarComSegDiaAseTecnico.php?id=<?php echo $row['id_SegDiaProAseTecnico'] ?>&nP= <?php echo $row['nProyecto'] ?>&fecha=<?php echo $row['fecha_creacionV'] ?> ' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>
                                                                                 <?php } else {
                                                                                     echo '<a class="btn btn-outline-danger" id="eliComSegDiaAseTecnico"><i class="fas fa-trash-alt"></i></a>';
                                                                                 }
@@ -227,11 +238,11 @@ require '../components/head-dataTables.php';
                                                                                 <?php if ($super == 1 and $sup == 0) {
                                                                                     echo '<a class="btn btn-outline-danger" id="yaRegistro"><i class="fas fa-trash-alt"></i></a>';
                                                                                 } else if ($super == 1 and $com == 1) { ?>
-                                                                                    <a href='../update/formEliminarComSegDiaAseTecnicoSuper.php?id=<?php echo $row['id_SegDiaProAseTecnico'] ?>&nP= <?php echo $row['nProyecto'] ?>&fecha=<?php echo $row['fecha_creacionV']?> ' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>
+                                                                                    <a href='../update/formEliminarComSegDiaAseTecnicoSuper.php?id=<?php echo $row['id_SegDiaProAseTecnicoSuper'] ?>&nP= <?php echo $row['nProyecto'] ?>&fecha=<?php echo $row['fecha_creacionV'] ?> ' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>
                                                                                 <?php } else if ($eliComSuperActMinDia == 1 and $sup == 0) {
                                                                                     echo '<a class="btn btn-outline-danger" id="sinEliminar"><i class="fas fa-trash-alt"></i></a>';
                                                                                 } else if ($eliComSuperActMinDia == 1 and $com == 1) { ?>
-                                                                                    <a href='../update/formEliminarComSegDiaAseTecnicoSuper.php?id=<?php echo $row['id_SegDiaProAseTecnico'] ?>&nP= <?php echo $row['nProyecto'] ?>&fecha=<?php echo $row['fecha_creacionV']?> ' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>
+                                                                                    <a href='../update/formEliminarComSegDiaAseTecnicoSuper.php?id=<?php echo $row['id_SegDiaProAseTecnicoSuper'] ?>&nP= <?php echo $row['nProyecto'] ?>&fecha=<?php echo $row['fecha_creacionV'] ?> ' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>
                                                                                 <?php } else {
                                                                                     echo '<a class="btn btn-outline-danger" id="eliComSuperActMinDia"><i class="fas fa-trash-alt"></i></a>';
                                                                                 }
@@ -244,10 +255,6 @@ require '../components/head-dataTables.php';
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                <?php
-                                                include '../components/modal-eliminarComActMinDia.php';
-                                                include '../components/modal-eliminarComSuperActMinDia.php';
-                                                ?>
                                             <?php
                                             }
                                             desconectar();
@@ -426,3 +433,21 @@ require '../components/head-dataTables.php';
 </body>
 
 </html>
+
+<!-- SELECT P.id_proyecto, P.nProyecto,  
+                                    V.placa, Co.color, M.marca, Mo.modelo, An.anio,
+                                    SD.id_SegDiaProAseTecnico, SD.linkSegDiaProAseTecnico, SD.fecha_hoyV AS FV, SD.com, SD.fecha_creacionV,
+                                    SDS.id_SegDiaProAseTecnicoSuper, SDS.textSupervision, SDS.sup, SDS.fecha_hoyS AS FS, SDS.fecha_creacionS,
+                                    U.nombres AS nombreV, U.aPaterno AS paternoV, U.aMaterno AS maternoV,
+                                    US.nombres AS nombreS, US.aPaterno AS paternoS, US.aMaterno AS maternoS
+                                    FROM proyectos P 
+                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
+                                    INNER JOIN colores Co ON V.id_color = Co.id_color
+                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
+                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
+                                    INNER JOIN anios An ON V.id_anio = An.id_anio
+                                    INNER JOIN segdiaproasetecnico SD ON P.id_proyecto = SD.id_proyecto 
+                                    LEFT JOIN segdiaproasetecnicosuper SDS ON SD.id_SegDiaProAseTecnico = SDS.id_segDiaProAseTecnico
+                                    INNER JOIN usuarios U ON SD.id_capCV = U.id_usuario
+                                    LEFT JOIN usuarios US ON SDS.id_capCS = US.id_usuario
+                                    WHERE P.id_proyecto = $id_proyecto ORDER BY SD.id_SegDiaProAseTecnico DESC -->

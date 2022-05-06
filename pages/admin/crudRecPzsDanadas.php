@@ -2,8 +2,8 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>CRUD Solicitud Cambio de Asesor | <?php echo $nomComp ?></title>
-<style>
+<title>CRUD Recepción de Piezas Dañadas | <?php echo $nomComp ?></title>
+<!-- <style>
     @media (min-width:320px) and (max-width:425px) {
         .content-header {
             margin-bottom: 90px;
@@ -17,40 +17,31 @@ require '../components/head-dataTables.php';
             text-align: center;
         }
     }
-</style>
+</style> -->
 <script>
-    //  function abrirModal1(id_proyecto, nProyecto, id_cambioAsesor) {
-    //      $("#btnModal-regCambioAsesorAutorizar").click();
-    //      $("#id_proyecto").val(id_proyecto);
-    //      $("#nProyecto").val(nProyecto);
-    //      $("#id_cambioAsesor").val(id_cambioAsesor);
-    //      $("#tituloModal").html(nProyecto);
-    //  }
-    // function abrirModal2(id_proyecto, nProyecto){
-    //     $("#btnModal-regComAsesorSuper").click();
-    //     $("#id_proyecto1").val(id_proyecto);
-    //     $("#nProyecto1").val(nProyecto);
-    //     $("#tituloModal1").html(nProyecto);
-    // }
-    // function abrirModal3(id_proyecto, nProyecto){
-    //     $("#btnModal-verGralComAsesor").click();
-    //     $("#id_proyecto2").val(id_proyecto);
-    //     $("#tituloModal2").html(nProyecto);
-    // }
-    // function abrirModal4(id_proyecto, nProyecto, id_comAsesor){
-    //     $("#btnModal-eliminarComAsesor").click();
-    //     $("#id_proyecto3").val(id_proyecto);
-    //     $("#id_comAsesor3").val(id_comAsesor);
-    //     $("#tituloModal3").html(nProyecto);
-    // }
-    // function abrirModal5(id_proyecto, nProyecto, id_comSupervision){
-    //     $("#btnModal-eliminarComAsesorSuper").click();
-    //     $("#id_proyecto4").val(id_proyecto);
-    //     $("#id_comSupervision4").val(id_comSupervision);
-    //     $("#tituloModal4").html(nProyecto);
-    // }
-</script>
+    function abrirModal1(id_proyecto, nProyecto) {
+        $("#btnModal-regRecPzsDanadas").click();
+        $("#id_proyecto1").val(id_proyecto);
+        $("#nProyecto1").val(nProyecto);
+        $("#tituloModal1").html(nProyecto);
+    }
 
+    function abrirModal2(id_proyecto, nProyecto, id_recPzsDanadas) {
+        $("#btnModal-regSolRecPzsDanadas").click();
+        $("#id_proyecto2").val(id_proyecto);
+        $("#nProyecto2").val(nProyecto);
+        $("#id_recPzsDanadas2").val(id_recPzsDanadas);
+        $("#tituloModal2").html(nProyecto);
+    }
+
+    function abrirModal3(id_proyecto, nProyecto, id_recPzsDanadas) {
+        $("#btnModal-eliminarRegRecPzsDanadas").click();
+        $("#id_proyecto3").val(id_proyecto);
+        $("#nProyecto3").val(nProyecto);
+        $("#id_recPzsDanadas3").val(id_recPzsDanadas);
+        $("#tituloModal3").html(nProyecto);
+    }
+</script>
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
@@ -64,7 +55,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-1">
                         <div class="col-sm-8">
-                            <h1 class="m-0">Tabla 2.3.15.2 Solicitud Cambio de Asesor</h1>
+                            <h1 class="m-0">Tabla 4.1 Recepción de Piezas Dañadas</h1>
                         </div>
                         <div class="col-sm-4">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -101,16 +92,16 @@ require '../components/head-dataTables.php';
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Solicitud Alta</h6>
-                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Alta Proyecto</h6>
                                                     <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
@@ -161,51 +152,42 @@ require '../components/head-dataTables.php';
                 </div>
             </section>
 
-            <!-- Table Comprobcion de placas -->
+            <!-- Table Comprobcion de img -->
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
                         <div class="col-md-12 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Solicitudes para cambio de Asesor</h3>
+                                    <h3 class="card-title">Proyectos dados de alta en el sistema</h3>
                                     <div class="card-tools">
-                                    <?php if ($super == 1 OR $solCambioAsesor == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formAddSolCambioAsesor.php" data-toggle="tooltip" data-placement="left" title="2.3.15.2.1 Registro Solicitud Cambio de Asesor"><i class="fa-solid fa-people-arrows-left-right"></i>&nbsp;&nbsp; Solicitud Cambio de Asesor</a>
-                                        <?php } else { ?>
-                                            <a type="button" class="btn btn-outline-danger" id="solCambioAsesor" data-toggle="tooltip" data-placement="left" title="2.3.15.2.1 Registro Solicitud Cambio de Asesor"><i class="fa-solid fa-people-arrows-left-right"></i>&nbsp;&nbsp; Solicitud Cambio de Asesor</a>
-                                        <?php } ?>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
-                                <!-- consulta sql -->
                                 <div class="card-body">
                                     <?php
                                     if ($super == 1) {
-                                    } else if ($verTablaSolCambioAsesor == 0) { ?>
+                                    } else if ($verTablaRecPzsDanadas == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tableSolCambiarAsesor" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                    <table id="tableRecPzsDanadas" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
-                                                <th>Estado del Proyecto</th>
-                                                <th>Etapa Proyecto</th>
-                                                <th>Núm. Folio Cambio Asesor</th>
-                                                <th>Estado Solicitud Cambio Asesor</th>
-                                                <th>Asesor Actual</th>
-                                                <th>Asesor por Asignar</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
                                                 <th>Año</th>
-                                                <th>Placas</th>
+                                                <th>img</th>
                                                 <th>Color</th>
+                                                <th>Estado del Proyecto</th>
+                                                <th>Link de Desarmado</th>
+                                                <th>Solicitud de Piezas</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -214,24 +196,27 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
-                                                <th>Estado del Proyecto</th>
-                                                <th>Etapa Proyecto</th>
-                                                <th>Núm. Folio Cambio Asesor</th>
-                                                <th>Estado Solicitud Cambio Asesor</th>
-                                                <th>Asesor Actual</th>
-                                                <th>Asesor por Asignar</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
                                                 <th>Año</th>
-                                                <th>Placas</th>
+                                                <th>img</th>
                                                 <th>Color</th>
+                                                <th>Estado del Proyecto</th>
+                                                <th>Link de Desarmado</th>
+                                                <th>Solicitud de Piezas</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>
                                     </table>
+                                    <button id="btnModal-regRecPzsDanadas" class="btn btn-white" data-toggle="modal" data-target='.regRecPzsDanadas'></button>
+                                    <button id="btnModal-regSolRecPzsDanadas" class="btn btn-white" data-toggle="modal" data-target=".regSolRecPzsDanadas"></button>
+                                    <button id="btnModal-eliminarRegRecPzsDanadas" class="btn btn-white" data-toggle="modal" data-target=".eliminarRegRecPzsDanadas"></button>
                                     <?php
+                                    require '../components/modal-regRecPzsDanadas.php';
+                                    require '../components/modal-regSolRecPzsDanadas.php';
+                                    require '../components/modal-eliminarRegRecPzsDanadas.php';
                                     desconectar();
                                     ?>
                                 </div>
@@ -252,72 +237,43 @@ require '../components/head-dataTables.php';
     // Scripts dataTables
     require '../components/scripts-dataTables.php';
     ?>
-    <!-- avisos -->
-    <script src="../../src/js/toastr.js"></script>
+    <div id="divModal"></div>
     <script>
-        // regComAsesor 2.3.15.1 REGISTRAR COMPROBACIÓN DE ASESOR --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#solCambioAsesor").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.15.2.1 REGISTRO SOLICITUD DE CAMBIO DE ASESOR,, consulta al administrador!")
+        function mostarDetalles(id_proyecto) {
+            var ruta = '../components/modal-verGralRecPzsDanadas.php?id_proyecto=' + id_proyecto;
+            $.get(ruta, function(data) {
+                $('#divModal').html(data);
+                $('#modal-verGralRecPzsDanadas').modal('show');
+            });
+        }
+    </script>
 
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
+    <script>
+        // Agregar Link ------------------
+        $('#btnNuevoRecPzsDanadas').click(function() {
+            var param = $('#formNuevoRecPzsDanadas').serialize();
+            $.ajax({
+                    url: '../adds/addNuevoRegRecPzsDanadas.php',
+                    type: 'POST',
+                    data: param,
+
+                    success: function(vs) {
+                        $('#formNuevoRecPzsDanadas')[0].reset();
+                    }
+                })
+                .done(function(res) {
+                    $('#respuestaRecPzsDanadas').html(res)
+                })
         });
 
-        // eliComAsesor 2.3.15.2 REGISTRAR COMPROBACIÓN DE ASESOR --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#cambioAsesorAutorizar ").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.15.2.2 REGSITRAR AUTORIZACION CAMBIO DE ASESOR, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
+        //Ocultar boton por 10 segundos para evitar el doble submit
+        $("#btnNuevoRecPzsDanadas").on('click', function() {
+            $("#btnNuevoRecPzsDanadas").css('visibility', 'hidden');
+            setTimeout(function() {
+                $("#btnNuevoRecPzsDanadas").css('visibility', 'visible');
+            }, 10000);
         });
-
     </script>
 </body>
 
 </html>
-<!-- 
-SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.comAsesor, P.estadoProyectoEliminado, P.comSuperAsesor,
-C.nombres, C.aPaternoCliente, C.aMaternoCliente,
-V.placa, M.marca, Mo.modelo, A.anio, Co.color
-FROM proyectos P 
-INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-INNER JOIN colores Co On V.id_color = Co.id_color
-INNER JOIN marcas M ON V.id_marca = M.id_marca 
-INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
-INNER JOIN anios A ON V.id_anio = A.id_anio 
-INNER JOIN clientes C on P.id_cliente = C.id_cliente
-WHERE P.proyectoActivo = 1 AND P.estadoProyectoEliminado = 1 OR P.registroSolicitud OR P.altaProyecto" -->

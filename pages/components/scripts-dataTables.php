@@ -70,6 +70,60 @@
 
                 }
             }).buttons().container().appendTo('#tableSm_wrapper .col-md-6:eq(0)');
+
+            var tabla = $("#tableRegProyectos").DataTable({
+                "responsive": true,
+                "lengthChange": true,
+                "autoWidth": true,
+                "dom": 'Bt',
+                "buttons": ["csv", "excel", "pdf"],
+                "language": {
+
+                    "aria": {
+                        "sortAscending": "Activar para ordenar la columna de manera ascendente",
+                        "sortDescending": "Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "collection": "Colección",
+                        "colvis": "Filtrar columnas",
+                        "colvisRestore": "Restaurar visibilidad",
+                        "copy": "Copiar",
+                        "copyKeys": "Presione ctrl o u2318 + C para copiar los datos de la tabla al portapapeles del sistema. <br \/> <br \/> Para cancelar, haga clic en este mensaje o presione escape.",
+                        "copySuccess": {
+                            "1": "Copiada 1 fila al portapapeles",
+                            "_": "Copiadas %d fila al portapapeles"
+                        },
+                        "copyTitle": "Copiar al portapapeles",
+                        "csv": "CSV",
+                        "excel": "Excel",
+                        "pageLength": {
+                            "-1": "Mostrar todas las filas",
+                            "_": "Mostrar %d filas"
+                        },
+                        "pdf": "PDF",
+                        "print": "Imprimir"
+                    },
+                    "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "infoThousands": ",",
+                    "lengthMenu": "Mostrar _MENU_ registros",
+                    "loadingRecords": "Cargando...",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    },
+                    "processing": "Procesando...",
+                    "search": "Buscar:",
+                    "decimal": ".",
+                    "emptyTable": "No hay datos disponibles en la tabla",
+                    "info": "Mostrando de _START_ al _END_ de  _TOTAL_ registros",
+                    "zeroRecords": "No se encontraron coincidencias"
+
+                }
+            }).buttons().container().appendTo('#tableRegProyectos_wrapper .col-md-6:eq(0)');
+
             // table permisos
             var tabla = $("#tablePermisos").DataTable({
                 "responsive": true,
@@ -518,7 +572,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
-            "dom": 'Blfrtip',
+            "dom": 'PBlfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
                 url: "../consultas/consultaSuperCodIdentificador.php",
@@ -528,6 +582,21 @@
                     console.log(e.responseText);
                 }
             },
+            "searchPanes": {
+                initCollapsed: true,
+                dtOpts: {
+                    dom: 'tp',
+                    paging: 'true',
+                    //  pagingType:'simple',
+                    searching: true
+                }
+            },
+            "columnDefs": [{
+                searchPanes: {
+                    show: true
+                },
+                targets: [2, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14],
+            }],
             "language": {
                 "aria": {
                     "sortAscending": "Activar para ordenar la columna de manera ascendente",
@@ -668,6 +737,9 @@
                 "zeroRecords": "No se encontraron coincidencias"
             }
         }).buttons().container().appendTo('#tableVerifDiariaVeh_wrapper .col-md-6:eq(0)');
+        setInterval(function() {
+            tabla.ajax.reload(null, false); // user paging is not reset on reload
+        }, 30000);
 
         // Tabla 2.3.4 Verificacion Actividad Minima Diaria
         var tabla = $("#tableActMinDia").DataTable({
@@ -697,7 +769,7 @@
                 searchPanes: {
                     show: true
                 },
-                targets: [4, 5, 6, 7, 8, 9, 11, 12, 13],
+                targets: [4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15],
             }],
             "language": {
                 "aria": {
@@ -849,7 +921,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
-            "dom": 'lBfrtip',
+            "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
                 url: "../consultas/consultaAltaProyecto.php",
@@ -859,6 +931,21 @@
                     console.log(e.responseText);
                 }
             },
+            "searchPanes": {
+                initCollapsed: true,
+                dtOpts: {
+                    dom: 'tp',
+                    paging: 'true',
+                    //  pagingType:'simple',
+                    searching: true
+                }
+            },
+            "columnDefs": [{
+                searchPanes: {
+                    show: true
+                },
+                targets: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+            }],
             "language": {
 
                 "aria": {
@@ -924,12 +1011,11 @@
 
         // table tableProyectosActivos
         var tabla = $("#tableProyectosActivos").DataTable({
-            "processing": true,
-
+            // "processing": true,
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
-            "dom": 'lBfrtip',
+            "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
                 url: "../consultas/consultaProyectosActivos.php",
@@ -939,6 +1025,21 @@
                     console.log(e.responseText);
                 }
             },
+            "searchPanes": {
+                initCollapsed: true,
+                dtOpts: {
+                    dom: 'tp',
+                    paging: 'true',
+                    //  pagingType:'simple',
+                    searching: true
+                }
+            },
+            "columnDefs": [{
+                searchPanes: {
+                    show: true
+                },
+                targets: [4, 5, 6, 7, 8, 9, 10],
+            }],
             "language": {
 
                 "aria": {
@@ -992,7 +1093,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
-            "dom": 'lBfrtip',
+            "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
                 url: "../consultas/consultaSolicitudAlta.php",
@@ -1002,6 +1103,21 @@
                     console.log(e.responseText);
                 }
             },
+            "searchPanes": {
+                initCollapsed: true,
+                dtOpts: {
+                    dom: 'tp',
+                    paging: 'true',
+                    //  pagingType:'simple',
+                    searching: true
+                }
+            },
+            "columnDefs": [{
+                searchPanes: {
+                    show: true
+                },
+                targets: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+            }],
             "language": {
 
                 "aria": {
@@ -1070,7 +1186,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
-            "dom": 'lBfrtip',
+            "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
                 url: "../consultas/consultaComAsignarAsesor.php",
@@ -1080,6 +1196,21 @@
                     console.log(e.responseText);
                 }
             },
+            "searchPanes": {
+                initCollapsed: true,
+                dtOpts: {
+                    dom: 'tp',
+                    paging: 'true',
+                    //  pagingType:'simple',
+                    searching: true
+                }
+            },
+            "columnDefs": [{
+                searchPanes: {
+                    show: true
+                },
+                targets: [4, 5, 6, 7, 8, 9, 10, 11, 12],
+            }],
             "language": {
 
                 "aria": {
@@ -1747,7 +1878,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
-            "dom": 'lBfrtip',
+            "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
                 url: "../consultas/consultaCambiarAsesor.php",
@@ -1757,6 +1888,21 @@
                     console.log(e.responseText);
                 }
             },
+            "searchPanes": {
+                initCollapsed: true,
+                dtOpts: {
+                    dom: 'tp',
+                    paging: 'true',
+                    //  pagingType:'simple',
+                    searching: true
+                }
+            },
+            "columnDefs": [{
+                searchPanes: {
+                    show: true
+                },
+                targets: [4, 5, 6, 7, 8, 9, 10, 11, 12],
+            }],
             "language": {
 
                 "aria": {
@@ -2792,6 +2938,145 @@
                 "zeroRecords": "No se encontraron coincidencias"
             }
         }).buttons().container().appendTo('#tableSegDiaProAseTecnico_wrapper .col-md-6:eq(0)');
+
+
+        // Tabla 4.1 Recepción de Piezas Dañadas
+        var tableRecPzsDanadas = $("#tableRecPzsDanadas").DataTable({
+            "responsive": true,
+            "lengthChange": true,
+            "autoWidth": true,
+            "dom": 'PlBfrtip',
+            "buttons": ["csv", "excel", "pdf"],
+            "ajax": {
+                url: "../consultas/consultaRecPzsDanadas.php",
+                type: "get",
+                dataType: "json",
+                error: function(e) {
+                    console.log(e.responseText);
+                }
+            },
+            "searchPanes": {
+                initCollapsed: true,
+                dtOpts: {
+                    dom: 'tp',
+                    paging: 'true',
+                    //  pagingType:'simple',
+                    searching: true
+                }
+            },
+            "columnDefs": [{
+                searchPanes: {
+                    show: true
+                },
+                targets: [4, 5, 6, 7, 8, 10, 11],
+            }],
+            "language": {
+
+                "aria": {
+                    "sortAscending": "Activar para ordenar la columna de manera ascendente",
+                    "sortDescending": "Activar para ordenar la columna de manera descendente"
+                },
+                "buttons": {
+                    "collection": "Colección",
+                    "colvis": "Filtrar columnas",
+                    "colvisRestore": "Restaurar visibilidad",
+                    "copy": "Copiar",
+                    "copyKeys": "Presione ctrl o u2318 + C para copiar los datos de la tabla al portapapeles del sistema. <br \/> <br \/> Para cancelar, haga clic en este mensaje o presione escape.",
+                    "copySuccess": {
+                        "1": "Copiada 1 fila al portapapeles",
+                        "_": "Copiadas %d fila al portapapeles"
+                    },
+                    "copyTitle": "Copiar al portapapeles",
+                    "csv": "CSV",
+                    "excel": "Excel",
+                    "pageLength": {
+                        "-1": "Mostrar todas las filas",
+                        "_": "Mostrar %d filas"
+                    },
+                    "pdf": "PDF",
+                    "print": "Imprimir"
+                },
+                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "infoThousands": ",",
+                "lengthMenu": "Mostrar _MENU_ registros",
+                "loadingRecords": "Cargando...",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                },
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "decimal": ".",
+                "emptyTable": "No hay datos disponibles en la tabla",
+                "info": "Mostrando de _START_ al _END_ de  _TOTAL_ registros",
+                "zeroRecords": "No se encontraron coincidencias"
+
+            }
+
+        });
+        setInterval(function() {
+            tableRecPzsDanadas.ajax.reload(null, false); // user paging is not reset on reload
+        }, 10000);
+
+        
+        // 4.1.2 Ver Generales Recepción de Piezas Dañadas
+        var tableVerGralRecPzsDanadas = $("#tableVerGralRecPzsDanadas").DataTable({
+            "responsive": true,
+            "lengthChange": true,
+            "autoWidth": true,
+            "buttons": ["csv", "excel", "pdf", "colvis"],
+            "language": {
+
+                "aria": {
+                    "sortAscending": "Activar para ordenar la columna de manera ascendente",
+                    "sortDescending": "Activar para ordenar la columna de manera descendente"
+                },
+                "buttons": {
+                    "collection": "Colección",
+                    "colvis": "Filtrar columnas",
+                    "colvisRestore": "Restaurar visibilidad",
+                    "copy": "Copiar",
+                    "copyKeys": "Presione ctrl o u2318 + C para copiar los datos de la tabla al portapapeles del sistema. <br \/> <br \/> Para cancelar, haga clic en este mensaje o presione escape.",
+                    "copySuccess": {
+                        "1": "Copiada 1 fila al portapapeles",
+                        "_": "Copiadas %d fila al portapapeles"
+                    },
+                    "copyTitle": "Copiar al portapapeles",
+                    "csv": "CSV",
+                    "excel": "Excel",
+                    "pageLength": {
+                        "-1": "Mostrar todas las filas",
+                        "_": "Mostrar %d filas"
+                    },
+                    "pdf": "PDF",
+                    "print": "Imprimir"
+                },
+                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "infoThousands": ",",
+                "lengthMenu": "Mostrar _MENU_ registros",
+                "loadingRecords": "Cargando...",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                },
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "decimal": ".",
+                "emptyTable": "No hay datos disponibles en la tabla",
+                "info": "Mostrando de _START_ al _END_ de  _TOTAL_ registros",
+                "zeroRecords": "No se encontraron coincidencias"
+
+            }
+        });
+
+   
+
 
         // --------------------------------------------------------------------------------------------------------
         // tabla de Prueba sin funcion

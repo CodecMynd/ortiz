@@ -147,6 +147,13 @@ require '../components/head-dataTables.php';
                                         </div>
                                     </div>
                                 </div>
+                                <div class="card-footer" style="height: 50px;">
+                                    <marquee width="100%" behavior="alternate">
+                                        <marquee behavior="alternate">
+                                            <p>Consulta optimizada, ultima actualización: <strong>05/05/2022</strong></p>
+                                        </marquee>
+                                    </marquee>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -175,7 +182,7 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tableComAsignarAsesor" class="table table-sm table-bordered table-striped">
+                                    <table id="tableComAsignarAsesor" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>#</th>

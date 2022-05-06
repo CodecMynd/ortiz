@@ -42,12 +42,12 @@ require '../components/head-main.php';
             <!-- /titulo y brandcrumb -->
             <!-- Form editar usuario -->
             <?php
-             $id_SegDiaProAseTecnico = $_GET['id'];
-             $query = "SELECT id_proyecto, nProyecto FROM segdiaproasetecnico WHERE id_SegDiaProAseTecnico = $id_SegDiaProAseTecnico";
-             $respuesta = mysqli_query($conexion, $query);
-             $row = $respuesta->fetch_assoc();
-             $id_proyecto = $row['id_proyecto'];
-             $nP = $row['nProyecto'];
+              $id_proyecto = $_GET['idP'];
+              $id_SegDiaProAseTecnico = $_GET['id'];
+              $query = "SELECT id_proyecto, nProyecto FROM proyectos WHERE id_proyecto = $id_proyecto";
+              $respuesta = mysqli_query($conexion, $query);
+              $row = $respuesta->fetch_assoc();
+              $nP = $row['nProyecto'];
             ?>
             <section class="content">
                 <div class="container-fluid">
@@ -61,8 +61,9 @@ require '../components/head-main.php';
                                     </div>
                                 </div>
                                 <form id="formNuevoRegSegDiaAseTecnicoSuper" autocomplete="off">
-                                    <input type="hidden" name="id_SegDiaProAseTecnico" id="id_SegDiaProAseTecnico" value="<?php echo $id_SegDiaProAseTecnico ?>">
-                                    <input type="hidden" name="id_proyecto" id="id_proyecto" value="<?php echo $id_proyecto ?>">
+                                <input type="hidden" name="id_proyecto" id="id_proyecto" value="<?php echo $id_proyecto ?>">
+                                <input type="hidden" name="id_SegDiaProAseTecnico" id="id_SegDiaProAseTecnico" value="<?php echo $id_SegDiaProAseTecnico ?>">
+                                <input type="hidden" name="nProyecto" id="nProyecto" value="<?php echo $nP ?>"> 
                                     <div class="card-body">
                                         <div class="row justify-content-center">
                                             <div class='col-md-12 col-sm-12 my-1'>

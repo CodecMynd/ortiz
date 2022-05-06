@@ -94,7 +94,7 @@ while ($row = $resultado->fetch_assoc()) {
 
 	// Boton 2.3.5.3 Ver Generales Asignación de Top
 	if ($super == 1 or $verGralAsignacionTop == 1) {
-		$outputBtns3 = "<a href='../consultas/tablaConsultaVerGralAsignacionTop.php?id={$idP}&nP={$nP}&idTop={$id_top}' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
+		$outputBtns3 = "<a href='../consultas/tablaConsultaVerGralAsignacionTop.php?id={$idP}&nP={$nP}' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
 	} else {
 		$outputBtns3 = "<a class='btn btn-outline-danger' id='verGralAsignacionTop'><i class='fa-solid fa-spell-check'></i></a>";
 	}

@@ -114,6 +114,13 @@ require '../components/head-dataTables.php';
                                         </div>
                                     </div>
                                 </div>
+                                <div class="card-footer" style="height: 50px;">
+                                    <marquee width="100%" behavior="alternate">
+                                        <marquee behavior="alternate">
+                                            <p>Consulta optimizada, ultima actualización: <strong>05/05/2022</strong></p>
+                                        </marquee>
+                                    </marquee>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -158,7 +165,8 @@ require '../components/head-dataTables.php';
                                                 <th>Estado del Proyecto</th>
                                                 <th>Status Comprobación</th>
                                                 <th>Status Supervisión</th>
-                                                <th>Último Registro</th>
+                                                <th>Último Registro Comprobación</th>
+                                                <th>Último Registro Supervisión</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -179,12 +187,12 @@ require '../components/head-dataTables.php';
                                                 <th>Estado del Proyecto</th>
                                                 <th>Status Comprobación</th>
                                                 <th>Status Supervisión</th>
-                                                <th>Último Registro</th>
+                                                <th>Último Registro Comprobación</th>
+                                                <th>Último Registro Supervisión</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>
                                     </table>
-
                                     <?php
                                     desconectar();
                                     ?>
@@ -208,7 +216,6 @@ require '../components/head-dataTables.php';
     require '../components/scripts-dataTables.php';
     ?>
     <!-- avisos -->
-    <!-- <script src="../../src/js/toastr.js"></script> -->
     <script>
         // sinRegistro ¡SIN REGISTRO, AGREGA UNA COMPROBACIÓN PARA HABILITAR ESTE BÓTON --------------------------------------------------------------
         $(document).ready(function() {
@@ -437,22 +444,7 @@ require '../components/head-dataTables.php';
 </body>
 
 </html>
-<!-- VISTA
-create view vactMinDiaria as
-SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.comActMinDia, P.estadoProyectoEliminado, P.comSuperActMinDia,
-V.placa, M.marca, Mo.modelo, A.anio, Co.color,                                    
-MAX(AM.fecha_hoyV) AS FV, MAX(AM.fecha_hoyS) AS FS, MAX(AM.id_ActMinDiaria) AS id_ActMinDiaria,
-ASE.asesor
-FROM proyectos P
-INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
-INNER JOIN colores Co On V.id_color = Co.id_color
-INNER JOIN marcas M ON V.id_marca = M.id_marca
-INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
-INNER JOIN anios A ON V.id_anio = A.id_anio
-LEFT JOIN actmindiaria AM ON P.id_proyecto = AM.id_proyecto
-LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
-LEFT JOIN asesores ASE ON CA.id_asesor = ASE.id_asesor
-WHERE P.proyectoActivo = 1 AND P.estadoProyectoEliminado = 1 OR P.registroSolicitud = 1 GROUP BY P.id_proyecto;-->
+
 
 
 

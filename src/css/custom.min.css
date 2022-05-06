@@ -3477,7 +3477,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 .dropdown-item.active, .dropdown-item:active {
     color: #fff;
     text-decoration: none;
-    background-color: #007bff
+    background-color: #6C757D
 }
 
 .dropdown-item.disabled, .dropdown-item:disabled {

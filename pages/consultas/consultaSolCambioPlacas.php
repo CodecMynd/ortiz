@@ -1,6 +1,6 @@
 <?php
 	require '../components/query.php'; 
-	if ($super == 1 OR $verTablaComAsesor == 1) {
+	if ($super == 1 OR $verTablaSolCambioPlacas == 1) {
 
 	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado,
 	V.placa, M.marca, Mo.modelo, A.anio, Co.color

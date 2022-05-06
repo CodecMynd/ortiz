@@ -32,7 +32,7 @@ require '../components/head-dataTables.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-md-4 col-sm-12">
+                        <div class="col-md-5 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
                                     <h3 class="card-title">Colores dadas de alta en el sistema</h3>
@@ -69,7 +69,7 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php  } ?>
-                                    <table id="tableSm" class="table table-sm table-bordered table-striped">
+                                    <table id="tableSm" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>#</th>

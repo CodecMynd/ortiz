@@ -114,6 +114,13 @@ require '../components/head-dataTables.php';
                                         </div>
                                     </div>
                                 </div>
+                                <div class="card-footer" style="height: 50px;">
+                                    <marquee width="100%" behavior="alternate">
+                                        <marquee behavior="alternate">
+                                            <p>Consulta optimizada, ultima actualización: <strong>05/05/2022</strong></p>
+                                        </marquee>
+                                    </marquee>
+                                </div>
                             </div>
                         </div>
                     </div>

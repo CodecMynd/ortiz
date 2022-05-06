@@ -53,10 +53,13 @@ require '../components/head-dataTables.php';
                                     </div>
                                 </div>
                                 <div class="card-body">
+                                    <h5 class="text-center"><strong> Consulta: Registros del Proyecto</strong></h5>
                                     <?php
                                     $id_proyecto = $_GET['id'];
                                     $query1 = "SELECT P.id_proyecto, P.nProyecto, P.nOrden,
-                                    V.placa, Co.color, M.marca, Mo.modelo, An.anio, A.asesor
+                                    V.placa, Co.color, M.marca, Mo.modelo, An.anio, A.asesor,
+                                    T.top, T.motivo AS motivoTop,
+                                    AST.id_aseTec, AST.aseTec, AST.motivo AS motivoAsesoramiento
                                     from proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -65,11 +68,14 @@ require '../components/head-dataTables.php';
                                     INNER JOIN anios An ON V.id_anio = An.id_anio 
                                    	LEFT JOIN comasesor C ON P.id_proyecto = C.id_proyecto
                                     LEFT JOIN asesores A ON C.id_asesor = A.id_asesor
-                                    WHERE P.id_Proyecto = $id_proyecto";
+                                    LEFT JOIN tops T ON P.id_proyecto = T.id_proyecto
+                                    LEFT JOIN asesoramientostecnicos AST ON P.id_proyecto = AST.id_proyecto
+                                    WHERE P.id_Proyecto =  $id_proyecto";
                                     $resultado1 = mysqli_query($conexion, $query1);
                                     $row1 = $resultado1->fetch_assoc();
+
                                     ?>
-                                    <table class="table table-sm table-bordered table-striped">
+                                    <table id="tableRegProyectos" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                         <thead class="thead-dark">
                                             <tr>
                                                 <th>ID</th>
@@ -81,6 +87,10 @@ require '../components/head-dataTables.php';
                                                 <th>Placas</th>
                                                 <th>Color </th>
                                                 <th>Asesor</th>
+                                                <th>Top</th>
+                                                <th>Asesoramiento Técnico</th>
+                                                <th>Motivo Top</th>
+                                                <th>Motivo Asesoramiento Técnico</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -97,31 +107,55 @@ require '../components/head-dataTables.php';
                                                         echo 'Sin Asesor ';
                                                     } else {
                                                         echo $row1['asesor'];
-                                                    } ?></td>
+                                                    } ?>
+                                                </td>
+                                                <td>
+                                                    <?php
+                                                    // valida columna Top
+                                                    if (empty($row1['top'])) {
+                                                        echo "<h6><span class='badge badge-ligth badge-pill top' data-toggle='tooltip' data-placement='bottom' title='Este Proyecto no es Top'><i class='fa-solid fa-star fa-2x' style='color:#CCCCCC'></i></span></h6>";
+                                                    } else {
+                                                        echo "<h6><a href='../admin/crudAsignacionTop.php' data-toggle='tooltip' data-placement='bottom' title='ir a: Tabla 2.3.5 Asignación de Top'><span class='badge badge-ligth badge-pill top'><i class='fa-solid fa-star fa-2x' style='color:#28A745'></i></span></a></h6>";
+                                                    }
+                                                    ?>
+                                                </td>
+                                                <td>
+                                                    <?php
+                                                    // valida columna aseTec
+                                                    if (empty($row1['aseTec'])) {
+                                                        echo "<h6><span class='badge badge-danger badge-pill' data-placement='bottom'>Sin Registro</span></h6>";
+                                                    } else {
+                                                        echo "<h6><a href='../admin/crudAsesoramientoTecnico.php' data-toggle='tooltip' data-placement='bottom' title='ir a: Tabla 2.3.6 Programa de Asesoramiento Técnico'><span class='badge badge-success badge-pill' data-placement='bottom' >Con Asesoramiento</span></a></h6>";
+                                                    }
+                                                    ?>
+                                                </td>
+                                                <td><?php echo (empty($row1['motivoTop'])) ? 'Sin ningún registro Top' : $row1['motivoTop'] ?></td>
+                                                <td><?php echo (empty($row1['motivoAsesoramiento'])) ? 'Sin ningún registro Asesoramiento Técnico' : $row1['motivoAsesoramiento'] ?></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <br>
                                     <hr>
-
+                                    <br>
+                                    <h5 class="text-center"><strong> Registros Actividad Minima Diaria</strong></h5>
                                     <?php
                                     $cont = 0;
                                     $query = "SELECT P.id_proyecto, P.nProyecto, P.comActMinDia, P.comSuperActMinDia, 
-                                V.placa, Co.color, M.marca, Mo.modelo, An.anio, 
-                                A.id_ActMinDiaria, A.linkComActMinDia, A.textSupervision, A.fecha_creacionV, A.fecha_creacionS,
-                                A.fecha_hoyV AS FV, A.fecha_hoyS AS FS, 
-                                UV.nombres AS nombreV, UV.aPaterno AS paternoV, UV.aMaterno AS maternoV, 
-                                US.nombres AS nombreS, US.aPaterno AS paternoS, US.aMaterno AS maternoS 
-                                from proyectos P 
-                                INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-                                INNER JOIN colores Co ON V.id_color = Co.id_color
-                                INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
-                                INNER JOIN anios An ON V.id_anio = An.id_anio 
-                                INNER JOIN actmindiaria A ON P.id_proyecto = A.id_proyecto 
-                                LEFT JOIN usuarios UV ON A.id_capCV = UV.id_usuario 
-                                LEFT JOIN usuarios US ON A.id_capCS = US.id_usuario 
-                                WHERE P.id_Proyecto = $id_proyecto ORDER BY id_ActMinDiaria DESC;";
+                                    V.placa, Co.color, M.marca, Mo.modelo, An.anio, 
+                                    A.id_ActMinDiaria, A.linkComActMinDia, A.textSupervision, A.fecha_creacionV, A.fecha_creacionS,
+                                    A.fecha_hoyV AS FV, A.fecha_hoyS AS FS, 
+                                    UV.nombres AS nombreV, UV.aPaterno AS paternoV, UV.aMaterno AS maternoV, 
+                                    US.nombres AS nombreS, US.aPaterno AS paternoS, US.aMaterno AS maternoS 
+                                    from proyectos P 
+                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
+                                    INNER JOIN colores Co ON V.id_color = Co.id_color
+                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
+                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
+                                    INNER JOIN anios An ON V.id_anio = An.id_anio 
+                                    INNER JOIN actmindiaria A ON P.id_proyecto = A.id_proyecto 
+                                    LEFT JOIN usuarios UV ON A.id_capCV = UV.id_usuario 
+                                    LEFT JOIN usuarios US ON A.id_capCS = US.id_usuario 
+                                    WHERE P.id_Proyecto = $id_proyecto ORDER BY id_ActMinDiaria DESC;";
                                     $resultado = mysqli_query($conexion, $query);
                                     ?>
                                     <table id="tablePermisos" class="table table-sm table-bordered table-striped">
@@ -176,8 +210,6 @@ require '../components/head-dataTables.php';
                                                         <?php if (empty($hoyV)) {
                                                             echo '';
                                                         } else {
-                                                            // $fecha = new DateTime($fechaV);
-                                                            // echo $fecha_m_d_y = $fecha->format('d-m-Y');
                                                             echo $row['fecha_creacionV'];
                                                         }
                                                         ?>
@@ -192,17 +224,9 @@ require '../components/head-dataTables.php';
                                                         <?php if (empty($hoyS)) {
                                                             echo '';
                                                         } else if ($hoyS != '0000-00-00') {
-                                                            // $fecha = new DateTime($fechaS);
-                                                            // echo $fecha_m_d_y = $fecha->format('d-m-Y');
                                                             echo $row['fecha_creacionS'];
                                                         }
                                                         ?>
-                                                        <!-- <?php
-                                                                // if ($hoyS != '0000-00-00' || $hoyS == '') {
-                                                                //     $fecha = new DateTime($hoyS);
-                                                                //     echo $fecha_m_d_y = $fecha->format('d-m-Y');
-                                                                // }
-                                                                ?> -->
                                                     </td>
 
                                                     <td>
@@ -254,6 +278,182 @@ require '../components/head-dataTables.php';
                                                 include '../components/modal-eliminarComActMinDia.php';
                                                 include '../components/modal-eliminarComSuperActMinDia.php';
                                                 ?>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Núm. Proyecto</th>
+                                                <th>Link Verificación</th>
+                                                <th>Capturista Verificador</th>
+                                                <th>Fecha Registro Verificación</th>
+                                                <th>Supervisión</th>
+                                                <th>Capturista Supervisor</th>
+                                                <th>Fecha Registro Supervisor</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="card border-card">
+                                <div class="card-header border-nav">
+                                    <h3 class="card-title">**Consulta de Datos de: <strong>2.3.6.1.3 Ver Gral. Seg. Diario Programa de Asesoramiento Técnico</strong></h3>
+                                    <div class="card-tools">
+                                        <a href="../admin/crudActividadMinimaDiaria.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
+                                        <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="text-center"><strong> Consulta: Registro Diario Programa de Asesoramiento Técnico</strong></h5>
+                                    <?php
+                                    $cont = 0;
+                                    $query = "SELECT P.id_proyecto, P.nProyecto,  
+                                    V.placa, Co.color, M.marca, Mo.modelo, An.anio,
+                                    SD.id_SegDiaProAseTecnico, SD.linkSegDiaProAseTecnico, SD.fecha_hoyV AS FV, SD.com, SD.fecha_creacionV,
+                                    SDS.id_SegDiaProAseTecnicoSuper, SDS.textSupervision, SDS.sup, SDS.fecha_hoyS AS FS, SDS.fecha_creacionS,
+                                    U.nombres AS nombreV, U.aPaterno AS paternoV, U.aMaterno AS maternoV,
+                                    US.nombres AS nombreS, US.aPaterno AS paternoS, US.aMaterno AS maternoS
+                                    FROM proyectos P 
+                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
+                                    INNER JOIN colores Co ON V.id_color = Co.id_color
+                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
+                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
+                                    INNER JOIN anios An ON V.id_anio = An.id_anio
+                                    INNER JOIN segdiaproasetecnico SD ON P.id_proyecto = SD.id_proyecto 
+                                    LEFT JOIN segdiaproasetecnicosuper SDS ON SD.id_SegDiaProAseTecnico = SDS.id_segDiaProAseTecnico
+                                    INNER JOIN usuarios U ON SD.id_capCV = U.id_usuario
+                                    LEFT JOIN usuarios US ON SDS.id_capCS = US.id_usuario
+                                    WHERE P.id_proyecto = $id_proyecto GROUP BY SD.id_SegDiaProAseTecnico;";
+                                    $resultado = mysqli_query($conexion, $query);
+                                    ?>
+                                    <table id="tableSm2" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Núm. Proyecto</th>
+                                                <th>Link Verificación</th>
+                                                <th>Capturista Verificador</th>
+                                                <th>Fecha Registro Verificación</th>
+                                                <th>Supervisión</th>
+                                                <th>Capturista Supervisor</th>
+                                                <th>Fecha Registro Supervisión</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            while ($row = $resultado->fetch_assoc()) {
+                                                $id_proyecto = $row['id_proyecto'];
+                                                $idV = $row['id_SegDiaProAseTecnico'];
+                                                $textSupervision = $row['textSupervision'];
+                                                $hoyS = $row['FS'];
+                                                $fecha = new DateTime($hoyS);
+                                                $fechaS = $fecha->format('d-m-Y');
+
+                                                $hoyV = $row['FV'];
+                                                $fecha = new DateTime($hoyV);
+                                                $fechaV = $fecha->format('d-m-Y');
+                                                $fecha_sistema;
+                                                $fechaV = $row['FV'];
+                                                $fechaS = $row['FS'];
+                                                $com = $row['com'];
+                                                $sup = $row['sup'];
+                                            ?>
+                                                <tr>
+                                                    <td>
+                                                        <?php $cont++;
+                                                        echo $cont;
+                                                        ?>
+                                                    </td>
+                                                    <td style="width: 7%;">
+                                                        <?php echo $row['nProyecto'] ?>
+                                                    </td>
+                                                    <td style="width: 15%;">
+                                                        <?php echo $row['linkSegDiaProAseTecnico'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['nombreV'] . ' ' . $row['paternoV'] . ' ' . $row['maternoV']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php if (empty($hoyV)) {
+                                                            echo '';
+                                                        } else {
+                                                            echo $row['fecha_creacionV'];
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td style="width: 15%;">
+                                                        <?php echo $row['textSupervision'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['nombreS'] . ' ' . $row['paternoS'] . ' ' . $row['maternoS']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php if (empty($hoyS)) {
+                                                            echo '';
+                                                        } else if ($hoyS != '0000-00-00') {
+                                                            echo $row['fecha_creacionS'];
+                                                        }
+                                                        ?>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="input-group input-group-sm mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Marcas"> Acciones</span>
+                                                                </button>
+                                                                <ul class="dropdown-menu" style="min-width:2em">
+                                                                    <div class="btn-group">
+                                                                        <li class="dropdown-item">
+                                                                            <span data-toggle="tooltip" title="2.3.6.1.4 Eliminar Comprobación de Seguimiento Diario Programa de Asesoramiento Técnico">
+                                                                                <?php if ($super == 1 and $sup == 1) {
+                                                                                    echo '<a class="btn btn-outline-danger" id="yaRegistro"><i class="fas fa-trash-alt"></i></a>';
+                                                                                } else if ($super == 1 and $sup == 0) { ?>
+                                                                                    <a href='../update/formEliminarComSegDiaAseTecnico.php?id=<?php echo $row['id_SegDiaProAseTecnico'] ?>&nP= <?php echo $row['nProyecto'] ?>&fecha=<?php echo $row['fecha_creacionV'] ?> ' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>
+                                                                                <?php } else if ($eliComActMinDia == 1 and $sup == 1) {
+                                                                                    echo '<a class="btn btn-outline-danger" id="yaRegistro"><i class="fas fa-trash-alt"></i></a>';
+                                                                                } else if ($eliComActMinDia == 1 and $sup == 0) { ?>
+                                                                                    <a href='../update/formEliminarComSegDiaAseTecnico.php?id=<?php echo $row['id_SegDiaProAseTecnico'] ?>&nP= <?php echo $row['nProyecto'] ?>&fecha=<?php echo $row['fecha_creacionV'] ?> ' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>
+                                                                                <?php } else {
+                                                                                    echo '<a class="btn btn-outline-danger" id="eliComSegDiaAseTecnico"><i class="fas fa-trash-alt"></i></a>';
+                                                                                }
+                                                                                ?>
+                                                                            </span>
+                                                                        </li>
+                                                                        <li class="dropdown-item">
+                                                                            <span data-toggle="tooltip" title="2.3.6.1.5 Eliminar Supervisión de Seguimiento Diario Programa de Asesoramiento Técnico">
+                                                                                <?php if ($super == 1 and $sup == 0) {
+                                                                                    echo '<a class="btn btn-outline-danger" id="yaRegistro"><i class="fas fa-trash-alt"></i></a>';
+                                                                                } else if ($super == 1 and $com == 1) { ?>
+                                                                                    <a href='../update/formEliminarComSegDiaAseTecnicoSuper.php?id=<?php echo $row['id_SegDiaProAseTecnicoSuper'] ?>&nP= <?php echo $row['nProyecto'] ?>&fecha=<?php echo $row['fecha_creacionV'] ?> ' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>
+                                                                                <?php } else if ($eliComSuperActMinDia == 1 and $sup == 0) {
+                                                                                    echo '<a class="btn btn-outline-danger" id="sinEliminar"><i class="fas fa-trash-alt"></i></a>';
+                                                                                } else if ($eliComSuperActMinDia == 1 and $com == 1) { ?>
+                                                                                    <a href='../update/formEliminarComSegDiaAseTecnicoSuper.php?id=<?php echo $row['id_SegDiaProAseTecnicoSuper'] ?>&nP= <?php echo $row['nProyecto'] ?>&fecha=<?php echo $row['fecha_creacionV'] ?> ' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>
+                                                                                <?php } else {
+                                                                                    echo '<a class="btn btn-outline-danger" id="eliComSuperActMinDia"><i class="fas fa-trash-alt"></i></a>';
+                                                                                }
+                                                                                ?>
+                                                                            </span>
+                                                                        </li>
+                                                                    </div>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
                                             <?php
                                             }
                                             desconectar();

@@ -199,7 +199,7 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tableComPlacas" class="table table-sm table-bordered table-striped">
+                                    <table id="tableComPlacas" class="table table-sm table-bordered table-striped" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -215,6 +215,7 @@ require '../components/head-dataTables.php';
                                                 <th>Estado del Proyecto</th>
                                                 <th>Status Comprobación</th>
                                                 <th>Status Supervisión</th>
+                                                <th>Fecha Registro</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -234,6 +235,7 @@ require '../components/head-dataTables.php';
                                                 <th>Estado del Proyecto</th>
                                                 <th>Status Comprobación</th>
                                                 <th>Status Supervisión</th>
+                                                <th>Fecha Registro</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>

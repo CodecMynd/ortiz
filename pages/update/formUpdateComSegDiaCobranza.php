@@ -70,7 +70,7 @@ require '../components/head-dataTables.php';
                                 $resultado1 = mysqli_query($conexion, $query1);
                                 $row1 = $resultado1->fetch_assoc();
                                 ?>
-                                <table class="table table-sm table-bordered table-striped">
+                                <table id="tableRegProyectos" class="table table-sm table-bordered table-striped">
                                     <thead class="thead-dark">
                                         <tr>
                                             <th>ID</th>

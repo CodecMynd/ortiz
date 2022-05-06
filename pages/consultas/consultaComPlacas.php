@@ -2,7 +2,7 @@
 	require '../components/query.php'; 
 	if ($super == 1 OR $verTablaComPlacas == 1) {
 
-	$query = "SELECT id_proyecto, nProyecto, nOrden, comPlacas, estadoProyectoEliminado, comSuperPlaca,
+	$query = "SELECT id_proyecto, nProyecto, nOrden, comPlacas, estadoProyectoEliminado, comSuperPlaca, fecha_proyecto,
 	nombres, aPaternoCliente, aMaternoCliente,
 	placa, marca, modelo, anio, color,
 	linkComPlaca, fecha_creacion,
@@ -125,7 +125,8 @@ $cont = 0;
 			"10" => ($Eliminado == 0)? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
 			"11" => ($cP == 0)? '<h6><span class="badge badge-danger badge-pill">Sin Comprobar Placas</span></h6>' : '<h6><span class="badge badge-success badge-pill">Placa Comprobada</span></h6>',
 			"12" => ($cS == 0)? '<h6><span class="badge badge-danger badge-pill">No Supervisado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Supervisado</span></h6>',
-			"13" => "<div class='input-group input-group-sm mb-3'>
+			"13" => $row['fecha_proyecto'],
+			"14" => "<div class='input-group input-group-sm mb-3'>
 						<div class='input-group-prepend'>
 							<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración tabla Comprobación de Placas'> Acciones</span>
 							</button>

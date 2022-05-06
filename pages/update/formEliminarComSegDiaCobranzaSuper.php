@@ -63,7 +63,7 @@ require '../components/head-dataTables.php';
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">
-                                                    ¿Deseas eliminar la Comprobación Diaria de Altas Por Asignar Código ID del Número de Proyecto:?
+                                                    ¿Deseas eliminar la Supervisión Seguimiento Diario de Cobranza del Número de Proyecto:?
                                                 </h5>
                                             </div>
                                             <div class="modal-body text-center">

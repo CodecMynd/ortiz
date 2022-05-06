@@ -58,7 +58,7 @@ while ($row = $resultado->fetch_assoc()) {
 	if ($aseTec == 0) {
 		$validaAseTec = "<h6><span class='badge badge-danger badge-pill' data-placement='bottom'>Sin Registro</span></h6>";
 	} else {
-		$validaAseTec = "<h6><span class='badge badge-success badge-pill' data-placement='bottom' >Registrado</span></h6>";
+		$validaAseTec = "<h6><span class='badge badge-success badge-pill' data-placement='bottom' >Con Asesoramiento</span></h6>";
 	}
 
 	// Acciones ----------------------------------------------------------------------------------------- 

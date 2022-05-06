@@ -1,3 +1,11 @@
+<style>
+    .scrollable-menu {
+        height: auto;
+        max-height: 400px;
+        overflow-x: visible;
+        overflow-y: scroll;
+    }
+</style>
 <nav class="main-header navbar navbar-expand-lg navbar-light navbar-white border-nav">
     <div class="container-fluid">
         <a href="../admin/panelAdmin.php" class="navbar-brand">
@@ -5,8 +13,8 @@
             <!-- Produccion -->
             <!-- <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span></a> -->
 
-            <!-- test -->
-            <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span>
+        <!-- Pruebas -->
+        <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span>
         </a>
 
         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,7 +100,7 @@
                         <!-- <li></li> -->
                         <li class="dropdown-submenu dropdown-hover">
                             <a id="dropdownSubMenu1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">2.3 Registro Proyecto</a>
-                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow scrollable-menu">
                                 <li><a href="../adds/formProyectos.php" class="dropdown-item">2.3.1 Registro de Proyecto </a></li>
                                 <li><a href="../admin/crudProyectos.php" class="dropdown-item">2.3.2 Lista de Proyectos</a></li>
                                 <li><a href="../admin/crudVerificacionDiariaVehiculos.php" class="dropdown-item ">2.3.2.2 Estatus para envío de Mensajes</a></li>
@@ -161,27 +169,22 @@
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                         <li><a href="../components/reporteDifValVenAltavsValCodId.php" class="dropdown-item">3.1 Reporte Diferencia Valor Alta Vs Valor Codigo Identificador </a></li>
                         <li><a href="../components/reporteDifValVenInicialvsValAlta.php" class="dropdown-item ">3.2 Reporte Diferencia Valor Venta Inicial Vs Valor Alta </a></li>
-                        <li><a href="#" class="dropdown-item disabled">3.3 item </a></li>
-                        <li><a href="#" class="dropdown-item disabled">3.4 item </a></li>
+                        <!-- <li><a href="#" class="dropdown-item disabled">3.3 item </a></li> -->
+                        <!-- <li><a href="#" class="dropdown-item disabled">3.4 item </a></li> -->
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle disabled">4.0 menú</a>
+                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle text-dark">4.0 Compras y Almacén</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                        <li><a href="#" class="dropdown-item">Asignación de Asesor</a></li>
-                        <li><a href="#" class="dropdown-item disabled">4.2 item </a></li>
-                        <li><a href="#" class="dropdown-item disabled">4.3 item </a></li>
-                        <li><a href="#" class="dropdown-item disabled">4.4 item </a></li>
+                        <li><a href="../admin/crudRecPzsDanadas.php" class="dropdown-item">4.1 Recepción de Piezas Dañadas</a></li>
+                        <!-- <li><a href="#" class="dropdown-item disabled">4.2 item </a></li> -->
+                        <!-- <li><a href="#" class="dropdown-item disabled">4.3 item </a></li> -->
+                        <!-- <li><a href="#" class="dropdown-item disabled">4.4 item </a></li> -->
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-        <!-- Notifications Dropdown Menu -->
-
-    </ul>
 </nav>
 
 <?php

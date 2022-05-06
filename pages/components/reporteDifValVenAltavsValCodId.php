@@ -76,7 +76,7 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tableDifVentasAltasvsCodId" class="table table-sm table-bordered table-striped">
+                                    <table id="tableDifVentasAltasvsCodId" class="table table-sm table-bordered table-striped" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th>#</th>

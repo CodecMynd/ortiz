@@ -44,17 +44,15 @@ require '../components/head-dataTables.php';
             <?php
             $id_proyecto = $_GET['id'];
             $nP = $_GET['nP'];
-            $id_top = $_GET['idTop'];
-            $query = " SELECT P.id_proyecto, P.nProyecto, 
-            T.motivo, T.fecha_creacion,
+            $query = "SELECT P.id_proyecto, P.nProyecto, 
+            T.motivo, T.fecha_creacion, T.id_top,
             U.nombres, U.aPaterno, U.aMaterno
             FROM proyectos P
             LEFT JOIN tops T ON P.id_proyecto = T.id_proyecto
             INNER JOIN usuarios U ON  T.id_capC = U.id_usuario
-            WHERE T.id_top = $id_top";
+            WHERE P.id_proyecto = $id_proyecto";
             $respuesta = mysqli_query($conexion, $query);
             $row = $respuesta->fetch_assoc();
-            $capturista = $row['nombres'].' '.$row['aPaterno'].' '.$row['aMaterno'];
     
 
             ?>
@@ -92,7 +90,7 @@ require '../components/head-dataTables.php';
                                                                 <div class='input-group-prepend'>
                                                                     <span class='input-group-text'><i class='fa-solid fa-comments'></i></span>
                                                                 </div>
-                                                                <textarea class='form-control' rows='4' placeholder='Agrega Registro Supervisión de Comprobación de Asesor' readonly><?php echo $row['motivo'] ?></textarea>
+                                                                <textarea class='form-control' rows='4' placeholder='Agrega Registro Supervisión de Comprobación de Asesor' readonly><?php echo (empty($row['motivo'])) ? 'Sin Regsitro' : $row['motivo'] ?></textarea>
                                                             </div>
                                                         </span>
                                                     </div>
@@ -102,7 +100,7 @@ require '../components/head-dataTables.php';
                                                         <div class='input-group-prepend'>
                                                             <span class='input-group-text'><i class='fa-solid fa-user'></i></span>
                                                         </div>
-                                                        <input type='text' class='form-control' value='<?php echo $capturista ?>' disabled readonly>
+                                                        <input type='text' class='form-control' value='<?php echo (empty($capturista)) ? 'Sin Registro' : $row['nombres'].' '.$row['aPaterno'].' '.$row['aMaterno']; ?>' disabled readonly>
                                                         <label for='floatingInput' class='pl-5'>Capturista: Asignación de Top</label>
                                                     </div>
                                                 </div>
@@ -111,7 +109,7 @@ require '../components/head-dataTables.php';
                                                         <div class='input-group-prepend'>
                                                             <span class='input-group-text'><i class='fa-solid fa-calendar-check'></i></span>
                                                         </div>
-                                                        <input name='' id='' type='text' class='form-control' value='<?php echo $row['fecha_creacion'] ?>' disabled readonly>
+                                                        <input name='' id='' type='text' class='form-control' value='<?php echo (empty($row['fecha_creacion'])) ? 'Sin Registro' : $row['fecha_creacion'] ?>' disabled readonly>
                                                         <label for='floatingInput' class='pl-5'>Fecha: Asignación de Top</label>
                                                     </div>
                                                 </div>

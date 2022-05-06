@@ -32,6 +32,8 @@ require 'query.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
     <!-- ribbon -->
     <link rel="stylesheet" href="../../src/css/ribbon.css">
+    <!-- Material Icon -->
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 
     <!-- tooltip -->

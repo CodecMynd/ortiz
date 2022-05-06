@@ -16,7 +16,7 @@
         </div>
         <div class="col-4">
             <div class="float-right d-sm-inline ml-5 pl-5">
-                v. 1.2.15
+                v. 1.4.1
                 <!-- v. 1.1.15 -- Pruebas -->
             </div>
         </div>
