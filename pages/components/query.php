@@ -247,7 +247,15 @@ while ($row = mysqli_fetch_array($query)) {
     $regSolRecPzsDanadas = $row['regSolRecPzsDanadas'];
     $eliSolRecPzsDanadas = $row['eliSolRecPzsDanadas'];
     $verTablaRecPzsDanadas = $row['verTablaRecPzsDanadas'];
-
+    $regComVerifDiaBat = $row['regComVerifDiaBat'];
+    $regSupComVerifDiaBat = $row['regSupComVerifDiaBat'];
+    $verGralIncidencias = $row['verGralIncidencias'];
+    $verGralVerDiaBat = $row['verGralVerDiaBat'];
+    $eliIncidencia = $row['eliIncidencia'];
+    $eliComVerifDiaBat = $row['eliComVerifDiaBat'];
+    $eliSupComVerifDiaBat = $row['eliSupComVerifDiaBat'];
+    $verTablaVerifDiaBat = $row['verTablaVerifDiaBat'];
+    
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
     if ($passUser === 'SIN_PASSWORD') {
         echo '<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

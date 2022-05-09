@@ -12,7 +12,7 @@
             <form id="formDeleteLinkSolPzsDanadas">
                 <input type="hidden" name="id_recPzsDanadas3" id="id_recPzsDanadas3">
                 <div class="modal-footer text-left">
-                    <button type="button" id="btnDeleteLinkSolPzsDanadas" class="btn btn-secondary"><i class="fa-solid fa-pencil"></i> Guardar</button>
+                    <button type="button" id="btnDeleteLinkSolPzsDanadas" class="btn btn-secondary"><i class="fa-solid fa-trash"></i> Guardar</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>
                 </div>
             </form>

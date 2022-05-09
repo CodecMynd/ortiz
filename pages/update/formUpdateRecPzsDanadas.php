@@ -174,7 +174,7 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
-                                        <div class="ribbon ribbon-bottom-right"><span>Sifolio_solicitudn permiso</span></div>
+                                        <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
                                     <div id="table_refresh">
                                         <table id="tableSm" class="table table-sm table-bordered table-striped" style="width: 100%;">
@@ -237,9 +237,9 @@ require '../components/head-dataTables.php';
                                                             <?php
                                                             //4.1.5 Eliminar Solicitud de Piezas
                                                             if ($super == 1 OR $eliSolRecPzsDanadas == 1 ) {
-                                                                echo "<a href='#' onclick='abrirModal2(\"" . $id_proyecto . "\",\"" . $nP . "\", \"" . $id_solPzsDanadas . "\", \"" . $folio_solicitud . "\")' class='btn btn-secondary' data-toggle='tooltip' data-placement='bottom' title='4.1.5 Eliminar Solicitud de Piezas'><i class='fa-solid fa-pencil'></i></a>";
+                                                                echo "<a href='#' onclick='abrirModal2(\"" . $id_proyecto . "\",\"" . $nP . "\", \"" . $id_solPzsDanadas . "\", \"" . $folio_solicitud . "\")' class='btn btn-secondary' data-toggle='tooltip' data-placement='bottom' title='4.1.5 Eliminar Solicitud de Piezas'><i class='fa-solid fa-trash-alt'></i></a>";
                                                             } else {
-                                                                echo  "<a class='btn btn-outline-danger' id='eliSolRecPzsDanadas'><i class='fa-solid fa-pencil'></i></a>";
+                                                                echo  "<a class='btn btn-outline-danger' id='eliSolRecPzsDanadas'><i class='fa-solid fa-trash-alt'></i></a>";
                                                             }
                                                             ?>
                                                         </td>

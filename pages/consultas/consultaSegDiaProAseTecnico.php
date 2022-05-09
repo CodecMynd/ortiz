@@ -23,7 +23,8 @@ if ($super == 1 or $verTablaSegDiaProAseTecnico == 1) {
 	LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
 	LEFT JOIN asesores ASE ON CA.id_asesor = ASE.id_asesor
 	LEFT JOIN tops T ON P.id_proyecto = T.id_proyecto
-	WHERE P.proyectoActivo = 1 AND P.estadoProyectoEliminado = 1 OR P.registroSolicitud = 1       GROUP BY P.id_proyecto
+	WHERE P.proyectoActivo = 1 AND P.estadoProyectoEliminado = 1 OR P.registroSolicitud = 1       
+	GROUP BY P.id_proyecto
 	ORDER BY nProyecto DESC";
 } else {
 	$query = "SELECT id_proyecto FROM proyectos WHERE id_proyecto = 0";

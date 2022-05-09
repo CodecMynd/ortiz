@@ -51,7 +51,7 @@ require '../components/head-dataTables.php';
                                 <?php
                                 $cont = 0;
                                 if ($super == 1 or $verTablaAsesor == 1) {
-                                    $query = "SELECT id_asesor, asesor FROM asesores WHERE borrado = 0 ORDER BY id_asesor DESC";
+                                    $query = "SELECT id_asesor, asesor FROM asesores  ORDER BY asesor ASC";
                                 } else {
                                     $query = "SELECT id_asesor FROM asesores WHERE id_asesor = 0";
                                 }

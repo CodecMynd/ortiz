@@ -1270,6 +1270,119 @@ require '../components/head-main.php';
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>2.3.3 Verificación Diaria de Baterías</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.3.1 Registro Comprobación Verificación Diaria Baterías</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regComVerifDiaBat" id="regComVerifDiaBat" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regComVerifDiaBat'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.3.2 Registro Supervisión de Comprobación Diaria Baterías</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regSupComVerifDiaBat" id="regSupComVerifDiaBat" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regSupComVerifDiaBat'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.3.3 Ver Generales Incidencias</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralIncidencias" id="verGralIncidencias" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralIncidencias'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.3.4 Ver Generales Verificación Diaria de Baterías</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralVerDiaBat" id="verGralVerDiaBat" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralVerDiaBat'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.3.5 Eliminar Incidencia</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliIncidencia" id="eliIncidencia" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliIncidencia'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.3.6 Eliminar Comprobación Recepción de Piezas Dañadas</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliComVerifDiaBat" id="eliComVerifDiaBat" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliComVerifDiaBat'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.3.7 Eliminar Supervisión de Comprobación Recepción de Piezas Dañadas</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliSupComVerifDiaBat" id="eliSupComVerifDiaBat" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliSupComVerifDiaBat'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.3.8 Ver Tabla Verificación Diaria de Baterías</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaVerifDiaBat" id="verTablaVerifDiaBat" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaVerifDiaBat'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-12 col-sm-12 col-12">
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
                                                                                     <h2 class="card-title"><strong>2.3.4 Actividad Mínima Diaria </strong></h2>
                                                                                     <div class="card-tools">
                                                                                         <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
@@ -2973,7 +3086,14 @@ require '../components/head-main.php';
                                                                         </div>
                                                                         <div class="col-md-4 col-sm-6 col-12">
                                                                             <button type="button" class="btn btn-permisos">
-
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-list-ol"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">2.8.3 Consecutivo Codigo Identificador</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="consCodId" id="consCodId" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['consCodId'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
                                                                             </button>
                                                                         </div>
                                                                     </div>
