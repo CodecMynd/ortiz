@@ -1,4 +1,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
 <div class="modal fade regVerifDiaBat" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -26,21 +27,34 @@
                         <div class="col-12">
                             <hr>
                         </div>
-                        <div class="col-12">
-                            <h5 class="text-center font-weight-bold">Incidencias Baterias</h5>
-                        </div>
-                        <div class="col-md-4 col-sm-6 col-12">
-                            <button type="button" class="btn btn-permisos">
-                                <div class="info-box">
-                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check"></i></span>
-                                    <div class="info-box-content">
-                                        <h6><strong>¿Reportar Incidencia?</strong></h4>
-                                            <span class="info-box-text"> <input type="checkbox" name="com" id="com" data-toggle="toggle" data-on="Incidencia" data-off="Sin Incidencia" data-width="150" data-height="10" data-onstyle="success" data-offstyle="danger" value="1" onchange="javascript:showContentCom()"></span>
-                                    </div>
+                        <div class="col-12" style='border: 1px solid #CED4DA'>
+                            <div class="col-12">
+                                <h5 class="text-center font-weight-bold">Incidencias Baterias</h5>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-4 col-sm-6 col-12">
+                                    <button type="button" class="btn btn-permisos">
+                                        <div class="info-box">
+                                            <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check"></i></span>
+                                            <div class="info-box-content">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" name="com" id="com" value="1">
+                                                    <label class="form-check-label" for="flexSwitchCheckDefault">
+                                                        <h6><strong>¿Reportar Incidencia?</strong></h4>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
                                 </div>
-                            </button>
+                                <div class="col-12">
+                                    <h5 class="text-red text-center parpadea">Al habilitar esta opción, deberá Comentar la Incidencia en el siguiente campo </h5>
+                                </div>
+                            </div>
                         </div>
-                        <div class='col-md-12 col-sm-12 my-1' id="contentCom" style="display: none">
+                        <br><br>
+                        <!-- <div class='col-md-12 col-sm-12 my-1' id="contentCom" style="display: none"> -->
+                        <div class='col-md-12 col-sm-12 my-1'>
                             <div class='form-group-input' style='border: 1px solid #CED4DA;'>
                                 <label class='pl-2 mb-2'>Comentar Incidencia (Comprobación)</label>
                                 <span data-toggle='tooltip' title='max. 200 caracteres'>
@@ -57,7 +71,7 @@
                 </div>
                 <div class="modal-footer text-left">
                     <button type="button" id="btnNuevoRegVerifDiaBat" class="btn btn-secondary"><i class="fa-solid fa-pencil"></i> Guardar</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>
+                    <button type="button" id="salir" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>
                 </div>
             </form>
             <div class="row justify-content-center">
@@ -71,15 +85,3 @@
         </div>
     </div>
 </div>
-<script>
-       function showContentCom() {
-        element = document.getElementById("contentCom");
-        check = document.getElementById("com");
-        if (check.checked) {
-            element.style.display='block';
-        }
-        else {
-            element.style.display='none';
-        }
-    } 
-</script>

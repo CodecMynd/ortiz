@@ -181,13 +181,11 @@ while ($row = $resultado->fetch_assoc()) {
 	if (empty($comI) and empty($supI)) {
 		$incidencia = "<button class='btn btn-sm btn-secondary' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto no cuenta con Incidencias!' style='cursor:no-drop'>
 			<span class='badge badge-success'>{$totalInc}</span> Incidencias</button>";
-	} else if ($row['borrado'] == 1) {
-		$incidencia = "<button class='btn btn-sm btn-secondary' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto no cuenta con Incidencias!' style='cursor:no-drop'>
-			<span class='badge badge-success'>0</span> Incidencias</button>";
+
 	} else if ($super == 1 or $verGralIncidencias == 1 and ($comI == 1 or $supI == 1 and $row['borrado'] == 0)) {
 		$incidencia = "<a href='javascript:void(0)' onclick='mostarIncidencias(\"" . $row['id_proyecto'] . "\")'><button type='button' class='btn btn-sm btn-danger' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto Si cuenta con Incidencias, da un clic para ver información!'><span class='badge badge-light parpadea'>{$totalInc}</span> Incidencias</button></a>";
-	}else{
-		$incidencia = "<a href='javascript:void(0)'><button type='button' class='btn btn-sm btn-danger' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto Si cuenta con Incidencias, da un clic para ver información! Sin permiso' style='cursor:no-drop'><span class='badge badge-light parpadea'>{$totalInc}</span> Incidencias</button></a>";
+
+	}else{ $incidencia = "<a href='javascript:void(0)'><button type='button' class='btn btn-sm btn-danger' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto Si cuenta con Incidencias, da un clic para ver información! Sin permiso' style='cursor:no-drop'><span class='badge badge-light parpadea'>{$totalInc}</span> Incidencias</button></a>";
 	}
 
 	// 2.3.3.4 Ver Generales Verificación Diaria de Baterías
@@ -228,7 +226,7 @@ while ($row = $resultado->fetch_assoc()) {
 		"14" => $incidencia,
 		"15" => "<div class='input-group input-group-sm mb-3'>
 		<div class='input-group-prepend'>
-			<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración tabla Verificación Diaria Vehículos Activos'> Acciones</span>
+			<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Verificación Diaria Vehículos Activos'> Acciones</span>
 			</button>
 			<ul class='dropdown-menu text-center' style='columns: 2; min-width:2em;'>
 				<li class='dropdown-item'>

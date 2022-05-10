@@ -2,7 +2,22 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>Captura de Valor Venta Inicial | <?php echo $nomComp ?></title>
+<title>Tabla 2.9 Bitacora de Proyectos | <?php echo $nomComp ?></title>
+<style>
+    @media (min-width:320px) and (max-width:425px) {
+        .content-header {
+            margin-bottom: 90px;
+            width: 100%;
+
+        }
+
+        .content-header h1 {
+            font-size: 20px;
+            padding: 10px 10px 5px;
+            text-align: center;
+        }
+    }
+</style>
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
@@ -15,10 +30,10 @@ require '../components/head-dataTables.php';
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row my-3 mx-1">
-                        <div class="col-sm-7">
-                            <h1 class="m-0">Tabla 2.3.7 Tabla Captura de Valor Venta Inicial</h1>
+                        <div class="col-sm-8 col-md-8 col-lg-8">
+                            <h1 class="m-0">Tabla 2.9 Bitacora de Proyectos</h1>
                         </div>
-                        <div class="col-sm-5">
+                        <div class="col-sm-4 col-md-8 col-lg-4">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
                         </div>
                     </div>
@@ -28,25 +43,25 @@ require '../components/head-dataTables.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-md-11 col-sm-12">
+                        <div class="col-md-12 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Proyectos dados de alta en el sistema</h3>
+                                    <h3 class="card-title">Tabla solo de consulta</h3>
                                     <div class="card-tools">
+                                        <a href="javascript:history.go(-1)" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
                                 <!-- consulta sql -->
+                                <?php if ($super == 1) {
+                                } else if ($verTablaBitacora == 0) { ?>
+                                    <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
+                                    <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
+                                    <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
+                                    <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
+                                <?php  } ?>
                                 <div class="card-body">
-                                    <?php
-                                    if ($super == 1) {
-                                    } else if ($verTablaCapValVenInicial == 0) { ?>
-                                        <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
-                                        <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
-                                        <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
-                                        <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
-                                    <?php } ?>
-                                    <table id="tableCapValVenInicial" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                    <table id="tableConsultaBitacora" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -58,15 +73,15 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
-                                                <th>Status Valor Venta Inicial</th>
-                                                <th>Valor Venta Inicial</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Etapa del Proyecto</th>
-                                                <th>Acciones</th>
+                                                <th>Bitacora</th>
+                                                <th>Fecha Actividad</th>
+                                                <th>Capturista Actividad</th>
+
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                        </tbody>
+                                        <tbody> </tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
@@ -78,11 +93,11 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
-                                                <th>Status Valor Venta Inicial</th>
-                                                <th class="suma"></th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Etapa del Proyecto</th>
-                                                <th>Acciones</th>
+                                                <th>Bitacora</th>
+                                                <th>Fecha Actividad</th>
+                                                <th>Capturista Actividad</th>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -107,42 +122,6 @@ require '../components/head-dataTables.php';
     // Scripts dataTables
     require '../components/scripts-dataTables.php';
     ?>
-    <div id="divModal"></div>
-    <script>
-        function mostrarDetalles(id_proyecto) {
-            var ruta = '../components/modal-verListaCapValVenInicial.php?id_proyecto=' + id_proyecto;
-            $.get(ruta, function(data) {
-                $('#divModal').html(data);
-                $('#modal-verListaCapValVenInicial').modal('show');
-            });
-        }
-
-
-        // eliCliente 2.3.7.1 ELIMINAR PROYECTO --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#noRegCapValVenInicial ").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.7.1 PROYECTO ELIMINADO, NO SE PUEDE CAPTURAR VALOR VENTA INICIAL!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-    </script>
 
 </body>
 

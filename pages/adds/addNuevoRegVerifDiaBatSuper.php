@@ -47,7 +47,7 @@ if ($textSupervision == '') {
       // Registrar Supervision diaria baterias
       $query = "UPDATE verificaciondiariabaterias SET textSupervision = '$textSupervision', sup = '$supS', fecha_hoyS = '$date2', fecha_creacionS = '$date', id_capCS = '$id' WHERE id_verifDiaBat = '$id_verifDiaBat' ";
       $resultado = mysqli_query($conexion, $query);
-      //var_dump($query);
+      // var_dump($query);
 
       // Registrar Incidencias
       $query2 = "INSERT INTO incidencias(id_proyecto, nProyecto, id_verifDiaBat, incidencia, sup, folio, fecha_creacion, id_capC) VALUES ('$id_proyecto', '$nProyecto', '$id_verifDiaBat', '$incidencia', '$sup', '$folio', '$date', '$id')";
@@ -76,7 +76,7 @@ if ($textSupervision == '') {
       // Registrar Supervision diaria baterias
       $query = "UPDATE verificaciondiariabaterias SET textSupervision = '$textSupervision', sup = '$supS', fecha_hoyS = '$date2', fecha_creacionS = '$date', id_capCS = '$id' WHERE id_verifDiaBat = '$id_verifDiaBat' ";
       $resultado = mysqli_query($conexion, $query);
-      //var_dump($query);
+      // var_dump($query);
 
     $conexion->commit();
 

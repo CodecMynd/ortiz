@@ -92,8 +92,8 @@ require '../components/head-dataTables.php';
                                     WHERE P.id_Proyecto = $id_proyecto";
                                     $resultado1 = mysqli_query($conexion, $query1);
                                     $row1 = $resultado1->fetch_assoc();
-
                                     ?>
+
                                     <table id="tableRegProyectos" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                         <thead class="thead-dark">
                                             <tr>
@@ -150,7 +150,7 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    ?>
+
                                     <div id="table_refresh">
                                         <table id="tablePermisos" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                             <thead>
@@ -216,22 +216,20 @@ require '../components/head-dataTables.php';
                                                         <td>
                                                             <div class="input-group input-group-sm mb-3">
                                                                 <div class="input-group-prepend">
-                                                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Usuarios"> Acciones</span>
+                                                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración  "> Acciones</span>
                                                                     </button>
                                                                     <ul class="dropdown-menu" style="columns:2; min-width:2em;">
-
                                                                         <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.3.10.2 Eliminar Comprobación de Kilometraje">
+                                                                            <span data-toggle="tooltip" title="2.3.3.6 Eliminar Comprobación Recepción de Piezas Dañadas">
                                                                                 <?php
                                                                                 if ($super == 1 and $com == 1 and $sup == 0) {
                                                                                     echo "<a href='#' onclick='abrirModal1(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
-                                                                                } else if ($super == 1 and $com == 0 and $sup == 1) {
+                                                                                } else if ($super == 1 and $com == 1 and $sup == 1) {
                                                                                     echo "<a class='btn btn-outline-danger' id='eliComVerifDiaBat'><i class='fas fa-trash-alt'></i></a>";
-
-                                                                                     } else if ($eliComVerifDiaBat == 1 and $com == 1 and $sup == 0) {
-                                                                                        echo "<a href='#' onclick='abrirModal1(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
-                                                                                    } else if ($eliComVerifDiaBat == 1 and $com == 0 and $sup == 1) {
-                                                                                            echo "<a class='btn btn-outline-danger' id='eliComVerifDiaBat'><i class='fas fa-trash-alt'></i></a>";
+                                                                                } else if ($eliComVerifDiaBat == 1 and $com == 1 and $sup == 0) {
+                                                                                    echo "<a href='#' onclick='abrirModal1(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
+                                                                                } else if ($eliComVerifDiaBat == 1 and $com == 1 and $sup == 1) {
+                                                                                    echo "<a class='btn btn-outline-danger' id='eliComVerifDiaBat'><i class='fas fa-trash-alt'></i></a>";
                                                                                 } else {
                                                                                     echo "<a class='btn btn-outline-danger' id='eliComVerifDiaBat'><i class='fas fa-trash-alt'></i></a>";
                                                                                 }
@@ -239,17 +237,17 @@ require '../components/head-dataTables.php';
                                                                             </span>
                                                                         </li>
                                                                         <li class="dropdown-item">
-                                                                            <span data-toggle="tooltip" title="2.3.10.2 Eliminar Comprobación de Kilometraje">
+                                                                            <span data-toggle="tooltip" title="2.3.3.7 Eliminar Supervisión de Comprobación Recepción de Piezas Dañadas">
                                                                                 <?php
                                                                                 if ($super == 1 and $com == 1 and $sup == 1) {
                                                                                     echo "<a href='#' onclick='abrirModal2(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
-                                                                                } else if ($super == 1 and $com == 0 and $sup == 0) {
+                                                                                } else if ($super == 1 and $com == 1 and $sup == 0) {
                                                                                     echo "<a class='btn btn-outline-danger' id='eliComVerifDiaBat'><i class='fas fa-trash-alt'></i></a>";
 
-                                                                                 } else if ($eliSupComVerifDiaBat == 1 and $com == 1 and $sup == 0) {
-                                                                                     echo "<a href='#' onclick='abrirModal2(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
-                                                                                    } else if ($eliSupComVerifDiaBat == 1 and $com == 0 and $sup == 1) {
-                                                                                             echo "<a class='btn btn-outline-danger' id='eliComVerifDiaBat'><i class='fas fa-trash-alt'></i></a>";
+                                                                                } else if ($eliSupComVerifDiaBat == 1 and $com == 1 and $sup == 0) {
+                                                                                    echo "<a href='#' onclick='abrirModal2(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
+                                                                                } else if ($eliSupComVerifDiaBat == 1 and $com == 0 and $sup == 1) {
+                                                                                    echo "<a class='btn btn-outline-danger' id='eliComVerifDiaBat'><i class='fas fa-trash-alt'></i></a>";
                                                                                 } else {
                                                                                     echo "<a class='btn btn-outline-danger' id='eliSupComVerifDiaBat'><i class='fas fa-trash-alt'></i></a>";
                                                                                 }
@@ -261,50 +259,6 @@ require '../components/head-dataTables.php';
                                                                 </div>
                                                             </div>
                                                         </td>
-                                                        <!-- <td>
-                                                            <div class="input-group input-group-sm mb-3">
-                                                                <div class="input-group-prepend">
-                                                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración tabla Marcas"> Acciones</span>
-                                                                    </button>
-                                                                    <ul class="dropdown-menu" style="min-width:2em">
-                                                                        <div class="btn-group">
-                                                                            <li class="dropdown-item">
-                                                                                <span data-toggle="tooltip" title="2.3.3.6 Eliminar Comprobación Recepción de Piezas Dañadas">
-                                                                                    <?php if ($super == 1 and $sup == 1) {
-                                                                                        echo "<a class'btn btn-outline-danger' id='yaRegistro'><i class='fa-solid fa-trash-alt'></i></a>";
-                                                                                    } else if ($super == 1 and $sup == 0) {
-                                                                                        echo "<a href='#' onclick='abrirModal1(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
-                                                                                    } else if ($eliComVerifDiaBat == 1 and $sup == 1) {
-                                                                                        echo '<a class="btn btn-outline-danger" id="yaRegistro"><i class="fas fa-trash-alt"></i></a>';
-                                                                                    } else if ($eliComVerifDiaBat == 1 and $sup == 0) {
-                                                                                        echo "<a href='#' onclick='abrirModal1(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
-                                                                                    } else {
-                                                                                        echo '<a class="btn btn-outline-danger" data-toggle="tooltip" data-placement="bottom" title="Sin Permiso" id="eliComVerifDiaBat"><i class="fas fa-trash-alt"></i></a>';
-                                                                                    }
-                                                                                    ?>
-                                                                                </span>
-                                                                            </li>
-                                                                            <li class="dropdown-item">
-                                                                                <span data-toggle="tooltip" title="2.3.3.7 Eliminar Supervisión de Comprobación Recepción de Piezas Dañadas">
-                                                                                    <?php if ($super == 1 and $sup == 1) {
-                                                                                        echo "<a class'btn btn-outline-danger' id='yaRegistro'><i class='fa-solid fa-trash-alt'></i></a>";
-                                                                                    } else if ($super == 1 and $sup == 0) {
-                                                                                        echo "<a href='#' onclick='abrirModal2(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary'><i class='fa-solid fa-trash-alt'></i></a>";
-                                                                                    } else if ($eliSupComVerifDiaBat == 1 and $sup == 1) {
-                                                                                        echo '<a class="btn btn-outline-danger" id="yaRegistro"><i class="fas fa-trash-alt"></i></a>';
-                                                                                    } else if ($eliComVereliSupComVerifDiaBatifDiaBat == 1 and $sup == 0) {
-                                                                                        echo "<a href='#' onclick='abrirModal2(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary'><i class='fa-solid fa-trash-alt'></i></a>";
-                                                                                    } else {
-                                                                                        echo '<a class="btn btn-outline-danger" data-toggle="tooltip" data-placement="bottom" title="Sin Permiso" id="eliSupComVerifDiaBat"><i class="fa-solid fa-trash-alt"></i></a>';
-                                                                                    }
-                                                                                    ?>
-                                                                                </span>
-                                                                            </li>
-                                                                        </div>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </td> -->
                                                     </tr>
                                                 <?php
                                                 }

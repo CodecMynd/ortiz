@@ -29,21 +29,33 @@
                         <div class="col-12">
                             <hr>
                         </div>
-                        <div class="col-12">
-                            <h5 class="text-center font-weight-bold">Incidencias Baterias</h5>
-                        </div>
-                        <div class="col-md-4 col-sm-6 col-12">
-                            <button type="button" class="btn btn-permisos">
-                                <div class="info-box">
-                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check"></i></span>
-                                    <div class="info-box-content">
-                                        <h6><strong>¿Reportar Incidencia?</strong></h4>
-                                            <span class="info-box-text"> <input type="checkbox" name="sup" id="sup" data-toggle="toggle" data-on="Incidencia" data-off="Sin Incidencia" data-width="150" data-height="10" data-onstyle="success" data-offstyle="danger" value="1" onchange="javascript:showContentSup()"></span>
-                                    </div>
+                        <div class="col-12" style='border: 1px solid #CED4DA'>
+                            <div class="col-12">
+                                <h5 class="text-center font-weight-bold">Incidencias Baterias</h5>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-4 col-sm-6 col-12">
+                                    <button type="button" class="btn btn-permisos">
+                                        <div class="info-box">
+                                            <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check"></i></span>
+                                            <div class="info-box-content">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" name="sup" id="sup" value="1">
+                                                    <label class="form-check-label" for="flexSwitchCheckDefault">
+                                                        <h6><strong>¿Reportar Incidencia?</strong></h4>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
                                 </div>
-                            </button>
+                                <div class="col-12">
+                                    <h5 class="text-red text-center parpadea">Al habilitar esta opción, deberá Comentar la Incidencia en el siguiente campo </h5>
+                                </div>
+                            </div>
                         </div>
-                        <div class='col-md-12 col-sm-12 my-1' id="contentSup" style="display: none;">
+                        <br><br>
+                        <div class='col-md-12 col-sm-12 my-1'>
                             <div class='form-group-input' style='border: 1px solid #CED4DA;'>
                                 <label class='pl-2 mb-2'>Comentar Incidencia (Supervisión)</label>
                                 <span data-toggle='tooltip' title='max. 200 caracteres'>
@@ -74,15 +86,3 @@
         </div>
     </div>
 </div>
-<script>
-       function showContentSup() {
-        element = document.getElementById("contentSup");
-        check = document.getElementById("sup");
-        if (check.checked) {
-            element.style.display='block';
-        }
-        else {
-            element.style.display='none';
-        }
-    } 
-</script>

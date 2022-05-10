@@ -173,6 +173,7 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
+                                    <div class="table_refresh">
                                     <table id="tableRecPzsDanadas" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                         <thead>
                                             <tr>
@@ -183,7 +184,7 @@ require '../components/head-dataTables.php';
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
                                                 <th>Año</th>
-                                                <th>img</th>
+                                                <th>Placa</th>
                                                 <th>Color</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Link de Desarmado</th>
@@ -201,7 +202,7 @@ require '../components/head-dataTables.php';
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
                                                 <th>Año</th>
-                                                <th>img</th>
+                                                <th>Placa</th>
                                                 <th>Color</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Link de Desarmado</th>
@@ -210,6 +211,7 @@ require '../components/head-dataTables.php';
                                             </tr>
                                         </tfoot>
                                     </table>
+                                    </div>
                                     <button id="btnModal-regRecPzsDanadas" class="btn btn-white" data-toggle="modal" data-target='.regRecPzsDanadas'></button>
                                     <button id="btnModal-regSolRecPzsDanadas" class="btn btn-white" data-toggle="modal" data-target=".regSolRecPzsDanadas"></button>
                                     <button id="btnModal-eliminarRegRecPzsDanadas" class="btn btn-white" data-toggle="modal" data-target=".eliminarRegRecPzsDanadas"></button>
@@ -259,6 +261,7 @@ require '../components/head-dataTables.php';
 
                     success: function(vs) {
                         $('#formNuevoRecPzsDanadas')[0].reset();
+                        $("#table_refresh").load(" #table_refresh");
                     }
                 })
                 .done(function(res) {

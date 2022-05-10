@@ -115,7 +115,7 @@ while ($row = $resultado->fetch_assoc()) {
 		"11" => $validaTop,
 		"12" => "<div class='input-group input-group-sm mb-3'>
 		<div class='input-group-prepend'>
-			<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración tabla Verificación Diaria Vehículos Activos'> Acciones</span>
+			<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Verificación Diaria Vehículos Activos'> Acciones</span>
 			</button>
 			<ul class='dropdown-menu' style=' columns: 2; min-width:2em;'>
 				<li class='dropdown-item'>

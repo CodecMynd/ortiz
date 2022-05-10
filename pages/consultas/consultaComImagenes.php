@@ -132,7 +132,7 @@ while ($row = $resultado->fetch_assoc()) {
 		"12" => $supervision,
 		"13" => "<div class='input-group input-group-sm mb-3'>
 						<div class='input-group-prepend'>
-							<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración tabla Comprobación de Placas'> Acciones</span>
+							<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Comprobación de Placas'> Acciones</span>
 							</button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>
 								<li class='dropdown-item'>
@@ -151,7 +151,7 @@ while ($row = $resultado->fetch_assoc()) {
 								</span>
 								</li>
 								<li class='dropdown-item?>
-									<span data-toggle='tooltip' title='2.3.11.2 Eliminar Supervisión de 7 Imagenes'>
+									<span data-toggle='tooltip' title='2.3.11.4 Eliminar Supervisión de 7 Imagenes'>
 										" . $outputBtns4 . "
 									</span>
 								</li>

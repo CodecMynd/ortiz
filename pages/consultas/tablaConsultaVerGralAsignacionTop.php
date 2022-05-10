@@ -90,7 +90,7 @@ require '../components/head-dataTables.php';
                                                                 <div class='input-group-prepend'>
                                                                     <span class='input-group-text'><i class='fa-solid fa-comments'></i></span>
                                                                 </div>
-                                                                <textarea class='form-control' rows='4' placeholder='Agrega Registro Supervisión de Comprobación de Asesor' readonly><?php echo (empty($row['motivo'])) ? 'Sin Regsitro' : $row['motivo'] ?></textarea>
+                                                                <textarea class='form-control' rows='4' placeholder='Agrega Registro Supervisión de Comprobación de Asesor' readonly><?php echo (empty($row['motivo'])) ? 'Sin Registro' : $row['motivo'] ?></textarea>
                                                             </div>
                                                         </span>
                                                     </div>

@@ -133,10 +133,10 @@ require '../components/head-dataTables.php';
                                     <h5 class="text-center"><strong> Registros Solicitudes de Piezas</strong></h5>
                                     <a href="../admin/crudRecPzsDanadas.php" class="btn btn-secondary btn-inline mb-2" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
                                     <?php
-                                    $query3 = "SELECT P.id_proyecto, P.nProyecto, R.id_recPzsDanadas AS linkId, R.enUso
+                                    $query3 = "SELECT P.id_proyecto, P.nProyecto, R.id_recPzsDanadas AS linkId, MAX(R.enUso) AS enUso
                                     from proyectos P 
                                     LEFT JOIN recpzsdanadas R ON P.id_proyecto = R.id_proyecto
-                                    WHERE P.id_Proyecto =$id_proyecto";
+                                    WHERE P.id_Proyecto = $id_proyecto GROUP BY P.id_proyecto ";
                                     $result = mysqli_query($conexion, $query3);
                                     $row3 = $result->fetch_assoc();
 

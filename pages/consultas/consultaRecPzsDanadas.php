@@ -5,7 +5,7 @@ if ($super == 1 or $verTablaRecPzsDanadas == 1) {
 	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado,
 	C.nombres, C.aPaternoCliente, C.aMaternoCliente,
 	V.placa, M.marca, Mo.modelo, A.anio, Co.color,
-    R.id_recPzsDanadas, R.linkRecPzsDanadas, MIN(R.borrado) AS linkBorrado, MAX(R.enUso) AS linkEnUso, 		
+    MAX(R.id_recPzsDanadas) AS id_recPzsDanadas, R.linkRecPzsDanadas, MIN(R.borrado) AS linkBorrado, MAX(R.enUso) AS linkEnUso, 		
 	SP.folio_solicitud, MIN(SP.borrado) AS solBorrado, MAX(SP.enUso) AS solEnUso, SP.folio_solicitud
 	FROM proyectos P
 	INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
@@ -59,7 +59,7 @@ while ($row = $resultado->fetch_assoc()) {
 	if ($solBorrado == 0 AND $solEnUso == 1) {
 		$solicitud = "<h6><span class='badge badge-success badge-pill'>Con Solicitud</span></h6>";
 	} else if ($solBorrado == 1 AND $solEnUso == 0) {
-		$solicitud = "<h6><span class='badge badge-danger badge-pill'>Con Solicitud</span></h6>";
+		$solicitud = "<h6><span class='badge badge-danger badge-pill'>Sin Solicitud</span></h6>";
 	}else if(empty($folio_solicitud)){
 		$solicitud = "<h6><span class='badge badge-danger badge-pill'>Sin Ningún Registro</span></h6>";
 	}
@@ -85,11 +85,16 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns = "<a class='btn btn-outline-danger' id='noComImg'><i class='fa-solid fa-ban'></i></a>";
 	} else if ($super == 1  && (!empty($solPz)) AND (empty($linkRecPzsDanadas))) { 
 		$outputBtns2 = "<a class='btn btn-outline-danger' id='noEliComImg'><i class='fa-solid fa-trash-alt'></i></a>";
-	} else if ($super == 1  && (empty($solPz)) AND (!empty($linkRecPzsDanadas))) {
+	} else if ($super == 1  && $linkBorrado == 1 AND $linkEnUso == 0 ) {
+		$outputBtns2 = "<a class='btn btn-outline-danger' id='noEliComImg'><i class='fa-solid fa-trash-alt'></i></a>";
+	} else if ($super == 1  && $linkEnUso == 1 AND $solEnUso == 0 ) {
 		$outputBtns2 = "<a href='#' onclick='abrirModal3(\"" . $idP . "\",\"" . $nP . "\",\"".$row['id_recPzsDanadas']."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
+
 	} else if ($eliLinkRecPzsDanadas == 1  && (!empty($solPz)) AND (empty($linkRecPzsDanadas))) { 
 		$outputBtns2 = "<a class='btn btn-outline-danger' id='noEliComImg'><i class='fa-solid fa-trash-alt'></i></a>";
-	} else if ($eliLinkRecPzsDanadas == 1  && (empty($solPz)) AND (!empty($linkRecPzsDanadas))) {
+	} else if ($eliLinkRecPzsDanadas == 1  && $linkBorrado == 1 AND $linkEnUso == 0 ) {
+		$outputBtns2 = "<a class='btn btn-outline-danger' id='noEliComImg'><i class='fa-solid fa-trash-alt'></i></a>";
+	} else if ($eliLinkRecPzsDanadas == 1  && $linkEnUso == 1 AND $solEnUso == 0 ) {
 		$outputBtns2 = "<a href='#' onclick='abrirModal3(\"" . $idP . "\",\"" . $nP . "\",\"".$row['id_recPzsDanadas']."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
 	} else {
 		$outputBtns2 = "<a class='btn btn-outline-danger' id='eliLinkRecPzsDanadas'><i class='fa-solid fa-trash-alt'></i></a>";
@@ -130,7 +135,7 @@ while ($row = $resultado->fetch_assoc()) {
 		"11" => $solicitud,
 		"12" => "<div class='input-group input-group-sm mb-3'>
 					<div class='input-group-prepend'>
-						<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración tabla Recepción de Piezas Dañadas'> Acciones</span></button>
+						<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Recepción de Piezas Dañadas'> Acciones</span></button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>
 								<li class='dropdown-item'>
 									<span data-toggle='tooltip' title='4.1.1 Registrar Link de Desarmado'>

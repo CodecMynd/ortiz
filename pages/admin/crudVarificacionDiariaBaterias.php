@@ -260,6 +260,7 @@ require '../components/head-dataTables.php';
 
                     success: function(vs) {
                         $('#formNuevoRegVerifDiaBat')[0].reset();
+                        $('input[type=checkbox]').prop('checked',false); 
                     }
                 })
                 .done(function(res) {
@@ -285,6 +286,8 @@ require '../components/head-dataTables.php';
 
                     success: function(s) {
                         $('#formNuevoRegVerifDiaBatSuper')[0].reset();
+                        $('input[type=checkbox]').prop('checked',false); 
+
                     }
                 })
                 .done(function(res) {

@@ -91,8 +91,8 @@ require '../components/head-main.php';
                                 $id_proyecto = $row['id_proyecto'];
                                 $nP = $row['nProyecto'];
                                 $id_verifDiaBat = $row['id_verifDiaBat'];
-                                echo $com = $row['com'];
-                                echo $sup = $row['sup'];
+                                $com = $row['com'];
+                                $sup = $row['sup'];
                                 $capturistaV = $row['nomV'] . ' ' . $row['patV'] . ' ' . $row['matV'];
                                 $capturistaS = $row['nomS'] . ' ' . $row['patS'] . ' ' . $row['matS'];
                             ?>

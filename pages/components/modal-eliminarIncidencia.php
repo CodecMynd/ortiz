@@ -15,7 +15,7 @@
 
             <form id="formEliminarIncidencia">
                 <div class="modal-footer text-left">
-                    <input type="text" name="id_incidencia3" id="id_incidencia3" value="">
+                    <input type="hidden" name="id_incidencia3" id="id_incidencia3" value="">
 
                     <button type="button" name="btnEliminarIncidencia" id="btnEliminarIncidencia" class="btn btn-secondary"><i class="fas fa-ban"></i> Eliminar</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>

@@ -159,8 +159,7 @@
                                 <li><a href="../consultas/tablaConsCodigoIdentificador.php" class="dropdown-item">2.8.3 Consecutivo Códigos Identificadores </a></li>
                             </ul>
                         </li>
-
-                        <!-- <li><a href="../admin/crudBitacoraProyecto.php" class="dropdown-item disabled">2.8 Bitacora de Proyecto </a></li> -->
+                        <li><a href="../consultas/tablaConsultaBitacora.php" class="dropdown-item">2.9 Bitacora de Proyectos </a></li>
 
                     </ul>
                 </li>

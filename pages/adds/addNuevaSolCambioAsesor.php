@@ -19,29 +19,29 @@ $asesorAsignado = (!empty($_POST['asesorAsignado'])) ? $_POST['asesorAsignado'] 
 $estatusEspera = 1;
 $estatusAprobado = 0;
 
-if ($motivo == '' ) {
+if ($motivo == '') {
     echo "<div class='alert alert-danger' role='role'>
     <p><strong>Error, el campo '*Motivo del Cambio' es requerido</strong></p>
     </div>";
     exit;
-} else if( $asesorAsignado == 0) {
+} else if ($asesorAsignado == 0) {
     echo "<div class='alert alert-danger' role='role'>
     <p><strong>Error, el campo '*Asesor por Asignar' es requerido</strong></p>
     </div>";
     exit;
-} else if($asesorActual == $asesorAsignado){
+} else if ($asesorActual == $asesorAsignado) {
     echo "<div class='alert alert-danger' role='role'>
     <p><strong>Error, No estas cambiando Asesor, selecciona una opción diferente al asesor actual de la lista desplegable</strong></p>
     </div>";
     exit;
-} else{ 
+} else {
 
-        // Insertamos tabla proyectos
-        $query = "INSERT INTO cambioasesores(id_proyecto, folioCambioAsesor, asesorActual, asesorAsignado, motivo, estatusEspera, estatusAprobado, fecha_creacion, id_capC) VALUES ('$id_proyecto', '$folioCambioAsesor', '$asesorActual', '$asesorAsignado', '$motivo', '$estatusEspera', '$estatusAprobado', '$date', $id)";
-        $resultado = mysqli_query($conexion, $query);
-        // var_dump($query);
+    // Insertamos tabla proyectos
+    $query = "INSERT INTO cambioasesores(id_proyecto, folioCambioAsesor, asesorActual, asesorAsignado, motivo, estatusEspera, estatusAprobado, fecha_creacion, id_capC) VALUES ('$id_proyecto', '$folioCambioAsesor', '$asesorActual', '$asesorAsignado', '$motivo', '$estatusEspera', '$estatusAprobado', '$date', $id)";
+    $resultado = mysqli_query($conexion, $query);
+    // var_dump($query);
 
-     if($resultado){
+    if ($resultado) {
         echo "<div class='alert alert-success' role='alert'>
                <p><strong>¡Solicitud generada exitosamente. Registro de Solicitud de Cambio de Asesor queda en espera de su Validación!</strong></p>
             </div>";
