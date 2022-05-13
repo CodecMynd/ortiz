@@ -74,7 +74,7 @@ require '../components/head-dataTables.php';
                                                 <th>Placas</th>
                                                 <th>Color</th>
                                                 <th>Estado del Proyecto</th>
-                                                <th>Etapa del Proyecto</th>
+                                                <th>Etapa del Proyecto (actual)</th>
                                                 <th>Bitacora</th>
                                                 <th>Fecha Actividad</th>
                                                 <th>Capturista Actividad</th>
@@ -94,7 +94,7 @@ require '../components/head-dataTables.php';
                                                 <th>Placas</th>
                                                 <th>Color</th>
                                                 <th>Estado del Proyecto</th>
-                                                <th>Etapa del Proyecto</th>
+                                                <th>Etapa del Proyecto (actual)</th>
                                                 <th>Bitacora</th>
                                                 <th>Fecha Actividad</th>
                                                 <th>Capturista Actividad</th>
@@ -120,8 +120,9 @@ require '../components/head-dataTables.php';
     // Scripts principales
     require '../components/scripts-main.php';
     // Scripts dataTables
-    require '../components/scripts-dataTables.php';
+    require '../ajax/plugins-datatable.php';
     ?>
+    <script src="../ajax/tablaConsultaBitacora.js"></script>
 
 </body>
 

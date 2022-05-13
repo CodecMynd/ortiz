@@ -14,7 +14,7 @@
 	INNER JOIN anios A ON V.id_anio = A.id_anio 
 	INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
 	INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto
-	INNER JOIN semanas S ON R.id_semana = S.id_semana
+	INNER JOIN semanasolalta S ON R.id_semana = S.id_semSolAlta
 	INNER JOIN usuarios U ON R.id_capC = U.id_usuario
 	INNER JOIN tecarmadores TA ON R.tecArmador = TA.id_tecArmador
 	INNER JOIN tecmontadores TM1 ON R.tecMontador1 = TM1.id_tecMontador
@@ -39,6 +39,7 @@ $cont = 0;
 		$inspecCalidad = $row['inspecCalidad'];
 		$observCliente = $row['observCliente'];
 		$id_regSolicitud = $row['id_regSolicitud'];
+		$folioRegSolicitud = $row['folioRegSolicitud'];
 		$capturista = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
 		$fecha_creacion = $row['fecha_creacion'];
 		$tecArmador = $row['tecArmador']; 
@@ -62,9 +63,9 @@ $cont = 0;
 
 		 // 2.4.5 Eliminar Registro de Solicitud Alta Proyecto
  		if ($super == 1) { 
-			$outputBtns2 = "<a href='#' onclick='abrirModal1(\"".$idP."\",\"".$nP."\",\"".$id_regSolicitud."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
+			$outputBtns2 = "<a href='#' onclick='abrirModal1(\"".$idP."\",\"".$nP."\",\"".$id_regSolicitud."\",\"".$folioRegSolicitud."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
  		} else if ($eliRegSolAltProy == 1) {
-			$outputBtns2 = "<a href='#' onclick='abrirModal1(\"".$idP."\",\"".$nP."\",\"".$id_regSolicitud."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
+			$outputBtns2 = "<a href='#' onclick='abrirModal1(\"".$idP."\",\"".$nP."\",\"".$id_regSolicitud."\",\"".$folioRegSolicitud."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
  		} else { 
 			$outputBtns2 = "<a class='btn btn-outline-danger' id='eliRegSolAltProy'><i class='fas fa-trash-alt'></i></a>";
  		} 

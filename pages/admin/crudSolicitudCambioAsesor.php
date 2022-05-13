@@ -18,38 +18,6 @@ require '../components/head-dataTables.php';
         }
     }
 </style>
-<script>
-    //  function abrirModal1(id_proyecto, nProyecto, id_cambioAsesor) {
-    //      $("#btnModal-regCambioAsesorAutorizar").click();
-    //      $("#id_proyecto").val(id_proyecto);
-    //      $("#nProyecto").val(nProyecto);
-    //      $("#id_cambioAsesor").val(id_cambioAsesor);
-    //      $("#tituloModal").html(nProyecto);
-    //  }
-    // function abrirModal2(id_proyecto, nProyecto){
-    //     $("#btnModal-regComAsesorSuper").click();
-    //     $("#id_proyecto1").val(id_proyecto);
-    //     $("#nProyecto1").val(nProyecto);
-    //     $("#tituloModal1").html(nProyecto);
-    // }
-    // function abrirModal3(id_proyecto, nProyecto){
-    //     $("#btnModal-verGralComAsesor").click();
-    //     $("#id_proyecto2").val(id_proyecto);
-    //     $("#tituloModal2").html(nProyecto);
-    // }
-    // function abrirModal4(id_proyecto, nProyecto, id_comAsesor){
-    //     $("#btnModal-eliminarComAsesor").click();
-    //     $("#id_proyecto3").val(id_proyecto);
-    //     $("#id_comAsesor3").val(id_comAsesor);
-    //     $("#tituloModal3").html(nProyecto);
-    // }
-    // function abrirModal5(id_proyecto, nProyecto, id_comSupervision){
-    //     $("#btnModal-eliminarComAsesorSuper").click();
-    //     $("#id_proyecto4").val(id_proyecto);
-    //     $("#id_comSupervision4").val(id_comSupervision);
-    //     $("#tituloModal4").html(nProyecto);
-    // }
-</script>
 
 </head>
 
@@ -246,66 +214,14 @@ require '../components/head-dataTables.php';
         require '../components/footer.php';
         ?>
     </div>
+
     <?php
     // Scripts principales
     require '../components/scripts-main.php';
     // Scripts dataTables
-    require '../components/scripts-dataTables.php';
+    require '../ajax/plugins-datatable.php';
     ?>
-    <!-- avisos -->
-    <script src="../../src/js/toastr.js"></script>
-    <script>
-        // regComAsesor 2.3.15.1 REGISTRAR COMPROBACIÓN DE ASESOR --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#solCambioAsesor").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.15.2.1 REGISTRO SOLICITUD DE CAMBIO DE ASESOR,, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // eliComAsesor 2.3.15.2 REGISTRAR COMPROBACIÓN DE ASESOR --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#cambioAsesorAutorizar ").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.15.2.2 REGSITRAR AUTORIZACION CAMBIO DE ASESOR, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-    </script>
+<script src="../ajax/crudSolicitudCambioAsesor.js"></script>
 </body>
 
 </html>

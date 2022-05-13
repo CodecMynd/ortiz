@@ -106,7 +106,7 @@ while ($row = $resultado->fetch_assoc()) {
                                         <h5 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_mensajeSI); ?></strong></h5>
                                         <p style="margin-bottom: 0px;">Comprobados</p>
                                         <h5 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_mensajeNO); ?></strong></h5>
-                                        <p style="margin-bottom: 0px;">Sin Comprobar/Sin Registro</p>
+                                        <p style="margin-bottom: 0px;">Sin Comprobar</p>
                                     </div>
                                     <div class="icon">
                                         <i class="fa-solid fa-comment-sms"></i>

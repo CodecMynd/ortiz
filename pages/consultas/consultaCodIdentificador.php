@@ -2,10 +2,24 @@
 require '../components/query.php';
 // if ($super == 1 OR $verTablaComPlacas == 1) {
 if ($super == 1 OR $verTablaCodIdentificador == 1) {
-$query = "SELECT id_proyecto, nProyecto, nOrden, valorVenta, id_regcodidenti,codIdProyBase,
-placa, color, marca, modelo, anio, 
-valorVentaAlta, id_regcodidenti, borrado, folioCodID, fecha_creacion,
-semana, semanaCobro, valCobProyBase, codIdProyBase FROM vcodidenti
+$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, 
+V.placa, Co.color, M.marca, Mo.modelo, A.anio, 
+RS.valorVentaAlta, RC.id_regcodidenti, RC.borrado, RC.folioCodID, RC.fecha_creacion,
+SS.semana AS semSolAlta, S.semana, SC.semanaCobro, D.valCobProyBase, D.codIdProyBase
+FROM proyectos P 
+INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
+INNER JOIN colores Co ON V.id_color = Co.id_color
+INNER JOIN marcas M ON V.id_marca = M.id_marca 
+INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
+INNER JOIN anios A ON V.id_anio = A.id_anio 
+INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto  
+INNER JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
+INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto
+INNER JOIN semanasolalta SS ON RA.id_semana = SS.id_semSolAlta
+INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
+INNER JOIN semanas S ON RS.id_semana = S.id_semana
+INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto
+WHERE proyCodIdentificador = 1 AND RC.borrado = 0
 	ORDER BY nProyecto DESC";
 }else{
 	$query = "SELECT id_proyecto
@@ -24,12 +38,13 @@ while ($row = $resultado->fetch_assoc()) {
 	$nProyecto = $row['nProyecto'];
 	$id_regcodidenti = $row['id_regcodidenti'];
 	$codIdProyBase = $row['codIdProyBase'];
+	$folioCodID = $row['folioCodID'];
 
 	// 2.6.2 Eliminar Registro Código Identificador
 	 if ($super == 1) { 
-		$outputBtns1 = "<a href='#'  onclick='abrirModal1(\"" . $idP . "\",\"".$nProyecto."\", \"".$id_regcodidenti."\", \"".$codIdProyBase."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
+		$outputBtns1 = "<a href='#'  onclick='abrirModal1(\"" . $idP . "\",\"".$nProyecto."\", \"".$id_regcodidenti."\", \"".$codIdProyBase."\",\"".$folioCodID."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
 	  } else if ($eliCodIdentificador == 1) { 
-		$outputBtns1 = "<a href='#'  onclick='abrirModal1(\"" . $idP . "\",\"".$nProyecto."\", \"".$id_regcodidenti."\", \"".$codIdProyBase."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
+		$outputBtns1 = "<a href='#'  onclick='abrirModal1(\"" . $idP . "\",\"".$nProyecto."\", \"".$id_regcodidenti."\", \"".$codIdProyBase."\",\"".$folioCodID."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
 	 } else { 
 		$outputBtns1 = "<a class='btn btn-outline-danger' id='eliCodIdentificador'><i class='fas fa-trash-alt'></i></a>";
 	 } 
@@ -45,9 +60,9 @@ while ($row = $resultado->fetch_assoc()) {
 
 	 // 2.6.4 Ver Link de Video, Observaciones y Generales
 	 if ($super == 1) { 
-		 $outputBtns3 = "<a href='../consultas/tablaConsultaCodIdentificador.php?id={$row['id_proyecto']}' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
+		 $outputBtns3 = "<a href='../consultas/tablaConsultaCodIdentificador.php?id={$row['id_proyecto']}' target='_blank' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
 	 } else if ($verLinkObsIdentificador == 1) { 
-		  $outputBtns3 = "<a href='../consultas/tablaConsultaCodIdentificador.php?id={$row['id_proyecto']}' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
+		  $outputBtns3 = "<a href='../consultas/tablaConsultaCodIdentificador.php?id={$row['id_proyecto']}' target='_blank' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
 	 } else {
 		  $outputBtns3 = "<a class='btn btn-outline-danger' id='verLinkObsIdentificador'><i class='fa-solid fa-comments'></i></a>";
 	 } 
@@ -68,38 +83,35 @@ while ($row = $resultado->fetch_assoc()) {
 		"9" => $row['anio'],
 		"10" => $row['placa'],
 		"11" => $row['color'],
-		"12" => $row['semana'],
-		"13" => $row['semanaCobro'],
-		"14" => $row['valorVenta'],
-		"15" => $row['valorVentaAlta'],
-		"16" => $row['valCobProyBase'],
-
-		"17" => "<div class='input-group input-group-sm mb-3'>
+		"12" => $row['valorVenta'],
+		"13" => $row['valorVentaAlta'],
+		"14" => $row['valCobProyBase'],
+		"15" => $row['semSolAlta'],
+		"16" => $row['semana'],
+		"17" => $row['semanaCobro'],
+		"18" => "<div class='input-group input-group-sm mb-3'>
 						<div class='input-group-prepend'>
 							<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Codigo Identificador'> Acciones</span>
 							</button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>
-								<div class='btn-group'>
-									<li class='dropdown-item'>
-										<span data-toggle='tooltip' title='2.6.1.2 Eliminar Registro Código Identificador'>
-										".$outputBtns1."
-										</span>
-									</li>
-									<li class='dropdown-item'>
-										<span data-toggle='tooltip' title='2.6.1.3 Descarga PDF Registro Código Identificador'>
-										".$outputBtns2."
-										</span>
-									</li>
-									<li class='dropdown-item'>
-										<span data-toggle='tooltip' title='2.6.1.4 Ver Link de Video, Observaciones y Generales'>
-										".$outputBtns3."
-										</span>
-									</li>
-								</div>
+								<li class='dropdown-item'>
+									<span data-toggle='tooltip' title='2.6.1.2 Eliminar Registro Código Identificador'>
+									".$outputBtns1."
+									</span>
+								</li>
+								<li class='dropdown-item'>
+									<span data-toggle='tooltip' title='2.6.1.3 Descarga PDF Registro Código Identificador'>
+									".$outputBtns2."
+									</span>
+								</li>
+								<li class='dropdown-item'>
+									<span data-toggle='tooltip' title='2.6.1.4 Ver Link de Video, Observaciones y Generales'>
+									".$outputBtns3."
+									</span>
+								</li>
 							</ul>
 						</div>
 					</div>"
-
 	);
 }
 

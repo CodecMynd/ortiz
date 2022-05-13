@@ -4,12 +4,13 @@ require '../components/head-dataTables.php';
 ?>
 <title>Tabla Alta Proyecto | <?php echo $nomComp ?></title>
 <script>
-    function abrirModal1(id_proyecto, nProyecto, id_regAlta) {
+    function abrirModal1(id_proyecto, nProyecto, id_regAlta, folioRegAlta) {
         $("#btnModal-regresarAltaProyecto").click();
         $("#id_proyecto").val(id_proyecto);
+        $("#folioRegAlta").val(folioRegAlta);
         $("#id_regAlta").val(id_regAlta);
         $("#nProyecto").val(nProyecto);
-        ("#numP1").html(nProyecto);
+        $("#tituloModal1").html(nProyecto);
     }
 </script>
 </head>
@@ -83,6 +84,7 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
+                                                <th>Semana Solicitud de Alta</th>
                                                 <th>Semana de Alta</th>
                                                 <th>Valor Venta Inicial</th>
                                                 <th>Valor Venta Alta</th>
@@ -104,6 +106,7 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
+                                                <th>Semana Solicitud de Alta</th>
                                                 <th>Semana de Alta</th>
                                                 <th class="suma"></th>
                                                 <th class="suma"></th>
@@ -135,134 +138,9 @@ require '../components/head-dataTables.php';
     // Scripts principales
     require '../components/scripts-main.php';
     // Scripts dataTables
-    require '../components/scripts-dataTables.php';
+    require '../ajax/plugins-datatable.php';
     ?>
-    <script>
-        // regAlta 2.5.1 REGISTRO ALTA  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#regAlta").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.5.1 REGISTRO ALTA PROYECTO, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // eliAlta 2.5.2 ELIMINAR ALTA  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#eliAlta").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.5.2 ELIMINAR ALTA PROYECTO, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // repAltaCob 2.5.3 REPORTE ALTA POR COBRANZAS  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#pdfAlta").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.5.3 REPORTE PDF ALTA PROYECTO, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // verLinkObsAlta 2.5.5 VER TABLA ALTAS  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#verLinkObsAlta").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.5.4 VER LINK DE VIDEO EN VIVO Y OBSERVACIONES, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // varTablaAlta 2.5.5 VER TABLA ALTAS  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#varTablaAlta").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.5.4 VER TABLA ALTAS, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-    </script>
+    <script src="../ajax/crudAltaProyecto.js"></script>
 
     </html>
     <!-- CREATE VIEW valtaproyecto as 

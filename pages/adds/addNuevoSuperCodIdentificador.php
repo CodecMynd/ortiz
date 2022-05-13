@@ -29,13 +29,14 @@ try {
 
     // Ingresamos id a tabla proyectos modificar registros
     $queryP = "UPDATE proyectos SET proyCodIdentificador = 0, superCodIdentificador = 1  WHERE id_proyecto = $id_proyecto";
-
     $resultadoP = mysqli_query($conexion, $queryP);
     //var_dump($queryP);
+    
 
     // Insertamos tabla registrocodidenti
     $queryC = "UPDATE registrocodidenti SET status = '$status', supervisado = 1";
     $resultadoC = mysqli_query($conexion, $queryC);
+
     //var_dump($query);
 
     // Insertamos tabla registrocodidentibitacora

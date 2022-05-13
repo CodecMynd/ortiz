@@ -226,83 +226,11 @@ require '../components/head-dataTables.php';
     // Scripts principales
     require '../components/scripts-main.php';
     // Scripts dataTables
-    require '../components/scripts-dataTables.php';
+    require '../ajax/plugins-datatable.php';
     ?>
     <div id="divModalverGralIncidencias"></div>
     <div id="divModalverGralVarDiaBat"></div>
-    <script>
-        // Mostrar Modal Incidencias ---------------------------------------------------------
-        function mostarIncidencias(id_proyecto) {
-            var ruta = '../components/modal-verGralIncidencias.php?id_proyecto=' + id_proyecto;
-            $.get(ruta, function(data) {
-                $('#divModalverGralIncidencias').html(data);
-                $('#modal-verGralIncidencias').modal('show');
-            });
-        }
-
-        // Mostrar Generales  ---------------------------------------------------------
-        function mostrarVerGralVerDiaBat(id_proyecto) {
-            var ruta = '../components/modal-verGralVerifDiaBat.php?id_proyecto=' + id_proyecto;
-            $.get(ruta, function(data) {
-                $('#divModalverGralVarDiaBat').html(data);
-                $('#modal-verGralVerDiaBat').modal('show');
-            });
-        }
-
-
-        // Agregar Comprobación Link ---------------------------------------------------------
-        $('#btnNuevoRegVerifDiaBat').click(function() {
-            var param = $('#formNuevoRegVerifDiaBat').serialize();
-            $.ajax({
-                    url: '../adds/addNuevoRegVerifDiaBat.php',
-                    type: 'POST',
-                    data: param,
-
-                    success: function(vs) {
-                        $('#formNuevoRegVerifDiaBat')[0].reset();
-                        $('input[type=checkbox]').prop('checked',false); 
-                    }
-                })
-                .done(function(res) {
-                    $('#respuestaNuevoRegVerifDiaBat').html(res)
-                })
-        });
-
-        //Ocultar boton por 10 segundos para evitar el doble submit
-        $("#btnNuevoRegVerifDiaBat").on('click', function() {
-            $("#btnNuevoRegVerifDiaBat").css('visibility', 'hidden');
-            setTimeout(function() {
-                $("#btnNuevoRegVerifDiaBat").css('visibility', 'visible');
-            }, 5000);
-        });
-
-        // Agregar Supervision Comprobacion de Link ---------------------------------------------------------
-        $('#btnNuevoRegVerifDiaBatSuper').click(function() {
-            var param = $('#formNuevoRegVerifDiaBatSuper').serialize();
-            $.ajax({
-                    url: '../adds/addNuevoRegVerifDiaBatSuper.php',
-                    type: 'POST',
-                    data: param,
-
-                    success: function(s) {
-                        $('#formNuevoRegVerifDiaBatSuper')[0].reset();
-                        $('input[type=checkbox]').prop('checked',false); 
-
-                    }
-                })
-                .done(function(res) {
-                    $('#respuestaNuevoRegVerifDiaBatSuper').html(res)
-                })
-        });
-
-        //Ocultar boton por 10 segundos para evitar el doble submit
-        $("#btnNuevoRegVerifDiaBatSuper").on('click', function() {
-            $("#btnNuevoRegVerifDiaBatSuper").css('visibility', 'hidden');
-            setTimeout(function() {
-                $("#btnNuevoRegVerifDiaBatSuper").css('visibility', 'visible');
-            }, 10000);
-        });
-    </script>
+    <script src="../ajax/crudVerificacionDiariaBaterias.js"></script>
 
 </body>
 

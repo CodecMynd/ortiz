@@ -12,6 +12,7 @@ $id_proyecto = $_POST['id_proyecto'];
 $id_regSolicitud = $_POST['id_regSolicitud'];
 $status = 'Borrado de 2.4.2 Solicitud Alta Proyecto';
 $etapa = 'Proyecto regresado a 2.4.1 Proyectos Activos para realizar Solicitud';
+$folioRegSolicitud = $_POST['folioRegSolicitud'];
 
 $conexion->autocommit(FALSE);
 try {
@@ -29,7 +30,7 @@ try {
     // echo '<br>';
 
     //Borrar ID Registro de Solicitud Alta Proyecto
-    $queryR = ("UPDATE registrosolicitudbitacora SET borrado = 1, status = '$status', fecha_borrado = '$date', id_capB = '$id' WHERE id_regSolicitud = $id_regSolicitud");
+    $queryR = ("UPDATE registrosolicitudbitacora SET borrado = 1, status = '$status', fecha_borrado = '$date', id_capB = '$id' WHERE id_proyecto = '$id_proyecto' AND folioRegSolicitud = '$folioRegSolicitud'");
     $resultadoD = mysqli_query($conexion, $queryR);
     // var_dump($queryR);
     // echo '<br>';
@@ -41,17 +42,29 @@ try {
     // echo '<br>';
 
     $conexion->commit();
-    echo '<script>
-          alert("Registro de Solicitud en espera de Alta Borrado exitosamente")
-          window.history.go(-1);
-         </script>';
+    echo "<div class='alert alert-success' role='alert'>
+         <p><strong>Registro de Solicitud en espera de Alta Borrado exitosamente</strong></p>
+         </div>";
 } catch (Exception $e) {
 
     $conexion->rollback();
-    echo '<script>
-           alert("¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte, Error detectado: '.$e->getMessage().'")
-           window.history.go(-1);
-           </script>';
+    echo 'Error detectado: ',  $e->getMessage(), "\n";
+    echo "<div class='alert alert-danger' role='role'>
+    <p><strong>¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte</strong></p>
+    <a href='https://jsolautomotriz.workplace.com/groups/504053034641133'  target='_blank' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Area de Soporte'>¡Reporta aqui! <i class='fa-solid fa-triangle-exclamation parpadea'></i></a>
+    </div>";
 }
 
 desconectar();
+?>
+<script type="text/javascript">
+  $(document).ready(function() {
+    setTimeout(function() {
+      $(".alert-success").fadeOut(1500);
+    }, 3000);
+
+    setTimeout(function() {
+      $(".alert-danger").fadeIn(1500);
+    }, 3000);
+  });
+</script>

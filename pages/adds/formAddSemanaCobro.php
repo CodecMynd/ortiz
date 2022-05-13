@@ -1,7 +1,7 @@
 <?php
 require '../components/head-main.php';
 ?>
-<title>1.6.2 Registro de Semana de Cobro | <?php echo $nomComp ?></title>
+<title>1.6.2.1 Registro de Semana de Cobro | <?php echo $nomComp ?></title>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 

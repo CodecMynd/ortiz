@@ -20,7 +20,7 @@
 	LEFT JOIN usuarios UR ON B.id_capR = UR.id_usuario    
 	LEFT JOIN usuarios UM ON B.id_capM = UM.id_usuario
 	LEFT JOIN usuarios UB ON B.id_capB = UB.id_usuario
-	ORDER BY P.id_proyecto DESC";
+	ORDER BY B.id_bitacora DESC;";
 } else {
 	$query = "SELECT id_proyecto FROM proyectos WHERE id_proyecto = 0";
 }

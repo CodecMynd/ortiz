@@ -57,7 +57,7 @@
                                                                                                                                                             } else {
                                                                                                                                                                 echo 'text-dark ';
                                                                                                                                                             } ?> ">1.0 Catálogos</a>
-                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style="columns:3; width: 350%;">
+                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style="columns:1; width: 155%;">
                         <li><a href="../admin/crudUsuarios.php" class="dropdown-item">1.1 Usuarios </a></li>
                         <li><a href="../admin/crudMarcas.php" class="dropdown-item">1.2 Marcas </a></li>
                         <li><a href="../admin/crudModelos.php" class="dropdown-item">1.3 Modelos </a></li>
@@ -68,6 +68,7 @@
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                                 <li><a href="../admin/crudSemanas.php" class="dropdown-item">1.6.1 Semanas de Alta</a></li>
                                 <li><a href="../admin/crudSemanasCobro.php" class="dropdown-item">1.6.2 Semanas de Cobro </a></li>
+                                <li><a href="../admin/crudSemanasSolAlta.php" class="dropdown-item">1.6.3 Semanas Solicitud de Alta </a></li>
                             </ul>
                         </li>
                         <li><a href="../admin/crudAgentes.php" class="dropdown-item">1.7 Agentes</a></li>
@@ -80,7 +81,8 @@
                             </ul>
                         </li>
                         <li><a href="../admin/crudAsesor.php" class="dropdown-item">1.10 Asesor</a></li>
-                        <li><a href="../admin/crudVerPermisosUsuarios.php" class="dropdown-item">1.11 Permisos</a></li>
+                        <li><a href="../admin/crudVerPermisosUsuarios.php" class="dropdown-item">1.11 Ver Permisos Usuarios</a></li>
+                        <li><a href="../admin/crudProveedores.php" class="dropdown-item">1.12 Proveedores</a></li>
 
 
                         <!-- <?php if ($super == 1) { ?>

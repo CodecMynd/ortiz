@@ -13,7 +13,7 @@ $id = $_SESSION['id_usuario'];
 $id_proyecto = $_POST['id_proyecto'];
 $folioRegSolicitud = $_POST['folioRegSolicitud'];
 $valorVentaAlta = $_POST['valorVentaAlta'];
-$id_semana = (!empty($_POST['id_semana'])) ? $_POST['id_semana'] : '0';
+$id_semana = (!empty($_POST['id_semSolAlta'])) ? $_POST['id_semSolAlta'] : '0';
 $inspecCalidad = $_POST['inspecCalidad'];
 $observCliente = $_POST['observCliente'];
 $tecArmador = $_POST['tecArmador'];
@@ -31,7 +31,7 @@ if (empty($valorVentaAlta)) {
     </div>";
 } else if ($id_semana == '0') {
     echo "<div class='alert alert-danger' role='role'>
-              <p><strong>Error, Ingresa una opción de la lista Semana de Alta</strong></p>
+              <p><strong>Error, Ingresa una opción de la lista Semana de Solicitud de Alta</strong></p>
               </div>";
     exit;
 } else if ($inspecCalidad == '') {
@@ -74,19 +74,19 @@ if (empty($valorVentaAlta)) {
         }
 
         // Insertamos tabla registrosolicitudbitacora
-        $query = "INSERT INTO registrosolicitudbitacora(folioRegSolicitud, id_proyecto, valorVentaAlta, id_semana, inspecCalidad, observCliente, tecArmador, tecMontador1, tecMontador2, tecMontador3, tecMontador4, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegSolicitud', $id_proyecto, '$valorVentaAlta', $id_semana, '$inspecCalidad', '$observCliente', '$tecArmador', '$tecMontador1', '$tecMontador2', '$tecMontador3', '$tecMontador4', $borrado, '$status', '$date', $id)";
-        $resultado = mysqli_query($conexion, $query);
+        $query1 = "INSERT INTO registrosolicitudbitacora(folioRegSolicitud, id_proyecto, valorVentaAlta, id_semana, inspecCalidad, observCliente, tecArmador, tecMontador1, tecMontador2, tecMontador3, tecMontador4, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegSolicitud', $id_proyecto, '$valorVentaAlta', $id_semana, '$inspecCalidad', '$observCliente', '$tecArmador', '$tecMontador1', '$tecMontador2', '$tecMontador3', '$tecMontador4', $borrado, '$status', '$date', $id)";
+        $resultado = mysqli_query($conexion, $query1);
         // var_dump($queryR);
 
 
         // // Ingresamos id a tabla proyectos modificar registros
-        $query = "UPDATE proyectos SET proyectoActivo = 0, registroSolicitud = 1 WHERE id_proyecto = $id_proyecto";
-        $resultado = mysqli_query($conexion, $query);
+        $query2 = "UPDATE proyectos SET proyectoActivo = 0, registroSolicitud = 1 WHERE id_proyecto = $id_proyecto";
+        $resultado = mysqli_query($conexion, $query2);
         // var_dump($queryP);
 
         // Bitacora
-        $query = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
-        $resultado = mysqli_query($conexion, $query);
+        $query3 = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
+        $resultado = mysqli_query($conexion, $query3);
 
 
         $conexion->commit();
@@ -116,6 +116,6 @@ desconectar();
 
         setTimeout(function() {
             $(".alert-danger").fadeIn(1500);
-        }, 5000);
+        }, 3000);
     });
 </script>

@@ -5,7 +5,11 @@ conectar();
 $id_proyecto = $_POST['idProyecto'];
 
 // Query principal
-$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, C.aMaternoCliente, Co.color, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.fecha_creacion, S.semana 
+$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, 
+P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, 
+V.placa, M.marca, Mo.modelo, A.anio, C.nombres, C.aPaternoCliente, 
+C.aMaternoCliente, Co.color, R.folioRegSolicitud, R.valorVentaAlta, 
+R.inspecCalidad, R.observCliente, R.fecha_creacion, S.semana 
 FROM proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 INNER JOIN marcas M ON V.id_marca = M.id_marca 
@@ -14,14 +18,15 @@ INNER JOIN anios A ON V.id_anio = A.id_anio
 INNER JOIN colores Co ON V.id_color = Co.id_color 
 INNER JOIN clientes C ON P.id_cliente = C.id_cliente
 INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto 
-INNER JOIN semanas S ON R.id_semana = S.id_semana 
-WHERE P.id_proyecto = ' . $id_proyecto . ' AND P.registroSolicitud = 1 ORDER BY nProyecto ASC';
+INNER JOIN semanasolalta S ON R.id_semana = S.id_semSolAlta 
+WHERE P.id_proyecto = '.$id_proyecto.' AND P.registroSolicitud = 1 ORDER BY nProyecto ASC';
 $respuesta = mysqli_query($conexion, $query);
 $row  = $respuesta->fetch_assoc();
 
 // Query semanas
-$queryS = "SELECT id_semana, semana FROM semanas  ORDER BY semana ASC";
+$queryS = "SELECT id_semana, semana FROM semanas WHERE borrado = 0  ORDER BY semana ASC";
 $resultSemanas = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+
 
 // Query Registro de folio Alta
 $queryP = 'SELECT MAX(id_regAlta) + 1 FROM registroaltabitacora';
@@ -208,15 +213,15 @@ if ($respuesta->num_rows  > 0) {
                 <label for='floatingInput' class='pl-5'>*Valor Venta Alta</label>
             </div>
         </div>
-        <div class='col-md-2 col-sm-12 my-1'>
+        <div class='col-md-3 col-sm-12 my-1'>
             <div class='input-group form-floating mb-3'>
                 <div class='input-group-prepend'>
                     <span class='input-group-text mt-2'>
                         <i class='fa-solid fa-calendar-day'></i>
                     </span>
                 </div>
-                <input name='id_semana' id='id_semana' type='text' class='form-control' placeholder='Ingresa semana' required data-toggle='tooltip' data-placement='bottom' title='Ingresa Semana' value='{$semana}' readonly>
-                <label for='floatingInput' class='pl-5'>*Semana de Alta</label>
+                <input type='text' class='form-control' placeholder='Ingresa semana' required data-toggle='tooltip' data-placement='bottom' title='Semana de Solicitud de Alta' value='{$semana}' readonly>
+                <label for='floatingInput' class='pl-5'>*Semana Solicitud de Alta</label>
             </div>
         </div>
         <div class='col-md-12 col-sm-12 my-1'>
@@ -249,6 +254,21 @@ if ($respuesta->num_rows  > 0) {
                 </div>
             </div>
         </div>
+        <div class='col-md-3 col-sm-12 mb-2 form-group'>
+        <div class='input-group'>
+            <label for='color' class='pl-5 parpadea'>Semana Alta</label>
+            <select name='id_semana' id='id_semana' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Semana de la lista' style='width: 100%;' required>
+                <option selected disabled>Selecciona</option>";
+
+                while ($rowSemanas = $resultSemanas->fetch_assoc()) {
+                $id_semana = $rowSemanas['id_semana'];
+                $semana = $rowSemanas['semana'];
+                $output .= " <option value=$id_semana> $semana </option>";
+                }
+                $output .= "
+            </select>
+        </div>
+    </div>
         <div class='col-md-10 col-sm-12 my-1'>
             <div class='input-group form-floating mb-3'>
                 <div class='input-group-prepend'>

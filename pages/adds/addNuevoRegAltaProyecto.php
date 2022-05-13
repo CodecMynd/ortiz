@@ -15,6 +15,7 @@ $link = $_POST['link'];
 $observAudiFinal = $_POST['observAudiFinal'];
 $borrado = 0;
 $fecha_creacion = $_POST['fecha_creacion'];
+$id_semana = (!empty($_POST['id_semana'])) ? $_POST['id_semana'] : '0';
 
 // cronometro
 $fecha1 = new DateTime($date);
@@ -36,6 +37,11 @@ if ($link == '') {
     <p><strong>Error, el campo Observaciones es requerido</strong></p>
     </div>";
     exit;
+} else if ($id_semana == 0) {
+    echo "<div class='alert alert-danger' role='role'>
+    <p><strong>Error, el campo Semana Alta es requerido</strong></p>
+    </div>";
+    exit;
 } else {
 
     $conexion->autocommit(FALSE);
@@ -48,7 +54,7 @@ if ($link == '') {
         //var_dump($queryL);
 
         // Insertamos tabla registroalta
-        $query = "INSERT INTO registroalta(folioRegAlta, id_proyecto, id_link, observAudiFinal, cronometro, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', '$cronometro', $borrado, '$status', '$date', '$id')";
+        $query = "INSERT INTO registroalta(folioRegAlta, id_proyecto, id_link, observAudiFinal, cronometro, id_semana, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', '$cronometro', '$id_semana', '$borrado', '$status', '$date', '$id')";
 
         $verificar_id = mysqli_query($conexion, "SELECT id_proyecto FROM registroalta WHERE id_proyecto = '$id_proyecto' ");
         if (mysqli_num_rows($verificar_id) > 0) {
@@ -64,7 +70,7 @@ if ($link == '') {
 
 
         // Insertamos tabla registroaltabitacora
-        $query = "INSERT INTO registroaltabitacora(folioRegAlta, id_proyecto, id_link, observAudiFinal, cronometro, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', '$cronometro', $borrado, '$status', '$date', '$id')";
+        $query = "INSERT INTO registroaltabitacora(folioRegAlta, id_proyecto, id_link, observAudiFinal, cronometro, id_semana, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', '$cronometro', '$id_semana', '$borrado', '$status', '$date', '$id')";
         $resultado = mysqli_query($conexion, $query);
         //var_dump($query);;
 

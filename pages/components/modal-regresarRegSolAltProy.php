@@ -11,15 +11,21 @@
                    <span id="nProyecto"></span>
                 </strong>
             </div>
-            <form id="formRegresarRegSolAltProy" method="post" action="../update/updateRegresarRegSolAltProy.php">
+            <form id="formRegresarRegSolAltProy">
                 <div class="modal-footer">
                     <input type="hidden" name="id_regSolicitud" id="id_regSolicitud" value="">
                     <input type="hidden" name="id_proyecto" id="id_proyecto" value="">
-                    <button type="submit" id="btnRegresarRegSolAltaProy" class="btn btn-secondary btn-block"><i class="fa-solid fa-ban"></i> Eliminar</buttom> <br>
-                    <button data-dismiss="modal" class="btn btn-secondary btn-block" data-toggle="tooltip" data-placement="bottom" title="Cancelar">Salir</button>
+                    <input type="hidden" name="folioRegSolicitud" id="folioRegSolicitud" value="">
+
+                    <button type="button" id="btnRegresarRegSolAltaProy" class="btn btn-secondary"><i class="fa-solid fa-trash"></i> Eliminar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>
                 </div>
             </form>
-
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <div id="respuestaRegresarRegSolAltaProy"></div>
+                </div>
+            </div>
             <div class="pie">
                 <h5>2.4.5 Eliminar Registro de Solicitud Alta Proyecto</h5>
             </div>

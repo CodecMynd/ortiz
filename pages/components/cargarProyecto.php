@@ -17,8 +17,12 @@ WHERE id_proyecto = ' . $id_proyecto . ' AND P.proyectoActivo = 1 AND P.registro
 $respuesta = mysqli_query($conexion, $query);
 $row  = $respuesta->fetch_assoc();
 
+// // Query semanas
+// $queryS = "SELECT id_semana, semana, borrado FROM semanas WHERE borrado = 0 ORDER BY semana DESC";
+// $resultSemanas = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+
 // Query semanas
-$queryS = "SELECT id_semana, semana, borrado FROM semanas WHERE borrado = 0 ORDER BY semana DESC";
+$queryS = "SELECT id_semSolAlta , semana, borrado FROM semanasolalta WHERE borrado = 0 ORDER BY semana DESC";
 $resultSemanas = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
 
 // Query Tecnico Armador
@@ -212,16 +216,16 @@ if ($respuesta->num_rows  > 0) {
                                 <label for='floatingInput' class='pl-5'>*Valor Venta Alta</label>
                             </div>
                         </div>
-                        <div class='col-md-2 col-sm-12 mb-2 form-group'>
+                        <div class='col-md-3 col-sm-12 mb-2 form-group'>
                             <div class='input-group'>
-                                <label for='color' class='pl-5 parpadea'>Semana de Alta</label>
-                                <select name='id_semana' id='id_semana' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Semana de la lista' style='width: 100%;' required>
+                                <label for='color' class='pl-5 parpadea'>Semana de Solicitud de Alta</label>
+                                <select name='id_semSolAlta' id='id_semSolAlta' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Semana de la lista' style='width: 100%;' required>
                                     <option selected disabled>Selecciona</option>";
 
                                     while ($rowSemanas = $resultSemanas->fetch_assoc()) {
-                                    $id_semana = $rowSemanas['id_semana'];
+                                    $id_semSolAlta = $rowSemanas['id_semSolAlta'];
                                     $semana = $rowSemanas['semana'];
-                                    $output .= " <option value=$id_semana> $semana </option>";
+                                    $output .= " <option value=$id_semSolAlta> $semana </option>";
                                     }
                                     $output .= "
                                 </select>

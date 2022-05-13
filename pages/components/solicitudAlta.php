@@ -236,7 +236,7 @@ INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
 INNER JOIN anios A ON V.id_anio = A.id_anio
 INNER JOIN colores C ON V.id_color = C.id_color
 INNER JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto
-INNER JOIN semanas S ON RS.id_semana = S.id_semana
+INNER JOIN semanasolalta S ON RS.id_semana = S.id_semSolAlta
 INNER JOIN usuarios U ON P.id_capC = U.id_usuario
 INNER JOIN tecarmadores TA ON RS.tecArmador = TA.id_tecArmador
 INNER JOIN tecmontadores TM1 ON RS.tecMontador1 = TM1.id_tecMontador
@@ -352,12 +352,12 @@ $valorVentaAlta = $row['valorVentaAlta'];
                         <tr>
                             <td>Valor Venta Inicial</td>
                             <td>Valor Venta Alta</td>
-                            <td>Semana de Alta</td>
+                            <td>Semana Solicitud de Alta</td>
                         </tr>
                         <tr>
                             <td><input type="text" class="inputRespM" value="<?php echo $valorVenta ?>"></td>
                             <td><input type="text" class="inputRespM" value="<?php echo $valorVentaAlta ?>"></td>
-                            <td><input type="text" class="inputRespC" value="<?php echo $row['semana'] ?>"></td>
+                            <td><input type="text" class="inputRespM" value="<?php echo $row['semana'] ?>"></td>
                         </tr>
                     </tbody>
                 </table>

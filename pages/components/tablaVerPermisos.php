@@ -585,6 +585,59 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <div class="col-md-12 col-sm-12 col-12">
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>1.6.3 Semanas de Solicitud de Alta</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row justify-content-center">
+
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">1.6.3.1 Registro Semana Solicitud de Alta</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regSemSolAlta" id="regSemSolAlta" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regSemSolAlta'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">1.6.3.2 Eliminar Semana Solicitud de Alta</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliSemSolAlta" id="eliSemSolAlta" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliSemSolAlta'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">1.6.3.3 Ver Tabla Semanas de Solicitud de Alta</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaSemSolAlta" id="verTablaSemSolAlta" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaSemSolAlta'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>

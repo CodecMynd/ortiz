@@ -173,7 +173,6 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <div class="table_refresh">
                                     <table id="tableRecPzsDanadas" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                         <thead>
                                             <tr>
@@ -211,13 +210,12 @@ require '../components/head-dataTables.php';
                                             </tr>
                                         </tfoot>
                                     </table>
-                                    </div>
                                     <button id="btnModal-regRecPzsDanadas" class="btn btn-white" data-toggle="modal" data-target='.regRecPzsDanadas'></button>
-                                    <button id="btnModal-regSolRecPzsDanadas" class="btn btn-white" data-toggle="modal" data-target=".regSolRecPzsDanadas"></button>
+                                    <!-- <button id="btnModal-regSolRecPzsDanadas" class="btn btn-white" data-toggle="modal" data-target=".regSolRecPzsDanadas"></button> -->
                                     <button id="btnModal-eliminarRegRecPzsDanadas" class="btn btn-white" data-toggle="modal" data-target=".eliminarRegRecPzsDanadas"></button>
                                     <?php
                                     require '../components/modal-regRecPzsDanadas.php';
-                                    require '../components/modal-regSolRecPzsDanadas.php';
+                                    // require '../components/modal-regSolRecPzsDanadas.php';
                                     require '../components/modal-eliminarRegRecPzsDanadas.php';
                                     desconectar();
                                     ?>
@@ -232,51 +230,15 @@ require '../components/head-dataTables.php';
         <?php
         require '../components/footer.php';
         ?>
+        <div id="divModal"></div>
     </div>
     <?php
     // Scripts principales
     require '../components/scripts-main.php';
     // Scripts dataTables
-    require '../components/scripts-dataTables.php';
+    require '../ajax/plugins-datatable.php';
     ?>
-    <div id="divModal"></div>
-    <script>
-        function mostarDetalles(id_proyecto) {
-            var ruta = '../components/modal-verGralRecPzsDanadas.php?id_proyecto=' + id_proyecto;
-            $.get(ruta, function(data) {
-                $('#divModal').html(data);
-                $('#modal-verGralRecPzsDanadas').modal('show');
-            });
-        }
-    </script>
-
-    <script>
-        // Agregar Link ------------------
-        $('#btnNuevoRecPzsDanadas').click(function() {
-            var param = $('#formNuevoRecPzsDanadas').serialize();
-            $.ajax({
-                    url: '../adds/addNuevoRegRecPzsDanadas.php',
-                    type: 'POST',
-                    data: param,
-
-                    success: function(vs) {
-                        $('#formNuevoRecPzsDanadas')[0].reset();
-                        $("#table_refresh").load(" #table_refresh");
-                    }
-                })
-                .done(function(res) {
-                    $('#respuestaRecPzsDanadas').html(res)
-                })
-        });
-
-        //Ocultar boton por 10 segundos para evitar el doble submit
-        $("#btnNuevoRecPzsDanadas").on('click', function() {
-            $("#btnNuevoRecPzsDanadas").css('visibility', 'hidden');
-            setTimeout(function() {
-                $("#btnNuevoRecPzsDanadas").css('visibility', 'visible');
-            }, 10000);
-        });
-    </script>
+    <script src="../ajax/crudRecPzsDanadas.js"></script>
 </body>
 
 </html>

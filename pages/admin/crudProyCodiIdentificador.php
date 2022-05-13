@@ -5,12 +5,13 @@ require '../components/head-dataTables.php';
 <title>Tabla Proyectos con Código Identificador | <?php echo $nomComp ?></title>
 <link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">
 <script>
-    function abrirModal1(id_proyecto, nProyecto, id_regcodidenti, codIdProyBase) {
+    function abrirModal1(id_proyecto, nProyecto, id_regcodidenti, codIdProyBase, folioCodID) {
         $("#btnModal-regresarRegCodIdentificador").click();
         $("#id_proyecto").val(id_proyecto);
         $("#nProyecto").val(nProyecto);
         $("#id_regcodidenti").val(id_regcodidenti);
         $("#codIdProyBase").val(codIdProyBase);
+        $("#folioCodID").val(folioCodID);
         $("#numP").html(nProyecto);
     }
 </script>
@@ -44,7 +45,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-header">
                                     <h3 class="card-title">Registro de Código Identificador en el sistema</h3>
                                     <div class="card-tools">
-                                        <?php if ($super == 1 OR $regCodIdentificador == 1) { ?>
+                                        <?php if ($super == 1 or $regCodIdentificador == 1) { ?>
                                             <a type="button" class="btn btn-secondary" href="../adds/FormRegCodIdentificador.php" data-toggle="tooltip" data-placement="left" title="2.6.1.1 Registro de Código Identificador"><i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Registro Código Identificador</a>
                                         <?php } else { ?>
                                             <a type="button" class="btn btn-outline-danger" id="regCodIdentificador" data-toggle="tooltip" data-placement="left" title="2.6.1.1 Registro de Código Identificador">
@@ -65,7 +66,6 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-
                                     <table id="tableProyCodId" class="table table-sm table-bordered table-striped" style="width:100%">
                                         <thead>
                                             <tr>
@@ -81,11 +81,12 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
-                                                <th>Semana de Alta</th>
-                                                <th>Semana de Cobro</th>
                                                 <th>Valor Venta Inicial</th>
                                                 <th>Valor Venta Alta</th>
                                                 <th>Valor Cobro Proyecto Base</th>
+                                                <th>Semana Solicitud de Alta</th>
+                                                <th>Semana de Alta</th>
+                                                <th>Semana de Cobro</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -104,11 +105,12 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
+                                                <th class="suma"></th>
+                                                <th class="suma"></th>
+                                                <th class="suma"></th>
+                                                <th>Semana Solicitud de Alta</th>
                                                 <th>Semana de Alta</th>
                                                 <th>Semana de Cobro</th>
-                                                <th class="suma"></th>
-                                                <th class="suma"></th>
-                                                <th class="suma"></th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>
@@ -133,182 +135,9 @@ require '../components/head-dataTables.php';
     // Scripts principales
     require '../components/scripts-main.php';
     // Scripts dataTables
-    require '../components/scripts-dataTables.php';
+    require '../ajax/plugins-datatable.php';
     ?>
-    <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
-
-    <script>
-        // regresar a tabla registro solicitud
-        $(document).ready(function() {
-            $('#btnRegresarRegCodIdentificador').click(function() {
-                $.ajax({
-                        url: '../update/updateRegresarRegCodIdentificador.php',
-                        type: 'POST',
-                        data: $('#formRegresarRegCodIdentificador').serialize(),
-                    })
-                    .done(function(res) {
-                        $('#respuestaRegresarRegCodIdentificador').html(res)
-                    })
-            });
-
-        });
-        //Ocultar boton por 5 minutos para evitar el doble submit
-        $("#btnRegresarRegCodIdentificador").on('click', function() {
-            $("#btnRegresarRegCodIdentificador").css('visibility', 'hidden');
-            setTimeout(function() {
-                $("#btnRegresarRegCodIdentificador").css('visibility', 'visible');
-            }, 300000);
-        });
-        // regCodIdentificador 2.6.1 REGISTRO CODIGO IDENTIFICADOR  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#regCodIdentificador").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.5.1 REGISTRO DE CÓDIGO IDENTIFICADOR, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // eliCodIdentificador 2.6.2 ELIMINAR CODIGO IDENTIFICADOR  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#eliCodIdentificador").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.6.2 ELIMINAR CODIGO IDENTIFICADOR, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // pdfCodIdentificador  2.6.3 DESCARGAR PDF REGISTRO CODIGO IDENTIFICADOR  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#pdfCodIdentificador").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.6.3 DESCARGAR PDF REGISTRO CODIGO IDENTIFICADOR, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // verLinkObsIdentificador 2.6.4 VER LINK DE VIDEO EN VIVO Y OBSERVACIONES  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#verLinkObsIdentificador").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.6.4 VER LINK DE VIDEO EN VIVO Y OBSERVACIONES, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // verTablaCodIdentificador  2.6.4 VER TABLA PROYECTOS CON CODIGO IDENTIFICADOR  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#verTablaCodIdentificador").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.6.4 VER TABLA PROYECTOS CON CODIGO IDENTIFICADOR, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-           // verTablaBitCodIdentificador 2.6.6 VER TABLA BITACORA CODIGO IDENTIFICADOR  --------------------------------------------------------------
-           $(document).ready(function() {
-            $("#verTablaCodIdentificador").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.6.6 VER TABLA BITACORA CODIGO IDENTIFICADOR, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-    </script>
+    <script src="../ajax/crudProyCodiIdentificador.js"></script>
 </body>
 <script>
     // copiar link al portapapeles

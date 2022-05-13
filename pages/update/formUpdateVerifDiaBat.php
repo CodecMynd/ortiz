@@ -123,7 +123,7 @@ require '../components/head-dataTables.php';
                                     <br>
                                     <hr>
                                     <br>
-                                    <h5 class="text-center"><strong> Registros Diarios Comprobación y Supervisión de Recepcion de Piezas Dañadas</strong></h5>
+                                    <h5 class="text-center"><strong> Registros Comprobación y Supervisión de Verificación Diaria de Baterías</strong></h5>
 
                                     <?php
                                     if ($super == 1 or $verGralVerDiaBat == 1) {
@@ -173,8 +173,8 @@ require '../components/head-dataTables.php';
                                                     $id_proyecto = $row['id_proyecto'];
                                                     $nP = $row['nProyecto'];
                                                     $id_verifDiaBat = $row['id_verifDiaBat'];
-                                                    echo $com = $row['com'];
-                                                    echo $sup = $row['sup'];
+                                                    $com = $row['com'];
+                                                    $sup = $row['sup'];
                                                     $capturistaV = $row['nomV'] . ' ' . $row['patV'] . ' ' . $row['matV'];
                                                     $capturistaS = $row['nomS'] . ' ' . $row['patS'] . ' ' . $row['matS'];
                                                 ?>
@@ -243,7 +243,6 @@ require '../components/head-dataTables.php';
                                                                                     echo "<a href='#' onclick='abrirModal2(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
                                                                                 } else if ($super == 1 and $com == 1 and $sup == 0) {
                                                                                     echo "<a class='btn btn-outline-danger' id='eliComVerifDiaBat'><i class='fas fa-trash-alt'></i></a>";
-
                                                                                 } else if ($eliSupComVerifDiaBat == 1 and $com == 1 and $sup == 0) {
                                                                                     echo "<a href='#' onclick='abrirModal2(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
                                                                                 } else if ($eliSupComVerifDiaBat == 1 and $com == 0 and $sup == 1) {
@@ -299,7 +298,7 @@ require '../components/head-dataTables.php';
                         <div class="col-md-12 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header border-nav">
-                                    <h3 class="card-title"><strong>2.3.3.3 Ver Incidencias</strong></h3>
+                                    <h3 class="card-title"><strong>2.3.3.3 Ver Tabla Incidencias</strong></h3>
                                     <div class="card-tools">
                                         <a href="../admin/crudVarificacionDiariaBaterias.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
@@ -335,7 +334,7 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <div id="table_refreshIncidencias">
+                                    <div id="table_refresh2">
                                         <table id="tableSm" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                             <thead>
                                                 <tr>
@@ -420,9 +419,9 @@ require '../components/head-dataTables.php';
 
                                                             <?php
                                                             if ($super == 1 or $eliIncidencia == 1) {
-                                                                echo "<a href='#' onclick='abrirModal3(\"" . $nP . "\", \"" . $id_i . "\", \"" . $f . "\")' class='btn btn-secondary'><i class='fa-solid fa-trash-alt'></i></a>";
+                                                                echo "<a href='#' onclick='abrirModal3(\"" . $nP . "\", \"" . $id_i . "\", \"" . $f . "\")' class='btn btn-secondary' data-toggle='tooltip' data-placement='bottom' title='2.3.3.5 Eliminar Incidencia'><i class='fa-solid fa-trash-alt'></i></a>";
                                                             } else {
-                                                                echo  "<a class='btn btn-outline-danger' id='eliIncidencia'><i class='fa-solid fa-trash-alt'></i></a>";
+                                                                echo  "<a class='btn btn-outline-danger' id='eliIncidencia' data-toggle='tooltip' data-placement='bottom' title='Sin Permiso'><i class='fa-solid fa-trash-alt'></i></a>";
                                                             }
 
                                                             ?>
@@ -485,6 +484,9 @@ require '../components/head-dataTables.php';
 
                     success: function(vs) {
                         $('#formDeleteComVerifDiaBat')[0].reset();
+                        setTimeout(function() {
+                            $('.eliComVerifDiaBat').modal('hide');
+                        }, 2000);
                         $("#table_refresh").load(" #table_refresh");
                     }
                 })
@@ -492,8 +494,15 @@ require '../components/head-dataTables.php';
                     $('#respuestaDeleteComVerifDiaBat').html(res)
                 })
         });
+        //Ocultar boton por 10 segundos para evitar el doble submit
+        $("#btnDeleteComVerifDiaBat").on('click', function() {
+            $("#btnDeleteComVerifDiaBat").css('visibility', 'hidden');
+            setTimeout(function() {
+                $("#btnDeleteComVerifDiaBat").css('visibility', 'visible');
+            }, 3000);
+        });
 
-
+        // ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         //2.3.3.7 Eliminar Supervisión de Comprobación Recepción de Piezas Dañadas
         $('#btnDeleteComVerifDiaBatSuper').click(function() {
@@ -506,6 +515,9 @@ require '../components/head-dataTables.php';
 
                     success: function(vs) {
                         $('#formDeleteComVerifDiaBatSuper')[0].reset();
+                        setTimeout(function() {
+                            $('.eliminarComVerifDiaBatSuper').modal('hide');
+                        }, 2000);
                         $("#table_refresh").load(" #table_refresh");
                     }
                 })
@@ -513,6 +525,15 @@ require '../components/head-dataTables.php';
                     $('#respuestaDeleteComVerifDiaBatSuper').html(res)
                 })
         });
+        //Ocultar boton por 10 segundos para evitar el doble submit
+        $("#btnDeleteComVerifDiaBatSuper").on('click', function() {
+            $("#btnDeleteComVerifDiaBatSuper").css('visibility', 'hidden');
+            setTimeout(function() {
+                $("#btnDeleteComVerifDiaBatSuper").css('visibility', 'visible');
+            }, 3000);
+        });
+
+        //------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         // Eliminar Incidencia ---------------------------------------------------------
         $('#btnEliminarIncidencia').click(function() {
@@ -524,7 +545,10 @@ require '../components/head-dataTables.php';
 
                     success: function(s) {
                         $('#formEliminarIncidencia')[0].reset();
-                        $("#table_refreshIncidencias").load("#table_refreshIncidencias");
+                        setTimeout(function() {
+                            $('.eliminarIncidencia').modal('hide');
+                        }, 2000);
+                        $("#table_refresh2").load(" #table_refresh2");
                     }
                 })
                 .done(function(res) {
@@ -537,7 +561,7 @@ require '../components/head-dataTables.php';
             $("#btnEliminarIncidencia").css('visibility', 'hidden');
             setTimeout(function() {
                 $("#btnEliminarIncidencia").css('visibility', 'visible');
-            }, 10000);
+            }, 3000);
         });
     </script>
 </body>

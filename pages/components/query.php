@@ -256,6 +256,9 @@ while ($row = mysqli_fetch_array($query)) {
     $eliSupComVerifDiaBat = $row['eliSupComVerifDiaBat'];
     $verTablaVerifDiaBat = $row['verTablaVerifDiaBat'];
     $verTablaBitacora = $row['verTablaBitacora'];
+    $regSemSolAlta = $row['regSemSolAlta'];
+    $eliSemSolAlta = $row['eliSemSolAlta'];
+    $verTablaSemSolAlta = $row['verTablaSemSolAlta'];
     
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
     if ($passUser === 'SIN_PASSWORD') {

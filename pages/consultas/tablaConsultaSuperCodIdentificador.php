@@ -515,7 +515,7 @@ require '../components/head-dataTables.php';
                     </div>
                 </div>
             </section>
-            <!-- /table usuario -->
+
 
         </div>
         <?php

@@ -177,7 +177,7 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
                                     <div id="table_refresh">
-                                        <table id="tableSm" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                        <table id="tableUpdateRecPzsDanadas" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
@@ -239,7 +239,7 @@ require '../components/head-dataTables.php';
                                                             if ($super == 1 OR $eliSolRecPzsDanadas == 1 ) {
                                                                 echo "<a href='#' onclick='abrirModal2(\"" . $id_proyecto . "\",\"" . $nP . "\", \"" . $id_solPzsDanadas . "\", \"" . $folio_solicitud . "\")' class='btn btn-secondary' data-toggle='tooltip' data-placement='bottom' title='4.1.5 Eliminar Solicitud de Piezas'><i class='fa-solid fa-trash-alt'></i></a>";
                                                             } else {
-                                                                echo  "<a class='btn btn-outline-danger' id='eliSolRecPzsDanadas'><i class='fa-solid fa-trash-alt'></i></a>";
+                                                                echo  "<a class='btn btn-outline-danger' id='eliSolRecPzsDanadas' data-toggle='tooltip' data-placement='bottom' title='Sin Permiso'><i class='fa-solid fa-trash-alt'></i></a>";
                                                             }
                                                             ?>
                                                         </td>
@@ -281,53 +281,15 @@ require '../components/head-dataTables.php';
         <?php
         require '../components/footer.php';
         ?>
+    <div id="divModal"></div>
     </div>
     <?php
     // Scripts principales
     require '../components/scripts-main.php';
-    require '../components/scripts-dataTables.php';
+    require '../ajax/plugins-datatable.php';
     ?>
+<script src="../ajax/formUpdateRecPzsDanadas.js"></script>
 
-    <div id="divModal"></div>
-    <script>
-        // 4.1.3 Registrar Solicitud de Piezas ------------------
-        $('#btnNuevoRegSolRecPzsDanadas').click(function() {
-            var param = $('#formNuevoRegSolRecPzsDanadas').serialize();
-            $.ajax({
-                    url: '../adds/addNuevoRegSolRecPzsDanadas.php',
-                    cache: false,
-                    type: 'POST',
-                    data: param,
-
-                    success: function(vs) {
-                        $('#formNuevoRegSolRecPzsDanadas')[0].reset();
-                        $("#table_refresh").load(" #table_refresh");
-                    }
-                })
-                .done(function(res) {
-                    $('#respuestaRegSolRecPzsDanadas').html(res)
-                })
-        });
-
-        // 4.1.5 Eliminar Solicitud de Piezas
-        $('#btnDeleteSolPzsDanadas').click(function() {
-            var param = $('#formDeleteSolPzsDanadas').serialize();
-            $.ajax({
-                    url: '../delete/deleteSolPzsDanadas.php',
-                    cache: false,
-                    type: 'POST',
-                    data: param,
-
-                    success: function(vs) {
-                        $('#formDeleteSolPzsDanadas')[0].reset();
-                        $("#table_refresh").load(" #table_refresh");
-                    }
-                })
-                .done(function(res) {
-                    $('#respuestaDeleteSolPzsDanadas').html(res)
-                })
-        });
-    </script>
 </body>
 
 </html>

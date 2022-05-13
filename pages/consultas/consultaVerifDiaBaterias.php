@@ -8,7 +8,7 @@ if ($super == 1 or $verTablaVerifDiaBat == 1) {
 	MAX(VD.fecha_hoyV) AS FV, MAX(VD.fecha_hoyS) AS FS, MAX(VD.id_verifDiaBat) AS id_verifDiaBat,
 	MAX(VD.com) AS com, MAX(VD.sup) AS sup,
 	ASE.asesor,
-	MAX(I.com) AS comInc, MAX(I.sup) AS supInc, I.borrado
+	MAX(I.com) AS comInc, MAX(I.sup) AS supInc, I.borrado, MAX(I.borrado) AS IncidenciaEli
 	FROM proyectos P
 	INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
 	INNER JOIN colores Co On V.id_color = Co.id_color
@@ -181,11 +181,14 @@ while ($row = $resultado->fetch_assoc()) {
 	if (empty($comI) and empty($supI)) {
 		$incidencia = "<button class='btn btn-sm btn-secondary' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto no cuenta con Incidencias!' style='cursor:no-drop'>
 			<span class='badge badge-success'>{$totalInc}</span> Incidencias</button>";
-
+	} else if ($row['IncidenciaEli'] == 1) {
+		$incidencia = "<a href='javascript:void(0)' onclick='mostarIncidencias(\"" . $row['id_proyecto'] . "\")'><button type='button' class='btn btn-sm btn-secondary' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto Si cuenta con Incidencias, da un clic para ver información!'><span class='badge badge-light parpadea'>{$totalInc}</span> Incidencias</button></a>";
+	} else if ($super == 1 or $verGralIncidencias == 1 and $row['borrado'] == 0) {
+		$incidencia = "<a href='javascript:void(0)' onclick='mostarIncidencias(\"" . $row['id_proyecto'] . "\")'><button type='button' class='btn btn-sm btn-danger' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto Si cuenta con Incidencias, da un clic para ver información!'><span class='badge badge-light parpadea'>{$totalInc}</span> Incidencias</button></a>";
 	} else if ($super == 1 or $verGralIncidencias == 1 and ($comI == 1 or $supI == 1 and $row['borrado'] == 0)) {
 		$incidencia = "<a href='javascript:void(0)' onclick='mostarIncidencias(\"" . $row['id_proyecto'] . "\")'><button type='button' class='btn btn-sm btn-danger' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto Si cuenta con Incidencias, da un clic para ver información!'><span class='badge badge-light parpadea'>{$totalInc}</span> Incidencias</button></a>";
-
-	}else{ $incidencia = "<a href='javascript:void(0)'><button type='button' class='btn btn-sm btn-danger' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto Si cuenta con Incidencias, da un clic para ver información! Sin permiso' style='cursor:no-drop'><span class='badge badge-light parpadea'>{$totalInc}</span> Incidencias</button></a>";
+	} else {
+		$incidencia = "<a href='javascript:void(0)'><button type='button' class='btn btn-sm btn-danger' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto Si cuenta con Incidencias, da un clic para ver información! Sin permiso' style='cursor:no-drop'><span class='badge badge-light parpadea'>{$totalInc}</span> Incidencias1</button></a>";
 	}
 
 	// 2.3.3.4 Ver Generales Verificación Diaria de Baterías
@@ -198,13 +201,13 @@ while ($row = $resultado->fetch_assoc()) {
 	}
 
 	// 2.3.3.4 Ver Generales Verificación Diaria de Baterías
-	 if ($super == 1) {
-	 	$outputBtns4 = "<a href='javascript:void(0)' class='btn btn-info' onclick='mostrarVerGralVerDiaBat(\"".$row['id_proyecto']."\")'><i class='fa-solid fa-circle-info'></i></a>";
-	 } else if ($verGralVerDiaBat == 1) {
-	 	$outputBtns4 = "<a href='javascript:void(0)' class='btn btn-info' onclick='mostrarVerGralVerDiaBat(\"".$row['id_proyecto']."\")'><i class='fa-solid fa-circle-info'></i></a>";
-	 } else {
-	 	$outputBtns4 = "<a class='btn btn-outline-danger' id='verGralVerDiaBat' data-toggle='tooltip' data-placement='left' data-placement='left' title='Sin permiso' style='cursor:no-drop'><i class='fa-solid fa-circle-info'></i></a>";
-	 }
+	if ($super == 1) {
+		$outputBtns4 = "<a href='javascript:void(0)' class='btn btn-info' onclick='mostrarVerGralVerDiaBat(\"" . $row['id_proyecto'] . "\")'><i class='fa-solid fa-circle-info'></i></a>";
+	} else if ($verGralVerDiaBat == 1) {
+		$outputBtns4 = "<a href='javascript:void(0)' class='btn btn-info' onclick='mostrarVerGralVerDiaBat(\"" . $row['id_proyecto'] . "\")'><i class='fa-solid fa-circle-info'></i></a>";
+	} else {
+		$outputBtns4 = "<a class='btn btn-outline-danger' id='verGralVerDiaBat' data-toggle='tooltip' data-placement='left' data-placement='left' title='Sin permiso' style='cursor:no-drop'><i class='fa-solid fa-circle-info'></i></a>";
+	}
 
 
 	$cont++;

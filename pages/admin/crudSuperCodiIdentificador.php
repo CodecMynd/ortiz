@@ -19,11 +19,11 @@ require '../components/head-dataTables.php';
     }
 </style>
 <script>
-    function abrirModal1(id_proyecto, codIdProyBase){
+    function abrirModal1(id_proyecto, codIdProyBase, nProyecto) {
         $("#btnModal-regresarSuperCodIdentificador").click();
         $("#id_proyecto").val(id_proyecto);
-        // $("#codIdProyBase").html(codIdProyBase);
-        $("#tituloModal1").html(codIdProyBase);
+        $("#codIdProyBase").val(codIdProyBase);
+        $("#tituloModal1").html(nProyecto);
 
     }
 </script>
@@ -185,11 +185,12 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
-                                                <th>Semana de Alta</th>
-                                                <th>Semana de Cobro</th>
                                                 <th>Valor Venta Inicial</th>
                                                 <th>Valor Venta Alta</th>
                                                 <th>Valor Cobro</th>
+                                                <th>Semana de Alta</th>
+                                                <th>Semana Solicitud de Alta</th>
+                                                <th>Semana de Cobro</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -208,20 +209,19 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
+                                                <th class="suma"></th>
+                                                <th class="suma"></th>
+                                                <th class="suma"></th>
+                                                <th>Semana Solicitud de Alta</th>
                                                 <th>Semana de Alta</th>
                                                 <th>Semana de Cobro</th>
-                                                <th class="suma"></th>
-                                                <th class="suma"></th>
-                                                <th class="suma"></th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>
                                     </table>
                                     <button id="btnModal-regresarSuperCodIdentificador" class='btn btn-white' data-toggle='modal' data-target='.regresarSuperCodIdentificador'></button>
-                                    <!-- <button id="btnMmodal-verSuperCodIdentificador" class='btn btn-white' data-toggle='modal' data-target='.verSuperCodId'></button> -->
                                     <?php
-                                        require '../components/modal-regresarSuperCodIdentificador.php';
-                                        // require '../components/modal-verSuperCodIdentificador.php';
+                                    require '../components/modal-regresarSuperCodIdentificador.php';
 
                                     desconectar();
                                     ?>
@@ -231,122 +231,30 @@ require '../components/head-dataTables.php';
                     </div>
                 </div>
             </section>
-
             <!-- /table usuario -->
         </div>
         <?php
         require '../components/footer.php';
         ?>
     </div>
+    <div id="divModal"></div>
     <?php
     // Scripts principales
     require '../components/scripts-main.php';
     // Scripts dataTables
-    require '../components/scripts-dataTables.php';
+    require '../ajax/plugins-datatable.php';
     ?>
-
+    <script src="../ajax/crudSuperCodiIdentificador.js"></script>
     <script>
-
-        // regSuperCodIdentificador 2.7.1 SUPERVISION DE REGISTRO CODIGO IDENTIFICADOR  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#regSuperCodIdentificador").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.7.1 SUPERVISION DE REGISTRO DE CÓDIGO IDENTIFICADOR, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // eliSuperCodIdentificador 2.6.2 ELIMINAR CODIGO IDENTIFICADOR  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#eliSuperCodIdentificador").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.7.2 ELIMINAR SUPERVISION DE CODIGO IDENTIFICADOR, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // verLinkObsSuperIdentificador 2.6.4 VER TABLA ALTAS  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#verLinkObsSuperIdentificador").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.7.3 VER LINK DE VIDEO EN VIVO Y OBSERVACIONES, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // verTablaSuperCodIdentificador 2.5.4 VER TABLA ALTAS  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#verTablaSuperCodIdentificador").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.7.4 VER TABLA PROYECTOS SUPERVISADOS CON CODIGO IDENTIFICADOR, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
+        function mostrarDetalles(id_proyecto) {
+            var ruta = '../components/modal-verGralSupCodId.php?id_proyecto=' + id_proyecto;
+            $.get(ruta, function(data) {
+                $('#divModal').html(data);
+                $('#modal-verGralSupCodId').modal('show');
+            });
+        }
     </script>
+
 </body>
 
 </html>

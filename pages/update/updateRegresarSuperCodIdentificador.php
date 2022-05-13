@@ -49,19 +49,30 @@ $resultadoBI = mysqli_query($conexion, $queryBI);
   
 $conexion->commit();
     
-echo '<script>
-      alert("¡Eliminado este Registro de Supervisión de Código Identificador correctamente")
-      window.history.go(-1);
-      </script>';
+echo "<div class='alert alert-success' role='alert'>
+<p><strong>Registro de Supervisión de Código Identificador Eliminado correctamente!</strong></p>
+</div>";
 
 
 } catch (Exception $e) {
 $conexion->rollback();
-
-echo '<script>
-    alert(¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte, Error detectado: '.$e->getMessage().' )
-    window.history.go(-1);
-    </script>';
+echo 'Error detectado: ',  $e->getMessage(), "\n";
+echo "<div class='alert alert-danger' role='role'>
+            <p><strong>¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte</strong></p>
+            <a href='https://jsolautomotriz.workplace.com/groups/504053034641133'  target='_blank' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Area de Soporte'>¡Reporta aqui! <i class='fa-solid fa-triangle-exclamation parpadea'></i></a>
+     </div>";
 }
 
 desconectar();
+?>
+<script type="text/javascript">
+    $(document).ready(function() {
+        setTimeout(function() {
+            $(".alert-success").fadeOut(1500);
+        }, 3000);
+
+        setTimeout(function() {
+            $(".alert-danger").fadeIn(1500);
+        }, 3000);
+    });
+</script>

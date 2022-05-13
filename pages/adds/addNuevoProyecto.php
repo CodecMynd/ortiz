@@ -87,6 +87,6 @@ desconectar();
 
         setTimeout(function() {
             $(".alert-danger").fadeIn(1500);
-        }, 5000);
+        }, 3000);
     });
 </script>

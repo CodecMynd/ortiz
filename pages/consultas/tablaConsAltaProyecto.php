@@ -63,20 +63,22 @@ require '../components/head-dataTables.php';
                                                 <th>ID</th>
                                                 <th>Estatus Alta Proyecto</th>
                                                 <th>Núm. Folio Alta</th>
-                                                <th>Núm. Folio Solicitud Alta</th>
                                                 <th>Cronometro Respuesta a solicitud de Alta</th>
+                                                <th>Tiempo Entre Registro y Solicitud</th>
+                                                <th>Tiempo Entre Registro y  Alta</th>
                                                 <th>Núm. Proyecto</th>
-                                                <th>Núm. Orden</th>
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
+                                                <th>Semana Solicitud de Alta</th>
                                                 <th>Semana de Alta</th>
                                                 <th>Valor Venta Inicial</th>
                                                 <th>Valor Venta Alta</th>
-                                                <th>Fecha Registro Alta</th>
+                                                <th>Fecha Registro Proyecto</th>
                                                 <th>Fecha Registro Solicitud Alta</th>
+                                                <th>Fecha Registro Alta</th>
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
@@ -86,29 +88,27 @@ require '../components/head-dataTables.php';
                                                 <th>ID</th>
                                                 <th>Estatus Alta Proyecto</th>
                                                 <th>Núm. Folio Alta</th>
-                                                <th>Núm. Folio Solicitud Alta</th>
                                                 <th>Cronometro Respuesta a solicitud de Alta</th>
+                                                <th>Tiempo Entre Registro y Solicitud</th>
+                                                <th>Tiempo Entre Registro y  Alta</th>
                                                 <th>Núm. Proyecto</th>
-                                                <th>Núm. Orden</th>
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
+                                                <th>Semana Solicitud de Alta</th>
                                                 <th>Semana de Alta</th>
                                                 <th class="suma"></th>
                                                 <th class="suma"></th>
-                                                <th>Fecha Registro Alta</th>
+                                                <th>Fecha Registro Proyecto</th>
                                                 <th>Fecha Registro Solicitud Alta</th>
+                                                <th>Fecha Registro Alta</th>
                                             </tr>
                                         </tfoot>
                                     </table>
-                                    <button id="btnModal-regresarAltaProyecto" class="btn btn-white" data-toggle="modal" data-target=".regresarAltaProy"></button>
-                                    <?php
-                                    require '../components/modal-regresarAltaProyecto.php';
-                                    ?>
-                                    <?php
 
+                                    <?php
                                     desconectar();
                                     ?>
                                 </div>
@@ -127,153 +127,9 @@ require '../components/head-dataTables.php';
     // Scripts principales
     require '../components/scripts-main.php';
     // Scripts dataTables
-    require '../components/scripts-dataTables.php';
+    require '../ajax/plugins-datatable.php';
     ?>
-    <script>
-        // regAlta 2.5.1 REGISTRO ALTA  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#regAlta").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.5.1 REGISTRO ALTA PROYECTO, consulta al administrador!")
+    <script src="../ajax/tablaConsAltaProyecto.js"></script>
+</body>
 
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // eliAlta 2.5.2 ELIMINAR ALTA  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#eliAlta").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.5.2 ELIMINAR ALTA PROYECTO, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // repAltaCob 2.5.3 REPORTE ALTA POR COBRANZAS  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#pdfAlta").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.5.3 REPORTE PDF ALTA PROYECTO, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // verLinkObsAlta 2.5.5 VER TABLA ALTAS  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#verLinkObsAlta").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.5.4 VER LINK DE VIDEO EN VIVO Y OBSERVACIONES, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // varTablaAlta 2.5.5 VER TABLA ALTAS  --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#varTablaAlta").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.5.4 VER TABLA ALTAS, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-    </script>
-
-    </html>
-    <!-- CREATE VIEW valtaproyecto as 
-SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.altaProyecto, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio, 
-R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.fecha_creacion AS regSolFecha_creacion, 
-RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, LV.link, RA.fecha_creacion AS regAltaFecha_creacion, 
-Co.color, S.semana, 
-U.nombres AS regAltaNombre, U.aPaterno AS regAltaPaterno, U.aMaterno AS regAltaMaterno, Us.nombres AS regSolNombres, Us.aPaterno AS regSolPaterno, Us.aMaterno AS regSolMaterno
-FROM proyectos P 
-INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-INNER JOIN colores Co ON V.id_color = Co.id_color
-INNER JOIN marcas M ON V.id_marca = M.id_marca 
-INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo 
-INNER JOIN anios A ON V.id_anio = A.id_anio 
-INNER JOIN clientes C ON P.id_cliente = C.id_cliente 
-INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto 
-INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
-INNER JOIN semanas S ON R.id_semana = S.id_semana
-INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo 
-INNER JOIN usuarios U ON RA.id_capC = U.id_usuario
-INNER JOIN usuarios Us ON R.id_capC = Us.id_usuario
-WHERE altaProyecto = 1 ORDER BY nProyecto DESC -->
+</html>
