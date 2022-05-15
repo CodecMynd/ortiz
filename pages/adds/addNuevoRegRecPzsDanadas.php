@@ -12,6 +12,7 @@ $id = $_SESSION['id_usuario'];
 $id_proyecto =  $_POST['id_proyecto1'];
 $nProyecto =  $_POST['nProyecto1'];
 $linkRecPzsDanadas = $_POST['linkRecPzsDanadas'];
+$id_tecArmador = (empty($_POST['id_tecArmador'])) ? 0 : $_POST['id_tecArmador'];
 $borrado = 0;
 $enUso = 1;
 if ($linkRecPzsDanadas == '') {
@@ -21,12 +22,19 @@ if ($linkRecPzsDanadas == '') {
    window.history.go(-1);
  </script>';
   exit;
+}else if ($id_tecArmador == 0) {
+  echo
+  '<script>
+   alert("Error, El Técnico Armador es un campo requerido");
+   window.history.go(-1);
+ </script>';
+  exit;
 } else {
 
   $conexion->autocommit(FALSE);
   try {
     // Registrar motivo de supervision
-    $query = "INSERT INTO recpzsdanadas(id_proyecto, nProyecto, linkRecPzsDanadas, borrado, enUso, fecha_creacion, id_capC) VALUES ('$id_proyecto', '$nProyecto', '$linkRecPzsDanadas', '$borrado', '$enUso', '$date', '$id')";
+    $query = "INSERT INTO recpzsdanadas(id_proyecto, nProyecto, linkRecPzsDanadas, id_tecArmador, borrado, enUso, fecha_creacion, id_capC) VALUES ('$id_proyecto', '$nProyecto', '$linkRecPzsDanadas', '$id_tecArmador','$borrado', '$enUso', '$date', '$id')";
     $resultado = mysqli_query($conexion, $query);
     //var_dump($query);
 

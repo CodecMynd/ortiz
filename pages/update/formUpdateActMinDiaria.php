@@ -19,6 +19,24 @@ require '../components/head-dataTables.php';
         }
     }
 </style>
+<script>
+    function abrirModal1(id_proyecto, nProyecto, id_recPzsDanadas) {
+        $("#btnModal-regSolRecPzsDanadas").click();
+        $("#id_proyecto").val(id_proyecto);
+        $("#nProyecto").val(nProyecto);
+        $("#id_recPzsDanadas").val(id_recPzsDanadas);
+        $("#tituloModal").html(nProyecto);
+    }
+
+    function abrirModal2(id_proyecto, nProyecto, id_solPzsDanadas, folio_solicitud) {
+        $("#btnModal-eliminarSolRecPzsDanadas").click();
+        $("#id_proyecto2").val(id_proyecto);
+        $("#nProyecto2").val(nProyecto);
+        $("#id_solPzsDanadas2").val(id_solPzsDanadas);
+        $("#folio_solicitud2").html(folio_solicitud);
+        $("#tituloModal2").html(nProyecto);
+    }
+</script>
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
@@ -456,7 +474,6 @@ require '../components/head-dataTables.php';
                                                 </tr>
                                             <?php
                                             }
-                                            desconectar();
                                             ?>
                                         </tbody>
                                         <tfoot>
@@ -473,6 +490,193 @@ require '../components/head-dataTables.php';
                                             </tr>
                                         </tfoot>
                                     </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="card border-card">
+                                <div class="card-header border-nav">
+                                    <h3 class="card-title">**Consulta de Datos de: <strong>4.1.2 Ver Generales Recepción de Piezas Dañadas</strong></h3>
+                                    <div class="card-tools">
+                                        <a href="../admin/crudActividadMinimaDiaria.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
+                                        <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="text-center"><strong> Consulta: Registros del Proyecto</strong></h5>
+                                    <?php
+                                    $query1 = "SELECT P.id_proyecto, P.nProyecto, P.nOrden,
+                                    V.placa, Co.color, M.marca, Mo.modelo, An.anio,
+                                    R.linkRecPzsDanadas
+                                    from proyectos P 
+                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
+                                    INNER JOIN colores Co ON V.id_color = Co.id_color
+                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
+                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
+                                    INNER JOIN anios An ON V.id_anio = An.id_anio 
+                                    LEFT JOIN recpzsdanadas R ON P.id_proyecto = R.id_proyecto
+                                    WHERE P.id_Proyecto = $id_proyecto";
+                                    $resultado1 = mysqli_query($conexion, $query1);
+                                    $row1 = $resultado1->fetch_assoc();
+
+                                    ?>
+                                    <table id="tableSm2" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Núm. de Proyecto</th>
+                                                <th>Número de Orden</th>
+                                                <th>Marca</th>
+                                                <th>Modelo</th>
+                                                <th>Año</th>
+                                                <th>Placas</th>
+                                                <th>Color</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th style="width: 5%;"><span class='badge badge-dark badge-pill'><?php echo $row1['id_proyecto'] ?></span></th>
+                                                <td style="width: 10%;"><?php echo $row1['nProyecto'] ?></td>
+                                                <td style="width: 10%;"><?php echo $row1['nOrden'] ?></td>
+                                                <td><?php echo $row1['marca'] ?></td>
+                                                <td><?php echo $row1['modelo'] ?></td>
+                                                <td><?php echo $row1['anio'] ?></td>
+                                                <td><?php echo $row1['placa'] ?></td>
+                                                <td><?php echo $row1['color'] ?></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>Link de Desarmado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><?php echo (empty($row1['linkRecPzsDanadas'])) ? 'Sin Registro' : $row1['linkRecPzsDanadas'] ?></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <br>
+                                    <hr>
+                                    <br>
+                                    <h5 class="text-center"><strong> Consulta: Registros Solicitudes de Piezas</strong></h5>
+                                    <?php
+                                        $cont = 0;
+                                        $query = "SELECT P.id_proyecto, P.nProyecto, R.id_recPzsDanadas AS linkId,
+                                        S.id_solPzsDanadas, S.folio_solicitud, S.cantidad, S.descripcion, S.minVideo, S.fecha_creacion,
+                                        S.borrado, S.enUso,
+                                        U.nombres, U.aPaterno, U.aMaterno
+                                        from proyectos P 
+                                        LEFT JOIN recpzsdanadas R ON P.id_proyecto = R.id_proyecto
+                                        LEFT JOIN solpzsdanadas S ON R.id_recPzsDanadas = S.id_recPzsDanadas
+                                        LEFT JOIN usuarios U ON S.id_capC = U.id_usuario
+                                        WHERE P.id_Proyecto = $id_proyecto AND P.proyectoActivo = 1 AND S.borrado = 0 ORDER BY S.folio_solicitud DESC";
+                                    $resultado = mysqli_query($conexion, $query);
+                                    ?>
+                                    <div id="table_refresh">
+                                        <table id="tableUpdateRecPzsDanadas" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>ID</th>
+                                                    <th>Núm. Proyecto</th>
+                                                    <th>Núm. Folio</th>
+                                                    <th>Cantidad</th>
+                                                    <th>Descripción</th>
+                                                    <th>Minuto de Video</th>
+                                                    <th>Capturista Solicitante</th>
+                                                    <th>Fecha Solicitud</th>
+                                                    <th>Eliminar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                while ($row = $resultado->fetch_assoc()) {
+                                                    $id_proyecto = $row['id_proyecto'];
+                                                    $nP = $row['nProyecto'];
+                                                    $solicitante = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
+                                                    $linkId = (empty($row['linkId'])) ? '' : $row['linkId'];
+                                                    $id_solPzsDanadas = $row['id_solPzsDanadas'];
+                                                    $folio_solicitud = $row['folio_solicitud'];
+
+                                                ?>
+                                                    <tr>
+                                                        <td>
+                                                            <?php $cont++;
+                                                            echo $cont;
+                                                            ?>
+                                                        </td>
+                                                        <td>
+                                                            <span class='badge badge-dark badge-pill'><?php echo $id_proyecto ?></span>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $row['nProyecto'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo (empty($row['folio_solicitud'])) ? 'Sin Registro' : $row['folio_solicitud']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo (empty($row['cantidad'])) ? 'Sin Registro' : $row['cantidad']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo (empty($row['descripcion'])) ? 'Sin Registro' : $row['descripcion']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo (empty($row['minVideo'])) ? 'Sin Registro' : $row['minVideo']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo (empty($solicitante)) ? 'Sin Registro' : $solicitante; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo (empty($row['fecha_creacion'])) ? 'Sin Registro' : $row['fecha_creacion']; ?>
+                                                        </td>
+                                                        <td style="width: 5%">
+                                                            <?php
+                                                            //4.1.5 Eliminar Solicitud de Piezas
+                                                            if ($super == 1 or $eliSolRecPzsDanadas == 1) {
+                                                                echo "<a href='#' onclick='abrirModal2(\"" . $id_proyecto . "\",\"" . $nP . "\", \"" . $id_solPzsDanadas . "\", \"" . $folio_solicitud . "\")' class='btn btn-secondary' data-toggle='tooltip' data-placement='bottom' title='4.1.5 Eliminar Solicitud de Piezas'><i class='fa-solid fa-trash-alt'></i></a>";
+                                                            } else {
+                                                                echo  "<a class='btn btn-outline-danger' id='eliSolRecPzsDanadas' data-toggle='tooltip' data-placement='bottom' title='Sin Permiso'><i class='fa-solid fa-trash-alt'></i></a>";
+                                                            }
+                                                            ?>
+                                                        </td>
+                                                    </tr>
+                                                <?php
+                                                }
+                                                ?>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>ID</th>
+                                                    <th>Núm. Proyecto</th>
+                                                    <th>Núm. Folio</th>
+                                                    <th>Cantidad</th>
+                                                    <th>Descripción</th>
+                                                    <th>Minuto de Video</th>
+                                                    <th>Capturista Solicitante</th>
+                                                    <th>Fecha Solicitud</th>
+                                                    <th>Eliminar</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <button id="btnModal-regSolRecPzsDanadas" class="btn btn-white" data-toggle="modal" data-target='.regSolRecPzsDanadas'></button>
+                                    <button id="btnModal-eliminarSolRecPzsDanadas" class="btn btn-white" data-toggle="modal" data-target=".eliminarSolRecPzsDanadas"></button>
+                                    <?php
+                                    require '../components/modal-regSolRecPzsDanadas.php';
+                                    require '../components/modal-eliminarSolRecPzsDanadas.php';
+                                    desconectar();
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -532,101 +736,64 @@ require '../components/head-dataTables.php';
             return false;
         });
 
-        // 2.3.2.2.4  ELIMINAR COMPROBACION LINK DE VIDEO EN VIVO --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#eliComVerifDiariaVehv").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.2.2.4  ELIMINAR COMPROBACION LINK DE VIDEO EN VIVO, consulta al administrador!")
+        // 4.1.3 Registrar Solicitud de Piezas ------------------------------------------------------------------------------------------------------------------------------------
+        $('#btnNuevoRegSolRecPzsDanadas').click(function() {
+            var param = $('#formNuevoRegSolRecPzsDanadas').serialize();
+            $.ajax({
+                    url: '../adds/addNuevoRegSolRecPzsDanadas.php',
+                    cache: false,
+                    type: 'POST',
+                    data: param,
 
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
+                    success: function(vs) {
+                        $('#formNuevoRegSolRecPzsDanadas')[0].reset();
+                        $("#table_refresh").load(" #table_refresh");
+                        setTimeout(function() {
+                            $('.regSolRecPzsDanadas').modal('hide');
+                        }, 1000);
+
+                    }
+                })
+                .done(function(res) {
+                    $('#respuestaRegSolRecPzsDanadas').html(res)
+                })
         });
-        // 2.3.2.2.5  ELIMINAR SUPERVISION LINK DE VIDEO EN VIVO --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#eliComVerifDiariaVehSuper").click(function() {
-                toastr["error"]("¡No tienes acceso a: 2.3.2.2.5  ELIMINAR SUPERVISION LINK DE VIDEO EN VIVO, consulta al administrador!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
+        //Ocultar boton por 10 segundos para evitar el doble submit
+        $("#btnNuevoRegSolRecPzsDanadas").on('click', function() {
+            $("#btnNuevoRegSolRecPzsDanadas").css('visibility', 'hidden');
+            setTimeout(function() {
+                $("#btnNuevoRegSolRecPzsDanadas").css('visibility', 'visible');
+            }, 3000);
         });
-        // NO PUEDES ELIMINAR UN REGISTRO  DE SUPERVISIÓN VACIO --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#sinEliminar").click(function() {
-                toastr["error"]("¡NO PUEDES ELIMINAR UN REGISTRO  DE SUPERVISIÓN VACIO!")
+        // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
+        // 4.1.5 Eliminar Solicitud de Piezas
+        $('#btnDeleteSolPzsDanadas').click(function() {
+            var param = $('#formDeleteSolPzsDanadas').serialize();
+            $.ajax({
+                    url: '../delete/deleteSolPzsDanadas.php',
+                    cache: false,
+                    type: 'POST',
+                    data: param,
+
+                    success: function(vs) {
+                        $('#formDeleteSolPzsDanadas')[0].reset();
+                        $("#table_refresh").load(" #table_refresh");
+                        setTimeout(function() {
+                            $('.eliminarSolRecPzsDanadas').modal('hide');
+                        }, 1000);
+                    }
+                })
+                .done(function(res) {
+                    $('#respuestaDeleteSolPzsDanadas').html(res)
+                })
         });
-        // NO PUEDES ELIMINAR COMPROBACION SIN ANTES BORRAR UNA SUPERVISION --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#yaRegistro").click(function() {
-                toastr["error"]("¡NO PUEDES ELIMINAR COMPROBACION SIN ANTES BORRAR UNA SUPERVISION!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
+        //Ocultar boton por 10 segundos para evitar el doble submit
+        $("#btnDeleteSolPzsDanadas").on('click', function() {
+            $("#btnDeleteSolPzsDanadas").css('visibility', 'hidden');
+            setTimeout(function() {
+                $("#btnDeleteSolPzsDanadas").css('visibility', 'visible');
+            }, 3000);
         });
     </script>
 </body>

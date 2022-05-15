@@ -19,7 +19,7 @@ $('#btnNuevoRecPzsDanadas').click(function () {
                 $('#formNuevoRecPzsDanadas')[0].reset();
                 setTimeout(function() {
                     $('.regRecPzsDanadas').modal('hide');
-                }, 2000);
+                }, 1000);
                 tableRecPzsDanadas.ajax.reload(null, false)
             }
         })
@@ -51,7 +51,7 @@ $('#btnDeleteLinkSolPzsDanadas').click(function () {
                 $('#formDeleteLinkSolPzsDanadas')[0].reset();
                 setTimeout(function() {
                     $('.eliminarRegRecPzsDanadas').modal('hide');
-                }, 2000);
+                }, 1000);
                 tableRecPzsDanadas.ajax.reload(null, false)
             }
         })
@@ -144,10 +144,57 @@ var tableRecPzsDanadas = $("#tableRecPzsDanadas").DataTable({
         "info": "Mostrando de _START_ al _END_ de  _TOTAL_ registros",
         "zeroRecords": "No se encontraron coincidencias"
 
-    }
+    },
+    "drawCallback": function () {
+        //alert("La tabla se está recargando"); 
+        var api = this.api();
+        $(api.column(12).footer()).html(
+            'Total: ' + api.column(12, {
+                page: 'current'
+            }).data().sum()
+        )
+        var api2 = this.api();
+        $(api2.column(13).footer()).html(
+            'Total: ' + api2.column(13, {
+                page: 'current'
+            }).data().sum()
+        )
+         var api3 = this.api();
+         $(api3.column(14).footer()).html(
+             'Total: ' + api3.column(14, {
+                 page: 'current'
+             }).data().sum()
+         )
+    },            
+    "createdRow": function(row, data, index) {
+        if (data[12] > '0') {
+            $('td', row).eq(12).css({
+                'text-align':'center',
+                'background-color': '#5A6268',
+                'color': '#fff',
+                'font-weight': 'bold'
+            });
+        }
+        if (data[13] > '0') {
+            $('td', row).eq(13).css({
+                'text-align':'center',
+                'background-color': '#5A6268',
+                'color': '#fff',
+                'font-weight': 'bold'
+            });
+        }
+        if (data[14] >  '0') {
+            $('td', row).eq(14).css({
+                'text-align':'center',
+                'background-color': '#5A6268',
+                'color': '#fff',
+                'font-weight': 'bold'
+            });
+        }
+    },
 
 });
 setInterval(function () {
     tableRecPzsDanadas.ajax.reload(null, false); // user paging is not reset on reload
-}, 30000);
+}, 600000);
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------

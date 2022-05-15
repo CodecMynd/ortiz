@@ -188,6 +188,9 @@ require '../components/head-dataTables.php';
                                                 <th>Estado del Proyecto</th>
                                                 <th>Link de Desarmado</th>
                                                 <th>Solicitud de Piezas</th>
+                                                <th>Suma Total Costo Crédito</th>
+                                                <th>Suma Total Costo Contado</th>
+                                                <th>Gran Total Costo</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -206,6 +209,9 @@ require '../components/head-dataTables.php';
                                                 <th>Estado del Proyecto</th>
                                                 <th>Link de Desarmado</th>
                                                 <th>Solicitud de Piezas</th>
+                                                <th class="suma"></th>
+                                                <th class="suma"></th>
+                                                <th class="suma"></th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>

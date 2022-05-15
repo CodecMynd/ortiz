@@ -13,15 +13,6 @@
                 <input type="hidden" name="nProyecto" id="nProyecto" value="">
                 <div class="modal-body">
                     <div class="row justify-content-center">
-                        <!-- <div class="col-md-3 col-sm-12 my-1">
-                            <div class="input-group form-floating mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fa-solid fa-file-lines"></i></span>
-                                </div>
-                                <input name="folio_solicitud" id="folio_solicitud" type="text" class="form-control" placeholder="Folio Solicitud" required maxlength="22" data-toggle="tooltip" data-placement="bottom" value="<?php echo $folio ?>" readonly>
-                                <label for="floatingInput" class="pl-5">Numero de Folio</label>
-                            </div>
-                        </div> -->
                         <div class="col-md-3 col-sm-12 my-1">
                             <div class="input-group form-floating mb-3">
                                 <div class="input-group-prepend">
@@ -36,7 +27,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa-solid fa-clock"></i></span>
                                 </div>
-                                <input name="minVideo" id="minVideo" type="text" class="form-control" placeholder="Folio Solicitud" required maxlength="22" data-toggle="tooltip" data-placement="bottom" title="Hola">
+                                <input name="minVideo" id="minVideo" type="text" class="form-control" placeholder="Folio Solicitud" required maxlength="22" data-toggle="tooltip" data-placement="bottom" title="Ingresa formato 00:00, rellena todos los caracteres"  data-inputmask="'mask' : '99:99'">
                                 <label for="floatingInput" class="pl-5">Minuto del Video</label>
                             </div>
                         </div>
@@ -97,3 +88,9 @@
         </div>
     </div>
 </div>
+<script>
+    //  iniciar inputMask 
+    $(document).ready(function() {
+        $(":input").inputmask();
+    });
+</script>

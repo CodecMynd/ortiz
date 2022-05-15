@@ -52,19 +52,19 @@ $cont = 0;
 
 		// 2.3.9.3 Registrar Supervisión Comprobación de Placa
 		if ($cP == 0) {
-			$outputBtns2 = "<a class='btn btn-outline-danger' id='comprobar'><i class='fa-solid fa-spell-check'></i></a>";
+			$outputBtns2 = "<a class='btn btn-outline-danger' id='comprobar'><i class='fa-solid fa-pencil'></i></a>";
 		} else if ($Eliminado == 0) {
 			$outputBtns2 = "<a class='btn btn-outline-danger' id='eliminado'><i class='fa-solid fa-ban'></i></a>";
 		} else if ($super == 1 && $cS == 0) { 
 			$outputBtns2 = "<a href='#' onclick='abrirModal2(".$idP.",".$nP.")' class='btn btn-secondary'><i class='fa-solid fa-pencil'></i></a>";
 		} else if ($super == 1 && $cS == 1) {
-			$outputBtns2 = "<a class='btn btn-outline-danger' id='yaRegistrado'><i class='fa-solid fa-spell-check'></i></a>";
+			$outputBtns2 = "<a class='btn btn-outline-danger' id='yaRegistrado'><i class='fa-solid fa-pencil'></i></a>";
 		} else if ($regComPlacasSuper == 1 && $cS == 0) { 
-			$outputBtns2 = "<a href='#' onclick='abrirModal2(".$idP.",".$nP.")' class='btn btn-secondary'><i class='fa-solid fa-spell-check'></i></a>";
+			$outputBtns2 = "<a href='#' onclick='abrirModal2(".$idP.",".$nP.")' class='btn btn-secondary'><i class='fa-solid fa-pencil'></i></a>";
 		} else if ($regComPlacasSuper == 1 && $cS == 1) {
-			$outputBtns2 = "<a class='btn btn-outline-danger' id='regComPlacas'><i class='fa-solid fa-spell-check'></i></a>";
+			$outputBtns2 = "<a class='btn btn-outline-danger' id='regComPlacas'><i class='fa-solid fa-pencil'></i></a>";
 		} else {
-			$outputBtns2 = "<a class='btn btn-outline-danger' id='regComPlacasSuper'><i class='fa-solid fa-spell-check'></i></a>";
+			$outputBtns2 = "<a class='btn btn-outline-danger' id='regComPlacasSuper'><i class='fa-solid fa-pencil'></i></a>";
 		} 
 
 		// 2.3.9.5 Ver Generales Comprobación de Placas
@@ -100,13 +100,13 @@ $cont = 0;
 		} else if ($super == 1 && $cS == 1) { 
 			$outputBtns5 = "<a  href='#' onclick='abrirModal4(\"".$idP."\",\"".$nP."\",\"".$id_comSupervision."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
 		} else if ($super == 1 && $cS == 0) {
-			$outputBtns5 = "<a class='btn btn-outline-danger' id='resgistra'><i class='fa-solid fa-trash-alt'></i></a>";
+			$outputBtns5 = "<a class='btn btn-outline-danger' id='resgistra'><i class='fas fa-trash-alt'></i></a>";
 		} else if ($eliComPlacasSuper == 1 && $cS == 1) { 
-			$outputBtns5 = "<a  href='#' onclick='abrirModal4(\"".$idP."\",\"".$nP."\",\"".$id_comSupervision."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
+			$outputBtns5 = "<a  href='#' onclick='abrirModal4(\"".$idP."\",\"".$nP."\",\"".$id_comSupervision."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i>/a>";
 		} else if ($eliComPlacasSuper == 1 && $cS == 0) {
-			$outputBtns5 = "<a class='btn btn-outline-danger' id='noeliComPlacas'><i class='fa-trash-alt'></i></a>";
+			$outputBtns5 = "<a class='btn btn-outline-danger' id='noeliComPlacas'><i class='fas fa-trash-alt'></i></a>";
 		} else {
-			$outputBtns5 = "<a class='btn btn-outline-danger' id='eliComPlacasSuper'><i class='fa-trash-alt'></i></a>";
+			$outputBtns5 = "<a class='btn btn-outline-danger' id='eliComPlacasSuper'><i class='fas fa-trash-alt'></i></a>";
 		}
 
 

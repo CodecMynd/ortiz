@@ -15,23 +15,22 @@ require '../components/head-main.php';
                 <?php
                 $id_proyecto = $_REQUEST['id_proyecto'];
                 $query1 = "SELECT P.id_proyecto, P.nProyecto, P.nOrden,
-                                    V.placa, Co.color, M.marca, Mo.modelo, An.anio, A.asesor,
-                                    T.top, T.motivo AS motivoTop,
-                                    AST.id_aseTec, AST.aseTec, AST.motivo AS motivoAsesoramiento
-                                    from proyectos P 
-                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-                                    INNER JOIN colores Co ON V.id_color = Co.id_color
-                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
-                                    INNER JOIN anios An ON V.id_anio = An.id_anio 
-                                   	LEFT JOIN comasesor C ON P.id_proyecto = C.id_proyecto
-                                    LEFT JOIN asesores A ON C.id_asesor = A.id_asesor
-                                    LEFT JOIN tops T ON P.id_proyecto = T.id_proyecto
-                                    LEFT JOIN asesoramientostecnicos AST ON P.id_proyecto = AST.id_proyecto
-                                    WHERE P.id_Proyecto =  $id_proyecto";
+                V.placa, Co.color, M.marca, Mo.modelo, An.anio, A.asesor,
+                T.top, T.motivo AS motivoTop,
+                AST.id_aseTec, AST.aseTec, AST.motivo AS motivoAsesoramiento
+                from proyectos P 
+                INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
+                INNER JOIN colores Co ON V.id_color = Co.id_color
+                INNER JOIN marcas M ON V.id_marca = M.id_marca 
+                INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
+                INNER JOIN anios An ON V.id_anio = An.id_anio 
+                LEFT JOIN comasesor C ON P.id_proyecto = C.id_proyecto
+                LEFT JOIN asesores A ON C.id_asesor = A.id_asesor
+                LEFT JOIN tops T ON P.id_proyecto = T.id_proyecto
+                LEFT JOIN asesoramientostecnicos AST ON P.id_proyecto = AST.id_proyecto
+                WHERE P.id_Proyecto =  $id_proyecto";
                 $resultado1 = mysqli_query($conexion, $query1);
                 $row1 = $resultado1->fetch_assoc();
-
                 ?>
                 <table id="tableRegProyectos" class="table table-sm table-bordered table-striped" style="width: 100%;">
                     <thead class="thead-dark">
@@ -99,21 +98,21 @@ require '../components/head-main.php';
                 <?php
                 $cont = 0;
                 $query = "SELECT P.id_proyecto, P.nProyecto, P.comActMinDia, P.comSuperActMinDia, 
-                                    V.placa, Co.color, M.marca, Mo.modelo, An.anio, 
-                                    A.id_ActMinDiaria, A.linkComActMinDia, A.textSupervision, A.fecha_creacionV, A.fecha_creacionS,
-                                    A.fecha_hoyV AS FV, A.fecha_hoyS AS FS, 
-                                    UV.nombres AS nombreV, UV.aPaterno AS paternoV, UV.aMaterno AS maternoV, 
-                                    US.nombres AS nombreS, US.aPaterno AS paternoS, US.aMaterno AS maternoS 
-                                    from proyectos P 
-                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-                                    INNER JOIN colores Co ON V.id_color = Co.id_color
-                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
-                                    INNER JOIN anios An ON V.id_anio = An.id_anio 
-                                    INNER JOIN actmindiaria A ON P.id_proyecto = A.id_proyecto 
-                                    LEFT JOIN usuarios UV ON A.id_capCV = UV.id_usuario 
-                                    LEFT JOIN usuarios US ON A.id_capCS = US.id_usuario 
-                                    WHERE P.id_Proyecto = $id_proyecto ORDER BY id_ActMinDiaria DESC;";
+                V.placa, Co.color, M.marca, Mo.modelo, An.anio, 
+                A.id_ActMinDiaria, A.linkComActMinDia, A.textSupervision, A.fecha_creacionV, A.fecha_creacionS,
+                A.fecha_hoyV AS FV, A.fecha_hoyS AS FS, 
+                UV.nombres AS nombreV, UV.aPaterno AS paternoV, UV.aMaterno AS maternoV, 
+                US.nombres AS nombreS, US.aPaterno AS paternoS, US.aMaterno AS maternoS 
+                from proyectos P 
+                INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
+                INNER JOIN colores Co ON V.id_color = Co.id_color
+                INNER JOIN marcas M ON V.id_marca = M.id_marca 
+                INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
+                INNER JOIN anios An ON V.id_anio = An.id_anio 
+                INNER JOIN actmindiaria A ON P.id_proyecto = A.id_proyecto 
+                LEFT JOIN usuarios UV ON A.id_capCV = UV.id_usuario 
+                LEFT JOIN usuarios US ON A.id_capCS = US.id_usuario 
+                WHERE P.id_Proyecto = $id_proyecto ORDER BY id_ActMinDiaria DESC;";
                 $resultado = mysqli_query($conexion, $query);
                 ?>
                 <table id="tablePermisos" class="table table-sm table-bordered table-striped" style="width: 100%;">
@@ -210,22 +209,22 @@ require '../components/head-main.php';
                 <?php
                 $cont = 0;
                 $query = "SELECT P.id_proyecto, P.nProyecto,  
-                                    V.placa, Co.color, M.marca, Mo.modelo, An.anio,
-                                    SD.id_SegDiaProAseTecnico, SD.linkSegDiaProAseTecnico, SD.fecha_hoyV AS FV, SD.com, SD.fecha_creacionV,
-                                    SDS.id_SegDiaProAseTecnicoSuper, SDS.textSupervision, SDS.sup, SDS.fecha_hoyS AS FS, SDS.fecha_creacionS,
-                                    U.nombres AS nombreV, U.aPaterno AS paternoV, U.aMaterno AS maternoV,
-                                    US.nombres AS nombreS, US.aPaterno AS paternoS, US.aMaterno AS maternoS
-                                    FROM proyectos P 
-                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
-                                    INNER JOIN colores Co ON V.id_color = Co.id_color
-                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
-                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
-                                    INNER JOIN anios An ON V.id_anio = An.id_anio
-                                    INNER JOIN segdiaproasetecnico SD ON P.id_proyecto = SD.id_proyecto 
-                                    LEFT JOIN segdiaproasetecnicosuper SDS ON SD.id_SegDiaProAseTecnico = SDS.id_segDiaProAseTecnico
-                                    INNER JOIN usuarios U ON SD.id_capCV = U.id_usuario
-                                    LEFT JOIN usuarios US ON SDS.id_capCS = US.id_usuario
-                                    WHERE P.id_proyecto = $id_proyecto GROUP BY SD.id_SegDiaProAseTecnico;";
+                V.placa, Co.color, M.marca, Mo.modelo, An.anio,
+                SD.id_SegDiaProAseTecnico, SD.linkSegDiaProAseTecnico, SD.fecha_hoyV AS FV, SD.com, SD.fecha_creacionV,
+                SDS.id_SegDiaProAseTecnicoSuper, SDS.textSupervision, SDS.sup, SDS.fecha_hoyS AS FS, SDS.fecha_creacionS,
+                U.nombres AS nombreV, U.aPaterno AS paternoV, U.aMaterno AS maternoV,
+                US.nombres AS nombreS, US.aPaterno AS paternoS, US.aMaterno AS maternoS
+                FROM proyectos P 
+                INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
+                INNER JOIN colores Co ON V.id_color = Co.id_color
+                INNER JOIN marcas M ON V.id_marca = M.id_marca 
+                INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
+                INNER JOIN anios An ON V.id_anio = An.id_anio
+                INNER JOIN segdiaproasetecnico SD ON P.id_proyecto = SD.id_proyecto 
+                LEFT JOIN segdiaproasetecnicosuper SDS ON SD.id_SegDiaProAseTecnico = SDS.id_segDiaProAseTecnico
+                INNER JOIN usuarios U ON SD.id_capCV = U.id_usuario
+                LEFT JOIN usuarios US ON SDS.id_capCS = US.id_usuario
+                WHERE P.id_proyecto = $id_proyecto GROUP BY SD.id_SegDiaProAseTecnico;";
                 $resultado = mysqli_query($conexion, $query);
                 ?>
                 <table id="tableSm2" class="table table-sm table-bordered table-striped" style="width: 100%;">
@@ -300,7 +299,6 @@ require '../components/head-main.php';
                             </tr>
                         <?php
                         }
-                        desconectar();
                         ?>
                     </tbody>
                     <tfoot>
@@ -316,15 +314,104 @@ require '../components/head-main.php';
                         </tr>
                     </tfoot>
                 </table>
+                <br>
+                <hr>
+                <br>
+                <h5 class="text-center"><strong> Consulta: Registros Solicitudes de Piezas</strong></h5>
+                <?php
+                            $cont = 0;
+                            $query = "SELECT P.id_proyecto, P.nProyecto, R.id_recPzsDanadas AS linkId,
+                S.id_solPzsDanadas, S.folio_solicitud, S.cantidad, S.descripcion, S.minVideo, S.fecha_creacion,
+                S.borrado, S.enUso,
+                U.nombres, U.aPaterno, U.aMaterno
+                from proyectos P 
+                LEFT JOIN recpzsdanadas R ON P.id_proyecto = R.id_proyecto
+                LEFT JOIN solpzsdanadas S ON R.id_recPzsDanadas = S.id_recPzsDanadas
+                LEFT JOIN usuarios U ON S.id_capC = U.id_usuario
+                WHERE P.id_Proyecto = $id_proyecto AND P.proyectoActivo = 1 AND S.borrado = 0 ORDER BY S.folio_solicitud DESC";
+                            $resultado = mysqli_query($conexion, $query);
+                ?>
+                <table id="tableSm2" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>ID</th>
+                            <th>Núm. Proyecto</th>
+                            <th>Núm. Folio</th>
+                            <th>Cantidad</th>
+                            <th>Descripción</th>
+                            <th>Minuto de Video</th>
+                            <th>Capturista Solicitante</th>
+                            <th>Fecha Solicitud</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            while ($row = $resultado->fetch_assoc()) {
+                                $id_proyecto = $row['id_proyecto'];
+                                $nP = $row['nProyecto'];
+                                $solicitante = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
+                                $linkId = (empty($row['linkId'])) ? '' : $row['linkId'];
+                                $id_solPzsDanadas = $row['id_solPzsDanadas'];
+                                $folio_solicitud = $row['folio_solicitud'];
+
+                        ?>
+                            <tr>
+                                <td>
+                                    <?php $cont++;
+                                    echo $cont;
+                                    ?>
+                                </td>
+                                <td>
+                                    <span class='badge badge-dark badge-pill'><?php echo $id_proyecto ?></span>
+                                </td>
+                                <td>
+                                    <?php echo $row['nProyecto'] ?>
+                                </td>
+                                <td>
+                                    <?php echo (empty($row['folio_solicitud'])) ? 'Sin Registro' : $row['folio_solicitud']; ?>
+                                </td>
+                                <td>
+                                    <?php echo (empty($row['cantidad'])) ? 'Sin Registro' : $row['cantidad']; ?>
+                                </td>
+                                <td>
+                                    <?php echo (empty($row['descripcion'])) ? 'Sin Registro' : $row['descripcion']; ?>
+                                </td>
+                                <td>
+                                    <?php echo (empty($row['minVideo'])) ? 'Sin Registro' : $row['minVideo']; ?>
+                                </td>
+                                <td>
+                                    <?php echo (empty($solicitante)) ? 'Sin Registro' : $solicitante; ?>
+                                </td>
+                                <td>
+                                    <?php echo (empty($row['fecha_creacion'])) ? 'Sin Registro' : $row['fecha_creacion']; ?>
+                                </td>
+                            </tr>
+                        <?php
+                            }
+                        ?>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>#</th>
+                            <th>ID</th>
+                            <th>Núm. Proyecto</th>
+                            <th>Núm. Folio</th>
+                            <th>Cantidad</th>
+                            <th>Descripción</th>
+                            <th>Minuto de Video</th>
+                            <th>Capturista Solicitante</th>
+                            <th>Fecha Solicitud</th>
+                        </tr>
+                    </tfoot>
+                </table>
             </div>
             <div class="modal-footer text-left">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>
             </div>
+        <?php         
+        desconectar();
+        ?>
         </div>
     </div>
 </div>
-<?php
-// Scripts principales
-// require '../components/scripts-main.php';
-// require '../components/scripts-dataTables.php';
-?>

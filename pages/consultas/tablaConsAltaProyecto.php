@@ -42,7 +42,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-header">
                                     <h3 class="card-title">Bitácora de Alta Proyectos en el sistema</h3>
                                     <div class="card-tools">
-                                        <a href="javascript:history.go(-1)" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
+                                        <!-- <a href="javascript:history.go(-1)" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a> -->
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
@@ -65,7 +65,7 @@ require '../components/head-dataTables.php';
                                                 <th>Núm. Folio Alta</th>
                                                 <th>Cronometro Respuesta a solicitud de Alta</th>
                                                 <th>Tiempo Entre Registro y Solicitud</th>
-                                                <th>Tiempo Entre Registro y  Alta</th>
+                                                <th>Tiempo Entre Registro y Alta</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
@@ -90,7 +90,7 @@ require '../components/head-dataTables.php';
                                                 <th>Núm. Folio Alta</th>
                                                 <th>Cronometro Respuesta a solicitud de Alta</th>
                                                 <th>Tiempo Entre Registro y Solicitud</th>
-                                                <th>Tiempo Entre Registro y  Alta</th>
+                                                <th>Tiempo Entre Registro y Alta</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Marca</th>
                                                 <th>Modelo</th>

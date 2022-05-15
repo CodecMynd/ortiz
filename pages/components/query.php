@@ -259,6 +259,13 @@ while ($row = mysqli_fetch_array($query)) {
     $regSemSolAlta = $row['regSemSolAlta'];
     $eliSemSolAlta = $row['eliSemSolAlta'];
     $verTablaSemSolAlta = $row['verTablaSemSolAlta'];
+    $nuevoProvee = $row['nuevoProvee'];
+    $modProvee = $row['modProvee'];
+    $eliProvee = $row['eliProvee'];
+    $verTablaProvee = $row['verTablaProvee'];
+    $verTablaBitacoraSolPiezas = $row['verTablaBitacoraSolPiezas'];
+    $modRegCompraInicial = $row['modRegCompraInicial'];
+    $regCompraInicial = $row['regCompraInicial'];
     
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
     if ($passUser === 'SIN_PASSWORD') {

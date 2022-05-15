@@ -74,6 +74,6 @@
 
             }
         });
-        setInterval(function() {
-            tableConsultaBitacora.ajax.reload(null, false); // user paging is not reset on reload
-        }, 30000);
+        // setInterval(function() {
+        //     tableConsultaBitacora.ajax.reload(null, false); // user paging is not reset on reload
+        // }, 30000);

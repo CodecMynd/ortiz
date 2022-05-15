@@ -5,8 +5,9 @@ if ($super == 1 or $verTablaRecPzsDanadas == 1) {
 	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado,
 	C.nombres, C.aPaternoCliente, C.aMaternoCliente,
 	V.placa, M.marca, Mo.modelo, A.anio, Co.color,
-    MAX(R.id_recPzsDanadas) AS id_recPzsDanadas, R.linkRecPzsDanadas, MIN(R.borrado) AS linkBorrado, MAX(R.enUso) AS linkEnUso, 		
-	SP.folio_solicitud, MIN(SP.borrado) AS solBorrado, MAX(SP.enUso) AS solEnUso, SP.folio_solicitud
+    MAX(R.id_recPzsDanadas) AS id_recPzsDanadas, R.linkRecPzsDanadas, MIN(R.borrado) AS linkBorrado, MAX(R.enUso) AS linkEnUso, 
+	SP.folio_solicitud, MIN(SP.borrado) AS solBorrado, MAX(SP.enUso) AS solEnUso, SP.folio_solicitud,
+    RC.precio, RC.modalidadPago
 	FROM proyectos P
 	INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
 	INNER JOIN colores Co On V.id_color = Co.id_color
@@ -16,8 +17,8 @@ if ($super == 1 or $verTablaRecPzsDanadas == 1) {
 	INNER JOIN clientes C ON P.id_cliente = C.id_cliente
     LEFT JOIN recpzsdanadas R ON P.id_proyecto = R.id_proyecto
     LEFT JOIN solpzsdanadas SP ON R.id_recPzsDanadas = SP.id_recPzsDanadas
-	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1  GROUP BY P.id_proyecto
-	ORDER BY P.nProyecto DESC";
+    LEFT JOIN regcomprainicial RC ON P.id_proyecto = RC.id_proyecto
+	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1  GROUP BY P.id_proyecto";
 } else {
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";
@@ -45,6 +46,21 @@ while ($row = $resultado->fetch_assoc()) {
 	$solBorrado = $row['solBorrado'];
 	$solEnUso = $row['solEnUso'];
 	$folio_solicitud = $row['folio_solicitud'];
+
+	// contador Credito/Contado
+	$querySuma = "SELECT
+	(SELECT SUM( precio)
+	FROM regcomprainicial
+	WHERE modalidadPago = 'Crédito' AND id_proyecto = $idP) AS precioCredito,
+
+	(SELECT SUM( precio)
+	FROM regcomprainicial
+	WHERE modalidadPago = 'Contado' AND id_proyecto = $idP) AS precioContado;";
+	$resultadoSuma = mysqli_query($conexion, $querySuma);
+	$rowSuma = $resultadoSuma->fetch_assoc();
+	$precioCredito = (empty($rowSuma['precioCredito'])) ? 0 : $rowSuma['precioCredito'];
+	$precioContado = (empty($rowSuma['precioContado'])) ? 0 : $rowSuma['precioContado'];
+	$total = $precioCredito + $precioContado;
 
 	// Link de Desarmado
 	if($linkBorrado == 0 AND $linkEnUso == 1 ) {
@@ -104,7 +120,7 @@ while ($row = $resultado->fetch_assoc()) {
 	if ($Eliminado == 0) {
 		$outputBtns3 = "<a class='btn btn-outline-danger' id='eliminado'><i class='fa-solid fa-ban'></i></a>";
 	} else if ($super == 1) {
-		$outputBtns3 = "<a href='../update/formUpdateRecPzsDanadas.php?id={$idP}' target='_blank' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
+		$outputBtns3 = "<a href='../update/formUpdateRecPzsDanadas.php?id={$idP}' onclick='mostrar(\"" . $row['id_proyecto'] . "\")' target='_blank' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
 	} else if ($verGralRecPzsDanadas == 1) {
 		$outputBtns3 = "<a href='../update/formUpdateRecPzsDanadas.php?id={$idP}' target='_blank' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
 	} else {
@@ -133,7 +149,10 @@ while ($row = $resultado->fetch_assoc()) {
 		"9" => ($Eliminado == 0) ? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
 		"10" => $link,
 		"11" => $solicitud,
-		"12" => "<div class='input-group input-group-sm mb-3'>
+		"12" => $precioCredito,
+		"13" => $precioContado,
+		"14" => $total,
+		"15" => "<div class='input-group input-group-sm mb-3'>
 					<div class='input-group-prepend'>
 						<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Recepción de Piezas Dañadas'> Acciones</span></button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>

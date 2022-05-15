@@ -23,6 +23,25 @@
                                 <label for='floatingInput' class='pl-5'>*Link de Desarmado</label>
                             </div>
                         </div>
+                        <?php
+                        $query = "SELECT id_tecArmador, tecArmador FROM tecarmadores WHERE borrado = 0 ORDER BY tecArmador DESC";
+                        $resultado = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+                        ?>
+                        <div class='col-md-3 col-sm-12 mb-2 form-group'>
+                            <div class='input-group'>
+                                <label for='color' class='pl-5 parpadea'>Técnico Armador</label>
+                                <select name='id_tecArmador' id='id_tecArmador' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Semana de la lista' style='width: 100%;' required>
+                                    <option selected disabled>Selecciona</option>";
+                                    <?php
+                                    while ($row = $resultado->fetch_assoc()) {
+                                        $id_tecArmador = $row['id_tecArmador'];
+                                        $tecArmador = $row['tecArmador']; ?>
+                                        <option value="<?php echo $id_tecArmador ?>"> <?php echo $tecArmador ?> </option>";
+                                    <?php   } ?>
+                                </select>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="modal-footer text-left">

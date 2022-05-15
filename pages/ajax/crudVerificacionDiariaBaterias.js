@@ -31,7 +31,7 @@ $('#btnNuevoRegVerifDiaBat').click(function () {
                 // $('input[type=checkbox]').prop('checked', false);
                 setTimeout(function() {
                     $('.regVerifDiaBat').modal('hide');
-                  }, 2000);
+                  }, 1000);
             
                 tablaVerifDiaBaterias.ajax.reload(null, false);
             }
@@ -62,7 +62,7 @@ $('#btnNuevoRegVerifDiaBatSuper').click(function () {
                 // $('input[type=checkbox]').prop('checked', false);
                 setTimeout(function() {
                     $('.regVerifDiaBatSuper').modal('hide');
-                  }, 2000);
+                  }, 1000);
                 tablaVerifDiaBaterias.ajax.reload(null, false);
 
             }
@@ -164,5 +164,5 @@ var tablaVerifDiaBaterias = $("#tablaVerifDiaBaterias").DataTable({
 });
 setInterval(function () {
     tablaVerifDiaBaterias.ajax.reload(null, false); // user paging is not reset on reload
-}, 30000);
+}, 600000);
 // --------------------------------------------------------------------------------------------------------
