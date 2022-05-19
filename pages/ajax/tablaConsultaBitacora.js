@@ -3,6 +3,10 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+            "select": true,
+            "select":{
+                style:'multi'
+            },
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf"],
             "ajax": {

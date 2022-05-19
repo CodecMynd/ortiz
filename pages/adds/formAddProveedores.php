@@ -95,14 +95,14 @@ require '../components/head-main.php';
                                                             <option Value="Guanajuato">Guanajuato</Option>
                                                             <option Value="Guerrero">Guerrero</Option>
                                                             <option Value="Hidalgo">Hidalgo</Option>
-                                                            <option Value="Jalisco">Jalisco</Option>
+                                                            <option selected Value="Jalisco">Jalisco</Option>
                                                             <option Value="México">México</Option>
                                                             <option Value="Michoacán">Michoacán</Option>
                                                             <option Value="Morelos">Morelos</Option>
                                                             <option Value="Nayarit">Nayarit</Option>
                                                             <option Value="Nuevo León">Nuevo León</Option>
                                                             <option Value="Oaxaca">Oaxaca</Option>
-                                                            <option selected Value="Puebla">Puebla</Option>
+                                                            <option Value="Puebla">Puebla</Option>
                                                             <option Value="Querétaro">Querétaro</Option>
                                                             <option Value="Quintana Roo">Quintana Roo</Option>
                                                             <option Value="San Luis Potosí">San Luis Potosí</Option>

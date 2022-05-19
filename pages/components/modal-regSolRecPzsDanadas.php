@@ -1,5 +1,5 @@
 
-<div class="modal fade regSolRecPzsDanadas" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade regSolRecPzsDanada" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
@@ -7,7 +7,7 @@
                     Registrar Solicitud de Piezas de Número de Proyecto: <strong><span id="tituloModal"></span></strong>
                 </h5>
             </div>
-            <form id="formNuevoRegSolRecPzsDanadas">
+            <form id="formNuevoRegSolRecPzsDanada">
                 <input type="hidden" name="id_proyecto" id="id_proyecto" value="">
                 <input type="hidden" name="id_recPzsDanadas" id="id_recPzsDanadas" value="">
                 <input type="hidden" name="nProyecto" id="nProyecto" value="">
@@ -73,13 +73,13 @@
                     </div>
                 </div>
                 <div class="modal-footer text-left">
-                    <button type="button" id="btnNuevoRegSolRecPzsDanadas" class="btn btn-secondary"><i class="fa-solid fa-pencil"></i> Guardar</button>
+                    <button type="button" id="btnNuevoRegSolRecPzsDanada" class="btn btn-secondary"><i class="fa-solid fa-pencil"></i> Guardar</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>
                 </div>
             </form>
             <div class="row justify-content-center">
                 <div class="col-10">
-                    <div id="respuestaRegSolRecPzsDanadas"></div>
+                    <div id="respuestaRegSolRecPzsDanada"></div>
                 </div>
             </div>
             <div class="pie">

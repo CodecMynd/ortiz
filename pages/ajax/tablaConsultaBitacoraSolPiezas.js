@@ -4,6 +4,10 @@ var tableConsultaBitacoraSolPiezas = $("#tableConsultaBitacoraSolPiezas").DataTa
     "responsive": false,
     "lengthChange": true,
     "autoWidth": true,
+    "select": true,
+    "select":{
+        style:'multi'
+    },
     "dom": 'PlBfrtip',
     "buttons": ["csv", "excel", "pdf"],
     "ajax": {
@@ -25,7 +29,7 @@ var tableConsultaBitacoraSolPiezas = $("#tableConsultaBitacoraSolPiezas").DataTa
     },
     "columnDefs": [{
         searchPanes: {
-            show: true
+            show: false
         },
         targets: [0, 1],
     }],

@@ -2461,7 +2461,8 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-12 col-sm-12 col-12">
+                                                                          <!-- 2.3.15.1 Comprobación de Asignación de Asesor -->
+                                                                          <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
                                                                                     <h2 class="card-title"><strong>2.3.15.1 Comprobación de Asignación de Asesor</strong></h2>
@@ -2549,10 +2550,11 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <!-- 2.3.15.2 Solicitud Cambio de Asesor -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
-                                                                                    <h2 class="card-title"><strong>2.3.15.2 Comprobación de Asignación de Asesor</strong></h2>
+                                                                                    <h2 class="card-title"><strong>2.3.15.2 Solicitud Cambio de Asesor</strong></h2>
                                                                                     <div class="card-tools">
                                                                                         <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
                                                                                             <i class="fas fa-plus"></i>
@@ -2606,6 +2608,138 @@ require '../components/head-main.php';
                                                                                                         <span class="info-box-text">2.3.15.2.4 Ver tabla Solicitud Cambio de Asesor</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="verTablaSolCambioAsesor" id="verTablaSolCambioAsesor" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaSolCambioAsesor'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                                         else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- 2.3.16 Solicitar Cambio de Semana de Solicitud de Alta -->
+                                                                        <div class="col-md-12 col-sm-12 col-12">
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>2.3.16 Solicitar Cambio de Semana de Solicitud de Alta</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.16.1 Solicitar Cambio Semana Solicitud de Alta</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="solCamSemanaSolAltas" id="solCamSemanaSolAltas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['solCamSemanaSolAltas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.16.2 Registrar Autorización Cambio Semana Solicitud de Alta</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="cambioSolSemSolAltaAutorizar" id="cambioSolSemSolAltaAutorizar" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['cambioSolSemSolAltaAutorizar'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.16.3 Ver Generales Solicitud Cambio Semana Solicitud de Alta</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralcambioSolSemSolAltaAutorizar" id="verGralcambioSolSemSolAltaAutorizar" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralcambioSolSemSolAltaAutorizar'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.16.4 Ver tabla Solicitud Cambio Semana Solicitud de Alta</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaSolCamSemanaSolAltas" id="verTablaSolCamSemanaSolAltas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaSolCamSemanaSolAltas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- 2.3.17.1 Solicitar Cambio Semana de Alta -->
+                                                                        <div class="col-md-12 col-sm-12 col-12">
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>2.3.17 Solicitar Cambio Semana de Alta</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.17.1 Solicitar Cambio Semana de Alta</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="solCamSemanaAltas" id="solCamSemanaAltas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['solCamSemanaAltas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.17.2 Registrar Autorización Cambio Semana de Alta</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="cambioSolSemAltaAutorizar" id="cambioSolSemAltaAutorizar" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['cambioSolSemAltaAutorizar'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.17.3 Ver Generales Solicitud Cambio Semana de Alta</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralcambioSemAltaAutorizar" id="verGralcambioSemAltaAutorizar" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralcambioSemAltaAutorizar'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.3.17.4 Ver tabla Solicitud Cambio Semana de Alta</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaSolCamSemanaAltas" id="verTablaSolCamSemanaAltas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaSolCamSemanaAltas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -3376,7 +3510,7 @@ require '../components/head-main.php';
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!-- 4.1 Recepción de Piezas Dañadas -->
+                                                        <!-- >4.1 Recepción de Piezas Dañadas -->
                                                         <div class="col-12">
                                                             <div class="card card-secondary card-outline collapsed-card">
                                                                 <div class="card-header">
@@ -3452,10 +3586,10 @@ require '../components/head-main.php';
                                                                         <div class="col-md-4 col-sm-6 col-12">
                                                                             <button type="button" class="btn btn-permisos">
                                                                                 <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pen-to-square"></i></span>
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
                                                                                     <div class="info-box-content">
-                                                                                        <span class="info-box-text">4.1.6 Modificar Registro de Solicitud y Compra Inicial</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="modRegCompraInicial" id="modRegCompraInicial" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['modRegCompraInicial'] == 1) echo 'checked';
+                                                                                        <span class="info-box-text">4.1.6 Registro de Compra Inicial</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="perRegCompraInicial" id="perRegCompraInicial" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['perRegCompraInicial'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                 else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
@@ -3464,24 +3598,11 @@ require '../components/head-main.php';
                                                                         <div class="col-md-4 col-sm-6 col-12">
                                                                             <button type="button" class="btn btn-permisos">
                                                                                 <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
                                                                                     <div class="info-box-content">
-                                                                                        <span class="info-box-text">4.1.7 Registro de Compra Inicial</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regCompraInicial" id="regCompraInicial" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regCompraInicial'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">4.1.8 Ver Tabla 4.1 Recepción de Piezas Dañadas</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaRecPzsDanadas" id="verTablaRecPzsDanadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaRecPzsDanadas'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                        <span class="info-box-text">4.1.7 Eliminar Registro de Compra Inicial</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliRegCompraInicial" id="eliRegCompraInicial" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliRegCompraInicial'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </button>
@@ -3491,11 +3612,11 @@ require '../components/head-main.php';
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!-- >4.1 Recepción de Piezas Dañadas -->
+                                                        <!-- >4.2 Autorizacion de Compras -->
                                                         <div class="col-12">
                                                             <div class="card card-secondary card-outline collapsed-card">
                                                                 <div class="card-header">
-                                                                    <h2 class="card-title"><strong>4.2 Bitacora de Piezas Dañadas</strong></h2>
+                                                                    <h2 class="card-title"><strong>4.2 Autorización de Compras</strong></h2>
                                                                     <div class="card-tools">
                                                                         <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
                                                                             <i class="fas fa-plus"></i>
@@ -3509,7 +3630,7 @@ require '../components/head-main.php';
                                                                                 <div class="info-box">
                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
                                                                                     <div class="info-box-content">
-                                                                                        <span class="info-box-text">4.2.1 Ver Tabla Bitacora de Piezas Dañadas</span>
+                                                                                        <span class="info-box-text">4.2.1 Ver Tabla Autorización de Compras</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="verTablaBitacoraSolPiezas" id="verTablaBitacoraSolPiezas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaBitacoraSolPiezas'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                             else echo ''; ?>></span>
                                                                                     </div>

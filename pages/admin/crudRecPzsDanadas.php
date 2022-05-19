@@ -231,7 +231,8 @@ require '../components/head-dataTables.php';
                     </div>
                 </div>
             </section>
-            <!-- /table usuario -->
+
+
         </div>
         <?php
         require '../components/footer.php';
@@ -245,6 +246,7 @@ require '../components/head-dataTables.php';
     require '../ajax/plugins-datatable.php';
     ?>
     <script src="../ajax/crudRecPzsDanadas.js"></script>
+
 </body>
 
 </html>

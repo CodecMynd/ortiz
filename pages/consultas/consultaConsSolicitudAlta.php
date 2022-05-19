@@ -15,7 +15,7 @@ if ($super == 1 or $consSolAltaProy == 1) {
 	LEFT JOIN anios A ON V.id_anio = A.id_anio
 	LEFT JOIN semanasolalta S ON R.id_semana = S.id_semSolAlta
     LEFT JOIN registroaltabitacora RA ON P.id_proyecto = RA.id_proyecto
-	ORDER BY R.id_regSolicitud DESC;";
+	ORDER BY R.id_regSolicitud DESC";
 } else {
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";
@@ -48,6 +48,14 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns1 = "<h6><span class='badge badge-success badge-pill'>Activo</span></h6>";
 	}
 
+	if($Eliminado == 1 OR  (empty($row['folioRegAlta']))){
+		$folioRegAlta = "<span class='badge badge-danger badge-pill'>N/A</span>";
+	}else{
+		$folioRegAlta = "<strong>{$row['folioRegAlta']}</strong>";
+	}
+
+	
+
 
 
 	$cont++;
@@ -56,7 +64,7 @@ while ($row = $resultado->fetch_assoc()) {
 		"1" => (empty($idP)) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : "<span class='badge badge-dark badge-pill'>{$idP}</span>",
 		"2" => $outputBtns1,
 		"3" => "<strong>{$row['folioRegSolicitud']}</strong>",
-		"4" => (empty($row['folioRegAlta'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : "<strong>{$row['folioRegAlta']}</strong>",
+		"4" => $folioRegAlta,
 		"5" => (empty($nP)) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $nP,
 		"6" => (empty($row['nOrden'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['nOrden'],
 		"7" => (empty($row['marca'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['marca'],

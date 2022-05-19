@@ -21,7 +21,7 @@ $capMotivo = 1;
 if ($estatusAprobado == 0) {
     $estatusEspera = 0;
     // Registrar motivo de supervision
-    $query = "UPDATE cambioplacas SET estatusEspera = '$estatusEspera', estatusAprobado = '$estatusAprobado', fecha_mod = '$date', id_capM = '$id' WHERE id_cambioPlaca = '$id_cambioPlaca' ";
+    $query = "UPDATE cambioplacas SET estatusEspera = '$estatusEspera', estatusAprobado = '$estatusAprobado', verificado = '1', fecha_mod = '$date', id_capM = '$id' WHERE id_cambioPlaca = '$id_cambioPlaca' ";
     $resultado = mysqli_query($conexion, $query);
     // var_dump($query);
 
@@ -41,7 +41,7 @@ if ($estatusAprobado == 0) {
     $conexion->autocommit(FALSE);
     try {
         // Registrar motivo de supervision
-        $query = "UPDATE cambioplacas SET estatusEspera = '$estatusEspera', estatusAprobado = '$estatusAprobado', fecha_mod = '$date', id_capM = '$id' WHERE id_cambioPlaca = '$id_cambioPlaca' ";
+        $query = "UPDATE cambioplacas SET estatusEspera = '$estatusEspera', estatusAprobado = '$estatusAprobado', verificado = '1', fecha_mod = '$date', id_capM = '$id' WHERE id_cambioPlaca = '$id_cambioPlaca' ";
         $resultado = mysqli_query($conexion, $query);
         // var_dump($query);
 

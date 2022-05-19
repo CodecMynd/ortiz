@@ -120,7 +120,7 @@ while ($row = $resultado->fetch_assoc()) {
 	if ($Eliminado == 0) {
 		$outputBtns3 = "<a class='btn btn-outline-danger' id='eliminado'><i class='fa-solid fa-ban'></i></a>";
 	} else if ($super == 1) {
-		$outputBtns3 = "<a href='../update/formUpdateRecPzsDanadas.php?id={$idP}' onclick='mostrar(\"" . $row['id_proyecto'] . "\")' target='_blank' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
+		$outputBtns3 = "<a href='../update/formUpdateRecPzsDanadas.php?id={$idP}' target='_blank' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
 	} else if ($verGralRecPzsDanadas == 1) {
 		$outputBtns3 = "<a href='../update/formUpdateRecPzsDanadas.php?id={$idP}' target='_blank' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
 	} else {

@@ -7,10 +7,15 @@ conectar();
 
 ini_set('date.timezone',  'America/Mexico_City');
 $date = date('Y-m-d H:i:s');
-
-
 $id = $_SESSION['id_usuario'];
+
 $id_proyecto = $_POST['id_proyecto'];
+$query = "SELECT nProyecto, superCodIdentificador FROM proyectos WHERE id_proyecto = $id_proyecto";
+$respuesta = mysqli_query($conexion, $query);
+$row = $respuesta->fetch_assoc();
+$row['superCodIdentificador'];
+$row['nProyecto'];
+
 $id_regcodidenti = $_POST['id_regcodidenti'];
 $compCodId = $_POST['compCodId'];
 $folioSupervision = $_POST['folioSupervision'];
@@ -18,7 +23,12 @@ $borrado = 0;
 $status = 'Supervisión Código Identificador';
 $etapa = 'Proyecto avanzó a 2.7 Supervisión de Registro Código Identificador';
 
-if ($compCodId == '') {
+if ($row['superCodIdentificador'] == 1) {
+    echo "<div class='alert alert-danger' role='role'>
+         <p><strong>Error, el Número de Proyecto: {$row['nProyecto']} ya fue registrado a Supervisión de Registro Código Identificador, verifica en la Tabla 2.9 Bitacora de Proyectos</strong></p>
+         </div>";
+    exit;
+} else if ($compCodId == '') {
     echo "<div class='alert alert-danger' role='role'>
     <p><strong>Error, Comprobación Código Identificador es requerido</strong></p>
     </div>";
@@ -28,24 +38,24 @@ $conexion->autocommit(FALSE);
 try {
 
     // Ingresamos id a tabla proyectos modificar registros
-    $queryP = "UPDATE proyectos SET proyCodIdentificador = 0, superCodIdentificador = 1  WHERE id_proyecto = $id_proyecto";
-    $resultadoP = mysqli_query($conexion, $queryP);
+    $query1 = "UPDATE proyectos SET proyCodIdentificador = 0, superCodIdentificador = 1  WHERE id_proyecto = $id_proyecto";
+    $resultado1 = mysqli_query($conexion, $query1);
     //var_dump($queryP);
-    
+
 
     // Insertamos tabla registrocodidenti
-    $queryC = "UPDATE registrocodidenti SET status = '$status', supervisado = 1";
-    $resultadoC = mysqli_query($conexion, $queryC);
+    $query2 = "UPDATE registrocodidenti SET status = '$status', supervisado = 1";
+    $resultado2 = mysqli_query($conexion, $query2);
 
     //var_dump($query);
 
     // Insertamos tabla registrocodidentibitacora
-    $queryCB = "UPDATE registrocodidentibitacora SET status = '$status', supervisado = 1";
-    $resultadoCB = mysqli_query($conexion, $queryCB);
+    $query3 = "UPDATE registrocodidentibitacora SET status = '$status', supervisado = 1";
+    $resultado3 = mysqli_query($conexion, $query3);
     //var_dump($query);
 
     // Insertamos registro en tabla supervisado
-    $queryS = "INSERT INTO supervisado(folioSupervision, id_regcodidenti, id_proyecto, compCodId, supervisado, fecha_creacion, id_capC) VALUES ('$folioSupervision', $id_regcodidenti, $id_proyecto, '$compCodId', 1, '$date', $id)";
+    $query4 = "INSERT INTO supervisado(folioSupervision, id_regcodidenti, id_proyecto, compCodId, supervisado, fecha_creacion, id_capC) VALUES ('$folioSupervision', $id_regcodidenti, $id_proyecto, '$compCodId', 1, '$date', $id)";
 
     $verificar_folio = mysqli_query($conexion, "SELECT folioSupervision FROM supervisado WHERE folioSupervision = '$folioSupervision'");
 
@@ -57,18 +67,18 @@ try {
         exit;
     } else {
 
-        $resultadoS = mysqli_query($conexion, $queryS);
+        $resultado4 = mysqli_query($conexion, $query4);
         //var_dump($query);
     }
 
     // Insertamos registro en tabla supervisado
-    $querySB = "INSERT INTO supervisadobitacora(folioSupervision, id_regcodidenti, id_proyecto, compCodId, supervisado, fecha_creacion, id_capC) VALUES ('$folioSupervision', $id_regcodidenti, $id_proyecto, '$compCodId', 1,'$date', $id)";
-    $resultadoSB = mysqli_query($conexion, $querySB);
+    $query5 = "INSERT INTO supervisadobitacora(folioSupervision, id_regcodidenti, id_proyecto, compCodId, supervisado, fecha_creacion, id_capC) VALUES ('$folioSupervision', $id_regcodidenti, $id_proyecto, '$compCodId', 1,'$date', $id)";
+    $resultado5 = mysqli_query($conexion, $query5);
     //var_dump($query);
 
     // Bitacora
-    $queryBI = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
-    $resultadoBI = mysqli_query($conexion, $queryBI);
+    $query6 = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
+    $resultado6 = mysqli_query($conexion, $query6);
 
     $conexion->commit();
 

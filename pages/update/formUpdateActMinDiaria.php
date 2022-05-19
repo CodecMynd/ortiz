@@ -176,7 +176,7 @@ require '../components/head-dataTables.php';
                                     WHERE P.id_Proyecto = $id_proyecto ORDER BY id_ActMinDiaria DESC;";
                                     $resultado = mysqli_query($conexion, $query);
                                     ?>
-                                    <table id="tablePermisos" class="table table-sm table-bordered table-striped">
+                                    <table id="tableVarios1" class="table table-sm table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -356,7 +356,7 @@ require '../components/head-dataTables.php';
                                     WHERE P.id_proyecto = $id_proyecto GROUP BY SD.id_SegDiaProAseTecnico;";
                                     $resultado = mysqli_query($conexion, $query);
                                     ?>
-                                    <table id="tableSm2" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                    <table id="tableVarios2" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -570,8 +570,8 @@ require '../components/head-dataTables.php';
                                     <br>
                                     <h5 class="text-center"><strong> Consulta: Registros Solicitudes de Piezas</strong></h5>
                                     <?php
-                                        $cont = 0;
-                                        $query = "SELECT P.id_proyecto, P.nProyecto, R.id_recPzsDanadas AS linkId,
+                                    $cont = 0;
+                                    $query = "SELECT P.id_proyecto, P.nProyecto, R.id_recPzsDanadas AS linkId, 
                                         S.id_solPzsDanadas, S.folio_solicitud, S.cantidad, S.descripcion, S.minVideo, S.fecha_creacion,
                                         S.borrado, S.enUso,
                                         U.nombres, U.aPaterno, U.aMaterno
@@ -583,7 +583,7 @@ require '../components/head-dataTables.php';
                                     $resultado = mysqli_query($conexion, $query);
                                     ?>
                                     <div id="table_refresh">
-                                        <table id="tableUpdateRecPzsDanadas" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                        <table id="tableVarios3" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
@@ -595,7 +595,7 @@ require '../components/head-dataTables.php';
                                                     <th>Minuto de Video</th>
                                                     <th>Capturista Solicitante</th>
                                                     <th>Fecha Solicitud</th>
-                                                    <th>Eliminar</th>
+                                                    <!-- <th>Eliminar</th> -->
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -639,16 +639,16 @@ require '../components/head-dataTables.php';
                                                         <td>
                                                             <?php echo (empty($row['fecha_creacion'])) ? 'Sin Registro' : $row['fecha_creacion']; ?>
                                                         </td>
-                                                        <td style="width: 5%">
+                                                        <!-- <td style="width: 5%">
                                                             <?php
                                                             //4.1.5 Eliminar Solicitud de Piezas
-                                                            if ($super == 1 or $eliSolRecPzsDanadas == 1) {
-                                                                echo "<a href='#' onclick='abrirModal2(\"" . $id_proyecto . "\",\"" . $nP . "\", \"" . $id_solPzsDanadas . "\", \"" . $folio_solicitud . "\")' class='btn btn-secondary' data-toggle='tooltip' data-placement='bottom' title='4.1.5 Eliminar Solicitud de Piezas'><i class='fa-solid fa-trash-alt'></i></a>";
-                                                            } else {
-                                                                echo  "<a class='btn btn-outline-danger' id='eliSolRecPzsDanadas' data-toggle='tooltip' data-placement='bottom' title='Sin Permiso'><i class='fa-solid fa-trash-alt'></i></a>";
-                                                            }
+                                                            // if ($super == 1 or $eliSolRecPzsDanadas == 1) {
+                                                            //     echo "<a href='#' onclick='abrirModal2(\"" . $id_proyecto . "\",\"" . $nP . "\", \"" . $id_solPzsDanadas . "\", \"" . $folio_solicitud . "\")' class='btn btn-secondary' data-toggle='tooltip' data-placement='bottom' title='4.1.5 Eliminar Solicitud de Piezas'><i class='fa-solid fa-trash-alt'></i></a>";
+                                                            // } else {
+                                                            //     echo  "<a class='btn btn-outline-danger' id='eliSolRecPzsDanadas' data-toggle='tooltip' data-placement='bottom' title='Sin Permiso'><i class='fa-solid fa-trash-alt'></i></a>";
+                                                            // }
                                                             ?>
-                                                        </td>
+                                                        </td> -->
                                                     </tr>
                                                 <?php
                                                 }
@@ -665,16 +665,16 @@ require '../components/head-dataTables.php';
                                                     <th>Minuto de Video</th>
                                                     <th>Capturista Solicitante</th>
                                                     <th>Fecha Solicitud</th>
-                                                    <th>Eliminar</th>
+                                                    <!-- <th>Eliminar</th> -->
                                                 </tr>
                                             </tfoot>
                                         </table>
                                     </div>
-                                    <button id="btnModal-regSolRecPzsDanadas" class="btn btn-white" data-toggle="modal" data-target='.regSolRecPzsDanadas'></button>
-                                    <button id="btnModal-eliminarSolRecPzsDanadas" class="btn btn-white" data-toggle="modal" data-target=".eliminarSolRecPzsDanadas"></button>
+                                    <!-- <button id="btnModal-regSolRecPzsDanadas" class="btn btn-white" data-toggle="modal" data-target='.regSolRecPzsDanadas'></button>
+                                    <button id="btnModal-eliminarSolRecPzsDanadas" class="btn btn-white" data-toggle="modal" data-target=".eliminarSolRecPzsDanadas"></button> -->
                                     <?php
-                                    require '../components/modal-regSolRecPzsDanadas.php';
-                                    require '../components/modal-eliminarSolRecPzsDanadas.php';
+                                    // require '../components/modal-regSolRecPzsDanadas.php';
+                                    // require '../components/modal-eliminarSolRecPzsDanadas.php';
                                     desconectar();
                                     ?>
                                 </div>
@@ -691,8 +691,9 @@ require '../components/head-dataTables.php';
     <?php
     // Scripts principales
     require '../components/scripts-main.php';
-    require '../components/scripts-dataTables.php';
+    require '../ajax/plugins-datatable.php';
     ?>
+    <script src="../ajax/tableVarios.js"></script>
     <script>
         // 2.3.2.2.2 EliminAR Comprobacion ------------------------------------------------------------
         $('.btnBorrarComverifdiariaveh').click(function(e) {
@@ -737,64 +738,64 @@ require '../components/head-dataTables.php';
         });
 
         // 4.1.3 Registrar Solicitud de Piezas ------------------------------------------------------------------------------------------------------------------------------------
-        $('#btnNuevoRegSolRecPzsDanadas').click(function() {
-            var param = $('#formNuevoRegSolRecPzsDanadas').serialize();
-            $.ajax({
-                    url: '../adds/addNuevoRegSolRecPzsDanadas.php',
-                    cache: false,
-                    type: 'POST',
-                    data: param,
+        // $('#btnNuevoRegSolRecPzsDanadas').click(function() {
+        //     var param = $('#formNuevoRegSolRecPzsDanadas').serialize();
+        //     $.ajax({
+        //             url: '../adds/addNuevoRegSolRecPzsDanadas.php',
+        //             cache: false,
+        //             type: 'POST',
+        //             data: param,
 
-                    success: function(vs) {
-                        $('#formNuevoRegSolRecPzsDanadas')[0].reset();
-                        $("#table_refresh").load(" #table_refresh");
-                        setTimeout(function() {
-                            $('.regSolRecPzsDanadas').modal('hide');
-                        }, 1000);
+        //             success: function(vs) {
+        //                 $('#formNuevoRegSolRecPzsDanadas')[0].reset();
+        //                 $("#table_refresh").load(" #table_refresh");
+        //                 setTimeout(function() {
+        //                     $('.regSolRecPzsDanadas').modal('hide');
+        //                 }, 1000);
 
-                    }
-                })
-                .done(function(res) {
-                    $('#respuestaRegSolRecPzsDanadas').html(res)
-                })
-        });
-        //Ocultar boton por 10 segundos para evitar el doble submit
-        $("#btnNuevoRegSolRecPzsDanadas").on('click', function() {
-            $("#btnNuevoRegSolRecPzsDanadas").css('visibility', 'hidden');
-            setTimeout(function() {
-                $("#btnNuevoRegSolRecPzsDanadas").css('visibility', 'visible');
-            }, 3000);
-        });
+        //             }
+        //         })
+        //         .done(function(res) {
+        //             $('#respuestaRegSolRecPzsDanadas').html(res)
+        //         })
+        // });
+        // //Ocultar boton por 10 segundos para evitar el doble submit
+        // $("#btnNuevoRegSolRecPzsDanadas").on('click', function() {
+        //     $("#btnNuevoRegSolRecPzsDanadas").css('visibility', 'hidden');
+        //     setTimeout(function() {
+        //         $("#btnNuevoRegSolRecPzsDanadas").css('visibility', 'visible');
+        //     }, 3000);
+        // });
         // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         // 4.1.5 Eliminar Solicitud de Piezas
-        $('#btnDeleteSolPzsDanadas').click(function() {
-            var param = $('#formDeleteSolPzsDanadas').serialize();
-            $.ajax({
-                    url: '../delete/deleteSolPzsDanadas.php',
-                    cache: false,
-                    type: 'POST',
-                    data: param,
+        // $('#btnDeleteSolPzsDanadas').click(function() {
+        //     var param = $('#formDeleteSolPzsDanadas').serialize();
+        //     $.ajax({
+        //             url: '../delete/deleteSolPzsDanadas.php',
+        //             cache: false,
+        //             type: 'POST',
+        //             data: param,
 
-                    success: function(vs) {
-                        $('#formDeleteSolPzsDanadas')[0].reset();
-                        $("#table_refresh").load(" #table_refresh");
-                        setTimeout(function() {
-                            $('.eliminarSolRecPzsDanadas').modal('hide');
-                        }, 1000);
-                    }
-                })
-                .done(function(res) {
-                    $('#respuestaDeleteSolPzsDanadas').html(res)
-                })
-        });
-        //Ocultar boton por 10 segundos para evitar el doble submit
-        $("#btnDeleteSolPzsDanadas").on('click', function() {
-            $("#btnDeleteSolPzsDanadas").css('visibility', 'hidden');
-            setTimeout(function() {
-                $("#btnDeleteSolPzsDanadas").css('visibility', 'visible');
-            }, 3000);
-        });
+        //             success: function(vs) {
+        //                 $('#formDeleteSolPzsDanadas')[0].reset();
+        //                 $("#table_refresh").load(" #table_refresh");
+        //                 setTimeout(function() {
+        //                     $('.eliminarSolRecPzsDanadas').modal('hide');
+        //                 }, 1000);
+        //             }
+        //         })
+        //         .done(function(res) {
+        //             $('#respuestaDeleteSolPzsDanadas').html(res)
+        //         })
+        // });
+        // //Ocultar boton por 10 segundos para evitar el doble submit
+        // $("#btnDeleteSolPzsDanadas").on('click', function() {
+        //     $("#btnDeleteSolPzsDanadas").css('visibility', 'hidden');
+        //     setTimeout(function() {
+        //         $("#btnDeleteSolPzsDanadas").css('visibility', 'visible');
+        //     }, 3000);
+        // });
     </script>
 </body>
 

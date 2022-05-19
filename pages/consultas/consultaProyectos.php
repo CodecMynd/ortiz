@@ -126,7 +126,8 @@ $cont = 0;
 			"10" => $row['valorVenta'],
 			"11" => ($Eliminado == 0)? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
 			"12" => $etapa,
-			"13" => "<div class='input-group input-group-sm mb-3'>
+			"13" => $row['fecha_creacion'],
+			"14" => "<div class='input-group input-group-sm mb-3'>
 						<div class='input-group-prepend'>
 							<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Lista de Proyectos'> Acciones</span>
 							</button>

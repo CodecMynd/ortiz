@@ -7,10 +7,17 @@ conectar();
 
 ini_set('date.timezone',  'America/Mexico_City');
 $date = date('Y-m-d H:i:s');
-
-
 $id = $_SESSION['id_usuario'];
+
 $id_proyecto = $_POST['id_proyecto'];
+$query = "SELECT estadoProyectoEliminado FROM proyectos WHERE id_proyecto = $id_proyecto";
+$respuesta = mysqli_query($conexion, $query);
+$row = $respuesta->fetch_assoc();
+$row['estadoProyectoEliminado'];
+
+
+
+// $proyectoActivo = $_POST['proyectoActivo'];
 $folioRegSolicitud = $_POST['folioRegSolicitud'];
 $valorVentaAlta = $_POST['valorVentaAlta'];
 $id_semana = (!empty($_POST['id_semSolAlta'])) ? $_POST['id_semSolAlta'] : '0';
@@ -25,10 +32,16 @@ $borrado = 0;
 $status = 'Activo';
 $etapa = 'Proyecto avanzó a 2.4.2 Registro de Solicitud en espera de Alta';
 
-if (empty($valorVentaAlta)) {
+if ($row['estadoProyectoEliminado'] == 0) {
+    echo "<div class='alert alert-danger' role='role'>
+    <p><strong>Error, El número de Proyecto acaba de ser eliminado, verifica en la Tabla 2.9 Bitacora de Proyectos </strong></p>
+    </div>";
+    exit;
+} else if (empty($valorVentaAlta)) {
     echo "<div class='alert alert-danger' role='role'>
     <p><strong>Error, Ingresa una cantidad en campo Valor Venta Alta</strong></p>
     </div>";
+    exit;
 } else if ($id_semana == '0') {
     echo "<div class='alert alert-danger' role='role'>
               <p><strong>Error, Ingresa una opción de la lista Semana de Solicitud de Alta</strong></p>
@@ -68,25 +81,25 @@ if (empty($valorVentaAlta)) {
             </div>";
             exit;
         } else {
-    
-        $resultado = mysqli_query($conexion, $query);
-        // var_dump($query);
+
+            $resultado = mysqli_query($conexion, $query);
+            // var_dump($query);
         }
 
         // Insertamos tabla registrosolicitudbitacora
         $query1 = "INSERT INTO registrosolicitudbitacora(folioRegSolicitud, id_proyecto, valorVentaAlta, id_semana, inspecCalidad, observCliente, tecArmador, tecMontador1, tecMontador2, tecMontador3, tecMontador4, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegSolicitud', $id_proyecto, '$valorVentaAlta', $id_semana, '$inspecCalidad', '$observCliente', '$tecArmador', '$tecMontador1', '$tecMontador2', '$tecMontador3', '$tecMontador4', $borrado, '$status', '$date', $id)";
-        $resultado = mysqli_query($conexion, $query1);
+        $resultado1 = mysqli_query($conexion, $query1);
         // var_dump($queryR);
 
 
         // // Ingresamos id a tabla proyectos modificar registros
         $query2 = "UPDATE proyectos SET proyectoActivo = 0, registroSolicitud = 1 WHERE id_proyecto = $id_proyecto";
-        $resultado = mysqli_query($conexion, $query2);
+        $resultado2 = mysqli_query($conexion, $query2);
         // var_dump($queryP);
 
         // Bitacora
         $query3 = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
-        $resultado = mysqli_query($conexion, $query3);
+        $resultado3 = mysqli_query($conexion, $query3);
 
 
         $conexion->commit();
@@ -103,7 +116,7 @@ if (empty($valorVentaAlta)) {
                     <p><strong>¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte</strong></p>
                     <a href='https://jsolautomotriz.workplace.com/groups/504053034641133'  target='_blank' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Area de Soporte'>¡Reporta aqui! <i class='fa-solid fa-triangle-exclamation parpadea'></i></a>
              </div>";
-    }  
+    }
 }
 
 desconectar();

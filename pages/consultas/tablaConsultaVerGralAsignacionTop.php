@@ -53,6 +53,7 @@ require '../components/head-dataTables.php';
             WHERE P.id_proyecto = $id_proyecto";
             $respuesta = mysqli_query($conexion, $query);
             $row = $respuesta->fetch_assoc();
+            // (empty($capturista)) ? 'Sin Registro' : $row['nombres'].' '.$row['aPaterno'].' '.$row['aMaterno']; 
     
 
             ?>
@@ -100,7 +101,7 @@ require '../components/head-dataTables.php';
                                                         <div class='input-group-prepend'>
                                                             <span class='input-group-text'><i class='fa-solid fa-user'></i></span>
                                                         </div>
-                                                        <input type='text' class='form-control' value='<?php echo (empty($capturista)) ? 'Sin Registro' : $row['nombres'].' '.$row['aPaterno'].' '.$row['aMaterno']; ?>' disabled readonly>
+                                                        <input type='text' class='form-control' value='<?php echo $row['nombres'].' '.$row['aPaterno'].' '.$row['aMaterno']?>' disabled readonly>
                                                         <label for='floatingInput' class='pl-5'>Capturista: Asignación de Top</label>
                                                     </div>
                                                 </div>

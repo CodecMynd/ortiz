@@ -60,6 +60,7 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php  } ?>
+                                    <div id="table_refresh">
                                     <table id="tableProveedores" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                         <thead>
                                             <tr>
@@ -101,6 +102,7 @@ require '../components/head-dataTables.php';
                                             </tr>
                                         </tfoot>
                                     </table>
+                                    </div>
                                     <button id="btnModal-eliminarProveedor" class="btn btn-white" data-toggle="modal" data-target='.eliminarProveedor'></button>
                                     <?php
                                     require '../components/modal-eliminarProveedor.php';
@@ -135,7 +137,8 @@ require '../components/head-dataTables.php';
                 $('#modal-modProveedor').modal('show');
             });
         }
-    </script>
+
+</script>
 </body>
 
 </html>

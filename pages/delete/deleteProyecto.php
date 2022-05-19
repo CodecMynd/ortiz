@@ -14,12 +14,12 @@ $etapa = 'Proyecto Completo Borrado';
  $conexion->autocommit(FALSE);
  try {
 
-    $queryB = "INSERT INTO bitacora(id_proyecto, etapa, fechar_borrado, id_capB) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
-    $resultado = mysqli_query($conexion, $queryB);
+    $query1 = "INSERT INTO bitacora(id_proyecto, etapa, fechar_borrado, id_capB) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
+    $resultad1 = mysqli_query($conexion, $query1);
     // var_dump($queryB);
 
-    $queryP = ("UPDATE proyectos SET estadoProyectoEliminado = 0, fecha_borrado = '$date', id_capB = '$id' WHERE id_proyecto = '$id_proyecto'");
-    $resultadoP = mysqli_query($conexion, $queryP);
+    $query2 = ("UPDATE proyectos SET estadoProyectoEliminado = 0, proyectoActivo = 1, registroSolicitud= 0, altaProyecto = 0, proyCodIdentificador = 0, superCodIdentificador= 0, fecha_borrado = '$date', id_capB = '$id' WHERE id_proyecto = '$id_proyecto'");
+    $resultado2 = mysqli_query($conexion, $query2);
     // var_dump($queryP);
 
     // $queryD = ("DELETE desglocecodid WHERE id_proyecto = '$id_proyecto'");

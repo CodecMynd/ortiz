@@ -105,7 +105,7 @@ if ($respuesta->num_rows  > 0) {
                             <span class='input-group-text'><i class='fa-solid fa-arrow-down-1-9'></i></span>
                         </div>
                         <input name='folioCambioPlaca' id='folioCambioPlaca' type='text' class='form-control' placeholder='Número Folio de Cambio de Asesor' required data-toggle='tooltip' data-placement='bottom' title='Número de  Folio Cambio de Asesor' value='{$folioCambioPlaca}' readonly>
-                        <label for='floatingInput' class='pl-5'>*Núm. de Folio Cambio Asesor</label>
+                        <label for='floatingInput' class='pl-5'>*Núm. de Folio Cambio Placa</label>
                     </div>
                 </div>
                 <div class='col-md-3 col-sm-12 my-1'>

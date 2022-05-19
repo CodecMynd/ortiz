@@ -44,7 +44,7 @@ require '../components/head-main.php';
             $id_cambioPlaca = $_GET['id'];
             $idP = $_GET['idP'];
             $nP = $_GET['nP'];
-            $query = "SELECT P.id_proyecto, CP.id_cambioPlaca, CP.motivo, CP.estatusAprobado, CP.fecha_creacion, CP.fecha_mod, CP.placaActual, CP.placaAsignado,
+            $query = "SELECT P.id_proyecto, CP.id_cambioPlaca, CP.motivo, CP.estatusAprobado, CP.fecha_creacion, CP.fecha_mod, CP.placaActual, CP.placaAsignado, CP.verificado,
             UC.nombres AS solNom, UC.aPaterno AS solPat, UC.aMaterno AS solMat,
             UM.nombres AS autNom, UM.aPaterno AS autPat, UM.aMaterno AS autMat,
             V.id_vehiculo
@@ -56,7 +56,8 @@ require '../components/head-main.php';
             WHERE CP.id_cambioPlaca = $id_cambioPlaca";
             $respuesta = mysqli_query($conexion, $query);
             $row = $respuesta->fetch_assoc();
-            $solicitante = $row['solNom'].' '.$row['solPat'].' '.$row['solMat'];
+            $solicitante = $row['solNom'] . ' ' . $row['solPat'] . ' ' . $row['solMat'];
+            $estatusAprobado = $row['estatusAprobado'];
             ?>
             <!-- Form editar marca -->
             <section class="content">
@@ -65,7 +66,7 @@ require '../components/head-main.php';
                         <div class="col-md-8 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header border-nav">
-                                    <h3 class="card-title">Motivo de Supervisión seleccionado - Número de Proyecto: <strong><?php echo $nP ?></strong></h3>
+                                    <h3 class="card-title">Motivo de Autorización Cambio de Placas seleccionado - Número de Proyecto: <strong><?php echo $nP ?></strong></h3>
                                 </div>
 
                                 <form id="formUpdateCambioPlacaAutorizar" autocomplete="off">
@@ -79,7 +80,7 @@ require '../components/head-main.php';
                                                 <label class="ml-5 mb-2">Placa Actual</small></label>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text"> <i class="fa-solid fa-user-minus"></i></span>
+                                                        <span class="input-group-text"> <i class="fa-solid fa-hashtag"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Campo en automatico" value="<?php echo $row['placaActual'] ?>" disabled readonly>
                                                 </div>
@@ -88,17 +89,17 @@ require '../components/head-main.php';
                                                 <label class="ml-5 mb-2">Placa por Asignar</label>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i class="fa-solid fa-user-plus"></i></span>
+                                                        <span class="input-group-text"><i class="fa-solid fa-hashtag"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Campo en automatico" value="<?php echo $row['placaAsignado'] ?>" readonly>
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="col-12">
                                                 <hr>
                                             </div>
                                             <div class="col-md-6 col-sm-12 my-1">
-                                                <label class="ml-5 mb-2">Solicitante Cambio de Asesor</label>
+                                                <label class="ml-5 mb-2">Solicitante Cambio de Placa</label>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"> <i class="fa-solid fa-user"></i></span>
@@ -107,7 +108,7 @@ require '../components/head-main.php';
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-sm-12 my-1">
-                                                <label class="ml-5 mb-2">Fecha Solicitud Cambio de Asesor</label>
+                                                <label class="ml-5 mb-2">Fecha Solicitud Cambio de Placa</label>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"> <i class="fa fa-calendar" aria-hidden="true"></i></span>
@@ -140,9 +141,15 @@ require '../components/head-main.php';
                                                     <div class="info-box">
                                                         <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check"></i></span>
                                                         <div class="info-box-content">
-                                                            <h6><strong>¿Autorizar Cambio?</strong></h4>
-                                                            <span class="info-box-text"> <input type="checkbox" name="estatusAprobado" id="estatusAprobado" data-toggle="toggle" data-on="Autorizado" data-off="No Autorizado" data-width="150" data-height="10" data-onstyle="success" data-offstyle="danger" value="1" <?php if ($row['estatusAprobado'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                            <?php if ($row['verificado'] == 0) { ?>
+                                                                <h6><strong>¿Autorizar Cambio?</strong></h4>
+                                                                    <span class="info-box-text"> <input type="checkbox" name="estatusAprobado" id="estatusAprobado" data-toggle="toggle" data-on="Autorizado" data-off="No Autorizado" data-width="150" data-height="10" data-onstyle="success" data-offstyle="danger" value="1" <?php if ($row['estatusAprobado'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                <?php } else if ($row['verificado'] == 1) {
+                                                                echo "<h6><strong>Ya fue validado</strong></h4>";
+                                                                $aviso = ($estatusAprobado == 0) ? 'No fue Aprobado' : 'Aprobado';
+                                                                echo 'Estatus:' . ' ' . "<h5><strong>$aviso</strong></h5>";
+                                                            } ?>
                                                         </div>
                                                     </div>
                                                 </button>

@@ -29,7 +29,9 @@ require '../components/head-main.php';
             $id_cambioAsesor = $_GET['id'];
             $idP = $_GET['idP'];
             $nP = $_GET['nP'];
-            $query = "SELECT P.id_proyecto, CA.id_cambioAsesor, CA.motivo, CA.estatusAprobado, CA.fecha_creacion, CA.asesorActual, CA.asesorAsignado, AA.asesor AS aseActual, AAA.asesor AS aseAsignar,
+            $query = "SELECT P.id_proyecto, 
+            CA.verificado, CA.id_cambioAsesor, CA.motivo, CA.estatusAprobado, CA.fecha_creacion, CA.asesorActual, CA.asesorAsignado, 
+            AA.asesor AS aseActual, AAA.asesor AS aseAsignar,
             U.nombres, U.aPaterno, U.aMaterno
             FROM proyectos P 
             INNER JOIN cambioasesores CA ON P.id_proyecto = CA.id_proyecto
@@ -39,7 +41,8 @@ require '../components/head-main.php';
             WHERE CA.id_cambioAsesor = $id_cambioAsesor";
             $respuesta = mysqli_query($conexion, $query);
             $row = $respuesta->fetch_assoc();
-            $solicitante = $row['nombres'].' '.$row['aPaterno'].' '.$row['aMaterno'];
+            $solicitante = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
+            $estatusAprobado = $row['estatusAprobado'];
             ?>
             <!-- Form editar marca -->
             <section class="content">
@@ -75,7 +78,7 @@ require '../components/head-main.php';
                                                     <input type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Campo en automatico" value="<?php echo $row['aseAsignar'] ?>" readonly>
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="col-12">
                                                 <hr>
                                             </div>
@@ -122,9 +125,15 @@ require '../components/head-main.php';
                                                     <div class="info-box">
                                                         <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check"></i></span>
                                                         <div class="info-box-content">
-                                                            <h6><strong>¿Autorizar Cambio?</strong></h4>
-                                                            <span class="info-box-text"> <input type="checkbox" name="estatusAprobado" id="estatusAprobado" data-toggle="toggle" data-on="Autorizado" data-off="No Autorizado" data-width="150" data-height="10" data-onstyle="success" data-offstyle="danger" value="1" <?php if ($row['estatusAprobado'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                            <?php if ($row['verificado'] == 0) { ?>
+                                                                <h6><strong>¿Autorizar Cambio?</strong></h4>
+                                                                    <span class="info-box-text"> <input type="checkbox" name="estatusAprobado" id="estatusAprobado" data-toggle="toggle" data-on="Autorizado" data-off="No Autorizado" data-width="150" data-height="10" data-onstyle="success" data-offstyle="danger" value="1" <?php if ($row['estatusAprobado'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                <?php } else if ($row['verificado'] == 1) {
+                                                                echo "<h6><strong>Ya fue validado</strong></h4>";
+                                                                $aviso = ($estatusAprobado == 0) ? 'No fue Aprobado' : 'Aprobado';
+                                                                echo 'Estatus:' . ' ' . "<h5><strong>$aviso</strong></h5>";
+                                                            } ?>
                                                         </div>
                                                     </div>
                                                 </button>

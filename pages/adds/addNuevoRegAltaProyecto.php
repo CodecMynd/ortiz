@@ -10,6 +10,13 @@ $date = date('Y-m-d H:i:s');
 $id = $_SESSION['id_usuario'];
 
 $id_proyecto = $_POST['id_proyecto'];
+$query = "SELECT nProyecto, altaProyecto FROM proyectos WHERE id_proyecto = $id_proyecto";
+$respuesta = mysqli_query($conexion, $query);
+$row = $respuesta->fetch_assoc();
+$row['altaProyecto'];
+$row['nProyecto'];
+
+
 $folioRegAlta = $_POST['folioRegAlta'];
 $link = $_POST['link'];
 $observAudiFinal = $_POST['observAudiFinal'];
@@ -27,7 +34,12 @@ $cronometro = $diff->days . " Dia(s), " . $diff->h . ' h. ' . $diff->i . " m. " 
 $status = 'Activo';
 $etapa = 'Proyecto avanzó a 2.5 Alta Proyecto';
 
-if ($link == '') {
+if($row['altaProyecto'] == 1){
+    echo "<div class='alert alert-danger' role='role'>
+         <p><strong>Error, el Número de Proyecto: {$row['nProyecto']} ya fue registrado a Alta de Proyecto, verifica en la Tabla 2.9 Bitacora de Proyectos</strong></p>
+         </div>";
+    exit;
+}else if ($link == '') {
     echo "<div class='alert alert-danger' role='role'>
          <p><strong>Error, el campo Link es requerido</strong></p>
          </div>";
@@ -48,13 +60,13 @@ if ($link == '') {
     try {
 
         // Insertamos tabla linkvideos
-        $queryL = "INSERT INTO linkvideos(link, fecha_creacion, id_capC) VALUES ( '$link','$date', '$id')";
-        $resultado = mysqli_query($conexion, $queryL);
+        $query1 = "INSERT INTO linkvideos(link, fecha_creacion, id_capC) VALUES ( '$link','$date', '$id')";
+        $resultado1 = mysqli_query($conexion, $query1);
         $id_link = mysqli_insert_id($conexion);
         //var_dump($queryL);
 
         // Insertamos tabla registroalta
-        $query = "INSERT INTO registroalta(folioRegAlta, id_proyecto, id_link, observAudiFinal, cronometro, id_semana, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', '$cronometro', '$id_semana', '$borrado', '$status', '$date', '$id')";
+        $query2 = "INSERT INTO registroalta(folioRegAlta, id_proyecto, id_link, observAudiFinal, cronometro, id_semana, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', '$cronometro', '$id_semana', '$borrado', '$status', '$date', '$id')";
 
         $verificar_id = mysqli_query($conexion, "SELECT id_proyecto FROM registroalta WHERE id_proyecto = '$id_proyecto' ");
         if (mysqli_num_rows($verificar_id) > 0) {
@@ -64,25 +76,25 @@ if ($link == '') {
             </div>";
           exit;
         } else {
-          $resultado = mysqli_query($conexion, $query);
+          $resultado2 = mysqli_query($conexion, $query2);
           // var_dump($query);
         }
 
 
         // Insertamos tabla registroaltabitacora
-        $query = "INSERT INTO registroaltabitacora(folioRegAlta, id_proyecto, id_link, observAudiFinal, cronometro, id_semana, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', '$cronometro', '$id_semana', '$borrado', '$status', '$date', '$id')";
-        $resultado = mysqli_query($conexion, $query);
+        $query3 = "INSERT INTO registroaltabitacora(folioRegAlta, id_proyecto, id_link, observAudiFinal, cronometro, id_semana, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegAlta', '$id_proyecto', '$id_link', '$observAudiFinal', '$cronometro', '$id_semana', '$borrado', '$status', '$date', '$id')";
+        $resultado3 = mysqli_query($conexion, $query3);
         //var_dump($query);;
 
 
         // Ingresamos id a tabla proyectos modificar registros
-        $queryP = "UPDATE proyectos SET registroSolicitud = 0, altaProyecto = 1 WHERE id_proyecto = $id_proyecto";
-        $resultado2 = mysqli_query($conexion, $queryP);
+        $query4 = "UPDATE proyectos SET registroSolicitud = 0, altaProyecto = 1 WHERE id_proyecto = $id_proyecto";
+        $resultado4 = mysqli_query($conexion, $query4);
         //var_dump($queryP);
 
         // Bitacora
-        $queryBI = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
-        $resultadoBI = mysqli_query($conexion, $queryBI);
+        $query5 = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
+        $resultado5 = mysqli_query($conexion, $query5);
 
         $conexion->commit();
         echo "<div class='alert alert-success' role='alert'>

@@ -133,6 +133,9 @@
                                         <li><a href="../admin/crudSolicitudCambioAsesor.php" class="dropdown-item">2.3.15.2 Solicitud Cambio de Asesor</a></li>
                                     </ul>
                                 </li>
+                                <li><a href="../admin/crudSolicitudCambioSemanaSolAlta.php" class="dropdown-item">2.3.16 Solicitar Cambio de Semana de Solicitud de Alta</a></li>
+                                <li><a href="../admin/crudSolicitudCambioSemanaAlta.php" class="dropdown-item">2.3.17 Solicitar Cambio de Semana de Alta</a></li>
+
                             </ul>
                         </li>
                         <li class="dropdown-submenu dropdown-hover">

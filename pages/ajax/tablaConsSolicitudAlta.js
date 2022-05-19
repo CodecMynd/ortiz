@@ -3,6 +3,10 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+            "select": true,
+            "select":{
+                style:'multi'
+            },
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
@@ -77,14 +81,14 @@
             "drawCallback": function() {
                 //alert("La tabla se está recargando"); 
                 var api = this.api();
-                $(api.column(12).footer()).html(
-                    'Total: ' + api.column(12, {
+                $(api.column(13).footer()).html(
+                    'Total: ' + api.column(13, {
                         page: 'current'
                     }).data().sum()
                 )
                 var api2 = this.api();
-                $(api2.column(13).footer()).html(
-                    'Total: ' + api2.column(13, {
+                $(api2.column(14).footer()).html(
+                    'Total: ' + api2.column(14, {
                         page: 'current'
                     }).data().sum()
                 )

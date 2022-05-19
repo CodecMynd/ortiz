@@ -2,7 +2,7 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>Tabla 4.2 Bitacora de Piezas Dañadas | <?php echo $nomComp ?></title>
+<title>Tabla 4.2 Autorización de Compras | <?php echo $nomComp ?></title>
 <style>
     @media (min-width:320px) and (max-width:425px) {
         .content-header {
@@ -31,7 +31,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-1">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            <h1 class="m-0">Tabla 4.2 Bitacora de Piezas Dañadas</h1>
+                            <h1 class="m-0">Tabla 4.2 Autorización de Compras</h1>
                         </div>
                         <div class="col-sm-4 col-md-8 col-lg-4">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>

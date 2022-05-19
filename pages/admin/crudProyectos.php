@@ -189,6 +189,7 @@ require '../components/head-dataTables.php';
                                                 <th>Valor Venta Inicial</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Etapa Proyecto</th>
+                                                <th>Fecha Registro del Proyecto</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -208,6 +209,7 @@ require '../components/head-dataTables.php';
                                                 <th class="suma"></th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Etapa Proyecto</th>
+                                                <th>Fecha Registro del Proyecto</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>

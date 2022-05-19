@@ -56,9 +56,9 @@ while ($row = $resultado->fetch_assoc()) {
 
 	// valida columna Top
 	if ($top == 0) {
-		$validaTop = "<h6><span class='badge badge-ligth badge-pill top' data-toggle='tooltip' data-placement='bottom' title='Este Proyecto no es Top'><i class='fa-solid fa-star fa-2x' style='color:#CCCCCC'></i></span></h6>";
+		$validaTop = "<h6><span class='badge badge-danger badge-pill top' data-toggle='tooltip' data-placement='bottom' title='Este Proyecto no es Top'>No es Top</span></h6>";
 	} else {
-		$validaTop = "<h6><span class='badge badge-ligth badge-pill top' data-toggle='tooltip' data-placement='bottom' title='Este Proyecto es Top'><i class='fa-solid fa-star fa-2x' style='color:#28A745'></i></span></h6>";
+		$validaTop = "<h6><span class='badge badge-success badge-pill top' data-toggle='tooltip' data-placement='bottom' title='Este Proyecto es Top'>Es Top</span></h6>";
 	}
 
 	// Acciones ----------------------------------------------------------------------------------------- 

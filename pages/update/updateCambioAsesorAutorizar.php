@@ -20,7 +20,7 @@ $capMotivo = 1;
 if ($estatusAprobado == 0) {
     $estatusEspera = 0;
     // Registrar motivo de supervision
-    $query = "UPDATE cambioasesores SET estatusEspera = '$estatusEspera', estatusAprobado = '$estatusAprobado', fecha_mod = '$date', id_capM = '$id' WHERE id_cambioAsesor = '$id_cambioAsesor' ";
+    $query = "UPDATE cambioasesores SET estatusEspera = '$estatusEspera', estatusAprobado = '$estatusAprobado', verificado = '1', fecha_mod = '$date', id_capM = '$id' WHERE id_cambioAsesor = '$id_cambioAsesor' ";
     $resultado = mysqli_query($conexion, $query);
     // var_dump($query);
 
@@ -40,7 +40,7 @@ if ($estatusAprobado == 0) {
     $conexion->autocommit(FALSE);
     try {
         // Registrar motivo de supervision
-        $query = "UPDATE cambioasesores SET estatusEspera = '$estatusEspera', estatusAprobado = '$estatusAprobado', fecha_mod = '$date', id_capM = '$id' WHERE id_cambioAsesor = '$id_cambioAsesor' ";
+        $query = "UPDATE cambioasesores SET estatusEspera = '$estatusEspera', estatusAprobado = '$estatusAprobado', verificado = '1', fecha_mod = '$date', id_capM = '$id' WHERE id_cambioAsesor = '$id_cambioAsesor' ";
         $resultado = mysqli_query($conexion, $query);
         // var_dump($query);
 

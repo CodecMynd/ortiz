@@ -264,9 +264,18 @@ while ($row = mysqli_fetch_array($query)) {
     $eliProvee = $row['eliProvee'];
     $verTablaProvee = $row['verTablaProvee'];
     $verTablaBitacoraSolPiezas = $row['verTablaBitacoraSolPiezas'];
+    $perRegCompraInicial = $row['perRegCompraInicial'];
     $modRegCompraInicial = $row['modRegCompraInicial'];
-    $regCompraInicial = $row['regCompraInicial'];
-    
+    $eliRegCompraInicial = $row['eliRegCompraInicial'];
+    $solCamSemanaSolAltas = $row['solCamSemanaSolAltas'];
+    $cambioSolSemSolAltaAutorizar = $row['cambioSolSemSolAltaAutorizar'];
+    $verGralcambioSolSemSolAltaAutorizar = $row['verGralcambioSolSemSolAltaAutorizar'];
+    $verTablaSolCamSemanaSolAltas = $row['verTablaSolCamSemanaSolAltas'];
+    $solCamSemanaAltas = $row['solCamSemanaAltas'];
+    $cambioSolSemAltaAutorizar = $row['cambioSolSemAltaAutorizar'];
+    $verGralcambioSemAltaAutorizar = $row['verGralcambioSemAltaAutorizar'];
+    $verTablaSolCamSemanaAltas = $row['verTablaSolCamSemanaAltas'];
+
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
     if ($passUser === 'SIN_PASSWORD') {
         echo '<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

@@ -23,6 +23,7 @@
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": true,
+
                 "buttons": ["csv", "excel", "pdf"],
                 "language": {
 
@@ -75,6 +76,7 @@
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": true,
+
                 "dom": 'Bt',
                 "buttons": ["csv", "excel", "pdf"],
                 "language": {
@@ -129,6 +131,7 @@
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": true,
+
                 "buttons": ["csv", "excel", "pdf", "colvis"],
                 "language": {
 
@@ -182,6 +185,7 @@
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": true,
+
                 "buttons": ["csv", "excel", "pdf"],
                 "language": {
 
@@ -235,6 +239,7 @@
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": true,
+
                 "buttons": ["csv", "excel", "pdf"],
                 "language": {
 
@@ -288,6 +293,7 @@
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": true,
+
                 "buttons": ["csv", "excel", "pdf", "colvis"],
                 "language": {
 
@@ -357,6 +363,7 @@
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": true,
+
                 "buttons": ["csv", "excel", "pdf", "colvis"],
                 "language": {
 
@@ -426,6 +433,7 @@
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": true,
+
                 "dom": 'PlBfrtip',
                 "buttons": ["csv", "excel", "pdf", "colvis"],
                 "ajax": {
@@ -510,6 +518,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
@@ -588,6 +597,10 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+            "select": true,
+            "select":{
+                style:'multi'
+            },
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
@@ -617,6 +630,13 @@
                 "aria": {
                     "sortAscending": "Activar para ordenar la columna de manera ascendente",
                     "sortDescending": "Activar para ordenar la columna de manera descendente"
+                },
+                "select":{
+                    "rows":{
+                        _: "Usted Selecciono %d registros",
+                        0: "Haga clic en una registro para selecionarlo",
+                        1: "Solo 1 registro seleccionado"
+                    }
                 },
                 "buttons": {
                     "collection": "Colección",
@@ -664,6 +684,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
@@ -743,6 +764,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
@@ -820,6 +842,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "dom": 'lBfrtip',
             "buttons": ["csv", "excel", "pdf"],
             "ajax": {
@@ -882,6 +905,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "pageLength": 25,
             "dom": 'lBfrtip',
             "buttons": ["csv", "excel", "pdf"],
@@ -973,6 +997,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "dom": 'lBfrtip',
             "buttons": ["csv", "excel", "pdf"],
             "ajax": {
@@ -1036,6 +1061,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf"],
             "ajax": {
@@ -1150,6 +1176,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
@@ -1227,6 +1254,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "dom": 'lBfrtip',
             "buttons": ["csv", "excel", "pdf"],
             "ajax": {
@@ -1290,6 +1318,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf"],
             "ajax": {
@@ -1404,6 +1433,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf"],
             "ajax": {
@@ -1491,6 +1521,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf"],
             "ajax": {
@@ -1569,6 +1600,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
@@ -1662,6 +1694,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
@@ -1755,6 +1788,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "dom": 'lBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "language": {
@@ -1809,6 +1843,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
@@ -1902,6 +1937,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
@@ -1988,6 +2024,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
@@ -2064,6 +2101,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
@@ -2139,6 +2177,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "language": {
 
@@ -2192,6 +2231,7 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {

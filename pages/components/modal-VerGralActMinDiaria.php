@@ -319,8 +319,63 @@ require '../components/head-main.php';
                 <br>
                 <h5 class="text-center"><strong> Consulta: Registros Solicitudes de Piezas</strong></h5>
                 <?php
-                            $cont = 0;
-                            $query = "SELECT P.id_proyecto, P.nProyecto, R.id_recPzsDanadas AS linkId,
+                                    $query1 = "SELECT P.id_proyecto, P.nProyecto, P.nOrden,
+                                    V.placa, Co.color, M.marca, Mo.modelo, An.anio,
+                                    R.linkRecPzsDanadas
+                                    from proyectos P 
+                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
+                                    INNER JOIN colores Co ON V.id_color = Co.id_color
+                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
+                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
+                                    INNER JOIN anios An ON V.id_anio = An.id_anio 
+                                    LEFT JOIN recpzsdanadas R ON P.id_proyecto = R.id_proyecto
+                                    WHERE P.id_Proyecto = $id_proyecto";
+                                    $resultado1 = mysqli_query($conexion, $query1);
+                                    $row1 = $resultado1->fetch_assoc();
+
+                                    ?>
+                                    <table id="tableSm2" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Núm. de Proyecto</th>
+                                                <th>Número de Orden</th>
+                                                <th>Marca</th>
+                                                <th>Modelo</th>
+                                                <th>Año</th>
+                                                <th>Placas</th>
+                                                <th>Color</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th style="width: 5%;"><span class='badge badge-dark badge-pill'><?php echo $row1['id_proyecto'] ?></span></th>
+                                                <td style="width: 10%;"><?php echo $row1['nProyecto'] ?></td>
+                                                <td style="width: 10%;"><?php echo $row1['nOrden'] ?></td>
+                                                <td><?php echo $row1['marca'] ?></td>
+                                                <td><?php echo $row1['modelo'] ?></td>
+                                                <td><?php echo $row1['anio'] ?></td>
+                                                <td><?php echo $row1['placa'] ?></td>
+                                                <td><?php echo $row1['color'] ?></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>Link de Desarmado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><?php echo (empty($row1['linkRecPzsDanadas'])) ? 'Sin Registro' : $row1['linkRecPzsDanadas'] ?></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <br>
+                <?php
+                $cont = 0;
+                $query = "SELECT P.id_proyecto, P.nProyecto, R.id_recPzsDanadas AS linkId, R.linkRecPzsDanadas,
                 S.id_solPzsDanadas, S.folio_solicitud, S.cantidad, S.descripcion, S.minVideo, S.fecha_creacion,
                 S.borrado, S.enUso,
                 U.nombres, U.aPaterno, U.aMaterno
@@ -329,7 +384,7 @@ require '../components/head-main.php';
                 LEFT JOIN solpzsdanadas S ON R.id_recPzsDanadas = S.id_recPzsDanadas
                 LEFT JOIN usuarios U ON S.id_capC = U.id_usuario
                 WHERE P.id_Proyecto = $id_proyecto AND P.proyectoActivo = 1 AND S.borrado = 0 ORDER BY S.folio_solicitud DESC";
-                            $resultado = mysqli_query($conexion, $query);
+                $resultado = mysqli_query($conexion, $query);
                 ?>
                 <table id="tableSm2" class="table table-sm table-bordered table-striped" style="width: 100%;">
                     <thead>
@@ -347,13 +402,13 @@ require '../components/head-main.php';
                     </thead>
                     <tbody>
                         <?php
-                            while ($row = $resultado->fetch_assoc()) {
-                                $id_proyecto = $row['id_proyecto'];
-                                $nP = $row['nProyecto'];
-                                $solicitante = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
-                                $linkId = (empty($row['linkId'])) ? '' : $row['linkId'];
-                                $id_solPzsDanadas = $row['id_solPzsDanadas'];
-                                $folio_solicitud = $row['folio_solicitud'];
+                        while ($row = $resultado->fetch_assoc()) {
+                            $id_proyecto = $row['id_proyecto'];
+                            $nP = $row['nProyecto'];
+                            $solicitante = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
+                            $linkId = (empty($row['linkId'])) ? '' : $row['linkId'];
+                            $id_solPzsDanadas = $row['id_solPzsDanadas'];
+                            $folio_solicitud = $row['folio_solicitud'];
 
                         ?>
                             <tr>
@@ -388,7 +443,7 @@ require '../components/head-main.php';
                                 </td>
                             </tr>
                         <?php
-                            }
+                        }
                         ?>
                     </tbody>
                     <tfoot>
@@ -409,9 +464,10 @@ require '../components/head-main.php';
             <div class="modal-footer text-left">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>
             </div>
-        <?php         
-        desconectar();
-        ?>
+            <?php
+            desconectar();
+            ?>
         </div>
     </div>
 </div>
+<script src="../ajax/tableVarios.js"></script>

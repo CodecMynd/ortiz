@@ -47,20 +47,20 @@ if ($id_cliente == '' || $id_vehiculo == ''  || $nProyecto == '' || $tipoReparac
         $id_proyecto = mysqli_insert_id($conexion);
 
         // Ingresamos id a tabla nProyectos para que continue el contador de Numero de proyecto
-        $queryNp = "INSERT INTO nproyectos(id_proyecto, fecha_creacion, id_capC) VALUES ('$id_proyecto','$date', '$id')";
-        $resultado2 = mysqli_query($conexion, $queryNp);
+        $query2 = "INSERT INTO nproyectos(id_proyecto, fecha_creacion, id_capC) VALUES ('$id_proyecto','$date', '$id')";
+        $resultado2 = mysqli_query($conexion, $query2);
         // var_dump($queryNp);
 
         // se agrega en tabla capvalorventas
-        $queryC = "INSERT INTO capvalorventas(id_proyecto) VALUES ('$id_proyecto')";
-        $resultado3 = mysqli_query($conexion, $queryC);
+        $query3 = "INSERT INTO capvalorventas(id_proyecto) VALUES ('$id_proyecto')";
+        $resultado3 = mysqli_query($conexion, $query3);
         // var_dump($queryC);
 
-        $queryBI = "INSERT INTO bitacora(id_proyecto, etapa, fecha_registro, id_capR) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
-        $resultadoBI = mysqli_query($conexion, $queryBI);
+        $query4 = "INSERT INTO bitacora(id_proyecto, etapa, fecha_registro, id_capR) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
+        $resultado4 = mysqli_query($conexion, $query4);
         // var_dump($queryBI);
 
-        $conexion->commit(TRUE);
+        $conexion->commit();
         echo "<div class='alert alert-success' role='alert'>
                <p><strong>Proyecto ingresado correctamente!</strong></p>
             </div>

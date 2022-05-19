@@ -4,27 +4,24 @@ if ($super == 1 or $verTablaBitacoraSolPiezas == 1) {
 
 $query = "SELECT P.id_proyecto, P.nProyecto , P.estadoProyectoEliminado, P.nOrden,
 P.proyectoActivo, P.registroSolicitud, P.altaProyecto, P.proyCodIdentificador, P.superCodIdentificador,
-V.placa, M.marca, Mo.modelo, A.anio, Co.color,       
-R.id_recPzsDanadas AS linkId,
-S.id_solPzsDanadas, S.folio_solicitud, S.cantidad, S.descripcion, S.minVideo, S.fecha_creacion,
-S.borrado, S.enUso, S.regCompraInicial,
-U.nombres AS nomS, U.aPaterno AS patS, U.aMaterno AS matS,
-RC.id_regCompraInicial,RC.precio, RC.modalidadPago, RC.borrado AS borradoRegComInicial,
-RC.fecha_creacion AS fechaCompra, PR.nomProvee,
-UCI.nombres AS nomC, UCI.aPaterno AS patC, UCI.aMaterno as matC
-from proyectos P 
+V.placa, M.marca, Mo.modelo, A.anio, Co.color,
+SP.folio_solicitud, SP.cantidad, SP.descripcion, SP.minVideo, SP.fecha_creacion, SP.borrado,
+RC.precio, RC.modalidadPago, RC.fecha_creacion AS fechaCompra, PR.nomProvee,
+US.nombres AS nomS, US.aPaterno AS patS, US.aMaterno AS matS,
+UC.nombres AS nomC, UC.aPaterno AS patC, UC.aMaterno AS matC
+FROM proyectos P
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
 INNER JOIN colores Co On V.id_color = Co.id_color
 INNER JOIN marcas M ON V.id_marca = M.id_marca
 INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
 INNER JOIN anios A ON V.id_anio = A.id_anio
-LEFT JOIN recpzsdanadas R ON P.id_proyecto = R.id_proyecto
-LEFT JOIN solpzsdanadas S ON R.id_recPzsDanadas = S.id_recPzsDanadas
-LEFT JOIN usuarios U ON S.id_capC = U.id_usuario
-INNER JOIN regcomprainicial RC ON S.id_solPzsDanadas = RC.id_solPzsDanadas
-LEFT JOIN usuarios UCI ON RC.id_capC = UCI.id_usuario
+INNER JOIN solpzsdanadas SP ON P.id_proyecto = SP.id_proyecto
+LEFT JOIN regcomprainicial RC ON P.id_proyecto = RC.id_proyecto
 LEFT JOIN proveedores PR ON RC.id_proveedor = PR.id_proveedor
-ORDER BY S.folio_solicitud DESC";
+INNER JOIN recpzsdanadas RP ON P.id_proyecto = RP.id_proyecto
+INNER JOIN usuarios US ON SP.id_capC = US.id_usuario
+LEFT JOIN usuarios UC ON RC.id_capC = UC.id_usuario
+ORDER BY P.id_proyecto  DESC";
 } else {
 	$query = "SELECT id_proyecto FROM proyectos WHERE id_proyecto = 0";
 }
@@ -43,7 +40,14 @@ while ($row = $resultado->fetch_assoc()) {
 	$folio = "";
 	$statusfolio = "";
 	$capturistaS = $row['nomS'].' '. $row['patS'].' '. $row['matS'];
-	$capturistaC = $row['nomC'].' '. $row['patC'].' '. $row['matC'];
+
+	if((empty($row['nomC'])) AND (empty($row['patC'])) AND (empty($row['matC']))){
+
+		$capturistaC = "<h6><span class='badge badge-danger badge-pill'>N/A</span></h6>";
+	}else{
+		$capturistaC = $row['nomC'].' '. $row['patC'].' '. $row['matC'];
+	}
+
 	$f_S = $row['fecha_creacion'];
 	$f_C= $row['fechaCompra'];
 
@@ -144,7 +148,10 @@ while ($row = $resultado->fetch_assoc()) {
 	}
 
 	// costo Credito o contado
-	if ($row['modalidadPago'] == 'Crédito') {
+	if(empty($row['modalidadPago'])){
+		$Credito = 0;
+		$Contado = 0;
+	}else if ($row['modalidadPago'] == 'Crédito') {
 		$Credito = $row['precio'];
 		$Contado = 0;
 	} else if ($row['modalidadPago'] == 'Contado') {
@@ -184,7 +191,7 @@ while ($row = $resultado->fetch_assoc()) {
 		"19" => $Contado,
 		"20" => $capturistaSol,
 		"21" => $fechaS,
-		"22" => $capturistaCompra,
+		"22" => (empty($capturistaCompra)) ? 'N/A' : $capturistaCompra,
 		"23" => $fechaC
 
 	);

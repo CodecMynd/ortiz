@@ -49,33 +49,38 @@ if ($cantidad == '') {
   exit;
 } else {
 
-
+ try {
+   $conexion->autocommit(FALSE);
 
   // Registrar comprobación de supervision
-  $query = "INSERT INTO solpzsdanadas(id_proyecto, id_recPzsDanadas, nProyecto, folio_solicitud, cantidad, descripcion, minVideo, borrado, enUso, fecha_creacion, id_capC) VALUES ('$id_proyecto','$id_recPzsDanadas','$nProyecto','$folio_solicitud','$cantidad','$descripcion', '$minVideo', '$borrado', '$enUso', '$date','$id')";
-  $resultado = mysqli_query($conexion, $query);
+  $querysolpzsdanadas = "INSERT INTO solpzsdanadas(id_proyecto, id_recPzsDanadas, nProyecto, folio_solicitud, cantidad, descripcion, minVideo, borrado, enUso, fecha_creacion, id_capC) VALUES ('$id_proyecto','$id_recPzsDanadas','$nProyecto','$folio_solicitud','$cantidad','$descripcion', '$minVideo', '$borrado', '$enUso', '$date','$id')";
+  $resultado = mysqli_query($conexion, $querysolpzsdanadas);
   // var_dump($query);
 
-   if ($resultado) {
-     echo "<div class='alert alert-success' role='alert'>
-       <p><strong>Registros de Solicitud de Piezas ingresado correctamente</strong></p>
-       </div>";
-   } else {
-     echo "<div class='alert alert-danger' role='role'>
-         <p><strong>¡Error interno:! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte</strong></p>
-         </div>";
+       $conexion->commit();
+       echo "<div class='alert alert-success' role='alert'>
+              <p><strong>Registros de Solicitud de Piezas ingresado correctamente</strong></p>
+           </div>";
+   } catch (Exception $e) {
+       $conexion->rollback();
+       echo 'Error detectado: ',  $e->getMessage(), "\n";
+       echo "<div class='alert alert-danger' role='role'>
+                   <p><strong>¡Error interno! Por favor tome captura de pantalla y repórtelo inmediatamente a el área de Soporte</strong></p>
+                   <a href='https://jsolautomotriz.workplace.com/groups/504053034641133'  target='_blank' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Area de Soporte'>¡Reporta aqui! <i class='fa-solid fa-triangle-exclamation parpadea'></i></a>
+            </div>";
    }
 }
-desconectar();
-?>
-<script type="text/javascript">
-  $(document).ready(function() {
-    setTimeout(function() {
-      $(".alert-success").fadeOut(1500);
-    }, 3000);
+ desconectar();
 
-    setTimeout(function() {
-      $(".alert-danger").fadeIn(1500);
-    }, 3000);
-  });
+ ?>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        setTimeout(function() {
+            $(".alert-success").fadeOut(1500);
+        }, 3000);
+
+       setTimeout(function() {
+           $(".alert-danger").fadeIn(1500);
+       }, 3000);
+   });
 </script>

@@ -17,35 +17,35 @@ $conexion->autocommit(FALSE);
 try {
 
 //   Regresar Registro de Registro Codigo Identificador a Alta de proyecto para realizar Solicitud
-$queryP = ("UPDATE proyectos SET proyectoActivo = 0, registroSolicitud = 0, altaProyecto = 0, proyCodIdentificador= 1, superCodIdentificador = 0 WHERE id_proyecto = $id_proyecto ");
-$resultadoP = mysqli_query($conexion, $queryP);
-// var_dump($queryP);
+$query1 = ("UPDATE proyectos SET proyectoActivo = 0, registroSolicitud = 0, altaProyecto = 0, proyCodIdentificador= 1, superCodIdentificador = 0 WHERE id_proyecto = $id_proyecto ");
+$resultado1 = mysqli_query($conexion, $query1);
+// var_dump($query1);
 // echo '<br>';
 
-$queryD = ("UPDATE registrocodidenti SET supervisado = 0, status = '$status' WHERE id_proyecto = $id_proyecto ");
-$resultadoD = mysqli_query($conexion, $queryD);
-// var_dump($queryD);
+$query2 = ("UPDATE registrocodidenti SET supervisado = 0, status = '$status' WHERE id_proyecto = $id_proyecto ");
+$resultado2 = mysqli_query($conexion, $query2);
+// var_dump($query2);
 // echo '<br>';
 
-$queryU = ("UPDATE registrocodidentibitacora SET supervisado = 0, borrado = 1, status = '$status', fecha_borrado = '$date', id_capB = $id WHERE id_proyecto = $id_proyecto ");
-$resultadoU = mysqli_query($conexion, $queryU);
-// var_dump($queryU);
+$query3 = ("UPDATE registrocodidentibitacora SET supervisado = 0, borrado = 1, status = '$status', fecha_borrado = '$date', id_capB = $id WHERE id_proyecto = $id_proyecto ");
+$resultado3 = mysqli_query($conexion, $query3);
+// var_dump($query3);
 // echo '<br>';
 
-$queryS = ("DELETE FROM supervisado  WHERE id_proyecto = $id_proyecto ");
-$resultadoS = mysqli_query($conexion, $queryS);
-// var_dump($queryS);
+$query4 = ("DELETE FROM supervisado  WHERE id_proyecto = $id_proyecto ");
+$resultado4 = mysqli_query($conexion, $query4);
+// var_dump($query4);
 // echo '<br>';
 
-$querySB = ("UPDATE supervisadobitacora SET supervisado = 0, borradoFechaSupervisado = '$date', id_capB = $id WHERE id_proyecto = $id_proyecto ");
-$resultadoSB = mysqli_query($conexion, $querySB);
-// var_dump($querySB);
+$query5 = ("UPDATE supervisadobitacora SET supervisado = 0, borradoFechaSupervisado = '$date', id_capB = $id WHERE id_proyecto = $id_proyecto ");
+$resultado5 = mysqli_query($conexion, $query5);
+// var_dump($query5);
 // echo '<br>';
 
 //Bitacora
-$queryBI = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
-$resultadoBI = mysqli_query($conexion, $queryBI);
-// var_dump($queryBI);
+$query6 = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
+$resultado6 = mysqli_query($conexion, $query6);
+// var_dump($query6);
   
 $conexion->commit();
     

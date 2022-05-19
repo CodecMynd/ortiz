@@ -24,19 +24,19 @@ try {
   // echo '<br>';
 
   //Borrar ID Registro de Solicitud Alta Proyecto
-  $queryD = ("DELETE FROM registroalta WHERE id_regAlta = $id_regAlta");
-  $resultadoD = mysqli_query($conexion, $queryD);
+  $query1 = ("DELETE FROM registroalta WHERE id_regAlta = $id_regAlta");
+  $resultado1 = mysqli_query($conexion, $query1);
   // var_dump($queryD);
   // echo '<br>';
 
-  $queryU = ("UPDATE registroaltabitacora SET borrado = 1, status = '$status', fecha_borrado = '$date', id_capB = '$id' WHERE id_proyecto =  $id_proyecto AND folioRegAlta = '$folioRegAlta'");
-  $resultadoU = mysqli_query($conexion, $queryU);
+  $query2 = ("UPDATE registroaltabitacora SET borrado = 1, status = '$status', fecha_borrado = '$date', id_capB = '$id' WHERE id_proyecto =  $id_proyecto AND folioRegAlta = '$folioRegAlta'");
+  $resultado2 = mysqli_query($conexion, $query2);
   // var_dump($queryU);
   // echo '<br>';
 
   //Bitacora
-  $queryBI = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
-  $resultadoBI = mysqli_query($conexion, $queryBI);
+  $query3 = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
+  $resultado3 = mysqli_query($conexion, $query3);
   // var_dump($queryBI);
   // echo '<br>';
 

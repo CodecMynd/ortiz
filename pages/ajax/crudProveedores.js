@@ -1,31 +1,5 @@
-// 1.12.2 Editar Proveedor
-$('#btnUpdateProvee').click(function () {
-    var param = $('#formUpdateProvee').serialize();
-    $.ajax({
-            url: '../update/updateProveedor.php',
-            cache: false,
-            type: 'POST',
-            data: param,
 
-            success: function (vs) {
-                // $('#formNuevoProvee')[0].reset();
-                tableProveedores.ajax.reload(null, false)
-            }
-        })
-        .done(function (res) {
-            $('#respuestaUpdateProvee').html(res)
-        })
-});
-
-//Ocultar boton por 10 segundos para evitar el doble submit
-$("#btnUpdateProvee").on('click', function () {
-    $("#btnUpdateProvee").css('visibility', 'hidden');
-    setTimeout(function () {
-        $("#btnUpdateProvee").css('visibility', 'visible');
-    }, 5000);
-});
-
-// ---------------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------
 
         // 1.12.2 Editar Proveedor
         $('#btnDeleteProveedor').click(function() {
@@ -39,9 +13,10 @@ $("#btnUpdateProvee").on('click', function () {
                     success: function(vs) {
                         setTimeout(function() {
                             $('.eliminarProveedor').modal('hide');
-                        }, 2000);
+                        }, 1000);
 
-                        tableProveedores.ajax.reload(null, false);
+                        tableProveedores.ajax.reload(null, false)
+                        // $("#table_refresh").load(" #table_refresh");
                     }
                 })
                 .done(function(res) {
@@ -56,7 +31,6 @@ $("#btnUpdateProvee").on('click', function () {
                 $("#btnDeleteProveedor").css('visibility', 'visible');
             }, 5000);
         });
-
 // ---------------------------------------------------------------------------------------
 
 // Tabla 4.1 Recepción de Piezas Dañadas

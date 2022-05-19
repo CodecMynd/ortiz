@@ -34,6 +34,10 @@
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": true,
+            "select": true,
+            "select":{
+                style:'multi'
+            },
                 "dom": 'PBlfrtip',
                 "buttons": ["csv", "excel", "pdf", "colvis"],
                 "ajax": {
