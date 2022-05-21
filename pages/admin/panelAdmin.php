@@ -10,6 +10,10 @@ $count_reg_mensajeNO = mysqli_query($conexion, "SELECT FV FROM verificacion WHER
 $count_reg_cambioasesores = mysqli_query($conexion, "SELECT estatusEspera FROM `cambioasesores` WHERE estatusEspera = 1");
 //# Estatus Solicitudes Cambios de Placas
 $count_reg_cambioplacas = mysqli_query($conexion, "SELECT estatusEspera FROM `cambioplacas` WHERE estatusEspera = 1");
+//# Estatus Solicitudes Cambios de Semana de Solicitud de Altas
+$count_reg_cambiosemsolalta = mysqli_query($conexion, "SELECT estatusEspera FROM cambiosemsolalta WHERE estatusEspera = 1");
+//# Estatus Solicitudes Cambios de Semana de Altas
+$count_reg_cambiosemalta = mysqli_query($conexion, "SELECT estatusEspera FROM cambiosemalta WHERE estatusEspera = 1");
 
 // contador sin comprobar placas / sin supervision placas
 $query = "SELECT C.fecha_creacion,
@@ -18,11 +22,11 @@ FROM proyectos P
 LEFT JOIN complacas C ON P.id_proyecto = C.id_proyecto
 LEFT JOIN comsupervision CS ON P.id_proyecto = CS.id_proyecto";
 
-// $querySinPlacas = "SELECT 
+// $querySinPlacas = "SELECT
 // (SELECT count(comPlacas)
 // FROM proyectos
 // WHERE complacas = 0
-// ) AS sin_comPlacas, 
+// ) AS sin_comPlacas,
 
 // (SELECT count( comSuperPlaca)
 // FROM proyectos
@@ -35,7 +39,7 @@ $resultado = mysqli_query($conexion, $query);
 while ($row = $resultado->fetch_assoc()) {
     $Fcom = $row['fecha_creacion'];
     $Fsup = $row['fecha_registro'];
-    
+
     // $dateC=date_create ($Fcom);
     // $FC = date_format($dateC,"Y-m-d");
 
@@ -43,26 +47,43 @@ while ($row = $resultado->fetch_assoc()) {
     // $FS = date_format($dateS,"Y-m-d");
 
     // $dateFC = date("Y-m-d", strtotime($Fcom."- 2 days"));
-    $dateFC = date("Y-m-d", strtotime($fecha_mensaje."- 1 days"));
-    $dateFS = date("Y-m-d", strtotime($fecha_mensaje."- 1 days"));
+    $dateFC = date("Y-m-d", strtotime($fecha_mensaje . "- 1 days"));
+    $dateFS = date("Y-m-d", strtotime($fecha_mensaje . "- 1 days"));
 
-    $querySinPlacas = "SELECT 
+    $querySinPlacas = "SELECT
     (SELECT count(comPlacas)
     FROM proyectos
     WHERE complacas = 0 and fecha_creacion < '$dateFC'
-    ) AS sin_comPlacas, 
-    
+    ) AS sin_comPlacas,
+
     (SELECT count( comSuperPlaca)
     FROM proyectos
     WHERE comSuperPlaca = 0 and fecha_creacion < '$dateFS'
     ) AS sin_comSuperPlaca";
     $resultado = mysqli_query($conexion, $querySinPlacas);
     $rowSP = $resultado->fetch_assoc();
-
-
-
 }
 
+
+//  Indicador Vehiculos sin asignar asesor por mas de 24 horas ----------------------------------------------------------
+$query2 = "SELECT C.fecha_creacion
+FROM proyectos P
+LEFT JOIN comasesor C ON P.id_proyecto = C.id_proyecto";
+$resultado2 = mysqli_query($conexion, $query2);
+
+while ($rowf2 = $resultado2->fetch_assoc()) {
+    $Fcom2 = $rowf2['fecha_creacion'];
+    $dateFC2 = date("Y-m-d", strtotime($fecha_mensaje . "- 1 days"));
+
+
+
+    $querySinAsesor = "SELECT count(comAsesor) AS sin_Asesor, fecha_creacion
+    FROM proyectos
+    WHERE comAsesor = 0 AND proyCodIdentificador = 0 and superCodIdentificador = 0 and estadoProyectoEliminado = 1 and fecha_creacion < '$dateFC2' ";
+    $resultadoSinAsesor = mysqli_query($conexion, $querySinAsesor);
+    $rowSA = $resultadoSinAsesor->fetch_assoc();
+
+}
 ?>
 
 
@@ -75,7 +96,7 @@ while ($row = $resultado->fetch_assoc()) {
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
-    <div class="wrapper" style="height: 100%;">
+    <div class="wrapper" style="height: 75%;">
         <?php
         require '../components/navbar.php';
         ?>
@@ -98,14 +119,14 @@ while ($row = $resultado->fetch_assoc()) {
             <!-- small box-->
             <section class="content">
                 <div class="container-fluid">
-                    <div class="row">
+                    <div class="row justify-content-center">
                         <?php if ($super == 1 or $indMensajes == 1) { ?>
-                            <div class="col-lg-2 col-4">
+                            <div class="col-lg-2 col-6">
                                 <div class="small-box bg-secondary">
-                                    <div class="inner">
-                                        <h5 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_mensajeSI); ?></strong></h5>
+                                    <div class="inner" style="padding-right: 1px;">
+                                        <h4 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_mensajeSI); ?></strong></h4>
                                         <p style="margin-bottom: 0px;">Comprobados</p>
-                                        <h5 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_mensajeNO); ?></strong></h5>
+                                        <h4 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_mensajeNO); ?></strong></h4>
                                         <p style="margin-bottom: 0px;">Sin Comprobar</p>
                                     </div>
                                     <div class="icon">
@@ -117,9 +138,9 @@ while ($row = $resultado->fetch_assoc()) {
                         <?php }  ?>
 
                         <?php if ($super == 1 or $indCambioAsesor == 1) { ?>
-                            <div class="col-lg-2 col-4">
+                            <div class="col-lg-2 col-6">
                                 <div class="small-box bg-secondary">
-                                    <div class="inner">
+                                    <div class="inner mb-3" style="padding-right: 1px;">
                                         <h3><?php echo mysqli_num_rows($count_reg_cambioasesores); ?></h3>
                                         <p>Cambios de Asesor</p>
                                     </div>
@@ -131,10 +152,40 @@ while ($row = $resultado->fetch_assoc()) {
                             </div>
                         <?php } ?>
 
-                        <?php if ($super == 1 or $indCambioPlacas == 1) { ?>
-                            <div class="col-lg-2 col-4">
+                        <?php if ($super == 1 or $indCambioSemAlta == 1) { ?>
+                            <div class="col-lg-2 col-6">
                                 <div class="small-box bg-secondary">
-                                    <div class="inner">
+                                    <div class="inner mb-4" style="padding-right: 1px;">
+                                    <h3 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_cambiosemalta); ?></strong></h3>
+                                        <p>Cambios de Semana de Alta</p>
+                                    </div>
+                                    <div class="icon">
+                                    <i class="fa-solid fa-calendar-plus"></i>
+                                    </div>
+                                    <a href="../admin/crudSolicitudCambioSemanaAlta.php" class="small-box-footer"><small>Solicitud Asesor en Espera</small> <i class="fas fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                        <?php } ?>
+
+                        <?php if ($super == 1 or $indCambioSemSolAlta == 1) { ?>
+                            <div class="col-lg-2 col-6">
+                                <div class="small-box bg-secondary">
+                                    <div class="inner" style="padding-right: 1px;">
+                                    <h3 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_cambiosemsolalta); ?></strong></h3>
+                                        <p>Cambios de Semana de Solicitud de Alta</p>
+                                    </div>
+                                    <div class="icon">
+                                    <i class="fa-solid fa-calendar-plus"></i>
+                                    </div>
+                                    <a href="../admin/crudSolicitudCambioSemanaSolAlta.php" class="small-box-footer"><small>Solicitud Asesor en Espera</small> <i class="fas fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                        <?php } ?>
+
+                        <?php if ($super == 1 or $indCambioPlacas == 1) { ?>
+                            <div class="col-lg-2 col-6">
+                                <div class="small-box bg-secondary">
+                                    <div class="inner mb-3" style="padding-right: 1px;">
                                         <h3><?php echo mysqli_num_rows($count_reg_cambioplacas); ?></h3>
                                         <p>Cambios de Placas</p>
                                     </div>
@@ -147,14 +198,14 @@ while ($row = $resultado->fetch_assoc()) {
                         <?php } ?>
 
                         <?php if ($super == 1 or $indSinComSupPlacas == 1) { ?>
-                            <div class="col-lg-2 col-4">
+                            <div class="col-lg-2 col-6">
                                 <div class="small-box bg-secondary">
-                                    <div class="inner">
-                                        <h5 style="margin-bottom: 0px;"><strong><?php echo $rowSP['sin_comPlacas'] ?></strong></h5>
+                                    <div class="inner" style="padding-right: 1px;">
+                                        <h4 style="margin-bottom: 0px;"><strong><?php echo $rowSP['sin_comPlacas'] ?></strong></h5>
                                         <p style="margin-bottom: 0px;">Sin Comprobar Placas</p>
-                                        <h5 style="margin-bottom: 0px;"><strong><?php echo $rowSP['sin_comSuperPlaca']?></strong></h5>
+                                        <h4 style="margin-bottom: 0px;"><strong><?php echo $rowSP['sin_comSuperPlaca'] ?></strong></h4>
                                         <p style="margin-bottom: 0px;">Sin Supervisar Placas</p>
-                                    </div> 
+                                    </div>
                                     <div class="icon">
                                         <i class="fa-solid fa-ban"></i>
                                     </div>
@@ -163,41 +214,23 @@ while ($row = $resultado->fetch_assoc()) {
                             </div>
                         <?php } ?>
 
-
-                        <div class="col-lg-2 col-4">
-                            <div class="small-box bg-secondary">
-                                <div class="inner">
-                                    <h3>1</h3>
-                                    <p>Vehículos</p>
+                        <?php if ($super == 1 or $indVehSinAsignarAsesor == 1) { ?>
+                            <div class="col-lg-2 col-6">
+                                <div class="small-box bg-secondary">
+                                    <div class="inner mb-4" style="padding-right: 1px;">
+                                    <h3 style="margin-bottom: 0px;"><strong><?php echo $rowSA['sin_Asesor'] ?></strong></h3>
+                                        <p>Vehículos sin Asignar Asesor</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-user-xmark"></i>
+                                    </div>
+                                    <a href="../admin/crudComprobacionAsignarAsesor.php" class="small-box-footer"><small>Solicitud Placas en Espera</small> <i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
-                                <div class="icon">
-                                    <i class="fa-solid fa-car-crash"></i>
-                                </div>
-                                <?php if ($passUser == 'SIN_PASSWORD') {
-                                    echo '';
-                                } else {
-                                    echo '<a href="crudVehiculos.php" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
-                                } ?>
                             </div>
-                        </div>
+                        <?php } ?>
 
-                        <div class="col-lg-2 col-4">
-                            <div class="small-box bg-secondary">
-                                <div class="inner">
-                                    <h3>1</h3>
-                                    <p>Clientes</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa-solid fa-user-tie"></i>
-                                </div>
-                                <?php if ($passUser == 'SIN_PASSWORD') {
-                                    echo '';
-                                } else {
-                                    echo '<a href="crudClientes.php" class="small-box-footer">Ver info <i class="fas fa-arrow-circle-right"></i></a>';
-                                } ?>
-                            </div>
-                        </div>
                     </div>
+
                 </div>
             </section>
             <!-- /small box-->

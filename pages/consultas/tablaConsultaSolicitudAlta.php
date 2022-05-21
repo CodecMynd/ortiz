@@ -44,7 +44,7 @@ require '../components/head-dataTables.php';
             <?php
             $idP = $_GET['id'];
             $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, V.placa, M.marca, Mo.modelo, 
-            A.anio, R.id_regSolicitud, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.borrado, R.fecha_creacion, 
+            A.anio, R.id_regSolicitud, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.descripcionFinal, R.borrado, R.fecha_creacion, 
             Co.color, S.semana, U.nombres, U.aPaterno, U.aMaterno,
             TA.tecArmador, TM1.tecMontador AS TM1, TM2.tecMontador AS TM2, TM3.tecMontador AS TM3, TM4.tecMontador AS TM4
             FROM proyectos P 
@@ -62,12 +62,13 @@ require '../components/head-dataTables.php';
             INNER JOIN tecmontadores TM2 ON R.tecMontador2 = TM2.id_tecMontador
             INNER JOIN tecmontadores TM3 ON R.tecMontador3 = TM3.id_tecMontador
             INNER JOIN tecmontadores TM4 ON R.tecMontador4 = TM4.id_tecMontador
-            WHERE P.registroSolicitud = 1 AND R.borrado = 0 ORDER BY fecha_creacion DESC";
+            WHERE P.id_proyecto = $idP and P.registroSolicitud = 1 AND R.borrado = 0 ORDER BY fecha_creacion DESC";
             $respuesta = mysqli_query($conexion, $query);
             $row = $respuesta->fetch_assoc();
             $capturista = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
             $inspecCalidad = $row['inspecCalidad'];
             $observCliente = $row['observCliente'];
+            $descripcionFinal = $row['descripcionFinal'];
             $tecArmador = $row['tecArmador']; 
             $TM1 = $row['TM1']; 
             $TM2 = $row['TM2']; 
@@ -182,6 +183,19 @@ require '../components/head-dataTables.php';
                                                                         <span class='input-group-text'><i class='fa-solid fa-comment'></i></span>
                                                                     </div>
                                                                     <textarea name='observCliente' id='observCliente' class='form-control' rows='4' placeholder='Agrega alguna breve Observación para nuestro Cliente' maxlength='300' required readonly><?php echo $observCliente; ?></textarea>
+                                                                </div>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class='col-md-12 col-sm-12 my-1'>
+                                                        <div class='form-group-input'>
+                                                            <label class='ml-5 mb-2'>*Descripción Final de Servicio Realizado al Vehículo</label>
+                                                            <span data-toggle='tooltip' title='max. 300 caracteres'>
+                                                                <div class='input-group'>
+                                                                    <div class='input-group-prepend'>
+                                                                        <span class='input-group-text'><i class='fa-solid fa-comment'></i></span>
+                                                                    </div>
+                                                                    <textarea name='descripcionFinal' id='descripcionFinal' class='form-control' rows='4' placeholder='Agrega Agrega Descripción Final de (los) Servicio(s) Realizado(s) al Vehículo' maxlength='300' required readonly><?php echo $descripcionFinal; ?></textarea>
                                                                 </div>
                                                             </span>
                                                         </div>

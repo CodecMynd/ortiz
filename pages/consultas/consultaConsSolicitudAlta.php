@@ -5,7 +5,7 @@ if ($super == 1 or $consSolAltaProy == 1) {
 	$query = "SELECT R.folioRegSolicitud, R.id_regSolicitud, R.valorVentaAlta, R.fecha_creacion, R.borrado,
 	P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, 
 	V.placa, Co.color, M.marca, Mo.modelo, A.anio, S.semana,
-    RA.folioRegAlta
+    MAX(RA.folioRegAlta) AS folioRegAlta
 	FROM registrosolicitudbitacora R
 	LEFT JOIN proyectos P ON R.id_proyecto = P.id_proyecto
 	LEFT JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
@@ -15,7 +15,7 @@ if ($super == 1 or $consSolAltaProy == 1) {
 	LEFT JOIN anios A ON V.id_anio = A.id_anio
 	LEFT JOIN semanasolalta S ON R.id_semana = S.id_semSolAlta
     LEFT JOIN registroaltabitacora RA ON P.id_proyecto = RA.id_proyecto
-	ORDER BY R.id_regSolicitud DESC";
+    GROUP BY R.folioRegSolicitud ORDER BY R.fecha_creacion DESC";
 } else {
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";

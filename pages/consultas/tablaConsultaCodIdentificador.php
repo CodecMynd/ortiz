@@ -44,7 +44,7 @@ require '../components/head-dataTables.php';
             <!-- consulta sql -->
             <?php
             $idP = $_GET['id'];
-            $query = "SELECT P.id_proyecto, P.nProyecto, RS.folioRegSolicitud, RS.inspecCalidad, RS.observCliente, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, LV.link, RC.borrado, RC.folioCodID,
+            $query = "SELECT P.id_proyecto, P.nProyecto, RS.folioRegSolicitud, RS.inspecCalidad, RS.observCliente, RS.descripcionFinal, RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, LV.link, RC.borrado, RC.folioCodID,
             RS.fecha_creacion AS regSolfecha,
             RA.fecha_creacion AS regAltaFecha,
             RC.fecha_creacion AS regCodIdFechas,
@@ -77,7 +77,7 @@ require '../components/head-dataTables.php';
                         <div class="col-md-12 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Proyecto Generales de Registro Código Identificador en el sistema, Número de Proyecto <strong><?php echo $row['nProyecto']?></strong></h3>
+                                    <h3 class="card-title">Proyecto Generales de Registro Código Identificador en el sistema, Número de Proyecto <strong><?php echo $row['nProyecto'] ?></strong></h3>
                                     <div class="card-tools">
                                         <a href="javascript:history.go(-1)" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
@@ -437,6 +437,19 @@ require '../components/head-dataTables.php';
                                                                     <span class='input-group-text'><i class='fa-solid fa-comment'></i></span>
                                                                 </div>
                                                                 <textarea name='observCliente' id='observCliente' class='form-control' rows='4' placeholder='Agrega alguna breve Observación para nuestro Cliente' readonly><?php echo $row['observCliente']; ?></textarea>
+                                                            </div>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class='col-md-12 col-sm-12 my-1'>
+                                                    <div class='form-group-input'>
+                                                        <label class='ml-5 mb-2'>*Descripción Final de Servicio Realizado al Vehículo</label>
+                                                        <span data-toggle='tooltip' title='max. 300 caracteres'>
+                                                            <div class='input-group'>
+                                                                <div class='input-group-prepend'>
+                                                                    <span class='input-group-text'><i class='fa-solid fa-comment'></i></span>
+                                                                </div>
+                                                                <textarea name='descripcionFinal' id='descripcionFinal' class='form-control' rows='4' placeholder='Agrega Agrega Descripción Final de (los) Servicio(s) Realizado(s) al Vehículo' maxlength='300' required readonly><?php echo $row['descripcionFinal']; ?></textarea>
                                                             </div>
                                                         </span>
                                                     </div>

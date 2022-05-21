@@ -43,8 +43,8 @@ require '../components/head-dataTables.php';
             <!-- Table Comprobcion de placas -->
             <?php
             $idP = $_GET['id'];
-            	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.altaProyecto, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio, 
-                R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.fecha_creacion AS regSolFecha_creacion, 
+            $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.altaProyecto, P.valorVenta, V.placa, M.marca, Mo.modelo, A.anio, 
+                R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.descripcionFinal, R.fecha_creacion AS regSolFecha_creacion, 
                 RA.id_regAlta, RA.folioRegAlta, RA.observAudiFinal, RA.cronometro, LV.link, RA.fecha_creacion AS regAltaFecha_creacion, 
                 Co.color, S.semana, 
                 U.nombres AS regAltaNombre, U.aPaterno AS regAltaPaterno, U.aMaterno AS regAltaMaterno, Us.nombres AS regSolNombres, Us.aPaterno AS regSolPaterno, Us.aMaterno AS regSolMaterno
@@ -62,13 +62,13 @@ require '../components/head-dataTables.php';
                 INNER JOIN usuarios U ON RA.id_capC = U.id_usuario
                 INNER JOIN usuarios Us ON R.id_capC = Us.id_usuario
                 WHERE altaProyecto = 1 AND P.id_proyecto = $idP ORDER BY nProyecto DESC";
-                $respuesta = mysqli_query($conexion, $query);
-                $row = $respuesta->fetch_assoc();
-  
-                $regAltaCapturista = $row['regAltaNombre'] . ' ' . $row['regAltaPaterno'] . ' ' . $row['regAltaMaterno'];
-                $regAltaFecha_creacion = $row['regAltaFecha_creacion'];
-                $regSolCapturista = $row['regSolNombres'] . ' ' . $row['regSolPaterno'] . ' ' . $row['regSolMaterno'];
-                $regSolFecha_creacion = $row['regSolFecha_creacion'];
+            $respuesta = mysqli_query($conexion, $query);
+            $row = $respuesta->fetch_assoc();
+
+            $regAltaCapturista = $row['regAltaNombre'] . ' ' . $row['regAltaPaterno'] . ' ' . $row['regAltaMaterno'];
+            $regAltaFecha_creacion = $row['regAltaFecha_creacion'];
+            $regSolCapturista = $row['regSolNombres'] . ' ' . $row['regSolPaterno'] . ' ' . $row['regSolMaterno'];
+            $regSolFecha_creacion = $row['regSolFecha_creacion'];
             ?>
             <section class="content">
                 <div class="container-fluid">
@@ -201,6 +201,19 @@ require '../components/head-dataTables.php';
                                                                     <span class='input-group-text'><i class='fa-solid fa-comment'></i></span>
                                                                 </div>
                                                                 <textarea name='observCliente' id='observCliente' class='form-control' rows='4' placeholder='Agrega alguna breve Observación para nuestro Cliente' readonly><?php echo $row['observCliente']; ?></textarea>
+                                                            </div>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class='col-md-12 col-sm-12 my-1'>
+                                                    <div class='form-group-input'>
+                                                        <label class='ml-5 mb-2'>*Descripción Final de Servicio Realizado al Vehículo</label>
+                                                        <span data-toggle='tooltip' title='max. 300 caracteres'>
+                                                            <div class='input-group'>
+                                                                <div class='input-group-prepend'>
+                                                                    <span class='input-group-text'><i class='fa-solid fa-comment'></i></span>
+                                                                </div>
+                                                                <textarea name='descripcionFinal' id='descripcionFinal' class='form-control' rows='4' placeholder='Agrega alguna breve Observación para nuestro Cliente' maxlength='300' required readonly><?php echo $row['descripcionFinal'] ?></textarea>
                                                             </div>
                                                         </span>
                                                     </div>

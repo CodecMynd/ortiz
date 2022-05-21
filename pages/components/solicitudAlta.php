@@ -18,8 +18,8 @@ ob_start();
     <link rel="apple-touch-icon" href="../../src/img/logos/favicon.png" type="image/gif">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="../../plugins/bootstrap/bootstrap-5.0.2.min.css">
-    <script src="../../plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="../../plugins/bootstrap/bootstrap-5.0.2.min.css">
+    <script src="../../plugins/bootstrap/bootstrap.min.js"></script> -->
     <style>
         /** 
                 Establezca los márgenes de la página en 0, por lo que el pie de página y el encabezado
@@ -63,6 +63,19 @@ ob_start();
             font-size: 12px;
             font-weight: 100;
             font-family: sans-serif;
+        }
+
+        .textArea {
+            width: 17.7em;
+            height: 70px;
+            outline: 0;
+            border-width: 0 0 .5px;
+            border-color: gray;
+            font-size: 13px;
+            font-weight: 100;
+            margin-bottom: 20px;
+            font-family: sans-serif;
+            padding-bottom: 10px;
         }
 
         .inputRespG {
@@ -213,7 +226,8 @@ ob_start();
     </style>
 </head>
 <?php
-require '../components/head-main.php';
+// require '../components/head-main.php';
+require '../components/queryDomPdf.php';
 
 $id_proyecto = $_GET['id'];
 // $id_proyecto = 1;
@@ -226,7 +240,7 @@ $id_proyecto = $_GET['id'];
 
 $query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, 
 V.placa, M.marca, Mo.modelo,A.anio, C.color,
-RS.folioRegSolicitud,RS.valorVentaAlta,RS.fecha_creacion, RS.inspecCalidad,RS.observCliente,
+RS.folioRegSolicitud,RS.valorVentaAlta,RS.fecha_creacion, RS.inspecCalidad, RS.observCliente, RS.descripcionFinal,
 S.semana, U.nombres, U.aPaterno, U.aMaterno,
 TA.tecArmador, TM1.tecMontador AS TM1, TM2.tecMontador AS TM2, TM3.tecMontador AS TM3, TM4.tecMontador AS TM4
 FROM proyectos P 
@@ -361,19 +375,17 @@ $valorVentaAlta = $row['valorVentaAlta'];
                         </tr>
                     </tbody>
                 </table>
-                <table class="table table-sm">
+                <table class="table table-sm recuadro">
                     <tbody>
                         <tr>
                             <td>Observación Inspección de Control de Calidad</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><textarea cols="160" rows="2"><?php echo $row['inspecCalidad'] ?></textarea></td>
-                        </tr>
-                        <tr>
                             <td>Observaciones Para el Cliente</td>
+                            <td>Descripción Final de Servicio Realizado al Vehículo</td>
                         </tr>
                         <tr>
-                            <td colspan="2"><textarea cols="160" rows="2"><?php echo $row['observCliente'] ?></textarea></td>
+                            <td><input type="text" class="textArea" value="<?php echo $row['inspecCalidad'] ?>"></td>
+                            <td><input type="text" class="textArea" value="<?php echo $row['observCliente'] ?>"></td>
+                            <td><input type="text" class="textArea" value="<?php echo $row['descripcionFinal'] ?>"></td>
                         </tr>
                     </tbody>
                 </table>

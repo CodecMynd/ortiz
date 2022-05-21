@@ -31,7 +31,7 @@ require '../components/head-main.php';
                 WHERE P.id_proyecto = '$id_proyecto' and I.borrado = 0";
                 $resultado = mysqli_query($conexion, $query);
                 ?>
-                <table id="tableSm" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                 <table id="tableVarios1" class="table table-sm table-bordered table-striped" style="width: 100%;">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -140,3 +140,4 @@ require '../components/head-main.php';
         </div>
     </div>
 </div>
+<script src="../ajax/tableVarios.js"></script>

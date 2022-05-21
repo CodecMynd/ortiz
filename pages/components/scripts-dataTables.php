@@ -598,8 +598,8 @@
             "lengthChange": true,
             "autoWidth": true,
             "select": true,
-            "select":{
-                style:'multi'
+            "select": {
+                style: 'multi'
             },
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
@@ -631,8 +631,8 @@
                     "sortAscending": "Activar para ordenar la columna de manera ascendente",
                     "sortDescending": "Activar para ordenar la columna de manera descendente"
                 },
-                "select":{
-                    "rows":{
+                "select": {
+                    "rows": {
                         _: "Usted Selecciono %d registros",
                         0: "Haga clic en una registro para selecionarlo",
                         1: "Solo 1 registro seleccionado"
@@ -684,7 +684,10 @@
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
-
+            "select": true,
+            "select": {
+                style: 'multi'
+            },
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {

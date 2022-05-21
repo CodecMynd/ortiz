@@ -55,7 +55,7 @@ require '../components/head-main.php';
                 </table>
                 <br>
                 <hr>
-                <h5 class="text-center"><strong> Solicitud(es) de Pieza(s)</strong></h5>
+                <h5 class="text-center"><strong> Registros Comprobación y Supervisión de Verificación Diaria de Baterías</strong></h5>
                 <?php
                 $cont = 0;
                 $query = "SELECT P.id_proyecto, P.nProyecto, 
@@ -71,7 +71,7 @@ require '../components/head-main.php';
                 $resultado = mysqli_query($conexion, $query);
                 ?>
                 <div id="table_refresh">
-                    <table id="tablePermisos" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                    <table id="tableVarios1" class="table table-responsive table-sm table-bordered table-striped" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -158,3 +158,4 @@ require '../components/head-main.php';
         </div>
     </div>
 </div>
+<script src="../ajax/tableVarios.js"></script>

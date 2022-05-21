@@ -142,7 +142,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-footer" style="height: 50px;">
                                     <marquee width="100%" behavior="alternate">
                                         <marquee behavior="alternate">
-                                            <p>Consulta optimizada, ultima actualización: <strong>05/05/2022</strong></p>
+                                            <p>Consulta optimizada, ultima actualización: <strong>20/05/2022</strong></p>
                                         </marquee>
                                     </marquee>
                                 </div>
@@ -191,6 +191,8 @@ require '../components/head-dataTables.php';
                                                 <th>Suma Total Costo Crédito</th>
                                                 <th>Suma Total Costo Contado</th>
                                                 <th>Gran Total Costo</th>
+                                                <th>Fecha Registro Link Desarmado</th>
+                                                <th>Fecha Eliminación Link Desarmado</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -212,6 +214,8 @@ require '../components/head-dataTables.php';
                                                 <th class="suma"></th>
                                                 <th class="suma"></th>
                                                 <th class="suma"></th>
+                                                <th>Fecha Registro Link Desarmado</th>
+                                                <th>Fecha Eliminación Link Desarmado</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>

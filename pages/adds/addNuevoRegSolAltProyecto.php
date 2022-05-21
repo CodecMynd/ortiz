@@ -23,6 +23,7 @@ $valorVentaAlta = $_POST['valorVentaAlta'];
 $id_semana = (!empty($_POST['id_semSolAlta'])) ? $_POST['id_semSolAlta'] : '0';
 $inspecCalidad = $_POST['inspecCalidad'];
 $observCliente = $_POST['observCliente'];
+$descripcionFinal = $_POST['descripcionFinal'];
 $tecArmador = $_POST['tecArmador'];
 $tecMontador1 = $_POST['tecMontador1'];
 $tecMontador2 = (!empty($_POST['tecMontador2'])) ? $_POST['tecMontador2'] : 1;
@@ -72,7 +73,7 @@ if ($row['estadoProyectoEliminado'] == 0) {
     try {
         $conexion->autocommit(FALSE);
         // Insertamos tabla registrosolicitud
-        $query = "INSERT INTO registrosolicitud(folioRegSolicitud, id_proyecto, valorVentaAlta, id_semana, inspecCalidad, observCliente, tecArmador, tecMontador1, tecMontador2, tecMontador3, tecMontador4, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegSolicitud', $id_proyecto, '$valorVentaAlta', $id_semana, '$inspecCalidad', '$observCliente', '$tecArmador', '$tecMontador1', '$tecMontador2', '$tecMontador3', '$tecMontador4', $borrado, '$status', '$date', $id)";
+        $query = "INSERT INTO registrosolicitud(folioRegSolicitud, id_proyecto, valorVentaAlta, id_semana, inspecCalidad, observCliente, descripcionFinal, tecArmador, tecMontador1, tecMontador2, tecMontador3, tecMontador4, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegSolicitud', $id_proyecto, '$valorVentaAlta', $id_semana, '$inspecCalidad', '$observCliente', '$descripcionFinal', '$tecArmador', '$tecMontador1', '$tecMontador2', '$tecMontador3', '$tecMontador4', $borrado, '$status', '$date', $id)";
 
         $verificar_id = mysqli_query($conexion, "SELECT id_proyecto FROM registrosolicitud WHERE id_proyecto = '$id_proyecto' ");
         if (mysqli_num_rows($verificar_id) > 0) {
@@ -87,7 +88,7 @@ if ($row['estadoProyectoEliminado'] == 0) {
         }
 
         // Insertamos tabla registrosolicitudbitacora
-        $query1 = "INSERT INTO registrosolicitudbitacora(folioRegSolicitud, id_proyecto, valorVentaAlta, id_semana, inspecCalidad, observCliente, tecArmador, tecMontador1, tecMontador2, tecMontador3, tecMontador4, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegSolicitud', $id_proyecto, '$valorVentaAlta', $id_semana, '$inspecCalidad', '$observCliente', '$tecArmador', '$tecMontador1', '$tecMontador2', '$tecMontador3', '$tecMontador4', $borrado, '$status', '$date', $id)";
+        $query1 = "INSERT INTO registrosolicitudbitacora(folioRegSolicitud, id_proyecto, valorVentaAlta, id_semana, inspecCalidad, observCliente, descripcionFinal, tecArmador, tecMontador1, tecMontador2, tecMontador3, tecMontador4, borrado, status, fecha_creacion, id_capC) VALUES ( '$folioRegSolicitud', $id_proyecto, '$valorVentaAlta', $id_semana, '$inspecCalidad', '$observCliente', '$descripcionFinal', '$tecArmador', '$tecMontador1', '$tecMontador2', '$tecMontador3', '$tecMontador4', $borrado, '$status', '$date', $id)";
         $resultado1 = mysqli_query($conexion, $query1);
         // var_dump($queryR);
 

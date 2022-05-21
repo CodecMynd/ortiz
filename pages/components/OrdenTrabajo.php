@@ -18,8 +18,8 @@ ob_start();
     <link rel="apple-touch-icon" href="../../src/img/logos/favicon.png" type="image/gif">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="../../plugins/bootstrap/bootstrap-5.0.2.min.css">
-    <script src="../../plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="../../plugins/bootstrap/bootstrap-5.0.2.min.css">
+    <script src="../../plugins/bootstrap/bootstrap.min.js"></script> -->
     <style>
         /** 
                 Establezca los márgenes de la página en 0, por lo que el pie de página y el encabezado
@@ -203,7 +203,8 @@ ob_start();
     </style>
 </head>
 <?php
-require '../components/head-main.php';
+// require '../components/head-main.php';
+require '../components/queryDomPdf.php';
 
 $id_proyecto = $_GET['id'];
 // $id_proyecto = 1;

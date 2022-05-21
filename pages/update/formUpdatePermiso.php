@@ -113,6 +113,42 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </button>
                                                                         </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-chart-line"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">0.4 Estatus Cambios de Semana de Alta</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="indCambioSemAlta" id="indCambioSemAlta" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" value="1" <?php if ($rowPer['indCambioSemAlta'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-chart-line"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">0.5 Estatus Cambios de Semana de Solicitud de Alta</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="indCambioSemSolAlta" id="indCambioSemSolAlta" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" value="1" <?php if ($rowPer['indCambioSemSolAlta'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-chart-line"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">0.6 Estatus Vehículos sin Asignar Asesor</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="indVehSinAsignarAsesor" id="indVehSinAsignarAsesor" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" value="1" <?php if ($rowPer['indVehSinAsignarAsesor'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
 
                                                                     </div>
                                                                 </div>
@@ -480,6 +516,7 @@ require '../components/head-main.php';
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <div class="row justify-content-center">
+                                                                        <!-- 1.6.1 Semanas Alta -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -532,6 +569,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <!-- 1.6.2 Semanas Cobro -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -585,6 +623,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <!-- 1.6.3 Semanas de Solicitud de Alta -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -761,6 +800,7 @@ require '../components/head-main.php';
                                                                 </div>
                                                                 <div class="card-body ">
                                                                     <div class="row justify-content-center">
+                                                                    <!-- 1.9.1 Técnico Armador -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -825,6 +865,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <!-- 1.9.2 Técnico Montador -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -1298,6 +1339,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <!-- 2.3.2.2 Verificación Diaria Vehículos Activos -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -1386,6 +1428,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <!-- 2.3.3 Verificación Diaria de Baterías -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -1498,7 +1541,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-
+                                                                        <!-- 2.3.4 Actividad Mínima Diaria  -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -1588,7 +1631,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-
+                                                                        <!-- 2.3.5 Asignación de Top -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -1653,6 +1696,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <!-- 2.3.6 Programa de Asesoramiento Técnico -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -1717,6 +1761,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <!-- 2.3.6.1 Seguimiento Diario Programa de Asesoramiento Técnico -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -1806,6 +1851,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <!-- 2.3.7 Captura de Valor Venta Inicial -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -1870,6 +1916,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <!-- 2.3.9.1 Comprobación de Placas -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -1958,6 +2005,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <!-- 2.3.9.2 Solicitud Cambio de Placas -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -2023,6 +2071,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <!-- 2.3.10 Comprobación de Kilometraje -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -2111,7 +2160,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-
+                                                                        <!-- 2.3.11 Comprobación de 7 Imagenes -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -2200,6 +2249,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <!-- 2.3.12 Comprobación de INE Clientes -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -2288,6 +2338,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <!-- 2.3.13 Comprobación de Documentación Firmada Ingreso de Vehículos -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -2376,6 +2427,7 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <!-- 2.3.14 Comprobación de Garantia -->
                                                                         <div class="col-md-12 col-sm-12 col-12">
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -2705,7 +2757,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">2.3.17.1 Solicitar Cambio Semana de Alta</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="solCamSemanaAltas" id="solCamSemanaAltas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['solCamSemanaAltas'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -2717,7 +2769,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">2.3.17.2 Registrar Autorización Cambio Semana de Alta</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="cambioSolSemAltaAutorizar" id="cambioSolSemAltaAutorizar" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['cambioSolSemAltaAutorizar'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -2730,7 +2782,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">2.3.17.3 Ver Generales Solicitud Cambio Semana de Alta</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="verGralcambioSemAltaAutorizar" id="verGralcambioSemAltaAutorizar" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralcambioSemAltaAutorizar'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -2742,7 +2794,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">2.3.17.4 Ver tabla Solicitud Cambio Semana de Alta</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="verTablaSolCamSemanaAltas" id="verTablaSolCamSemanaAltas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaSolCamSemanaAltas'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>

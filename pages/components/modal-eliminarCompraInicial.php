@@ -11,9 +11,9 @@
                 </strong>
             </div>
             <form id="formDeleteCompraInicial">
-                <input type="text" name="id_regCompraInicial4" id="id_regCompraInicial4">
-                <input type="text" name="id_solPzsDanadas4" id="id_solPzsDanadas4">
-                <input type="text" name="folio_solicitud4" id="folio_solicitud4">
+                <input type="hidden" name="id_regCompraInicial4" id="id_regCompraInicial4">
+                <input type="hidden" name="id_solPzsDanadas4" id="id_solPzsDanadas4">
+                <input type="hidden" name="folio_solicitud4" id="folio_solicitud4">
 
                 <div class="modal-footer text-left">
                     <button type="button" id="btnDeleteCompraInicial" class="btn btn-secondary"><i class="fa-solid fa-trash-alt"></i> Eliminar</button>

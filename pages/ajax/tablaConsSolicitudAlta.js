@@ -4,8 +4,8 @@
             "lengthChange": true,
             "autoWidth": true,
             "select": true,
-            "select":{
-                style:'multi'
+            "select": {
+                style: 'multi'
             },
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
@@ -13,7 +13,7 @@
                 url: "../consultas/consultaConsSolicitudAlta.php",
                 type: "get",
                 dataType: "json",
-                error: function(e) {
+                error: function (e) {
                     console.log(e.responseText);
                 }
             },
@@ -27,11 +27,12 @@
                 }
             },
             "columnDefs": [{
-                searchPanes: {
-                    show: true
+                    searchPanes: {
+                        show: true
+                    },
+                    targets: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
                 },
-                targets: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-            }],
+            ],
             "language": {
 
                 "aria": {
@@ -78,7 +79,7 @@
 
             },
 
-            "drawCallback": function() {
+            "drawCallback": function () {
                 //alert("La tabla se está recargando"); 
                 var api = this.api();
                 $(api.column(13).footer()).html(

@@ -5,11 +5,11 @@ var tableConsultaBitacoraSolPiezas = $("#tableConsultaBitacoraSolPiezas").DataTa
     "lengthChange": true,
     "autoWidth": true,
     "select": true,
-    "select":{
-        style:'multi'
+    "select": {
+        style: 'multi'
     },
     "dom": 'PlBfrtip',
-    "buttons": ["csv", "excel", "pdf"],
+    "buttons": ["csv", "excel", "pdf", "colvis"],
     "ajax": {
         url: "../consultas/consultaBitacoraSolPiezas.php",
         type: "get",
@@ -29,9 +29,9 @@ var tableConsultaBitacoraSolPiezas = $("#tableConsultaBitacoraSolPiezas").DataTa
     },
     "columnDefs": [{
         searchPanes: {
-            show: false
+            show: true
         },
-        targets: [0, 1],
+        targets: [2,3,4,5,6,7,8,9,10,11,12,13],
     }],
     "language": {
 
@@ -78,39 +78,53 @@ var tableConsultaBitacoraSolPiezas = $("#tableConsultaBitacoraSolPiezas").DataTa
         "zeroRecords": "No se encontraron coincidencias"
 
     },
-    "drawCallback": function () {
-        //alert("La tabla se está recargando"); 
-        var api = this.api();
-        $(api.column(18).footer()).html(
-            'Total: ' + api.column(18, {
-                page: 'current'
-            }).data().sum()
-        )
-        var api2 = this.api();
-        $(api2.column(19).footer()).html(
-            'Total: ' + api2.column(19, {
-                page: 'current'
-            }).data().sum()
-        )
-    },            
-    "createdRow": function(row, data, index) {
-        if (data[18] >= '0') {
-            $('td', row).eq(18).css({
-                'text-align':'center',
+     "drawCallback": function () {
+         //alert("La tabla se está recargando"); 
+         var api = this.api();
+         $(api.column(11).footer()).html(
+             'Total: ' + api.column(11, {
+                 page: 'current'
+             }).data().sum()
+         )
+         var api2 = this.api();
+         $(api2.column(12).footer()).html(
+             'Total: ' + api2.column(12, {
+                 page: 'current'
+             }).data().sum()
+         )
+         var api2 = this.api();
+         $(api2.column(13).footer()).html(
+             'Total: ' + api2.column(13, {
+                 page: 'current'
+             }).data().sum()
+         )
+     },
+     "createdRow": function (row, data, index) {
+         if (data[11] > '0') {
+             $('td', row).eq(11).css({
+                 'text-align': 'center',
+                 'background-color': '#5A6268',
+                 'color': '#fff',
+                 'font-weight': 'bold'
+             });
+         }
+         if (data[12] > '0') {
+             $('td', row).eq(12).css({
+                 'text-align': 'center',
+                 'background-color': '#5A6268',
+                 'color': '#fff',
+                 'font-weight': 'bold'
+             });
+         }
+         if (data[13] >= '0') {
+            $('td', row).eq(13).css({
+                'text-align': 'center',
                 'background-color': '#5A6268',
                 'color': '#fff',
                 'font-weight': 'bold'
             });
         }
-        if (data[19] >= '0') {
-            $('td', row).eq(19).css({
-                'text-align':'center',
-                'background-color': '#5A6268',
-                'color': '#fff',
-                'font-weight': 'bold'
-            });
-        }
-    },
+     },
 });
 // setInterval(function() {
 //     tableConsultaBitacora.ajax.reload(null, false); // user paging is not reset on reload

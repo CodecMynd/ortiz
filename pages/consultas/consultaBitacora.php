@@ -1,6 +1,6 @@
 <?php
-	require '../components/query.php'; 
-	if ($super == 1 or $verTablaBitacora == 1) {
+require '../components/query.php';
+if ($super == 1 or $verTablaBitacora == 1) {
 
 	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado, P.proyectoActivo,
 	P.registroSolicitud, P.altaProyecto, P.proyCodIdentificador, P.superCodIdentificador,
@@ -28,33 +28,33 @@
 $resultado = mysqli_query($conexion, $query);
 $cont = 0;
 
-	while ($row = $resultado->fetch_assoc()) {
-		$outputBtns1 = "";
-		$outputBtns2 = "";
-		$etapa = "";
-		$fechaBitacora = "";
-		$bitacora = "";
-		$capturista = "";
+while ($row = $resultado->fetch_assoc()) {
+	$outputBtns1 = "";
+	$outputBtns2 = "";
+	$etapa = "";
+	$fechaBitacora = "";
+	$bitacora = "";
+	$capturista = "";
 
-		$capturistaR = $row['nomR'].' '. $row['patR'].' '. $row['matR'];
-		$capturistaM = $row['nomM'].' '. $row['patM'].' '. $row['matM'];
-		$capturistaB = $row['nomB'].' '. $row['patB'].' '. $row['matB'];
+	$capturistaR = $row['nomR'] . ' ' . $row['patR'] . ' ' . $row['matR'];
+	$capturistaM = $row['nomM'] . ' ' . $row['patM'] . ' ' . $row['matM'];
+	$capturistaB = $row['nomB'] . ' ' . $row['patB'] . ' ' . $row['matB'];
 
-		$f_b = $row['fechar_borrado'];
-		$f_m = $row['fecha_modificacion'];
-		$f_r = $row['fecha_registro'];
+	$f_b = $row['fechar_borrado'];
+	$f_m = $row['fecha_modificacion'];
+	$f_r = $row['fecha_registro'];
 
-		
-		$Eliminado = $row['estadoProyectoEliminado'];
-		$e = $row['etapa'];
 
-	  // Etapa del proyecto
-	  $PA = $row['proyectoActivo'];
-	  $RS = $row['registroSolicitud'];
-	  $AP = $row['altaProyecto'];
-	  $CI = $row['proyCodIdentificador'];
-	  $SU = $row['superCodIdentificador'];
-	  if ($PA == 1) {
+	$Eliminado = $row['estadoProyectoEliminado'];
+	$e = $row['etapa'];
+
+	// Etapa del proyecto
+	$PA = $row['proyectoActivo'];
+	$RS = $row['registroSolicitud'];
+	$AP = $row['altaProyecto'];
+	$CI = $row['proyCodIdentificador'];
+	$SU = $row['superCodIdentificador'];
+	if ($PA == 1) {
 		$etapa = "<h6><span class='badge badge-success badge-pill'>Proyecto Activo</span></h6>";
 	} else if ($RS == 1) {
 		$etapa = "<h6><span class='badge badge-success badge-pill'>Solicitud Alta</span></h6>";
@@ -69,21 +69,21 @@ $cont = 0;
 	}
 
 	// Bitacora Fecha
-	if($e != ''){
+	if ($e != '') {
 		$bitacora = "<strong>$e</strong>";
-	}else{
+	} else {
 		$bitacora = "<h6><span class='badge badge-danger badge-pill'>N/A</span></h6>";
 	}
 
-	
+
 	// Bitacora Actividad
-	if(!empty($f_r)){
+	if (!empty($f_r)) {
 		$fechaBitacora = "<strong>$f_r</strong>";
-	}else if(!empty($f_m)){
+	} else if (!empty($f_m)) {
 		$fechaBitacora = "<strong>$f_m</strong>";
-	}else if(!empty($f_b)){
+	} else if (!empty($f_b)) {
 		$fechaBitacora = "<strong>$f_b</strong>";
-	}else{
+	} else {
 		$fechaBitacora = "<h6><span class='badge badge-danger badge-pill'>N/A</span></h6>";
 	}
 
@@ -95,37 +95,36 @@ $cont = 0;
 	}
 
 	// Capturista
-	if(!empty($capturistaR) OR !empty($capturistaM) OR !empty($capturistaB)){
-		$capturista = $capturistaR .' '.$capturistaM.' '.$capturistaB;
-	}else if((empty($row['id_capB']) OR $row['id_capB'] == 0 ) and (empty($row['id_capM']) OR $row['id_capM'] == 0) and  (empty($row['id_capR']) OR $row['id_capR'] == 0 )){
+	if (!empty($capturistaR) or !empty($capturistaM) or !empty($capturistaB)) {
+		$capturista = $capturistaR . ' ' . $capturistaM . ' ' . $capturistaB;
+	} else if ((empty($row['id_capB']) or $row['id_capB'] == 0) and (empty($row['id_capM']) or $row['id_capM'] == 0) and  (empty($row['id_capR']) or $row['id_capR'] == 0)) {
 		$capturista = "<h6><span class='badge badge-danger badge-pill'>N/A</span></h6>";
 	}
+	// $btnLink = "<a href='javascript:void(0)' onclick='mostarLink(\"" . $row['id_proyecto'] . "\")'><button type='button' class='btn btn-sm btn-secondary' data-toggle='tooltip' data-placement='left' title='Ver Informcaión del Link de Desarmado'><span class='badge badge-light'></span>Ver Link</button></a>";
 
-
-		$cont++;
-		$datos[] = array(
-			"0" => $cont,
-			"1" => "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>",
-			"2" => $row['nProyecto'],
-			"3" => $row['nOrden'],
-			"4" => $row['marca'],
-			"5" => $row['modelo'],
-			"6" => $row['anio'],
-			"7" => $row['placa'],
-			"8" => $row['color'],
-			"9" => $validaEstadoProyecto,
-			"10" => $etapa,
-			"11" => $bitacora,
-			"12" => $fechaBitacora,
-			"13" => "<strong>$capturista</strong>"
-
-		);
-	}
-
-	$resultados = array(
-	"sEcho"=>1, /* informacion para la herramienta datatables */
-	"iTotalRecords"=>count($datos), /* envía el total de columnas a la datatable */
-	"iTotalDisplayRecords"=>count($datos), /* envia el total de filas a visualizar */
-	"aaData"=>$datos /* envía el arreglo completo que se llenó con el while */
+	$cont++;
+	$datos[] = array(
+		"0" => $cont,
+		"1" => "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>",
+		"2" => $row['nProyecto'],
+		"3" => $row['nOrden'],
+		"4" => $row['marca'],
+		"5" => $row['modelo'],
+		"6" => $row['anio'],
+		"7" => $row['placa'],
+		"8" => $row['color'],
+		"9" => $validaEstadoProyecto,
+		"10" => $etapa,
+		"11" => $bitacora,
+		"12" => $fechaBitacora,
+		"13" => "<strong>$capturista</strong>"
 	);
-	echo json_encode($resultados);
+}
+
+$resultados = array(
+	"sEcho" => 1, /* informacion para la herramienta datatables */
+	"iTotalRecords" => count($datos), /* envía el total de columnas a la datatable */
+	"iTotalDisplayRecords" => count($datos), /* envia el total de filas a visualizar */
+	"aaData" => $datos /* envía el arreglo completo que se llenó con el while */
+);
+echo json_encode($resultados);

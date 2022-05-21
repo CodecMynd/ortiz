@@ -41,13 +41,9 @@ require '../components/head-dataTables.php';
                                     <div class="card-header border-nav">
                                         <h3 class="card-title">Supervisión de Registro Código Identificador</h3>
                                         <div class="card-tools">
-                                            <?php
-                                            if ($super == 1) {
-                                            } else if ($regSuperCodIdentificador == 1) {
-                                            } else {
-                                                echo ' <a type="button" id="regAlta" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="left" title="2.4.2  Registro de Proyecto"><i class="fa-solid fa-eye-slash"></i>&nbsp;&nbsp; Registro de Proyecto</a>';
-                                            } ?>
-                                        </div>
+                                        <a href="javascript:history.go(-1)" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Regresar página anterior"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
+                                        <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                    </div>
                                     </div>
                                     <div class="card-body">
                                         <div class="row justify-content-center">

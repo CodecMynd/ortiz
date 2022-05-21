@@ -18,8 +18,8 @@ ob_start();
     <link rel="apple-touch-icon" href="../../src/img/logos/favicon.png" type="image/gif">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="../../plugins/bootstrap/bootstrap-5.0.2.min.css">
-    <script src="../../plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="../../plugins/bootstrap/bootstrap-5.0.2.min.css">
+    <script src="../../plugins/bootstrap/bootstrap.min.js"></script> -->
     <style>
         /** 
                 Establezca los márgenes de la página en 0, por lo que el pie de página y el encabezado
@@ -143,7 +143,7 @@ ob_start();
 
         textarea {
             width: 52em;
-            height: 55px;
+            height: 35px;
             border: none;
             border-bottom: .5px solid gray;
             font-size: 14px;
@@ -202,12 +202,17 @@ ob_start();
 
 </head>
 <?php
-require '../components/head-main.php';
+// require '../components/head-main.php';
+require '../components/queryDomPdf.php';
 
 $id_proyecto = $_GET['id'];
 // $id_proyecto = 1;
 
-$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, V.placa, M.marca, Mo.modelo, A.anio, Co.color, R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, RA.fecha_creacion, RA.observAudiFinal, S.semana, RA.folioRegAlta, LV.link 
+$query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, 
+P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2,
+V.placa, M.marca, Mo.modelo, A.anio, Co.color, 
+R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.descripcionFinal,
+RA.fecha_creacion, RA.observAudiFinal, S.semana, RA.folioRegAlta, LV.link 
 FROM proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto 
@@ -361,7 +366,13 @@ $valorVentaAlta = $row['valorVentaAlta'];
                             <td style="width: 20em">Observaciones Prueba Auditoria Final</td>
                         </tr>
                         <tr>
-                            <td colspan="4"><textarea cols="160" rows="4"><?php echo $row['observAudiFinal'] ?></textarea></td>
+                            <td><textarea><?php echo $row['observAudiFinal'] ?></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Descripción Final de Servicio Realizado al Vehículo</td>
+                        </tr>
+                        <tr>
+                            <td><textarea><?php echo $row['descripcionFinal'] ?></textarea></td>
                         </tr>
                     </tbody>
                 </table>

@@ -28,7 +28,7 @@ try {
     exit;
   } else {
     $resultado = mysqli_query($conexion, $query);
-    var_dump($query);
+    // var_dump($query);
   }
   // Actualizar supervision valores
   $queryP = "UPDATE proyectos SET comAsesor = 1 WHERE id_proyecto = '$id_proyecto' AND nProyecto = '$nProyecto' ";

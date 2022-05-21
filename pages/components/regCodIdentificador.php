@@ -15,8 +15,8 @@ ob_start();
     <link rel="apple-touch-icon" href="../../src/img/logos/favicon.png" type="image/gif">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="../../plugins/bootstrap/bootstrap-5.0.2.min.css">
-    <script src="../../plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="../../plugins/bootstrap/bootstrap-5.0.2.min.css">
+    <script src="../../plugins/bootstrap/bootstrap.min.js"></script> -->
     <style>
         /** 
                 Establezca los márgenes de la página en 0, por lo que el pie de página y el encabezado
@@ -72,6 +72,18 @@ ob_start();
             margin-bottom: 20px;
             font-family: sans-serif;
             padding-bottom: 15px;
+        }
+        .inputRespGLink {
+            width: 49em;
+            height: 5px;
+            outline: 0;
+            border-width: 0 0 .5px;
+            border-color: gray;
+            font-size: 15px;
+            margin-bottom: 1px;
+            font-family: sans-serif;
+            padding-bottom: 12px;
+            padding-top: 10px;
         }
 
         .inputRespM {
@@ -135,7 +147,7 @@ ob_start();
         }
 
         .titulo {
-            font-size: 18px;
+            font-size: 17px;
             color: #000;
             font-weight: 200;
             left: 0;
@@ -152,7 +164,7 @@ ob_start();
 
         textarea {
             width: 56em;
-            height: 55px;
+            height: 35px;
             border: none;
             border-bottom: .5px solid gray;
             font-size: 13px;
@@ -224,20 +236,21 @@ ob_start();
 
 </head>
 <?php
-require '../components/head-main.php';
+// require '../components/head-main.php';
+require '../components/queryDomPdf.php';
 
 $id_proyecto = $_GET['id'];
 // $id_proyecto = 1;
 
 $query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, 
 V.placa, M.marca, Mo.modelo, A.anio, C.color,
-RS.folioRegSolicitud, RS.valorVentaAlta, RS.inspecCalidad, RS.observCliente, 
-RA.folioRegAlta, RA.observAudiFinal, S.semana, LV.link,
+RS.folioRegSolicitud, RS.valorVentaAlta, RS.inspecCalidad, RS.observCliente, RS.descripcionFinal,
+RA.folioRegAlta, RA.observAudiFinal, S.semana AS semSol, LV.link,
 RC.fecha_creacion, RC.folioCodID,
 U.nombres AS Unombre, U.aPaterno AS Upaterno, U.aMaterno AS Umaterno, 
 CL.nombres, CL.aPaternoCliente, CL.aMaternoCliente, SC.semanaCobro,
 D.valCobProyBase, D.codIdProyBase, D.valCobProyExtra, D.codIdProyExtra, D.valCobComBan, D.codIdComBan, D.valCobPen, D.codIdPension, D.valCobOtros, D.codIdOtros,
-FB.formaPago AS formabase, FE.formaPago AS formaExtra, FC.formaPago AS formaBanca, FP.formaPago AS formaPension, FO.formaPago AS formaOtro
+FB.formaPago AS formabase, FE.formaPago AS formaExtra, FC.formaPago AS formaBanca, FP.formaPago AS formaPension, FO.formaPago AS formaOtro, SA.semana AS semAlta
 FROM proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 LEFT JOIN marcas M ON V.id_marca = M.id_marca
@@ -245,8 +258,9 @@ LEFT JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
 LEFT JOIN anios A ON V.id_anio = A.id_anio
 LEFT JOIN colores C ON V.id_color = C.id_color
 LEFT JOIN registrosolicitud RS ON P.id_proyecto = RS.id_proyecto
-LEFT JOIN semanas S ON RS.id_semana = S.id_semana
+LEFT JOIN semanasolalta S ON RS.id_semana = S.id_semSolAlta
 LEFT JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto
+LEFT JOIN semanas SA ON RA.id_semana = SA.id_semana
 LEFT JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo
 LEFT JOIN registrocodidenti RC ON P.id_proyecto = RC.id_proyecto
 LEFT JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_SemanaCobro
@@ -387,43 +401,40 @@ $valorVentaAlta = $row['valorVentaAlta'];
                             <td>Núm. de Orden</td>
                             <td>Tipo Reparación</td>
                             <td>Kilometraje</td>
+                            <td>Semana Sol. Alta</td>
                             <td>Semana de Alta</td>
                             <td>Semana Cobro</td>
-                            <!-- <td>Valor Venta Inicial</td> -->
-                            <!-- <td>Valor Venta Alta</td> --> -->
                         </tr>
                         <tr>
                             <td><input type="text" class="inputRespA" value="<?php echo $row['nOrden'] ?>"></td>
                             <td><input type="text" class="inputRespC" value="<?php echo $row['tipoReparacion'] ?>"></td>
                             <td><input type="text" class="inputRespC" value="<?php echo $row['km'] ?>"></td>
-                            <td><input type="text" class="inputRespC" value="<?php echo $row['semana'] ?>"></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $row['semSol'] ?>"></td>
+                            <td><input type="text" class="inputRespC" value="<?php echo $row['semAlta'] ?>"></td>
                             <td><input type="text" class="inputRespC" value="<?php echo $row['semanaCobro'] ?>"></td>
-                            <!-- <td><input type="text" class="inputRespA" value="<?php echo '$ ' . $valorVenta ?>"></td>
-                            <td><input type="text" class="inputRespA" value="<?php echo '$ ' . $valorVentaAlta ?>"></td> -->
                         </tr>
                     </tbody>
                 </table>
                 <table>
                     <tbody>
                         <tr>
-                            <td style="width: 20em">Observaciones Para el Cliente</td>
+                            <td>Observaciones Para el Cliente</td>
                         </tr>
                         <tr>
-                            <td colspan="4"><textarea cols="160" rows="4"><?php echo $row['observCliente'] ?></textarea></td>
+                            <td><textarea ><?php echo $row['observCliente'] ?></textarea></td>
                         </tr>
                         <tr>
-                            <td>Link de Video en Vivo Alta</td>
+                            <td>Descripción Final de Servicio Realizado al Vehículo</td>
                         </tr>
-                        <br>
                         <tr>
-                            <td><input type="text" class="inputRespG" value="<?php echo $row['link'] ?>"></td>
+                            <td><textarea><?php echo $row['descripcionFinal'] ?></textarea></td>
                         </tr>
                     </tbody>
                 </table>
                 <br><br>
                 <div class="contenedor-dv">
-        <span class="capturista"><?php echo $nomComp . '-' . $row['fecha_creacion'] ?></span>
-    </div>
+                    <span class="capturista"><?php echo $nomComp . '-' . $row['fecha_creacion'] ?></span>
+                </div>
                 <img src="../../src/img/logos/footer.png" width="108%" />
                 <br>
                 <div>
@@ -446,29 +457,11 @@ $valorVentaAlta = $row['valorVentaAlta'];
 
                 <table class="table table-sm">
                     <tbody>
-                        <tr>
-                            <th class="titulo">Proyecto</th>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="col-12">
-                    <hr>
-                </div>
-                <table class="table table-sm">
-                    <tbody>
-                        <tr>
-                            <td>Marca</td>
-                            <td>Modelo</td>
-                            <td>Año</td>
-                            <td>Placa</td>
-                            <td>Color</td>
+                    <tr>
+                            <td>Link de Video en Vivo Alta</td>
                         </tr>
                         <tr>
-                            <td><input type="text" class="inputRespM" value="<?php echo $marca ?>"></td>
-                            <td><input type="text" class="inputRespA" value="<?php echo $modelo ?>"></td>
-                            <td><input type="text" class="inputRespA" value="<?php echo $anio ?>"></td>
-                            <td><input type="text" class="inputRespA" value="<?php echo $placa ?>"></td>
-                            <td><input type="text" class="inputRespA" value="<?php echo $color ?>"></td>
+                            <td><input type="text" class="inputRespGLink" value="<?php echo $row['link'] ?>"></td>
                         </tr>
                     </tbody>
                 </table>

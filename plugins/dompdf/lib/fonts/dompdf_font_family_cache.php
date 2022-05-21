@@ -88,13 +88,13 @@ return array (
     'normal' => $fontDir . '/bhutuka_expanded_one_normal_1f55bb3263a18f09c273e4a84275d778',
   ),
   'material symbols outlined' => array(
-    '100' => $fontDir . '/material_symbols_outlined_100_115178c90c5bcce153762b5e23540ad0',
-    '200' => $fontDir . '/material_symbols_outlined_200_6c73e407edd7e44185ce6b5a4af61a89',
-    '300' => $fontDir . '/material_symbols_outlined_300_370f3d0bc282df6ea9fce7c35209ca1a',
-    'normal' => $fontDir . '/material_symbols_outlined_normal_49e80126f04bc0d0b04f8083a3e1bf08',
-    '500' => $fontDir . '/material_symbols_outlined_500_dc26319403d3c1e0b5c4b9e5cd0f545d',
-    '600' => $fontDir . '/material_symbols_outlined_600_277676581bb513b62a25f7a7cf02d87f',
-    'bold' => $fontDir . '/material_symbols_outlined_bold_1a515d94ad82aa1282c03749fccd9c98',
+    '100' => $fontDir . '/material_symbols_outlined_100_f5283f5bafe514614e4df0215d90af5d',
+    '200' => $fontDir . '/material_symbols_outlined_200_1b5702fc27d72428781a0079b6aadf48',
+    '300' => $fontDir . '/material_symbols_outlined_300_46d4649709c2c46fbf00f4c088053f27',
+    'normal' => $fontDir . '/material_symbols_outlined_normal_2a33f95207ff696341963e7397d65510',
+    '500' => $fontDir . '/material_symbols_outlined_500_6d1a9c1d64d7888306ebaa704ee4141f',
+    '600' => $fontDir . '/material_symbols_outlined_600_68478eb26e2e7a4efa8d2f72880b8ebc',
+    'bold' => $fontDir . '/material_symbols_outlined_bold_7c08ab89e18fa462a3dcf16cdc511482',
   ),
 );
 }; ?>

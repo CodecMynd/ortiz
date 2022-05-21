@@ -6,7 +6,7 @@
 	P.estadoProyectoEliminado, P.proyectoActivo, P.registroSolicitud, P.altaProyecto, P.proyCodIdentificador, P.superCodIdentificador,
 	M.marca, Mo.modelo, A.anio, Co.color,
     CS.id_regAlta, CS.id_cambioSemAlta, CS.folioRegAlta, CS.folioCambioSemAlta, CS.semanaActual, CS.motivo, CS.estatusEspera, CS.estatusAprobado,
-	 S.semana AS semanaPorAsignar
+	S.semana AS semanaPorAsignar
 	FROM proyectos P 
 	INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 	INNER JOIN colores Co On V.id_color = Co.id_color

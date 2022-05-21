@@ -6,6 +6,7 @@ if ($super == 1 or $verTablaRecPzsDanadas == 1) {
 	C.nombres, C.aPaternoCliente, C.aMaternoCliente,
 	V.placa, M.marca, Mo.modelo, A.anio, Co.color,
     MAX(R.id_recPzsDanadas) AS id_recPzsDanadas, R.linkRecPzsDanadas, MIN(R.borrado) AS linkBorrado, MAX(R.enUso) AS linkEnUso, 
+    R.fecha_creacion AS fechaRegLink, R.fecha_borrado AS fechaEliLink,
 	SP.folio_solicitud, MIN(SP.borrado) AS solBorrado, MAX(SP.enUso) AS solEnUso, SP.folio_solicitud,
     RC.precio, RC.modalidadPago
 	FROM proyectos P
@@ -18,7 +19,7 @@ if ($super == 1 or $verTablaRecPzsDanadas == 1) {
     LEFT JOIN recpzsdanadas R ON P.id_proyecto = R.id_proyecto
     LEFT JOIN solpzsdanadas SP ON R.id_recPzsDanadas = SP.id_recPzsDanadas
     LEFT JOIN regcomprainicial RC ON P.id_proyecto = RC.id_proyecto
-	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1  GROUP BY P.id_proyecto";
+	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1  GROUP BY P.id_proyecto ORDER BY P.id_proyecto DESC";
 } else {
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";
@@ -133,7 +134,10 @@ while ($row = $resultado->fetch_assoc()) {
 	} else {
 		$outputBtns4 = "<a class='btn btn-outline-danger' id='verGralRecPzsDanadas'><i class='fa-solid fa-circle-info'></i></a>";
 	}
-
+	// Fecha Registro Link
+	$fechaRegLink = (empty($row['fechaRegLink'])) ? 'Sin Registro' : "<strong>{$row['fechaRegLink']}</strong>";
+	// Fecha Elimnación Link
+	$fechaEliLink = (empty($row['fechaEliLink'])) ? 'Sin Registro' : "<strong>{$row['fechaEliLink']}</strong>";
 
 	$cont++;
 	$datos[] = array(
@@ -152,7 +156,9 @@ while ($row = $resultado->fetch_assoc()) {
 		"12" => $precioCredito,
 		"13" => $precioContado,
 		"14" => $total,
-		"15" => "<div class='input-group input-group-sm mb-3'>
+		"15" => $fechaRegLink,
+		"16" => $fechaEliLink,
+		"17" => "<div class='input-group input-group-sm mb-3'>
 					<div class='input-group-prepend'>
 						<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Recepción de Piezas Dañadas'> Acciones</span></button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>

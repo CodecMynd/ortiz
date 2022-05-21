@@ -7,7 +7,7 @@ if ($super == 1 or $consAltaProy  == 1) {
 	V.placa, M.marca, Mo.modelo, A.anio,
 	Co.color, 
 	R.valorVentaAlta, R.id_regSolicitud, R.folioRegSolicitud, R.fecha_creacion AS Fsol,
-	S.semana, 
+	S.semana AS  semanaAlta, 
     SA.semana AS semanaSolAlta
 	FROM registroaltabitacora RA
 	LEFT JOIN proyectos P ON RA.id_proyecto = P.id_proyecto
@@ -90,8 +90,8 @@ while ($row = $resultado->fetch_assoc()) {
 		"10" => (empty($row['anio'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['anio'],
 		"11" => (empty($row['placa'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['placa'],
 		"12" => (empty($row['color'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['color'],
-		"13" => (empty($row['semanaSolAlta'])) ? "<span class='badge badge-danger badge-pill'>N/A</span" : $row['semana'],
-		"14" => (empty($row['semana'])) ? "<span class='badge badge-danger badge-pill'>N/A</span" : $row['semana'],
+		"13" => (empty($row['semanaSolAlta'])) ? "<span class='badge badge-danger badge-pill'>N/A</span" : $row['semanaSolAlta'],
+		"14" => (empty($row['semanaAlta'])) ? "<span class='badge badge-danger badge-pill'>N/A</span" : $row['semanaAlta'],
 		"15" => (empty($row['valorVenta'])) ? 0.00 : $row['valorVenta'],
 		"16" => (empty($row['valorVentaAlta'])) ? 0.00 : $row['valorVentaAlta'],
 		"17" => (empty($row['Fcreacion'])) ? "<span class='badge badge-danger badge-pill'>N/A</span" : $row['Fcreacion'],

@@ -75,19 +75,9 @@ require '../components/head-dataTables.php';
                                                 <th>Color</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Etapa del Proyecto (actual)</th>
-                                                <th>Estado de Solicitud</th>
-                                                <th>Núm. Folio</th>
-                                                <th>Cantidad</th>
-                                                <th>Descripción</th>
-                                                <th>Minuto del Video</th>
-                                                <th>Proveedor</th>
-                                                <th>Modo de Pago</th>
-                                                <th>Costo Credito</th>
-                                                <th>Costo Contado</th>
-                                                <th>Capturista Registro Solicitud de Pieza</th>
-                                                <th>Fecha Solicitud de Pieza</th>
-                                                <th>Capturista Registro Compra Inicial</th>
-                                                <th>Fecha Registro Compra Inicial</th>
+                                                <th>Suma Costo Credito</th>
+                                                <th>Suma Costo Contado</th>
+                                                <th>Suma Costos Total</th>
                                             </tr>
                                         </thead>
                                         <tbody> </tbody>
@@ -104,19 +94,9 @@ require '../components/head-dataTables.php';
                                                 <th>Color</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Etapa del Proyecto (actual)</th>
-                                                <th>Estado de Solicitud</th>
-                                                <th>Núm. Folio</th>
-                                                <th>Cantidad</th>
-                                                <th>Descripción</th>
-                                                <th>Minuto del Video</th>
-                                                <th>Proveedor</th>
-                                                <th>Modo de Pago</th>
                                                 <th class="suma">Costo Credito</th>
                                                 <th class="suma">Costo Contado</th>
-                                                <th>Capturista Registro Solicitud de Pieza</th>
-                                                <th>Fecha Solicitud de Pieza</th>
-                                                <th>Capturista Registro Compra Inicial</th>
-                                                <th>Fecha Registro Compra Inicial</th>
+                                                <th class="suma">Costo Contado</th>
                                             </tr>
                                         </tfoot>
                                     </table>

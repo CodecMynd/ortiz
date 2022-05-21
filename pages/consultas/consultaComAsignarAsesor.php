@@ -2,7 +2,7 @@
 	require '../components/query.php'; 
 	if ($super == 1 OR $verTablaComAsesor == 1) {
 
-	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.comAsesor, P.estadoProyectoEliminado, P.comSuperAsesor,
+	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.comAsesor, P.estadoProyectoEliminado, P.comSuperAsesor, P.fecha_creacion,
 	C.nombres, C.aPaternoCliente, C.aMaternoCliente,
 	V.placa, M.marca, Mo.modelo, A.anio, Co.color, Ase.asesor, CA.id_comAsesor, CS.id_comSupervisionAsesor
 	FROM proyectos P 
@@ -144,18 +144,19 @@ $cont = 0;
 		$datos[] = array(
 			"0" => $cont,
 			"1" => "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>",
-			"2" => $row['nProyecto'],
-			"3" => $row['nOrden'],
-			"4" => $row['marca'],
-			"5" => $row['modelo'],
-			"6" => $row['anio'],
-			"7" => $row['placa'],
-			"8" => $row['color'],
-		 	"9" => ($Eliminado == 0)? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
-		 	"10" => $comprobarAsesor,	
-		 	"11" => $supervisionAsesor,
-		 	"12" => ($row['asesor'] == 0)? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']} </span></h6>",
-		 	"13" => "<div class='input-group input-group-sm mb-3'>
+			"2" => $row['fecha_creacion'],
+			"3" => $row['nProyecto'],
+			"4" => $row['nOrden'],
+			"5" => $row['marca'],
+			"6" => $row['modelo'],
+			"7" => $row['anio'],
+			"8" => $row['placa'],
+			"9" => $row['color'],
+		 	"10" => ($Eliminado == 0)? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
+		 	"11" => $comprobarAsesor,	
+		 	"12" => $supervisionAsesor,
+		 	"13" => ($row['asesor'] == 0)? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']} </span></h6>",
+		 	"14" => "<div class='input-group input-group-sm mb-3'>
 		 				<div class='input-group-prepend'>
 		 					<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Comprobación de Asignación  de Asesor'> Acciones</span>
 		 					</button>

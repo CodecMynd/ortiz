@@ -7,7 +7,7 @@ $id_proyecto = $_POST['idProyecto'];
 // Query principal
 $query = 'SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.tipoReparacion, P.km, P.valorVenta, P.diagnostico, P.descripServ1, P.descripServ2, 
 V.placa, M.marca, Mo.modelo, A.anio, Co.color,
-RE.id_regSolicitud, RE.folioRegSolicitud, RE.valorVentaAlta, RE.inspecCalidad, RE.observCliente,
+RE.id_regSolicitud, RE.folioRegSolicitud, RE.valorVentaAlta, RE.inspecCalidad, RE.observCliente, RE.descripcionFinal,
 SS.semana, TA.tecArmador, TM1.tecMontador AS tecMontador1, TM2.tecMontador AS tecMontador2, TM3.id_tecMontador AS tecMontador3, TM4.tecMontador AS tecMontador4
 FROM proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
@@ -84,6 +84,7 @@ $semanaSolAlta = $row['semana'];
 // $descripServ2 = $row['descripServ2'];
 $inspecCalidad = $row['inspecCalidad'];
 $observCliente = $row['observCliente'];
+$descripcionFinal = $row['descripcionFinal'];
 $tecArmador =   (empty($row['tecArmador'])) ? 'N/A' : $row['tecArmador'];
 $tecMontador1 = (empty($row['tecMontador1'])) ? 'N/A' : $row['tecMontador1'];
 $tecMontador2 = (empty($row['tecMontador2'])) ? 'N/A' : $row['tecMontador2'];
@@ -241,7 +242,7 @@ if ($respuesta->num_rows  > 0) {
                 </div>
                 <div class='col-md-12 col-sm-12 my-1'>
                     <div class='row justify-content-center'>
-                        <div class='col-md-5 col-sm-12 my-1'>
+                        <div class='col-md-4 col-sm-12 my-1'>
                             <div class='form-group-input' style='border: 1px solid #CED4DA;'>
                                 <label class='ml-5 mb-2'>*Observación Inspección de Control de Calidad</label>
                                 <span data-toggle='tooltip' title='max. 300 caracteres'>
@@ -249,12 +250,12 @@ if ($respuesta->num_rows  > 0) {
                                         <div class='input-group-prepend'>
                                             <span class='input-group-text'><i class='fa-solid fa-comments'></i></span>
                                         </div>
-                                        <textarea name='inspecCalidad' id='inspecCalidad' class='form-control' rows='4' placeholder='Agrega alguna breve Observación de Inspección de Control Calidad' maxlength='300' readonly>{$inspecCalidad}</textarea>
+                                        <textarea name='inspecCalidad' id='inspecCalidad' class='form-control' rows='5' placeholder='Agrega alguna breve Observación de Inspección de Control Calidad' maxlength='300' readonly>{$inspecCalidad}</textarea>
                                     </div>
                                 </span>
                             </div>
                         </div>
-                        <div class='col-md-5 col-sm-12 my-1'>
+                        <div class='col-md-4 col-sm-12 my-1'>
                             <div class='form-group-input' style='border: 1px solid #CED4DA;'>
                                 <label class='ml-5 mb-2'>*Observaciones Para el Cliente</label>
                                 <span data-toggle='tooltip' title='max. 300 caracteres'>
@@ -262,7 +263,20 @@ if ($respuesta->num_rows  > 0) {
                                         <div class='input-group-prepend'>
                                             <span class='input-group-text'><i class='fa-solid fa-comment'></i></span>
                                         </div>
-                                        <textarea name='observCliente' id='observCliente' class='form-control' rows='4' placeholder='Agrega alguna breve Observación para nuestro Cliente' maxlength='300' readonly>{$observCliente}</textarea>
+                                        <textarea name='observCliente' id='observCliente' class='form-control' rows='5' placeholder='Agrega alguna breve Observación para nuestro Cliente' maxlength='300' readonly>{$observCliente}</textarea>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                        <div class='col-md-4 col-sm-12 my-1'>
+                            <div class='form-group-input' style='border: 1px solid #CED4DA;'>
+                                <label class='ml-5 mb-2'>*Descripción Final de Servicio Realizado al Vehículo</label>
+                                <span data-toggle='tooltip' title='max. 300 caracteres'>
+                                    <div class='input-group'>
+                                        <div class='input-group-prepend'>
+                                            <span class='input-group-text'><i class='fa-solid fa-comment'></i></span>
+                                        </div>
+                                        <textarea name='descripcionFinal' id='descripcionFinal' class='form-control' rows='4' placeholder='Agrega Descripción Final de (los) Servicio(s) Realizado(s) al Vehículo' maxlength='300' readonly>{$descripcionFinal}</textarea>
                                     </div>
                                 </span>
                             </div>

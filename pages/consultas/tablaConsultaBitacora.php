@@ -78,7 +78,6 @@ require '../components/head-dataTables.php';
                                                 <th>Bitacora</th>
                                                 <th>Fecha Actividad</th>
                                                 <th>Capturista Actividad</th>
-
                                             </tr>
                                         </thead>
                                         <tbody> </tbody>
@@ -116,6 +115,7 @@ require '../components/head-dataTables.php';
         require '../components/footer.php';
         ?>
     </div>
+    <div id="divModalverGralInfoLinkDesarmado"></div>
     <?php
     // Scripts principales
     require '../components/scripts-main.php';
@@ -123,6 +123,16 @@ require '../components/head-dataTables.php';
     require '../ajax/plugins-datatable.php';
     ?>
     <script src="../ajax/tablaConsultaBitacora.js"></script>
+    <script>
+        // Mostrar Modal Incidencias ---------------------------------------------------------
+        function mostarLink(id_proyecto) {
+            var ruta = '../components/modal-verGralInfoLinkDesarmado.php?id_proyecto=' + id_proyecto;
+            $.get(ruta, function(data) {
+                $('#divModalverGralInfoLinkDesarmado').html(data);
+                $('#modal-verGralInfoLinkDesarmado').modal('show');
+            });
+        }
+    </script>
 
 </body>
 

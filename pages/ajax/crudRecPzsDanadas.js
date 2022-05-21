@@ -17,7 +17,7 @@ $('#btnNuevoRecPzsDanadas').click(function () {
 
             success: function (vs) {
                 $('#formNuevoRecPzsDanadas')[0].reset();
-                setTimeout(function() {
+                setTimeout(function () {
                     $('.regRecPzsDanadas').modal('hide');
                 }, 1000);
                 tableRecPzsDanadas.ajax.reload(null, false)
@@ -49,7 +49,7 @@ $('#btnDeleteLinkSolPzsDanadas').click(function () {
 
             success: function (vs) {
                 $('#formDeleteLinkSolPzsDanadas')[0].reset();
-                setTimeout(function() {
+                setTimeout(function () {
                     $('.eliminarRegRecPzsDanadas').modal('hide');
                 }, 1000);
                 tableRecPzsDanadas.ajax.reload(null, false)
@@ -76,7 +76,7 @@ var tableRecPzsDanadas = $("#tableRecPzsDanadas").DataTable({
     "lengthChange": true,
     "autoWidth": true,
     "dom": 'PlBfrtip',
-    "buttons": ["csv", "excel", "pdf"],
+    "buttons": ["csv", "excel", "pdf", "colvis"],
     "ajax": {
         url: "../consultas/consultaRecPzsDanadas.php",
         type: "get",
@@ -98,8 +98,9 @@ var tableRecPzsDanadas = $("#tableRecPzsDanadas").DataTable({
         searchPanes: {
             show: true
         },
-        targets: [4, 5, 6, 7, 8, 10, 11],
-    }],
+        targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13],
+    },
+],
     "language": {
 
         "aria": {
@@ -159,17 +160,17 @@ var tableRecPzsDanadas = $("#tableRecPzsDanadas").DataTable({
                 page: 'current'
             }).data().sum()
         )
-         var api3 = this.api();
-         $(api3.column(14).footer()).html(
-             'Total: ' + api3.column(14, {
-                 page: 'current'
-             }).data().sum()
-         )
-    },            
-    "createdRow": function(row, data, index) {
+        var api3 = this.api();
+        $(api3.column(14).footer()).html(
+            'Total: ' + api3.column(14, {
+                page: 'current'
+            }).data().sum()
+        )
+    },
+    "createdRow": function (row, data, index) {
         if (data[12] > '0') {
             $('td', row).eq(12).css({
-                'text-align':'center',
+                'text-align': 'center',
                 'background-color': '#5A6268',
                 'color': '#fff',
                 'font-weight': 'bold'
@@ -177,15 +178,15 @@ var tableRecPzsDanadas = $("#tableRecPzsDanadas").DataTable({
         }
         if (data[13] > '0') {
             $('td', row).eq(13).css({
-                'text-align':'center',
+                'text-align': 'center',
                 'background-color': '#5A6268',
                 'color': '#fff',
                 'font-weight': 'bold'
             });
         }
-        if (data[14] >  '0') {
+        if (data[14] >= '0') {
             $('td', row).eq(14).css({
-                'text-align':'center',
+                'text-align': 'center',
                 'background-color': '#5A6268',
                 'color': '#fff',
                 'font-weight': 'bold'

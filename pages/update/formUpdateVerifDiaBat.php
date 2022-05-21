@@ -223,15 +223,15 @@ require '../components/head-dataTables.php';
                                                                             <span data-toggle="tooltip" title="2.3.3.6 Eliminar Comprobación Recepción de Piezas Dañadas">
                                                                                 <?php
                                                                                 if ($super == 1 and $com == 1 and $sup == 0) {
-                                                                                    echo "<a href='#' onclick='abrirModal1(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
+                                                                                    echo "<a href='#' onclick='abrirModal1(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary' data-toggle='tooltip' data-placement='bottom' title='2.3.3.6 Eliminar Comprobación Recepción de Piezas Dañadas'><i class='fas fa-trash-alt'></i></a>";
                                                                                 } else if ($super == 1 and $com == 1 and $sup == 1) {
-                                                                                    echo "<a class='btn btn-outline-danger' id='eliComVerifDiaBat'><i class='fas fa-trash-alt'></i></a>";
+                                                                                    echo "<a class='btn btn-outline-danger' id='eliComVerifDiaBat' data-toggle='tooltip' data-placement='bottom' title='2.3.3.6 Eliminar Comprobación Recepción de Piezas Dañadas'><i class='fas fa-trash-alt'></i></a>";
                                                                                 } else if ($eliComVerifDiaBat == 1 and $com == 1 and $sup == 0) {
-                                                                                    echo "<a href='#' onclick='abrirModal1(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
+                                                                                    echo "<a href='#' onclick='abrirModal1(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary' data-toggle='tooltip' data-placement='bottom' title='2.3.3.6 Eliminar Comprobación Recepción de Piezas Dañadas'><i class='fas fa-trash-alt'></i></a>";
                                                                                 } else if ($eliComVerifDiaBat == 1 and $com == 1 and $sup == 1) {
-                                                                                    echo "<a class='btn btn-outline-danger' id='eliComVerifDiaBat'><i class='fas fa-trash-alt'></i></a>";
+                                                                                    echo "<a class='btn btn-outline-danger' id='eliComVerifDiaBat' data-toggle='tooltip' data-placement='bottom' title='2.3.3.6 Eliminar Comprobación Recepción de Piezas Dañadas'><i class='fas fa-trash-alt'></i></a>";
                                                                                 } else {
-                                                                                    echo "<a class='btn btn-outline-danger' id='eliComVerifDiaBat'><i class='fas fa-trash-alt'></i></a>";
+                                                                                    echo "<a class='btn btn-outline-danger' id='eliComVerifDiaBat' data-toggle='tooltip' data-placement='bottom' title='Sin Permiso'><i class='fas fa-trash-alt'></i></a>";
                                                                                 }
                                                                                 ?>
                                                                             </span>
@@ -240,15 +240,15 @@ require '../components/head-dataTables.php';
                                                                             <span data-toggle="tooltip" title="2.3.3.7 Eliminar Supervisión de Comprobación Recepción de Piezas Dañadas">
                                                                                 <?php
                                                                                 if ($super == 1 and $com == 1 and $sup == 1) {
-                                                                                    echo "<a href='#' onclick='abrirModal2(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
+                                                                                    echo "<a href='#' onclick='abrirModal2(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary' data-toggle='tooltip' data-placement='bottom' title='2.3.3.7 Eliminar Supervisión de Comprobación Recepción de Piezas Dañadas'><i class='fas fa-trash-alt'></i></a>";
                                                                                 } else if ($super == 1 and $com == 1 and $sup == 0) {
-                                                                                    echo "<a class='btn btn-outline-danger' id='eliComVerifDiaBat'><i class='fas fa-trash-alt'></i></a>";
+                                                                                    echo "<a class='btn btn-outline-danger' id='eliComVerifDiaBat' data-placement='bottom' title='2.3.3.7 Eliminar Supervisión de Comprobación Recepción de Piezas Dañadas'><i class='fas fa-trash-alt'></i></a>";
                                                                                 } else if ($eliSupComVerifDiaBat == 1 and $com == 1 and $sup == 0) {
-                                                                                    echo "<a href='#' onclick='abrirModal2(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
+                                                                                    echo "<a href='#' onclick='abrirModal2(\"" . $id_proyecto  . "\",\"" . $nP . "\", \"" . $id_verifDiaBat . "\")' class='btn btn-secondary' data-toggle='tooltip' data-placement='bottom' title='2.3.3.7 Eliminar Supervisión de Comprobación Recepción de Piezas Dañadas'><i class='fas fa-trash-alt'></i></a>";
                                                                                 } else if ($eliSupComVerifDiaBat == 1 and $com == 0 and $sup == 1) {
-                                                                                    echo "<a class='btn btn-outline-danger' id='eliComVerifDiaBat'><i class='fas fa-trash-alt'></i></a>";
+                                                                                    echo "<a class='btn btn-outline-danger' id='eliComVerifDiaBat' data-placement='bottom' title='2.3.3.7 Eliminar Supervisión de Comprobación Recepción de Piezas Dañadas'><i class='fas fa-trash-alt'></i></a>";
                                                                                 } else {
-                                                                                    echo "<a class='btn btn-outline-danger' id='eliSupComVerifDiaBat'><i class='fas fa-trash-alt'></i></a>";
+                                                                                    echo "<a class='btn btn-outline-danger' id='eliSupComVerifDiaBat' data-toggle='tooltip' data-placement='bottom' title='Sin Permiso'><i class='fas fa-trash-alt'></i></a>";
                                                                                 }
                                                                                 ?>
 
@@ -486,7 +486,7 @@ require '../components/head-dataTables.php';
                         $('#formDeleteComVerifDiaBat')[0].reset();
                         setTimeout(function() {
                             $('.eliComVerifDiaBat').modal('hide');
-                        }, 2000);
+                        }, 1000);
                         $("#table_refresh").load(" #table_refresh");
                     }
                 })
@@ -517,7 +517,7 @@ require '../components/head-dataTables.php';
                         $('#formDeleteComVerifDiaBatSuper')[0].reset();
                         setTimeout(function() {
                             $('.eliminarComVerifDiaBatSuper').modal('hide');
-                        }, 2000);
+                        }, 1000);
                         $("#table_refresh").load(" #table_refresh");
                     }
                 })
@@ -547,7 +547,7 @@ require '../components/head-dataTables.php';
                         $('#formEliminarIncidencia')[0].reset();
                         setTimeout(function() {
                             $('.eliminarIncidencia').modal('hide');
-                        }, 2000);
+                        }, 1000);
                         $("#table_refresh2").load(" #table_refresh2");
                     }
                 })

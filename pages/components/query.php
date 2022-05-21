@@ -48,6 +48,9 @@ while ($row = mysqli_fetch_array($query)) {
     $indCambioPlacas = $row['indCambioPlacas'];
     $verTablaUsuario = $row['verTablaUsuario'];
     $indSinComSupPlacas = $row['indSinComSupPlacas'];
+    $indCambioSemAlta = $row['indCambioSemAlta'];
+    $indCambioSemSolAlta = $row['indCambioSemSolAlta'];
+    $indVehSinAsignarAsesor = $row['indVehSinAsignarAsesor'];
     $editarUsu = $row['editarUsu'];
     $asignarCon = $row['asignarCon'];
     $eliminarUsu = $row['eliminarUsu'];
@@ -275,6 +278,7 @@ while ($row = mysqli_fetch_array($query)) {
     $cambioSolSemAltaAutorizar = $row['cambioSolSemAltaAutorizar'];
     $verGralcambioSemAltaAutorizar = $row['verGralcambioSemAltaAutorizar'];
     $verTablaSolCamSemanaAltas = $row['verTablaSolCamSemanaAltas'];
+
 
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
     if ($passUser === 'SIN_PASSWORD') {

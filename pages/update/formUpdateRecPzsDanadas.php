@@ -423,18 +423,17 @@ require '../components/head-dataTables.php';
                                     $query = "SELECT P.id_proyecto, P.nProyecto, R.id_recPzsDanadas AS linkId,
                                     S.id_solPzsDanadas, S.folio_solicitud, S.cantidad, S.descripcion, S.minVideo, S.fecha_creacion,
                                     S.borrado, S.enUso, S.regCompraInicial, S.fecha_borrado,
-                                    U.nombres, U.aPaterno, U.aMaterno,
                                     RC.id_regCompraInicial,RC.precio, RC.modalidadPago, RC.borrado AS borradoRegComInicial,
                                     RC.fecha_creacion AS fechaCompra, PR.nomProvee,
-                                    U.nombres AS nomS, U.aPaterno AS patS, U.aMaterno as matS,
-                                    US.nombres AS nomB, US.aPaterno AS patB, US.aMaterno AS matB,
+                                    UR.nombres AS nomR, UR.aPaterno AS patR, UR.aMaterno as matR,
+                                    UB.nombres AS nomB, UB.aPaterno AS patB, UB.aMaterno AS matB,
                                     UC.nombres AS nomC, UC.aPaterno AS patC, UC.aMaterno AS matC
                                     from proyectos P 
                                     LEFT JOIN recpzsdanadas R ON P.id_proyecto = R.id_proyecto
                                     LEFT JOIN solpzsdanadas S ON R.id_recPzsDanadas = S.id_recPzsDanadas
-                                    LEFT JOIN usuarios U ON S.id_capC = U.id_usuario
+                                    LEFT JOIN usuarios UR ON S.id_capC = UR.id_usuario
                                     LEFT JOIN regcomprainicial RC ON S.id_solPzsDanadas = RC.id_solPzsDanadas
-                                    LEFT JOIN usuarios US ON S.id_capB = US.id_usuario
+                                    LEFT JOIN usuarios UB ON S.id_capB = UB.id_usuario
                                     LEFT JOIN proveedores PR ON RC.id_proveedor = PR.id_proveedor
                                     LEFT JOIN usuarios UC ON RC.id_capC = UC.id_usuario
                                     WHERE P.id_Proyecto = $id_proyecto AND P.proyectoActivo = 1 AND S.borrado = 1 ORDER BY S.fecha_borrado DESC";
@@ -467,7 +466,7 @@ require '../components/head-dataTables.php';
                                                 while ($row = $resultado->fetch_assoc()) {
                                                     $id_proyecto = $row['id_proyecto'];
                                                     $nP = $row['nProyecto'];
-                                                    $solicitanteS = $row['nomS'] . ' ' . $row['patS'] . ' ' . $row['matS'];
+                                                    $solicitanteR = $row['nomR'] . ' ' . $row['patR'] . ' ' . $row['matR'];
                                                     $solicitanteB = $row['nomB'] . ' ' . $row['patB'] . ' ' . $row['matB'];
                                                     $captCompra = $row['nomC'] . ' ' . $row['patC'] . ' ' . $row['matC'];
                                                     $linkId = (empty($row['linkId'])) ? '' : $row['linkId'];
@@ -509,13 +508,13 @@ require '../components/head-dataTables.php';
                                                             <?php echo (empty($row['minVideo'])) ? 'Sin Registro' : $row['minVideo']; ?>
                                                         </td>
                                                         <td>
-                                                            <?php echo (empty($solicitanteB)) ? 'Sin Registro' : $solicitante; ?>
+                                                            <?php echo (empty($solicitanteB)) ? 'Sin Registro' : $solicitanteB; ?>
                                                         </td>
                                                         <td>
                                                             <?php echo (empty($row['fecha_borrado'])) ? 'Sin Registro' : $row['fecha_borrado']; ?>
                                                         </td>
                                                         <td>
-                                                            <?php echo (empty($solicitanteS)) ? 'Sin Registro' : $solicitante; ?>
+                                                            <?php echo (empty($solicitanteR)) ? 'Sin Registro' : $solicitanteR; ?>
                                                         </td>
                                                         <td>
                                                             <?php echo (empty($row['fecha_creacion'])) ? 'Sin Registro' : $row['fecha_creacion']; ?>
