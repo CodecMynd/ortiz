@@ -269,20 +269,20 @@ if ($respuesta->num_rows  > 0) {
             </div>
         </div>
         <div class='col-md-3 col-sm-12 mb-2 form-group'>
-        <div class='input-group'>
-            <label for='color' class='pl-5 parpadea'>Semana Alta</label>
-            <select name='id_semana' id='id_semana' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Semana de la lista' style='width: 100%;' required>
-                <option selected disabled>Selecciona</option>";
-
-                while ($rowSemanas = $resultSemanas->fetch_assoc()) {
-                $id_semana = $rowSemanas['id_semana'];
-                $semana = $rowSemanas['semana'];
-                $output .= " <option value=$id_semana> $semana </option>";
-                }
-                $output .= "
-            </select>
+            <div class='input-group'>
+                <label for='color' class='pl-5 parpadea'>Semana Alta</label>
+                <select name='id_semana' id='id_semana' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Semana de la lista' style='width: 100%;' required>
+                    <option selected disabled>Selecciona</option>";
+    
+                    while ($rowSemanas = $resultSemanas->fetch_assoc()) {
+                    $id_semana = $rowSemanas['id_semana'];
+                    $semana = $rowSemanas['semana'];
+                    $output .= " <option value=$id_semana> $semana </option>";
+                    }
+                    $output .= "
+                </select>
+            </div>
         </div>
-    </div>
         <div class='col-md-10 col-sm-12 my-1'>
             <div class='input-group form-floating mb-3'>
                 <div class='input-group-prepend'>

@@ -20,7 +20,7 @@
     INNER JOIN semanas S ON RS.id_semana = S.id_semana
     INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto
 	LEFT JOIN repvalveninicialvsvalvenalta RE ON P.id_proyecto = RE.id_proyecto
-    WHERE proyCodIdentificador = 1 AND RC.borrado = 0 AND P.valorVenta <> RS.valorVentaAlta  ORDER BY nProyecto DESC";
+    WHERE RC.borrado = 0 AND P.valorVenta <> RS.valorVentaAlta  ORDER BY nProyecto DESC";
 }else{
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";

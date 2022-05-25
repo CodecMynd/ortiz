@@ -2,8 +2,8 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>CRUD Comprobación de 7 Imagenes | <?php echo $nomComp ?></title>
-<style>
+<title>CRUD Cronometro de Surtido de Piezas | <?php echo $nomComp ?></title>
+<!-- <style>
     @media (min-width:320px) and (max-width:425px) {
         .content-header {
             margin-bottom: 90px;
@@ -17,35 +17,39 @@ require '../components/head-dataTables.php';
             text-align: center;
         }
     }
-</style>
+</style> -->
 <script>
-    function abrirModal1(id_proyecto, nProyecto) {
-        $("#btnModal-regComImg").click();
+    function abrirModal1(id_proyecto, nProyecto, id_solPzsDanadas, folio_solicitud) {
+        $("#btnModal-regEntregaPz").click();
         $("#id_proyecto1").val(id_proyecto);
         $("#nProyecto1").val(nProyecto);
+        $("#id_solPzsDanadas1").val(id_solPzsDanadas);
+        $("#folio_solicitud1").val(folio_solicitud);
         $("#tituloModal1").html(nProyecto);
     }
 
-    function abrirModal2(id_proyecto, nProyecto) {
-        $("#btnModal-regComImgSuper").click();
+    function abrirModal2(id_proyecto, nProyecto, id_solPzsDanadas, id_entregaPz) {
+        $("#btnModal-regSuperEntregaPz").click();
         $("#id_proyecto2").val(id_proyecto);
         $("#nProyecto2").val(nProyecto);
+        $("#id_solPzsDanadas2").val(id_solPzsDanadas);
+        $("#id_entregaPz2").val(id_entregaPz);
         $("#tituloModal2").html(nProyecto);
     }
 
-    function abrirModal3(id_proyecto, nProyecto, id_comImagenes) {
-        $("#btnModal-eliminarComImg").click();
+    function abrirModal3(id_proyecto, nProyecto, id_entregaPz) {
+        $("#btnModal-eliminarRegEntregaPz").click();
         $("#id_proyecto3").val(id_proyecto);
         $("#nProyecto3").val(nProyecto);
-        $("#id_comImagenes3").val(id_comImagenes)
+        $("#id_entregaPz3").val(id_entregaPz);
         $("#tituloModal3").html(nProyecto);
     }
 
-    function abrirModal4(id_proyecto, nProyecto, id_comSupervisionImagenes) {
-        $("#btnModal-eliminarComImgSuper").click();
+    function abrirModal4(id_proyecto, nProyecto, id_entregaPz) {
+        $("#btnModal-eliminarRegSuperEntregaPz").click();
         $("#id_proyecto4").val(id_proyecto);
         $("#nProyecto4").val(nProyecto);
-        $("#id_comSupervisionImagenes4").val(id_comSupervisionImagenes)
+        $("#id_entregaPz4").val(id_entregaPz);
         $("#tituloModal4").html(nProyecto);
     }
 </script>
@@ -62,7 +66,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-1">
                         <div class="col-sm-8">
-                            <h1 class="m-0">Tabla 2.3.11 Lista Comprobación de 7 Imagenes</h1>
+                            <h1 class="m-0">Tabla 4.3 Cronometro de Surtido de Piezas</h1>
                         </div>
                         <div class="col-sm-4">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -99,16 +103,16 @@ require '../components/head-dataTables.php';
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Solicitud Alta</h6>
-                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Alta Proyecto</h6>
                                                     <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
@@ -117,19 +121,19 @@ require '../components/head-dataTables.php';
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Código ID</h6>
-                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Supervisión</h6>
-                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -149,7 +153,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-footer" style="height: 50px;">
                                     <marquee width="100%" behavior="alternate">
                                         <marquee behavior="alternate">
-                                            <p>Consulta optimizada, ultima actualización: <strong>25/04/2022</strong></p>
+                                            <p>Consulta optimizada, ultima actualización: <strong>24/05/2022</strong></p>
                                         </marquee>
                                     </marquee>
                                 </div>
@@ -166,7 +170,7 @@ require '../components/head-dataTables.php';
                         <div class="col-md-12 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Proyectos dados de alta en el sistema</h3>
+                                    <h3 class="card-title">Cronometro de Surtido de Piezas dados de alta en el sistema</h3>
                                     <div class="card-tools">
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
@@ -174,13 +178,13 @@ require '../components/head-dataTables.php';
                                 <div class="card-body">
                                     <?php
                                     if ($super == 1) {
-                                    } else if ($verTablaComImg == 0) { ?>
+                                    } else if ($verTablaCronoSurPzs == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tableComImagenes" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                    <table id="tableCronoSurPzs" class="display compact table-bordered table-striped" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -190,12 +194,17 @@ require '../components/head-dataTables.php';
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
                                                 <th>Año</th>
-                                                <th>img</th>
+                                                <th>Placa</th>
                                                 <th>Color</th>
-                                                <th>Cliente</th>
+                                                <th>Asesor</th>
                                                 <th>Estado del Proyecto</th>
-                                                <th>Status Comprobación</th>
-                                                <th>Status Supervisión</th>
+                                                <th>Núm. Folio Solicitud de Pieza</th>
+                                                <th>Registro Entrega de Piezas</th>
+                                                <th>Supervisión de Entrega de Piezas</th>
+                                                <th>Fecha Registro Link de Desarmado</th>
+                                                <th>Fecha Registro Entrega de Pieza</th>
+                                                <th>Fecha Supervisión Entrega de Pieza</th>
+                                                <th>Núm. Folio Entrega de Pieza</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -209,26 +218,30 @@ require '../components/head-dataTables.php';
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
                                                 <th>Año</th>
-                                                <th>img</th>
+                                                <th>Placa</th>
                                                 <th>Color</th>
-                                                <th>Cliente</th>
+                                                <th>Asesor</th>
                                                 <th>Estado del Proyecto</th>
-                                                <th>Status Comprobación</th>
-                                                <th>Status Supervisión</th>
+                                                <th>Núm. Folio Solicitud de Pieza</th>
+                                                <th>Registro Entrega de Piezas</th>
+                                                <th>Supervisión de Entrega de Piezas</th>
+                                                <th>Fecha Registro Link de Desarmado</th>
+                                                <th>Fecha Registro Entrega de Pieza</th>
+                                                <th>Fecha Supervisión Entrega de Pieza</th>
+                                                <th>Núm. Folio Entrega de Pieza</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>
                                     </table>
-                                    <button id="btnModal-regComImg" class="btn btn-white" data-toggle="modal" data-target='.regComImg'></button>
-                                    <button id="btnModal-regComImgSuper" class="btn btn-white" data-toggle="modal" data-target=".regComImgSuper"></button>
-                                    <button id="btnModal-eliminarComImg" class="btn btn-white" data-toggle="modal" data-target=".borrarComImg"></button>
-                                    <button id="btnModal-eliminarComImgSuper" class="btn btn-white" data-toggle="modal" data-target=".borrarComImgSuper"></button>
+                                    <button id="btnModal-regEntregaPz" class="btn btn-white" data-toggle="modal" data-target='.regEntregaPz'></button>
+                                    <button id="btnModal-regSuperEntregaPz" class="btn btn-white" data-toggle="modal" data-target=".regSuperEntregaPz"></button>
+                                    <button id="btnModal-eliminarRegEntregaPz" class="btn btn-white" data-toggle="modal" data-target=".eliminarRegEntregaPz"></button>
+                                    <button id="btnModal-eliminarRegSuperEntregaPz" class="btn btn-white" data-toggle="modal" data-target=".eliminarRegSuperEntregaPz"></button>
                                     <?php
-                                    require '../components/modal-regComImg.php';
-                                    require '../components/modal-eliminarComImg.php';
-                                    require '../components/modal-regComImgSuper.php';
-                                    require '../components/modal-eliminarComImgSuper.php';
-                                    // require '../components/modal-verGralComImg.php';
+                                    require '../components/modal-regEntregaPz.php';
+                                    require '../components/modal-regSuperEntregaPz.php';
+                                    require '../components/modal-eliminarRegEntregaPz.php';
+                                    require '../components/modal-eliminarRegSuperEntregaPz.php';
                                     desconectar();
                                     ?>
                                 </div>
@@ -237,121 +250,22 @@ require '../components/head-dataTables.php';
                     </div>
                 </div>
             </section>
-            <!-- /table usuario -->
+
+            <div id="divModal"></div>
         </div>
         <?php
         require '../components/footer.php';
         ?>
+        <div id="divModal"></div>
     </div>
     <?php
     // Scripts principales
     require '../components/scripts-main.php';
     // Scripts dataTables
-    require '../components/scripts-dataTables.php';
+    require '../ajax/plugins-datatable.php';
     ?>
-    <!-- avisos -->
-    <script src="../../src/js/toastr.js"></script>
-    <script>
-        // noComimg PROYECTO ELIMINADO, NO SE PUEDE REALIZAR ESTA ACCION --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#noComImg ").click(function() {
-                toastr["error"]("¡PROYECTO ELIMINADO, NO SE PUEDE REALIZAR ESTA ACCION!")
+    <script src="../ajax/crudCronoSurtidoPzs.js"></script>
 
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // noEliComimg NO TIENE COMPROBACION DE PLACA, NO HAY NADA QUE BORRAR --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#noEliComImg ").click(function() {
-                toastr["error"]("¡NO TIENE COMPROBACION DE PLACA, NO HAY NADA QUE BORRAR!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // noEliComimg NO SE PUEDE VOLVER A REGISTRAR UNA COMPROBACION DE img --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#siRegComImg ").click(function() {
-                toastr["error"]("¡NO SE PUEDE VOLVER A REGISTRAR UNA COMPROBACION DE img!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // siRegComSuperimg NO SE PUEDE VOLVER A REGISTRAR UNA SUPERVISION DE COMPROBACION DE img --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#siRegComSuperImg ").click(function() {
-                toastr["error"]("¡NO SE PUEDE VOLVER A REGISTRAR UNA SUPERVISION DE COMPROBACION DE IMAGENES!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-    </script>
 </body>
 
 </html>

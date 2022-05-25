@@ -78,7 +78,7 @@ require '../components/head-dataTables.php';
                         <div class="col-12">
                             <div class="card card-secondary card-outline collapsed-card">
                                 <div class="card-header">
-                                    <h2 class="card-title"><strong>Tablas en uso</strong></h2>
+                                    <h2 class="card-title"><strong>Tablas Consultadas</strong></h2>
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
                                             <i class="fas fa-plus"></i>
@@ -182,7 +182,7 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tableComAsignarAsesor" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                    <table id="tableComAsignarAsesor" class="display compact table-bordered table-striped" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>#</th>

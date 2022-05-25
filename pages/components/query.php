@@ -278,6 +278,18 @@ while ($row = mysqli_fetch_array($query)) {
     $cambioSolSemAltaAutorizar = $row['cambioSolSemAltaAutorizar'];
     $verGralcambioSemAltaAutorizar = $row['verGralcambioSemAltaAutorizar'];
     $verTablaSolCamSemanaAltas = $row['verTablaSolCamSemanaAltas'];
+    $regProyExtra = $row['regProyExtra'];
+    $eliProyExtra = $row['eliProyExtra'];
+    $regSuperProyExtra = $row['regSuperProyExtra'];
+    $eliSuperProyExtra = $row['eliSuperProyExtra'];
+    $verGralProyExtra = $row['verGralProyExtra'];
+    $verTablaRegProyExtra = $row['verTablaRegProyExtra'];
+    $regEntregaPz = $row['regEntregaPz'];
+    $regSuperEntragaPz = $row['regSuperEntragaPz'];
+    $eliRegEntregaPz = $row['eliRegEntregaPz'];
+    $eliRegSuperEntragaPz = $row['eliRegSuperEntragaPz'];
+    $verGralEntregaPz = $row['verGralEntregaPz'];
+    $verTablaCronoSurPzs = $row['verTablaCronoSurPzs'];
 
 
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
@@ -290,3 +302,4 @@ while ($row = mysqli_fetch_array($query)) {
 </script>';
     }
 }
+

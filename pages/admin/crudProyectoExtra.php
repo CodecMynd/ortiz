@@ -2,7 +2,7 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>CRUD Comprobación de 7 Imagenes | <?php echo $nomComp ?></title>
+<title>Crud Captura Proyectos Extras | <?php echo $nomComp ?></title>
 <style>
     @media (min-width:320px) and (max-width:425px) {
         .content-header {
@@ -19,34 +19,31 @@ require '../components/head-dataTables.php';
     }
 </style>
 <script>
-    function abrirModal1(id_proyecto, nProyecto) {
-        $("#btnModal-regComImg").click();
-        $("#id_proyecto1").val(id_proyecto);
-        $("#nProyecto1").val(nProyecto);
-        $("#tituloModal1").html(nProyecto);
+    function abrirModal1(id_proyecto, nProyecto, id_proyExtra, folioProyExtra) {
+        $("#btbModal-eliminarProyExtra").click();
+        $("#id_proyecto").val(id_proyecto);
+        $("#id_proyExtra").val(id_proyExtra);
+        $("#folioProyExtra").val(folioProyExtra);
+        $("#folioProyExtraText").html(folioProyExtra);
+        $("#nProyectoText").html(nProyecto);
     }
 
-    function abrirModal2(id_proyecto, nProyecto) {
-        $("#btnModal-regComImgSuper").click();
+    function abrirModal2(id_proyecto, nProyecto, folioProyExtra, id_proyExtra) {
+        $("#btbModal-regSuperProyExtra").click();
         $("#id_proyecto2").val(id_proyecto);
-        $("#nProyecto2").val(nProyecto);
-        $("#tituloModal2").html(nProyecto);
+        $("#id_proyExtra2").val(id_proyExtra);
+        $("#folioProyExtra2").val(folioProyExtra);
+        $("#folioProyExtraText2").html(folioProyExtra);
+        $("#nProyectoText2").html(nProyecto);
     }
 
-    function abrirModal3(id_proyecto, nProyecto, id_comImagenes) {
-        $("#btnModal-eliminarComImg").click();
-        $("#id_proyecto3").val(id_proyecto);
-        $("#nProyecto3").val(nProyecto);
-        $("#id_comImagenes3").val(id_comImagenes)
-        $("#tituloModal3").html(nProyecto);
-    }
-
-    function abrirModal4(id_proyecto, nProyecto, id_comSupervisionImagenes) {
-        $("#btnModal-eliminarComImgSuper").click();
-        $("#id_proyecto4").val(id_proyecto);
-        $("#nProyecto4").val(nProyecto);
-        $("#id_comSupervisionImagenes4").val(id_comSupervisionImagenes)
-        $("#tituloModal4").html(nProyecto);
+    function abrirModal3(id_proyExtra, textSupervision, id_comSuperProyExtra, nProyecto) {
+        $("#btbModal-eliminarSuperProyExtra").click();
+        $("#id_proyExtra3").val(id_proyExtra);
+        $("#textSupervision3").val(textSupervision);
+        $("#id_comSuperProyExtra3").val(id_comSuperProyExtra);
+        $("#textSupervisionText").html(textSupervision);
+        $("#nProyectoText3").html(nProyecto);
     }
 </script>
 </head>
@@ -62,15 +59,15 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-1">
                         <div class="col-sm-8">
-                            <h1 class="m-0">Tabla 2.3.11 Lista Comprobación de 7 Imagenes</h1>
+                            <h1 class="m-0">Tabla 5.1 Captura Proyectos Extras</h1>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 ">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Contador de Registros -->
+            <!-- Registros -->
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
@@ -84,10 +81,8 @@ require '../components/head-dataTables.php';
                                         </button>
                                     </div>
                                 </div>
-
                                 <div class="card-body ">
                                     <div class="row justify-content-center">
-
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box">
                                                 <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
@@ -99,37 +94,37 @@ require '../components/head-dataTables.php';
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Solicitud Alta</h6>
-                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Alta Proyecto</h6>
-                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Código ID</h6>
-                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Supervisión</h6>
-                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -149,7 +144,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-footer" style="height: 50px;">
                                     <marquee width="100%" behavior="alternate">
                                         <marquee behavior="alternate">
-                                            <p>Consulta optimizada, ultima actualización: <strong>25/04/2022</strong></p>
+                                            <p>Consulta optimizada, ultima actualización: <strong>23/05/2022</strong></p>
                                         </marquee>
                                     </marquee>
                                 </div>
@@ -159,28 +154,33 @@ require '../components/head-dataTables.php';
                 </div>
             </section>
 
-            <!-- Table Comprobcion de img -->
+            <!-- Table usuarios -->
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-md-12 col-sm-12">
+                        <div class="col-12">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Proyectos dados de alta en el sistema</h3>
+                                    <h3 class="card-title">Registro de Proyecto Extra</h3>
                                     <div class="card-tools">
+                                        <?php if ($super == 1 or $regProyExtra  == 1) {
+                                            echo "<a type='button' class='btn btn-secondary' href='../adds/formRegProyectoExtra.php' data-toggle='tooltip' data-placement='left' title='5.1.1 Registro de Proyecto Extra'><i class='fa-solid fa-file-arrow-up'></i></i>&nbsp;&nbsp; Registro de Proyecto Extra</a>";
+                                        } else {
+                                            echo "<a type='button' class='btn btn-outline-danger' id='regProyExtra ' data-toggle='tooltip' data-placement='left' title='5.1.1 Registro de Proyecto Extra'><i class='fa-solid fa-file-arrow-up'></i></i>&nbsp;&nbsp; Registro de Proyecto Extra</a>";
+                                        } ?>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <?php
                                     if ($super == 1) {
-                                    } else if ($verTablaComImg == 0) { ?>
+                                    } else if ($verTablaRegProyExtra == 0) { ?>
                                         <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tableComImagenes" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                    <table id="tableProyExtra" class="display compact table-bordered table-striped" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -190,12 +190,15 @@ require '../components/head-dataTables.php';
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
                                                 <th>Año</th>
-                                                <th>img</th>
+                                                <th>Placas</th>
                                                 <th>Color</th>
-                                                <th>Cliente</th>
                                                 <th>Estado del Proyecto</th>
-                                                <th>Status Comprobación</th>
-                                                <th>Status Supervisión</th>
+                                                <th>Etapa del Proyecto</th>
+                                                <th>Estado Proyecto Extra</th>
+                                                <th>Núm. Folio Proyecto Extra</th>
+                                                <th>Valor Proyecto Extra</th>
+                                                <th>Link Autorización Whatsapp</th>
+                                                <th>Link de Supervisión</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -209,26 +212,26 @@ require '../components/head-dataTables.php';
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
                                                 <th>Año</th>
-                                                <th>img</th>
+                                                <th>Placas</th>
                                                 <th>Color</th>
-                                                <th>Cliente</th>
                                                 <th>Estado del Proyecto</th>
-                                                <th>Status Comprobación</th>
-                                                <th>Status Supervisión</th>
+                                                <th>Etapa del Proyecto</th>
+                                                <th>Estado Proyecto Extra</th>
+                                                <th>Núm. Folio Proyecto Extra</th>
+                                                <th class="suma">Valor Proyecto Extra</th>
+                                                <th>Link Autorización Whatsapp</th>
+                                                <th>Link de Supervisión</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>
                                     </table>
-                                    <button id="btnModal-regComImg" class="btn btn-white" data-toggle="modal" data-target='.regComImg'></button>
-                                    <button id="btnModal-regComImgSuper" class="btn btn-white" data-toggle="modal" data-target=".regComImgSuper"></button>
-                                    <button id="btnModal-eliminarComImg" class="btn btn-white" data-toggle="modal" data-target=".borrarComImg"></button>
-                                    <button id="btnModal-eliminarComImgSuper" class="btn btn-white" data-toggle="modal" data-target=".borrarComImgSuper"></button>
+                                    <button id="btbModal-eliminarProyExtra" class="btn btn-white" data-toggle="modal" data-target=".eliminarProyExtra"></button>
+                                    <button id="btbModal-regSuperProyExtra" class="btn btn-white" data-toggle="modal" data-target=".regSuperProyExtra"></button>
+                                    <button id="btbModal-eliminarSuperProyExtra" class="btn btn-white" data-toggle="modal" data-target=".eliminarSuperProyExtra"></button>
                                     <?php
-                                    require '../components/modal-regComImg.php';
-                                    require '../components/modal-eliminarComImg.php';
-                                    require '../components/modal-regComImgSuper.php';
-                                    require '../components/modal-eliminarComImgSuper.php';
-                                    // require '../components/modal-verGralComImg.php';
+                                    require '../components/modal-eliminarProyExtra.php';
+                                    require '../components/modal-regSuperProyExtra.php';
+                                    require '../components/modal-eliminarSuperProyExtra.php';
                                     desconectar();
                                     ?>
                                 </div>
@@ -238,6 +241,7 @@ require '../components/head-dataTables.php';
                 </div>
             </section>
             <!-- /table usuario -->
+            <div id="divModal"></div>
         </div>
         <?php
         require '../components/footer.php';
@@ -247,111 +251,79 @@ require '../components/head-dataTables.php';
     // Scripts principales
     require '../components/scripts-main.php';
     // Scripts dataTables
-    require '../components/scripts-dataTables.php';
+    require '../ajax/plugins-datatable.php';
     ?>
-    <!-- avisos -->
-    <script src="../../src/js/toastr.js"></script>
+    <script src="../ajax/crudProyectoExtra.js"></script>
     <script>
-        // noComimg PROYECTO ELIMINADO, NO SE PUEDE REALIZAR ESTA ACCION --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#noComImg ").click(function() {
-                toastr["error"]("¡PROYECTO ELIMINADO, NO SE PUEDE REALIZAR ESTA ACCION!")
+        function mostarDetalles(id_proyecto, id_proyExtra) {
+            var ruta = '../components/modal-verGralProyExtra.php?id_proyecto=' + id_proyecto + '&id_proyExtra=' + id_proyExtra;
+            $.get(ruta, function(data) {
+                $('#divModal').html(data);
+                $('#modal-verGralProyExtra').modal('show');
+            });
+        }
+ 
+        //5.1.3 Registrar Supervisión Proyecto Extra
+        $('#btnNuevoSuperProyExtra').click(function() {
+            var param = $('#formNuevoSuperProyExtra').serialize();
+            $.ajax({
+                    url: '../adds/addNuevoRegSuperProyExtra.php',
+                    cache: false,
+                    type: 'POST',
+                    data: param,
 
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
+                    success: function(vs) {
+                        $('#formNuevoSuperProyExtra')[0].reset();
+                         setTimeout(function() {
+                             $('.regSuperProyExtra').modal('hide');
+                         }, 1000);
+                        tableProyExtra.ajax.reload(null, false)
+                    }
+                })
+                .done(function(res) {
+                    $('#respuestaSuperProyExtra').html(res)
+                })
+        });
+        //Ocultar boton por 5 minutos para evitar el doble submit
+        $("#btnNuevoSuperProyExtra").on('click', function() {
+            $("#btnNuevoSuperProyExtra").css('visibility', 'hidden');
+            setTimeout(function() {
+                $("#btnNuevoSuperProyExtra").css('visibility', 'visible');
+            }, 5000);
         });
 
-        // noEliComimg NO TIENE COMPROBACION DE PLACA, NO HAY NADA QUE BORRAR --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#noEliComImg ").click(function() {
-                toastr["error"]("¡NO TIENE COMPROBACION DE PLACA, NO HAY NADA QUE BORRAR!")
 
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
+        
+        //  5.1.4 Eliminar Supervisión Proyecto Extra
+        $('#btnDeleteSuperProyExtra').click(function() {
+            var param = $('#formDeleteSuperProyExtra').serialize();
+            $.ajax({
+                    url: '../delete/deleteSuperProyExtra.php',
+                    cache: false,
+                    type: 'POST',
+                    data: param,
+
+                    success: function(vs) {
+                        $('#formDeleteSuperProyExtra')[0].reset();
+                         setTimeout(function() {
+                             $('.eliminarSuperProyExtra').modal('hide');
+                         }, 1000);
+                        tableProyExtra.ajax.reload(null, false)
+                    }
+                })
+                .done(function(res) {
+                    $('#respuestaDeleteSuperProyExtra').html(res)
+                })
         });
-
-        // noEliComimg NO SE PUEDE VOLVER A REGISTRAR UNA COMPROBACION DE img --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#siRegComImg ").click(function() {
-                toastr["error"]("¡NO SE PUEDE VOLVER A REGISTRAR UNA COMPROBACION DE img!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
-        });
-
-        // siRegComSuperimg NO SE PUEDE VOLVER A REGISTRAR UNA SUPERVISION DE COMPROBACION DE img --------------------------------------------------------------
-        $(document).ready(function() {
-            $("#siRegComSuperImg ").click(function() {
-                toastr["error"]("¡NO SE PUEDE VOLVER A REGISTRAR UNA SUPERVISION DE COMPROBACION DE IMAGENES!")
-
-                tostadas.opciones = {
-                    "botóncerrar": falso,
-                    "depuración": cierto,
-                    "newestOnTop": falso,
-                    "barra de progreso": falso,
-                    "positionClass": "brindis arriba a la derecha",
-                    "prevenir duplicados": falso,
-                    "onclick": nulo,
-                    "showDuration": "400",
-                    "ocultarDuración": "1000",
-                    "tiempo de espera": "5000",
-                    "tiempo de espera extendido": "1200",
-                    "showEasing": "oscilación",
-                    "hideEasing": "lineal",
-                    "showMethod": "fundido de entrada",
-                    "hideMethod": "desaparecer"
-                }
-            })
+        //Ocultar boton por 5 minutos para evitar el doble submit
+        $("#btnDeleteSuperProyExtra").on('click', function() {
+            $("#btnDeleteSuperProyExtra").css('visibility', 'hidden');
+            setTimeout(function() {
+                $("#btnDeleteSuperProyExtra").css('visibility', 'visible');
+            }, 5000);
         });
     </script>
+
 </body>
 
 </html>

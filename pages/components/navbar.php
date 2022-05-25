@@ -11,10 +11,10 @@
         <a href="../admin/panelAdmin.php" class="navbar-brand">
             <img src="../../src/img/logos/logo.png" alt="JSOL Automotriz Logo" class="brand-image  elevation-5" style="opacity: .8; height:4rem">
             <!-- Produccion -->
-            <!-- <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span></a> -->
+            <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span></a>
 
-        <!-- Pruebas -->
-        <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span>
+            <!-- Pruebas -->
+            <!-- <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span> -->
         </a>
 
         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +22,7 @@
         </button>
 
 
-        <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+        <div class="collapse navbar-collapse order-2" id="navbarCollapse">
             <!-- Left navbar links -->
             <div class="btn-group" role="group" aria-label="Basic example">
                 <a href="../admin/panelAdmin.php" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Ir al Inicio" style="padding-left: 5px;padding-right: 5px;">| <i class="fa-solid fa-house-user"></i></a>
@@ -51,12 +51,13 @@
                 </div>
             </div>
             <ul class="navbar-nav">
+                <!------------------------------------------------------------- 1.0 Catálogos ------------------------------------------------------------->
                 <li class="nav-item dropdown">
                     <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle  <?php if ($passUser == 'SIN_PASSWORD') {
                                                                                                                                                                 echo 'disabled';
                                                                                                                                                             } else {
                                                                                                                                                                 echo 'text-dark ';
-                                                                                                                                                            } ?> ">1.0 Catálogos</a>
+                                                                                                                                                            } ?> " style="padding-left: 5px;padding-right: 5px;">1.0 Catálogos</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style="columns:1; width: 155%;">
                         <li><a href="../admin/crudUsuarios.php" class="dropdown-item">1.1 Usuarios </a></li>
                         <li><a href="../admin/crudMarcas.php" class="dropdown-item">1.2 Marcas </a></li>
@@ -90,12 +91,13 @@
                         <?php  } ?>  -->
                     </ul>
                 </li>
+                <!------------------------------------------------------------- 2.0 Proyecto ------------------------------------------------------------->
                 <li class="nav-item dropdown">
                     <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle <?php if ($passUser == 'SIN_PASSWORD') {
                                                                                                                                                             echo 'disabled';
                                                                                                                                                         } else {
                                                                                                                                                             echo 'text-dark ';
-                                                                                                                                                        } ?> ">2.0 Proyecto</a>
+                                                                                                                                                        } ?> " style="padding-left: 5px;padding-right: 5px;">2.0 Proyecto</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style="min-width: 14rem">
                         <li><a href="../admin/crudVehiculos.php" class="dropdown-item">2.1 Registro Vehículo </a></li>
                         <li><a href="../admin/crudClientes.php" class="dropdown-item">2.2 Registro Cliente </a></li>
@@ -168,9 +170,13 @@
 
                     </ul>
                 </li>
-
+                <!------------------------------------------------------------- 3.0 Reportes ------------------------------------------------------------->
                 <li class="nav-item dropdown">
-                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle text-dark">3.0 Reportes</a>
+                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle <?php if ($passUser == 'SIN_PASSWORD') {
+                                                                                                                                                            echo 'disabled';
+                                                                                                                                                        } else {
+                                                                                                                                                            echo 'text-dark ';
+                                                                                                                                                        } ?> " style="padding-left: 5px;padding-right: 5px;">3.0 Reportes</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                         <li><a href="../components/reporteDifValVenAltavsValCodId.php" class="dropdown-item">3.1 Reporte Diferencia Valor Alta Vs Valor Codigo Identificador </a></li>
                         <li><a href="../components/reporteDifValVenInicialvsValAlta.php" class="dropdown-item ">3.2 Reporte Diferencia Valor Venta Inicial Vs Valor Alta </a></li>
@@ -178,13 +184,30 @@
                         <!-- <li><a href="#" class="dropdown-item disabled">3.4 item </a></li> -->
                     </ul>
                 </li>
+                <!------------------------------------------------------------- 4.0 Compras y Almacén ------------------------------------------------------------->
                 <li class="nav-item dropdown">
-                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle text-dark">4.0 Compras y Almacén</a>
+                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle <?php if ($passUser == 'SIN_PASSWORD') {
+                                                                                                                                                            echo 'disabled';
+                                                                                                                                                        } else {
+                                                                                                                                                            echo 'text-dark ';
+                                                                                                                                                        } ?> " style="padding-left: 5px;padding-right: 5px;">4.0 Compras y Almacén</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                         <li><a href="../admin/crudRecPzsDanadas.php" class="dropdown-item">4.1 Recepción de Piezas Dañadas</a></li>
                         <li><a href="../consultas/tablaConsultaBitacoraSolPiezas.php" class="dropdown-item">4.2 Autorización de Compras </a></li>
-                        <!-- <li><a href="#" class="dropdown-item disabled">4.3 item </a></li> -->
+                        <li><a href="../admin/crudCronoSurPzs.php" class="dropdown-item">4.3 Cronometro de Surtido de Piezas </a></li>
                         <!-- <li><a href="#" class="dropdown-item disabled">4.4 item </a></li> -->
+                    </ul>
+                </li>
+                <!------------------------------------------------------------- 5.0 Proyectos Extras ------------------------------------------------------------->
+                <li class="nav-item dropdown">
+                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle <?php if ($passUser == 'SIN_PASSWORD') {
+                                                                                                                                                            echo 'disabled';
+                                                                                                                                                        } else {
+                                                                                                                                                            echo 'text-dark ';
+                                                                                                                                                        } ?> " style="padding-left: 5px;padding-right: 5px;">5.0 Proyectos Extras</a>
+                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                        <li><a href="../admin/crudProyectoExtra.php" class="dropdown-item">5.1 Captura Proyectos Extras</a></li>
+
                     </ul>
                 </li>
             </ul>
@@ -224,7 +247,7 @@ $count_reg_proyectosE = mysqli_query($conexion, "SELECT id_proyecto FROM proyect
                     <div class="col-sm-6 col-md-2">
                         <div class="info-box">
                             <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
-                            <div class="info-box-content">
+                            <div class="info-box-content" style="padding-left: 2px;padding-right: 2px;">
                                 <h6 class="info-box-number text-center">Activos</h6>
                                 <h4 class="text-center">
                                     <?php echo mysqli_num_rows($count_reg_proyectoActivo); ?>
@@ -235,7 +258,7 @@ $count_reg_proyectosE = mysqli_query($conexion, "SELECT id_proyecto FROM proyect
                     <div class="col-sm-6 col-md-2">
                         <div class="info-box mb-3">
                             <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
-                            <div class="info-box-content">
+                            <div class="info-box-content" style="padding-left: 2px;padding-right: 2px;">
                                 <h6 class="info-box-number text-center">Solicitud Alta</h6>
                                 <h4 class="text-center">
                                     <?php echo mysqli_num_rows($count_reg_registroSolicitud); ?>
@@ -246,7 +269,7 @@ $count_reg_proyectosE = mysqli_query($conexion, "SELECT id_proyecto FROM proyect
                     <div class="col-sm-6 col-md-2">
                         <div class="info-box mb-3">
                             <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
-                            <div class="info-box-content">
+                            <div class="info-box-content" style="padding-left: 2px;padding-right: 2px;">
                                 <h6 class="info-box-number text-center">Alta Proyecto</h6>
                                 <h4 class="text-center">
                                     <?php echo mysqli_num_rows($count_reg_altaProyecto); ?>
@@ -257,7 +280,7 @@ $count_reg_proyectosE = mysqli_query($conexion, "SELECT id_proyecto FROM proyect
                     <div class="col-sm-6 col-md-2">
                         <div class="info-box mb-3">
                             <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
-                            <div class="info-box-content">
+                            <div class="info-box-content" style="padding-left: 2px;padding-right: 2px;">
                                 <h6 class="info-box-number text-center">Código ID</h6>
                                 <h4 class="text-center">
                                     <?php echo mysqli_num_rows($count_reg_proyCodIdentificador); ?>
@@ -268,7 +291,7 @@ $count_reg_proyectosE = mysqli_query($conexion, "SELECT id_proyecto FROM proyect
                     <div class="col-sm-6 col-md-2">
                         <div class="info-box mb-3">
                             <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
-                            <div class="info-box-content">
+                            <div class="info-box-content" style="padding-left: 2px;padding-right: 2px;">
                                 <h6 class="info-box-number text-center">Supervisión</h6>
                                 <h4 class="text-center">
                                     <?php echo mysqli_num_rows($count_reg_superCodIdentificador); ?>
@@ -281,7 +304,7 @@ $count_reg_proyectosE = mysqli_query($conexion, "SELECT id_proyecto FROM proyect
                     <div class="col-sm-6 col-md-3">
                         <div class="info-box mb-3">
                             <span class="info-box-icon bg-info elevation-1"><i class="fa-solid fa-arrow-up-1-9"></i></span>
-                            <div class="info-box-content">
+                            <div class="info-box-content" style="padding-left: 2px;padding-right: 2px;">
                                 <h6 class="info-box-number text-center">Total Proyectos</h6>
                                 <h4 class="text-center">
                                     <?php echo mysqli_num_rows($count_reg_proyectos); ?>
@@ -292,7 +315,7 @@ $count_reg_proyectosE = mysqli_query($conexion, "SELECT id_proyecto FROM proyect
                     <div class="col-sm-6 col-md-3">
                         <div class="info-box mb-3">
                             <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-trash-can"></i></span>
-                            <div class="info-box-content">
+                            <div class="info-box-content" style="padding-left: 2px;padding-right: 2px;">
                                 <h6 class="info-box-number text-center">Proyectos Eliminados</h6>
                                 <h4 class="text-center">
                                     <?php echo mysqli_num_rows($count_reg_proyectosE); ?>

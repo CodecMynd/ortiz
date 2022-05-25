@@ -445,7 +445,7 @@ require '../components/head-dataTables.php';
                                                     <th>#</th>
                                                     <th>ID</th>
                                                     <th>Núm. Proyecto</th>
-                                                    <th>Núm. Folio</th>
+                                                    <th>Núm. Folio Solicitud de Pieza</th>
                                                     <th>Cantidad</th>
                                                     <th>Descripción</th>
                                                     <th>Minuto de Video</th>
@@ -547,7 +547,7 @@ require '../components/head-dataTables.php';
                                                     <th>#</th>
                                                     <th>ID</th>
                                                     <th>Núm. Proyecto</th>
-                                                    <th>Núm. Folio</th>
+                                                    <th>Núm. Folio Solicitud de Pieza</th>
                                                     <th>Cantidad</th>
                                                     <th>Descripción</th>
                                                     <th>Minuto de Video</th>

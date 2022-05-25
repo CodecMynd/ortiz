@@ -1,5 +1,5 @@
 <?php
-require '../components/head-main.php';
+require '../components/queryDomPdf.php';
 ?>
 <!-- Modal  style="max-width: 1250px!important;"  -->
 <div class="modal fade" id="modal-verGralActMinDiaria" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -118,7 +118,7 @@ require '../components/head-main.php';
                 WHERE P.id_Proyecto = $id_proyecto ORDER BY id_ActMinDiaria DESC;";
                 $resultado = mysqli_query($conexion, $query);
                 ?>
-                <table id="tableVarios1" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                <table id="tableVarios1" class="table table-responsive table-sm table-bordered table-striped" style="width: 100%;">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -209,7 +209,7 @@ require '../components/head-main.php';
                 <hr>
                 <br>
                 <h5 class="text-center"><strong> Consulta: Registro Diario Programa de Asesoramiento Técnico</strong></h5>
-                
+
                 <?php
                 $cont = 0;
                 $query = "SELECT P.id_proyecto, P.nProyecto,  
@@ -231,7 +231,7 @@ require '../components/head-main.php';
                 WHERE P.id_proyecto = $id_proyecto GROUP BY SD.id_SegDiaProAseTecnico;";
                 $resultado = mysqli_query($conexion, $query);
                 ?>
-                <table id="tableVarios2" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                <table id="tableVarios2" class="table  table-sm table-bordered table-striped" style="width: 100%;">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -467,71 +467,71 @@ require '../components/head-main.php';
                             $fechaBitacora = "";
                             $bitacora = "";
                             $capturista = "";
-                    
-                            $capturistaR = $row['nomR'].' '. $row['patR'].' '. $row['matR'];
-                            $capturistaM = $row['nomM'].' '. $row['patM'].' '. $row['matM'];
-                            $capturistaB = $row['nomB'].' '. $row['patB'].' '. $row['matB'];
-                    
+
+                            $capturistaR = $row['nomR'] . ' ' . $row['patR'] . ' ' . $row['matR'];
+                            $capturistaM = $row['nomM'] . ' ' . $row['patM'] . ' ' . $row['matM'];
+                            $capturistaB = $row['nomB'] . ' ' . $row['patB'] . ' ' . $row['matB'];
+
                             $f_b = $row['fechar_borrado'];
                             $f_m = $row['fecha_modificacion'];
                             $f_r = $row['fecha_registro'];
-                    
-                            
+
+
                             $Eliminado = $row['estadoProyectoEliminado'];
                             $e = $row['etapa'];
-                    
-                          // Etapa del proyecto
-                          $PA = $row['proyectoActivo'];
-                          $RS = $row['registroSolicitud'];
-                          $AP = $row['altaProyecto'];
-                          $CI = $row['proyCodIdentificador'];
-                          $SU = $row['superCodIdentificador'];
-                          if ($PA == 1) {
-                            $etapa = "<h6><span class='badge badge-success badge-pill'>Proyecto Activo</span></h6>";
-                        } else if ($RS == 1) {
-                            $etapa = "<h6><span class='badge badge-success badge-pill'>Solicitud Alta</span></h6>";
-                        } else if ($AP == 1) {
-                            $etapa = "<h6><span class='badge badge-success badge-pill'>Alta Proyecto</span></h6>";
-                        } else if ($CI == 1) {
-                            $etapa = "<h6><span class='badge badge-success badge-pill'>Código Identificador</span></h6>";
-                        } else if ($SU == 1) {
-                            $etapa = "<h6><span class='badge badge-success badge-pill'>Supervisión</span></h6>";
-                        } else {
-                            $etapa = "<h6><span class='badge badge-Warning badge-pill'>Sin Ubicación</span></h6>";
-                        }
-                    
-                        // Bitacora Fecha
-                        if($e != ''){
-                            $bitacora = "<strong>$e</strong>";
-                        }else{
-                            $bitacora = "<h6><span class='badge badge-danger badge-pill'>N/A</span></h6>";
-                        }
-                    
-                        
-                        // Bitacora Actividad
-                        if(!empty($f_r)){
-                            $fechaBitacora = "<strong>$f_r</strong>";
-                        }else if(!empty($f_m)){
-                            $fechaBitacora = "<strong>$f_m</strong>";
-                        }else if(!empty($f_b)){
-                            $fechaBitacora = "<strong>$f_b</strong>";
-                        }else{
-                            $fechaBitacora = "<h6><span class='badge badge-danger badge-pill'>N/A</span></h6>";
-                        }
-                    
-                        // validar columna estado del proyecto
-                        if ($Eliminado == 0) {
-                            $validaEstadoProyecto = "<h6><span class='badge badge-danger badge-pill'>Eliminado</span></h6>";
-                        } else {
-                            $validaEstadoProyecto = "<h6><span class='badge badge-success badge-pill'>Activo</span></h6>";
-                        }
-                    
-                        // Capturista
-                        if(!empty($capturistaR) OR !empty($capturistaM) OR !empty($capturistaB)){
-                            $capturista = $capturistaR .' '.$capturistaM.' '.$capturistaB;
-                        }else if((empty($row['id_capB']) OR $row['id_capB'] == 0 ) and (empty($row['id_capM']) OR $row['id_capM'] == 0) and  (empty($row['id_capR']) OR $row['id_capR'] == 0 )){
-                            $capturista = "<h6><span class='badge badge-danger badge-pill'>N/A</span></h6>";
-                        }
+
+                            // Etapa del proyecto
+                            $PA = $row['proyectoActivo'];
+                            $RS = $row['registroSolicitud'];
+                            $AP = $row['altaProyecto'];
+                            $CI = $row['proyCodIdentificador'];
+                            $SU = $row['superCodIdentificador'];
+                            if ($PA == 1) {
+                                $etapa = "<h6><span class='badge badge-success badge-pill'>Proyecto Activo</span></h6>";
+                            } else if ($RS == 1) {
+                                $etapa = "<h6><span class='badge badge-success badge-pill'>Solicitud Alta</span></h6>";
+                            } else if ($AP == 1) {
+                                $etapa = "<h6><span class='badge badge-success badge-pill'>Alta Proyecto</span></h6>";
+                            } else if ($CI == 1) {
+                                $etapa = "<h6><span class='badge badge-success badge-pill'>Código Identificador</span></h6>";
+                            } else if ($SU == 1) {
+                                $etapa = "<h6><span class='badge badge-success badge-pill'>Supervisión</span></h6>";
+                            } else {
+                                $etapa = "<h6><span class='badge badge-Warning badge-pill'>Sin Ubicación</span></h6>";
+                            }
+
+                            // Bitacora Fecha
+                            if ($e != '') {
+                                $bitacora = "<strong>$e</strong>";
+                            } else {
+                                $bitacora = "<h6><span class='badge badge-danger badge-pill'>N/A</span></h6>";
+                            }
+
+
+                            // Bitacora Actividad
+                            if (!empty($f_r)) {
+                                $fechaBitacora = "<strong>$f_r</strong>";
+                            } else if (!empty($f_m)) {
+                                $fechaBitacora = "<strong>$f_m</strong>";
+                            } else if (!empty($f_b)) {
+                                $fechaBitacora = "<strong>$f_b</strong>";
+                            } else {
+                                $fechaBitacora = "<h6><span class='badge badge-danger badge-pill'>N/A</span></h6>";
+                            }
+
+                            // validar columna estado del proyecto
+                            if ($Eliminado == 0) {
+                                $validaEstadoProyecto = "<h6><span class='badge badge-danger badge-pill'>Eliminado</span></h6>";
+                            } else {
+                                $validaEstadoProyecto = "<h6><span class='badge badge-success badge-pill'>Activo</span></h6>";
+                            }
+
+                            // Capturista
+                            if (!empty($capturistaR) or !empty($capturistaM) or !empty($capturistaB)) {
+                                $capturista = $capturistaR . ' ' . $capturistaM . ' ' . $capturistaB;
+                            } else if ((empty($row['id_capB']) or $row['id_capB'] == 0) and (empty($row['id_capM']) or $row['id_capM'] == 0) and  (empty($row['id_capR']) or $row['id_capR'] == 0)) {
+                                $capturista = "<h6><span class='badge badge-danger badge-pill'>N/A</span></h6>";
+                            }
 
                         ?>
                             <tr>
@@ -544,13 +544,13 @@ require '../components/head-main.php';
                                     <span class='badge badge-dark badge-pill'><?php echo $id_proyecto ?></span>
                                 </td>
                                 <td>
-                                    <?php echo $row['nProyecto']?>
+                                    <?php echo $row['nProyecto'] ?>
                                 </td>
                                 <td>
                                     <?php echo $validaEstadoProyecto ?>
                                 </td>
                                 <td>
-                                    <?php echo $etapa?>
+                                    <?php echo $etapa ?>
                                 </td>
                                 <td>
                                     <?php echo $bitacora ?>
@@ -579,6 +579,229 @@ require '../components/head-main.php';
                         </tr>
                     </tfoot>
                 </table>
+                <br>
+                <hr>
+                <br>
+                <h5 class="text-center"><strong> Registros Comprobación y Supervisión de Verificación Diaria de Baterías</strong></h5>
+
+                <?php
+                $cont = 0;
+                $query = "SELECT P.id_proyecto, P.nProyecto, 
+                V.id_verifDiaBat, V.linkverifDiaBat, V.textSupervision, V.fecha_creacionV, V.fecha_creacionS, V.borrado AS borradoV,
+                V.com, V.sup,
+                UV.nombres AS nomV, UV.aPaterno AS patV, UV.aMaterno AS matV,
+                US.nombres AS nomS, US.aPaterno AS patS, US.aMaterno AS matS
+                from proyectos P 
+                LEFT JOIN verificaciondiariabaterias V ON P.id_proyecto = V.id_proyecto
+                LEFT JOIN usuarios UV ON V.id_capCV = UV.id_usuario
+                LEFT JOIN usuarios US ON V.id_capCS = US.id_usuario
+                WHERE P.id_Proyecto = $id_proyecto AND V.borrado = 0 ORDER BY V.id_verifDiaBat DESC";
+                $resultado = mysqli_query($conexion, $query);
+                ?>
+                <table id="tableVarios5" class="table table-responsive table-sm table-bordered table-striped" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>ID</th>
+                            <th>Núm. Proyecto</th>
+                            <th>Link Verificación</th>
+                            <th>Capturista Verificador</th>
+                            <th>Fecha Registro Verificación</th>
+                            <th>Supervisión</th>
+                            <th>Capturista Supervisor</th>
+                            <th>Fecha Registro Supervisión</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        while ($row = $resultado->fetch_assoc()) {
+                            $id_proyecto = $row['id_proyecto'];
+                            $nP = $row['nProyecto'];
+                            $id_verifDiaBat = $row['id_verifDiaBat'];
+                            $com = $row['com'];
+                            $sup = $row['sup'];
+                            $capturistaV = $row['nomV'] . ' ' . $row['patV'] . ' ' . $row['matV'];
+                            $capturistaS = $row['nomS'] . ' ' . $row['patS'] . ' ' . $row['matS'];
+                        ?>
+                            <tr>
+                                <td>
+                                    <?php $cont++;
+                                    echo $cont;
+                                    ?>
+                                </td>
+                                <td style="width: 7%;">
+                                    <span class='badge badge-dark badge-pill'><?php echo $id_proyecto ?></span>
+                                </td>
+                                <td>
+                                    <?php echo $row['nProyecto'] ?>
+                                </td>
+                                <td>
+                                    <?php echo (empty($row['linkverifDiaBat'])) ? 'Sin Registro' : $row['linkverifDiaBat']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $capturistaV ?>
+                                </td>
+                                <td>
+                                    <?php echo (empty($row['fecha_creacionV'])) ? 'Sin Registro' : $row['fecha_creacionV']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['textSupervision'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $capturistaS ?>
+                                </td>
+                                <td>
+                                    <?php if ($row['fecha_creacionS'] == '0000-00-00 00:00:00') {
+                                        echo '';
+                                    } else {
+                                        echo $row['fecha_creacionS'];
+                                    }
+                                    ?>
+                                </td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>#</th>
+                            <th>ID</th>
+                            <th>Núm. Proyecto</th>
+                            <th>Link Verificación</th>
+                            <th>Capturista Verificador</th>
+                            <th>Fecha Registro Verificación</th>
+                            <th>Supervisión</th>
+                            <th>Capturista Supervisor</th>
+                            <th>Fecha Registro Supervisión</th>
+                        </tr>
+                    </tfoot>
+                </table>
+                <br>
+                <hr>
+                <br>
+                <h5 class="text-center"><strong> Registros Incidencias</strong></h5>
+                <?php
+                $cont = 0;
+                $query = "SELECT P.id_proyecto, P.nProyecto,
+                V.placa, Co.color, M.marca, Mo.modelo, An.anio,
+                I.incidencia, I.fecha_creacion, I.folio,
+                I.com, I.sup, I.id_incidencia,
+                U.nombres, U.aPaterno, U.aMaterno
+                from proyectos P 
+                INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
+                INNER JOIN colores Co ON V.id_color = Co.id_color
+                INNER JOIN marcas M ON V.id_marca = M.id_marca 
+                INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
+                INNER JOIN anios An ON V.id_anio = An.id_anio 
+                LEFT JOIN incidencias I ON P.id_proyecto = I.id_proyecto
+                LEFT JOIN usuarios U ON I.id_capC = U.id_usuario
+                WHERE P.id_proyecto = '$id_proyecto' and I.borrado = 0";
+                $resultado = mysqli_query($conexion, $query);
+                ?>
+                <table id="tableVarios6" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>ID</th>
+                            <th>Núm. Proyecto</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Año</th>
+                            <th>Placas</th>
+                            <th>Color</th>
+                            <th>Núm. Folio</th>
+                            <th>Incidencia</th>
+                            <th>Solicitado en</th>
+                            <th>Capturista Incidencia</th>
+                            <th>Fecha Solicitud</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        while ($row = $resultado->fetch_assoc()) {
+                            $id_proyecto = $row['id_proyecto'];
+                            $id_i = $row['id_incidencia'];
+                            $nP = $row['nProyecto'];
+                            $f = $row['folio'];
+                            $solicitante = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
+                            $c = $row['com'];
+                            $s = $row['sup'];
+                        ?>
+                            <tr>
+                                <td>
+                                    <?php $cont++;
+                                    echo $cont;
+                                    ?>
+                                </td>
+                                <td>
+                                    <span class='badge badge-dark badge-pill'><?php echo $id_proyecto ?></span>
+                                </td>
+                                <td>
+                                    <?php echo $row['nProyecto'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['marca'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['modelo'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['anio'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['placa'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['color'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['folio'] ?>
+                                </td>
+                                <td>
+                                    <?php echo (empty($row['incidencia'])) ? 'Sin Registro' : $row['incidencia']; ?>
+                                </td>
+                                <td>
+                                    <?php
+                                    if ($c == 1) {
+                                        echo 'Comprobación';
+                                    } else if ($s == 1) {
+                                        echo 'Supervisión';
+                                    } else {
+                                        echo 'Sin Registro';
+                                    }
+                                    ?>
+                                </td>
+                                <td>
+                                    <?php echo (empty($solicitante)) ? 'Sin Registro' : $solicitante; ?>
+                                </td>
+                                <td>
+                                    <?php echo (empty($row['fecha_creacion'])) ? 'Sin Registro' : $row['fecha_creacion']; ?>
+                                </td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>#</th>
+                            <th>ID</th>
+                            <th>Núm. Proyecto</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Año</th>
+                            <th>Placas</th>
+                            <th>Color</th>
+                            <th>Núm. Folio</th>
+                            <th>Incidencia</th>
+                            <th>Solicitado en</th>
+                            <th>Capturista Incidencia</th>
+                            <th>Fecha Solicitud</th>
+                        </tr>
+                    </tfoot>
+                </table>
+
             </div>
             <div class="modal-footer text-left">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>
