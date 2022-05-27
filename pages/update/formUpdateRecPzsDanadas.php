@@ -302,7 +302,7 @@ require '../components/head-dataTables.php';
                                                                     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog"></i><span data-toogle="tooltip" title="Botónes de administración  tabla Marcas"> Acciones</span>
                                                                     </button>
                                                                     <ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>
-                                                                        <li class="dropdown-item mt-2">
+                                                                        <li class="dropdown-item">
                                                                             <span data-toggle="tooltip" title="4.1.5 Eliminar Solicitud de Piezas (Eliminar toda la fila)">
                                                                                 <?php
                                                                                 if ($super == 1) {

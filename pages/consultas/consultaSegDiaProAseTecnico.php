@@ -66,9 +66,9 @@ while ($row = $resultado->fetch_assoc()) {
 
 	// valida columna Top
 	if ($top == 0) {
-		$validaTop = "<h6><span class='badge badge-ligth badge-pill top' data-toggle='tooltip' data-placement='bottom' title='Este Proyecto no es Top'><i class='fa-solid fa-star fa-2x' style='color:#CCCCCC'></i></span></h6>";
+		$validaTop = "<h6><span class='badge badge-ligth badge-pill top' data-toggle='tooltip' data-placement='bottom' title='Este Proyecto no es Top'><h6><span class='badge badge-danger badge-pill'>No Top</span></h6></span></h6>";
 	} else {
-		$validaTop = "<h6><span class='badge badge-ligth badge-pill top' data-toggle='tooltip' data-placement='bottom' title='Este Proyecto es Top'><i class='fa-solid fa-star fa-2x' style='color:#28A745'></i></span></h6>";
+		$validaTop = "<h6><span class='badge badge-ligth badge-pill top' data-toggle='tooltip' data-placement='bottom' title='Este Proyecto es Top'><h6><span class='badge badge-success badge-pill'>Es Top</span></h6></span></h6>";
 	}
 
 	// validar columna estado del proyecto
@@ -119,17 +119,17 @@ while ($row = $resultado->fetch_assoc()) {
 	// Boton 2.3.6.1.1 Registro Comprobación de Seguimiento Diario Programa de Asesoramiento Técnico
 	if ($Eliminado == 0) {
 		$outputBtns1 = "<a class='btn btn-outline-danger' id='eliminado'><i class='fa-solid fa-ban'></i></a>";
-	} else if ($super == 1 and (empty($c)) ){
+	} else if ($super == 1 and (empty($c))) {
 		$outputBtns1 = "<a href='../adds/formAddSegDiaAseTecnico.php?id={$idP}' class='btn btn-secondary'><i class='fa-solid fa-pencil'></i></a>";
-	} else if ($super == 1 and ($c > 0 AND empty($s))){
+	} else if ($super == 1 and ($c > 0 and empty($s))) {
 		$outputBtns1 = "<a class='btn btn-outline-danger' id='yaRegistrado'><i class='fa-solid fa-pencil'></i></a>";
 	} else if ($super == 1 and ($c != $s)) {
 		$outputBtns1 = "<a class='btn btn-outline-danger' id='elimina'><i class='fa-solid fa-pencil'></i></a>";
 	} else if ($super == 1 and ($c == $s)) {
 		$outputBtns1 = "<a href='../adds/formAddSegDiaAseTecnico.php?id={$idP}' class='btn btn-secondary'><i class='fa-solid fa-pencil'></i></a>";
-	} else if ($regComSegDiaAseTecnico == 1 and (empty($c)) ){
+	} else if ($regComSegDiaAseTecnico == 1 and (empty($c))) {
 		$outputBtns1 = "<a href='../adds/formAddSegDiaAseTecnico.php?id={$idP}' class='btn btn-secondary'><i class='fa-solid fa-pencil'></i></a>";
-	} else if ($regComSegDiaAseTecnico == 1 and ($c > 0 AND empty($s))){
+	} else if ($regComSegDiaAseTecnico == 1 and ($c > 0 and empty($s))) {
 		$outputBtns1 = "<a class='btn btn-outline-danger' id='yaRegistrado'><i class='fa-solid fa-pencil'></i></a>";
 	} else if ($regComSegDiaAseTecnico == 1 and ($c != $s)) {
 		$outputBtns1 = "<a class='btn btn-outline-danger' id='elimina'><i class='fa-solid fa-pencil'></i></a>";
@@ -144,7 +144,7 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns2 = "<a class='btn btn-outline-danger' id='eliminado'><i class='fa-solid fa-ban'></i></a>";
 	} else if ($super == 1 and (empty($c) and empty($s))) {
 		$outputBtns2 = "<a class='btn btn-outline-danger' id='elimina'><i class='fa-solid fa-pencil'></i></a>";
-	} else if ($super == 1 and ($c > 0 AND empty($s))){
+	} else if ($super == 1 and ($c > 0 and empty($s))) {
 		$outputBtns2 = "<a href='../adds/formAddSupervisionSegDiaAseTecnico.php?idP={$idP}&id={$id_SegDiaProAseTecnico}' class='btn btn-secondary'><i class='fa-solid fa-pencil'></i></a>";
 	} else if ($super == 1 and ($c == $s)) {
 		$outputBtns2 = "<a class='btn btn-outline-danger' id='elimina'><i class='fa-solid fa-pencil'></i></a>";
@@ -152,7 +152,7 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns2 = "<a href='../adds/formAddSupervisionSegDiaAseTecnico.php?idP={$idP}&id={$id_SegDiaProAseTecnico}' class='btn btn-secondary'><i class='fa-solid fa-pencil'></i></a>";
 	} else if ($regSuperSegDiaAseTecnico == 1 and (empty($c) and empty($s))) {
 		$outputBtns2 = "<a class='btn btn-outline-danger' id='elimina'><i class='fa-solid fa-pencil'></i></a>";
-	} else if ($regSuperSegDiaAseTecnico == 1 and ($c > 0 AND empty($s))){
+	} else if ($regSuperSegDiaAseTecnico == 1 and ($c > 0 and empty($s))) {
 		$outputBtns2 = "<a href='../adds/formAddSupervisionSegDiaAseTecnico.php?idP={$idP}&id={$id_SegDiaProAseTecnico}' class='btn btn-secondary'><i class='fa-solid fa-pencil'></i></a>";
 	} else if ($regSuperSegDiaAseTecnico == 1 and ($c == $s)) {
 		$outputBtns2 = "<a class='btn btn-outline-danger' id='elimina'><i class='fa-solid fa-pencil'></i></a>";
@@ -173,25 +173,31 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns3 = "<a class='btn btn-outline-danger' id='verGralSegDiaProAseTecnico'><i class='fa-solid fa-comments'></i></a>";
 	}
 
+	// 2.3.6.1.3 Ver Generales Seguimiento Diario Programa de Asesoramiento Técnico (Consulta Rapida)
+	if ($super == 1 or $verGralSegDiaProAseTecnico == 1) {
+		$outputBtns4 = "<a href='javascript:void(0)' class='btn btn-info' onclick='mostarDetalles(\"" . $row['id_proyecto'] . "\")'><i class='fa-solid fa-circle-info'></i></a>";
+	} else {
+		$outputBtns4 = "<a class='btn btn-outline-danger' id='verGralSegDiaProAseTecnico' data-toggle='tooltip' data-placement='left' title='Sin Permiso'>><i class='fa-solid fa-circle-info'></i></a>";
+	}
+
 	$cont++;
 	$datos[] = array(
-		"0" => $cont,
-		"1" => "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>",
-		"2" => $row['nProyecto'],
-		"3" => $row['nOrden'],
-		"4" => $row['marca'],
-		"5" => $row['modelo'],
-		"6" => $row['anio'],
-		"7" => $row['placa'],
-		"8" => $row['color'],
-		"9" => $validaAsesor,
-		"10" => $validaTop,
-		"11" => $validaEstadoProyecto,
-		"12" => $validaCom,
-		"13" => $validaSup,
-		"14" => $validaUltRegCom,
-		"15" => $validaUltRegSup,
-		"16" => "<div class='input-group input-group-sm mb-3'>
+		"0" => $validaCom,
+		"1" => $validaSup,
+		"2" => $row['marca'],
+		"3" => $validaTop,
+		"4" => $validaAsesor,
+		"5" => "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>",
+		"6" => $row['nProyecto'],
+		"7" => $row['nOrden'],
+		"8" => $row['modelo'],
+		"9" => $row['anio'],
+		"10" => $row['placa'],
+		"11" => $row['color'],
+		"12" => $validaEstadoProyecto,
+		"13" => $validaUltRegCom,
+		"14" => $validaUltRegSup,
+		"15" => "<div class='input-group input-group-sm mb-3'>
 		<div class='input-group-prepend'>
 			<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Verificación Diaria Vehículos Activos'> Acciones</span>
 			</button>
@@ -211,6 +217,11 @@ while ($row = $resultado->fetch_assoc()) {
 				<li class='dropdown-item'>
 					<span data-toggle='tooltip' title='2.3.6.1.3 Ver Generales Seguimiento Diario Programa de Asesoramiento Técnico'>
 					" . $outputBtns3 . "
+					</span>
+				</li>
+				<li class='dropdown-item'>
+					<span data-toggle='tooltip' title='2.3.6.1.3 Ver Generales Seguimiento Diario Programa de Asesoramiento Técnico (Consulta Rapida)'>
+					" . $outputBtns4 . "
 					</span>
 				</li>
 			</ul>

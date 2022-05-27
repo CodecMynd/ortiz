@@ -30,10 +30,10 @@ require '../components/head-main.php';
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row my-3 mx-1">
-                        <div class="col-sm-8">
+                        <div class="col-sm-8 col-lg-9">
                             <h1 class="float-left m-0">2.3.6.1.1 Comprobación Diaria Programa de Asesoramiento Técnico</h1>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 col-lg-3">
                             <h5 class="float-right">Usuario: <strong><?php echo $nomComp ?></strong></h5>
                         </div>
                     </div>
@@ -65,14 +65,16 @@ require '../components/head-main.php';
                                     <div class="card-body">
                                         <div class="row justify-content-center">
                                             <div class='col-md-12 col-sm-12 my-1'>
-                                                <div class='input-group form-floating mb-3'>
-                                                    <div class='input-group-prepend'>
-                                                        <span class='input-group-text mt-2'>
-                                                            <i class="fa-solid fa-link"></i>
-                                                        </span>
-                                                    </div>
-                                                    <input name='linkSegDiaProAseTecnico' id='linkSegDiaProAseTecnico' type='text' class='form-control' placeholder='Link de Video en Vivo' data-toggle='tooltip' data-placement='bottom' title='Ingresa Registrar Link de Video en Vivo'>
-                                                    <label for='floatingInput' class='pl-5'>*Link de Video en Vivo <small> Campo requerido</small></label>
+                                                <div class='form-group-input' style='border: 1px solid #CED4DA;'>
+                                                    <label class='pl-2 mb-2'>*Link de Video en Vivo<small> Campo requerido</small></label>
+                                                    <span data-toggle='tooltip' title='max. 200 caracteres'>
+                                                        <div class='input-group'>
+                                                            <div class='input-group-prepend'>
+                                                                <span class='input-group-text'><i class="fa-solid fa-link"></i></span>
+                                                            </div>
+                                                            <textarea name='linkSegDiaProAseTecnico' id='linkSegDiaProAseTecnico' class='form-control' rows='2' placeholder='Max. 200 caracteres'></textarea>
+                                                        </div>
+                                                    </span>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 col-sm-12 my-1">

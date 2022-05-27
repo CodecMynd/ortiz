@@ -15,6 +15,10 @@ $enUso = '0';
   $query = "UPDATE solpzsdanadas SET borrado = '$borrado', enUso = '$enUso', fecha_borrado = '$date', id_capB = '$id' WHERE id_solPzsDanadas = $id_solPzsDanadas";
   $resultado = mysqli_query($conexion, $query);
 
+
+  $query = "UPDATE regcomprainicial SET borrado = '$borrado', enUso = '$enUso', fecha_borrado = '$date', id_capB = '$id' WHERE id_solPzsDanadas = $id_solPzsDanadas";
+  $resultado = mysqli_query($conexion, $query);
+
   if($resultado){
     echo "<div class='alert alert-success' role='alert'>
      <p><strong>Solicitud de Pieza Eliminada correctamente!</strong></p>

@@ -41,6 +41,7 @@ require 'query.php';
         $(function() {
             $('[data-toggle="tooltip"]').tooltip()
         });
+        
     </script>
     <style>
         .cuadro {

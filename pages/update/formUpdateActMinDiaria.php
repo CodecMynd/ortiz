@@ -74,7 +74,7 @@ require '../components/head-dataTables.php';
                                     <h5 class="text-center"><strong> Consulta: Registros del Proyecto</strong></h5>
                                     <?php
                                     $id_proyecto = $_GET['id'];
-                                    $query1 = "SELECT P.id_proyecto, P.nProyecto, P.nOrden,
+                                    $query1 = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta,
                                     V.placa, Co.color, M.marca, Mo.modelo, An.anio, A.asesor,
                                     T.top, T.motivo AS motivoTop,
                                     AST.id_aseTec, AST.aseTec, AST.motivo AS motivoAsesoramiento
@@ -108,6 +108,7 @@ require '../components/head-dataTables.php';
                                                 <th>Top</th>
                                                 <th>Asesoramiento Técnico</th>
                                                 <th>Motivo Top</th>
+                                                <th>Valor Venta Inicial</th>
                                                 <th>Motivo Asesoramiento Técnico</th>
                                             </tr>
                                         </thead>
@@ -148,6 +149,7 @@ require '../components/head-dataTables.php';
                                                     ?>
                                                 </td>
                                                 <td><?php echo (empty($row1['motivoTop'])) ? 'Sin ningún registro Top' : $row1['motivoTop'] ?></td>
+                                                <td><?php echo (empty($row1['valorVenta'])) ? 'Sin Registro' : "<strong>{$row1['valorVenta']}</strong>"; ?></td>
                                                 <td><?php echo (empty($row1['motivoAsesoramiento'])) ? 'Sin ningún registro Asesoramiento Técnico' : $row1['motivoAsesoramiento'] ?></td>
                                             </tr>
                                         </tbody>

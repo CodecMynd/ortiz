@@ -43,7 +43,7 @@ require '../components/head-dataTables.php';
                                     <h3 class="card-title">Semanas de Solicitud de Alta </h3>
                                     <div class="card-tools">
 
-                                        <?php if ($super == 1 or $regSemSolAlta  == 1) {
+                                        <?php if ($super == 1 or $regSemSolAlta == 1) {
                                             echo '<a type="button" class="btn btn-secondary" href="../adds/formAddSemanaSolAlta.php" data-toggle="tooltip" data-placement="left" title="1.6.3.1 Registro Semana Solicitud de Alta"><i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp; Registro Semana Solicitud de Alta</a>';
                                         } else {
                                             echo '<a type="button" class="btn btn-outline-danger" id="regSemSolAlta" data-toggle="tooltip" data-placement="left" title="1.6.3.1 Registro Semana Solicitud de Alta"><i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp; Registro Semana Solicitud de Alta</a>';

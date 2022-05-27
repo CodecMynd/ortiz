@@ -37,10 +37,10 @@ require '../components/head-dataTables.php';
                                     <h3 class="card-title">Semanas de Cobro </h3>
                                     <div class="card-tools">
                                         <?php if ($super == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formAddSemanaCobro.php" data-toggle="tooltip" data-placement="left" title="1.6.2.1 Registro de Semanas de Cobro">
+                                            <a class="btn btn-secondary" href="../adds/formAddSemanaCobro.php" data-toggle="tooltip" data-placement="left" title="1.6.2.1 Registro de Semanas de Cobro">
                                                 <i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp; Registro Semana de  Cobro</a>
                                         <?php } else if ($regSemanaCobro  == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formAddSemanaCobro.php" data-toggle="tooltip" data-placement="left" title="1.6.2.1 Registro de Semanas de Cobro">
+                                            <a class="btn btn-secondary" href="../adds/formAddSemanaCobro.php" data-toggle="tooltip" data-placement="left" title="1.6.2.1 Registro de Semanas de Cobro">
                                                 <i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp; Registro Semana de Cobro</a>
                                         <?php } else { ?>
                                             <a type="button" class="btn btn-outline-danger" id="regSemanaCobro" data-toggle="tooltip" data-placement="left" title="1.6.2.1 Registro de Semanas de Cobro">

@@ -18,7 +18,6 @@ require '../components/head-dataTables.php';
         }
     }
 </style>
-
 </head>
 
 <body class="hold-transition layout-top-nav layout-navbar-fixed layout-footer-fixed">
@@ -148,23 +147,23 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
-                                    <table id="tableSegDiaProAseTecnico" class="table table-sm table-bordered table-striped" style="width:100%">
+                                    <table id="tableSegDiaProAseTecnico" class="display compact table-bordered table-striped" style="width:100%">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
+                                                <!-- <th>#</th> -->
+                                                <th>Status Comprobación</th>
+                                                <th>Status Supervisión</th>
+                                                <th>Marca</th>
+                                                <th>Top</th>
+                                                <th>Asesor</th>
                                                 <th>ID</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
-                                                <th>Marca</th>
                                                 <th>Modelo</th>
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
-                                                <th>Asesor</th>
-                                                <th>Top</th>
                                                 <th>Estado del Proyecto</th>
-                                                <th>Status Comprobación</th>
-                                                <th>Status Supervisión</th>
                                                 <th>Último Registro Comprobación</th>
                                                 <th>Último Registro Supervisión</th>
                                                 <th>Acciones</th>
@@ -173,20 +172,20 @@ require '../components/head-dataTables.php';
                                         <tbody></tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>#</th>
+                                                <!-- <th>#</th> -->
+                                                <th>Status Comprobación</th>
+                                                <th>Status Supervisión</th>
+                                                <th>Marca</th>
+                                                <th>Top</th>
+                                                <th>Asesor</th>
                                                 <th>ID</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
-                                                <th>Marca</th>
                                                 <th>Modelo</th>
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
-                                                <th>Asesor</th>
-                                                <th>Top</th>
                                                 <th>Estado del Proyecto</th>
-                                                <th>Status Comprobación</th>
-                                                <th>Status Supervisión</th>
                                                 <th>Último Registro Comprobación</th>
                                                 <th>Último Registro Supervisión</th>
                                                 <th>Acciones</th>
@@ -209,12 +208,23 @@ require '../components/head-dataTables.php';
         require '../components/footer.php';
         ?>
     </div>
+    <div id="divModal"></div>
     <?php
     // Scripts principales
     require '../components/scripts-main.php';
     // Scripts dataTables
-    require '../components/scripts-dataTables.php';
+    require '../ajax/plugins-datatable.php';
     ?>
+    <script>
+        function mostarDetalles(id_proyecto) {
+    var ruta = '../components/modal-VerGralSegDiaAseTec.php?id_proyecto=' + id_proyecto;
+    $.get(ruta, function (data) {
+        $('#divModal').html(data);
+        $('#modal-VerGralSegDiaAseTec').modal('show');
+    });
+}
+    </script>
+    <script src="../ajax/crudSegDiaAsesoramientoTecnico.js"></script>
     <!-- avisos -->
     <script>
         // sinRegistro ¡SIN REGISTRO, AGREGA UNA COMPROBACIÓN PARA HABILITAR ESTE BÓTON --------------------------------------------------------------
@@ -444,8 +454,3 @@ require '../components/head-dataTables.php';
 </body>
 
 </html>
-
-
-
-
-

@@ -1,128 +1,80 @@
-function mostarDetalles(id_proyecto) {
-    var ruta = '../components/modal-verGralRecPzsDanadas.php?id_proyecto=' + id_proyecto;
-    $.get(ruta, function (data) {
-        $('#divModal').html(data);
-        $('#modal-verGralRecPzsDanadas').modal('show');
-    });
-}
-// Preautorizacion --------------------------------------------------------------------------------------------------------------------------------------------
-function enviarPreAuto(id_proyecto) {
-    var ruta = '../components/modal-enviarPreAutorizacion.php?id_proyecto=' + id_proyecto;
-    $.get(ruta, function (data) {
-        $('#divModalPreAuto').html(data);
-        $('#modal-enviarPreAutorizacion').modal('show');
-    });
-}
+// 4.1.2.2 Regresar a Cotizando--------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Agregar Link --------------------------------------------------------------------------------------------------------------------------------------------------
-
-$('#btnNuevoRecPzsDanadas').click(function () {
-    var param = $('#formNuevoRecPzsDanadas').serialize();
+$('#btnRegresarCotizando').click(function () {
+    var param = $('#formRegresarCotizando').serialize();
     $.ajax({
-            url: '../adds/addNuevoRegRecPzsDanadas.php',
+            url: '../update/updateRegresarCotizando.php',
             type: 'POST',
             data: param,
 
             success: function (vs) {
-                $('#formNuevoRecPzsDanadas')[0].reset();
-                setTimeout(function () {
-                    $('.regRecPzsDanadas').modal('hide');
-                }, 1000);
-                tableRecPzsDanadas.ajax.reload(null, false)
-            }
-        })
-        .done(function (res) {
-            $('#respuestaRecPzsDanadas').html(res)
-        })
-});
-
-//Ocultar boton por 10 segundos para evitar el doble submit
-$("#btnNuevoRecPzsDanadas").on('click', function () {
-    $("#btnNuevoRecPzsDanadas").css('visibility', 'hidden');
-    setTimeout(function () {
-        $("#btnNuevoRecPzsDanadas").css('visibility', 'visible');
-    }, 3000);
-});
-
-// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-// 4.1.2 Eliminar Link de Desarmado
-$('#btnDeleteLinkSolPzsDanadas').click(function () {
-    var param = $('#formDeleteLinkSolPzsDanadas').serialize();
-    $.ajax({
-            url: '../delete/deleteLinkSolPzsDanadas.php',
-            cache: false,
-            type: 'POST',
-            data: param,
-
-            success: function (vs) {
-                $('#formDeleteLinkSolPzsDanadas')[0].reset();
-                setTimeout(function () {
-                    $('.eliminarRegRecPzsDanadas').modal('hide');
-                }, 1000);
-                tableRecPzsDanadas.ajax.reload(null, false)
-            }
-        })
-        .done(function (res) {
-            $('#respuestaDeleteLinkSolPzsDanadas').html(res)
-        })
-});
-
-//Ocultar boton por 10 segundos para evitar el doble submit
-$("#btnDeleteLinkSolPzsDanadas").on('click', function () {
-    $("#btnDeleteLinkSolPzsDanadas").css('visibility', 'hidden');
-    setTimeout(function () {
-        $("#btnDeleteLinkSolPzsDanadas").css('visibility', 'visible');
-    }, 3000);
-});
-
-// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-// 4.1.4 Enviar a Pre-Autorización --------------------------------------------------------------------------------------------------------------------------------------------------
-
-$('#btnEnviarPreAuto').click(function () {
-    var param = $('#formEnviarPreAuto').serialize();
-    $.ajax({
-            url: '../update/updateEnviarPreAuto.php',
-            type: 'POST',
-            data: param,
-
-            success: function (vs) {
-                 $('#formEnviarPreAuto')[0].reset();
+                $('#formRegresarCotizando')[0].reset();
                  setTimeout(function () {
-                     $('.enviarPreAutorizacion').modal('hide');
+                     $('.regresarCotizando').modal('hide');
                  }, 1000);
-                tableRecPzsDanadas.ajax.reload(null, false);
                 tablePreautorizacion.ajax.reload(null, false);
+                tableRecPzsDanadas.ajax.reload(null, false);
             }
         })
         .done(function (res) {
-            $('#respuestaEnviarPreAuto').html(res)
+            $('#respuestaRegresarCotizando').html(res)
+        })
+});
+
+
+//Ocultar boton por 10 segundos para evitar el doble submit
+$("#btnRegresarCotizando").on('click', function () {
+    $("#btnRegresarCotizando").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnRegresarCotizando").css('visibility', 'visible');
+    }, 3000);
+});
+
+// 4.1.2.3 Enviar a Autorizado  --------------------------------------------------------------------------------------------------------------------------------------------------
+
+$('#btnEnviarAutorizado').click(function () {
+    var param = $('#formEnviarAutorizado').serialize();
+    $.ajax({
+            url: '../update/updateEnviarAutorizado.php',
+            type: 'POST',
+            data: param,
+
+            success: function (vs) {
+                $('#formEnviarAutorizado')[0].reset();
+                setTimeout(function () {
+                    $('.enviarAutorizado').modal('hide');
+                }, 1000);
+                tablePreautorizacion.ajax.reload(null, false);
+                tableAutorizado.ajax.reload(null, false);
+            }
+        })
+        .done(function (res) {
+            $('#respuestaEnviarAutorizado').html(res)
         })
 });
 
 //Ocultar boton por 10 segundos para evitar el doble submit
-$("#btnEnviarPreAuto").on('click', function () {
-    $("#btnEnviarPreAuto").css('visibility', 'hidden');
+$("#btnEnviarAutorizado").on('click', function () {
+    $("#btnEnviarAutorizado").css('visibility', 'hidden');
     setTimeout(function () {
-        $("#btnEnviarPreAuto").css('visibility', 'visible');
-    }, 3000);
+        $("#btnEnviarAutorizado").css('visibility', 'visible');
+    }, 1000);
 });
 
 // Tabla 4.1 Recepción de Piezas Dañadas
-var tableRecPzsDanadas = $("#tableRecPzsDanadas").DataTable({
+var tablePreautorizacion = $("#tablePreautorizacion").DataTable({
     "responsive": true,
     "lengthChange": true,
     "autoWidth": true,
+    "stateSave": false,
     "select": true,
     "select": {
         style: 'multi'
     },
-    "stateSave": false,
     "dom": 'PlBfrtip',
     "buttons": ["csv", "excel", "pdf", "colvis"],
     "ajax": {
-        url: "../consultas/consultaRecPzsDanadas.php",
+        url: "../consultas/consultaPreautorizacion.php",
         type: "get",
         dataType: "json",
         error: function (e) {
@@ -143,8 +95,7 @@ var tableRecPzsDanadas = $("#tableRecPzsDanadas").DataTable({
             show: true
         },
         targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13],
-    },
-],
+    }, ],
     "language": {
 
         "aria": {
@@ -240,7 +191,6 @@ var tableRecPzsDanadas = $("#tableRecPzsDanadas").DataTable({
 
 });
 setInterval(function () {
-    tableRecPzsDanadas.ajax.reload(null, false); // user paging is not reset on reload
+    tablePreautorizacion.ajax.reload(null, false); // user paging is not reset on reload
 }, 600000);
-// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------
