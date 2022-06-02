@@ -124,7 +124,7 @@
         });
         setInterval(function() {
             tableRegSolAltaProy.ajax.reload(null, false); // user paging is not reset on reload
-        }, 600000);
+        }, 300000);
 
         // ----------------------------------------------------------------------------------------------------------------------------------
                 // regSolAltProy  2.4.2 REGISTRO DE SOLICITUD ALTA DE PROYECTO --------------------------------------------------------------

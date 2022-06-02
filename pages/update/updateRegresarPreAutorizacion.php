@@ -28,7 +28,7 @@ try {
     $resultado1 = mysqli_query($conexion, $query1);
     // var_dump($query1);
 
-    $query2 = "DELETE FROM autorizados WHERE id_autorizado = '$id_autorizado' ";
+    $query2 = "UPDATE autorizados SET borrado = 1, fecha_borrado = '$date', id_capB = '$id'  WHERE id_autorizado = '$id_autorizado' ";
     $resultado2 = mysqli_query($conexion, $query2);
     // var_dump($query2);
 

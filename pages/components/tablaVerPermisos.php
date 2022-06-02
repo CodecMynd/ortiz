@@ -3581,91 +3581,393 @@ require '../components/head-main.php';
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <div class="row justify-content-center">
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">4.1.1 Registrar Link de Desarmado</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regLinkRecPzsDanadas" id="regLinkRecPzsDanadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regLinkRecPzsDanadas'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                        <div class="col-md-12 col-sm-12 col-12">
+                                                                        <!-- 4.1.1 Recepción de Piezas Dañadas -->
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>4.1.1 Recepción de Piezas Dañadas</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
                                                                                     </div>
                                                                                 </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">4.1.2 Eliminar Link de Desarmado</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliLinkRecPzsDanadas" id="eliLinkRecPzsDanadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliLinkRecPzsDanadas'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                <div class="card-body">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.1 Registrar Link de Desarmado</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regLinkRecPzsDanadas" id="regLinkRecPzsDanadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regLinkRecPzsDanadas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.2 Eliminar Link de Desarmado</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliLinkRecPzsDanadas" id="eliLinkRecPzsDanadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliLinkRecPzsDanadas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.3 Ver Generales Recepción de Piezas Dañadas</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralRecPzsDanadas" id="verGralRecPzsDanadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralRecPzsDanadas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.4 Registrar Solicitud de Piezas</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regSolRecPzsDanadas" id="regSolRecPzsDanadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regSolRecPzsDanadas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.5 Eliminar Solicitud de Piezas</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliSolRecPzsDanadas" id="eliSolRecPzsDanadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliSolRecPzsDanadas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.6 Registro de Compra Inicial</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="perRegCompraInicial" id="perRegCompraInicial" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['perRegCompraInicial'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.7 Eliminar Registro de Compra Inicial</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliRegCompraInicial" id="eliRegCompraInicial" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliRegCompraInicial'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">4.1.3 Ver Generales Recepción de Piezas Dañadas</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralRecPzsDanadas" id="verGralRecPzsDanadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralRecPzsDanadas'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                            </div>
+                                                                            <!-- 4.1.2 Cotizando -->
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>4.1.2 Cotizando </strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
                                                                                     </div>
                                                                                 </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">4.1.4 Registrar Solicitud de Piezas</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regSolRecPzsDanadas" id="regSolRecPzsDanadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regSolRecPzsDanadas'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">4.1.5 Eliminar Solicitud de Piezas</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliSolRecPzsDanadas" id="eliSolRecPzsDanadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliSolRecPzsDanadas'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">4.1.6 Registro de Compra Inicial</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="perRegCompraInicial" id="perRegCompraInicial" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['perRegCompraInicial'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">4.1.7 Eliminar Registro de Compra Inicial</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliRegCompraInicial" id="eliRegCompraInicial" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliRegCompraInicial'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class='fa-solid fa-paper-plane'></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.2.1 Enviar a Pre-Autorización </span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="enviarPreAuto" id="enviarPreAuto" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['enviarPreAuto'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
 
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.2.2 Ver Tabla Cotizando</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaRecPzsDanadas" id="verTablaRecPzsDanadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaRecPzsDanadas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- 4.1.3 Pre-Autorización -->
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>4.1.3 Pre-Autorización </strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class='fa-solid fa-reply'></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.3.1 Regresar a Cotizando </span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regresarCotizando" id="regresarCotizando" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regresarCotizando'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class='fa-solid fa-paper-plane'></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.3.2 Enviar a Autorizado</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="enviarAutoriz" id="enviarAutoriz" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['enviarAutoriz'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.3.3 Ver Tabla Pre-Autorización</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaPreautorizacion" id="verTablaPreautorizacion" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaPreautorizacion'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- 4.1.4 Autorizado  -->
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>4.1.4 Autorizado </strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row justify-content-center">
+                                                                                    <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class='fa-solid fa-reply'></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.4.1 Regresar a Pre-Autorizado</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regresarPreAutizacion" id="regresarPreAutizacion" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regresarPreAutizacion'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class='fa-solid fa-paper-plane'></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.4.2 Enviar Autorizado: en Proceso de Surtido de Piezas </span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="enviarAutoProceSurtPzs" id="enviarAutoProceSurtPzs" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['enviarAutoProceSurtPzs'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.4.3 Ver Tabla Autorizado</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaAutorizado" id="verTablaAutorizado" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaAutorizado'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- 4.1.5 Autorizado: en Proceso de Surtido de Piezas -->
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>4.1.5 Autorizado: en Proceso de Surtido de Piezas</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row justify-content-center">
+                                                                                    <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class='fa-solid fa-reply'></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.5.1 Regresar a Autorizado</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regresarAuto" id="regresarAuto" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regresarAuto'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class='fa-solid fa-paper-plane'></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.5.2 Enviar Piezas Entregadas</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="enviarPzEntregadas" id="enviarPzEntregadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['enviarPzEntregadas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.5.3 Ver Generales Autorizado: en Proceso de Surtido de Piezas</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralProceSurtPzs" id="verGralProceSurtPzs" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralProceSurtPzs'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.5.4 Ver Tabla Autorizado: en Proceso de Surtido de Piezas</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaAutoProceSurtPzs" id="verTablaAutoProceSurtPzs" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaAutoProceSurtPzs'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- 4.1.6 Piezas Entregadas -->
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>4.1.6 Piezas Entregadas</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row justify-content-center">
+                                                                                    <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class='fa-solid fa-reply'></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.6.1 Regresar a AutorizadoAutorizado: en Proceso de Surtido de Piezas</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regresarAutoProceSurtPzs" id="regresarAutoProceSurtPzs" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regresarAutoProceSurtPzs'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class='fa-solid fa-paper-plane'></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.6.2 Enviar Supervisión de Surtido de Piezas</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="enviarSuperSurtPzs" id="enviarSuperSurtPzs" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['enviarSuperSurtPzs'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-file-pdf"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.6.3 Descargar PDF Piezas Entregadas</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="enviarSuperSurtPzs" id="enviarSuperSurtPzs" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['enviarSuperSurtPzs'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.6.4 Ver Generales Piezas Entregadas</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralPzsEntregadas" id="verGralPzsEntregadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralPzsEntregadas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.1.6.5 Ver Tabla Piezas Entregadas</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaPzsEntregadas" id="verTablaPzsEntregadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaPzsEntregadas'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3719,7 +4021,7 @@ require '../components/head-main.php';
                                                                                     <div class="info-box-content">
                                                                                         <span class="info-box-text">4.3.1 Registro Entrega de Pieza</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="regEntregaPz" id="regEntregaPz" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regEntregaPz'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </button>
@@ -3731,7 +4033,7 @@ require '../components/head-main.php';
                                                                                     <div class="info-box-content">
                                                                                         <span class="info-box-text">4.3.2 Supervisión Registro Entrega de Pieza</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="regSuperEntragaPz" id="regSuperEntragaPz" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regSuperEntragaPz'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </button>
@@ -3743,7 +4045,7 @@ require '../components/head-main.php';
                                                                                     <div class="info-box-content">
                                                                                         <span class="info-box-text">4.3.3 Eliminar Registro Entrega de Pieza</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="eliRegEntregaPz" id="eliRegEntregaPz" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliRegEntregaPz'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </button>
@@ -3767,7 +4069,7 @@ require '../components/head-main.php';
                                                                                     <div class="info-box-content">
                                                                                         <span class="info-box-text">4.3.5 Ver Generales Registro Entrega de Pieza</span>
                                                                                         <span class="info-box-text"> <input type="checkbox" name="verGralEntregaPz" id="verGralEntregaPz" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralEntregaPz'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </button>

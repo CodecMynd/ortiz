@@ -762,7 +762,7 @@
         }).buttons().container().appendTo('#tableComAsignarAsesor_wrapper .col-md-6:eq(0)');
 
         // Tabla 2.11.2 Tabla Acceso de Usuarios al Sistema
-        var tabla = $("#tableConsultaAccesos").DataTable({
+        var tableConsultaAccesos = $("#tableConsultaAccesos").DataTable({
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
@@ -822,7 +822,10 @@
                 "zeroRecords": "No se encontraron coincidencias"
 
             }
-        }).buttons().container().appendTo('#tableConsultaAccesos_wrapper .col-md-6:eq(0)');
+        });
+        setInterval(function() {
+            tableConsultaAccesos.ajax.reload(null, false); // user paging is not reset on reload
+        }, 120000);
 
         // Tabla Indicadores comprobados/no comprobados 
         var tabla = $("#tableIndicadorAsesor").DataTable({
@@ -1379,9 +1382,9 @@
             },
             "columnDefs": [{
                 searchPanes: {
-                    show: false
+                    show: true
                 },
-                targets: [0, 1, 2, 3],
+                targets: [2,3,4,5,6,7,8,9,10,11,12],
             }],
             "language": {
 
@@ -1431,8 +1434,8 @@
             "drawCallback": function() {
                 //alert("La tabla se está recargando"); 
                 var api = this.api();
-                $(api.column(10).footer()).html(
-                    'Total: ' + api.column(10, {
+                $(api.column(11).footer()).html(
+                    'Total: ' + api.column(11, {
                         page: 'current'
                     }).data().sum()
                 )

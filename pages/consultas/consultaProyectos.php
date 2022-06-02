@@ -5,9 +5,11 @@
 	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta, P.fecha_creacion, P.proyectoActivo, 
 	P.registroSolicitud, P.altaProyecto, P.proyCodIdentificador, P.superCodIdentificador, P.estadoProyectoEliminado,
 	V.placa, M.marca, Mo.modelo, A.anio, Co.color,
-	U.nombres, U.aPaterno, U.aMaterno
+	U.nombres, U.aPaterno, U.aMaterno,
+    C.nombres AS nomC, C.aPaternoCliente AS patC, C.aMaternoCliente AS matC
 	FROM proyectos P 
 	INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
+    INNER JOIN clientes C ON P.id_cliente = C.id_cliente
 	INNER JOIN colores Co On V.id_color = Co.id_color
 	INNER JOIN marcas M ON V.id_marca = M.id_marca 
 	INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
@@ -33,6 +35,7 @@ $cont = 0;
 		$idP = $row['id_proyecto'];
 		$pActivo = $row['proyectoActivo'];
 		$nP = $row['nProyecto'];
+		$cliente = $row['nomC'].' '.$row['patC'].' '.$row['matC'];
 
 		// Valor Venta Inicial
 		$v = $row['valorVenta'];
@@ -122,12 +125,13 @@ $cont = 0;
 			"6" => $row['anio'],
 			"7" => $row['placa'],
 			"8" => $row['color'],
-			"9" => $ValorVenta,
-			"10" => $row['valorVenta'],
-			"11" => ($Eliminado == 0)? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
-			"12" => $etapa,
-			"13" => $row['fecha_creacion'],
-			"14" => "<div class='input-group input-group-sm mb-3'>
+			"9" => $cliente,
+			"10" => $ValorVenta,
+			"11" => $row['valorVenta'],
+			"12" => ($Eliminado == 0)? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
+			"13" => $etapa,
+			"14" => $row['fecha_creacion'],
+			"15" => "<div class='input-group input-group-sm mb-3'>
 						<div class='input-group-prepend'>
 							<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Lista de Proyectos'> Acciones</span>
 							</button>

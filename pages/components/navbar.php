@@ -167,7 +167,12 @@
                             </ul>
                         </li>
                         <li><a href="../consultas/tablaConsultaBitacora.php" class="dropdown-item">2.9 Bitacora de Proyectos </a></li>
-
+                        <li class="dropdown-submenu dropdown-hover">
+                            <a id="dropdownSubMenu1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">2.10 Solicitudes de Cambio</a>
+                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                <li><a href="../admin/crudSolicitudAutorizDescuentos.php" class="dropdown-item">2.10.1 Autorización Descuentos </a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
                 <!------------------------------------------------------------- 3.0 Reportes ------------------------------------------------------------->

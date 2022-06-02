@@ -1,5 +1,6 @@
 <?php
 require '../components/queryDomPdf.php';
+require '../components/fechaEs.php';
 ?>
 <!-- Modal  style="max-width: 1250px!important;"  -->
 <div class="modal fade" id="modal-verGralActMinDiaria" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -120,7 +121,7 @@ require '../components/queryDomPdf.php';
                 WHERE P.id_Proyecto = $id_proyecto ORDER BY id_ActMinDiaria DESC;";
                 $resultado = mysqli_query($conexion, $query);
                 ?>
-                <table id="tableVarios1" class="table table-responsive table-sm table-bordered table-striped" style="width: 100%;">
+                <table id="tableVarios1" class="table table-sm table-responsive table-bordered table-striped" style="width: 100%;">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -151,6 +152,8 @@ require '../components/queryDomPdf.php';
                             $fechaS = $row['FS'];
                             $com = $row['comActMinDia'];
                             $sup = $row['comSuperActMinDia'];
+                            $fecha_creacionV = $row['fecha_creacionV'];
+                            $fecha_creacionS = $row['fecha_creacionS'];
                         ?>
                             <tr>
                                 <td>
@@ -168,12 +171,14 @@ require '../components/queryDomPdf.php';
                                     <?php echo $row['nombreV'] . ' ' . $row['paternoV'] . ' ' . $row['maternoV']; ?>
                                 </td>
                                 <td>
-                                    <?php if (empty($hoyV)) {
-                                        echo '';
-                                    } else {
-                                        echo $row['fecha_creacionV'];
-                                    }
-                                    ?>
+                                    <span data-toggle="tooltip" data-placement="top" title="<?php echo $row['fecha_creacionV'] ?>">
+                                        <?php if (empty($hoyV)) {
+                                            echo '';
+                                        } else {
+                                            echo fechaEs($fecha_creacionV);
+                                        }
+                                        ?>
+                                    </span>
                                 </td>
                                 <td style="width: 15%;">
                                     <?php echo $row['textSupervision'] ?>
@@ -182,12 +187,14 @@ require '../components/queryDomPdf.php';
                                     <?php echo $row['nombreS'] . ' ' . $row['paternoS'] . ' ' . $row['maternoS']; ?>
                                 </td>
                                 <td>
-                                    <?php if (empty($hoyS)) {
-                                        echo '';
-                                    } else if ($hoyS != '0000-00-00') {
-                                        echo $row['fecha_creacionS'];
-                                    }
-                                    ?>
+                                    <span data-toggle="tooltip" data-placement="top" title="<?php echo $row['fecha_creacionS'] ?>">
+                                        <?php if (empty($hoyS)) {
+                                            echo '';
+                                        } else if ($hoyS != '0000-00-00') {
+                                            echo fechaEs($fecha_creacionS);
+                                        }
+                                        ?>
+                                    </span>
                                 </td>
                             </tr>
                         <?php
@@ -233,7 +240,7 @@ require '../components/queryDomPdf.php';
                 WHERE P.id_proyecto = $id_proyecto GROUP BY SD.id_SegDiaProAseTecnico;";
                 $resultado = mysqli_query($conexion, $query);
                 ?>
-                <table id="tableVarios2" class="table  table-sm table-bordered table-striped" style="width: 100%;">
+                <table id="tableVarios2" class="table table-sm table-responsive table-bordered table-striped" style="width: 100%;">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -264,6 +271,8 @@ require '../components/queryDomPdf.php';
                             $fechaS = $row['FS'];
                             $com = $row['com'];
                             $sup = $row['sup'];
+                            $fecha_creacionV = $row['fecha_creacionV'];
+                            $fecha_creacionS = $row['fecha_creacionS'];
                         ?>
                             <tr>
                                 <td>
@@ -281,12 +290,14 @@ require '../components/queryDomPdf.php';
                                     <?php echo $row['nombreV'] . ' ' . $row['paternoV'] . ' ' . $row['maternoV']; ?>
                                 </td>
                                 <td>
+                                <span data-toggle="tooltip" data-placement="top" title="<?php echo $row['fecha_creacionV'] ?>">
                                     <?php if (empty($hoyV)) {
                                         echo '';
                                     } else {
-                                        echo $row['fecha_creacionV'];
+                                        echo fechaEs($fecha_creacionV);
                                     }
                                     ?>
+                                </span>
                                 </td>
                                 <td style="width: 15%;">
                                     <?php echo $row['textSupervision'] ?>
@@ -295,12 +306,15 @@ require '../components/queryDomPdf.php';
                                     <?php echo $row['nombreS'] . ' ' . $row['paternoS'] . ' ' . $row['maternoS']; ?>
                                 </td>
                                 <td>
+                                <span data-toggle="tooltip" data-placement="top" title="<?php echo $row['fecha_creacionS'] ?>">
+
                                     <?php if (empty($hoyS)) {
                                         echo '';
                                     } else if ($hoyS != '0000-00-00') {
-                                        echo $row['fecha_creacionS'];
+                                        echo fechaEs($fecha_creacionS);
                                     }
                                     ?>
+                                </span>
                                 </td>
                             </tr>
                         <?php
@@ -347,7 +361,7 @@ require '../components/queryDomPdf.php';
                 WHERE P.id_Proyecto = $id_proyecto AND P.proyectoActivo = 1 AND S.borrado = 0 ORDER BY S.folio_solicitud DESC";
                 $resultado = mysqli_query($conexion, $query);
                 ?>
-                <table id="tableVarios3" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                <table id="tableVarios3" class="display compact table-bordered table-striped" style="width: 100%;">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -370,6 +384,7 @@ require '../components/queryDomPdf.php';
                             $linkId = (empty($row['linkId'])) ? '' : $row['linkId'];
                             $id_solPzsDanadas = $row['id_solPzsDanadas'];
                             $folio_solicitud = $row['folio_solicitud'];
+                            $fecha_creacion = $row['fecha_creacion'];
 
                         ?>
                             <tr>
@@ -400,7 +415,9 @@ require '../components/queryDomPdf.php';
                                     <?php echo (empty($solicitante)) ? 'Sin Registro' : $solicitante; ?>
                                 </td>
                                 <td>
-                                    <?php echo (empty($row['fecha_creacion'])) ? 'Sin Registro' : $row['fecha_creacion']; ?>
+                                <span data-toggle="tooltip" data-placement="top" title="<?php echo $row['fecha_creacion'] ?>">
+                                    <?php echo (empty($row['fecha_creacion'])) ? 'Sin Registro' : fechaEs($fecha_creacion) ?>
+                                </span>
                                 </td>
                             </tr>
                         <?php
@@ -444,7 +461,7 @@ require '../components/queryDomPdf.php';
                 ORDER BY B.id_bitacora DESC";
                 $resultado = mysqli_query($conexion, $query);
                 ?>
-                <table id="tableVarios4" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                <table id="tableVarios4" class="display compact table-bordered table-striped" style="width: 100%;">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -477,6 +494,8 @@ require '../components/queryDomPdf.php';
                             $f_b = $row['fechar_borrado'];
                             $f_m = $row['fecha_modificacion'];
                             $f_r = $row['fecha_registro'];
+
+                            $f =  $row['fechar_borrado'].' '.$row['fecha_modificacion'].' '.$row['fecha_registro'];
 
 
                             $Eliminado = $row['estadoProyectoEliminado'];
@@ -512,11 +531,11 @@ require '../components/queryDomPdf.php';
 
                             // Bitacora Actividad
                             if (!empty($f_r)) {
-                                $fechaBitacora = "<strong>$f_r</strong>";
+                                $fechaBitacora = fechaEs($f_r);
                             } else if (!empty($f_m)) {
-                                $fechaBitacora = "<strong>$f_m</strong>";
+                                $fechaBitacora = fechaEs($f_m);
                             } else if (!empty($f_b)) {
-                                $fechaBitacora = "<strong>$f_b</strong>";
+                                $fechaBitacora = fechaEs($f_b);
                             } else {
                                 $fechaBitacora = "<h6><span class='badge badge-danger badge-pill'>N/A</span></h6>";
                             }
@@ -558,7 +577,9 @@ require '../components/queryDomPdf.php';
                                     <?php echo $bitacora ?>
                                 </td>
                                 <td>
+                                <span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="<?php echo $f ?>">
                                     <?php echo $fechaBitacora ?>
+                                </span>
                                 </td>
                                 <td>
                                     <?php echo "<strong>$capturista</strong>" ?>
@@ -600,7 +621,7 @@ require '../components/queryDomPdf.php';
                 WHERE P.id_Proyecto = $id_proyecto AND V.borrado = 0 ORDER BY V.id_verifDiaBat DESC";
                 $resultado = mysqli_query($conexion, $query);
                 ?>
-                <table id="tableVarios5" class="table table-responsive table-sm table-bordered table-striped" style="width: 100%;">
+                <table id="tableVarios5" class="table table-sm table-responsive table-bordered table-striped" style="width: 100%;">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -624,6 +645,8 @@ require '../components/queryDomPdf.php';
                             $sup = $row['sup'];
                             $capturistaV = $row['nomV'] . ' ' . $row['patV'] . ' ' . $row['matV'];
                             $capturistaS = $row['nomS'] . ' ' . $row['patS'] . ' ' . $row['matS'];
+                            echo $fecha_creacionV = $row['fecha_creacionV'];
+                            echo $fecha_creacionS = $row['fecha_creacionS'];
                         ?>
                             <tr>
                                 <td>
@@ -644,7 +667,9 @@ require '../components/queryDomPdf.php';
                                     <?php echo $capturistaV ?>
                                 </td>
                                 <td>
-                                    <?php echo (empty($row['fecha_creacionV'])) ? 'Sin Registro' : $row['fecha_creacionV']; ?>
+                                <span  data-toggle="tooltip" data-placement="top" title="<?php echo $row['fecha_creacionV'] ?>">
+                                    <?php echo (empty($row['fecha_creacionV'])) ? 'Sin Registro' : fechaEs($fecha_creacionV) ?>
+                                </span>
                                 </td>
                                 <td>
                                     <?php echo $row['textSupervision'] ?>
@@ -653,12 +678,14 @@ require '../components/queryDomPdf.php';
                                     <?php echo $capturistaS ?>
                                 </td>
                                 <td>
-                                    <?php if ($row['fecha_creacionS'] == '0000-00-00 00:00:00') {
+                                <span  data-toggle="tooltip" data-placement="top" title="<?php echo $row['fecha_creacionS'] ?>">
+                                    <?php if ($row['fecha_creacionS'] == '0000-00-00 00:00:00' OR empty($row['fecha_creacionS'])) {
                                         echo '';
                                     } else {
-                                        echo $row['fecha_creacionS'];
+                                        echo fechaEs($fecha_creacionS);
                                     }
                                     ?>
+                                </span>
                                 </td>
                             </tr>
                         <?php
@@ -701,7 +728,7 @@ require '../components/queryDomPdf.php';
                 WHERE P.id_proyecto = '$id_proyecto' and I.borrado = 0";
                 $resultado = mysqli_query($conexion, $query);
                 ?>
-                <table id="tableVarios6" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                <table id="tableVarios6" class="display compact table-bordered table-striped" style="width: 100%;">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -729,6 +756,7 @@ require '../components/queryDomPdf.php';
                             $solicitante = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
                             $c = $row['com'];
                             $s = $row['sup'];
+                            $fecha_creacion = $row['fecha_creacion'];
                         ?>
                             <tr>
                                 <td>
@@ -778,7 +806,9 @@ require '../components/queryDomPdf.php';
                                     <?php echo (empty($solicitante)) ? 'Sin Registro' : $solicitante; ?>
                                 </td>
                                 <td>
-                                    <?php echo (empty($row['fecha_creacion'])) ? 'Sin Registro' : $row['fecha_creacion']; ?>
+                                <span  data-toggle="tooltip" data-placement="top" title="<?php echo $row['fecha_creacion'] ?>">
+                                    <?php echo (empty($row['fecha_creacion'])) ? 'Sin Registro' : fechaEs($fecha_creacion); ?>
+                                </span>
                                 </td>
                             </tr>
                         <?php

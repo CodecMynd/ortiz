@@ -13,6 +13,7 @@
                     <input type="hidden" name="id_recPzsDanadas4" id="id_recPzsDanadas4" value="">
                     <input type="hidden" name="id_solPzsDanadas4" id="id_solPzsDanadas4" value="">
                     <input type="hidden" name="id_regCompraInicial4" id="id_regCompraInicial4" value="">
+                    <input type="hidden" name="fechaRegLink4" id="fechaRegLink4" value="">
 
                     <button type="button" id="btnEnviarPreAuto" class="btn btn-secondary"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>

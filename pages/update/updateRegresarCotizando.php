@@ -15,6 +15,12 @@ $id_recPzsDanadas = $_POST['id_recPzsDanadas5'];
 $id_solPzsDanadas = $_POST['id_solPzsDanadas5'];
 $id_regCompraInicial = $_POST['id_regCompraInicial5'];
 
+$query = "SELECT id_preAutorizado FROM preautorizados WHERE id_recPzsDanadas = '$id_recPzsDanadas' AND id_solPzsDanadas = '$id_solPzsDanadas' AND id_regCompraInicial = '$id_regCompraInicial' AND id_proyecto = '$id_proyecto' ";
+$respuesta = mysqli_query($conexion, $query);
+$row = $respuesta->fetch_assoc();
+$id_preAutorizado = $row['id_preAutorizado'];
+
+$cotizando = 1;
 $preAutoriz = 0;
 $etapa = 'Regresó a Cotizando';
 
@@ -22,12 +28,17 @@ try {
     $conexion->autocommit(FALSE);
 
     // // Ingresamos id a tabla proyectos modificar registros
-    $query1 = "UPDATE proyectos SET preAutoriz = $preAutoriz WHERE id_proyecto = '$id_proyecto' ";
+    $query1 = "UPDATE proyectos SET cotizando = '$cotizando', preAutoriz = $preAutoriz WHERE id_proyecto = '$id_proyecto' ";
     $resultado1 = mysqli_query($conexion, $query1);
     // var_dump($query1);
 
-    $query2 = "INSERT INTO bitacorapiezas(id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_proyecto, nProyecto, etapa, folio_autoriz, fecha_creacion, id_capC) VALUES ('$id_recPzsDanadas','$id_solPzsDanadas','$id_regCompraInicial','$id_proyecto','$nProyecto','$etapa','--', '$date','$id')";
+    $query2 = "INSERT INTO bitacorapiezas(id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_proyecto, nProyecto, etapa, folio_autoriz, fecha_borrado, id_capB) VALUES ('$id_recPzsDanadas','$id_solPzsDanadas','$id_regCompraInicial','$id_proyecto','$nProyecto','$etapa','--', '$date','$id')";
     $resultado2 = mysqli_query($conexion, $query2);
+    // var_dump($query2);
+
+
+    $query3 = "DELETE FROM preautorizados WHERE id_preAutorizado = '$id_preAutorizado' ";
+    $resultado3 = mysqli_query($conexion, $query3);
     // var_dump($query2);
 
 

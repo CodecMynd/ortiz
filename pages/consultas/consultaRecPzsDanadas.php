@@ -3,23 +3,25 @@ require '../components/query.php';
 if ($super == 1 or $verTablaRecPzsDanadas == 1) {
 
 	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado,
-	C.nombres, C.aPaternoCliente, C.aMaternoCliente,
 	V.placa, M.marca, Mo.modelo, A.anio, Co.color,
     MAX(R.id_recPzsDanadas) AS id_recPzsDanadas, R.linkRecPzsDanadas, MIN(R.borrado) AS linkBorrado, MAX(R.enUso) AS linkEnUso, 
     R.fecha_creacion AS fechaRegLink, R.fecha_borrado AS fechaEliLink, R.enUso,
 	SP.folio_solicitud, MIN(SP.borrado) AS solBorrado, MAX(SP.enUso) AS solEnUso, SP.folio_solicitud, SP.id_solPzsDanadas,
-    RC.precio, RC.modalidadPago, RC.id_regCompraInicial 
+    RC.precio, RC.modalidadPago, RC.id_regCompraInicial, 
+    ASE.asesor, TAR.tecArmador
 	FROM proyectos P
 	INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
 	INNER JOIN colores Co On V.id_color = Co.id_color
 	INNER JOIN marcas M ON V.id_marca = M.id_marca
 	INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
 	INNER JOIN anios A ON V.id_anio = A.id_anio
-	INNER JOIN clientes C ON P.id_cliente = C.id_cliente
     LEFT JOIN recpzsdanadas R ON P.id_proyecto = R.id_proyecto
+    LEFT JOIN tecarmadores TAR ON R.id_tecArmador = TAR.id_tecArmador
     LEFT JOIN solpzsdanadas SP ON R.id_recPzsDanadas = SP.id_recPzsDanadas
     LEFT JOIN regcomprainicial RC ON P.id_proyecto = RC.id_proyecto
-	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 AND P.preAutoriz = 0 GROUP BY P.id_proyecto ORDER BY RC.id_regCompraInicial DESC";
+    LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
+	LEFT JOIN asesores ASE ON CA.id_asesor = ASE.id_asesor
+	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 AND P.cotizando = 1 GROUP BY P.id_proyecto ORDER BY R.id_recPzsDanadas DESC";
 } else {
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";
@@ -50,6 +52,7 @@ while ($row = $resultado->fetch_assoc()) {
 	$solEnUso = $row['solEnUso'];
 	$folio_solicitud = $row['folio_solicitud'];
 	$enUso = $row['enUso'];
+	$fechaRegLink = $row['fechaRegLink'];
 
 	// contador Credito/Contado
 	$querySuma = "SELECT
@@ -117,7 +120,7 @@ while ($row = $resultado->fetch_assoc()) {
 	} else if ($regLinkRecPzsDanadas == 1 && (!empty($linkRecPzsDanadas))) {
 		$outputBtns1 = "<a class='btn btn-outline-danger' id='siRegComImg'><i class='fa-solid fa-pencil'></i></a>";
 	} else {
-		$outputBtns1 = "<a class='btn btn-outline-danger' id='regLinkRecPzsDanadas' data-toggle='tooltip'  title='Sin Permiso'>><i class='fa-solid fa-pencil'></i></a>";
+		$outputBtns1 = "<a class='btn btn-outline-danger' id='regLinkRecPzsDanadas' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-pencil'></i></a>";
 	}
 
 	// 4.1.2 Eliminar Link de Desarmado
@@ -147,39 +150,35 @@ while ($row = $resultado->fetch_assoc()) {
 	} else if ($verGralRecPzsDanadas == 1) {
 		$outputBtns3 = "<a href='../update/formUpdateRecPzsDanadas.php?id={$idP}' target='_blank' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
 	} else {
-		$outputBtns3 = "<a class='btn btn-outline-danger' id='verGralRecPzsDanadas' data-toggle='tooltip'  title='Sin Permiso'>><i class='fa-solid fa-comments'></i></a>";
+		$outputBtns3 = "<a class='btn btn-outline-danger' id='verGralRecPzsDanadas' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-eye'></i></a>";
 	}
 
 	// 4.1.3 Ver Generales Recepción de Piezas Dañadas (Consulta Rapida)
 	if ($super == 1 or $verGralRecPzsDanadas == 1) {
 		$outputBtns4 = "<a href='javascript:void(0)' class='btn btn-info' onclick='mostarDetalles(\"" . $row['id_proyecto'] . "\")'><i class='fa-solid fa-circle-info'></i></a>";
 	} else {
-		$outputBtns4 = "<a class='btn btn-outline-danger' id='verGralRecPzsDanadas' data-toggle='tooltip'  title='Sin Permiso'>><i class='fa-solid fa-circle-info'></i></a>";
+		$outputBtns4 = "<a class='btn btn-outline-danger' id='verGralRecPzsDanadas' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-circle-info'></i></a>";
 	}
 
 	// 4.1.2.1 Enviar a Pre-Autorización
 	 if ($enUso == 0) {
 	 	$outputBtns5 = "<a class='btn btn-outline-danger' id='enviarPreAuto' data-toggle='tooltip'  title='No Contiene Link de Desarmado'><i class='fa-solid fa-paper-plane'></i></a>";
+	} else if ($super == 1 and $enUso == 1 AND empty($rowCompra['compra']) AND empty($soli))  {
+		$outputBtns5 = "<a class='btn btn-outline-danger' id='enviarPreAuto' data-toggle='tooltip'  title='No Hay Solicitudes ni Registro de Compras'><i class='fa-solid fa-paper-plane'></i></a>";
 	 } else if ($super == 1 and $enUso == 1 AND ($rowCompra['compra'] == $soli )) {
-	 	$outputBtns5 = "<a href='#' class='btn btn-secondary' onclick='abrirModal4(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\")'><i class='fa-solid fa-paper-plane'></i></a>";
+	 	$outputBtns5 = "<a href='#' class='btn btn-secondary' onclick='abrirModal4(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\",\"".$fechaRegLink."\")'><i class='fa-solid fa-paper-plane'></i></a>";
 	} else if ($super == 1 and $enUso == 1 AND ($rowCompra['compra'] <> $soli )) {
 		$outputBtns5 = "<a class='btn btn-outline-danger' id='enviarPreAuto' data-toggle='tooltip'  title='Hay Solicitudes sin Registro de Compras'><i class='fa-solid fa-paper-plane'></i></a>";
+	} else if ($enviarPreAuto == 1 and $enUso == 1 AND empty($rowCompra['compra']) OR empty($soli))  {
+		$outputBtns5 = "<a class='btn btn-outline-danger' id='enviarPreAuto' data-toggle='tooltip'  title='No Hay Solicitudes ni Registro de Compras'><i class='fa-solid fa-paper-plane'></i></a>";
 	} else if ($enviarPreAuto == 1 and $enUso == 1 AND ($rowCompra['compra'] == $soli )) {
-		$outputBtns5 = "<a href='#' class='btn btn-secondary' onclick='abrirModal4(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\")'><i class='fa-solid fa-paper-plane'></i></a>";
+		$outputBtns5 = "<a href='#' class='btn btn-secondary' onclick='abrirModal4(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\",\"".$fechaRegLink."\")'><i class='fa-solid fa-paper-plane'></i></a>";
    } else if ($enviarPreAuto == 1 and $enUso == 1 AND ($rowCompra['compra'] <> $soli )) {
 	   $outputBtns5 = "<a class='btn btn-outline-danger' id='enviarPreAuto' data-toggle='tooltip'  title='Hay Solicitudes sin Registro de Compras'><i class='fa-solid fa-paper-plane'></i></a>";
 	 } else {
 	 	$outputBtns5 = "<a class='btn btn-outline-danger' id='enviarPreAuto' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-paper-plane'></i></a>";
 	 }
 
-
-	// if ($enUso == 0) {
-	// 	$outputBtns5 = "<a class='btn btn-outline-danger' id='enviarPreAuto' data-toggle='tooltip'  title='No Contiene Link de Desarmado'><i class='fa-solid fa-paper-plane'></i></a>";
-	// } else if ($super == 1 or $enviarPreAuto == 1 and $enUso == 1) {
-	// 	$outputBtns5 = "<a href='#' class='btn btn-secondary' onclick='abrirModal4(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\")'><i class='fa-solid fa-paper-plane'></i></a>";
-	// } else {
-	// 	$outputBtns5 = "<a class='btn btn-outline-danger' id='enviarPreAuto' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-paper-plane'></i></a>";
-	// }
 
 	// Fecha Registro Link
 	$fechaRegLink = (empty($row['fechaRegLink'])) ? 'Sin Registro' : "<strong>{$row['fechaRegLink']}</strong>";
@@ -204,9 +203,11 @@ while ($row = $resultado->fetch_assoc()) {
 		"13" => $precioCredito,
 		"14" => $precioContado,
 		"15" => $total,
-		"16" => $fechaRegLink,
-		"17" => $fechaEliLink,
-		"18" => "<div class='input-group input-group-sm mb-3'>
+		"16" => (empty($row['asesor'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>",
+		"17" => (empty($row['tecArmador'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Técnico</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['tecArmador']}</span></h6>",
+		"18" => $fechaRegLink,
+		"19" => $fechaEliLink,
+		"20" => "<div class='input-group input-group-sm mb-3'>
 					<div class='input-group-prepend'>
 						<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Recepción de Piezas Dañadas'> Acciones</span></button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>
@@ -241,6 +242,7 @@ while ($row = $resultado->fetch_assoc()) {
 
 	);
 }
+$resultado->close();
 
 $resultados = array(
 	"sEcho" => 1, /* informacion para la herramienta datatables */

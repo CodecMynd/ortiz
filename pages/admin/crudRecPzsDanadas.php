@@ -18,6 +18,8 @@ require '../components/head-dataTables.php';
         }
     }
 </style> -->
+<link rel="stylesheet" href="../../src/css/btnRecPzsDanadas.css">
+
 <script>
     function abrirModal1(id_proyecto, nProyecto) {
         $("#btnModal-regRecPzsDanadas").click();
@@ -42,13 +44,14 @@ require '../components/head-dataTables.php';
         $("#tituloModal3").html(nProyecto);
     }
 
-    function abrirModal4(id_proyecto, nProyecto, id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial) {
+    function abrirModal4(id_proyecto, nProyecto, id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, fechaRegLink) {
         $("#btnModal-enviarPreAutorizacion").click();
         $("#id_proyecto4").val(id_proyecto);
         $("#nProyecto4").val(nProyecto);
         $("#id_recPzsDanadas4").val(id_recPzsDanadas);
         $("#id_solPzsDanadas4").val(id_solPzsDanadas);
         $("#id_regCompraInicial4").val(id_regCompraInicial);
+        $("#fechaRegLink4").val(fechaRegLink);
         $("#tituloModal4").html(nProyecto);
     }
 
@@ -62,13 +65,14 @@ require '../components/head-dataTables.php';
         $("#tituloModal5").html(nProyecto);
     }
 
-    function abrirModal6(id_proyecto, nProyecto, id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial) {
+    function abrirModal6(id_proyecto, nProyecto, id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, fechaRegPreAuto) {
         $("#btnModal-enviarAutorizado").click();
         $("#id_proyecto6").val(id_proyecto);
         $("#nProyecto6").val(nProyecto);
         $("#id_recPzsDanadas6").val(id_recPzsDanadas);
         $("#id_solPzsDanadas6").val(id_solPzsDanadas);
         $("#id_regCompraInicial6").val(id_regCompraInicial);
+        $("#fechaRegPreAuto6").val(fechaRegPreAuto);
         $("#tituloModal6").html(nProyecto);
     }
 
@@ -81,6 +85,52 @@ require '../components/head-dataTables.php';
         $("#id_regCompraInicial7").val(id_regCompraInicial);
         $("#id_autorizado7").val(id_autorizado);
         $("#tituloModal7").html(nProyecto);
+    }
+
+    function abrirModal8(id_proyecto, nProyecto, id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_autorizado) {
+        $("#btnModal-enviarAutoProceSurtPzs").click();
+        $("#id_proyecto8").val(id_proyecto);
+        $("#nProyecto8").val(nProyecto);
+        $("#id_recPzsDanadas8").val(id_recPzsDanadas);
+        $("#id_solPzsDanadas8").val(id_solPzsDanadas);
+        $("#id_regCompraInicial8").val(id_regCompraInicial);
+        $("#id_autorizado8").val(id_autorizado);
+        $("#tituloModal8").html(nProyecto);
+    }
+
+    function abrirModal9(id_proyecto, nProyecto, id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_autorizado, id_pzsEntregadas) {
+        $("#btnModal-regresarAutorizado").click();
+        $("#id_proyecto9").val(id_proyecto);
+        $("#nProyecto9").val(nProyecto);
+        $("#id_recPzsDanadas9").val(id_recPzsDanadas);
+        $("#id_solPzsDanadas9").val(id_solPzsDanadas);
+        $("#id_regCompraInicial9").val(id_regCompraInicial);
+        $("#id_autorizado9").val(id_autorizado);
+        $("#id_pzsEntregadas9").val(id_pzsEntregadas);
+        $("#tituloModal9").html(nProyecto);
+    }
+
+    function abrirModal10(id_proyecto, nProyecto, id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_autorizado) {
+        $("#btnModal-enviarPzsEntregadas").click();
+        $("#id_proyecto10").val(id_proyecto);
+        $("#nProyecto10").val(nProyecto);
+        $("#id_recPzsDanadas10").val(id_recPzsDanadas);
+        $("#id_solPzsDanadas10").val(id_solPzsDanadas);
+        $("#id_regCompraInicial10").val(id_regCompraInicial);
+        $("#id_autorizado10").val(id_autorizado);
+        $("#tituloModal10").html(nProyecto);
+    }
+
+    function abrirModal11(id_proyecto, nProyecto, id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_autorizado, id_pzsEntregadas) {
+        $("#btnModal-regresarAutoProceSurtPzs").click();
+        $("#id_proyecto11").val(id_proyecto);
+        $("#nProyecto11").val(nProyecto);
+        $("#id_recPzsDanadas11").val(id_recPzsDanadas);
+        $("#id_solPzsDanadas11").val(id_solPzsDanadas);
+        $("#id_regCompraInicial11").val(id_regCompraInicial);
+        $("#id_autorizado11").val(id_autorizado);
+        $("#id_pzsEntregadas11").val(id_pzsEntregadas);
+        $("#tituloModal11").html(nProyecto);
     }
 </script>
 </head>
@@ -194,7 +244,7 @@ require '../components/head-dataTables.php';
             </section>
 
             <!-- Table Cotizando -->
-            <section class="content">
+            <section class="content" id="Cotizando">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
                         <div class="col-md-12 col-sm-12">
@@ -202,11 +252,12 @@ require '../components/head-dataTables.php';
                                 <div class="card-header">
                                     <h3 class="card-title">Proyectos en Cotizando</h3>
                                     <div class="card-tools">
+                                        <button class="btn btn-secondary" id='refresh_tableRecPzsDanadas' data-toggle="tooltip" data-placement="bottom" title="Actualizar Tabla"><i class="fa-solid fa-table"></i></button>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="text-center">Tabla:<strong> Cotizando</strong></h4>
+                                    <h3 class="text-center">Tabla:<strong> 1. Cotizando</strong></h4>
 
                                         <?php
                                         if ($super == 1) {
@@ -230,11 +281,13 @@ require '../components/head-dataTables.php';
                                                     <th>Color</th>
                                                     <th>Estado del Proyecto</th>
                                                     <th>Link de Desarmado</th>
-                                                    <th>Solicitud de Piezas</th>
-                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th>Número Solicitud(es) de Pieza(s)</th>
+                                                    <th>Número Registro(s) Compra(s)</th>
                                                     <th>Suma Total Costo Crédito</th>
                                                     <th>Suma Total Costo Contado</th>
                                                     <th>Gran Total Costo</th>
+                                                    <th>Asesor</th>
+                                                    <th>Técnico Armador</th>
                                                     <th>Fecha Registro Link Desarmado</th>
                                                     <th>Fecha Eliminación Link Desarmado</th>
                                                     <th>Acciones</th>
@@ -254,11 +307,13 @@ require '../components/head-dataTables.php';
                                                     <th>Color</th>
                                                     <th>Estado del Proyecto</th>
                                                     <th>Link de Desarmado</th>
-                                                    <th>Solicitud de Piezas</th>
-                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th>Número Solicitud(es) de Pieza(s)</th>
+                                                    <th>Número Registro(s) Compra(s)</th>
                                                     <th class="suma"></th>
                                                     <th class="suma"></th>
                                                     <th class="suma"></th>
+                                                    <th>Asesor</th>
+                                                    <th>Técnico Armador</th>
                                                     <th>Fecha Registro Link Desarmado</th>
                                                     <th>Fecha Eliminación Link Desarmado</th>
                                                     <th>Acciones</th>
@@ -283,7 +338,7 @@ require '../components/head-dataTables.php';
             </section>
 
             <!-- Table Pre-Autorización -->
-            <section class="content">
+            <section class="content" id="Pre-Autorización">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
                         <div class="col-md-12 col-sm-12">
@@ -291,11 +346,12 @@ require '../components/head-dataTables.php';
                                 <div class="card-header">
                                     <h3 class="card-title">Proyectos en Pre-Autorización</h3>
                                     <div class="card-tools">
+                                        <button class="btn btn-secondary" id='refresh_tablePreautorizacion' data-toggle="tooltip" data-placement="bottom" title="Actualizar Tabla"><i class="fa-solid fa-table"></i></button>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="text-center">Tabla:<strong> Pre-Autorización</strong></h4>
+                                    <h3 class="text-center">Tabla:<strong> 2. Pre-Autorización</strong></h4>
                                         <?php
                                         if ($super == 1) {
                                         } else if ($verTablaPreautorizacion == 0) { ?>
@@ -323,8 +379,10 @@ require '../components/head-dataTables.php';
                                                     <th>Suma Total Costo Crédito</th>
                                                     <th>Suma Total Costo Contado</th>
                                                     <th>Gran Total Costo</th>
+                                                    <th>Cronometro Link Desarmado / Pre-Autorización</th>
+                                                    <th>Asesor</th>
+                                                    <th>Técnico Armador</th>
                                                     <th>Fecha Registro Link Desarmado</th>
-                                                    <th>Fecha Eliminación Link Desarmado</th>
                                                     <th>Acciones</th>
                                                 </tr>
                                             </thead>
@@ -347,8 +405,10 @@ require '../components/head-dataTables.php';
                                                     <th class="suma"></th>
                                                     <th class="suma"></th>
                                                     <th class="suma"></th>
+                                                    <th>Cronometro Link Desarmado / Pre-Autorización</th>
+                                                    <th>Asesor</th>
+                                                    <th>Técnico Armador</th>
                                                     <th>Fecha Registro Link Desarmado</th>
-                                                    <th>Fecha Eliminación Link Desarmado</th>
                                                     <th>Acciones</th>
                                                 </tr>
                                             </tfoot>
@@ -367,7 +427,7 @@ require '../components/head-dataTables.php';
             </section>
 
             <!-- Table Autorizado -->
-            <section class="content">
+            <section class="content" id="Autorizado">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
                         <div class="col-md-12 col-sm-12">
@@ -375,11 +435,12 @@ require '../components/head-dataTables.php';
                                 <div class="card-header">
                                     <h3 class="card-title">Proyectos en Autorizado</h3>
                                     <div class="card-tools">
+                                        <button class="btn btn-secondary" id='refresh_tableAutorizado' data-toggle="tooltip" data-placement="bottom" title="Actualizar Tabla"><i class="fa-solid fa-table"></i></button>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="text-center">Tabla:<strong> Autorizado</strong></h4>
+                                    <h3 class="text-center">Tabla:<strong> 3. Autorizado</strong></h4>
 
                                         <?php
                                         if ($super == 1) {
@@ -392,7 +453,7 @@ require '../components/head-dataTables.php';
                                         <table id="tableAutorizado" class="display compact table-bordered table-striped" style="width: 100%;">
                                             <thead>
                                                 <tr>
-                                                <th>#</th>
+                                                    <th>#</th>
                                                     <th>ID</th>
                                                     <th>Núm. Proyecto</th>
                                                     <th>Núm. Orden</th>
@@ -409,15 +470,18 @@ require '../components/head-dataTables.php';
                                                     <th>Suma Total Costo Contado</th>
                                                     <th>Gran Total Costo</th>
                                                     <th>Núm. Folio Autorización</th>
+                                                    <th>Cronometro Link Desarmado / Pre-Autorización</th>
+                                                    <th>Cronometro Pre-Autorización / Autorización</th>
+                                                    <th>Asesor</th>
+                                                    <th>Técnico Armador</th>
                                                     <th>Fecha Registro Link Desarmado</th>
-                                                    <th>Fecha Eliminación Link Desarmado</th>
-                                                    <th>Acciones</th>  
+                                                    <th>Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody></tbody>
                                             <tfoot>
                                                 <tr>
-                                                <th>#</th>
+                                                    <th>#</th>
                                                     <th>ID</th>
                                                     <th>Núm. Proyecto</th>
                                                     <th>Núm. Orden</th>
@@ -434,15 +498,307 @@ require '../components/head-dataTables.php';
                                                     <th class='suma'>Suma Total Costo Contado</th>
                                                     <th class='suma'>Gran Total Costo</th>
                                                     <th>Núm. Folio Autorización</th>
+                                                    <th>Cronometro Link Desarmado / Pre-Autorización</th>
+                                                    <th>Cronometro Pre-Autorización / Autorización</th>
+                                                    <th>Asesor</th>
+                                                    <th>Técnico Armador</th>
                                                     <th>Fecha Registro Link Desarmado</th>
-                                                    <th>Fecha Eliminación Link Desarmado</th>
-                                                    <th>Acciones</th>  
+                                                    <th>Acciones</th>
                                                 </tr>
                                             </tfoot>
                                         </table>
                                         <button id="btnModal-regresarPreAutorizacion" class="btn btn-white" data-toggle="modal" data-target=".regresarPreAutorizacion"></button>
+                                        <button id="btnModal-enviarAutoProceSurtPzs" class="btn btn-white" data-toggle="modal" data-target=".enviarAutoProceSurtPzs"></button>
                                         <?php
                                         require '../components/modal-regresarPreAutorizacion.php';
+                                        require '../components/modal-enviarAutoProceSurtPzs.php';
+                                        ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Table Autorizado: en Proceso de Surtido de Piezas -->
+            <section class="content" id="ProcesoSurtidoPz">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="card border-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Proyectos en Autorizado: en Proceso de Surtido de Piezas</h3>
+                                    <div class="card-tools">
+                                        <button class="btn btn-secondary" id='refresh_tableAutoProceSurtPzs' data-toggle="tooltip" data-placement="bottom" title="Actualizar Tabla"><i class="fa-solid fa-table"></i></button>
+                                        <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="text-center">Tabla<strong> 4. Autorizado: en Proceso de Surtido de Piezas</strong></h4>
+
+                                        <?php
+                                        if ($super == 1) {
+                                        } else if ($verTablaAutoProceSurtPzs == 0) { ?>
+                                            <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
+                                            <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
+                                            <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
+                                            <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
+                                        <?php } ?>
+                                        <table id="tableAutoProceSurtPzs" class="display compact table-bordered table-striped" style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>ID</th>
+                                                    <th>Núm. Proyecto</th>
+                                                    <th>Núm. Orden</th>
+                                                    <th>Marca</th>
+                                                    <th>Modelo</th>
+                                                    <th>Año</th>
+                                                    <th>Placa</th>
+                                                    <th>Color</th>
+                                                    <th>Estado del Proyecto</th>
+                                                    <th>Link de Desarmado</th>
+                                                    <th>Solicitud de Piezas</th>
+                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th>Suma Total Costo Crédito</th>
+                                                    <th>Suma Total Costo Contado</th>
+                                                    <th>Gran Total Costo</th>
+                                                    <th>Núm. Folio Autorización</th>
+                                                    <th>Cronometro Link Desarmado / Pre-Autorización</th>
+                                                    <th>Cronometro Pre-Autorización / Autorización</th>
+                                                    <th>Asesor</th>
+                                                    <th>Técnico Armador</th>
+                                                    <th>Fecha Registro Link Desarmado</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>ID</th>
+                                                    <th>Núm. Proyecto</th>
+                                                    <th>Núm. Orden</th>
+                                                    <th>Marca</th>
+                                                    <th>Modelo</th>
+                                                    <th>Año</th>
+                                                    <th>Placa</th>
+                                                    <th>Color</th>
+                                                    <th>Estado del Proyecto</th>
+                                                    <th>Link de Desarmado</th>
+                                                    <th>Solicitud de Piezas</th>
+                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th class='suma'>Suma Total Costo Crédito</th>
+                                                    <th class='suma'>Suma Total Costo Contado</th>
+                                                    <th class='suma'>Gran Total Costo</th>
+                                                    <th>Núm. Folio Autorización</th>
+                                                    <th>Cronometro Link Desarmado / Pre-Autorización</th>
+                                                    <th>Cronometro Pre-Autorización / Autorización</th>
+                                                    <th>Asesor</th>
+                                                    <th>Técnico Armador</th>
+                                                    <th>Fecha Registro Link Desarmado</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <button id="btnModal-regresarAutorizado" class="btn btn-white" data-toggle="modal" data-target=".regresarAutorizado"></button>
+                                        <button id="btnModal-enviarPzsEntregadas" class="btn btn-white" data-toggle="modal" data-target=".enviarPzsEntregadas"></button>
+                                        <?php
+                                        require '../components/modal-regresarAutorizado.php';
+                                        require '../components/modal-enviarPzsEntregadas.php';
+                                        ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Table Piezas Entregadas -->
+            <section class="content" id="pzsEntregadas">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="card border-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Proyectos en Piezas Entregadas</h3>
+                                    <div class="card-tools">
+                                        <button class="btn btn-secondary" id='refresh_tablepzsEntregadas' data-toggle="tooltip" data-placement="bottom" title="Actualizar Tabla"><i class="fa-solid fa-table"></i></button>
+                                        <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="text-center">Tabla<strong> 5. Piezas Entregadas </strong></h4>
+
+                                        <?php
+                                        if ($super == 1) {
+                                        } else if ($verTablaPzsEntregadas == 0) { ?>
+                                            <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
+                                            <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
+                                            <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
+                                            <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
+                                        <?php } ?>
+                                        <table id="tablepzsEntregadas" class="display compact table-bordered table-striped" style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>ID</th>
+                                                    <th>Núm. Proyecto</th>
+                                                    <th>Núm. Orden</th>
+                                                    <th>Marca</th>
+                                                    <th>Modelo</th>
+                                                    <th>Año</th>
+                                                    <th>Placa</th>
+                                                    <th>Color</th>
+                                                    <th>Estado del Proyecto</th>
+                                                    <th>Link de Desarmado</th>
+                                                    <th>Solicitud de Piezas</th>
+                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th>Suma Total Costo Crédito</th>
+                                                    <th>Suma Total Costo Contado</th>
+                                                    <th>Gran Total Costo</th>
+                                                    <th>Núm. Folio Autorización</th>
+                                                    <th>Núm. Folio Pieza Surtida</th>
+                                                    <th>Cronometro Link Desarmado / Pre-Autorización</th>
+                                                    <th>Cronometro Pre-Autorización / Autorización</th>
+                                                    <th>Asesor</th>
+                                                    <th>Técnico Armador</th>
+                                                    <th>Fecha Registro Link Desarmado</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>ID</th>
+                                                    <th>Núm. Proyecto</th>
+                                                    <th>Núm. Orden</th>
+                                                    <th>Marca</th>
+                                                    <th>Modelo</th>
+                                                    <th>Año</th>
+                                                    <th>Placa</th>
+                                                    <th>Color</th>
+                                                    <th>Estado del Proyecto</th>
+                                                    <th>Link de Desarmado</th>
+                                                    <th>Solicitud de Piezas</th>
+                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th class='suma'>Suma Total Costo Crédito</th>
+                                                    <th class='suma'>Suma Total Costo Contado</th>
+                                                    <th class='suma'>Gran Total Costo</th>
+                                                    <th>Núm. Folio Autorización</th>
+                                                    <th>Núm. Folio Pieza Surtida</th>
+                                                    <th>Cronometro Link Desarmado / Pre-Autorización</th>
+                                                    <th>Cronometro Pre-Autorización / Autorización</th>
+                                                    <th>Asesor</th>
+                                                    <th>Técnico Armador</th>
+                                                    <th>Fecha Registro Link Desarmado</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <button id="btnModal-regresarAutoProceSurtPzs" class="btn btn-white" data-toggle="modal" data-target=".regresarAutoProceSurtPzs"></button>
+                                        <!-- <button id="btnModal-enviarPzsEntregadas" class="btn btn-white" data-toggle="modal" data-target=".enviarPzsEntregadas"></button> -->
+                                        <?php
+                                        require '../components/modal-regresarAutoProceSurtPzs.php';
+                                        // require '../components/modal-enviarPzsEntregadas.php';
+                                        ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Table Piezas Firmadas de Recibido -->
+            <section class="content" id="pzsEntregadas">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="card border-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Proyectos en Piezas Firmadas de Recibido</h3>
+                                    <div class="card-tools">
+                                        <button class="btn btn-secondary" id='refresh_tablaPzsFirmadasRec' data-toggle="tooltip" data-placement="bottom" title="Actualizar Tabla"><i class="fa-solid fa-table"></i></button>
+                                        <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="text-center">Tabla<strong> 6. Piezas Firmadas de Recibido </strong></h4>
+
+                                        <?php
+                                        if ($super == 1) {
+                                        } else if ($verTablaPzsFirmadasRec == 0) { ?>
+                                            <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
+                                            <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
+                                            <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
+                                            <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
+                                        <?php } ?>
+                                        <table id="tablaPzsFirmadasRec" class="display compact table-bordered table-striped" style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>ID</th>
+                                                    <th>Núm. Proyecto</th>
+                                                    <th>Núm. Orden</th>
+                                                    <th>Marca</th>
+                                                    <th>Modelo</th>
+                                                    <th>Año</th>
+                                                    <th>Placa</th>
+                                                    <th>Color</th>
+                                                    <th>Estado del Proyecto</th>
+                                                    <th>Link de Desarmado</th>
+                                                    <th>Solicitud de Piezas</th>
+                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th>Suma Total Costo Crédito</th>
+                                                    <th>Suma Total Costo Contado</th>
+                                                    <th>Gran Total Costo</th>
+                                                    <th>Núm. Folio Autorización</th>
+                                                    <th>Núm. Folio Pieza Surtida</th>
+                                                    <th>Cronometro Link Desarmado / Pre-Autorización</th>
+                                                    <th>Cronometro Pre-Autorización / Autorización</th>
+                                                    <th>Asesor</th>
+                                                    <th>Técnico Armador</th>
+                                                    <th>Fecha Registro Link Desarmado</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>ID</th>
+                                                    <th>Núm. Proyecto</th>
+                                                    <th>Núm. Orden</th>
+                                                    <th>Marca</th>
+                                                    <th>Modelo</th>
+                                                    <th>Año</th>
+                                                    <th>Placa</th>
+                                                    <th>Color</th>
+                                                    <th>Estado del Proyecto</th>
+                                                    <th>Link de Desarmado</th>
+                                                    <th>Solicitud de Piezas</th>
+                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th class='suma'>Suma Total Costo Crédito</th>
+                                                    <th class='suma'>Suma Total Costo Contado</th>
+                                                    <th class='suma'>Gran Total Costo</th>
+                                                    <th>Núm. Folio Autorización</th>
+                                                    <th>Núm. Folio Pieza Surtida</th>
+                                                    <th>Cronometro Link Desarmado / Pre-Autorización</th>
+                                                    <th>Cronometro Pre-Autorización / Autorización</th>
+                                                    <th>Asesor</th>
+                                                    <th>Técnico Armador</th>
+                                                    <th>Fecha Registro Link Desarmado</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <!-- <button id="btnModal-regresarAutoProceSurtPzs" class="btn btn-white" data-toggle="modal" data-target=".regresarAutoProceSurtPzs"></button> -->
+                                        <!-- <button id="btnModal-enviarPzsEntregadas" class="btn btn-white" data-toggle="modal" data-target=".enviarPzsEntregadas"></button> -->
+                                        <?php
+                                        // require '../components/modal-regresarAutoProceSurtPzs.php';
+                                        // require '../components/modal-enviarPzsEntregadas.php';
                                         ?>
                                 </div>
                             </div>
@@ -457,16 +813,58 @@ require '../components/head-dataTables.php';
         ?>
         <div id="divModal"></div>
         <div id="divModalPreAuto"></div>
+        <div id="divModalProceSurtPzs"></div>
+        <div id="divModalPzasEntregadas"></div>
     </div>
     <?php
     // Scripts principales
     require '../components/scripts-main.php';
     // Scripts dataTables
     require '../ajax/plugins-datatable.php';
+    // btn navegacion
+    require '../components/btnRecPzsDanadas.php';
     ?>
     <script src="../ajax/crudRecPzsDanadas.js"></script>
     <script src="../ajax/tablaPreautorizacion.js"></script>
     <script src="../ajax/tableAutorizado.js"></script>
+    <script src="../ajax/tableAutoProceSurtPzs.js"></script>
+    <script src="../ajax/tablePzsEntregadas.js"></script>
+    <script>
+        // Actualizar tablas independientes
+        $(document).ready(function() {
+
+            tableRecPzsDanadas = $("#tableRecPzsDanadas").DataTable();
+            $("#refresh_tableRecPzsDanadas").on("click", function() {
+                tableRecPzsDanadas.ajax.reload();
+            });
+
+            tablePreautorizacion = $("#tablePreautorizacion").DataTable();
+            $("#refresh_tablePreautorizacion").on("click", function() {
+                tablePreautorizacion.ajax.reload();
+            });
+
+            tableAutorizado = $("#tableAutorizado").DataTable();
+            $("#refresh_tableAutorizado").on("click", function() {
+                tableAutorizado.ajax.reload();
+            });
+
+            tableAutoProceSurtPzs = $("#tableAutoProceSurtPzs").DataTable();
+            $("#refresh_tableAutoProceSurtPzs").on("click", function() {
+                tableAutoProceSurtPzs.ajax.reload();
+            });
+
+            tablepzsEntregadas = $("#tablepzsEntregadas").DataTable();
+            $("#refresh_tablepzsEntregadas").on("click", function() {
+                tablepzsEntregadas.ajax.reload();
+            });
+
+            tablaPzsFirmadasRec = $("#tablaPzsFirmadasRec").DataTable();
+            $("#refresh_tablepzsEntregadas").on("click", function() {
+                tablaPzsFirmadasRec.ajax.reload();
+            });
+
+        });
+    </script>
 
 </body>
 

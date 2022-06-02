@@ -86,7 +86,12 @@ var tablaVerifDiaBaterias = $("#tablaVerifDiaBaterias").DataTable({
     "responsive": true,
     "lengthChange": true,
     "autoWidth": true,
+    "select": true,
+    "select": {
+        style: 'multi'
+    },
     "dom": 'PlBfrtip',
+    "pageLength": 50,
     "buttons": ["csv", "excel", "pdf", "colvis"],
     "ajax": {
         url: "../consultas/consultaVerifDiaBaterias.php",
@@ -110,7 +115,12 @@ var tablaVerifDiaBaterias = $("#tablaVerifDiaBaterias").DataTable({
             show: true
         },
         targets: [4, 5, 6, 7, 8, 9, 11],
-    }],
+    },
+    {
+        targets: [ 0],
+        visible: false 
+      }
+],
     "createdRow": function (row, data, index) {
         if (data[14]) {
             $('td', row).eq(14).css({
@@ -164,5 +174,5 @@ var tablaVerifDiaBaterias = $("#tablaVerifDiaBaterias").DataTable({
 });
 setInterval(function () {
     tablaVerifDiaBaterias.ajax.reload(null, false); // user paging is not reset on reload
-}, 600000);
+}, 300000);
 // --------------------------------------------------------------------------------------------------------

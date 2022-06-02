@@ -22,8 +22,6 @@ require 'query.php';
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/1522572059.js" crossorigin="anonymous"></script>
-    <!-- Ionicons -->
-    <!-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
     <!-- Theme style -->
     <link rel="stylesheet" href="../../src/css/custom.min.css">
     <!-- Bootstrap toggle -->
@@ -116,6 +114,7 @@ require 'query.php';
             font-size: 15px;
             font-weight: 500;
         }
+
     </style>
     <!-- notas
 onkeyup="javascript:this.value=this.value.toLowerCase(); para input minusculas

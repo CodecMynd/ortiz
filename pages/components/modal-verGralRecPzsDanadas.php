@@ -16,7 +16,7 @@ require '../components/head-main.php';
                 $id_proyecto = $_REQUEST['id_proyecto'];
                 $query1 = "SELECT P.id_proyecto, P.nProyecto, P.nOrden,
                 V.placa, Co.color, M.marca, Mo.modelo, An.anio,
-                R.linkRecPzsDanadas, T.tecArmador
+                R.linkRecPzsDanadas, T.tecArmador, ASE.asesor
                 from proyectos P 
                 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                 INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -25,6 +25,8 @@ require '../components/head-main.php';
                 INNER JOIN anios An ON V.id_anio = An.id_anio 
                 LEFT JOIN recpzsdanadas R ON P.id_proyecto = R.id_proyecto
                 LEFT join tecarmadores T ON R.id_tecArmador = T.id_tecArmador
+                LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
+	            LEFT JOIN asesores ASE ON CA.id_asesor = ASE.id_asesor
                 WHERE P.id_Proyecto =   $id_proyecto";
                 $resultado1 = mysqli_query($conexion, $query1);
                 $row1 = $resultado1->fetch_assoc();
@@ -60,12 +62,14 @@ require '../components/head-main.php';
                     <thead class="thead-dark">
                         <tr>
                             <th>Link de Desarmado</th>
+                            <th>Asesor</th>
                             <th>Técnico Armador</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><?php echo (empty($row1['linkRecPzsDanadas'])) ? 'Sin Registro' : $row1['linkRecPzsDanadas'] ?></td>
+                            <td><?php echo (empty($row1['asesor'])) ? 'Sin Registro' : $row1['asesor'] ?></td>
                             <td><?php echo (empty($row1['tecArmador'])) ? 'Sin Registro' : $row1['tecArmador'] ?></td>
                         </tr>
                     </tbody>

@@ -115,10 +115,10 @@ require '../components/head-dataTables.php';
                                     <div class="row justify-content-center">
                                         <div class="col-sm-6 col-md-3">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-trash-can"></i></span>
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-trash-can"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Proyectos Eliminados</h6>
-                                                    <div class="text-center "><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -127,7 +127,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-footer" style="height: 50px;">
                                     <marquee width="100%" behavior="alternate">
                                         <marquee behavior="alternate">
-                                            <p>Consulta optimizada, ultima actualización: <strong>06/05/2022</strong></p>
+                                            <p>Consulta optimizada, ultima actualización: <strong>01/06/2022</strong></p>
                                         </marquee>
                                     </marquee>
                                 </div>
@@ -163,6 +163,9 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
+                                                <th>Status Comprobación</th>
+                                                <th>Status Supervisión</th>
+                                                <th>Asesor</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -170,11 +173,8 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
-                                                <th>Asesor</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Etapa del Proyecto</th>
-                                                <th>Status Comprobación</th>
-                                                <th>Status Supervisión</th>
                                                 <th>Incidencias</th>
                                                 <th>Acciones</th>
                                             </tr>
@@ -185,6 +185,9 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
+                                                <th>Status Comprobación</th>
+                                                <th>Status Supervisión</th>
+                                                <th>Asesor</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -192,11 +195,8 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
-                                                <th>Asesor</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Etapa del Proyecto</th>
-                                                <th>Status Comprobación</th>
-                                                <th>Status Supervisión</th>
                                                 <th>Incidencias</th>
                                                 <th>Acciones</th>
                                             </tr>

@@ -25,9 +25,9 @@ $('#btnNuevoRecPzsDanadas').click(function () {
 
             success: function (vs) {
                 $('#formNuevoRecPzsDanadas')[0].reset();
-                setTimeout(function () {
-                    $('.regRecPzsDanadas').modal('hide');
-                }, 1000);
+                 setTimeout(function () {
+                     $('.regRecPzsDanadas').modal('hide');
+                 }, 1000);
                 tableRecPzsDanadas.ajax.reload(null, false)
             }
         })
@@ -119,8 +119,9 @@ var tableRecPzsDanadas = $("#tableRecPzsDanadas").DataTable({
         style: 'multi'
     },
     "stateSave": false,
+    "pageLength": 50,
     "dom": 'PlBfrtip',
-    "buttons": ["csv", "excel", "pdf", "colvis"],
+    "buttons": ["csv", "excel", "pdf", "colvis",],
     "ajax": {
         url: "../consultas/consultaRecPzsDanadas.php",
         type: "get",
@@ -142,8 +143,12 @@ var tableRecPzsDanadas = $("#tableRecPzsDanadas").DataTable({
         searchPanes: {
             show: true
         },
-        targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13],
+        targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13,14,15,16,17,18],
     },
+     {
+         targets: [ 0,3,9,19 ],
+         visible: false 
+       }
 ],
     "language": {
 
@@ -212,24 +217,24 @@ var tableRecPzsDanadas = $("#tableRecPzsDanadas").DataTable({
         )
     },
     "createdRow": function (row, data, index) {
-        if (data[13] > '0') {
-            $('td', row).eq(13).css({
+        if (data[10] > '1') {
+            $('td', row).eq(10).css({
                 'text-align': 'center',
                 'background-color': '#5A6268',
                 'color': '#fff',
                 'font-weight': 'bold'
             });
         }
-        if (data[14] > '0') {
-            $('td', row).eq(14).css({
+        if (data[11] > '1') {
+            $('td', row).eq(11).css({
                 'text-align': 'center',
                 'background-color': '#5A6268',
                 'color': '#fff',
                 'font-weight': 'bold'
             });
         }
-        if (data[15] >= '0') {
-            $('td', row).eq(15).css({
+        if (data[12] >= '0') {
+            $('td', row).eq(12).css({
                 'text-align': 'center',
                 'background-color': '#5A6268',
                 'color': '#fff',
@@ -241,6 +246,6 @@ var tableRecPzsDanadas = $("#tableRecPzsDanadas").DataTable({
 });
 setInterval(function () {
     tableRecPzsDanadas.ajax.reload(null, false); // user paging is not reset on reload
-}, 600000);
+}, 300000);
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

@@ -82,14 +82,14 @@
             "drawCallback": function () {
                 //alert("La tabla se está recargando"); 
                 var api = this.api();
-                $(api.column(13).footer()).html(
-                    'Total: ' + api.column(13, {
+                $(api.column(14).footer()).html(
+                    'Total: ' + api.column(14, {
                         page: 'current'
                     }).data().sum()
                 )
                 var api2 = this.api();
-                $(api2.column(14).footer()).html(
-                    'Total: ' + api2.column(14, {
+                $(api2.column(15).footer()).html(
+                    'Total: ' + api2.column(15, {
                         page: 'current'
                     }).data().sum()
                 )

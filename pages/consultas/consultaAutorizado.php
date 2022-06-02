@@ -8,7 +8,9 @@ if ($super == 1 or $verTablaAutorizado == 1) {
     R.fecha_creacion AS fechaRegLink, R.fecha_borrado AS fechaEliLink, R.enUso,
 	SP.folio_solicitud, MIN(SP.borrado) AS solBorrado, MAX(SP.enUso) AS solEnUso, SP.folio_solicitud, SP.id_solPzsDanadas,
     RC.precio, RC.modalidadPago, RC.id_regCompraInicial,
-    AU.folio_autoriz, AU.id_autorizado
+	ASE.asesor, TAR.tecArmador,
+    PA.cronoPreAuto, PA.fecha_creacion AS fechaRegPreAuto,
+    AU.folio_autoriz, AU.id_autorizado, AU.cronoAutorizado
 	FROM proyectos P
 	INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
 	INNER JOIN colores Co On V.id_color = Co.id_color
@@ -16,10 +18,14 @@ if ($super == 1 or $verTablaAutorizado == 1) {
 	INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
 	INNER JOIN anios A ON V.id_anio = A.id_anio
     LEFT JOIN recpzsdanadas R ON P.id_proyecto = R.id_proyecto
+	LEFT JOIN tecarmadores TAR ON R.id_tecArmador = TAR.id_tecArmador
     LEFT JOIN solpzsdanadas SP ON R.id_recPzsDanadas = SP.id_recPzsDanadas
     LEFT JOIN regcomprainicial RC ON P.id_proyecto = RC.id_proyecto
+	LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
+	LEFT JOIN asesores ASE ON CA.id_asesor = ASE.id_asesor
+    INNER JOIN preautorizados PA ON P.id_proyecto = PA.id_proyecto
     INNER JOIN autorizados AU ON P.id_proyecto = AU.id_proyecto
-	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 AND P.preAutoriz = 1 AND P.autorizado = 1 GROUP BY P.id_proyecto ORDER BY RC.id_regCompraInicial DESC";
+	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 AND P.autorizado = 1 AND AU.borrado = 0  GROUP BY P.id_proyecto ORDER BY RC.id_regCompraInicial DESC";
 } else {
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";
@@ -107,11 +113,18 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns4 = "<a class='btn btn-outline-danger' id='verGralRecPzsDanadas' data-toggle='tooltip'  title='Sin Permiso'>><i class='fa-solid fa-circle-info'></i></a>";
 	}
 
-	// 4.1.6 Regresar a Pre-Autorización
-	if ($super == 1 or $regresarPreAutizacion == 1) {
+	// 4.1.2.4 Regresar a Pre-Autorización
+	if ($super == 1 or $regresarPreAuto == 1) {
 		$outputBtns7 = "<a href='#' class='btn btn-secondary' onclick='abrirModal7(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\",\"".$id_autorizado."\")'><i class='fa-solid fa-reply'></i></a>";
 	} else {
-		$outputBtns7 = "<a class='btn btn-outline-danger' id='regresarPreAutizacion' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-reply'></i></a>";
+		$outputBtns7 = "<a class='btn btn-outline-danger' id='regresarPreAuto' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-reply'></i></a>";
+	}
+
+	// 4.1.2.5 Enviar Autorizado: en Proceso de Surtido de Piezas
+	if ($super == 1 or $enviarAutoProceSurtPzs == 1) {
+		$outputBtns8 = "<a href='#' class='btn btn-secondary' onclick='abrirModal8(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\", \"".$id_autorizado."\")'><i class='fa-solid fa-paper-plane'></i></a>";
+	} else {
+		$outputBtns8 = "<a class='btn btn-outline-danger' id='enviarAutoProceSurtPzs' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-paper-plane'></i></a>";
 	}
 
 	// Fecha Registro Link
@@ -138,15 +151,23 @@ while ($row = $resultado->fetch_assoc()) {
 		"14" => $precioContado,
 		"15" => $total,
 		"16" => "<strong>{$row['folio_autoriz']}</strong>",
-		"17" => $fechaRegLink,
-		"18" => $fechaEliLink,
-		"19" => "<div class='input-group input-group-sm mb-3'>
+		"17" => "<strong>{$row['cronoPreAuto']}</strong>",
+		"18" => "<strong>{$row['cronoAutorizado']}</strong>",
+		"19" => (empty($row['asesor'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>",
+		"20" => (empty($row['tecArmador'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Técnico</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['tecArmador']}</span></h6>",
+		"21" => $fechaRegLink,
+		"22" => "<div class='input-group input-group-sm mb-3'>
 					<div class='input-group-prepend'>
 						<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Recepción de Piezas Dañadas'> Acciones</span></button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='4.1.2.4 Regresar a Pre-Autorización'>
+									<span data-toggle='tooltip' title='4.1.4.1 Regresar a Pre-Autorización'>
 										" . $outputBtns7 . "
+									</span>
+								</li>
+								<li class='dropdown-item'>
+									<span data-toggle='tooltip' title='4.1.4.2 Enviar Autorizado: en Proceso de Surtido de Piezas'>
+										" . $outputBtns8 . "
 									</span>
 								</li>
 								<li class='dropdown-item'>
@@ -160,7 +181,7 @@ while ($row = $resultado->fetch_assoc()) {
 
 	);
 }
-
+$resultado->close();
 $resultados = array(
 	"sEcho" => 1, /* informacion para la herramienta datatables */
 	"iTotalRecords" => count($datos), /* envía el total de columnas a la datatable */

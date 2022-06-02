@@ -1,0 +1,62 @@
+.btnRecPzsDanadas {
+    position: fixed;
+    left: 0;
+    top: 25%;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 100;
+}
+
+.iconMoon {
+    color: white;
+    text-decoration: none;
+    padding: .3rem;
+    display: flex;
+    transition: all .5s;
+}
+.icon-btn{
+    background: #5A6268;
+}
+
+.iconMoon:hover {
+    color: #fff;
+}
+.fa-solid fa-circle-1{
+    background: #339DC5;
+}
+.icon-facebook {
+    background: #2E406E;
+}
+
+.icon-twitter {
+    background: #339DC5;
+}
+
+.icon-youtube {
+    background: #E83028;
+}
+
+.icon-instagram {
+    background: #3F60A5;
+}
+
+.iconMoon:first-child {
+    border-radius: 0 1rem 0 0;
+}
+
+.iconMoon:last-child {
+    border-radius: 0 0 1rem 0;
+}
+
+.iconMoon:hover {
+    padding-left: 3rem;
+    border-radius: 0 1rem 1rem 0;
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.42);
+}
+
+.darkBack {
+    background: #303032;
+    border-radius: 25px
+}

@@ -290,7 +290,22 @@ while ($row = mysqli_fetch_array($query)) {
     $eliRegSuperEntragaPz = $row['eliRegSuperEntragaPz'];
     $verGralEntregaPz = $row['verGralEntregaPz'];
     $verTablaCronoSurPzs = $row['verTablaCronoSurPzs'];
-
+    $enviarPreAuto = $row['enviarPreAuto'];
+    $regresarCotizando = $row['regresarCotizando'];
+    $enviarAutoriz = $row['enviarAutoriz'];
+    $regresarPreAutizacion = $row['regresarPreAutizacion'];
+    $verTablaPreautorizacion = $row['verTablaPreautorizacion'];
+    $verTablaAutorizado = $row['verTablaAutorizado'];
+    $enviarAutoProceSurtPzs = $row['enviarAutoProceSurtPzs'];
+    $regresarAuto = $row['regresarAuto'];
+    $enviarPzEntregadas = $row['enviarPzEntregadas'];
+    $verGralProceSurtPzs = $row['verGralProceSurtPzs'];
+    $verTablaAutoProceSurtPzs = $row['verTablaAutoProceSurtPzs'];
+    $regresarAutoProceSurtPzs = $row['regresarAutoProceSurtPzs'];
+    $enviarSuperSurtPzs = $row['enviarSuperSurtPzs'];
+    $pdfPzsEntregadas = $row['pdfPzsEntregadas'];
+    $verGralPzsEntregadas = $row['verGralPzsEntregadas'];
+    $verTablaPzsEntregadas = $row['verTablaPzsEntregadas'];
 
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
     if ($passUser === 'SIN_PASSWORD') {

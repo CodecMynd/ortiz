@@ -14,6 +14,15 @@ $nProyecto = $_POST['nProyecto6'];
 $id_recPzsDanadas = $_POST['id_recPzsDanadas6'];
 $id_solPzsDanadas = $_POST['id_solPzsDanadas6'];
 $id_regCompraInicial = $_POST['id_regCompraInicial6'];
+$fechaRegPreAuto = $_POST['fechaRegPreAuto6'];
+
+//Cronometro 
+$fecha1 = new DateTime($date);
+$fecha2 = new DateTime($fechaRegPreAuto);
+
+$diff = $fecha1->diff($fecha2);
+
+$cronoAutorizado = $diff->days." Dia(s), ". $diff->h . ' h. '.$diff->i." m. ".$diff->s . ' s.';
 
 // Query Registro de folio registrosolicitud
 $queryP = 'SELECT MAX(id_autorizado) + 1 FROM autorizados';
@@ -24,7 +33,7 @@ $rowp = mysqli_fetch_row($result);
 $text = "Autoriz_Pz-00";
 $folio_autoriz = $text . '' . $rowp[0];
 
-$preAutoriz = 1;
+$preAutoriz = 0;
 $autorizado = 1;
 
 $etapa = 'Enviado a Autorización';
@@ -36,7 +45,7 @@ try {
     $resultado1 = mysqli_query($conexion, $query1);
     // var_dump($query1);
 
-    $query2 = "INSERT INTO autorizados(id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_proyecto, nProyecto, folio_autoriz, fecha_creacion, id_capC) VALUES ( '$id_recPzsDanadas', '$id_solPzsDanadas', '$id_regCompraInicial', '$id_proyecto', '$nProyecto', '$folio_autoriz', '$date', '$id')";
+    $query2 = "INSERT INTO autorizados(id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_proyecto, nProyecto, folio_autoriz, cronoAutorizado, fecha_creacion, id_capC) VALUES ( '$id_recPzsDanadas', '$id_solPzsDanadas', '$id_regCompraInicial', '$id_proyecto', '$nProyecto', '$folio_autoriz', '$cronoAutorizado', '$date', '$id')";
     $resultado2 = mysqli_query($conexion, $query2);
     // var_dump($query2);
 
@@ -48,7 +57,7 @@ try {
 
     $conexion->commit();
     echo "<div class='alert alert-success' role='alert'>
-                 <p><strong>Proyecto Precargado correctamente!</strong></p>
+                 <p><strong>Proyecto Enviado a Autorizado correctamente!</strong></p>
               </div>";
 } catch (Exception $e) {
     $conexion->rollback();

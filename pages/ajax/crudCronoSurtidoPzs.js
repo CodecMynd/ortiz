@@ -263,5 +263,5 @@ var tableCronoSurPzs = $("#tableCronoSurPzs").DataTable({
 });
 setInterval(function () {
     tableCronoSurPzs.ajax.reload(null, false); // user paging is not reset on reload
-}, 600000);
+}, 300000);
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------

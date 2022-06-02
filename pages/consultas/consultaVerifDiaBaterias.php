@@ -19,8 +19,8 @@ if ($super == 1 or $verTablaVerifDiaBat == 1) {
 	LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
 	LEFT JOIN asesores ASE ON CA.id_asesor = ASE.id_asesor
 	LEFT JOIN incidencias I ON VD.id_verifDiaBat = I.id_verifDiaBat
-	WHERE P.proyectoActivo = 1 OR P.registroSolicitud = 1 OR P.altaProyecto GROUP BY P.id_proyecto  
-	ORDER BY nProyecto  DESC";
+	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 OR P.registroSolicitud = 1 OR P.altaProyecto GROUP BY P.id_proyecto  
+ORDER BY P.nProyecto DESC";
 } else {
 	$query = "SELECT id_proyecto FROM proyectos WHERE id_proyecto = 0";
 }
@@ -214,18 +214,18 @@ while ($row = $resultado->fetch_assoc()) {
 	$datos[] = array(
 		"0" => $cont,
 		"1" => "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>",
-		"2" => $row['nProyecto'],
-		"3" => $row['nOrden'],
-		"4" => $row['marca'],
-		"5" => $row['modelo'],
-		"6" => $row['anio'],
-		"7" => $row['placa'],
-		"8" => $row['color'],
-		"9" => $validaAsesor,
-		"10" => $validaEstadoProyecto,
-		"11" => $etapa,
-		"12" => $validaCom,
-		"13" => $validaSup,
+		"2" => $validaCom,
+		"3" => $validaSup,
+		"4" => $validaAsesor,
+		"5" => $row['nProyecto'],
+		"6" => $row['nOrden'],
+		"7" => $row['marca'],
+		"8" => $row['modelo'],
+		"9" => $row['anio'],
+		"10" => $row['placa'],
+		"11" => $row['color'],
+		"12" => $validaEstadoProyecto,
+		"13" => $etapa,
 		"14" => $incidencia,
 		"15" => "<div class='input-group input-group-sm mb-3'>
 		<div class='input-group-prepend'>

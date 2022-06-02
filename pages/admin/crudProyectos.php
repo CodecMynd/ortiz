@@ -185,6 +185,7 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
+                                                <th>Cliente</th>
                                                 <th>Status Valor Venta Inicial</th>
                                                 <th>Valor Venta Inicial</th>
                                                 <th>Estado del Proyecto</th>
@@ -205,6 +206,7 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
+                                                <th>Cliente</th>
                                                 <th>Status Valor Venta Inicial</th>
                                                 <th class="suma"></th>
                                                 <th>Estado del Proyecto</th>

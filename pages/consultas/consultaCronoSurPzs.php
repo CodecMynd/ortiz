@@ -18,7 +18,7 @@ if ($super == 1 or $verTablaCronoSurPzs == 1) {
 	LEFT JOIN asesores ASE ON CA.id_asesor = ASE.id_asesor
     INNER JOIN recpzsdanadas R ON P.id_proyecto = R.id_proyecto
     INNER JOIN solpzsdanadas SP ON P.id_proyecto = SP.id_proyecto
-    LEFT JOIN entregapzs EP ON sp.id_solPzsDanadas = EP.id_solPzsDanadas
+    LEFT JOIN entregapzs EP ON SP.id_solPzsDanadas = EP.id_solPzsDanadas
 	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1
 	ORDER BY P.nProyecto AND EP.id_entregaPz DESC";
 } else {

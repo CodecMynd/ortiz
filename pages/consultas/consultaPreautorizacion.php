@@ -7,7 +7,9 @@ if ($super == 1 or $verTablaPreautorizacion == 1) {
     MAX(R.id_recPzsDanadas) AS id_recPzsDanadas, R.linkRecPzsDanadas, MIN(R.borrado) AS linkBorrado, MAX(R.enUso) AS linkEnUso, 
     R.fecha_creacion AS fechaRegLink, R.fecha_borrado AS fechaEliLink, R.enUso,
 	SP.folio_solicitud, MIN(SP.borrado) AS solBorrado, MAX(SP.enUso) AS solEnUso, SP.folio_solicitud, SP.id_solPzsDanadas,
-    RC.precio, RC.modalidadPago, RC.id_regCompraInicial 
+    RC.precio, RC.modalidadPago, RC.id_regCompraInicial,
+	ASE.asesor, TAR.tecArmador,
+    PA.cronoPreAuto, PA.fecha_creacion AS fechaRegPreAuto
 	FROM proyectos P
 	INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
 	INNER JOIN colores Co On V.id_color = Co.id_color
@@ -15,9 +17,13 @@ if ($super == 1 or $verTablaPreautorizacion == 1) {
 	INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
 	INNER JOIN anios A ON V.id_anio = A.id_anio
     LEFT JOIN recpzsdanadas R ON P.id_proyecto = R.id_proyecto
+	LEFT JOIN tecarmadores TAR ON R.id_tecArmador = TAR.id_tecArmador
     LEFT JOIN solpzsdanadas SP ON R.id_recPzsDanadas = SP.id_recPzsDanadas
     LEFT JOIN regcomprainicial RC ON P.id_proyecto = RC.id_proyecto
-	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 AND P.preAutoriz = 1 AND P.autorizado = 0 GROUP BY P.id_proyecto ORDER BY RC.id_regCompraInicial DESC";
+	LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
+	LEFT JOIN asesores ASE ON CA.id_asesor = ASE.id_asesor
+    INNER JOIN preautorizados PA ON P.id_proyecto = PA.id_proyecto
+	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 AND P.preAutoriz = 1  GROUP BY P.id_proyecto ORDER BY RC.id_regCompraInicial DESC";
 } else {
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";
@@ -46,6 +52,8 @@ while ($row = $resultado->fetch_assoc()) {
 	$solEnUso = $row['solEnUso'];
 	$folio_solicitud = $row['folio_solicitud'];
 	$enUso = $row['enUso'];
+	$fechaRegLink = $row['fechaRegLink'];
+	$fechaRegPreAuto = $row['fechaRegPreAuto'];
 
 	// contador Credito/Contado
 	$querySuma = "SELECT
@@ -103,7 +111,7 @@ while ($row = $resultado->fetch_assoc()) {
 	if ($super == 1 or $verGralRecPzsDanadas == 1) {
 		$outputBtns4 = "<a href='javascript:void(0)' class='btn btn-info' onclick='mostarDetalles(\"" . $row['id_proyecto'] . "\")'><i class='fa-solid fa-circle-info'></i></a>";
 	} else {
-		$outputBtns4 = "<a class='btn btn-outline-danger' id='verGralRecPzsDanadas' data-toggle='tooltip'  title='Sin Permiso'>><i class='fa-solid fa-circle-info'></i></a>";
+		$outputBtns4 = "<a class='btn btn-outline-danger' id='verGralRecPzsDanadas' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-circle-info'></i></a>";
 	}
 
 	// 4.1.4 Enviar a Cotizando
@@ -113,9 +121,9 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns5 = "<a class='btn btn-outline-danger' id='regresarCotizando' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-reply'></i></a>";
 	}
 
-	// 4.1.5 Precargando
+	// 4.1.2.3 Enviar a Autorizado
 	if ($super == 1 or $enviarAutoriz == 1) {
-		$outputBtns6 = "<a href='#' class='btn btn-secondary' onclick='abrirModal6(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\")'><i class='fa-solid fa-paper-plane'></i></a>";
+		$outputBtns6 = "<a href='#' class='btn btn-secondary' onclick='abrirModal6(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\",\"".$fechaRegPreAuto."\")'><i class='fa-solid fa-paper-plane'></i></a>";
 	} else {
 		$outputBtns6 = "<a class='btn btn-outline-danger' id='enviarAutoriz' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-paper-plane'></i></a>";
 	}
@@ -143,19 +151,21 @@ while ($row = $resultado->fetch_assoc()) {
 		"13" => $precioCredito,
 		"14" => $precioContado,
 		"15" => $total,
-		"16" => $fechaRegLink,
-		"17" => $fechaEliLink,
-		"18" => "<div class='input-group input-group-sm mb-3'>
+		"16" => "<strong>{$row['cronoPreAuto']}</strong>",
+		"17" => (empty($row['asesor'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>",
+		"18" => (empty($row['tecArmador'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Técnico</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['tecArmador']}</span></h6>",
+		"19" => $fechaRegLink,
+		"20" => "<div class='input-group input-group-sm mb-3'>
 					<div class='input-group-prepend'>
 						<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Recepción de Piezas Dañadas'> Acciones</span></button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='4.1.2.2 Regresar a Cotizando'>
+									<span data-toggle='tooltip' title=4.1.3.1 Regresar a Cotizando'>
 										" . $outputBtns5 . "
 									</span>
 								</li>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='4.1.2.3 Enviar a Autorizado'>
+									<span data-toggle='tooltip' title='4.1.3.2 Enviar a Autorizado'>
 										" . $outputBtns6 . "
 									</span>
 								</li>
@@ -170,7 +180,7 @@ while ($row = $resultado->fetch_assoc()) {
 
 	);
 }
-
+$resultado->close();
 $resultados = array(
 	"sEcho" => 1, /* informacion para la herramienta datatables */
 	"iTotalRecords" => count($datos), /* envía el total de columnas a la datatable */

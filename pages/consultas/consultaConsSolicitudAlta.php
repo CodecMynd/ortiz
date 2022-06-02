@@ -54,9 +54,6 @@ while ($row = $resultado->fetch_assoc()) {
 		$folioRegAlta = "<strong>{$row['folioRegAlta']}</strong>";
 	}
 
-	
-
-
 
 	$cont++;
 	$datos[] = array(
@@ -65,17 +62,18 @@ while ($row = $resultado->fetch_assoc()) {
 		"2" => $outputBtns1,
 		"3" => "<strong>{$row['folioRegSolicitud']}</strong>",
 		"4" => $folioRegAlta,
-		"5" => (empty($nP)) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $nP,
-		"6" => (empty($row['nOrden'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['nOrden'],
-		"7" => (empty($row['marca'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['marca'],
-		"8" => (empty($row['modelo'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['modelo'],
-		"9" => (empty($row['anio'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['anio'],
-		"10" => (empty($row['placa'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>"  : $row['placa'],
-		"11" => (empty($row['color'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>"  : $row['color'],
-		"12" => (empty($row['semana'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>"  : $row['semana'],
-		"13" => (empty($row['valorVenta'])) ? 0.00 : $row['valorVenta'],
-		"14" => (empty($row['valorVentaAlta'])) ? 0.00 : $row['valorVentaAlta'],
-		"15" => (empty($fecha_creacion)) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $fecha_creacion,
+		"5" => ($Eliminado == 1 OR  (empty($row['folioRegAlta']))) ? "<span class='badge badge-danger badge-pill'>Por dar de Alta</span>" : "<span class='badge badge-success badge-pill'>Alta</span>",
+		"6" => (empty($nP)) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $nP,
+		"7" => (empty($row['nOrden'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['nOrden'],
+		"8" => (empty($row['marca'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['marca'],
+		"9" => (empty($row['modelo'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['modelo'],
+		"10" => (empty($row['anio'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $row['anio'],
+		"11" => (empty($row['placa'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>"  : $row['placa'],
+		"12" => (empty($row['color'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>"  : $row['color'],
+		"13" => (empty($row['semana'])) ? "<span class='badge badge-danger badge-pill'>N/A</span>"  : $row['semana'],
+		"14" => (empty($row['valorVenta'])) ? 0.00 : $row['valorVenta'],
+		"15" => (empty($row['valorVentaAlta'])) ? 0.00 : $row['valorVentaAlta'],
+		"16" => (empty($fecha_creacion)) ? "<span class='badge badge-danger badge-pill'>N/A</span>" : $fecha_creacion,
 
 	);
 }

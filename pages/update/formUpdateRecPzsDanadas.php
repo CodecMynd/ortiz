@@ -95,7 +95,8 @@ require '../components/head-dataTables.php';
                                     $id_proyecto = $_GET['id'];
                                     $query1 = "SELECT P.id_proyecto, P.nProyecto, P.nOrden,
                                     V.placa, Co.color, M.marca, Mo.modelo, An.anio,
-                                    R.linkRecPzsDanadas, T.tecArmador
+                                    R.linkRecPzsDanadas, R.fecha_borrado, U.nombres, U.aPaterno, U.aMaterno,
+                                    T.tecArmador
                                     from proyectos P 
                                     INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                                     INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -103,10 +104,12 @@ require '../components/head-dataTables.php';
                                     INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
                                     INNER JOIN anios An ON V.id_anio = An.id_anio 
                                     LEFT JOIN recpzsdanadas R ON P.id_proyecto = R.id_proyecto
-                                    LEFT join tecarmadores T ON R.id_tecArmador = T.id_tecArmador
+                                    LEFT JOIN tecarmadores T ON R.id_tecArmador = T.id_tecArmador
+                                    LEFT JOIN usuarios U ON R.id_capB = U.id_usuario
                                     WHERE P.id_Proyecto =  $id_proyecto";
                                     $resultado1 = mysqli_query($conexion, $query1);
                                     $row1 = $resultado1->fetch_assoc();
+                                    $captB = (empty($row1['nombres']) AND empty($row1['aPaterno']) AND empty($row1['aMaterno'])) ? 'Sin Registro' : $row1['nombres'].' '.$row1['aPaterno'].' '.$row1['aMaterno'];
 
                                     ?>
                                     <table id="tableRegProyectos" class="table table-sm table-bordered table-striped" style="width: 100%;">
@@ -141,11 +144,15 @@ require '../components/head-dataTables.php';
                                         <thead class="thead-dark">
                                             <tr>
                                                 <th>Link de Desarmado</th>
+                                                <th>Fecha Link Elimnado</th>
+                                                <th>Capturista Elimino</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo (empty($row1['linkRecPzsDanadas'])) ? 'Sin Registro' : $row1['linkRecPzsDanadas'] ?></td>
+                                                <td><?php echo (empty($row1['fecha_borrado'])) ? 'Sin Registro' : $row1['fecha_borrado'] ?></td>
+                                                <td><?php echo  $captB?></td>
                                             </tr>
                                         </tbody>
                                     </table>

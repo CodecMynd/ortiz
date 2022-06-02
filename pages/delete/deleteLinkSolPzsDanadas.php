@@ -12,8 +12,12 @@ $id_recPzsDanadas = $_POST['id_recPzsDanadas3'];
 $borrado = '1';
 $enUso = '0';
 
-  $query = "UPDATE recpzsdanadas SET borrado = '$borrado', enUso = '$enUso', fecha_borrado = '$date', id_capB = '$id' WHERE id_recPzsDanadas = $id_recPzsDanadas";
+  $query = "DELETE FROM recpzsdanadas WHERE id_recPzsDanadas = $id_recPzsDanadas";
   $resultado = mysqli_query($conexion, $query);
+  // var_dump($query);
+
+  $quer1 = "DELETE solpzsdanadas SET regCompraInicial = 0, borrado = 1, enUso = 0, fecha_borrado = '$date', id_capB = '$id'  WHERE id_recPzsDanadas = $id_recPzsDanadas";
+  $resultado1 = mysqli_query($conexion, $querY1);
   // var_dump($query);
 
    if($resultado){

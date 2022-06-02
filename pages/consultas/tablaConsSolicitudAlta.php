@@ -79,6 +79,7 @@ require '../components/head-dataTables.php';
                                                 <th>Estatus Solicitud Alta</th>
                                                 <th>Núm. Folio Solicitud Alta</th>
                                                 <th>Núm. Folio Alta</th>
+                                                <th>Alta</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -100,6 +101,7 @@ require '../components/head-dataTables.php';
                                                 <th>Estatus Solicitud Alta</th>
                                                 <th>Núm. Folio Solicitud Alta</th>
                                                 <th>Núm. Folio Alta</th>
+                                                <th>Alta</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
