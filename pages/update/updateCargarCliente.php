@@ -165,6 +165,6 @@ if ($respuesta->num_rows  > 0) {
         $("#btnUpdateCargarCliente").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnUpdateCargarCliente").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 </script>

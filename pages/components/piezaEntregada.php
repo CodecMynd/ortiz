@@ -28,10 +28,10 @@ ob_start();
 
         /** Defina ahora los márgenes reales de cada página en el PDF **/
         body {
-            margin-top: 2.4cm;
+            margin-top: 7.5cm;
             margin-left: 1cm;
             margin-right: 2.2cm;
-            margin-bottom: 6cm;
+            margin-bottom: 4.5cm;
             font-family: sans-serif;
 
         }
@@ -50,14 +50,14 @@ ob_start();
         header {
             position: fixed;
             top: 10px;
-            left: 0px;
+            left: 1cm;
             right: 0px;
-            height: 50px;
+            height: 60px;
 
             /** Extra personal styles **/
             background-color: none;
             color: #000;
-            text-align: center;
+            text-align: left;
             line-height: 35px;
         }
 
@@ -69,10 +69,10 @@ ob_start();
 
         footer {
             position: fixed;
-            bottom: 35px;
+            bottom: 5px;
             left: 0px;
             right: 0px;
-            height: 220px;
+            height: 190px;
             width: 100%;
 
             /** Extra personal styles **/
@@ -109,8 +109,9 @@ ob_start();
             text-align: left;
             vertical-align: top;
             border: 1px solid #000;
-            padding: 0.3em;
+            padding: 1px;
             caption-side: bottom;
+            text-align: center;
         }
 
 
@@ -202,7 +203,7 @@ ob_start();
             border-top: 1px solid gray;
             height: 2px;
             max-width: 300px;
-            padding-top: 10px;
+            padding: 0px 0 5px 0;
             margin: 0px auto 0 auto;
 
         }
@@ -276,38 +277,10 @@ $resultado = mysqli_query($conexion, $query1);
         <div class="titleHeader">
             <h2>Piezas Surtidas</h2>
         </div>
-        <div class="lineaHeader"><img src="../../src/img/logos/headerSolicitudAltaLinea.png" width='1040' height='4' style="position: fixed;top: 80px;left: 30px;right: 0px;height: 4px;" /></div>
-    </header>
-    <footer id='footer'>
-        <div>
-            <div style="padding-left:100px;float:center;width: 50%;">
-                <p style="font-size:15px"><strong>Entregado</strong></p>
-                <div class="linea"></div>
-                <p style="font-size:13px">Firma y Nombre</p>
-            </div>
-            <div style="padding-left:90px;float:left;width: 50%;">
-                <p style="font-size:15px;padding: 0px"><strong>Recibido</strong></p>
-                <div class="linea"></div>
-                <p style="font-size:13px;padding:0 auto;">Firma y Nombre</p>
-            </div>
-        </div>
-        <div style="clear:both"></div>
-        <div class="centrado" style="font-weight: bold; font-size:15px;margin:5px">
-            <p>Acepto total de refacciones recibidas y las no reemplazadas no es motivo para falla critica y/o inmediata de la transmisión</p>
-        </div>
-        <p class="page">Página </p>
-        <div class="contenedor-dv">
-            <span class="capturista"> Impreso por:  <?php echo $nomComp . ' - ' . fechaEs($date) ?></span> 
-        </div>
-    </footer>
-    <!-- Envuelva el contenido de su PDF dentro de una etiqueta principal -->
-    <main>
-        <!-- <div class="lineaHeader"><img src="../../src/img/logos/headerSolicitudAltaLinea.png" width='1040' height='4' /></div> -->
-
+        <div class="lineaHeader"><img src="../../src/img/logos/headerSolicitudAltaLinea.png" width='1040' height='4' style="position: fixed;top: 80px;left: 35px;right: 0px;" /></div>
         <div class="container">
             <div class="col-12">
-                <h5 class="text-center"><strong> Consulta: Registros del Proyecto</strong></h5>
-                <table class="table">
+                <table class="table" style="position: fixed;top: 80px;left: 35px;right: 0px; width:1040px" cellpadding="0" cellspacing="0">
                     <thead>
                         <tr>
                             <th>Núm. de Proyecto</th>
@@ -333,13 +306,13 @@ $resultado = mysqli_query($conexion, $query1);
                         </tr>
                     </tbody>
                 </table>
-                <table class="table">
+                <table class="table" style="position: fixed;top: 170px;left: 35px;right: 0px;width:1040px">
                     <thead>
                         <tr>
                             <th>Link de Desarmado</th>
                             <th>Fecha Registro Link</th>
-                            <th>Número Folio Autorización</th>
-                            <th>Número Folio Pieza Surtida</th>
+                            <th>Folio Autorización</th>
+                            <th>Folio Pieza Surtida</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -351,9 +324,37 @@ $resultado = mysqli_query($conexion, $query1);
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </header>
 
-                <h5 class="text-center"><strong> Registro Solicitud(es) de Pieza(s) y Registro(s) de Compra Inicial</strong></h5>
-                <table class="table">
+    <footer id='footer'>
+        <div  style="position: fixed;font-weight: bold; font-size:15px;margin:0px;float:center;width: 100%; top: 0px;">
+                <p>Acepto total de refacciones recibidas y las no reemplazadas no es motivo para falla critica y/o inmediata de la transmisión</p>
+        </div>
+        <div>
+            <div style="position: fixed;top:75px; padding-left:100px;float:center;width: 50%;">
+                <div class="linea"></div>
+                <p style="font-size:15px"><strong>Entregado</strong></p>
+            </div>
+            <div style="position: fixed;top:75px;padding-left:90px;float:left;width: 50%;">
+                <div class="linea"></div>
+                <p style="font-size:15px;padding: 0px"><strong>Recibido</strong></p>
+            </div>
+        </div>
+        <div style="clear:both"></div>
+        <p class="page" style="position: fixed;top:120px;padding-left:280px;float:center;width: 50%;">Página </p>
+        <div class="contenedor-dv">
+            <span class="capturista"> Impreso por: <?php echo $nomComp . ' - ' . fechaEs($date) ?></span>
+        </div>
+    </footer>
+    <!-- Envuelva el contenido de su PDF dentro de una etiqueta principal -->
+    <main>
+        <!-- <div class="lineaHeader"><img src="../../src/img/logos/headerSolicitudAltaLinea.png" width='1040' height='4' /></div> -->
+
+        <div class="container">
+            <div class="col-12">
+                <table class="table" style="width:1005px">
                     <thead>
                         <tr>
                             <th>Núm. Folio</th>
@@ -397,13 +398,13 @@ $resultado = mysqli_query($conexion, $query1);
                                 <td>
                                     <?php echo $row['folio_solicitud'] ?>
                                 </td>
-                                <td>
+                                <td style="width:10px">
                                     <?php echo (empty($row['cantidad'])) ? 'Sin Registro' : $row['cantidad']; ?>
                                 </td>
                                 <td>
                                     <?php echo (empty($row['descripcion'])) ? 'Sin Registro' : $row['descripcion']; ?>
                                 </td>
-                                <td>
+                                <td style="width:15px">
                                     <?php echo (empty($row['minVideo'])) ? 'Sin Registro' : $row['minVideo']; ?>
                                 </td>
                                 <td>

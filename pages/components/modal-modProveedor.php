@@ -242,7 +242,7 @@ require '../components/head-main.php';
             })
     });
 
-    //Ocultar boton por 10 segundos para evitar el doble submit
+    //Ocultar boton por 3 minutos para evitar el doble submit
     $("#btnUpdateProvee").on('click', function() {
         $("#btnUpdateProvee").css('visibility', 'hidden');
         setTimeout(function() {

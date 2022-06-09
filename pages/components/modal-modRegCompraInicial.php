@@ -133,7 +133,7 @@ require '../components/head-main.php';
                 $('#respuestaModRegCompraInicial').html(res)
             })
     });
-    //Ocultar boton por 10 segundos para evitar el doble submit
+    //Ocultar boton por 3 minutos para evitar el doble submit
     $("#btnModRegCompraInicial").on('click', function() {
         $("#btnModRegCompraInicial").css('visibility', 'hidden');
         setTimeout(function() {

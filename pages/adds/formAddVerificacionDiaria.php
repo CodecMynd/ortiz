@@ -165,7 +165,7 @@ require '../components/head-main.php';
         $("#btnNuevoRegComVerifDiariaVeh").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnNuevoRegComVerifDiariaVeh").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 </script>
 

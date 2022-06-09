@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="pie">
-                <h5>4.1.6.1 Regresar a Autorizado: en Proceso de Surtido de Piezas</h5>
+                <h5>4.1.6.1 Regresar a Proceso de Surtido de Piezas</h5>
             </div>
         </div>
     </div>

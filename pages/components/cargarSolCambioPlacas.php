@@ -233,7 +233,7 @@ if ($respuesta->num_rows  > 0) {
         $("#btnNuevoSolCambioPlacas").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnNuevoSolCambioPlacas").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 
     $(document).ready(function() {

@@ -169,7 +169,7 @@ require '../components/head-main.php';
         $("#btnNuevoComSegDiaCobranzaSuper").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnNuevoComSegDiaCobranzaSuper").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 </script>
 

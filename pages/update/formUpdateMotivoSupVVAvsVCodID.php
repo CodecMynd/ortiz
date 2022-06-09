@@ -140,6 +140,6 @@ $("#btnUpdateRegMotivoSupVVAvsVCodID").on('click', function () {
     $("#btnUpdateRegMotivoSupVVAvsVCodID").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnUpdateRegMotivoSupVVAvsVCodID").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 </script>

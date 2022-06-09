@@ -167,7 +167,7 @@ require '../components/head-main.php';
         $("#btnNuevoRegSegDiaAseTecnicoSuper").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnNuevoRegSegDiaAseTecnicoSuper").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 </script>
 

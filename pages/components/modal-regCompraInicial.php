@@ -53,7 +53,7 @@
                             <div class="input-group">
                                 <label for='color' class='pl-5 '>*Modalidad de Pago</label>
                                 <div class="input-group"></div>
-                                <span data-toggle="tooltip" title="Estado">
+                                <span data-toggle="tooltip" title="Modalidad de Pago">
                                     <select name="modalidadPago" id="modalidadPago" class="form-control" style="width: 100%;">
                                         <option selected disabled>Seleccione una opción</option>
                                         <option disabled>___________________________</option>

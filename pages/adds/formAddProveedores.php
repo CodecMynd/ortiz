@@ -265,7 +265,7 @@ $('#btnNuevoProvee').click(function () {
         })
 });
 
-//Ocultar boton por 10 segundos para evitar el doble submit
+//Ocultar boton por 3 minutos para evitar el doble submit
 $("#btnNuevoProvee").on('click', function () {
     $("#btnNuevoProvee").css('visibility', 'hidden');
     setTimeout(function () {

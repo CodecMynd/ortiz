@@ -117,7 +117,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-footer" style="height: 50px;">
                                     <marquee width="100%" behavior="alternate">
                                         <marquee behavior="alternate">
-                                            <p>Consulta optimizada, ultima actualización: <strong>05/05/2022</strong></p>
+                                            <p>Consulta optimizada, ultima actualización: <strong>04/06/2022</strong></p>
                                         </marquee>
                                     </marquee>
                                 </div>
@@ -160,7 +160,8 @@ require '../components/head-dataTables.php';
                                                 <th>Modelo</th>
                                                 <th>Año</th>
                                                 <th>Placas</th>
-                                                <th>Color</th>
+                                                <th>Color</th>                                                
+                                                <th>Valor Venta Inicial</th>
                                                 <th>Asesor</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th style="color:#fff; background-color: #5A6268;">Asesoramiento Técnico</th>
@@ -179,6 +180,7 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
+                                                <th class="suma">Valor Venta Inicial</th>
                                                 <th>Asesor</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th style="color:#fff; background-color: #5A6268;">Asesoramiento Técnico</th>
@@ -208,29 +210,10 @@ require '../components/head-dataTables.php';
     // Scripts principales
     require '../components/scripts-main.php';
     // Scripts dataTables
-    require '../components/scripts-dataTables.php';
+    require '../ajax/plugins-datatable.php';
     ?>
-    <!-- avisos -->
-<script>
-    $('#btnEliminarAseTec').click(function () {
-    $.ajax({
-            url: '../delete/deleteAseTec.php',
-            type: 'POST',
-            data: $('#formEliminarAseTec').serialize(),
-        })
-        .done(function (res) {
-            $('#respuestaEliminarAsignacionTop').html(res)
-        })
-});
+<script src="../ajax/crudAsesoramientoTecnico.js"></script>
 
-//Ocultar boton por 5 minutos para evitar el doble submit
-$("#btnEliminarAseTec").on('click', function () {
-    $("#btnEliminarAseTec").css('visibility', 'hidden');
-    setTimeout(function () {
-        $("#btnEliminarAseTec").css('visibility', 'visible');
-    }, 300000);
-});
-</script>
     <script>
         // sinRegistro ¡SIN REGISTRO, AGREGA UNA COMPROBACIÓN PARA HABILITAR ESTE BÓTON --------------------------------------------------------------
         $(document).ready(function() {

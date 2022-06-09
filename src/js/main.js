@@ -59,7 +59,7 @@ $("#btnUpdateUsuario").on('click', function () {
     $("#btnUpdateUsuario").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnUpdateUsuario").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 /*
 -
@@ -83,7 +83,7 @@ $("#btnUpdatePass").on('click', function () {
     $("#btnUpdatePass").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnUpdatePass").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 //Cargar texto al habilitar un chekc
 function test() {
@@ -141,7 +141,7 @@ $("#btnNuevoPermiso").on('click', function () {
     $("#btnNuevoPermiso").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnNuevoPermiso").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 // 
 /*
@@ -170,7 +170,7 @@ $("#btnNuevoUsuario").on('click', function () {
     $("#btnNuevoUsuario").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnNuevoUsuario").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 /*
 -
@@ -222,7 +222,7 @@ $("#btnNuevaMarca").on('click', function () {
     $("#btnNuevaMarca").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnNuevaMarca").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 /*
 -
@@ -250,7 +250,7 @@ $("#btnUpdateMarca").on('click', function () {
     $("#btnUpdateMarca").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnUpdateMarca").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 /*
 -
@@ -300,7 +300,7 @@ $("#btnNuevoModelo").on('click', function () {
     $("#btnNuevoModelo").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnNuevoModelo").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 /*
 -
@@ -325,7 +325,7 @@ $("#btnUpdateModelo").on('click', function () {
     $("#btnUpdateModelo").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnUpdateModelo").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 /*
 -
@@ -376,7 +376,7 @@ $("#btnNuevoAnio").on('click', function () {
     $("#btnNuevoAnio").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnNuevoAnio").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 /*
 -
@@ -401,7 +401,7 @@ $("#btnUpdateAnio").on('click', function () {
     $("#btnUpdateAnio").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnUpdateAnio").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 /*
 -
@@ -454,7 +454,7 @@ $("#btnNuevaColor").on('click', function () {
     $("#btnNuevaColor").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnNuevaColor").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 
 
@@ -479,7 +479,7 @@ $("#btnUpdateColor").on('click', function () {
     $("#btnUpdateColor").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnUpdateColor").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 
 // 1.5.3 Formulario Eliminar Color ------------------------------------------------------------
@@ -525,7 +525,7 @@ $("#btnNuevaSemana").on('click', function () {
     $("#btnNuevaSemana").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnNuevaSemana").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 
 // 1.6.1.2  Formulario Eliminar Semanas----------------------------------------------------
@@ -567,7 +567,7 @@ $("#btnNuevaSemanaCobro").on('click', function () {
     $("#btnNuevaSemanaCobro").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnNuevaSemanaCobro").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 
 // 1.6.2.2 Formulario Eliminar Semanas Cobro----------------------------------------------------
@@ -609,7 +609,7 @@ $("#btnNuevoAgente").on('click', function () {
     $("#btnNuevoAgente").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnNuevoAgente").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 
 // 1.7.2  Formulario Eliminar Agentes----------------------------------------------------
@@ -651,7 +651,7 @@ $("#btnNuevaFormaPago").on('click', function () {
     $("#btnNuevaFormaPago").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnNuevaFormaPago").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 
 // 1.8.2  Formulario Eliminar Forma de Pago----------------------------------------------------
@@ -694,7 +694,7 @@ $("#btnNuevaTecArmador").on('click', function () {
     $("#btnNuevaTecArmador").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnNuevaTecArmador").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 
 // 1.9.1.2 Formulario Modificar Tecnico Armador ------------------------------------------------------------
@@ -718,7 +718,7 @@ $("#btnUpdateTecArmador").on('click', function () {
     $("#btnUpdateTecArmador").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnUpdateTecArmador").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 
 // 1.9.1.3 Formulario Eliminar Tecnico Armador ------------------------------------------------------------
@@ -761,7 +761,7 @@ $("#btnNuevaTecMontador").on('click', function () {
     $("#btnNuevaTecMontador").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnNuevaTecMontador").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 
 
@@ -786,7 +786,7 @@ $("#btnUpdateTecMontador").on('click', function () {
     $("#btnUpdateTecMontador").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnUpdateTecMontador").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 
 
@@ -829,7 +829,7 @@ $("#btnNuevoAsesor").on('click', function () {
     $("#btnNuevoAsesor").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnNuevoAsesor").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 
 // 1.10.2 Formulario Modificar Asesor ------------------------------------------------------------
@@ -853,7 +853,7 @@ $("#btnUpdateAsesor").on('click', function () {
     $("#btnUpdateAsesor").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnUpdateAsesor").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 
 // 1.10.3 Eliminar Asesor ------------------------------------------------------------
@@ -909,7 +909,7 @@ $("#btnNuevoVehiculo").on('click', function () {
     $("#btnNuevoVehiculo").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnNuevoVehiculo").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 /*
 -
@@ -948,7 +948,7 @@ $("#btnUpdateVehiculo").on('click', function () {
     $("#btnUpdateVehiculo").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnUpdateVehiculo").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 /*
 -
@@ -975,7 +975,7 @@ $("#btnNuevoCliente").on('click', function () {
     $("#btnNuevoCliente").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnNuevoCliente").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 /*
 -
@@ -1001,7 +1001,7 @@ $("#btnUpdateCliente").on('click', function () {
     $("#btnUpdateCliente").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnUpdateCliente").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 /*
 -
@@ -1084,7 +1084,7 @@ $("#btnNuevoProyecto").on('click', function () {
     $("#btnNuevoProyecto").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnNuevoProyecto").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 //
 //
@@ -1139,7 +1139,7 @@ $("#btnUpdateProyectoDatosGral").on('click', function () {
     $("#btnUpdateProyectoDatosGral").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnUpdateProyectoDatosGral").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 /*
 -
@@ -1171,7 +1171,7 @@ $("#btnUpdateValVenInicial").on('click', function () {
     $("#btnUpdateValVenInicial").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnUpdateValVenInicial").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 /*
 -

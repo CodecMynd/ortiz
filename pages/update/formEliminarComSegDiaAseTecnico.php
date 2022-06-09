@@ -130,7 +130,7 @@ require '../components/head-dataTables.php';
             $("#btnDeleteSegDiaAseTecnico").css('visibility', 'hidden');
             setTimeout(function() {
                 $("#btnDeleteSegDiaAseTecnico").css('visibility', 'visible');
-            }, 300000);
+            }, 180000);
         });
     </script>
 </body>

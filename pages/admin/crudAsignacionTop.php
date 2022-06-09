@@ -228,7 +228,7 @@ $("#btnEliminarAsignacionTop").on('click', function () {
     $("#btnEliminarAsignacionTop").css('visibility', 'hidden');
     setTimeout(function () {
         $("#btnEliminarAsignacionTop").css('visibility', 'visible');
-    }, 300000);
+    }, 180000);
 });
 </script>
     <script>

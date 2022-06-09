@@ -215,6 +215,6 @@ require '../components/head-main.php';
         $("#btnUpdateCambioAsesorAutorizar").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnUpdateCambioAsesorAutorizar").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 </script>

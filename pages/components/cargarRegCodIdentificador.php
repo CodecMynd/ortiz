@@ -603,7 +603,7 @@ if ($respuesta->num_rows  > 0) {
         $("#btnNuevoRegCodIdentificador").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnNuevoRegCodIdentificador").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 
     $(document).ready(function() {

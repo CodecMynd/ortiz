@@ -130,7 +130,7 @@ require '../components/head-dataTables.php';
             $("#btnDeleteSegDiaProAseTecnicoSuper").css('visibility', 'hidden');
             setTimeout(function() {
                 $("#btnDeleteSegDiaProAseTecnicoSuper").css('visibility', 'visible');
-            }, 300000);
+            }, 180000);
         });
     </script>
 </body>

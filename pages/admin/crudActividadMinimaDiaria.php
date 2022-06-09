@@ -146,6 +146,7 @@ require '../components/head-dataTables.php';
                                                 <th>Placas</th>
                                                 <th>Color</th>
                                                 <th>Asesor</th>
+                                                <th>Valor Venta Inicial</th>
                                                 <th>Top</th>
                                                 <th>Asesoramiento Técnico</th>
                                                 <th>Estado del Proyecto</th>
@@ -169,6 +170,7 @@ require '../components/head-dataTables.php';
                                                 <th>Placas</th>
                                                 <th>Color</th>
                                                 <th>Asesor</th>
+                                                <th>Valor Venta Inicial</th>
                                                 <th>Top</th>
                                                 <th>Asesoramiento Técnico</th>
                                                 <th>Estado del Proyecto</th>

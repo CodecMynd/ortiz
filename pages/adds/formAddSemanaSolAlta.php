@@ -133,7 +133,7 @@ require '../components/head-main.php';
         $("#btnNuevaSemanaSolAlta").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnNuevaSemanaSolAlta").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 </script>
 

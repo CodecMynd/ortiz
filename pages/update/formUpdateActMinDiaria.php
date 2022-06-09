@@ -1056,7 +1056,7 @@ require '../components/head-dataTables.php';
         //             $('#respuestaRegSolRecPzsDanadas').html(res)
         //         })
         // });
-        // //Ocultar boton por 10 segundos para evitar el doble submit
+        // //Ocultar boton por 3 minutos para evitar el doble submit
         // $("#btnNuevoRegSolRecPzsDanadas").on('click', function() {
         //     $("#btnNuevoRegSolRecPzsDanadas").css('visibility', 'hidden');
         //     setTimeout(function() {
@@ -1086,7 +1086,7 @@ require '../components/head-dataTables.php';
         //             $('#respuestaDeleteSolPzsDanadas').html(res)
         //         })
         // });
-        // //Ocultar boton por 10 segundos para evitar el doble submit
+        // //Ocultar boton por 3 minutos para evitar el doble submit
         // $("#btnDeleteSolPzsDanadas").on('click', function() {
         //     $("#btnDeleteSolPzsDanadas").css('visibility', 'hidden');
         //     setTimeout(function() {

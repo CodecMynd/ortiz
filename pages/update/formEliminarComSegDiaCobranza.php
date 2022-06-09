@@ -130,7 +130,7 @@ require '../components/head-dataTables.php';
             $("#btnDeleteComSegDiaCobranza").css('visibility', 'hidden');
             setTimeout(function() {
                 $("#btnDeleteComSegDiaCobranza").css('visibility', 'visible');
-            }, 300000);
+            }, 180000);
         });
     </script>
 </body>

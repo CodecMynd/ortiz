@@ -288,7 +288,7 @@ if ($respuesta->num_rows  > 0) {
         $("#btnNuevoRegProyExtra").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnNuevoRegProyExtra").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 
     $(document).ready(function() {

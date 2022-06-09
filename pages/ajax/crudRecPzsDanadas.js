@@ -36,7 +36,7 @@ $('#btnNuevoRecPzsDanadas').click(function () {
         })
 });
 
-//Ocultar boton por 10 segundos para evitar el doble submit
+//Ocultar boton por 3 minutos para evitar el doble submit
 $("#btnNuevoRecPzsDanadas").on('click', function () {
     $("#btnNuevoRecPzsDanadas").css('visibility', 'hidden');
     setTimeout(function () {
@@ -68,7 +68,7 @@ $('#btnDeleteLinkSolPzsDanadas').click(function () {
         })
 });
 
-//Ocultar boton por 10 segundos para evitar el doble submit
+//Ocultar boton por 3 minutos para evitar el doble submit
 $("#btnDeleteLinkSolPzsDanadas").on('click', function () {
     $("#btnDeleteLinkSolPzsDanadas").css('visibility', 'hidden');
     setTimeout(function () {
@@ -101,7 +101,7 @@ $('#btnEnviarPreAuto').click(function () {
         })
 });
 
-//Ocultar boton por 10 segundos para evitar el doble submit
+//Ocultar boton por 3 minutos para evitar el doble submit
 $("#btnEnviarPreAuto").on('click', function () {
     $("#btnEnviarPreAuto").css('visibility', 'hidden');
     setTimeout(function () {
@@ -109,7 +109,7 @@ $("#btnEnviarPreAuto").on('click', function () {
     }, 3000);
 });
 
-// Tabla 4.1 Recepción de Piezas Dañadas
+// Tabla 4.1 Recepción de Piezas Dañadas ----------------------------------------------------------------------------------------------------------------------------
 var tableRecPzsDanadas = $("#tableRecPzsDanadas").DataTable({
     "responsive": true,
     "lengthChange": true,
@@ -246,6 +246,6 @@ var tableRecPzsDanadas = $("#tableRecPzsDanadas").DataTable({
 });
 setInterval(function () {
     tableRecPzsDanadas.ajax.reload(null, false); // user paging is not reset on reload
-}, 300000);
+}, 180000);
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

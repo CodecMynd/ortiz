@@ -41,7 +41,7 @@ $('#btnNuevoRegVerifDiaBat').click(function () {
         })
 });
 
-//Ocultar boton por 10 segundos para evitar el doble submit
+//Ocultar boton por 3 minutos para evitar el doble submit
 $("#btnNuevoRegVerifDiaBat").on('click', function () {
     $("#btnNuevoRegVerifDiaBat").css('visibility', 'hidden');
     setTimeout(function () {
@@ -72,7 +72,7 @@ $('#btnNuevoRegVerifDiaBatSuper').click(function () {
         })
 });
 
-//Ocultar boton por 10 segundos para evitar el doble submit
+//Ocultar boton por 3 minutos para evitar el doble submit
 $("#btnNuevoRegVerifDiaBatSuper").on('click', function () {
     $("#btnNuevoRegVerifDiaBatSuper").css('visibility', 'hidden');
     setTimeout(function () {
@@ -174,5 +174,5 @@ var tablaVerifDiaBaterias = $("#tablaVerifDiaBaterias").DataTable({
 });
 setInterval(function () {
     tablaVerifDiaBaterias.ajax.reload(null, false); // user paging is not reset on reload
-}, 300000);
+}, 180000);
 // --------------------------------------------------------------------------------------------------------

@@ -28,7 +28,7 @@ $('#btnNuevoRegEntregaPz').click(function () {
         })
 });
 
-//Ocultar boton por 10 segundos para evitar el doble submit
+//Ocultar boton por 3 minutos para evitar el doble submit
 $("#btnNuevoRegEntregaPz").on('click', function () {
     $("#btnNuevoRegEntregaPz").css('visibility', 'hidden');
     setTimeout(function () {
@@ -58,7 +58,7 @@ $('#btnNuevoRegSuperEntregaPz').click(function () {
         })
 });
 
-//Ocultar boton por 10 segundos para evitar el doble submit
+//Ocultar boton por 3 minutos para evitar el doble submit
 $("#btnNuevoRegSuperEntregaPz").on('click', function () {
     $("#btnNuevoRegSuperEntregaPz").css('visibility', 'hidden');
     setTimeout(function () {
@@ -91,7 +91,7 @@ $('#btnDeleteRegEntregaPz').click(function () {
         })
 });
 
-//Ocultar boton por 10 segundos para evitar el doble submit
+//Ocultar boton por 3 minutos para evitar el doble submit
 $("#btnDeleteRegEntregaPz").on('click', function () {
     $("#btnDeleteRegEntregaPz").css('visibility', 'hidden');
     setTimeout(function () {
@@ -123,7 +123,7 @@ $('#btnDeleteRegSuperEntregaPz').click(function () {
         })
 });
 
-//Ocultar boton por 10 segundos para evitar el doble submit
+//Ocultar boton por 3 minutos para evitar el doble submit
 $("#btnDeleteRegSuperEntregaPz").on('click', function () {
     $("#btnDeleteRegSuperEntregaPz").css('visibility', 'hidden');
     setTimeout(function () {
@@ -263,5 +263,5 @@ var tableCronoSurPzs = $("#tableCronoSurPzs").DataTable({
 });
 setInterval(function () {
     tableCronoSurPzs.ajax.reload(null, false); // user paging is not reset on reload
-}, 300000);
+}, 180000);
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------

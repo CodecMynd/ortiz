@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <strong class="margin-auto__content">
-                    Número de Proyecto: <span id="tituloModal7"></span>
+                    Número de Proyecto: <span id="tituloModal9"></span>
                 </strong>
             </div>
             <div class="modal-body text-center">

@@ -21,7 +21,7 @@
                 })
         });
 
-        //Ocultar boton por 10 segundos para evitar el doble submit
+        //Ocultar boton por 3 minutos para evitar el doble submit
         $("#btnRegresarPreAutorizacion").on('click', function () {
             $("#btnRegresarPreAutorizacion").css('visibility', 'hidden');
             setTimeout(function () {
@@ -29,7 +29,7 @@
             }, 3000);
         });
 
-        // 4.1.2.5 Enviar Autorizado: en Proceso de Surtido de Piezas ---------------------------------------------------------------------------------------------------------------------------------------
+        // 4.1.2.5 Enviar Proceso de Surtido de Piezas ---------------------------------------------------------------------------------------------------------------------------------------
 
         $('#btnEnviarAutoProceSurtPzs').click(function () {
             var param = $('#formEnviarAutoProceSurtPzs').serialize();
@@ -52,7 +52,7 @@
                 })
         });
 
-        //Ocultar boton por 10 segundos para evitar el doble submit
+        //Ocultar boton por 3 minutos para evitar el doble submit
         $("#btnEnviarAutoProceSurtPzs").on('click', function () {
             $("#btnEnviarAutoProceSurtPzs").css('visibility', 'hidden');
             setTimeout(function () {
@@ -199,5 +199,5 @@
         });
         setInterval(function () {
             tableAutorizado.ajax.reload(null, false); // user paging is not reset on reload
-        }, 300000);
+        }, 180000);
         //----------------------------------------------------------------------------------------------------------------------------------------------------------------------

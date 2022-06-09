@@ -170,7 +170,7 @@ require '../components/head-dataTables.php';
             $("#btnRegresarRegCodIdentificador").css('visibility', 'hidden');
             setTimeout(function() {
                 $("#btnRegresarRegCodIdentificador").css('visibility', 'visible');
-            }, 300000);
+            }, 180000);
         });
         // regCodIdentificador 2.6.1 REGISTRO CODIGO IDENTIFICADOR  --------------------------------------------------------------
         $(document).ready(function() {

@@ -619,7 +619,7 @@ require '../components/head-dataTables.php';
                     $('#respuestaRegSolRecPzsDanada').html(res)
                 })
         });
-        //Ocultar boton por 10 segundos para evitar el doble submit
+        //Ocultar boton por 3 minutos para evitar el doble submit
         $("#btnNuevoRegSolRecPzsDanada").on('click', function() {
             $("#btnNuevoRegSolRecPzsDanada").css('visibility', 'hidden');
             setTimeout(function() {
@@ -648,7 +648,7 @@ require '../components/head-dataTables.php';
                     $('#respuestaDeleteSolPzsDanadas').html(res)
                 })
         });
-        //Ocultar boton por 10 segundos para evitar el doble submit
+        //Ocultar boton por 3 minutos para evitar el doble submit
         $("#btnDeleteSolPzsDanadas").on('click', function() {
             $("#btnDeleteSolPzsDanadas").css('visibility', 'hidden');
             setTimeout(function() {
@@ -677,7 +677,7 @@ require '../components/head-dataTables.php';
                     $('#respuestaDeleteCompraInicial').html(res)
                 })
         });
-        //Ocultar boton por 10 segundos para evitar el doble submit
+        //Ocultar boton por 3 minutos para evitar el doble submit
         $("#btnDeleteCompraInicial").on('click', function() {
             $("#btnDeleteCompraInicial").css('visibility', 'hidden');
             setTimeout(function() {
@@ -707,7 +707,7 @@ require '../components/head-dataTables.php';
                     $('#respuestaRegCompraInicial').html(res)
                 })
         });
-        //Ocultar boton por 10 segundos para evitar el doble submit
+        //Ocultar boton por 3 minutos para evitar el doble submit
         $("#btnNuevoRegCompraInicial").on('click', function() {
             $("#btnNuevoRegCompraInicial").css('visibility', 'hidden');
             setTimeout(function() {

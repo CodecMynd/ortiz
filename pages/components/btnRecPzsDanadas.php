@@ -8,6 +8,6 @@
         <a href="#Autorizado" class="iconMoon icon-btn"><small>3</small></a>
         <a href="#ProcesoSurtidoPz" class="iconMoon icon-btn"><small>4</small></a>
         <a href="#pzsEntregadas" class="iconMoon icon-btn"><small>5</small></a>
-        <!-- <a href="" class="iconMoon icon-btn"></a> -->
-        <!-- <a href="" class="iconMoon icon-btn"></a> -->
+        <a href="#pzsFirmadasRec" class="iconMoon icon-btn"><small>6</small></a>
+        <a href="#SuperSurtPzs" class="iconMoon icon-btn"><small>7</small></a>
     </div>

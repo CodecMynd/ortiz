@@ -140,6 +140,6 @@ require '../components/head-main.php';
         $("#btnUpdateRegMotivoSupVVIvsVVA").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnUpdateRegMotivoSupVVIvsVVA").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 </script>

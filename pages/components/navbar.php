@@ -198,7 +198,7 @@
                                                                                                                                                         } ?> " style="padding-left: 5px;padding-right: 5px;">4.0 Compras y Almacén</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                         <li><a href="../admin/crudRecPzsDanadas.php" class="dropdown-item">4.1 Recepción de Piezas Dañadas</a></li>
-                        <li><a href="../consultas/tablaConsultaBitacoraSolPiezas.php" class="dropdown-item">4.2 Autorización de Compras </a></li>
+                        <li><a href="../admin/crudSolPzsAdicionales.php" class="dropdown-item">4.2 Solicitud de Piezas Adicionales </a></li>
                         <li><a href="../admin/crudCronoSurPzs.php" class="dropdown-item">4.3 Cronometro de Surtido de Piezas </a></li>
                         <!-- <li><a href="#" class="dropdown-item disabled">4.4 item </a></li> -->
                     </ul>

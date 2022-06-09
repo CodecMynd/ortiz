@@ -24,7 +24,7 @@
                 })
         });
 
-        //Ocultar boton por 10 segundos para evitar el doble submit
+        //Ocultar boton por 3 minutos para evitar el doble submit
         $("#btnDeleteProveedor").on('click', function() {
             $("#btnDeleteProveedor").css('visibility', 'hidden');
             setTimeout(function() {
@@ -112,5 +112,5 @@ var tableProveedores = $("#tableProveedores").DataTable({
 });
 // setInterval(function () {
 //     tableProveedores.ajax.reload(null, false); // user paging is not reset on reload
-// }, 300000);
+// }, 180000);
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------

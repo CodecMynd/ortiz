@@ -21,7 +21,7 @@ require '../components/fechaEs.php';
             $row = $resultado->fetch_assoc();
             ?>
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">4.1.2.8 Ver Generales Autorizado: en Proceso de Surtido de Piezas del Número de Proyecto: <strong><?php echo $row['nProyecto'] ?></strong></h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">4.1.2.8 Ver Generales Proceso de Surtido de Piezas del Número de Proyecto: <strong><?php echo $row['nProyecto'] ?></strong></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -30,7 +30,7 @@ require '../components/fechaEs.php';
                 <div class='col-md-12 col-sm-12 my-1'>
                     <div class="card card-secondary card-outline collapsed-card">
                         <div class="card-header">
-                            <h2 class="card-title"><strong>Generales Autorizado: en Proceso de Surtido de Piezas</strong></h2>
+                            <h2 class="card-title"><strong>Generales Proceso de Surtido de Piezas</strong></h2>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
                                     <i class="fas fa-plus"></i>
@@ -41,7 +41,7 @@ require '../components/fechaEs.php';
                             <div class='row justify-content-center'>
                                 <div class='col-md-12 col-sm-12 my-1'>
                                     <div class='form-group-input'>
-                                        <label class='ml-5 mb-2'>*Comentarios Autorizado: en Proceso de Surtido de Piezas</label>
+                                        <label class='ml-5 mb-2'>*Comentarios Proceso de Surtido de Piezas</label>
                                         <span data-toggle='tooltip' title='max. 300 caracteres'>
                                             <div class='input-group'>
                                                 <div class='input-group-prepend'>
@@ -58,7 +58,7 @@ require '../components/fechaEs.php';
                                             <span class='input-group-text'><i class='fa-solid fa-user'></i></span>
                                         </div>
                                         <input name='' id='modelo' type='text' class='form-control' value='<?php echo $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'] ?>' disabled readonly>
-                                        <label for='floatingInput' class='pl-5'>Capturista: Autorizado: en Proceso de Surtido de Piezas </label>
+                                        <label for='floatingInput' class='pl-5'>Capturista: Proceso de Surtido de Piezas </label>
                                     </div>
                                 </div>
                                 <div class='col-md-6 col-sm-12  form-group'>
@@ -67,7 +67,7 @@ require '../components/fechaEs.php';
                                             <span class='input-group-text'><i class='fa-solid fa-calendar-check'></i></span>
                                         </div>
                                         <input name='' id='' type='text' class='form-control' value='<?php echo $row['fecha_creacion'] ?>' disabled readonly>
-                                        <label for='floatingInput' class='pl-5'>Fecha: Autorizado: en Proceso de Surtido de Piezas</label>
+                                        <label for='floatingInput' class='pl-5'>Fecha: Proceso de Surtido de Piezas</label>
                                     </div>
                                 </div>
                                 <div class='col-md-6 col-sm-12  form-group'>

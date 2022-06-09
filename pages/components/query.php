@@ -302,10 +302,31 @@ while ($row = mysqli_fetch_array($query)) {
     $verGralProceSurtPzs = $row['verGralProceSurtPzs'];
     $verTablaAutoProceSurtPzs = $row['verTablaAutoProceSurtPzs'];
     $regresarAutoProceSurtPzs = $row['regresarAutoProceSurtPzs'];
-    $enviarSuperSurtPzs = $row['enviarSuperSurtPzs'];
+    $enviarPzsFirmaRecibidas = $row['enviarPzsFirmaRecibidas'];
     $pdfPzsEntregadas = $row['pdfPzsEntregadas'];
     $verGralPzsEntregadas = $row['verGralPzsEntregadas'];
     $verTablaPzsEntregadas = $row['verTablaPzsEntregadas'];
+    $regresarPzsEntregadas = $row['regresarPzsEntregadas'];
+    $enviarSuperSurtPzs = $row['enviarSuperSurtPzs']; 
+    $verGralPzsFirmadasRec = $row['verGralPzsFirmadasRec'];
+    $verTablaPzsFirmadasRec = $row['verTablaPzsFirmadasRec'];
+    $regresarPzsFirmadasRec = $row['regresarPzsFirmadasRec']; 
+    $VerGralSuperSurtPzs = $row['VerGralSuperSurtPzs']; 
+    $verTablaSuperSurtPzs = $row['verTablaSuperSurtPzs']; 
+    $regSolPzsAdicionales = $row['regSolPzsAdicionales'];
+    $agregarSolPzsAdicionales = $row['agregarSolPzsAdicionales'];
+    $eliAgregadoSolpzsAdicionales = $row['eliAgregadoSolpzsAdicionales'];
+    $eliSolPzsAdicionales = $row['eliSolPzsAdicionales'];
+    $verGralSolPzsAdicionales = $row['verGralSolPzsAdicionales'];
+    $enviarPreAutoPzsAdic = $row['enviarPreAutoPzsAdic'];
+    $verTablaSolPzsAdicionales = $row['verTablaSolPzsAdicionales'];
+    $regresarCotizandoPzsAdic = $row['regresarCotizandoPzsAdic'];
+    $enviarAutorizPzsAdic = $row['enviarAutorizPzsAdic'];
+    $verTablaPreautorizacionPzsAdic = $row['verTablaPreautorizacionPzsAdic'];
+    $regresarPreAutoPzsAdic = $row['regresarPreAutoPzsAdic'];
+    $enviarAutoProceSurtPzsAdic = $row['enviarAutoProceSurtPzsAdic'];
+    $verTablaAutorizadoPzsAdic = $row['verTablaAutorizadoPzsAdic'];
+
 
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
     if ($passUser === 'SIN_PASSWORD') {

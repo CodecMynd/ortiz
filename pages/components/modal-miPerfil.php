@@ -161,7 +161,7 @@
         setTimeout(function() {
             $("#btnUpdatePassUser").css('visibility', 'visible');
             $("#btnCerrarModal").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 
     $(document).ready(function() {

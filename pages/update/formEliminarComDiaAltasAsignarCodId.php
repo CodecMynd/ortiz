@@ -130,7 +130,7 @@ require '../components/head-dataTables.php';
             $("#btnDeleteComDiaAltasAsignarCodId").css('visibility', 'hidden');
             setTimeout(function() {
                 $("#btnDeleteComDiaAltasAsignarCodId").css('visibility', 'visible');
-            }, 300000);
+            }, 180000);
         });
     </script>
 </body>

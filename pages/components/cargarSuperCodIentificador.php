@@ -592,7 +592,7 @@ if ($respuesta->num_rows  > 0) {
         $("#btnNuevoSuperCodIdentificador").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnNuevoSuperCodIdentificador").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 
     // $(document).ready(function() {

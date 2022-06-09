@@ -31,7 +31,7 @@ $('#btnRegresarAutorizado').click(function () {
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------
 
-//Ocultar boton por 10 segundos para evitar el doble submit
+//Ocultar boton por 3 minutos para evitar el doble submit
 $("#btnRegresarAutorizado").on('click', function () {
     $("#btnRegresarAutorizado").css('visibility', 'hidden');
     setTimeout(function () {
@@ -64,7 +64,7 @@ $('#btnEnviarPzsEntregadas').click(function () {
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------
 
-//Ocultar boton por 10 segundos para evitar el doble submit
+//Ocultar boton por 3 minutos para evitar el doble submit
 $("#btnEnviarPzsEntregadas").on('click', function () {
     $("#btnEnviarPzsEntregadas").css('visibility', 'hidden');
     setTimeout(function () {
@@ -210,5 +210,5 @@ var tableAutoProceSurtPzs = $("#tableAutoProceSurtPzs").DataTable({
 });
 setInterval(function () {
     tableAutoProceSurtPzs.ajax.reload(null, false); // user paging is not reset on reload
-}, 300000);
+}, 180000);
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------

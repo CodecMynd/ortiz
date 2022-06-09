@@ -2,7 +2,7 @@
 require '../components/query.php';
 if ($super == 1 or $vertablaAseTec == 1) {
 
-	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado,
+	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado, P.valorVenta,
 	V.placa, M.marca, Mo.modelo, A.anio, Co.color,                                    
 	AST.id_aseTec, AST.aseTec, ASE.asesor
 	FROM proyectos P
@@ -116,10 +116,11 @@ while ($row = $resultado->fetch_assoc()) {
 		"6" => $row['anio'],
 		"7" => $row['placa'],
 		"8" => $row['color'],
-		"9" => $validaAsesor,
-		"10" => $validaEstadoProyecto,
-		"11" => $validaAseTec,
-		"12" => "<div class='input-group input-group-sm mb-3'>
+		"9" => "<strong>{$row['valorVenta']}</strong>",
+		"10" => $validaAsesor,
+		"11" => $validaEstadoProyecto,
+		"12" => $validaAseTec,
+		"13" => "<div class='input-group input-group-sm mb-3'>
 		<div class='input-group-prepend'>
 			<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Verificación Diaria Vehículos Activos'> Acciones</span>
 			</button>

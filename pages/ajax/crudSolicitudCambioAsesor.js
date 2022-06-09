@@ -83,7 +83,7 @@
         });
         setInterval(function() {
             tableSolCambiarAsesor.ajax.reload(null, false); // user paging is not reset on reload
-        }, 300000);
+        }, 180000);
 
 
         //----------------------------------------------------------------------------------------------------------------------

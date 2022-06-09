@@ -27,7 +27,7 @@ if ($super == 1 or $verTablaAutoProceSurtPzs == 1) {
     INNER JOIN preautorizados PA ON P.id_proyecto = PA.id_proyecto
     INNER JOIN autorizados AU ON P.id_proyecto = AU.id_proyecto
     LEFT JOIN pzstregadas PE ON P.id_proyecto = PE.id_proyecto
-	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 AND P.autoProceSurtPz = 1 AND AU.borrado = 0  GROUP BY P.id_proyecto ORDER BY RC.id_regCompraInicial DESC";
+	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 AND P.autoProceSurtPz = 1 AND PA.borrado = 0  GROUP BY P.id_proyecto ORDER BY RC.id_regCompraInicial DESC";
 } else {
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";
@@ -117,21 +117,21 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns4 = "<a class='btn btn-outline-danger' id='verGralRecPzsDanadas' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-circle-info'></i></a>";
 	}
 
-	// 4.1.6 Regresar a Autorización
+	//4.1.5.1 Regresar de Proceso de Surtido de Piezas a Autorizado
 	if ($super == 1 or $regresarAuto == 1) {
 		$outputBtns9 = "<a href='#' class='btn btn-secondary' onclick='abrirModal9(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\",\"" . $id_autorizado . "\", \"".$id_pzsEntregadas."\")'><i class='fa-solid fa-reply'></i></a>";
 	} else {
 		$outputBtns9 = "<a class='btn btn-outline-danger' id='regresarAuto' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-reply'></i></a>";
 	}
 
-	// 4.1.2.7 Enviar Piezas Entregadas
+	// 4.1.5.2 Enviar de Proceso de Surtido de Piezas a Piezas Entregadas
 	if ($super == 1 or $enviarPzEntregadas == 1) {
 		$outputBtns10 = "<a href='#' class='btn btn-secondary' onclick='abrirModal10(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\", \"" . $id_autorizado . "\")'><i class='fa-solid fa-paper-plane'></i></a>";
 	} else {
 		$outputBtns10 = "<a class='btn btn-outline-danger' id='enviarPzEntregadas' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-paper-plane'></i></a>";
 	}
 
-	// 4.1.2.8 Ver Generales Autorizado: en Proceso de Surtido de Piezas
+	// 4.1.2.8 Ver Generales Proceso de Surtido de Piezas
 	if ($super == 1 or $verGralProceSurtPzs == 1) {
 		$outputBtns11 = "<a href='javascript:void(0)' class='btn btn-secondary' onclick='mostarDetalles3(\"" . $row['id_proyecto'] . "\")'><i class='fa-solid fa-eye'></i></a>";
 	} else {
@@ -173,17 +173,17 @@ while ($row = $resultado->fetch_assoc()) {
 						<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Recepción de Piezas Dañadas'> Acciones</span></button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='4.1.5.1 Regresar a Autorizado'>
+									<span data-toggle='tooltip' title='4.1.5.1 Regresar de Proceso de Surtido de Piezas a Autorizado'>
 										" . $outputBtns9 . "
 									</span>
 								</li>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='4.1.5.2 Enviar Piezas Entregadas'>
+									<span data-toggle='tooltip' title='4.1.5.2 Enviar de Proceso de Surtido de Piezas a Piezas Entregadas'>
 										" . $outputBtns10 . "
 									</span>
 								</li>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='4.1.5.3 Ver Generales Autorizado: en Proceso de Surtido de Piezas'>
+									<span data-toggle='tooltip' title='4.1.5.3 Ver Generales Proceso de Surtido de Piezas'>
 										" . $outputBtns11 . "
 									</span>
 								</li>

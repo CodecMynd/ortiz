@@ -1,6 +1,6 @@
 <?php
 require '../components/query.php';
-if ($super == 1 or $verTablaAutoProceSurtPzs == 1) {
+if ($super == 1 or $verTablaPzsEntregadas == 1) {
 
 	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado,
 	V.placa, M.marca, Mo.modelo, A.anio, Co.color,
@@ -27,7 +27,7 @@ if ($super == 1 or $verTablaAutoProceSurtPzs == 1) {
     INNER JOIN preautorizados PA ON P.id_proyecto = PA.id_proyecto
     INNER JOIN autorizados AU ON P.id_proyecto = AU.id_proyecto
     INNER JOIN pzstregadas PE ON P.id_proyecto = PE.id_proyecto
-	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 AND P.pzsEntregadas = 1 AND AU.borrado = 0 AND PE.borrado = 0 GROUP BY P.id_proyecto ORDER BY RC.id_regCompraInicial DESC";
+	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 AND P.pzsEntregadas = 1  AND PE.borrado = 0 GROUP BY P.id_proyecto ORDER BY RC.id_regCompraInicial DESC";
 } else {
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";
@@ -117,22 +117,22 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns4 = "<a class='btn btn-outline-danger' id='verGralRecPzsDanadas' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-circle-info'></i></a>";
 	}
 
-	// 4.1.6.1 Regresar a AutorizadoAutorizado: en Proceso de Surtido de Piezas
+	// 4.1.6.1 Regresar de Piezas Entregadas a Proceso de Surtido de Piezas
 	if ($super == 1 or $regresarAutoProceSurtPzs == 1) {
 		$outputBtns12 = "<a href='#' class='btn btn-secondary' onclick='abrirModal11(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\",\"" . $id_autorizado . "\", \"".$id_pzsEntregadas."\")'><i class='fa-solid fa-reply'></i></a>";
 	} else {
 		$outputBtns12 = "<a class='btn btn-outline-danger' id='regresarAutoProceSurtPzs' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-reply'></i></a>";
 	}
 
-	//4.1.6.2 Enviar Piezas Firmadas de Recibido
-	if ($super == 1 or $enviarSuperSurtPzs  == 1) {
-		$outputBtns13 = "<a href='#' class='btn btn-secondary' onclick='abrirModal10(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\", \"" . $id_autorizado . "\")'><i class='fa-solid fa-paper-plane'></i></a>";
+	// 4.1.6.2 Enviar de Piezas Entregadas a Piezas Firmadas de Recibido
+	if ($super == 1 or $enviarPzsFirmaRecibidas  == 1) {
+		$outputBtns13 = "<a href='#' class='btn btn-secondary' onclick='abrirModal12(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\", \"" . $id_autorizado . "\",\"".$row['id_pzsEntregadas']."\")'><i class='fa-solid fa-paper-plane'></i></a>";
 	} else {
 		$outputBtns13 = "<a class='btn btn-outline-danger' id='enviarPzsFirmaRecibidas' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-paper-plane'></i></a>";
 	}
 
 	// 4.1.6.3 Descargar PDF Piezas Entregadas
-	if ($super == 1 or $pdfPzsEntregadas == 1) {
+	if ($super == 1 or $pdfPzsEntregadas  == 1) {
 		$outputBtns14 = "<a href='../components/piezaEntregada.php?id={$idP}' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Descargar PDF'><i class='fa-solid fa-file-pdf'></i></a>";
 	} else {
 		$outputBtns14 = "<a class='btn btn-outline-danger' id='pdfPzsEntregadas' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-file-pdf'></i></a>";
@@ -175,17 +175,17 @@ while ($row = $resultado->fetch_assoc()) {
 		"20" => (empty($row['asesor'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>",
 		"21" => (empty($row['tecArmador'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Técnico</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['tecArmador']}</span></h6>",
 		"22" => $fechaRegLink,
-		"23" => "<div class='input-group input-group-sm mb-3'>
+		"23" => "<div class='input-group input-group-sm mb-4'>
 					<div class='input-group-prepend'>
 						<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Recepción de Piezas Dañadas'> Acciones</span></button>
-							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>
+							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em; height:11em'>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='4.1.6.1 Regresar a Autorizado: en Proceso de Surtido de Piezas'>
+									<span data-toggle='tooltip' title='4.1.6.1 Regresar de Piezas Entregadas a Proceso de Surtido de Piezas'>
 										" . $outputBtns12 . "
 									</span>
 								</li>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='4.1.6.2 Enviar Piezas Firmadas de Recibido'>
+									<span data-toggle='tooltip' title='4.1.6.2 Enviar de Piezas Entregadas a Piezas Firmadas de Recibido'>
 										" . $outputBtns13 . "
 									</span>
 								</li>

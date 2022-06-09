@@ -107,6 +107,6 @@ if ($respuesta->num_rows  > 0) {
         $("#btnUpdateCargarVehiculo").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnUpdateCargarVehiculo").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 </script>

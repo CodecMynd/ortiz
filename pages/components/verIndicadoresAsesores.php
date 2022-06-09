@@ -136,27 +136,6 @@ require '../components/head-dataTables.php';
     require '../components/scripts-main.php';
     require '../components/scripts-dataTables.php';
     ?>
-    <script>
-        $(document).ready(function() {
-            $('#btnDeleteComDiaAltasAsignarCodId').click(function() {
-                $.ajax({
-                        url: '../delete/deleteComDiaAltasAsignarCodId.php',
-                        type: 'POST',
-                        data: $('#formDeleteComDiaAltasAsignarCodId').serialize(),
-                    })
-                    .done(function(res) {
-                        $('#respuestaDeleteComDiaAltasAsignarCodId').html(res)
-                    })
-            });
-        });
-        //Ocultar boton por 5 minutos para evitar el doble submit
-        $("#btnDeleteComDiaAltasAsignarCodId").on('click', function() {
-            $("#btnDeleteComDiaAltasAsignarCodId").css('visibility', 'hidden');
-            setTimeout(function() {
-                $("#btnDeleteComDiaAltasAsignarCodId").css('visibility', 'visible');
-            }, 300000);
-        });
-    </script>
 </body>
 
 </html>

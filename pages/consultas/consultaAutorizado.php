@@ -113,14 +113,14 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns4 = "<a class='btn btn-outline-danger' id='verGralRecPzsDanadas' data-toggle='tooltip'  title='Sin Permiso'>><i class='fa-solid fa-circle-info'></i></a>";
 	}
 
-	// 4.1.2.4 Regresar a Pre-Autorización
+	// 4.1.4.1 Regresar de Autorizado a Pre-Autorizado
 	if ($super == 1 or $regresarPreAuto == 1) {
 		$outputBtns7 = "<a href='#' class='btn btn-secondary' onclick='abrirModal7(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\",\"".$id_autorizado."\")'><i class='fa-solid fa-reply'></i></a>";
 	} else {
 		$outputBtns7 = "<a class='btn btn-outline-danger' id='regresarPreAuto' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-reply'></i></a>";
 	}
 
-	// 4.1.2.5 Enviar Autorizado: en Proceso de Surtido de Piezas
+	// 4.1.4.2 Enviar de Autorizado a Proceso de Surtido de Piezas
 	if ($super == 1 or $enviarAutoProceSurtPzs == 1) {
 		$outputBtns8 = "<a href='#' class='btn btn-secondary' onclick='abrirModal8(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\", \"".$id_autorizado."\")'><i class='fa-solid fa-paper-plane'></i></a>";
 	} else {
@@ -161,12 +161,12 @@ while ($row = $resultado->fetch_assoc()) {
 						<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Recepción de Piezas Dañadas'> Acciones</span></button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='4.1.4.1 Regresar a Pre-Autorización'>
+									<span data-toggle='tooltip' title='4.1.4.1 Regresar de Autorizado a Pre-Autorizado'>
 										" . $outputBtns7 . "
 									</span>
 								</li>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='4.1.4.2 Enviar Autorizado: en Proceso de Surtido de Piezas'>
+									<span data-toggle='tooltip' title='4.1.4.2 Enviar de Autorizado a Proceso de Surtido de Piezas'>
 										" . $outputBtns8 . "
 									</span>
 								</li>

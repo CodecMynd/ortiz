@@ -23,7 +23,7 @@ if ($super == 1 or $verTablaPreautorizacion == 1) {
 	LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
 	LEFT JOIN asesores ASE ON CA.id_asesor = ASE.id_asesor
     INNER JOIN preautorizados PA ON P.id_proyecto = PA.id_proyecto
-	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 AND P.preAutoriz = 1  GROUP BY P.id_proyecto ORDER BY RC.id_regCompraInicial DESC";
+	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 AND P.preAutoriz = 1 AND PA.borrado = 0  GROUP BY P.id_proyecto ORDER BY RC.id_regCompraInicial DESC";
 } else {
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";
@@ -160,12 +160,12 @@ while ($row = $resultado->fetch_assoc()) {
 						<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Recepción de Piezas Dañadas'> Acciones</span></button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title=4.1.3.1 Regresar a Cotizando'>
+									<span data-toggle='tooltip' title='4.1.3.1 Regresar de Pre-Autorización a Cotizando'>
 										" . $outputBtns5 . "
 									</span>
 								</li>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='4.1.3.2 Enviar a Autorizado'>
+									<span data-toggle='tooltip' title='4.1.3.2 Enviar de Pre-Autorización a Autorizado'>
 										" . $outputBtns6 . "
 									</span>
 								</li>

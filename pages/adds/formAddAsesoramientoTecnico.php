@@ -170,7 +170,7 @@ require '../components/head-main.php';
         $("#btnNuevoAseTec").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnNuevoAseTec").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 </script>
 

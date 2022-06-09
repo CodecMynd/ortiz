@@ -431,7 +431,7 @@ if ($respuesta->num_rows  > 0) {
         $("#btnNuevoRegSolAltProyecto").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnNuevoRegSolAltProyecto").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 
     $(document).ready(function() {

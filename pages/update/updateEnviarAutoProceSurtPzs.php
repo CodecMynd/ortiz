@@ -26,7 +26,7 @@ $folio_autoriz = $row['folio_autoriz'];
 $autorizado = 0;
 $autoProceSurtPz = 1;
 
-$etapa = 'Enviado a Autorizado: en Proceso de Surtido de Piezas';
+$etapa = 'Enviado a Proceso de Surtido de Piezas';
 
 try {
     $conexion->autocommit(FALSE);
@@ -48,7 +48,7 @@ try {
 
     $conexion->commit();
     echo "<div class='alert alert-success' role='alert'>
-                 <p><strong>Proyecto enviado a Autorizado: en Proceso de Surtido de Piezas correctamente!</strong></p>
+                 <p><strong>Proyecto enviado a Proceso de Surtido de Piezas correctamente!</strong></p>
               </div>";
 } catch (Exception $e) {
     $conexion->rollback();

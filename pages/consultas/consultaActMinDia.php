@@ -2,7 +2,7 @@
 require '../components/query.php';
 if($super == 1 OR $verTablaActMinDia == 1){
 
-$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.comActMinDia, P.estadoProyectoEliminado, P.comSuperActMinDia,
+$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.comActMinDia, P.estadoProyectoEliminado, P.comSuperActMinDia,P.valorVenta,
 V.placa, M.marca, Mo.modelo, A.anio, Co.color,                                    
 MAX(AM.fecha_hoyV) AS FV, MAX(AM.fecha_hoyS) AS FS, MAX(AM.id_ActMinDiaria) AS id_ActMinDiaria,
 ASE.asesor, T.top,
@@ -207,12 +207,13 @@ while ($row = $resultado->fetch_assoc()) {
 		"8" => $row['color'],
 		"9" => $validaAsesor,
 		"10" => $validaTop,
-		"11" => $validaAseTec,
-		"12" => $validaEstadoProyecto,
-		"13" => $validaCom,
-		"14" => $validaSup,
-		"15" => $validaUltReg,
-		"16" => "<div class='input-group input-group-sm mb-3'>
+		"11" => "<strong>{$row['valorVenta']}</strong>",
+		"12" => $validaAseTec,
+		"13" => $validaEstadoProyecto,
+		"14" => $validaCom,
+		"15" => $validaSup,
+		"16" => $validaUltReg,
+		"17" => "<div class='input-group input-group-sm mb-3'>
 		<div class='input-group-prepend'>
 			<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Verificación Diaria Vehículos Activos'> Acciones</span>
 			</button>

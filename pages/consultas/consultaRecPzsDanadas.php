@@ -160,7 +160,7 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns4 = "<a class='btn btn-outline-danger' id='verGralRecPzsDanadas' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-circle-info'></i></a>";
 	}
 
-	// 4.1.2.1 Enviar a Pre-Autorización
+	// 4.1.2.1 Enviar de Cotizando a Pre-Autorización 
 	 if ($enUso == 0) {
 	 	$outputBtns5 = "<a class='btn btn-outline-danger' id='enviarPreAuto' data-toggle='tooltip'  title='No Contiene Link de Desarmado'><i class='fa-solid fa-paper-plane'></i></a>";
 	} else if ($super == 1 and $enUso == 1 AND empty($rowCompra['compra']) AND empty($soli))  {
@@ -232,7 +232,7 @@ while ($row = $resultado->fetch_assoc()) {
 									</span>
 								</li>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='4.1.2.1 Enviar a Pre-Autorización'>
+									<span data-toggle='tooltip' title='4.1.2.1 Enviar de Cotizando a Pre-Autorización '>
 										" . $outputBtns5 . "
 									</span>
 								</li>

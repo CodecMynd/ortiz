@@ -150,7 +150,7 @@ require '../components/head-main.php';
         $("#btnNuevoRegComActMinDia").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnNuevoRegComActMinDia").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 </script>
 

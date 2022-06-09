@@ -494,7 +494,7 @@ require '../components/head-dataTables.php';
                     $('#respuestaDeleteComVerifDiaBat').html(res)
                 })
         });
-        //Ocultar boton por 10 segundos para evitar el doble submit
+        //Ocultar boton por 3 minutos para evitar el doble submit
         $("#btnDeleteComVerifDiaBat").on('click', function() {
             $("#btnDeleteComVerifDiaBat").css('visibility', 'hidden');
             setTimeout(function() {
@@ -525,7 +525,7 @@ require '../components/head-dataTables.php';
                     $('#respuestaDeleteComVerifDiaBatSuper').html(res)
                 })
         });
-        //Ocultar boton por 10 segundos para evitar el doble submit
+        //Ocultar boton por 3 minutos para evitar el doble submit
         $("#btnDeleteComVerifDiaBatSuper").on('click', function() {
             $("#btnDeleteComVerifDiaBatSuper").css('visibility', 'hidden');
             setTimeout(function() {
@@ -556,7 +556,7 @@ require '../components/head-dataTables.php';
                 })
         });
 
-        //Ocultar boton por 10 segundos para evitar el doble submit
+        //Ocultar boton por 3 minutos para evitar el doble submit
         $("#btnEliminarIncidencia").on('click', function() {
             $("#btnEliminarIncidencia").css('visibility', 'hidden');
             setTimeout(function() {

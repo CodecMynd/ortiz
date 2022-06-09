@@ -233,6 +233,6 @@ require '../components/head-main.php';
         $("#btnUpdateCambioSemSolAltaAutorizar").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnUpdateCambioSemSolAltaAutorizar").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 </script>

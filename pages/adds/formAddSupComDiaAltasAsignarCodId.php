@@ -182,7 +182,7 @@ require '../components/head-main.php';
         $("#btnNuevoComDiaAltasAsignarCodIdSuper").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnNuevoComDiaAltasAsignarCodIdSuper").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 </script>
 

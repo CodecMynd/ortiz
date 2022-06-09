@@ -30,7 +30,7 @@ $id_pzsEntregadas = $_POST['id_pzsEntregadas11'];
 $pzsEntregadas = 0;
 $autoProceSurtPz = 1;
 
-$etapa = 'Regresó a Autorizado';
+$etapa = 'Regresó a Proceso de Surtido de Piezas';
 
 try {
     $conexion->autocommit(FALSE);

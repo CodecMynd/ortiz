@@ -231,6 +231,6 @@ require '../components/head-main.php';
         $("#btnUpdateCambioPlacaAutorizar").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnUpdateCambioPlacaAutorizar").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 </script>

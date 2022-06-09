@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="pie">
-                <h5>4.1.2.5 Enviar Autorizado: en Proceso de Surtido de Piezas</h5>
+                <h5>4.1.2.5 Enviar Proceso de Surtido de Piezas</h5>
             </div>
         </div>
     </div>

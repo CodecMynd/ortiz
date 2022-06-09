@@ -6,7 +6,7 @@ function mostarDetalles4(id_proyecto) {
     });
 }
 
-// 4.1.6.1 Regresar a Autorizado: en Proceso de Surtido de Piezas  --------------------------------------------------------------------------------------------------------------------------------------------------
+// 4.1.6.1 Regresar a Proceso de Surtido de Piezas  --------------------------------------------------------------------------------------------------------------------------------------------------
 
 $('#btnRegresarAutoProceSurtPzs').click(function () {
     var param = $('#formRegresarAutoProceSurtPzs').serialize();
@@ -31,7 +31,7 @@ $('#btnRegresarAutoProceSurtPzs').click(function () {
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------
 
-//Ocultar boton por 10 segundos para evitar el doble submit
+//Ocultar boton por 3 minutos para evitar el doble submit
 $("#btnRegresarAutoProceSurtPzs").on('click', function () {
     $("#btnRegresarAutoProceSurtPzs").css('visibility', 'hidden');
     setTimeout(function () {
@@ -39,38 +39,38 @@ $("#btnRegresarAutoProceSurtPzs").on('click', function () {
     }, 3000);
 });
 
-// 4.1.5.2 Enviar Piezas Entregadas  --------------------------------------------------------------------------------------------------------------------------------------------------
+// 4.1.6.2 Enviar Piezas Firmadas de Recibido  --------------------------------------------------------------------------------------------------------------------------------------------------
 
-// $('#btnEnviarPzsEntregadas').click(function () {
-//     var param = $('#formEnviarPzsEntregadas').serialize();
-//     $.ajax({
-//             url: '../update/updateEnviarPzsEntregadas.php',
-//             type: 'POST',
-//             data: param,
+$('#btnEnviarPzsFirmadasRec').click(function () {
+    var param = $('#formEnviarPzsFirmadasRec').serialize();
+    $.ajax({
+            url: '../update/updateEnviarPzsFirmadasRec.php',
+            type: 'POST',
+            data: param,
 
-//             success: function (vs) {
-//                 $('#formEnviarPzsEntregadas')[0].reset();
-//                 // setTimeout(function () {
-//                 //     $('.enviarPzsEntregadas').modal('hide');
-//                 // }, 1000);
-//                 tableAutorizado.ajax.reload(null, false);
-//                 tableAutoProceSurtPzs.ajax.reload(null, false);
-//             }
-//         })
-//         .done(function (res) {
-//             $('#respuestaEnviarPzsEntregadas').html(res)
-//         })
-// });
+            success: function (vs) {
+                $('#formEnviarPzsFirmadasRec')[0].reset();
+                 setTimeout(function () {
+                     $('.enviarPzsFirmadasRec').modal('hide');
+                 }, 1000);
+                 tablepzsEntregadas.ajax.reload(null, false);
+                tablePzsFirmadasRec.ajax.reload(null, false);
+            }
+        })
+        .done(function (res) {
+            $('#respuestaEnviarPzsFirmadasRec').html(res)
+        })
+});
 
 // // --------------------------------------------------------------------------------------------------------------------------------------------------
 
-// //Ocultar boton por 10 segundos para evitar el doble submit
-// $("#btnEnviarPzsEntregadas").on('click', function () {
-//     $("#btnEnviarPzsEntregadas").css('visibility', 'hidden');
-//     setTimeout(function () {
-//         $("#btnEnviarPzsEntregadas").css('visibility', 'visible');
-//     }, 3000);
-// });
+//Ocultar boton por 3 minutos para evitar el doble submit
+$("#btnEnviarPzsFirmadasRec").on('click', function () {
+    $("#btnEnviarPzsFirmadasRec").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnEnviarPzsFirmadasRec").css('visibility', 'visible');
+    }, 3000);
+});
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------
 // Tabla tablePreSelect
@@ -104,16 +104,16 @@ var tablepzsEntregadas = $("#tablepzsEntregadas").DataTable({
         }
     },
     "columnDefs": [{
-        searchPanes: {
-            show: true
+            searchPanes: {
+                show: true
+            },
+            targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
         },
-     targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,20,21],
-    }, 
-    {
-        targets: [0, 3, 9, 22],
-        visible: false
-    }
-],
+        {
+            targets: [0, 3, 9, 22],
+            visible: false
+        }
+    ],
     "language": {
 
         "aria": {
@@ -210,5 +210,5 @@ var tablepzsEntregadas = $("#tablepzsEntregadas").DataTable({
 });
 setInterval(function () {
     tablepzsEntregadas.ajax.reload(null, false); // user paging is not reset on reload
-}, 300000);
+}, 180000);
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -447,7 +447,7 @@ if ($respuesta->num_rows  > 0) {
         $("#btnNuevoSolCamSemanaAltas").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnNuevoSolCamSemanaAltas").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 
     $(document).ready(function() {

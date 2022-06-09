@@ -463,7 +463,7 @@ if ($respuesta->num_rows  > 0) {
         $("#btnNuevoSolCamSemanaSolAltas").css('visibility', 'hidden');
         setTimeout(function() {
             $("#btnNuevoSolCamSemanaSolAltas").css('visibility', 'visible');
-        }, 300000);
+        }, 180000);
     });
 
     $(document).ready(function() {
