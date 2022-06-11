@@ -31,7 +31,7 @@ $etapa = 'Enviar de Autorizado: Piezas Adionales a Proceso de Surtido de Piezas:
 try {
     $conexion->autocommit(FALSE);
 
-    $query1 = "UPDATE proyectos SET autorizadoPzsAdic = '$autorizadoPzsAdic', autoProceSurtPzAdic = '$autoProceSurtPzAdic' WHERE id_proyecto = '$id_proyecto' ";
+    $query1 = "UPDATE cotizandopzsadic SET autorizadoPzsAdic = '$autorizadoPzsAdic', autoProceSurtPzAdic = '$autoProceSurtPzAdic' WHERE id_cotizandoPzsAdic = '$id_cotizandoPzsAdic' ";
     $resultado1 = mysqli_query($conexion, $query1);
     // var_dump($query1);
 

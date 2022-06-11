@@ -167,8 +167,22 @@ var tablePreautorizacion = $("#tablePreautorizacion").DataTable({
                 page: 'current'
             }).data().sum()
         )
+        var api4 = this.api();
+        $(api4.column(10).footer()).html(
+            'Total: ' + api4.column(10, {
+                page: 'current'
+            }).data().sum()
+        )
     },
     "createdRow": function (row, data, index) {
+        if (data[7] > '0') {
+            $('td', row).eq(7).css({
+                'text-align': 'center',
+                'background-color': '#5A6268',
+                'color': '#fff',
+                'font-weight': 'bold'
+            });
+        }
         if (data[10] > '0') {
             $('td', row).eq(10).css({
                 'text-align': 'center',

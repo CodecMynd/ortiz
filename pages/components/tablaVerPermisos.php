@@ -4143,8 +4143,8 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">4.2.2 Agregar otra Solicitud de Piezas Adicionales</span>
-                                                                                                        <span class="info-box-text"> <input type="checkbox" name="agregarSolPzsAdicionales" id="agregarSolPzsAdicionales" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['agregarSolPzsAdicionales'] == 1) echo 'checked';
+                                                                                                        <span class="info-box-text">4.2.2 Autorizar Pieza Adicional</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="validarSolPzsAdicionales" id="validarSolPzsAdicionales" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['validarSolPzsAdicionales'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                                 else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
@@ -4214,7 +4214,6 @@ require '../components/head-main.php';
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-
                                                                             <!-- 4.2.2 Pre-Autorización: Piezas Adicionales -->
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -4319,10 +4318,10 @@ require '../components/head-main.php';
                                                                                     </div>
                                                                                 </div>
                                                                             </div> 
-                                                                            <!-- 4.1.5 Proceso de Surtido de Piezas -->
-                                                                            <!-- <div class="card card-info card-outline collapsed-card">
+                                                                            <!-- 4.2.4 Proceso de Surtido de Piezas: Piezas Adicionales -->
+                                                                            <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
-                                                                                    <h2 class="card-title"><strong>4.1.5 Proceso de Surtido de Piezas</strong></h2>
+                                                                                    <h2 class="card-title"><strong> 4.2.4 Proceso de Surtido de Piezas: Piezas Adicionales</strong></h2>
                                                                                     <div class="card-tools">
                                                                                         <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
                                                                                             <i class="fas fa-plus"></i>
@@ -4336,8 +4335,8 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class='fa-solid fa-reply'></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">4.1.5.1 Regresar de Proceso de Surtido de Piezas a Autorizado</span>
-                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regresarAuto" id="regresarAuto" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regresarAuto'] == 1) echo 'checked';
+                                                                                                        <span class="info-box-text">4.2.4.1 Regresar de Proceso de Surtido de Piezas: Piezas Adicionales a Autorizado: Piezas Adicionales</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regresarAutorizPzsAdic" id="regresarAutorizPzsAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regresarAutorizPzsAdic'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                 else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
@@ -4348,8 +4347,8 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class='fa-solid fa-paper-plane'></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">4.1.5.2 Enviar de Proceso de Surtido de Piezas a Piezas Entregadas</span>
-                                                                                                        <span class="info-box-text"> <input type="checkbox" name="enviarPzEntregadas" id="enviarPzEntregadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['enviarPzEntregadas'] == 1) echo 'checked';
+                                                                                                        <span class="info-box-text">4.2.4.2 Enviar de Proceso de Surtido de Piezas: Piezas Adicionales a Piezas Entregadas: Piezas Adicionales</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="enviarPzsEntregadasAdic" id="enviarPzsEntregadasAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['enviarPzsEntregadasAdic'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                             else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
@@ -4360,8 +4359,8 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">4.1.5.3 Ver Generales Proceso de Surtido de Piezas</span>
-                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralProceSurtPzs" id="verGralProceSurtPzs" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralProceSurtPzs'] == 1) echo 'checked';
+                                                                                                        <span class="info-box-text">4.2.4.3 Ver Generales Proceso de Surtido de Piezas: Piezas Adicionales</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralProceSurtPzsAdic" id="verGralProceSurtPzsAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralProceSurtPzsAdic'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                                 else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
@@ -4372,8 +4371,8 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">4.1.5.4 Ver Tabla Proceso de Surtido de Piezas</span>
-                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaAutoProceSurtPzs" id="verTablaAutoProceSurtPzs" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaAutoProceSurtPzs'] == 1) echo 'checked';
+                                                                                                        <span class="info-box-text">4.2.4.4 Ver Tabla Proceso de Surtido de Piezas: Piezas Adicionales</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaAutoProceSurtPzsAdic" id="verTablaAutoProceSurtPzsAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaAutoProceSurtPzsAdic'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                                         else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
@@ -4382,11 +4381,11 @@ require '../components/head-main.php';
 
                                                                                     </div>
                                                                                 </div>
-                                                                            </div> -->
-                                                                            <!-- 4.1.6 Piezas Entregadas -->
-                                                                            <!-- <div class="card card-info card-outline collapsed-card">
+                                                                            </div>
+                                                                            <!-- 4.2.5 Piezas Entregadas: Piezas Adicionales -->
+                                                                            <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
-                                                                                    <h2 class="card-title"><strong>4.1.6 Piezas Entregadas</strong></h2>
+                                                                                    <h2 class="card-title"><strong>4.2.5 Piezas Entregadas: Piezas Adicionales</strong></h2>
                                                                                     <div class="card-tools">
                                                                                         <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
                                                                                             <i class="fas fa-plus"></i>
@@ -4400,8 +4399,8 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class='fa-solid fa-reply'></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">4.1.6.1 Regresar de Piezas Entregadas a Proceso de Surtido de Piezas</span>
-                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regresarAutoProceSurtPzs" id="regresarAutoProceSurtPzs" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regresarAutoProceSurtPzs'] == 1) echo 'checked';
+                                                                                                        <span class="info-box-text">4.2.5.1 Regresar de Piezas Entregadas: Piezas Adicionales a Proceso de Surtido de Piezas: Piezas Adicionales</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regresarPzsEntregadasAdic" id="regresarPzsEntregadasAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regresarPzsEntregadasAdic'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                                         else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
@@ -4412,8 +4411,8 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class='fa-solid fa-paper-plane'></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">4.1.6.2 Enviar de Piezas Entregadas a Piezas Firmadas de Recibido</span>
-                                                                                                        <span class="info-box-text"> <input type="checkbox" name="enviarPzsFirmaRecibidas" id="enviarPzsFirmaRecibidas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['enviarPzsFirmaRecibidas'] == 1) echo 'checked';
+                                                                                                        <span class="info-box-text">4.2.5.2 Enviar de Piezas Entregadas: Piezas Adicionales a Piezas Firmadas de Recibido: Piezas Adicionales</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="enviarPzsFirmRecAdic" id="enviarPzsFirmRecAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['enviarPzsFirmRecAdic'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                                         else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
@@ -4424,8 +4423,8 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-file-pdf"></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">4.1.6.3 Descargar PDF Piezas Entregadas</span>
-                                                                                                        <span class="info-box-text"> <input type="checkbox" name="pdfPzsEntregadas" id="pdfPzsEntregadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['pdfPzsEntregadas'] == 1) echo 'checked';
+                                                                                                        <span class="info-box-text">4.1.5.3 Descargar PDF Piezas Entregadas</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="pdfPzsEntregadasAdic" id="pdfPzsEntregadasAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['pdfPzsEntregadasAdic'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                         else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
@@ -4436,8 +4435,8 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">4.1.6.4 Ver Generales Piezas Entregadas</span>
-                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralPzsEntregadas" id="verGralPzsEntregadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralPzsEntregadas'] == 1) echo 'checked';
+                                                                                                        <span class="info-box-text">4.2.5.4 Ver Generales Piezas Entregadas: Piezas Adicionales</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralPzsEntregadasAdic" id="verGralPzsEntregadasAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralPzsEntregadasAdic'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                                 else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
@@ -4448,8 +4447,8 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">4.1.6.5 Ver Tabla Piezas Entregadas</span>
-                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaPzsEntregadas" id="verTablaPzsEntregadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaPzsEntregadas'] == 1) echo 'checked';
+                                                                                                        <span class="info-box-text">4.2.5.5 Ver Tabla Piezas Entregadas: Piezas Adicionales</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaPzsEntregadasAdic" id="verTablaPzsEntregadasAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaPzsEntregadasAdic'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                                     else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
@@ -4458,11 +4457,11 @@ require '../components/head-main.php';
 
                                                                                     </div>
                                                                                 </div>
-                                                                            </div> -->
-                                                                            <!-- 4.1.7 Piezas Firmadas de Recibido -->
-                                                                            <!-- <div class="card card-info card-outline collapsed-card">
+                                                                            </div>
+                                                                            <!-- 4.2.6 Piezas Firmadas de Recibido: Piezas Adicionales -->
+                                                                            <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
-                                                                                    <h2 class="card-title"><strong>4.1.7 Piezas Firmadas de Recibido</strong></h2>
+                                                                                    <h2 class="card-title"><strong>4.2.6 Piezas Firmadas de Recibido: Piezas Adicionales</strong></h2>
                                                                                     <div class="card-tools">
                                                                                         <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
                                                                                             <i class="fas fa-plus"></i>
@@ -4476,8 +4475,8 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class='fa-solid fa-reply'></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">4.1.7.1 Regresar de Piezas Firmadas de Recibido a Piezas Entregadas</span>
-                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regresarPzsEntregadas" id="regresarPzsEntregadas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regresarPzsEntregadas'] == 1) echo 'checked';
+                                                                                                        <span class="info-box-text">4.2.6.1 Regresar de Piezas Firmadas de Recibido: Piezas Adicionales a Piezas Entregadas: Piezas Adicionales</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regresarPzsEntregadasAdic2" id="regresarPzsEntregadasAdic2" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regresarPzsEntregadasAdic2'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                                     else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
@@ -4488,8 +4487,8 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class='fa-solid fa-paper-plane'></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">4.1.7.2 Enviar de Piezas Firmadas de Recibido a Supervisión de Surtido de Piezas</span>
-                                                                                                        <span class="info-box-text"> <input type="checkbox" name="enviarPzsFirmaRecibidas" id="enviarPzsFirmaRecibidas" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['enviarPzsFirmaRecibidas'] == 1) echo 'checked';
+                                                                                                        <span class="info-box-text">4.2.6.2 Enviar de Piezas Firmadas de Recibido: Piezas Adicionales a Supervisión de Surtido de Piezas: Piezas Adicionales</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="enviarSuperSurtPzsAdic" id="enviarSuperSurtPzsAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['enviarSuperSurtPzsAdic'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                                         else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
@@ -4500,8 +4499,8 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">4.1.7.3 Ver Generales Piezas Firmadas de Recibido</span>
-                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralPzsFirmadasRec" id="verGralPzsFirmadasRec" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralPzsFirmadasRec'] == 1) echo 'checked';
+                                                                                                        <span class="info-box-text">4.2.6.3 Ver Generales Piezas Firmadas de Recibido: Piezas Adicionales</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralPzsFirmaRecAdic" id="verGralPzsFirmaRecAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralPzsFirmaRecAdic'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                                     else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
@@ -4512,8 +4511,8 @@ require '../components/head-main.php';
                                                                                                 <div class="info-box">
                                                                                                     <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
                                                                                                     <div class="info-box-content">
-                                                                                                        <span class="info-box-text">4.1.7.4 Ver Tabla Piezas Firmadas de Recibido</span>
-                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaPzsFirmadasRec" id="verTablaPzsFirmadasRec" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaPzsFirmadasRec'] == 1) echo 'checked';
+                                                                                                        <span class="info-box-text">4.2.6.4 Ver Tabla Piezas Firmadas de Recibido: Piezas Adicionales</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaPzsFirmadasRecAdic" id="verTablaPzsFirmadasRecAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaPzsFirmadasRecAdic'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                                     else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
@@ -4522,7 +4521,59 @@ require '../components/head-main.php';
 
                                                                                     </div>
                                                                                 </div>
-                                                                            </div> -->
+                                                                            </div>
+                                                                            <!-- 4.2.7 Supervisión de Surtido de Piezas: Piezas Adicionales -->
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>4.2.7 Supervisión de Surtido de Piezas: Piezas Adicionales</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class='fa-solid fa-reply'></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.2.7.1 Regresar de Supervisión de Surtido de Piezas: Piezas Adicionales a Piezas Firmadas de Recibido: Piezas Adicionales</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regresarPzsFirmRecAdic" id="regresarPzsFirmRecAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regresarPzsFirmRecAdic'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.2.7.2 Ver Generales Supervisión de Surtido de Piezas: Piezas Adicionales</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralSuperSurtPzsAdic" id="verGralSuperSurtPzsAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralSuperSurtPzsAdic'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">4.2.7.3 Ver Tabla Supervisión de Surtido de Piezas: Piezas Adicionales</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaSuperSurtPzsAdic" id="verTablaSuperSurtPzsAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaSuperSurtPzsAdic'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
 
                                                                         </div>

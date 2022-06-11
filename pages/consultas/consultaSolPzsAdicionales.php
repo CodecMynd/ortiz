@@ -4,9 +4,8 @@ if ($super == 1 or $verTablaSolPzsAdicionales == 1) {
 
 	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado, P.pzadicionial,
 	V.placa, M.marca, Mo.modelo, A.anio, Co.color,
-	MAX(R.id_regSolpzadicional) AS id_regSolpzadicional, R.folioPzAdicional, R.id_regSolpzadicional AS id_regSolPzs,
-    R.precio, R.modalidadPago, MAX(R.enUso) AS MAXenUso, R.enUso, R.fecha_creacion, R.estatusEspera, R.estatusAprobado,
-    TA.tecArmador, ASE.asesor,
+	id_regSolpzadicional, R.folioPzAdicional, R.id_regSolpzadicional AS id_regSolPzs,
+    R.precio, R.modalidadPago, R.enUso AS MAXenUso, R.enUso, R.fecha_creacion, R.estatusEspera, R.estatusAprobado, R.asesor, R.tecArmador,
     CT.id_cotizandoPzsAdic, CT.borrado AS cotizandoBorrado
 	FROM proyectos P
 	INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
@@ -15,10 +14,8 @@ if ($super == 1 or $verTablaSolPzsAdicionales == 1) {
 	INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
 	INNER JOIN anios A ON V.id_anio = A.id_anio
     LEFT JOIN registrosolicitudpzsadicionales R ON P.id_proyecto = R.id_proyecto
-    LEFT JOIN tecarmadores TA ON R.id_tecArmador = TA.id_tecArmador
-    LEFT JOIN asesores ASE ON R.id_asesor = ASE.id_asesor
     INNER JOIN cotizandopzsadic CT ON R.id_cotizandoPzsAdic = CT.id_cotizandoPzsAdic
-	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 AND P.pzadicionial = 1 GROUP BY P.id_proyecto ORDER BY R.id_regSolpzadicional DESC";
+	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 AND CT.pzadicionial = 1 AND CT.borrado = 0  ORDER BY CT.id_cotizandoPzsAdic DESC";
 } else {
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";
@@ -45,19 +42,22 @@ while ($row = $resultado->fetch_assoc()) {
 	$id_cotizandoPzsAdic = $row['id_cotizandoPzsAdic'];
 
 	// contador Credito/Contado
-	$querySuma = "SELECT
-	(SELECT SUM( precio)
-	FROM registrosolicitudpzsadicionales
-	WHERE modalidadPago = 'Crédito' AND borrado = 0 AND id_proyecto = $idP) AS precioCredito,
+	// $querySuma = "SELECT
+	// (SELECT SUM( precio)
+	// FROM registrosolicitudpzsadicionales
+	// WHERE modalidadPago = 'Crédito' AND borrado = 0 AND id_proyecto = $idP) AS precioCredito,
 
-	(SELECT SUM( precio)
-	FROM registrosolicitudpzsadicionales
-	WHERE modalidadPago = 'Contado' AND borrado = 0 AND id_proyecto = $idP) AS precioContado;";
-	$resultadoSuma = mysqli_query($conexion, $querySuma);
-	$rowSuma = $resultadoSuma->fetch_assoc();
-	$precioCredito = (empty($rowSuma['precioCredito'])) ? 0 : $rowSuma['precioCredito'];
-	$precioContado = (empty($rowSuma['precioContado'])) ? 0 : $rowSuma['precioContado'];
-	$total = $precioCredito + $precioContado;
+	// (SELECT SUM( precio)
+	// FROM registrosolicitudpzsadicionales
+	// WHERE modalidadPago = 'Contado' AND borrado = 0 AND id_proyecto = $idP) AS precioContado;";
+	// $resultadoSuma = mysqli_query($conexion, $querySuma);
+	// $rowSuma = $resultadoSuma->fetch_assoc();
+	// $precioCredito = (empty($rowSuma['precioCredito'])) ? 0 : $rowSuma['precioCredito'];
+	// $precioContado = (empty($rowSuma['precioContado'])) ? 0 : $rowSuma['precioContado'];
+	// $total = $precioCredito + $precioContado;
+
+	$precioCredito = ($row['modalidadPago'] == 'Crédito') ? $row['precio'] : 0;
+	$precioContado = ($row['modalidadPago'] == 'Contado') ? $row['precio'] : 0;
 
 
 	// Compras
@@ -115,10 +115,14 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns = "<a class='btn btn-outline-danger' id='noComImg'><i class='fa-solid fa-ban'></i></a>";
 	} else if ($super == 1 and $MAXenUso == 1 AND $row['cotizandoBorrado'] == 1) {
 		$outputBtns2 = "<a class='btn btn-outline-danger' id='noEliComImg'><i class='fa-solid fa-trash-alt'></i></a>";
+	}else if ($super == 1 AND $row['estatusAprobado'] == 0){
+		$outputBtns2 = "<a href='#' onclick='abrirModal2(\"" . $idP . "\",\"" . $nP . "\",\"".$id_cotizandoPzsAdic."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
 	} else if ($super == 1  and $MAXenUso == 0 AND $row['cotizandoBorrado'] == 0) {
 		$outputBtns2 = "<a href='#' onclick='abrirModal2(\"" . $idP . "\",\"" . $nP . "\",\"".$id_cotizandoPzsAdic."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
 	 } else if ($eliSolPzsAdicionales == 1 and $MAXenUso == 1 AND $row['cotizandoBorrado'] == 1) {
 	 	$outputBtns2 = "<a class='btn btn-outline-danger' id='noEliComImg'><i class='fa-solid fa-trash-alt'></i></a>";
+	}else if ($eliSolPzsAdicionales == 1 AND $row['estatusAprobado'] == 0){
+		$outputBtns2 = "<a href='#' onclick='abrirModal2(\"" . $idP . "\",\"" . $nP . "\",\"".$id_cotizandoPzsAdic."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
 	 } else if ($eliSolPzsAdicionales == 1  and $MAXenUso == 0 AND $row['cotizandoBorrado'] == 0) {
 	 	$outputBtns2 = "<a href='#' onclick='abrirModal2(\"" . $idP . "\",\"" . $nP . "\",\"".$id_cotizandoPzsAdic."\")' class='btn btn-secondary'><i class='fas fa-trash-alt'></i></a>";
 	} else {
@@ -127,9 +131,9 @@ while ($row = $resultado->fetch_assoc()) {
 
 	// 4.2.5 Ver Generales Solicitud de Piezas Adicionales
 	if ($super == 1 or $verGralSolPzsAdicionales == 1) {
-		$outputBtns3 = "<a href='javascript:void(0)' class='btn btn-secondary' onclick='mostarDetalles(\"" . $row['id_proyecto'] . "\")'><i class='fa-solid fa-eye'></i></a>";
+		$outputBtns3 = "<a href='javascript:void(0)' class='btn btn-info' onclick='mostarDetalles(\"" . $row['id_proyecto'] . "\",\"".$row['id_cotizandoPzsAdic']."\")'><i class='fa-solid fa-circle-info'></i></a>";
 	} else {
-		$outputBtns3 = "<a class='btn btn-outline-danger' id='verGralSolPzsAdicionales' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-eye'></i></a>";
+		$outputBtns3 = "<a class='btn btn-outline-danger' id='verGralSolPzsAdicionales' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-circle-info'></i></a>";
 	}
 
 
@@ -173,9 +177,9 @@ while ($row = $resultado->fetch_assoc()) {
 		"9" => $estatusEspera,
 		"10" => ($row['cotizandoBorrado'] == 1) ? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
 		"11" => "<strong>{$row['folioPzAdicional']}</strong>",
-		"12" => $precioCredito,
-		"13" => $precioContado,
-		"14" => $total,
+		"12" => "<strong>{$row['modalidadPago']}</strong>",
+		"13" => $precioCredito,
+		"14" => $precioContado,
 		"15" => (empty($row['asesor'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>",
 		"16" => (empty($row['tecArmador'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Técnico</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['tecArmador']}</span></h6>",
 		"17" => $fecha_creacion,
@@ -199,7 +203,7 @@ while ($row = $resultado->fetch_assoc()) {
 									</span>
 								</li>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='4.2.7 Autorizar Pieza Adicional'>
+									<span data-toggle='tooltip' title='4.2.2 Autorizar Pieza Adicional'>
 										" . $outputBtns5 . "
 									</span>
 								</li>

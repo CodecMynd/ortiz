@@ -2,7 +2,7 @@
 require '../components/query.php';
 if ($super == 1 or $verTablaPreautorizacion == 1) {
 
-	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado,
+	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado, P.valorVenta,
 	V.placa, M.marca, Mo.modelo, A.anio, Co.color,
     MAX(R.id_recPzsDanadas) AS id_recPzsDanadas, R.linkRecPzsDanadas, MIN(R.borrado) AS linkBorrado, MAX(R.enUso) AS linkEnUso, 
     R.fecha_creacion AS fechaRegLink, R.fecha_borrado AS fechaEliLink, R.enUso,
@@ -145,7 +145,7 @@ while ($row = $resultado->fetch_assoc()) {
 		"7" => $row['placa'],
 		"8" => $row['color'],
 		"9" => ($Eliminado == 0) ? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
-		"10" => $link,
+		"10" => "<strong>{$row['valorVenta']}</strong>",
 		"11" => $solicitud,
 		"12" => (empty($rowCompra['compra'])) ? "<h6><span class='badge badge-danger badge-pill'>Registros 0</span></h6>" : "<h6><span class='badge badge-success badge-pill'>Registro(s)  {$rowCompra['compra']}</span></h6>",
 		"13" => $precioCredito,

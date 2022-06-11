@@ -25,9 +25,10 @@ require '../components/head-main.php';
                 <h5 class="text-center"><strong> Consulta: Registros del Proyecto</strong></h5>
                 <?php
                 $id_proyecto = $_REQUEST['id_proyecto'];
+                $id_cotizandoPzsAdic = $_REQUEST['id_cotizandoPzsAdic'];
                 $query1 = "SELECT P.id_proyecto, P.nProyecto, P.nOrden,
                 V.placa, Co.color, M.marca, Mo.modelo, An.anio,
-				A.asesor, T.tecArmador
+				R.asesor, R.tecArmador
                 from proyectos P 
                 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
                 INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -35,9 +36,7 @@ require '../components/head-main.php';
                 INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
                 INNER JOIN anios An ON V.id_anio = An.id_anio 
                 LEFT JOIN registrosolicitudpzsadicionales R ON P.id_proyecto = R.id_proyecto
-                LEFT JOIN asesores A ON R.id_asesor = A.id_asesor
-                LEFT JOIN tecarmadores T ON R.id_tecArmador = T.id_tecArmador
-                WHERE P.id_Proyecto = $id_proyecto";
+                WHERE P.id_Proyecto = $id_proyecto ";
                 $resultado1 = mysqli_query($conexion, $query1);
                 $row1 = $resultado1->fetch_assoc();
 
@@ -81,9 +80,10 @@ require '../components/head-main.php';
                 V.placa, M.marca, Mo.modelo, A.anio, Co.color,
                 R.id_regSolpzadicional, R.folioPzAdicional, R.cantidad, R.precio, R.modalidadPago, R.enUso, 
                 R.fecha_creacion, R.motivo, R.descripcionpzadicional,
-                TA.tecArmador, ASE.asesor,
+                R.tecArmador, R.asesor,
                 U.nombres, U.aPaterno, U.aMaterno,
-                PR.nomProvee
+                PR.nomProvee,
+                C.id_cotizandoPzsAdic
                 FROM proyectos P
                 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
                 INNER JOIN colores Co On V.id_color = Co.id_color
@@ -91,11 +91,10 @@ require '../components/head-main.php';
                 INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
                 INNER JOIN anios A ON V.id_anio = A.id_anio
                 LEFT JOIN registrosolicitudpzsadicionales R ON P.id_proyecto = R.id_proyecto
-                LEFT JOIN tecarmadores TA ON R.id_tecArmador = TA.id_tecArmador
-                LEFT JOIN asesores ASE ON R.id_asesor = ASE.id_asesor
                 LEFT JOIN usuarios U ON R.id_capC = U.id_usuario
                 LEFT JOIN proveedores PR ON R.id_proveedor = PR.id_proveedor
-                WHERE P.id_proyecto = 1 AND R.borrado = 0";
+                INNER JOIN cotizandopzsadic C ON R.id_cotizandoPzsAdic = C.id_cotizandoPzsAdic
+                WHERE P.id_proyecto = $id_proyecto AND C.id_cotizandoPzsAdic = $id_cotizandoPzsAdic AND  R.borrado = 0";
                 $resultado = mysqli_query($conexion, $query);
                 ?>
                 <div class="container">
@@ -230,9 +229,9 @@ require '../components/head-main.php';
                 $cont = 0;
                 $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado,
                 V.placa, M.marca, Mo.modelo, A.anio, Co.color,
-                R.folioPzAdicional, R.cantidad, R.precio, R.modalidadPago, R.enUso, 
+                R.id_regSolpzadicional, R.folioPzAdicional, R.cantidad, R.precio, R.modalidadPago, R.enUso, 
                 R.fecha_creacion, R.motivo, R.descripcionpzadicional,
-                TA.tecArmador, ASE.asesor,
+                R.tecArmador, R.asesor,
                 U.nombres, U.aPaterno, U.aMaterno,
                 PR.nomProvee
                 FROM proyectos P
@@ -242,11 +241,9 @@ require '../components/head-main.php';
                 INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
                 INNER JOIN anios A ON V.id_anio = A.id_anio
                 LEFT JOIN registrosolicitudpzsadicionales R ON P.id_proyecto = R.id_proyecto
-                LEFT JOIN tecarmadores TA ON R.id_tecArmador = TA.id_tecArmador
-                LEFT JOIN asesores ASE ON R.id_asesor = ASE.id_asesor
                 LEFT JOIN usuarios U ON R.id_capC = U.id_usuario
                 LEFT JOIN proveedores PR ON R.id_proveedor = PR.id_proveedor
-                WHERE P.id_proyecto = 1 AND R.borrado = 1";
+                WHERE P.id_proyecto = $id_proyecto AND R.borrado = 1";
                 $resultado = mysqli_query($conexion, $query); ?>
                 <div class="container">
                     <table id="tableVarios2" class="table table-sm table-bordered table-striped" style="width: 100%;">

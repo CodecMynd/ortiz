@@ -30,7 +30,7 @@ $etapa = 'Regresó de Proceso de Surtido de Piezas: Piezas Adicionales a Autoriz
 try {
     $conexion->autocommit(FALSE);
 
-    $query1 = "UPDATE proyectos SET autorizadoPzsAdic = $autorizadoPzsAdic, autoProceSurtPzAdic = '$autoProceSurtPzAdic' WHERE id_proyecto = '$id_proyecto' ";
+    $query1 = "UPDATE cotizandopzsadic SET autorizadoPzsAdic = $autorizadoPzsAdic, autoProceSurtPzAdic = '$autoProceSurtPzAdic' WHERE id_cotizandoPzsAdic = '$id_cotizandoPzsAdic' ";
     $resultado1 = mysqli_query($conexion, $query1);
     // var_dump($query1);
 
@@ -38,7 +38,7 @@ try {
     $resultado2 = mysqli_query($conexion, $query2);
     // var_dump($query2);    
 
-    $query3 = "INSERT INTO bitacorapiezasadicionales(id_regSolpzadicional, id_preAutorizadoPzsAdic, id_proyecto, nProyecto, etapa, folio_autorizPzsAdic, fecha_borrado, id_capB) VALUES ('$id_regSolpzadicional','$id_preAutorizadoPzsAdic','$id_proyecto','$nProyecto','$etapa','$folio_autorizPzsAdic', '$date','$id')";
+    $query3 = "INSERT INTO bitacorapiezasadicionales(id_cotizandoPzsAdic, id_regSolpzadicional, id_preAutorizadoPzsAdic, id_proyecto, nProyecto, etapa, folio_autorizPzsAdic, fecha_borrado, id_capB) VALUES ('$id_cotizandoPzsAdic', '$id_regSolpzadicional','$id_preAutorizadoPzsAdic','$id_proyecto','$nProyecto','$etapa','$folio_autorizPzsAdic', '$date','$id')";
     $resultado3 = mysqli_query($conexion, $query3);
     // var_dump($query4);
 

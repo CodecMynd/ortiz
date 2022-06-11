@@ -2,6 +2,8 @@
 require '../components/queryDomPdf.php';
 require '../components/fechaEs.php';
 ?>
+<!-- Bootstrap toggle -->
+<!-- <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet"> -->
 <!-- Modal  style="max-width: 1250px!important;"  -->
 <div class="modal fade autorizarSolPzsAdicional" id="modal-autorizarSolPzsAdicional" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
@@ -19,28 +21,26 @@ require '../components/fechaEs.php';
 
                 $query = "SELECT R.folioPzAdicional, R.cantidad, R.motivo, R.descripcionpzadicional, 
                 R.precio, R.modalidadPago, R.verificado, R.estatusAprobado,
-                P.nomProvee, A.asesor, T.tecArmador,
+                P.nomProvee, R.asesor, R.tecArmador,
                 U.nombres, U.aPaterno, U.aMaterno,
                 C.fecha_creacion
                 FROM registrosolicitudpzsadicionales R
                 INNER JOIN proveedores P ON R.id_proveedor = P.id_proveedor
-                LEFT JOIN asesores A ON R.id_asesor = A.id_asesor
-                LEFT JOIN tecarmadores T ON R.id_tecArmador = T.id_tecArmador
                 INNER JOIN usuarios U ON R.id_capC = U.id_usuario
                 INNER JOIN cotizandopzsadic C ON R.id_cotizandoPzsAdic
                 WHERE id_regSolpzadicional =$id_regSolpzadicional";
                 $respuesta = mysqli_query($conexion, $query);
                 $row = $respuesta->fetch_assoc();
-                $solicitante = $row['nombres'].' '.$row['aPaterno'].' '.$row['aMaterno'];
+                $solicitante = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
                 $estatusAprobado = $row['estatusAprobado'];
 
                 ?>
                 <form id="formAutoPzsAdicional" autocomplete="off">
-                    <input type="hidden" name="id_regSolpzadicional" id="id_regSolpzadicional" value="<?php echo $id_regSolpzadicional?>">
-                    <input type="hidden" name="id_proyecto" id="id_proyecto" value="<?php echo $id_proyecto?>">
+                    <input type="hidden" name="id_regSolpzadicional" id="id_regSolpzadicional" value="<?php echo $id_regSolpzadicional ?>">
+                    <input type="hidden" name="id_proyecto" id="id_proyecto" value="<?php echo $id_proyecto ?>">
                     <div class="card-body">
                         <div class="row justify-content-center">
-                        <div class="col-md-3 col-sm-12 my-1">
+                            <div class="col-md-3 col-sm-12 my-1">
                                 <label class="ml-5 mb-2">Número de Folio</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -122,7 +122,7 @@ require '../components/fechaEs.php';
                                             <div class='input-group-prepend'>
                                                 <span class='input-group-text'><i class='fa-solid fa-comments'></i></span>
                                             </div>
-                                            <textarea name='motivo' id='motivo' class='form-control' rows='4' placeholder='Max. 200 caracteres' disabled readonly><?php echo $row['motivo']?></textarea>
+                                            <textarea name='motivo' id='motivo' class='form-control' rows='4' placeholder='Max. 200 caracteres' disabled readonly><?php echo $row['motivo'] ?></textarea>
                                         </div>
                                     </span>
                                 </div>
@@ -133,7 +133,7 @@ require '../components/fechaEs.php';
                                         <span class="info-box-icon bg-secondary"><i class="fa-solid fa-check"></i></span>
                                         <div class="info-box-content">
                                             <?php if ($row['verificado'] == 0) { ?>
-                                                <h6><strong>¿Autorizar Cambio?</strong></h4>
+                                                <h6><strong>¿Autorizar Solicitud de Pieza Adicional?</strong></h4>
                                                     <span class="info-box-text"> <input type="checkbox" name="estatusAprobado" id="estatusAprobado" data-toggle="toggle" data-on="Autorizado" data-off="No Autorizado" data-width="150" data-height="10" data-onstyle="success" data-offstyle="danger" value="1" <?php if ($row['estatusAprobado'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                     else echo ''; ?>></span>
                                                 <?php } else if ($row['verificado'] == 1) {
@@ -199,31 +199,33 @@ require '../components/fechaEs.php';
 <script>
     // 4.2.7 Autorizar Piezas Adicional --------------------------------------------------------------------------------------------------------------------------------------------------
 
-$('#btnAutoPzsAdicional').click(function () {
-    var param = $('#formAutoPzsAdicional').serialize();
-    $.ajax({
-            url: '../update/updateAutoPzsAdicional.php',
-            type: 'POST',
-            data: param,
+    $('#btnAutoPzsAdicional').click(function() {
+        var param = $('#formAutoPzsAdicional').serialize();
+        $.ajax({
+                url: '../update/updateAutoPzsAdicional.php',
+                type: 'POST',
+                data: param,
 
-            success: function (vs) {
-                $('#formAutoPzsAdicional')[0].reset();
-                setTimeout(function () {
-                    $('.autorizarSolPzsAdicional').modal('hide');
-                }, 1000);
-                tableSolPzsAdicionales.ajax.reload(null, false)
-            }
-        })
-        .done(function (res) {
-            $('#respuestaAutoPzsAdicional').html(res)
-        })
-});
+                success: function(vs) {
+                    $('#formAutoPzsAdicional')[0].reset();
+                    setTimeout(function() {
+                        $('.autorizarSolPzsAdicional').modal('hide');
+                    }, 1000);
+                    tableSolPzsAdicionales.ajax.reload(null, false)
+                }
+            })
+            .done(function(res) {
+                $('#respuestaAutoPzsAdicional').html(res)
+            })
+    });
 
-//Ocultar boton por 3 minutos para evitar el doble submit
-$("#btnAutoPzsAdicional").on('click', function () {
-    $("#btnAutoPzsAdicional").css('visibility', 'hidden');
-    setTimeout(function () {
-        $("#btnAutoPzsAdicional").css('visibility', 'visible');
-    }, 3000);
-});
+    //Ocultar boton por 3 minutos para evitar el doble submit
+    $("#btnAutoPzsAdicional").on('click', function() {
+        $("#btnAutoPzsAdicional").css('visibility', 'hidden');
+        setTimeout(function() {
+            $("#btnAutoPzsAdicional").css('visibility', 'visible');
+        }, 3000);
+    });
 </script>
+<!-- js toogle swicth -->
+<!-- <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.0/js/bootstrap4-toggle.min.js"></script> -->

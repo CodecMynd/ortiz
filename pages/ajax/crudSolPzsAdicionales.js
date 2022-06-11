@@ -1,5 +1,5 @@
-function mostarDetalles(id_proyecto) {
-    var ruta = '../components/modal-verGralRegSolPzsAdicionales.php?id_proyecto=' + id_proyecto;
+function mostarDetalles(id_proyecto, id_cotizandoPzsAdic) {
+    var ruta = '../components/modal-verGralRegSolPzsAdicionales.php?id_proyecto=' + id_proyecto + '&id_cotizandoPzsAdic=' + id_cotizandoPzsAdic;
     $.get(ruta, function (data) {
         $('#divModal').html(data);
         $('#modal-verGralRegSolPzsAdicionales').modal('show');
@@ -30,7 +30,8 @@ $('#btnNuevoRegSolPzsAdicionales').click(function () {
                 setTimeout(function () {
                     $('.regSolPzsAdicionales').modal('hide');
                 }, 1000);
-                tableSolPzsAdicionales.ajax.reload(null, false)
+                tableSolPzsAdicionales.ajax.reload(null, false);
+                tablePreautorizacionPzsAdic.ajax.reload(null, false);
             }
         })
         .done(function (res) {
@@ -90,9 +91,9 @@ $('#btnEnviarPreAutoPzsAdic').click(function () {
 
             success: function (vs) {
                 $('#formEnviarPreAutoPzsAdic')[0].reset();
-                setTimeout(function () {
-                    $('.enviarPreAutorizacionPzsAdic').modal('hide');
-                }, 1000);
+                 setTimeout(function () {
+                     $('.enviarPreAutorizacionPzsAdic').modal('hide');
+                 }, 1000);
                 tablePreautorizacionPzsAdic.ajax.reload(null, false);
                 tableSolPzsAdicionales.ajax.reload(null, false);
             }
@@ -120,7 +121,7 @@ var tableSolPzsAdicionales = $("#tableSolPzsAdicionales").DataTable({
         style: 'multi'
     },
     "stateSave": false,
-    "pageLength": 50,
+    "pageLength": 10,
     "dom": 'PlBfrtip',
     "buttons": ["csv", "excel", "pdf", "colvis", ],
     "ajax": {
@@ -198,12 +199,6 @@ var tableSolPzsAdicionales = $("#tableSolPzsAdicionales").DataTable({
     },
     "drawCallback": function () {
         //alert("La tabla se está recargando"); 
-        var api = this.api();
-        $(api.column(12).footer()).html(
-            'Total: ' + api.column(12, {
-                page: 'current'
-            }).data().sum()
-        )
         var api2 = this.api();
         $(api2.column(13).footer()).html(
             'Total: ' + api2.column(13, {
@@ -218,15 +213,7 @@ var tableSolPzsAdicionales = $("#tableSolPzsAdicionales").DataTable({
         )
     },
     "createdRow": function (row, data, index) {
-        if (data[12] >= '1') {
-            $('td', row).eq(12).css({
-                'text-align': 'center',
-                'background-color': '#5A6268',
-                'color': '#fff',
-                'font-weight': 'bold'
-            });
-        }
-        if (data[13] >= '1') {
+        if (data[13] >= '0') {
             $('td', row).eq(13).css({
                 'text-align': 'center',
                 'background-color': '#5A6268',

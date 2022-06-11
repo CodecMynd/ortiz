@@ -25,12 +25,12 @@ $folio_autorizPzsAdic = $row['folio_autorizPzsAdic'];
 $preAutorizPzsAdic = 1;
 $autorizadoPzsAdic = 0;
 
-$etapa = 'Regresó a Pre-Autorización: Piezas Adicionales';
+$etapa = 'Regresó de Autorizado: Piezas Adicionales a Pre-Autorización: Piezas Adicionales';
 
 try {
     $conexion->autocommit(FALSE);
 
-    $query1 = "UPDATE proyectos SET preAutorizPzsAdic = $preAutorizPzsAdic, autorizadoPzsAdic = '$autorizadoPzsAdic' WHERE id_proyecto = '$id_proyecto' ";
+    $query1 = "UPDATE cotizandopzsadic SET preAutorizPzsAdic = $preAutorizPzsAdic, autorizadoPzsAdic = '$autorizadoPzsAdic' WHERE id_cotizandoPzsAdic = '$id_cotizandoPzsAdic' ";
     $resultado1 = mysqli_query($conexion, $query1);
     // var_dump($query1);
 
@@ -45,7 +45,7 @@ try {
 
     $conexion->commit();
     echo "<div class='alert alert-success' role='alert'>
-                <p><strong>Proyecto Regresado a Pre-Autorización: Piezas Adicionales correctamente!</strong></p>
+                <p><strong>Proyecto Regresado de Autorizado: Piezas Adicionales a Pre-Autorización: Piezas Adicionales correctamente!</strong></p>
              </div>";
 } catch (Exception $e) {
     $conexion->rollback();

@@ -425,7 +425,7 @@ require '../components/head-dataTables.php';
                                                     <th>Placa</th>
                                                     <th>Color</th>
                                                     <th>Estado del Proyecto</th>
-                                                    <th>Link de Desarmado</th>
+                                                    <th>Valor Venta Inicial</th>
                                                     <th>Solicitud de Piezas</th>
                                                     <th>Registro(s) Compra(s)</th>
                                                     <th>Suma Total Costo Crédito</th>
@@ -451,7 +451,7 @@ require '../components/head-dataTables.php';
                                                     <th>Placa</th>
                                                     <th>Color</th>
                                                     <th>Estado del Proyecto</th>
-                                                    <th>Link de Desarmado</th>
+                                                    <th class="suma"></th>
                                                     <th>Solicitud de Piezas</th>
                                                     <th>Registro(s) Compra(s)</th>
                                                     <th class="suma"></th>

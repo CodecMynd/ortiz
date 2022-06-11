@@ -40,9 +40,9 @@ $('#btnEnviarAutorizadoPzsAdic').click(function () {
 
             success: function (vs) {
                 $('#formEnviarAutorizadoPzsAdic')[0].reset();
-                setTimeout(function () {
-                    $('.enviarAutorizadoPzsAdic').modal('hide');
-                }, 1000);
+                 setTimeout(function () {
+                     $('.enviarAutorizadoPzsAdic').modal('hide');
+                 }, 1000);
                 tablePreautorizacionPzsAdic.ajax.reload(null, false);
                 tableAutorizadoPzsAdic.ajax.reload(null, false);
             }
@@ -71,7 +71,7 @@ var tablePreautorizacionPzsAdic = $("#tablePreautorizacionPzsAdic").DataTable({
     "select": {
         style: 'multi'
     },
-    "pageLength": 50,
+    "pageLength": 10,
     "dom": 'PlBfrtip',
     "buttons": ["csv", "excel", "pdf", "colvis"],
     "ajax": {
@@ -149,12 +149,6 @@ var tablePreautorizacionPzsAdic = $("#tablePreautorizacionPzsAdic").DataTable({
     },
     "drawCallback": function () {
         //alert("La tabla se está recargando"); 
-        var api = this.api();
-        $(api.column(10).footer()).html(
-            'Total: ' + api.column(10, {
-                page: 'current'
-            }).data().sum()
-        )
         var api2 = this.api();
         $(api2.column(11).footer()).html(
             'Total: ' + api2.column(11, {
@@ -169,15 +163,7 @@ var tablePreautorizacionPzsAdic = $("#tablePreautorizacionPzsAdic").DataTable({
         )
     },
     "createdRow": function (row, data, index) {
-        if (data[10] > '0') {
-            $('td', row).eq(10).css({
-                'text-align': 'center',
-                'background-color': '#5A6268',
-                'color': '#fff',
-                'font-weight': 'bold'
-            });
-        }
-        if (data[11] > '0') {
+        if (data[11] >= '0') {
             $('td', row).eq(11).css({
                 'text-align': 'center',
                 'background-color': '#5A6268',

@@ -57,8 +57,8 @@
                                                                                                                                                                 echo 'disabled';
                                                                                                                                                             } else {
                                                                                                                                                                 echo 'text-dark ';
-                                                                                                                                                            } ?> " style="padding-left: 5px;padding-right: 5px;">1.0 Catálogos</a>
-                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style="columns:1; width: 155%;">
+                                                                                                                                                            } ?> " style="padding-left: 5px;padding-right: 5px;">1.0 Catálogos  </a>
+                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style="columns:1; width: 165%;">
                         <li><a href="../admin/crudUsuarios.php" class="dropdown-item">1.1 Usuarios </a></li>
                         <li><a href="../admin/crudMarcas.php" class="dropdown-item">1.2 Marcas </a></li>
                         <li><a href="../admin/crudModelos.php" class="dropdown-item">1.3 Modelos </a></li>

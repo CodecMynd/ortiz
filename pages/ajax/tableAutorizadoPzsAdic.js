@@ -73,7 +73,7 @@
         "select": {
             style: 'multi'
         },
-        "pageLength": 50,
+        "pageLength": 10,
         "dom": 'PlBfrtip',
         "buttons": ["csv", "excel", "pdf", "colvis"],
         "ajax": {
@@ -151,12 +151,6 @@
         },
         "drawCallback": function () {
             //alert("La tabla se está recargando"); 
-            var api = this.api();
-            $(api.column(11).footer()).html(
-                'Total: ' + api.column(11, {
-                    page: 'current'
-                }).data().sum()
-            )
             var api2 = this.api();
             $(api2.column(12).footer()).html(
                 'Total: ' + api2.column(12, {
@@ -171,15 +165,7 @@
             )
         },
         "createdRow": function (row, data, index) {
-            if (data[11] > '0') {
-                $('td', row).eq(11).css({
-                    'text-align': 'center',
-                    'background-color': '#5A6268',
-                    'color': '#fff',
-                    'font-weight': 'bold'
-                });
-            }
-            if (data[12] > '0') {
+            if (data[12] >= '0') {
                 $('td', row).eq(12).css({
                     'text-align': 'center',
                     'background-color': '#5A6268',

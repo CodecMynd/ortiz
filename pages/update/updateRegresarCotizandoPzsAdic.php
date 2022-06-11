@@ -18,17 +18,17 @@ $id_preAutorizadoPzsAdic = $_POST['id_preAutorizadoPzsAdic4'];
 
 $pzadicionial = 1;
 $preAutorizPzsAdic = 0;
-$etapa = 'Regresó a Cotizando: Piezas Adicionales';
+$etapa = 'Regresó de Pre-Autorización: Piezas Adicionales a Cotizando: Piezas Adicionales';
 
 try {
     $conexion->autocommit(FALSE);
 
     // // Ingresamos id a tabla proyectos modificar registros
-    $query1 = "UPDATE proyectos SET pzadicionial = '$pzadicionial', preAutorizPzsAdic = '$preAutorizPzsAdic' WHERE id_proyecto = '$id_proyecto' ";
+    $query1 = "UPDATE cotizandopzsadic SET pzadicionial = '$pzadicionial', preAutorizPzsAdic = '$preAutorizPzsAdic' WHERE id_cotizandoPzsAdic = '$id_cotizandoPzsAdic' ";
     $resultado1 = mysqli_query($conexion, $query1);
     // var_dump($query1);
 
-    $query2 = "INSERT INTO bitacorapiezasadicionales(id_regSolpzadicional, id_preAutorizadoPzsAdic, id_proyecto, nProyecto, etapa, fecha_borrado, id_capB) VALUES ('$id_regSolpzadicional','$id_preAutorizadoPzsAdic','$id_proyecto','$nProyecto','$etapa', '$date','$id')";
+    $query2 = "INSERT INTO bitacorapiezasadicionales(id_cotizandoPzsAdic, id_regSolpzadicional, id_preAutorizadoPzsAdic, id_proyecto, nProyecto, etapa, fecha_borrado, id_capB) VALUES ('$id_cotizandoPzsAdic', '$id_regSolpzadicional','$id_preAutorizadoPzsAdic','$id_proyecto','$nProyecto','$etapa', '$date','$id')";
     $resultado2 = mysqli_query($conexion, $query2);
     // var_dump($query2);
 
@@ -40,7 +40,7 @@ try {
 
     $conexion->commit();
     echo "<div class='alert alert-success' role='alert'>
-                <p><strong>Proyecto Regresado a Cotizando: Piezas Adicionales correctamente!</strong></p>
+                <p><strong>Proyecto Regresado de Pre-Autorización: Piezas Adicionales a Cotizando: Piezas Adicionales correctamente!</strong></p>
              </div>";
 } catch (Exception $e) {
     $conexion->rollback();

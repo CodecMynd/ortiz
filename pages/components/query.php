@@ -326,6 +326,23 @@ while ($row = mysqli_fetch_array($query)) {
     $regresarPreAutoPzsAdic = $row['regresarPreAutoPzsAdic'];
     $enviarAutoProceSurtPzsAdic = $row['enviarAutoProceSurtPzsAdic'];
     $verTablaAutorizadoPzsAdic = $row['verTablaAutorizadoPzsAdic'];
+    $regresarAutorizPzsAdic = $row['regresarAutorizPzsAdic'];
+    $enviarPzsEntregadasAdic = $row['enviarPzsEntregadasAdic'];
+    $verGralProceSurtPzsAdic = $row['verGralProceSurtPzsAdic'];
+    $verTablaAutoProceSurtPzsAdic = $row['verTablaAutoProceSurtPzsAdic'];
+    $validarSolPzsAdicionales = $row['validarSolPzsAdicionales'];
+    $regresarPzsEntregadasAdic = $row['regresarPzsEntregadasAdic'];
+    $enviarPzsFirmRecAdic = $row['enviarPzsFirmRecAdic'];
+    $pdfPzsEntregadasAdic = $row['pdfPzsEntregadasAdic']; 
+    $verGralPzsEntregadasAdic = $row['verGralPzsEntregadasAdic'];
+    $verTablaPzsEntregadasAdic = $row['verTablaPzsEntregadasAdic'];
+    $regresarPzsEntregadasAdic2 = $row['regresarPzsEntregadasAdic2'];
+    $enviarSuperSurtPzsAdic = $row['enviarSuperSurtPzsAdic'];
+    $verGralPzsFirmaRecAdic = $row['verGralPzsFirmaRecAdic'];
+    $verTablaPzsFirmadasRecAdic = $row['verTablaPzsFirmadasRecAdic'];
+    $regresarPzsFirmRecAdic = $row['regresarPzsFirmRecAdic'];
+    $verGralSuperSurtPzsAdic = $row['verGralSuperSurtPzsAdic'];
+    $verTablaSuperSurtPzsAdic = $row['verTablaSuperSurtPzsAdic'];
 
 
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
