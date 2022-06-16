@@ -35,8 +35,8 @@ try {
     $resultado1 = mysqli_query($conexion, $query1);
     // var_dump($query1);
 
-    $query2 = "INSERT INTO autoprocesurtpzs(id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_proyecto, nProyecto, comenProceSurtPz, fecha_creacion, id_capC) 
-                                VALUES ('$id_recPzsDanadas', '$id_solPzsDanadas', '$id_regCompraInicial', '$id_proyecto', '$nProyecto', '$comenProceSurtPz', '$date', '$id')";
+    $query2 = "INSERT INTO autoprocesurtpzs(id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_autorizado, id_proyecto, nProyecto, comenProceSurtPz, fecha_creacion, id_capC) 
+                                VALUES ('$id_recPzsDanadas', '$id_solPzsDanadas', '$id_regCompraInicial', '$id_autorizado', '$id_proyecto', '$nProyecto', '$comenProceSurtPz', '$date', '$id')";
     $resultado2 = mysqli_query($conexion, $query2);
     // var_dump($query2);
 

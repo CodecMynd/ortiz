@@ -443,7 +443,7 @@ require '../components/head-dataTables.php';
                                                 </div>
                                                 <div class='col-md-12 col-sm-12 my-1'>
                                                     <div class='form-group-input'>
-                                                        <label class='ml-5 mb-2'>*Descripción Final de Servicio Realizado al Vehículo</label>
+                                                        <label class='ml-5 mb-2'>*Descripción Final de Servicio Realizado </label>
                                                         <span data-toggle='tooltip' title='max. 300 caracteres'>
                                                             <div class='input-group'>
                                                                 <div class='input-group-prepend'>

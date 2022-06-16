@@ -11,43 +11,38 @@ $id = $_SESSION['id_usuario'];
 
 $id_proyecto = $_POST['id_proyecto4'];
 $nProyecto = $_POST['nProyecto4'];
-$id_recPzsDanadas = $_POST['id_recPzsDanadas4'];
-$id_solPzsDanadas = $_POST['id_solPzsDanadas4'];
-$id_regCompraInicial = $_POST['id_regCompraInicial4'];
-$fechaRegLink = $_POST['fechaRegLink4'];
+$id_proyExtra = $_POST['id_proyExtra4'];
+$semProyExtraUtil = $_POST['semProyExtraUtil'];
 
-//Cronometro 
-$fecha1 = new DateTime($date);
-$fecha2 = new DateTime($fechaRegLink);
+// Query Registro de folio 
+$queryP = 'SELECT MAX(id_proyExtraUtil) + 1 FROM proyextrasutil';
+$result = mysqli_query($conexion,  $queryP);
+$rowp = mysqli_fetch_row($result);
 
-$diff = $fecha1->diff($fecha2);
+// Prefijo folio
+$text = "Proy_Extra_Utilizado-00";
+$folioProyExtraUtil = $text . '' . $rowp[0];
 
-$cronometro = $diff->days." Dia(s), ". $diff->h . ' h. '.$diff->i." m. ".$diff->s . ' s.';
-
-$cotizando = 0;
-$preAutoriz = 1;
-$etapa = 'Enviado a Pre-Autorización';
+$proyExtraCapt = 0;
+$proyExtraUtil = 1;
 
 try {
     $conexion->autocommit(FALSE);
 
-    // Ingresamos proyectos
-    $query1 = "UPDATE proyectos SET cotizando = '$cotizando', preAutoriz = $preAutoriz WHERE id_proyecto = '$id_proyecto' ";
+    // Ingresamos proyextras
+    $query1 = "UPDATE proyextras SET proyExtraCapt = '$proyExtraCapt', proyExtraUtil = $proyExtraUtil  WHERE id_proyExtra = '$id_proyExtra' ";
     $resultado1 = mysqli_query($conexion, $query1);
     // var_dump($query1);
 
-    $query2 = "INSERT INTO bitacorapiezas(id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_proyecto, nProyecto, etapa, folio_autoriz, fecha_creacion, id_capC) VALUES ('$id_recPzsDanadas','$id_solPzsDanadas','$id_regCompraInicial','$id_proyecto','$nProyecto','$etapa','--', '$date','$id')";
+    // Ingresamos proyextras
+    $query2 = "INSERT INTO proyextrasutil(id_proyExtra, id_proyecto, nProyecto, folioProyExtraUtil, semProyExtraUtil, fecha_creacion, id_capC) VALUES ('$id_proyExtra', '$id_proyecto', '$nProyecto', '$folioProyExtraUtil', '$semProyExtraUtil', '$date', '$id')";
     $resultado2 = mysqli_query($conexion, $query2);
-    // var_dump($query2);
-
-    $query3 = "INSERT INTO preautorizados(id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_proyecto, nProyecto, cronoPreAuto, fecha_creacion, id_capC) VALUES ('$id_recPzsDanadas','$id_solPzsDanadas','$id_regCompraInicial','$id_proyecto','$nProyecto','$cronometro', '$date','$id')";
-    $resultado3 = mysqli_query($conexion, $query3);
-    // var_dump($query2);
+    // var_dump($query1);
 
 
     $conexion->commit();
     echo "<div class='alert alert-success' role='alert'>
-                <p><strong>Proyecto Enviado a Pre-Autorización correctamente!</strong></p>
+                <p><strong>Proyecto Enviado a Proyecto Extra Utilizado correctamente!</strong></p>
              </div>";
 } catch (Exception $e) {
     $conexion->rollback();

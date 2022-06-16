@@ -149,6 +149,18 @@ require '../components/head-main.php';
                                                                                 </div>
                                                                             </button>
                                                                         </div>
+                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                            <button type="button" class="btn btn-permisos">
+                                                                                <div class="info-box">
+                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-chart-line"></i></span>
+                                                                                    <div class="info-box-content">
+                                                                                        <span class="info-box-text">0.7 Estatus Incidencias</span>
+                                                                                        <span class="info-box-text"> <input type="checkbox" name="indIncidencias" id="indIncidencias" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" value="1" <?php if ($rowPer['indIncidencias'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </button>
+                                                                        </div>
 
                                                                     </div>
                                                                 </div>
@@ -3438,6 +3450,88 @@ require '../components/head-main.php';
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <!-- 2.10 Solicitudes de Cambio -->
+                                                        <div class="col-12">
+                                                            <div class="card card-secondary card-outline collapsed-card">
+                                                                <div class="card-header">
+                                                                    <h2 class="card-title"><strong>2.10 Solicitudes de Cambio </strong></h2>
+                                                                    <div class="card-tools">
+                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                            <i class="fas fa-plus"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="row justify-content-center">
+                                                                        <div class="col-md-12 col-sm-12 col-12">
+                                                                            <!-- 5.1 Captura Proyectos Extras -->
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>2.10.1 Solicitud Cambio Valor Alta</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.10.1.1 Solicitar Cambio Valor Alta</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="solAutorizDescuento" id="solAutorizDescuento" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['solAutorizDescuento'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.10.1.2 Autorizar Solicitud Cambio Valor Alta</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="autorizarSolDesc" id="autorizarSolDesc" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['autorizarSolDesc'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.10.1.3 Ver Generales Solicitud de Cambio de Valor Alta</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralSolAutorizDesc" id="verGralSolAutorizDesc" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralSolAutorizDesc'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">2.10.1.4 Ver Tabla Solicitud Cambio Valor Alta</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaSolAutorizDescuento" id="verTablaSolAutorizDescuento" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaSolAutorizDescuento'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         <!-- >3.1 Alta Proyecto -->
                                                         <div class="col-12">
                                                             <div class="card card-secondary card-outline collapsed-card">
@@ -4073,7 +4167,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.1.8.2 Ver Generales Supervisión de Surtido de Piezas</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="VerGralSuperSurtPzs" id="VerGralSuperSurtPzs" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['VerGralSuperSurtPzs'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4085,7 +4179,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.1.8.3 Ver Tabla Supervisión de Surtido de Piezas</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="verTablaSuperSurtPzs" id="verTablaSuperSurtPzs" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaSuperSurtPzs'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4145,7 +4239,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.2 Autorizar Pieza Adicional</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="validarSolPzsAdicionales" id="validarSolPzsAdicionales" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['validarSolPzsAdicionales'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4157,7 +4251,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.3 Eliminar Agregado de Solicitud de Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="eliAgregadoSolpzsAdicionales" id="eliAgregadoSolpzsAdicionales" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliAgregadoSolpzsAdicionales'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4181,7 +4275,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.5 Ver Generales Solicitud de Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="verGralSolPzsAdicionales" id="verGralSolPzsAdicionales" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralSolPzsAdicionales'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4193,7 +4287,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.6 Enviar de Cotizando a Pre-Autorización : Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="enviarPreAutoPzsAdic" id="enviarPreAutoPzsAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['enviarPreAutoPzsAdic'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4205,12 +4299,11 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.7 Ver Tablas Solicitud de Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="verTablaSolPzsAdicionales" id="verTablaSolPzsAdicionales" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaSolPzsAdicionales'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
                                                                                         </div>
-
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -4233,7 +4326,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.2.1 Regresar de Pre-Autorización: Piezas Adicionales a Cotizando: Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="regresarCotizandoPzsAdic" id="regresarCotizandoPzsAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regresarCotizandoPzsAdic'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4245,7 +4338,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.2.2 Enviar de Pre-Autorización: Piezas Adionales a Autorizado: Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="enviarAutorizPzsAdic" id="enviarAutorizPzsAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['enviarAutorizPzsAdic'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4257,7 +4350,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.2.3 Ver Tabla Pre-Autorizacion: Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="verTablaPreautorizacionPzsAdic" id="verTablaPreautorizacionPzsAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaPreautorizacionPzsAdic'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4297,7 +4390,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.3.2 Enviar de Autorizado: Piezas Adionales a Proceso de Surtido de Piezas: Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="enviarAutoProceSurtPzsAdic" id="enviarAutoProceSurtPzsAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['enviarAutoProceSurtPzsAdic'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4309,7 +4402,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.3.3 Ver Tabla Autorizado: Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="verTablaAutorizadoPzsAdic" id="verTablaAutorizadoPzsAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaAutorizadoPzsAdic'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4317,7 +4410,7 @@ require '../components/head-main.php';
 
                                                                                     </div>
                                                                                 </div>
-                                                                            </div> 
+                                                                            </div>
                                                                             <!-- 4.2.4 Proceso de Surtido de Piezas: Piezas Adicionales -->
                                                                             <div class="card card-info card-outline collapsed-card">
                                                                                 <div class="card-header">
@@ -4337,7 +4430,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.4.1 Regresar de Proceso de Surtido de Piezas: Piezas Adicionales a Autorizado: Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="regresarAutorizPzsAdic" id="regresarAutorizPzsAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regresarAutorizPzsAdic'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4349,7 +4442,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.4.2 Enviar de Proceso de Surtido de Piezas: Piezas Adicionales a Piezas Entregadas: Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="enviarPzsEntregadasAdic" id="enviarPzsEntregadasAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['enviarPzsEntregadasAdic'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4361,7 +4454,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.4.3 Ver Generales Proceso de Surtido de Piezas: Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="verGralProceSurtPzsAdic" id="verGralProceSurtPzsAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralProceSurtPzsAdic'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4373,7 +4466,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.4.4 Ver Tabla Proceso de Surtido de Piezas: Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="verTablaAutoProceSurtPzsAdic" id="verTablaAutoProceSurtPzsAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaAutoProceSurtPzsAdic'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4401,7 +4494,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.5.1 Regresar de Piezas Entregadas: Piezas Adicionales a Proceso de Surtido de Piezas: Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="regresarPzsEntregadasAdic" id="regresarPzsEntregadasAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regresarPzsEntregadasAdic'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4413,7 +4506,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.5.2 Enviar de Piezas Entregadas: Piezas Adicionales a Piezas Firmadas de Recibido: Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="enviarPzsFirmRecAdic" id="enviarPzsFirmRecAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['enviarPzsFirmRecAdic'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4425,7 +4518,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.1.5.3 Descargar PDF Piezas Entregadas</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="pdfPzsEntregadasAdic" id="pdfPzsEntregadasAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['pdfPzsEntregadasAdic'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4437,7 +4530,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.5.4 Ver Generales Piezas Entregadas: Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="verGralPzsEntregadasAdic" id="verGralPzsEntregadasAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralPzsEntregadasAdic'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4449,7 +4542,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.5.5 Ver Tabla Piezas Entregadas: Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="verTablaPzsEntregadasAdic" id="verTablaPzsEntregadasAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaPzsEntregadasAdic'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4477,7 +4570,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.6.1 Regresar de Piezas Firmadas de Recibido: Piezas Adicionales a Piezas Entregadas: Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="regresarPzsEntregadasAdic2" id="regresarPzsEntregadasAdic2" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regresarPzsEntregadasAdic2'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4489,7 +4582,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.6.2 Enviar de Piezas Firmadas de Recibido: Piezas Adicionales a Supervisión de Surtido de Piezas: Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="enviarSuperSurtPzsAdic" id="enviarSuperSurtPzsAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['enviarSuperSurtPzsAdic'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4513,7 +4606,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.6.4 Ver Tabla Piezas Firmadas de Recibido: Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="verTablaPzsFirmadasRecAdic" id="verTablaPzsFirmadasRecAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaPzsFirmadasRecAdic'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4553,7 +4646,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.7.2 Ver Generales Supervisión de Surtido de Piezas: Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="verGralSuperSurtPzsAdic" id="verGralSuperSurtPzsAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralSuperSurtPzsAdic'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4565,7 +4658,7 @@ require '../components/head-main.php';
                                                                                                     <div class="info-box-content">
                                                                                                         <span class="info-box-text">4.2.7.3 Ver Tabla Supervisión de Surtido de Piezas: Piezas Adicionales</span>
                                                                                                         <span class="info-box-text"> <input type="checkbox" name="verTablaSuperSurtPzsAdic" id="verTablaSuperSurtPzsAdic" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaSuperSurtPzsAdic'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </button>
@@ -4574,8 +4667,6 @@ require '../components/head-main.php';
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-
-
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -4670,11 +4761,11 @@ require '../components/head-main.php';
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!-- >5.1 Captura Proyectos Extras -->
+                                                        <!-- >5 Proyectos Extras -->
                                                         <div class="col-12">
                                                             <div class="card card-secondary card-outline collapsed-card">
                                                                 <div class="card-header">
-                                                                    <h2 class="card-title"><strong>5.1 Captura Proyectos Extras</strong></h2>
+                                                                    <h2 class="card-title"><strong>5.0 Proyectos Extras</strong></h2>
                                                                     <div class="card-tools">
                                                                         <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
                                                                             <i class="fas fa-plus"></i>
@@ -4683,79 +4774,106 @@ require '../components/head-main.php';
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <div class="row justify-content-center">
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">5.1.1 Registro de Proyecto Extra</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regProyExtra" id="regProyExtra" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regProyExtra'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                        <div class="col-md-12 col-sm-12 col-12">
+                                                                            <!-- 5.1 Captura Proyectos Extras -->
+                                                                            <div class="card card-info card-outline collapsed-card">
+                                                                                <div class="card-header">
+                                                                                    <h2 class="card-title"><strong>5.1 Captura Proyectos Extras</strong></h2>
+                                                                                    <div class="card-tools">
+                                                                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </button>
                                                                                     </div>
                                                                                 </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">5.1.2 Elimniar Registro Proyecto Extra</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliProyExtra" id="eliProyExtra" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliProyExtra'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">5.1.3 Registrar Supervisión Proyecto Extra</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="regSuperProyExtra" id="regSuperProyExtra" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regSuperProyExtra'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">5.1.4 Eliminar Supervisión Proyecto Extra</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliSuperProyExtra" id="eliSuperProyExtra" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliSuperProyExtra'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">5.1.5 Ver Generales Proyecto Extra</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralProyExtra" id="verGralProyExtra" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralProyExtra'] == 1) echo 'checked';
-                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="col-md-4 col-sm-6 col-12">
-                                                                            <button type="button" class="btn btn-permisos">
-                                                                                <div class="info-box">
-                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
-                                                                                    <div class="info-box-content">
-                                                                                        <span class="info-box-text">5.1.6 Ver Tabla Proyecto Extra</span>
-                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaRegProyExtra" id="verTablaRegProyExtra" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaRegProyExtra'] == 1) echo 'checked';
+                                                                                <div class="card-body">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">5.1.1 Registro de Proyecto Extra</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regProyExtra" id="regProyExtra" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regProyExtra'] == 1) echo 'checked';
                                                                                                                                                                                                                                                                                                                                                                                 else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">5.1.2 Elimniar Registro Proyecto Extra</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliProyExtra" id="eliProyExtra" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliProyExtra'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-pencil"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">5.1.3 Registrar Supervisión Proyecto Extra</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="regSuperProyExtra" id="regSuperProyExtra" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['regSuperProyExtra'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-trash-can"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">5.1.4 Eliminar Supervisión Proyecto Extra</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="eliSuperProyExtra" id="eliSuperProyExtra" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['eliSuperProyExtra'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                            else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">5.1.5 Ver Generales Proyecto Extra</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verGralProyExtra" id="verGralProyExtra" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verGralProyExtra'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                        else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class='fa-solid fa-paper-plane'></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">5.1.6 Enviar A Proyecto Extra Utilizado</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="enviarProyUtil" id="enviarProyUtil" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['enviarProyUtil'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                    else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 col-sm-6 col-12">
+                                                                                            <button type="button" class="btn btn-permisos">
+                                                                                                <div class="info-box">
+                                                                                                    <span class="info-box-icon bg-secondary"><i class="fa-solid fa-eye"></i></span>
+                                                                                                    <div class="info-box-content">
+                                                                                                        <span class="info-box-text">5.1.7 Ver Tabla Proyecto Extra</span>
+                                                                                                        <span class="info-box-text"> <input type="checkbox" name="verTablaRegProyExtra" id="verTablaRegProyExtra" data-toggle="toggle" data-on="Activo" data-off="Inactivo" data-width="100" data-height="10" data-onstyle="success" data-offstyle="danger" name="status" id="status" value="1" <?php if ($rowPer['verTablaRegProyExtra'] == 1) echo 'checked';
+                                                                                                                                                                                                                                                                                                                                                                                                else echo ''; ?>></span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </button>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
-                                                                            </button>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>

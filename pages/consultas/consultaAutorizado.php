@@ -114,10 +114,10 @@ while ($row = $resultado->fetch_assoc()) {
 	}
 
 	// 4.1.4.1 Regresar de Autorizado a Pre-Autorizado
-	if ($super == 1 or $regresarPreAuto == 1) {
+	if ($super == 1 or $regresarPreAutizacion == 1) {
 		$outputBtns7 = "<a href='#' class='btn btn-secondary' onclick='abrirModal7(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\",\"".$id_autorizado."\")'><i class='fa-solid fa-reply'></i></a>";
 	} else {
-		$outputBtns7 = "<a class='btn btn-outline-danger' id='regresarPreAuto' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-reply'></i></a>";
+		$outputBtns7 = "<a class='btn btn-outline-danger' id='regresarPreAutizacion' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-reply'></i></a>";
 	}
 
 	// 4.1.4.2 Enviar de Autorizado a Proceso de Surtido de Piezas

@@ -2,11 +2,11 @@
 require '../components/queryDomPdf.php';
 ?>
 <!-- Modal  style="max-width: 1250px!important;"  -->
-<div class="modal fade" id="modal-verGralProyExtra" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modal-verGralProyExtraUtil" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">5.1.5 Ver Generales Proyecto Extra</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle"> Ver Generales Proyecto Extra Utilizado</h5>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>
             </div>
             <!-- consulta sql -->
@@ -16,16 +16,72 @@ require '../components/queryDomPdf.php';
             $query = "SELECT P.id_proyecto, P.nProyecto, 
             PE.descVentaProyExtra, PE.linkAutorWhats, PE.fecha_creacion, PE.valorProyExtra,
             S.semana,
-            U.nombres, U.aPaterno, U.aMaterno
+            U.nombres, U.aPaterno, U.aMaterno,
+            PEU.folioProyExtraUtil, PEU.semProyExtraUtil, PEU.fecha_creacion AS fechaUtil,
+            UU.nombres AS nomU, UU.aPaterno AS patU, UU.aMaterno AS matU
             FROM proyectos P
             INNER JOIN proyextras PE ON P.id_proyecto = PE.id_proyecto
             INNER JOIN semanasolalta S ON PE.id_semSolAlta = S.id_semSolAlta
+            INNER JOIN proyextrasutil PEU ON PE.id_proyExtra = PEU.id_proyExtra
             INNER JOIN usuarios U ON PE.id_capC = U.id_usuario
-            WHERE P.id_proyecto = $id_proyecto";
+            INNER JOIN usuarios UU ON PEU.id_capC = UU.id_usuario
+            WHERE PE.id_proyecto = $id_proyecto AND PEU.id_proyExtra = $id_proyExtra";
             $respuesta = mysqli_query($conexion, $query);
             $row = $respuesta->fetch_assoc();
             ?>
             <div class="card-body">
+            <div class="card card-secondary card-outline collapsed-card">
+                    <div class="card-header">
+                        <h2 class="card-title"><strong>Proyecto Extra Utilizado</strong></h2>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool text-dark " data-card-widget="collapse">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <div class='col-md-5 col-sm-12 my-5 form-group'>
+                                <div class='input-group form-floating'>
+                                    <div class='input-group-prepend'>
+                                        <span class='input-group-text'><i class='fa-solid fa-hashtag'></i></span>
+                                    </div>
+                                    <input type='text' class='form-control' value='<?php echo $row['folioProyExtraUtil'] ?>' disabled readonly>
+                                    <label for='floatingInput' class='pl-5'>Núm Folio: Proyecto Extra Utilizado</label>
+                                </div>
+                            </div>
+                            <div class='col-md-5 col-sm-12 my-5 form-group'>
+                                <div class='input-group form-floating'>
+                                    <div class='input-group-prepend'>
+                                        <span class='input-group-text'><i class='fa-solid fa-calendar-check'></i></span>
+                                    </div>
+                                    <input name='' id='' type='text' class='form-control' value='<?php echo $row['semProyExtraUtil'] ?>' disabled readonly>
+                                    <label for='floatingInput' class='pl-5'>Semana: Proyecto Extra Utilizado</label>
+                                </div>
+                            </div>
+
+                            <div class='col-md-5 col-sm-12 my-5 form-group'>
+                                <div class='input-group form-floating'>
+                                    <div class='input-group-prepend'>
+                                        <span class='input-group-text'><i class='fa-solid fa-user'></i></span>
+                                    </div>
+                                    <input type='text' class='form-control' value='<?php echo $row['nomU'] . ' ' . $row['patU'] . ' ' . $row['matU'] ?>' disabled readonly>
+                                    <label for='floatingInput' class='pl-5'>Capturista: Proyecto Extra Utilizado</label>
+                                </div>
+                            </div>
+                            <div class='col-md-5 col-sm-12 my-5 form-group'>
+                                <div class='input-group form-floating'>
+                                    <div class='input-group-prepend'>
+                                        <span class='input-group-text'><i class='fa-solid fa-calendar-check'></i></span>
+                                    </div>
+                                    <input name='' id='' type='text' class='form-control' value='<?php echo (empty($row['fechaUtil'])) ? 'Sin Registro' : $row['fechaUtil'] ?>' disabled readonly>
+                                    <label for='floatingInput' class='pl-5'>Fecha Registro: Proyecto Extra Utilizado</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="card card-secondary card-outline collapsed-card">
                     <div class="card-header">
                         <h2 class="card-title"><strong>Proyecto Extra</strong></h2>

@@ -19,7 +19,7 @@ if ($super == 1 or $verTablaVerifDiaBat == 1) {
 	LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
 	LEFT JOIN asesores ASE ON CA.id_asesor = ASE.id_asesor
 	LEFT JOIN incidencias I ON VD.id_verifDiaBat = I.id_verifDiaBat
-	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 OR P.registroSolicitud = 1 OR P.altaProyecto GROUP BY P.id_proyecto  
+	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 OR P.registroSolicitud = 1 OR P.altaProyecto = 1 GROUP BY P.id_proyecto  
 ORDER BY P.nProyecto DESC";
 } else {
 	$query = "SELECT id_proyecto FROM proyectos WHERE id_proyecto = 0";

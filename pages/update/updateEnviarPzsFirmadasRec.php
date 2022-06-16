@@ -56,7 +56,7 @@ if ($linkDocumento == '') {
         $resultado1 = mysqli_query($conexion, $query1);
         // var_dump($query1);
 
-        $query2 = "INSERT INTO pzsfirmadasrec(id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_proyecto, nProyecto, comenPzsFirmadasRec, linkDocumento, cronoPzsFirmadasRec, fecha_creacion, id_capC) VALUES ( '$id_recPzsDanadas', '$id_solPzsDanadas', '$id_regCompraInicial', '$id_proyecto', '$nProyecto', '$comenPzsFirmadasRec', '$linkDocumento', '$cronoPzsFirmadasRec', '$date', '$id')";
+        $query2 = "INSERT INTO pzsfirmadasrec(id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_pzsEntregadas, id_proyecto, nProyecto, comenPzsFirmadasRec, linkDocumento, cronoPzsFirmadasRec, fecha_creacion, id_capC) VALUES ( '$id_recPzsDanadas', '$id_solPzsDanadas', '$id_regCompraInicial', '$id_pzsEntregadas', '$id_proyecto', '$nProyecto', '$comenPzsFirmadasRec', '$linkDocumento', '$cronoPzsFirmadasRec', '$date', '$id')";
         $resultado2 = mysqli_query($conexion, $query2);
         // var_dump($query2);
 

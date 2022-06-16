@@ -2,7 +2,7 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>CRUD Semanas de Solicitud de Alta | <?php echo $nomComp ?></title>
+<title>CRUD Semanas de Solicitud de Alta y Proyectos Extras | <?php echo $nomComp ?></title>
 <script>
     function abrirModal(id_semSolAlta, semana) {
         $("#btnModal-eliminarSemanaSolAlta").click();
@@ -24,10 +24,10 @@ require '../components/head-dataTables.php';
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row my-3 mx-1">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">Tabla 1.6.3 Semanas de Solicitud de Alta</h1>
+                        <div class="col-sm-8">
+                            <h1 class="m-0">Tabla 1.6.3 Semanas de Solicitud de Alta y Proyectos Extras</h1>
                         </div>
-                        <div class="col-sm-6 ">
+                        <div class="col-sm-4">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
                         </div>
                     </div>
@@ -37,16 +37,16 @@ require '../components/head-dataTables.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-md-4 col-sm-12">
+                        <div class="col-md-6 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Semanas de Solicitud de Alta </h3>
+                                    <h3 class="card-title">Semanas de Solicitud de Alta y Proyectos Extras</h3>
                                     <div class="card-tools">
 
                                         <?php if ($super == 1 or $regSemSolAlta == 1) {
-                                            echo '<a type="button" class="btn btn-secondary" href="../adds/formAddSemanaSolAlta.php" data-toggle="tooltip" data-placement="left" title="1.6.3.1 Registro Semana Solicitud de Alta"><i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp; Registro Semana Solicitud de Alta</a>';
+                                            echo '<a type="button" class="btn btn-secondary" href="../adds/formAddSemanaSolAlta.php" data-toggle="tooltip" data-placement="left" title="1.6.3.1 Registro Semana Solicitud de Alta y Proyectos Extras"><i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp; Registro Semana Solicitud de Alta y Proyectos Extras</a>';
                                         } else {
-                                            echo '<a type="button" class="btn btn-outline-danger" id="regSemSolAlta" data-toggle="tooltip" data-placement="left" title="1.6.3.1 Registro Semana Solicitud de Alta"><i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp; Registro Semana Solicitud de Alta</a>';
+                                            echo '<a type="button" class="btn btn-outline-danger" id="regSemSolAlta" data-toggle="tooltip" data-placement="left" title="1.6.3.1 Registro Semana Solicitud de Alta"><i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp; Registro Semana Solicitud de Alta y Proyectos Extras</a>';
                                         }
                                         ?>
 
@@ -79,7 +79,7 @@ require '../components/head-dataTables.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Semana de Solicitud de Alta</th>
+                                                <th>Semana de Solicitud de Alta y Proyectos Extras</th>
                                                 <th>Eliminar</th>
                                             </tr>
                                         </thead>
@@ -95,7 +95,7 @@ require '../components/head-dataTables.php';
                                                         echo $cont;
                                                         ?>
                                                     </td>
-                                                    <td>
+                                                    <td style="text-align:center; font-weight:bold">
                                                         <?php echo $row['semana'] ?>
                                                     </td>
                                                     <td class="row justify-content-center">

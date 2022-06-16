@@ -140,7 +140,7 @@ while ($row = $resultado->fetch_assoc()) {
 
 	// 4.1.6.4 Ver Generales Piezas Entregadas
 	if ($super == 1 or $verGralPzsEntregadas == 1) {
-		$outputBtns15 = "<a href='javascript:void(0)' class='btn btn-secondary' onclick='mostarDetalles4(\"" . $row['id_proyecto'] . "\")'><i class='fa-solid fa-eye'></i></a>";
+		$outputBtns15 = "<a href='javascript:void(0)' class='btn btn-secondary' onclick='mostarDetalles4(\"" . $row['id_proyecto'] . "\",\"".$row['id_pzsEntregadas']."\")'><i class='fa-solid fa-eye'></i></a>";
 	} else {
 		$outputBtns15 = "<a class='btn btn-outline-danger' id='verGralPzsEntregadas' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-eye'></i></a>";
 	}

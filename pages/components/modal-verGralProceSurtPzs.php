@@ -8,15 +8,16 @@ require '../components/fechaEs.php';
             <!-- consulta sql -->
             <?php
             $id_proyecto = $_REQUEST['id_proyecto'];
+            $id_AutoProceSurtPz = $_REQUEST['id_AutoProceSurtPz'];
             $query = "SELECT P.id_proyecto, P.nProyecto,
-            A.comenProceSurtPz, A.fecha_creacion,
+            A. id_AutoProceSurtPz, A.comenProceSurtPz, A.fecha_creacion,
             U.nombres, U.aPaterno, U.aMaterno,
             AU.folio_autoriz
             FROM proyectos P 
             INNER JOIN autoprocesurtpzs A ON P.id_proyecto = A.id_proyecto
             INNER JOIN usuarios U ON A.id_capC = U.id_usuario
             INNER JOIN autorizados AU ON A.id_proyecto = AU.id_proyecto
-            WHERE P.id_proyecto = $id_proyecto AND A.borrado = 0;";
+            WHERE P.id_proyecto = $id_proyecto AND A.id_AutoProceSurtPz = $id_AutoProceSurtPz AND  A.borrado = 0;";
             $resultado = mysqli_query($conexion, $query);
             $row = $resultado->fetch_assoc();
             ?>

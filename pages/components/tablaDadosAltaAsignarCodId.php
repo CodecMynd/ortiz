@@ -120,10 +120,11 @@ require '../components/head-dataTables.php';
     // Scripts principales
     require '../components/scripts-main.php';
     // Scripts dataTables
-    require '../components/scripts-dataTables.php';
+    require '../ajax/plugins-datatable.php';
     ?>
     <!-- avisos -->
     <script src="../../src/js/toastr.js"></script>
+    <script src="../ajax/tablaDadosAltaAsignarCodId.js"></script>
 </body>
 
 </html>

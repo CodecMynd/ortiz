@@ -58,7 +58,7 @@
                                                                                                                                                             } else {
                                                                                                                                                                 echo 'text-dark ';
                                                                                                                                                             } ?> " style="padding-left: 5px;padding-right: 5px;">1.0 Catálogos  </a>
-                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style="columns:1; width: 165%;">
+                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style="columns:1; width: 195%;">
                         <li><a href="../admin/crudUsuarios.php" class="dropdown-item">1.1 Usuarios </a></li>
                         <li><a href="../admin/crudMarcas.php" class="dropdown-item">1.2 Marcas </a></li>
                         <li><a href="../admin/crudModelos.php" class="dropdown-item">1.3 Modelos </a></li>
@@ -69,7 +69,7 @@
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                                 <li><a href="../admin/crudSemanas.php" class="dropdown-item">1.6.1 Semanas de Alta</a></li>
                                 <li><a href="../admin/crudSemanasCobro.php" class="dropdown-item">1.6.2 Semanas de Cobro </a></li>
-                                <li><a href="../admin/crudSemanasSolAlta.php" class="dropdown-item">1.6.3 Semanas Solicitud de Alta </a></li>
+                                <li><a href="../admin/crudSemanasSolAlta.php" class="dropdown-item">1.6.3 Semanas Solicitud Alta y P. Extras </a></li>
                             </ul>
                         </li>
                         <li><a href="../admin/crudAgentes.php" class="dropdown-item">1.7 Agentes</a></li>
@@ -170,7 +170,7 @@
                         <li class="dropdown-submenu dropdown-hover">
                             <a id="dropdownSubMenu1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">2.10 Solicitudes de Cambio</a>
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                                <li><a href="../admin/crudSolicitudAutorizDescuentos.php" class="dropdown-item">2.10.1 Autorización Descuentos </a></li>
+                                <li><a href="../admin/crudSolicitudAutorizDescuentos.php" class="dropdown-item ">2.10.1 Solicitud Cambio Valor Alta </a></li>
                             </ul>
                         </li>
                     </ul>

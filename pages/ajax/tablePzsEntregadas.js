@@ -1,5 +1,5 @@
-function mostarDetalles4(id_proyecto) {
-    var ruta = '../components/modal-verGralPzasEntregadas.php?id_proyecto=' + id_proyecto;
+function mostarDetalles4(id_proyecto, id_pzsEntregadas) {
+    var ruta = '../components/modal-verGralPzasEntregadas.php?id_proyecto=' + id_proyecto + '&id_pzsEntregadas=' + id_pzsEntregadas;
     $.get(ruta, function (data) {
         $('#divModalPzasEntregadas').html(data);
         $('#modal-verGralPzasEntregadas').modal('show');

@@ -9,7 +9,7 @@ if ($super == 1 or $verTablaSuperSurtPzs == 1) {
 	SP.folio_solicitud, MIN(SP.borrado) AS solBorrado, MAX(SP.enUso) AS solEnUso, SP.folio_solicitud, SP.id_solPzsDanadas,
     RC.precio, RC.modalidadPago, RC.id_regCompraInicial,
 	ASE.asesor, TAR.tecArmador,
-    PA.cronoPreAuto, PA.fecha_creacion AS fechaRegPreAuto,
+    PA.id_preAutorizado, PA.cronoPreAuto, PA.fecha_creacion AS fechaRegPreAuto,
     AU.folio_autoriz, AU.id_autorizado, AU.cronoAutorizado,
     PE.id_pzsEntregadas, PE.folioPzsSurtida,
 	PF.id_pzsFirmadasRec, PF.cronoPzsFirmadasRec,
@@ -132,7 +132,7 @@ while ($row = $resultado->fetch_assoc()) {
 
 	// 4.1.8.2 Ver Generales Supervisión de Surtido de Piezas
 	if ($super == 1 or $verGralPzsFirmadasRec == 1) {
-		$outputBtns20 = "<a href='javascript:void(0)' class='btn btn-secondary' onclick='mostarDetalles6(\"" . $row['id_proyecto'] . "\")'><i class='fa-solid fa-eye'></i></a>";
+		$outputBtns20 = "<a href='javascript:void(0)' class='btn btn-secondary' onclick='mostarDetalles6(\"" . $row['id_proyecto'] . "\",\"" . $row['id_preAutorizado'] . "\",\"" . $row['id_pzsEntregadas'] . "\",\"" . $row['id_pzsFirmadasRec'] . "\")'><i class='fa-solid fa-eye'></i></a>";
 	} else {
 		$outputBtns20 = "<a class='btn btn-outline-danger' id='verGralPzsFirmadasRec' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-eye'></i></a>";
 	}

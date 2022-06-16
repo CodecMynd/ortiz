@@ -55,14 +55,14 @@ $resultSemanas = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion)
 // $resultTM4 = mysqli_query($conexion, $queryTM4) or die(mysqli_error($conexion));
 
 
-// // Query Registro de folio registrosolicitud
-// $queryP = 'SELECT MAX(id_regSolicitud) + 1 FROM registrosolicitudbitacora';
-// $result = mysqli_query($conexion,  $queryP);
-// $rowp = mysqli_fetch_row($result);
+// Query Registro de folio registrosolicitud
+$queryP = 'SELECT MAX(id_cambioAutorizDescuento ) + 1 FROM cambioautorizdescuento';
+$result = mysqli_query($conexion,  $queryP);
+$rowp = mysqli_fetch_row($result);
 
 // // Prefijo folio
-// $text = "Solicitud_Alta-00";
-// $folio = $text . '' . $rowp[0];
+$text = "Cambio_Valor_Alta-00";
+$folioCambioValAlta = $text . '' . $rowp[0];
 
 
 $id_regSolicitud = $row['id_regSolicitud'];
@@ -104,7 +104,6 @@ if ($respuesta->num_rows  > 0) {
                 <div class='row justify-content-center'>
                     <input name='id_proyecto' id='id_proyecto' type='hidden' value='{$id_proyecto}'>
                     <input name='id_regSolicitud' id='id_regSolicitud' type='hidden' value='{$id_regSolicitud}'>
-                    <input name='folioRegSolicitud' id='folioRegSolicitud' type='hidden' value='{$folioRegSolicitud}'>
                     <div class='col-md-3 col-sm-12  form-group'>
                         <div class='input-group form-floating '>
                             <div class='input-group-prepend'>
@@ -216,32 +215,6 @@ if ($respuesta->num_rows  > 0) {
                 </div>
                 <div class='col-md-12 col-sm-12 my-1'>
                     <div class='row justify-content-center'>
-                        <div class='col-md-3 col-sm-12 my-1'>
-                            <div class='input-group form-floating mb-3'>
-                                <div class='input-group-prepend'>
-                                    <span class='input-group-text mt-2'>
-                                        <i class='fa-solid fa-money-bill-1-wave'></i>
-                                    </span>
-                                </div>
-                                <input name='valorVenta' id='valorVenta' type='text' class='form-control' placeholder='Valor Venta Inicial' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Inicial' value='{$valorVenta}' readonly>
-                                <label for='floatingInput' class='pl-5'>*Valor Venta Inicial </label>
-                            </div>
-                        </div>
-                        <div class='col-md-2 col-sm-12 my-1'>
-                            <div class='input-group form-floating mb-3'>
-                                <div class='input-group-prepend'>
-                                    <span class='input-group-text mt-2'>
-                                        <i class='fa-solid fa-money-bill-1-wave'></i>
-                                    </span>
-                                </div>
-                                <input name='valorVentaAlta' id='currency1' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Alta' autofocus value='{$valorVentaAlta}' readonly>
-                                <label for='floatingInput' class='pl-5'>*Valor Venta Alta</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class='col-md-12 col-sm-12 my-1'>
-                    <div class='row justify-content-center'>
                         <div class='col-md-4 col-sm-12 my-1'>
                             <div class='form-group-input' style='border: 1px solid #CED4DA;'>
                                 <label class='ml-5 mb-2'>*Observación Inspección de Control de Calidad</label>
@@ -270,13 +243,13 @@ if ($respuesta->num_rows  > 0) {
                         </div>
                         <div class='col-md-4 col-sm-12 my-1'>
                             <div class='form-group-input' style='border: 1px solid #CED4DA;'>
-                                <label class='ml-5 mb-2'>*Descripción Final de Servicio Realizado al Vehículo</label>
+                                <label class='ml-5 mb-2'>*Descripción Final de Servicio Realizado </label>
                                 <span data-toggle='tooltip' title='max. 300 caracteres'>
                                     <div class='input-group'>
                                         <div class='input-group-prepend'>
                                             <span class='input-group-text'><i class='fa-solid fa-comment'></i></span>
                                         </div>
-                                        <textarea name='descripcionFinal' id='descripcionFinal' class='form-control' rows='4' placeholder='Agrega Descripción Final de (los) Servicio(s) Realizado(s) al Vehículo' maxlength='300' readonly>{$descripcionFinal}</textarea>
+                                        <textarea name='descripcionFinal' id='descripcionFinal' class='form-control' rows='5' placeholder='Agrega Descripción Final de (los) Servicio(s) Realizado(s) al Vehículo' maxlength='300' readonly>{$descripcionFinal}</textarea>
                                     </div>
                                 </span>
                             </div>
@@ -295,7 +268,7 @@ if ($respuesta->num_rows  > 0) {
                                         <i class='fa-solid fa-calendar-days'></i>
                                     </span>
                                 </div>
-                                <input name='valorVentaAlta' id='currency1' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Alta' autofocus value='{$tecArmador}' readonly>
+                                <input name='' id='' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Alta' autofocus value='{$tecArmador}' readonly>
                                 <label for='floatingInput' class='pl-5'>Técnico Armador</label>
                             </div>
                         </div>
@@ -306,7 +279,7 @@ if ($respuesta->num_rows  > 0) {
                                         <i class='fa-solid fa-calendar-days'></i>
                                     </span>
                                 </div>
-                                <input name='valorVentaAlta' id='currency1' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Alta' autofocus value='{$tecMontador1}' readonly>
+                                <input name='' id='' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Alta' autofocus value='{$tecMontador1}' readonly>
                                 <label for='floatingInput' class='pl-5'>Técnico Montador 1</label>
                             </div>
                         </div>
@@ -317,7 +290,7 @@ if ($respuesta->num_rows  > 0) {
                                         <i class='fa-solid fa-calendar-days'></i>
                                     </span>
                                 </div>
-                                <input name='valorVentaAlta' id='currency1' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Alta' autofocus value='{$tecMontador2}' readonly>
+                                <input name='' id='' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Alta' autofocus value='{$tecMontador2}' readonly>
                                 <label for='floatingInput' class='pl-5'>Técnico Montador 2</label>
                             </div>
                         </div>
@@ -328,7 +301,7 @@ if ($respuesta->num_rows  > 0) {
                                         <i class='fa-solid fa-calendar-days'></i>
                                     </span>
                                 </div>
-                                <input name='valorVentaAlta' id='currency1' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Alta' autofocus value='{$tecMontador3}' readonly>
+                                <input name='' id='' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Alta' autofocus value='{$tecMontador3}' readonly>
                                 <label for='floatingInput' class='pl-5'>Técnico Montador 3</label>
                             </div>
                         </div>
@@ -339,7 +312,7 @@ if ($respuesta->num_rows  > 0) {
                                         <i class='fa-solid fa-calendar-days'></i>
                                     </span>
                                 </div>
-                                <input name='valorVentaAlta' id='currency1' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Alta' autofocus value='{$tecMontador4}' readonly>
+                                <input name='' id='' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Alta' autofocus value='{$tecMontador4}' readonly>
                                 <label for='floatingInput' class='pl-5'>Técnico Montador 4</label>
                             </div>
                         </div>
@@ -347,53 +320,75 @@ if ($respuesta->num_rows  > 0) {
                 </div>
 
                 <div class='col-md-12 col-sm-12 my-2 py-1' style='border: 2px solid #CED4DA;'>
-                    <div class='row justify-content-center'>
-                        <div class='col-md-12 col-sm-12 text-center py-3'>
-                            <h5> <strong> Registro Para Solicitar Cambio Semana Solicitud de Alta</strong></h5>
-                        </div>
-                        <div class='col-md-4 col-sm-12 my-1'>
-                            <div class='input-group form-floating mb-3'>
-                                <div class='input-group-prepend'>
-                                    <span class='input-group-text mt-2'>
-                                        <i class='fa-solid fa-calendar-days'></i>
-                                    </span>
+                    <div class='col-md-12 col-sm-12 text-center py-3'>
+                        <h5><strong>Registro Para Solicitar Cambio Valor Alta</strong></h5>
+                    </div>
+                    <div class='col-md-12 col-sm-12 my-1'>
+                        <div class='row justify-content-center'>
+                            <div class='col-md-4 col-sm-12 my-1'>
+                                <div class='input-group form-floating mb-3'>
+                                    <div class='input-group-prepend'>
+                                        <span class='input-group-text'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                                    </div>
+                                    <input name='folioCambioValAlta' id='folioCambioValAlta' type='text' class='form-control' placeholder='Número de proyecto ' required maxlength='15' data-toggle='tooltip'     data-placement='bottom' title='Número de Folio' value='{$folioCambioValAlta}' readonly>
+                                    <label for='floatingInput' class='pl-5'>*Núm. de Folio Cambio Valor Alta</label>
                                 </div>
-                                <input name='semanaActual' id='semanaActual' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Alta' autofocus value='{$semanaSolAlta}' readonly>
-                                <label for='floatingInput' class='pl-5 parpadea'>Semana de Solicitud de Alta (Actual)</label>
+                            </div>
+                            <div class='col-md-3 col-sm-12 my-1'>
+                                <div class='input-group form-floating mb-3'>
+                                    <div class='input-group-prepend'>
+                                        <span class='input-group-text mt-2'>
+                                            <i class='fa-solid fa-money-bill-1-wave'></i>
+                                        </span>
+                                    </div>
+                                    <input name='valorVenta' id='valorVenta' type='text' class='form-control' placeholder='Valor Venta Inicial' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Inicial' value='{$valorVenta}' readonly>
+                                    <label for='floatingInput' class='pl-5'>*Valor Venta Inicial</label>
+                                </div>
+                            </div>
+                            <div class='col-md-3 col-sm-12 my-1'>
+                                <div class='input-group form-floating mb-3'>
+                                    <div class='input-group-prepend'>
+                                        <span class='input-group-text mt-2'>
+                                            <i class='fa-solid fa-money-bill-1-wave parpadea'></i>
+                                        </span>
+                                    </div>
+                                    <input name='valorVentaAltaActual' id='valorVentaAltaActual' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Alta' autofocus value='{$valorVentaAlta}' readonly>
+                                    <label for='floatingInput' class='pl-5'>*Valor Venta Alta <small>(Actual)</small></label>
+                                </div>
                             </div>
                         </div>
-
-                        <div class='col-md-4 col-sm-12 mb-2 form-group'>
-                            <div class='input-group'>
-                                <label for='color' class='pl-5 parpadea'>Semana de Solicitud de Alta (Por Asignar)</label>
-                                <select name='id_semSolAlta' id='id_semSolAlta' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Semana de la lista' style='width: 100%;' required>
-                                    <option selected disabled>Selecciona</option>";
-
-                                    while ($rowSemanas = $resultSemanas->fetch_assoc()) {
-                                    $id_semSolAlta = $rowSemanas['id_semSolAlta'];
-                                    $semana = $rowSemanas['semana'];
-                                    $output .= " <option value=$id_semSolAlta> $semana </option>";
-                                    }
-                                    $output .= "
-                                </select>
+                    </div>
+                    <div class='col-md-12 col-sm-12 my-1'>
+                        <div class='row justify-content-center'>
+                            <div class='col-md-3 col-sm-12 my-1'>
+                                <div class='input-group form-floating mb-3'>
+                                    <div class='input-group-prepend'>
+                                        <span class='input-group-text mt-2'>
+                                            <i class='fa-solid fa-money-bill-1-wave parpadea'></i>
+                                        </span>
+                                    </div>
+                                    <input name='valorVentaAltaAsignado' id='currency1' type='text' class='form-control' placeholder='Ingresa Valor Venta Alta' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Valor Venta Alta' autofocus>
+                                    <label for='floatingInput' class='pl-5'>*Valor Venta Alta <small>(Por Asignar)</small></label>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                    <div class='row justify-content-center'>
                         <div class='col-md-12 col-sm-12 my-1'>
                             <div class='form-group-input' style='border: 1px solid #CED4DA;'>
-                                <label class='ml-5 mb-2 parpadea'>¿Motivo del Cambio?</label>
+                                <label class='ml-5 mb-2 parpadea'>¿Motivo de la Solicitud?</label>
                                 <span data-toggle='tooltip' title='max. 200 caracteres'>
                                     <div class='input-group'>
                                         <div class='input-group-prepend'>
                                             <span class='input-group-text'><i class='fa-solid fa-comment'></i></span>
                                         </div>
-                                        <textarea name='motivo' id='motivo' class='form-control' rows='2' placeholder='Agrega alguna breve Descripción del motivo del cambio' maxlength='200'> </textarea>
+                                        <textarea name='motivo' id='motivo' class='form-control' rows='2' placeholder='Agrega alguna breve Descripción del motivo del la Solicitud' maxlength='200'> </textarea>
                                     </div>
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class='col-12'>
                     <hr>
                 </div>
@@ -420,7 +415,7 @@ if ($respuesta->num_rows  > 0) {
         <div class='card-footer border-footer'>
             <div class='row'>
                 <div class='col-md-2 col-sm-12 align-self-center'>
-                    <buttom type='button' id='btnNuevoSolCamSemanaSolAltas' class='btn btn-secondary btn-block btnNuevoUsuario' data-toggle='tooltip' data-placement='bottom' title='Guardar '><i class='fas fa-pen'></i>Guardar</buttom>
+                    <buttom type='button' id='btnNuevoSolAutorizDescuento' class='btn btn-secondary btn-block btnNuevoUsuario' data-toggle='tooltip' data-placement='bottom' title='Guardar '><i class='fas fa-pen'></i>Guardar</buttom>
                 </div>
                 <div class='col-md-2 col-sm-12 align-self-center'>
                     <a href='javascript:history.go(-1)' class='btn btn-secondary btn-block' data-toggle='tooltip' data-placement='bottom' title='Regresar página anterior'><i class='fa-solid fa-arrow-left'></i>
@@ -430,7 +425,7 @@ if ($respuesta->num_rows  > 0) {
                 <a href='javascript:location.reload()' class='btn btn-secondary btn-inline' data-toggle='tooltip' data-placement='bottom' title='Actualizar página'><i class='fa-solid fa-arrows-rotate'></i></a>
                 <br>
                 <div class='col-md-12 col-sm-12 align-self-center mt-2'>
-                    <div id='respuestaSolCamSemanaSolAltas'></div>
+                    <div id='respuestaSolAutorizDescuento'></div>
                 </div>
             </div>
         </div>
@@ -446,23 +441,23 @@ if ($respuesta->num_rows  > 0) {
 ?>
 <script>
     $(document).ready(function() {
-        $('#btnNuevoSolCamSemanaSolAltas').click(function() {
+        $('#btnNuevoSolAutorizDescuento').click(function() {
             $.ajax({
-                    url: 'addNuevaSolCamSemanaSolAltas.php',
+                    url: 'addNuevaSolCamAutorizDescuento.php',
                     type: 'POST',
-                    data: $('#formNuevoSolCamSemanaSolAltas').serialize(),
+                    data: $('#formNuevoSolAutorizDescuento').serialize(),
 
                 })
                 .done(function(res) {
-                    $('#respuestaSolCamSemanaSolAltas').html(res)
+                    $('#respuestaSolAutorizDescuento').html(res)
                 })
         });
     });
     //Ocultar boton por 5 minutos para evitar el doble submit
-    $("#btnNuevoSolCamSemanaSolAltas").on('click', function() {
-        $("#btnNuevoSolCamSemanaSolAltas").css('visibility', 'hidden');
+    $("#btnNuevoSolAutorizDescuento").on('click', function() {
+        $("#btnNuevoSolAutorizDescuento").css('visibility', 'hidden');
         setTimeout(function() {
-            $("#btnNuevoSolCamSemanaSolAltas").css('visibility', 'visible');
+            $("#btnNuevoSolAutorizDescuento").css('visibility', 'visible');
         }, 180000);
     });
 

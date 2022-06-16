@@ -16,6 +16,7 @@ $id_recPzsDanadas = $_POST['id_recPzsDanadas10'];
 $id_solPzsDanadas = $_POST['id_solPzsDanadas10'];
 $id_regCompraInicial = $_POST['id_regCompraInicial10'];
 $id_autorizado = $_POST['id_autorizado10'];
+$id_AutoProceSurtPz = $_POST['id_AutoProceSurtPz10'];
 
 $query = "SELECT folio_autoriz FROM autorizados WHERE id_autorizado = $id_autorizado";
 $respuesta = mysqli_query($conexion, $query);
@@ -44,8 +45,8 @@ try {
     $resultado1 = mysqli_query($conexion, $query1);
     // var_dump($query1);
 
-    $query2 = "INSERT INTO pzstregadas(id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_proyecto, nProyecto, comenPzsEntregadas, folioPzsSurtida, fecha_creacion, id_capC) 
-                                VALUES ('$id_recPzsDanadas', '$id_solPzsDanadas', '$id_regCompraInicial', '$id_proyecto', '$nProyecto', '$comenPzsEntregadas', '$folioPzsSurtida', '$date', '$id')";
+    $query2 = "INSERT INTO pzstregadas(id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_AutoProceSurtPz, id_proyecto, nProyecto, comenPzsEntregadas, folioPzsSurtida, fecha_creacion, id_capC) 
+                                VALUES ('$id_recPzsDanadas', '$id_solPzsDanadas', '$id_regCompraInicial','$id_AutoProceSurtPz', '$id_proyecto', '$nProyecto', '$comenPzsEntregadas', '$folioPzsSurtida', '$date', '$id')";
     $resultado2 = mysqli_query($conexion, $query2);
     // var_dump($query2); 
 

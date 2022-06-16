@@ -17,7 +17,7 @@ require '../components/head-main.php';
     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">4.2.2 Ver Generales Solicitud de Piezas Adicionales</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">4.2.5 Ver Generales Solicitud de Piezas Adicionales</h5>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>
             </div>
             <!-- consulta sql -->
@@ -98,7 +98,7 @@ require '../components/head-main.php';
                 $resultado = mysqli_query($conexion, $query);
                 ?>
                 <div class="container">
-                    <table id="tableVarios1" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                    <table id="tableVerGralRegSolPzsAdicionales" class="table table-sm table-bordered table-striped" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>Núm. Proyecto</th>

@@ -21,7 +21,6 @@ $('#btnRegresarCotizando').click(function () {
         })
 });
 
-
 //Ocultar boton por 3 minutos para evitar el doble submit
 $("#btnRegresarCotizando").on('click', function () {
     $("#btnRegresarCotizando").css('visibility', 'hidden');

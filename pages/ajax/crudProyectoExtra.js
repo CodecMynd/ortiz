@@ -1,32 +1,137 @@
+function mostarDetalles(id_proyecto, id_proyExtra) {
+    var ruta = '../components/modal-verGralProyExtra.php?id_proyecto=' + id_proyecto + '&id_proyExtra=' + id_proyExtra;
+    $.get(ruta, function (data) {
+        $('#divModal').html(data);
+        $('#modal-verGralProyExtra').modal('show');
+    });
+}
 
-    // 2.5.2 Eliminar Registro Alta Proyecto
-    $('#btnDeleteProyExtra').click(function() {
-        var param = $('#formDeleteProyExtra').serialize();
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//5.1.3 Registrar Supervisión Proyecto Extra
+$('#btnNuevoSuperProyExtra').click(function () {
+    var param = $('#formNuevoSuperProyExtra').serialize();
+    $.ajax({
+            url: '../adds/addNuevoRegSuperProyExtra.php',
+            cache: false,
+            type: 'POST',
+            data: param,
+
+            success: function (vs) {
+                $('#formNuevoSuperProyExtra')[0].reset();
+                setTimeout(function () {
+                    $('.regSuperProyExtra').modal('hide');
+                }, 1000);
+                tableProyExtra.ajax.reload(null, false)
+            }
+        })
+        .done(function (res) {
+            $('#respuestaSuperProyExtra').html(res)
+        })
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnNuevoSuperProyExtra").on('click', function () {
+    $("#btnNuevoSuperProyExtra").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnNuevoSuperProyExtra").css('visibility', 'visible');
+    }, 5000);
+});
+
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//  5.1.4 Eliminar Supervisión Proyecto Extra
+$('#btnDeleteSuperProyExtra').click(function () {
+    var param = $('#formDeleteSuperProyExtra').serialize();
+    $.ajax({
+            url: '../delete/deleteSuperProyExtra.php',
+            cache: false,
+            type: 'POST',
+            data: param,
+
+            success: function (vs) {
+                $('#formDeleteSuperProyExtra')[0].reset();
+                setTimeout(function () {
+                    $('.eliminarSuperProyExtra').modal('hide');
+                }, 1000);
+                tableProyExtra.ajax.reload(null, false)
+            }
+        })
+        .done(function (res) {
+            $('#respuestaDeleteSuperProyExtra').html(res)
+        })
+});
+
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnDeleteSuperProyExtra").on('click', function () {
+    $("#btnDeleteSuperProyExtra").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnDeleteSuperProyExtra").css('visibility', 'visible');
+    }, 5000);
+});
+
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// 2.5.2 Eliminar Registro Alta Proyecto
+$('#btnDeleteProyExtra').click(function () {
+    var param = $('#formDeleteProyExtra').serialize();
+    $.ajax({
+            url: '../delete/deleteProyExtra.php',
+            cache: false,
+            type: 'POST',
+            data: param,
+
+            success: function (vs) {
+                // $('#formDeleteProyExtra')[0].reset();
+                setTimeout(function () {
+                    $('.eliminarProyExtra').modal('hide');
+                }, 1000);
+                tableProyExtra.ajax.reload(null, false)
+            }
+        })
+        .done(function (res) {
+            $('#respuestaDeleteProyExtra').html(res)
+        })
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnDeleteProyExtra").on('click', function () {
+    $("#btnDeleteProyExtra").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnDeleteProyExtra").css('visibility', 'visible');
+    }, 5000);
+});
+
+// ----------------------------------------------------------------------------------------------------------------------------
+
+    // 5.1.6 Enviar A Proyecto Extra Utilizado
+    $('#btnEnviarProyExtraUtil').click(function () {
+        var param = $('#formEnviarProyExtraUtil').serialize();
         $.ajax({
-                url: '../delete/deleteProyExtra.php',
+                url: '../update/updateEnviarProyExtraUtil.php',
                 cache: false,
                 type: 'POST',
                 data: param,
-
-                success: function(vs) {
-                    // $('#formRegresarAltaProyecto')[0].reset();
+    
+                success: function (vs) {
+                    $('#formEnviarProyExtraUtil')[0].reset();
                     setTimeout(function () {
-                        $('.eliminarProyExtra').modal('hide');
+                        $('.enviarProyExtraUtil').modal('hide');
                     }, 1000);
                     tableProyExtra.ajax.reload(null, false)
+                    tableProyExtraUtil.ajax.reload(null, false)
                 }
             })
-            .done(function(res) {
-                $('#respuestaDeleteProyExtra').html(res)
+            .done(function (res) {
+                $('#respuestaEnviarProyExtraUtil').html(res)
             })
     });
     //Ocultar boton por 5 minutos para evitar el doble submit
-    $("#btnDeleteProyExtra").on('click', function() {
-        $("#btnDeleteProyExtra").css('visibility', 'hidden');
-        setTimeout(function() {
-            $("#btnDeleteProyExtra").css('visibility', 'visible');
+    $("#btnEnviarProyExtraUtil").on('click', function () {
+        $("#btnEnviarProyExtraUtil").css('visibility', 'hidden');
+        setTimeout(function () {
+            $("#btnEnviarProyExtraUtil").css('visibility', 'visible');
         }, 5000);
     });
+
 // ----------------------------------------------------------------------------------------------------------------------------
 
 // Tabla 2.5 Alta Proyecto
@@ -61,7 +166,7 @@ var tableProyExtra = $("#tableProyExtra").DataTable({
         searchPanes: {
             show: true
         },
-        targets: [3,4,5,6,7,8,9,10,11,12,13],
+        targets: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
     }],
     "language": {
 
@@ -133,4 +238,3 @@ setInterval(function () {
     tableProyExtra.ajax.reload(null, false); // user paging is not reset on reload
 }, 180000);
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-

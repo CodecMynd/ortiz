@@ -5,7 +5,8 @@ if ($super == 1 or $verTablaRegProyExtra == 1) {
 	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado, P.proyectoActivo, P.registroSolicitud, P.altaProyecto, P.proyCodIdentificador, P.superCodIdentificador, P.proyExtra,
 	V.placa, M.marca, Mo.modelo, A.anio, Co.color,
 	PE.id_proyExtra, PE.folioProyExtra, PE.valorProyExtra, PE.linkAutorWhats, PE.borrado, PE.super AS supervision,
-    SP.textSupervision, SP.id_comSuperProyExtra
+    SP.textSupervision, SP.id_comSuperProyExtra,
+    PEU.folioProyExtraUtil, PEU.semProyExtraUtil
 	FROM proyectos P 
 	INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 	INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -14,8 +15,9 @@ if ($super == 1 or $verTablaRegProyExtra == 1) {
 	INNER JOIN anios A ON V.id_anio = A.id_anio 
 	INNER JOIN proyextras PE ON P.id_proyecto = PE.id_proyecto
     LEFT JOIN comsupervisionproyextra SP ON PE.id_proyExtra = SP.id_proyExtra
-    WHERE PE.borrado = 0 AND PE.proyExtraCapt = 1
-	ORDER BY PE.id_proyExtra DESC";
+    INNER JOIN proyextrasutil PEU ON PE.id_proyExtra = PEU.id_proyExtra
+    WHERE PEU.borrado = 0 AND PE.proyExtraUtil = 1
+	ORDER BY PE.id_proyExtra DESC ";
 } else {
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";
@@ -117,13 +119,13 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns3 = "<a href='#' class='btn btn-outline-danger' id='eliSuperProyExtra' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fas fa-trash-alt'></i></a>";
 	}
 
-	//  5.1.5 Ver Generales Proyecto Extra
+	//  5.1.5 Ver Generales Proyecto Extra Utilizado
 	if ($Eliminado == 0) {
 		$outputBtns4 = "<a class='btn btn-outline-danger' id='noComImg' data-toggle='tooltip' data-placement='left' title='Proyecto Eliminado'><i class='fa-solid fa-ban'></i></a>";
 	}else if ($super == 1) {
-		$outputBtns4 = "<a href='javascript:void(0)' class='btn btn-secondary' onclick='mostarDetalles(\"" . $row['id_proyecto'] . "\",\"" . $id_proyExtra . "\")'><i class='fa-solid fa-eye'></i></a>";
+		$outputBtns4 = "<a href='javascript:void(0)' class='btn btn-secondary' onclick='mostarDetalles2(\"" . $row['id_proyecto'] . "\",\"" . $id_proyExtra . "\")'><i class='fa-solid fa-eye'></i></a>";
 	} else if ($verGralProyExtra  == 1) {
-		$outputBtns4 = "<a href='javascript:void(0)' class='btn btn-secondary' onclick='mostarDetalles(\"" . $row['id_proyecto'] . "\",\"" . $id_proyExtra . "\")'><i class='fa-solid fa-eye'></i></a>";
+		$outputBtns4 = "<a href='javascript:void(0)' class='btn btn-secondary' onclick='mostarDetalles2(\"" . $row['id_proyecto'] . "\",\"" . $id_proyExtra . "\")'><i class='fa-solid fa-eye'></i></a>";
 	} else {
 		$outputBtns4 = "<a href='#' class='btn btn-outline-danger' id='verGralProyExtra' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-eye'></i></a>";
 	}
@@ -155,29 +157,28 @@ $datos[] = array(
 		"8" => $row['color'],
 		"9" => ($Eliminado == 0) ? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
 		"10" => $etapa,
-		"11" => ($row['borrado'] == 1) ? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
-		"12" => "<strong>{$folioProyExtra}</strong>",
-		"13" => $valorProyExtra,
-		"14" => (empty($linkAutorWhats)) ? '<h6><span class="badge badge-danger badge-pill">N/A</span></h6>' : '<h6><span class="badge badge-success badge-pill">Registrado</span></h6>',
-		"15" => ($row['textSupervision'] == 0) ? '<h6><span class="badge badge-danger badge-pill">No Supervisado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Supervisado</span></h6>',
-		"16" => "<div class='input-group input-group-sm mb-3'>
+		"11" => "<strong>{$folioProyExtra}</strong>",
+		"12" => $valorProyExtra,
+		"13" => "<strong>{$row['folioProyExtraUtil']}</strong>",
+		"14" => "<strong>{$row['semProyExtraUtil']}</strong>",
+		"15" => "<div class='input-group input-group-sm mb-3'>
 						<div class='input-group-prepend'>
 							<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Solicitud Alta'> Acciones</span>
 							</button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>
 								<li class='dropdown-item'>
 									<span data-toggle='tooltip' title='5.1.2 Elimniar Registro Proyecto Extra'>
-										" . $outputBtns1 . "
+
 									</span>
 								</li>
 								<li class='dropdown-item'>
 									<span data-toggle='tooltip' title='5.1.3 Registrar Supervisión Proyecto Extra'>
-										" . $outputBtns2 . "
+
 									</span>
 								</li>
 								<li class='dropdown-item'>
 									<span data-toggle='tooltip' title='5.1.4 Eliminar Supervisión Proyecto Extra'>
-										" . $outputBtns3 . "
+
 									</span>
 								</li>
 								<li class='dropdown-item'>
@@ -187,7 +188,7 @@ $datos[] = array(
 								</li>
 								<li class='dropdown-item'>
 									<span data-toggle='tooltip' title='5.1.6 Enviar A Proyecto Extra Utilizado'>
-										" . $outputBtns5 . "
+
 									</span>
 								</li>
 							</ul>

@@ -8,6 +8,9 @@ require '../components/fechaEs.php';
             <!-- consulta sql -->
             <?php
             $id_proyecto = $_REQUEST['id_proyecto'];
+            $id_preAutorizado = $_REQUEST['id_preAutorizado'];
+            $id_pzsEntregadas = $_REQUEST['id_pzsEntregadas'];
+            $id_pzsFirmadasRec = $_REQUEST['id_pzsFirmadasRec'];
             $query = "SELECT P.id_proyecto, P.nProyecto,
             A.comenProceSurtPz, A.fecha_creacion, 
             U.nombres, U.aPaterno, U.aMaterno,
@@ -24,7 +27,7 @@ require '../components/fechaEs.php';
             INNER JOIN autorizados AU ON A.id_proyecto = AU.id_proyecto
             INNER JOIN pzsfirmadasrec PF ON P.id_proyecto = PF.id_proyecto
             INNER JOIN usuarios UPF ON PF.id_capC = UPF.id_usuario
-            WHERE P.id_proyecto = $id_proyecto AND PF.borrado = 0";
+            WHERE P.id_proyecto = $id_proyecto AND PE.id_pzsEntregadas = $id_pzsEntregadas AND PF.id_pzsFirmadasRec = $id_pzsFirmadasRec  AND PF.borrado = 0";
             $resultado = mysqli_query($conexion, $query);
             $row = $resultado->fetch_assoc();
             ?>

@@ -6,7 +6,7 @@ require '../components/head-main.php';
     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">4.1.2 Ver Generales Recepción de Piezas Dañadas <small>(Consulta Rapida)</small></h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">4.1.3 Ver Generales Recepción de Piezas Dañadas <small>(Consulta Rapida)</small></h5>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>
             </div>
             <!-- consulta sql -->

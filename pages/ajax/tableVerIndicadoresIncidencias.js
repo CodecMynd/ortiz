@@ -1,27 +1,25 @@
-function mostrarDetalles(id_proyecto, nProyecto, id_cambioAutorizDescuento) {
-    var ruta = '../components/modal-verGralAutorizacionDescuentos.php?id_proyecto=' + id_proyecto + '&nProyecto=' + nProyecto + '&id_cambioAutorizDescuento=' + id_cambioAutorizDescuento;
-    $.get(ruta, function (data) {
-        $('#divModal').html(data);
-        $('#modal-verGralAutorizacionDescuentos').modal('show');
-    });
-}
 
-// Tabla 2.10.1 Solicitud Cambio Valor Alta
-        var tableSolAutorizDescuento = $("#tableSolAutorizDescuento").DataTable({
+
+
+        // --------------------------------------------------------------------------------------------------------------------------------------------------
+        // Tabla tablePreSelect
+        var tableVerIndicadoresIncidencias = $("#tableVerIndicadoresIncidencias").DataTable({
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
+            "stateSave": false,
             "select": true,
             "select": {
                 style: 'multi'
             },
+            "pageLength": 50,
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
-                url: "../consultas/consultaCambiarAutorizDescuento.php",
+                url: "../consultas/consultaVerIndicadoresIncidencias.php",
                 type: "get",
                 dataType: "json",
-                error: function(e) {
+                error: function (e) {
                     console.log(e.responseText);
                 }
             },
@@ -35,11 +33,16 @@ function mostrarDetalles(id_proyecto, nProyecto, id_cambioAutorizDescuento) {
                 }
             },
             "columnDefs": [{
-                searchPanes: {
-                    show: true
+                    searchPanes: {
+                        show: true
+                    },
+                    targets: [1,2],
                 },
-                targets: [2, 3, 5, 6, 7, 8, 9, 10, 11, 12,13],
-            }],
+                {
+                    targets: [],
+                    visible: false
+                }
+            ],
             "language": {
 
                 "aria": {
@@ -70,7 +73,7 @@ function mostrarDetalles(id_proyecto, nProyecto, id_cambioAutorizDescuento) {
                 "infoFiltered": "(filtrado de un total de _MAX_ registros)",
                 "infoThousands": ",",
                 "lengthMenu": "Mostrar _MENU_ registros",
-                "loadingRecords": "Cargando...",
+                "loadingRecords": "Ningún Proyecto Seleccionado",
                 "paginate": {
                     "first": "Primero",
                     "last": "Último",
@@ -85,40 +88,28 @@ function mostrarDetalles(id_proyecto, nProyecto, id_cambioAutorizDescuento) {
                 "zeroRecords": "No se encontraron coincidencias"
 
             },
-            "drawCallback": function () {
-                //alert("La tabla se está recargando"); 
-                var api2 = this.api();
-                $(api2.column(6).footer()).html(
-                    'Total: ' + api2.column(6, {
-                        page: 'current'
-                    }).data().sum()
-                )
-                var api3 = this.api();
-                $(api3.column(7).footer()).html(
-                    'Total: ' + api3.column(7, {
-                        page: 'current'
-                    }).data().sum()
-                )
-            },
-            "createdRow": function (row, data, index) {
-                if (data[6] >= '0') {
-                    $('td', row).eq(6).css({
-                        'text-align': 'center',
-                        'background-color': '#5A6268',
-                        'color': '#fff',
-                        'font-weight': 'bold'
-                    });
-                }
-                if (data[7] >= '0') {
-                    $('td', row).eq(7).css({
-                        'text-align': 'center',
-                        'background-color': '#5A6268',
-                        'color': '#fff',
-                        'font-weight': 'bold'
-                    });
-                }
-            },
+             "drawCallback": function () {
+                 //alert("La tabla se está recargando"); 
+                 var api = this.api();
+                 $(api.column(2).footer()).html(
+                     'Total: ' + api.column(2, {
+                         page: 'current'
+                     }).data().sum()
+                 )
+             },
+             "createdRow": function (row, data, index) {
+                 if (data[2] >= '0') {
+                     $('td', row).eq(2).css({
+                         'text-align': 'center',
+                         'background-color': '#5A6268',
+                         'color': '#fff',
+                         'font-weight': 'bold'
+                     });
+                 }
+             },
+
         });
-        setInterval(function() {
-            tableSolAutorizDescuento.ajax.reload(null, false); // user paging is not reset on reload
-        }, 30000);
+        setInterval(function () {
+            tableVerIndicadoresIncidencias.ajax.reload(null, false); // user paging is not reset on reload
+        }, 180000);
+        //----------------------------------------------------------------------------------------------------------------------------------------------------------------------

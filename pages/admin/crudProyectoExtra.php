@@ -3,6 +3,7 @@ require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
 <title>Crud Captura Proyectos Extras | <?php echo $nomComp ?></title>
+<link rel="stylesheet" href="../../src/css/btnRecPzsDanadas.css">
 <style>
     @media (min-width:320px) and (max-width:425px) {
         .content-header {
@@ -44,6 +45,14 @@ require '../components/head-dataTables.php';
         $("#id_comSuperProyExtra3").val(id_comSuperProyExtra);
         $("#textSupervisionText").html(textSupervision);
         $("#nProyectoText3").html(nProyecto);
+    }
+
+    function abrirModal4(id_proyecto, nProyecto, id_proyExtra) {
+        $("#btbModal-enviarProyExtraUtil").click();
+        $("#id_proyecto4").val(id_proyecto);
+        $("#nProyecto4").val(nProyecto);
+        $("#id_proyExtra4").val(id_proyExtra);
+        $("#tituloModal4").html(nProyecto);
     }
 </script>
 </head>
@@ -144,7 +153,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-footer" style="height: 50px;">
                                     <marquee width="100%" behavior="alternate">
                                         <marquee behavior="alternate">
-                                            <p>Consulta optimizada, ultima actualización: <strong>23/05/2022</strong></p>
+                                            <p>Consulta optimizada, ultima actualización: <strong>13/06/2022</strong></p>
                                         </marquee>
                                     </marquee>
                                 </div>
@@ -154,97 +163,194 @@ require '../components/head-dataTables.php';
                 </div>
             </section>
 
-            <!-- Table usuarios -->
-            <section class="content">
+            <!-- Table Proyecto Extra Capturados -->
+            <section class="content" id="ProyExtraCapturados">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
                         <div class="col-12">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Registro de Proyecto Extra</h3>
+                                    <h3 class="card-title">Registro de Proyecto Extra Capturados</h3>
                                     <div class="card-tools">
                                         <?php if ($super == 1 or $regProyExtra  == 1) {
                                             echo "<a type='button' class='btn btn-secondary' href='../adds/formRegProyectoExtra.php' data-toggle='tooltip' data-placement='left' title='5.1.1 Registro de Proyecto Extra'><i class='fa-solid fa-file-arrow-up'></i></i>&nbsp;&nbsp; Registro de Proyecto Extra</a>";
                                         } else {
                                             echo "<a type='button' class='btn btn-outline-danger' id='regProyExtra ' data-toggle='tooltip' data-placement='left' title='5.1.1 Registro de Proyecto Extra'><i class='fa-solid fa-file-arrow-up'></i></i>&nbsp;&nbsp; Registro de Proyecto Extra</a>";
                                         } ?>
+                                        <button class="btn btn-secondary" id='refresh_tableProyExtra' data-toggle="tooltip" data-placement="bottom" title="Actualizar Tabla"><i class="fa-solid fa-table"></i></button>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <?php
-                                    if ($super == 1) {
-                                    } else if ($verTablaRegProyExtra == 0) { ?>
-                                        <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
-                                        <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
-                                        <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
-                                        <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
-                                    <?php } ?>
-                                    <table id="tableProyExtra" class="display compact table-bordered table-striped" style="width: 100%;">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>ID</th>
-                                                <th>Núm. Proyecto</th>
-                                                <th>Núm. Orden</th>
-                                                <th>Marca</th>
-                                                <th>Modelo</th>
-                                                <th>Año</th>
-                                                <th>Placas</th>
-                                                <th>Color</th>
-                                                <th>Estado del Proyecto</th>
-                                                <th>Etapa del Proyecto</th>
-                                                <th>Estado Proyecto Extra</th>
-                                                <th>Núm. Folio Proyecto Extra</th>
-                                                <th>Valor Proyecto Extra</th>
-                                                <th>Link Autorización Whatsapp</th>
-                                                <th>Link de Supervisión</th>
-                                                <th>Acciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody></tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>ID</th>
-                                                <th>Núm. Proyecto</th>
-                                                <th>Núm. Orden</th>
-                                                <th>Marca</th>
-                                                <th>Modelo</th>
-                                                <th>Año</th>
-                                                <th>Placas</th>
-                                                <th>Color</th>
-                                                <th>Estado del Proyecto</th>
-                                                <th>Etapa del Proyecto</th>
-                                                <th>Estado Proyecto Extra</th>
-                                                <th>Núm. Folio Proyecto Extra</th>
-                                                <th class="suma">Valor Proyecto Extra</th>
-                                                <th>Link Autorización Whatsapp</th>
-                                                <th>Link de Supervisión</th>
-                                                <th>Acciones</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                    <button id="btbModal-eliminarProyExtra" class="btn btn-white" data-toggle="modal" data-target=".eliminarProyExtra"></button>
-                                    <button id="btbModal-regSuperProyExtra" class="btn btn-white" data-toggle="modal" data-target=".regSuperProyExtra"></button>
-                                    <button id="btbModal-eliminarSuperProyExtra" class="btn btn-white" data-toggle="modal" data-target=".eliminarSuperProyExtra"></button>
-                                    <?php
-                                    require '../components/modal-eliminarProyExtra.php';
-                                    require '../components/modal-regSuperProyExtra.php';
-                                    require '../components/modal-eliminarSuperProyExtra.php';
-                                    desconectar();
-                                    ?>
+                                    <h3 class="text-center">Tabla:<strong> 1. Proyectos Extras Capturados</strong></h4>
+                                        <?php
+                                        if ($super == 1) {
+                                        } else if ($verTablaRegProyExtra == 0) { ?>
+                                            <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
+                                            <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
+                                            <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
+                                            <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
+                                        <?php } ?>
+                                        <table id="tableProyExtra" class="display compact table-bordered table-striped" style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>ID</th>
+                                                    <th>Núm. Proyecto</th>
+                                                    <th>Núm. Orden</th>
+                                                    <th>Marca</th>
+                                                    <th>Modelo</th>
+                                                    <th>Año</th>
+                                                    <th>Placas</th>
+                                                    <th>Color</th>
+                                                    <th>Estado del Proyecto</th>
+                                                    <th>Etapa del Proyecto</th>
+                                                    <th>Estado Proyecto Extra</th>
+                                                    <th>Núm. Folio Proyecto Extra</th>
+                                                    <th>Valor Proyecto Extra</th>
+                                                    <th>Link Autorización Whatsapp</th>
+                                                    <th>Link de Supervisión</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>ID</th>
+                                                    <th>Núm. Proyecto</th>
+                                                    <th>Núm. Orden</th>
+                                                    <th>Marca</th>
+                                                    <th>Modelo</th>
+                                                    <th>Año</th>
+                                                    <th>Placas</th>
+                                                    <th>Color</th>
+                                                    <th>Estado del Proyecto</th>
+                                                    <th>Etapa del Proyecto</th>
+                                                    <th>Estado Proyecto Extra</th>
+                                                    <th>Núm. Folio Proyecto Extra</th>
+                                                    <th class="suma">Valor Proyecto Extra</th>
+                                                    <th>Link Autorización Whatsapp</th>
+                                                    <th>Link de Supervisión</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <button id="btbModal-eliminarProyExtra" class="btn btn-white" data-toggle="modal" data-target=".eliminarProyExtra"></button>
+                                        <button id="btbModal-regSuperProyExtra" class="btn btn-white" data-toggle="modal" data-target=".regSuperProyExtra"></button>
+                                        <button id="btbModal-eliminarSuperProyExtra" class="btn btn-white" data-toggle="modal" data-target=".eliminarSuperProyExtra"></button>
+                                        <button id="btbModal-enviarProyExtraUtil" class="btn btn-white" data-toggle="modal" data-target=".enviarProyExtraUtil"></button>
+                                        <?php
+                                        require '../components/modal-eliminarProyExtra.php';
+                                        require '../components/modal-regSuperProyExtra.php';
+                                        require '../components/modal-eliminarSuperProyExtra.php';
+                                        require '../components/modal-enviarProyExtraUtil.php';
+                                        ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- /table usuario -->
+
+            <!-- Table Proyecto Extra Utilizado -->
+            <section class="content" id="ProyExtraUtilizados">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="card border-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Registro de Proyecto Extra Utilizados</h3>
+                                    <div class="card-tools">
+                                        <?php
+                                        // if ($super == 1 or $regProyExtra  == 1) {
+                                        //     echo "<a type='button' class='btn btn-secondary' href='../adds/formRegProyectoExtra.php' data-toggle='tooltip' data-placement='left' title='5.1.1 Registro de Proyecto Extra'><i class='fa-solid fa-file-arrow-up'></i></i>&nbsp;&nbsp; Registro de Proyecto Extra</a>";
+                                        // } else {
+                                        //     echo "<a type='button' class='btn btn-outline-danger' id='regProyExtra ' data-toggle='tooltip' data-placement='left' title='5.1.1 Registro de Proyecto Extra'><i class='fa-solid fa-file-arrow-up'></i></i>&nbsp;&nbsp; Registro de Proyecto Extra</a>";
+                                        // } 
+                                        ?>
+                                        <button class="btn btn-secondary" id='refresh_tableProyExtraUtil' data-toggle="tooltip" data-placement="bottom" title="Actualizar Tabla"><i class="fa-solid fa-table"></i></button>
+                                        <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="text-center">Tabla:<strong> 2. Proyectos Extras Utilizados</strong></h4>
+                                        <?php
+                                        if ($super == 1) {
+                                        } else if ($verTablaRegProyExtra == 0) { ?>
+                                            <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
+                                            <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
+                                            <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
+                                            <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
+                                        <?php } ?>
+                                        <table id="tableProyExtraUtil" class="display compact table-bordered table-striped" style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>ID</th>
+                                                    <th>Núm. Proyecto</th>
+                                                    <th>Núm. Orden</th>
+                                                    <th>Marca</th>
+                                                    <th>Modelo</th>
+                                                    <th>Año</th>
+                                                    <th>Placas</th>
+                                                    <th>Color</th>
+                                                    <th>Estado del Proyecto</th>
+                                                    <th>Etapa del Proyecto</th>
+                                                    <th>Núm. Folio Proyecto Extra</th>
+                                                    <th>Valor Proyecto Extra</th>
+                                                    <th>Núm. Folio Proyecto Extra Utilizado</th>
+                                                    <th>Semana de Proyecto Utilizado</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>ID</th>
+                                                    <th>Núm. Proyecto</th>
+                                                    <th>Núm. Orden</th>
+                                                    <th>Marca</th>
+                                                    <th>Modelo</th>
+                                                    <th>Año</th>
+                                                    <th>Placas</th>
+                                                    <th>Color</th>
+                                                    <th>Estado del Proyecto</th>
+                                                    <th>Etapa del Proyecto</th>
+                                                    <th>Núm. Folio Proyecto Extra</th>
+                                                    <th class="suma">Valor Proyecto Extra</th>
+                                                    <th>Núm. Folio Proyecto Extra Utilizado</th>
+                                                    <th>Semana de Proyecto Utilizado</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <!-- <button id="btbModal-eliminarProyExtra" class="btn btn-white" data-toggle="modal" data-target=".eliminarProyExtra"></button>
+                                        <button id="btbModal-regSuperProyExtra" class="btn btn-white" data-toggle="modal" data-target=".regSuperProyExtra"></button>
+                                        <button id="btbModal-eliminarSuperProyExtra" class="btn btn-white" data-toggle="modal" data-target=".eliminarSuperProyExtra"></button>
+                                        <button id="btbModal-enviarProyExtraUtil" class="btn btn-white" data-toggle="modal" data-target=".enviarProyExtraUtil"></button> -->
+                                        <?php
+                                        // require '../components/modal-eliminarProyExtra.php';
+                                        // require '../components/modal-regSuperProyExtra.php';
+                                        // require '../components/modal-eliminarSuperProyExtra.php';
+                                        // require '../components/modal-enviarProyExtraUtil.php';
+                                        desconectar();
+                                        ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
             <div id="divModal"></div>
+            <div id="divModal2"></div>
         </div>
         <?php
         require '../components/footer.php';
+        require '../components/btnRecProyExtras.php';
         ?>
     </div>
     <?php
@@ -254,73 +360,21 @@ require '../components/head-dataTables.php';
     require '../ajax/plugins-datatable.php';
     ?>
     <script src="../ajax/crudProyectoExtra.js"></script>
+    <script src="../ajax/crudProyectoExtraUtil.js"></script>
+
     <script>
-        function mostarDetalles(id_proyecto, id_proyExtra) {
-            var ruta = '../components/modal-verGralProyExtra.php?id_proyecto=' + id_proyecto + '&id_proyExtra=' + id_proyExtra;
-            $.get(ruta, function(data) {
-                $('#divModal').html(data);
-                $('#modal-verGralProyExtra').modal('show');
+        // Actualizar tablas independientes
+        $(document).ready(function() {
+
+            tableProyExtra = $("#tableProyExtra").DataTable();
+            $("#refresh_tableProyExtra").on("click", function() {
+                tableProyExtra.ajax.reload();
             });
-        }
- 
-        //5.1.3 Registrar Supervisión Proyecto Extra
-        $('#btnNuevoSuperProyExtra').click(function() {
-            var param = $('#formNuevoSuperProyExtra').serialize();
-            $.ajax({
-                    url: '../adds/addNuevoRegSuperProyExtra.php',
-                    cache: false,
-                    type: 'POST',
-                    data: param,
 
-                    success: function(vs) {
-                        $('#formNuevoSuperProyExtra')[0].reset();
-                         setTimeout(function() {
-                             $('.regSuperProyExtra').modal('hide');
-                         }, 1000);
-                        tableProyExtra.ajax.reload(null, false)
-                    }
-                })
-                .done(function(res) {
-                    $('#respuestaSuperProyExtra').html(res)
-                })
-        });
-        //Ocultar boton por 5 minutos para evitar el doble submit
-        $("#btnNuevoSuperProyExtra").on('click', function() {
-            $("#btnNuevoSuperProyExtra").css('visibility', 'hidden');
-            setTimeout(function() {
-                $("#btnNuevoSuperProyExtra").css('visibility', 'visible');
-            }, 5000);
-        });
-
-
-        
-        //  5.1.4 Eliminar Supervisión Proyecto Extra
-        $('#btnDeleteSuperProyExtra').click(function() {
-            var param = $('#formDeleteSuperProyExtra').serialize();
-            $.ajax({
-                    url: '../delete/deleteSuperProyExtra.php',
-                    cache: false,
-                    type: 'POST',
-                    data: param,
-
-                    success: function(vs) {
-                        $('#formDeleteSuperProyExtra')[0].reset();
-                         setTimeout(function() {
-                             $('.eliminarSuperProyExtra').modal('hide');
-                         }, 1000);
-                        tableProyExtra.ajax.reload(null, false)
-                    }
-                })
-                .done(function(res) {
-                    $('#respuestaDeleteSuperProyExtra').html(res)
-                })
-        });
-        //Ocultar boton por 5 minutos para evitar el doble submit
-        $("#btnDeleteSuperProyExtra").on('click', function() {
-            $("#btnDeleteSuperProyExtra").css('visibility', 'hidden');
-            setTimeout(function() {
-                $("#btnDeleteSuperProyExtra").css('visibility', 'visible');
-            }, 5000);
+            tableProyExtraUtil = $("#tableProyExtraUtil").DataTable();
+            $("#refresh_tableProyExtraUtil").on("click", function() {
+                tableProyExtraUtil.ajax.reload();
+            });
         });
     </script>
 

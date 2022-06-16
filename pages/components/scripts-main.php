@@ -21,7 +21,7 @@ require '../components/modal-miPerfil.php';
    })
 </script>
 <!-- Poppers -->
-<script src="../../plugins/popper/popper.min.js"></script>
+<!-- <script src="../../plugins/popper/popper.min.js"></script> -->
 <!-- ionicons -->
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

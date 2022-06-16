@@ -50,6 +50,7 @@ require '../components/head-dataTables.php';
                     </div>
                 </div>
             </div>
+            
             <!-- Registros -->
             <section class="content">
                 <div class="container-fluid">

@@ -1,5 +1,5 @@
-function mostarDetalles3(id_proyecto) {
-    var ruta = '../components/modal-verGralProceSurtPzs.php?id_proyecto=' + id_proyecto;
+function mostarDetalles3(id_proyecto, id_AutoProceSurtPz) {
+    var ruta = '../components/modal-verGralProceSurtPzs.php?id_proyecto=' + id_proyecto + '&id_AutoProceSurtPz=' + id_AutoProceSurtPz;
     $.get(ruta, function (data) {
         $('#divModalProceSurtPzs').html(data);
         $('#modal-verGralProceSurtPzs').modal('show');

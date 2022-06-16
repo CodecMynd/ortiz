@@ -11,7 +11,8 @@ if ($super == 1 or $verTablaAutoProceSurtPzs == 1) {
 	ASE.asesor, TAR.tecArmador,
     PA.cronoPreAuto, PA.fecha_creacion AS fechaRegPreAuto,
     AU.folio_autoriz, AU.id_autorizado, AU.cronoAutorizado,
-    PE.id_pzsEntregadas
+    PE.id_pzsEntregadas, 
+	AP.id_AutoProceSurtPz
 	FROM proyectos P
 	INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
 	INNER JOIN colores Co On V.id_color = Co.id_color
@@ -27,7 +28,8 @@ if ($super == 1 or $verTablaAutoProceSurtPzs == 1) {
     INNER JOIN preautorizados PA ON P.id_proyecto = PA.id_proyecto
     INNER JOIN autorizados AU ON P.id_proyecto = AU.id_proyecto
     LEFT JOIN pzstregadas PE ON P.id_proyecto = PE.id_proyecto
-	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 AND P.autoProceSurtPz = 1 AND PA.borrado = 0  GROUP BY P.id_proyecto ORDER BY RC.id_regCompraInicial DESC";
+    INNER JOIN autoprocesurtpzs AP ON P.id_proyecto = AP.id_proyecto
+	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 AND P.autoProceSurtPz = 1 AND AP.borrado = 0  GROUP BY P.id_proyecto ORDER BY AP.id_AutoProceSurtPz DESC";
 } else {
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";
@@ -126,14 +128,14 @@ while ($row = $resultado->fetch_assoc()) {
 
 	// 4.1.5.2 Enviar de Proceso de Surtido de Piezas a Piezas Entregadas
 	if ($super == 1 or $enviarPzEntregadas == 1) {
-		$outputBtns10 = "<a href='#' class='btn btn-secondary' onclick='abrirModal10(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\", \"" . $id_autorizado . "\")'><i class='fa-solid fa-paper-plane'></i></a>";
+		$outputBtns10 = "<a href='#' class='btn btn-secondary' onclick='abrirModal10(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\", \"" . $id_autorizado . "\",\"".$row['id_AutoProceSurtPz']."\")'><i class='fa-solid fa-paper-plane'></i></a>";
 	} else {
 		$outputBtns10 = "<a class='btn btn-outline-danger' id='enviarPzEntregadas' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-paper-plane'></i></a>";
 	}
 
 	// 4.1.2.8 Ver Generales Proceso de Surtido de Piezas
 	if ($super == 1 or $verGralProceSurtPzs == 1) {
-		$outputBtns11 = "<a href='javascript:void(0)' class='btn btn-secondary' onclick='mostarDetalles3(\"" . $row['id_proyecto'] . "\")'><i class='fa-solid fa-eye'></i></a>";
+		$outputBtns11 = "<a href='javascript:void(0)' class='btn btn-secondary' onclick='mostarDetalles3(\"" . $row['id_proyecto'] . "\",\"".$row['id_AutoProceSurtPz']."\")'><i class='fa-solid fa-eye'></i></a>";
 	} else {
 		$outputBtns11 = "<a class='btn btn-outline-danger' id='verGralProceSurtPzs' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-eye'></i></a>";
 	}

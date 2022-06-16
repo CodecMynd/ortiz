@@ -1,5 +1,5 @@
- function mostarDetalles6(id_proyecto) {
-     var ruta = '../components/modal-verGralSuperSurtPzs.php?id_proyecto=' + id_proyecto;
+ function mostarDetalles6(id_proyecto, id_preAutorizado, id_pzsEntregadas, id_pzsFirmadasRec) {
+     var ruta = '../components/modal-verGralSuperSurtPzs.php?id_proyecto=' + id_proyecto + '&id_preAutorizado=' + id_preAutorizado + '&id_pzsEntregadas=' + id_pzsEntregadas + '&id_pzsFirmadasRec=' + id_pzsFirmadasRec;
      $.get(ruta, function (data) {
          $('#divModalSuperSurtPzs').html(data);
          $('#modal-verGralSuperSurtPzs').modal('show');

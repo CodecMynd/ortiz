@@ -15,6 +15,17 @@ $count_reg_cambiosemsolalta = mysqli_query($conexion, "SELECT estatusEspera FROM
 //# Estatus Solicitudes Cambios de Semana de Altas
 $count_reg_cambiosemalta = mysqli_query($conexion, "SELECT estatusEspera FROM cambiosemalta WHERE estatusEspera = 1");
 
+$query1 = "SELECT SUM(I.com) AS N
+FROM proyectos P
+INNER JOIN comasesor C ON P.id_proyecto = C.id_proyecto
+INNER JOIN asesores A ON C.id_asesor = A.id_asesor
+LEFT JOIN incidencias I ON C.id_proyecto = I.id_proyecto
+WHERE  P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 OR P.registroSolicitud = 1 OR P.altaProyecto = 1 AND I.borrado = 0";
+
+$resultado1 = mysqli_query($conexion, $query1);
+$rowIncidencias = $resultado1->fetch_assoc();
+
+
 // contador sin comprobar placas / sin supervision placas
 $query = "SELECT C.fecha_creacion,
 CS.fecha_registro
@@ -82,7 +93,6 @@ while ($rowf2 = $resultado2->fetch_assoc()) {
     WHERE comAsesor = 0 AND proyCodIdentificador = 0 and superCodIdentificador = 0 and estadoProyectoEliminado = 1 and fecha_creacion < '$dateFC2' ";
     $resultadoSinAsesor = mysqli_query($conexion, $querySinAsesor);
     $rowSA = $resultadoSinAsesor->fetch_assoc();
-
 }
 ?>
 
@@ -156,11 +166,11 @@ while ($rowf2 = $resultado2->fetch_assoc()) {
                             <div class="col-lg-2 col-6">
                                 <div class="small-box bg-secondary">
                                     <div class="inner mb-4" style="padding-right: 1px;">
-                                    <h3 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_cambiosemalta); ?></strong></h3>
+                                        <h3 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_cambiosemalta); ?></strong></h3>
                                         <p>Cambios de Semana de Alta</p>
                                     </div>
                                     <div class="icon">
-                                    <i class="fa-solid fa-calendar-plus"></i>
+                                        <i class="fa-solid fa-calendar-plus"></i>
                                     </div>
                                     <a href="../admin/crudSolicitudCambioSemanaAlta.php" class="small-box-footer"><small>Solicitud Asesor en Espera</small> <i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
@@ -171,11 +181,11 @@ while ($rowf2 = $resultado2->fetch_assoc()) {
                             <div class="col-lg-2 col-6">
                                 <div class="small-box bg-secondary">
                                     <div class="inner" style="padding-right: 1px;">
-                                    <h3 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_cambiosemsolalta); ?></strong></h3>
+                                        <h3 style="margin-bottom: 0px;"><strong><?php echo mysqli_num_rows($count_reg_cambiosemsolalta); ?></strong></h3>
                                         <p>Cambios de Semana de Solicitud de Alta</p>
                                     </div>
                                     <div class="icon">
-                                    <i class="fa-solid fa-calendar-plus"></i>
+                                        <i class="fa-solid fa-calendar-plus"></i>
                                     </div>
                                     <a href="../admin/crudSolicitudCambioSemanaSolAlta.php" class="small-box-footer"><small>Solicitud Asesor en Espera</small> <i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
@@ -202,9 +212,9 @@ while ($rowf2 = $resultado2->fetch_assoc()) {
                                 <div class="small-box bg-secondary">
                                     <div class="inner" style="padding-right: 1px;">
                                         <h4 style="margin-bottom: 0px;"><strong><?php echo $rowSP['sin_comPlacas'] ?></strong></h5>
-                                        <p style="margin-bottom: 0px;">Sin Comprobar Placas</p>
-                                        <h4 style="margin-bottom: 0px;"><strong><?php echo $rowSP['sin_comSuperPlaca'] ?></strong></h4>
-                                        <p style="margin-bottom: 0px;">Sin Supervisar Placas</p>
+                                            <p style="margin-bottom: 0px;">Sin Comprobar Placas</p>
+                                            <h4 style="margin-bottom: 0px;"><strong><?php echo $rowSP['sin_comSuperPlaca'] ?></strong></h4>
+                                            <p style="margin-bottom: 0px;">Sin Supervisar Placas</p>
                                     </div>
                                     <div class="icon">
                                         <i class="fa-solid fa-ban"></i>
@@ -218,7 +228,7 @@ while ($rowf2 = $resultado2->fetch_assoc()) {
                             <div class="col-lg-2 col-6">
                                 <div class="small-box bg-secondary">
                                     <div class="inner mb-4" style="padding-right: 1px;">
-                                    <h3 style="margin-bottom: 0px;"><strong><?php echo $rowSA['sin_Asesor'] ?></strong></h3>
+                                        <h3 style="margin-bottom: 0px;"><strong><?php echo $rowSA['sin_Asesor'] ?></strong></h3>
                                         <p>Vehículos sin Asignar Asesor</p>
                                     </div>
                                     <div class="icon">
@@ -229,8 +239,23 @@ while ($rowf2 = $resultado2->fetch_assoc()) {
                             </div>
                         <?php } ?>
 
-                    </div>
+                        <?php if ($super == 1 or $indIncidencias == 1) { ?>
+                            <div class="col-lg-2 col-6">
+                                <div class="small-box bg-secondary">
+                                    <div class="inner mb-4" style="padding-right: 1px;">
+                                        <h3 style="margin-bottom: 0px;"><strong><?php echo $rowIncidencias['N'] ?></strong></h3>
+                                        <p>Incidencias</p>
+                                    </div>
+                                    <div class="icon">
+                                    <i class="fa-solid fa-car-burst"></i>
+                                    </div>
+                                    <a href="../components/verIndicadoresIncidencias.php" target="_blank" class="small-box-footer"><small>Solicitud Placas en Espera</small> <i class="fas fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                        <?php } ?>
 
+
+                    </div>
                 </div>
             </section>
             <!-- /small box-->

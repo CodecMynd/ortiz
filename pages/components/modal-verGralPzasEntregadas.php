@@ -7,7 +7,8 @@ require '../components/fechaEs.php';
         <div class="modal-content">
             <!-- consulta sql -->
             <?php
-            $id_proyecto = $_REQUEST['id_proyecto'];
+            echo $id_proyecto = $_REQUEST['id_proyecto'];
+            echo $id_pzsEntregadas = $_REQUEST['id_pzsEntregadas'];
             $query = "SELECT P.id_proyecto, P.nProyecto,
             A.comenProceSurtPz, A.fecha_creacion, 
             U.nombres, U.aPaterno, U.aMaterno,
@@ -20,7 +21,7 @@ require '../components/fechaEs.php';
             INNER JOIN pzstregadas PE ON P.id_proyecto = PE.id_proyecto
             INNER JOIN usuarios UP ON PE.id_capC = UP.id_usuario
             INNER JOIN autorizados AU ON A.id_proyecto = AU.id_proyecto
-            WHERE P.id_proyecto = $id_proyecto AND A.borrado = 0";
+            WHERE P.id_proyecto = $id_proyecto AND PE.id_pzsEntregadas = $id_pzsEntregadas AND A.borrado = 0 AND PE.borrado = 0";
             $resultado = mysqli_query($conexion, $query);
             $row = $resultado->fetch_assoc();
             ?>

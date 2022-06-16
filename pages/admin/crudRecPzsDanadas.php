@@ -110,7 +110,7 @@ require '../components/head-dataTables.php';
         $("#tituloModal9").html(nProyecto);
     }
 
-    function abrirModal10(id_proyecto, nProyecto, id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_autorizado) {
+    function abrirModal10(id_proyecto, nProyecto, id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_autorizado, id_AutoProceSurtPz) {
         $("#btnModal-enviarPzsEntregadas").click();
         $("#id_proyecto10").val(id_proyecto);
         $("#nProyecto10").val(nProyecto);
@@ -118,6 +118,7 @@ require '../components/head-dataTables.php';
         $("#id_solPzsDanadas10").val(id_solPzsDanadas);
         $("#id_regCompraInicial10").val(id_regCompraInicial);
         $("#id_autorizado10").val(id_autorizado);
+        $("#id_AutoProceSurtPz10").val(id_AutoProceSurtPz);
         $("#tituloModal10").html(nProyecto);
     }
 
@@ -416,7 +417,6 @@ require '../components/head-dataTables.php';
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>ID</th>
                                                     <th>Núm. Proyecto</th>
                                                     <th>Núm. Orden</th>
                                                     <th>Marca</th>
@@ -424,6 +424,7 @@ require '../components/head-dataTables.php';
                                                     <th>Año</th>
                                                     <th>Placa</th>
                                                     <th>Color</th>
+                                                    <th>ID</th>
                                                     <th>Estado del Proyecto</th>
                                                     <th>Valor Venta Inicial</th>
                                                     <th>Solicitud de Piezas</th>
@@ -442,7 +443,6 @@ require '../components/head-dataTables.php';
                                             <tfoot>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>ID</th>
                                                     <th>Núm. Proyecto</th>
                                                     <th>Núm. Orden</th>
                                                     <th>Marca</th>
@@ -450,6 +450,7 @@ require '../components/head-dataTables.php';
                                                     <th>Año</th>
                                                     <th>Placa</th>
                                                     <th>Color</th>
+                                                    <th>ID</th>
                                                     <th>Estado del Proyecto</th>
                                                     <th class="suma"></th>
                                                     <th>Solicitud de Piezas</th>

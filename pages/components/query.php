@@ -51,6 +51,7 @@ while ($row = mysqli_fetch_array($query)) {
     $indCambioSemAlta = $row['indCambioSemAlta'];
     $indCambioSemSolAlta = $row['indCambioSemSolAlta'];
     $indVehSinAsignarAsesor = $row['indVehSinAsignarAsesor'];
+    $indIncidencias = $row['indIncidencias'];
     $editarUsu = $row['editarUsu'];
     $asignarCon = $row['asignarCon'];
     $eliminarUsu = $row['eliminarUsu'];
@@ -343,6 +344,11 @@ while ($row = mysqli_fetch_array($query)) {
     $regresarPzsFirmRecAdic = $row['regresarPzsFirmRecAdic'];
     $verGralSuperSurtPzsAdic = $row['verGralSuperSurtPzsAdic'];
     $verTablaSuperSurtPzsAdic = $row['verTablaSuperSurtPzsAdic'];
+    $enviarProyUtil = $row['enviarProyUtil'];
+    $solAutorizDescuento = $row['solAutorizDescuento'];
+    $autorizarSolDesc = $row['autorizarSolDesc'];
+    $verGralSolAutorizDesc = $row['verGralSolAutorizDesc'];
+    $verTablaSolAutorizDescuento = $row['verTablaSolAutorizDescuento'];
 
 
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------

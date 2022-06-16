@@ -23,6 +23,7 @@ $nProyecto = $_POST['nProyecto'];
 $valorProyExtra = $_POST['valorProyExtra'];
 $descVentaProyExtra = $_POST['descVentaProyExtra'];
 $linkAutorWhats = $_POST['linkAutorWhats'];
+$id_semSolAlta = (empty($_POST['id_semSolAlta'])) ? 0 : $_POST['id_semSolAlta'];
 
 $borrado = 0;
 $status = 'Activo';
@@ -49,13 +50,18 @@ if ($row['estadoProyectoEliminado'] == 0) {
     <p><strong>Error, Ingresa en campo Link Autorización Whatsapp</strong></p>
     </div>";
     exit;
+} else if ($id_semSolAlta == 0) {
+    echo "<div class='alert alert-danger' role='role'>
+    <p><strong>Error, Seleccione de la lista Semana Solicitud Alta y Proyecto Extra</strong></p>
+    </div>";
+    exit;
 } else {
 
      try {
          $conexion->autocommit(FALSE);
         // Insertamos tabla proyectos extras
-        $query = "INSERT INTO proyextras(folioProyExtra, id_proyecto, nProyecto, valorProyExtra, descVentaProyExtra, linkAutorWhats, borrado, super, fecha_creacion, id_capC) 
-        VALUES ('$folioProyExtra', '$id_proyecto', '$nProyecto', '$valorProyExtra', '$descVentaProyExtra', '$linkAutorWhats', '$borrado', '$super', '$date', '$id')";
+        $query = "INSERT INTO proyextras(folioProyExtra, id_proyecto, nProyecto, valorProyExtra, descVentaProyExtra, linkAutorWhats, id_semSolAlta, borrado, super, fecha_creacion, id_capC) 
+        VALUES ('$folioProyExtra', '$id_proyecto', '$nProyecto', '$valorProyExtra', '$descVentaProyExtra', '$linkAutorWhats', '$id_semSolAlta', '$borrado', '$super', '$date', '$id')";
 
         // $verificar_id = mysqli_query($conexion, "SELECT folioProyExtra FROM proyextras WHERE valorProyExtra = '$valorProyExtra' ");
         // if (mysqli_num_rows($verificar_id) > 0) {

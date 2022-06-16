@@ -1,24 +1,13 @@
-function mostrarDetalles(id_proyecto, nProyecto, id_cambioAutorizDescuento) {
-    var ruta = '../components/modal-verGralAutorizacionDescuentos.php?id_proyecto=' + id_proyecto + '&nProyecto=' + nProyecto + '&id_cambioAutorizDescuento=' + id_cambioAutorizDescuento;
-    $.get(ruta, function (data) {
-        $('#divModal').html(data);
-        $('#modal-verGralAutorizacionDescuentos').modal('show');
-    });
-}
-
-// Tabla 2.10.1 Solicitud Cambio Valor Alta
-        var tableSolAutorizDescuento = $("#tableSolAutorizDescuento").DataTable({
+        // Tabla Tabla 2.6.2 Reporte de Altas Por Asignar Código ID
+        var tableDadosdeAlta = $("#tableDadosdeAlta").DataTable({
             "responsive": true,
             "lengthChange": true,
             "autoWidth": true,
-            "select": true,
-            "select": {
-                style: 'multi'
-            },
+            "pageLength": 50,
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
-                url: "../consultas/consultaCambiarAutorizDescuento.php",
+                url: "../consultas/consultaDadosAltaAsignarCodId.php",
                 type: "get",
                 dataType: "json",
                 error: function(e) {
@@ -38,7 +27,7 @@ function mostrarDetalles(id_proyecto, nProyecto, id_cambioAutorizDescuento) {
                 searchPanes: {
                     show: true
                 },
-                targets: [2, 3, 5, 6, 7, 8, 9, 10, 11, 12,13],
+                targets: [3,4,5,6,7,8,9,10,11,12],
             }],
             "language": {
 
@@ -85,40 +74,23 @@ function mostrarDetalles(id_proyecto, nProyecto, id_cambioAutorizDescuento) {
                 "zeroRecords": "No se encontraron coincidencias"
 
             },
-            "drawCallback": function () {
+
+            "drawCallback": function() {
                 //alert("La tabla se está recargando"); 
+                var api = this.api();
+                $(api.column(11).footer()).html(
+                    'Total: ' + api.column(11, {
+                        page: 'current'
+                    }).data().sum()
+                )
                 var api2 = this.api();
-                $(api2.column(6).footer()).html(
-                    'Total: ' + api2.column(6, {
+                $(api2.column(12).footer()).html(
+                    'Total: ' + api2.column(12, {
                         page: 'current'
                     }).data().sum()
                 )
-                var api3 = this.api();
-                $(api3.column(7).footer()).html(
-                    'Total: ' + api3.column(7, {
-                        page: 'current'
-                    }).data().sum()
-                )
-            },
-            "createdRow": function (row, data, index) {
-                if (data[6] >= '0') {
-                    $('td', row).eq(6).css({
-                        'text-align': 'center',
-                        'background-color': '#5A6268',
-                        'color': '#fff',
-                        'font-weight': 'bold'
-                    });
-                }
-                if (data[7] >= '0') {
-                    $('td', row).eq(7).css({
-                        'text-align': 'center',
-                        'background-color': '#5A6268',
-                        'color': '#fff',
-                        'font-weight': 'bold'
-                    });
-                }
-            },
+            }
         });
         setInterval(function() {
-            tableSolAutorizDescuento.ajax.reload(null, false); // user paging is not reset on reload
-        }, 30000);
+            tableDadosdeAlta.ajax.reload(null, false); // user paging is not reset on reload
+        }, 18000);

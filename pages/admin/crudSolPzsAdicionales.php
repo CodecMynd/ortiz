@@ -415,6 +415,7 @@ require '../components/head-dataTables.php';
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
+                                                    <th>Núm Folio Pieza Adicional</th>
                                                     <th>ID</th>
                                                     <th>Núm. Proyecto</th>
                                                     <th>Núm. Orden</th>
@@ -423,7 +424,6 @@ require '../components/head-dataTables.php';
                                                     <th>Año</th>
                                                     <th>Placa</th>
                                                     <th>Color</th>
-                                                    <th>Núm Folio Pieza Adicional</th>
                                                     <th>Modalidad de Pago</th>
                                                     <th>Costo Crédito</th>
                                                     <th>Costo Contado</th>
@@ -438,6 +438,7 @@ require '../components/head-dataTables.php';
                                             <tfoot>
                                                 <tr>
                                                     <th>#</th>
+                                                    <th>Núm Folio Pieza Adicional</th>
                                                     <th>ID</th>
                                                     <th>Núm. Proyecto</th>
                                                     <th>Núm. Orden</th>
@@ -446,7 +447,6 @@ require '../components/head-dataTables.php';
                                                     <th>Año</th>
                                                     <th>Placa</th>
                                                     <th>Color</th>
-                                                    <th>Núm Folio Pieza Adicional</th>
                                                     <th>Modalidad de Pago</th>
                                                     <th class="suma"></th>
                                                     <th class="suma"></th>
@@ -843,7 +843,7 @@ require '../components/head-dataTables.php';
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="text-center parpadea">Tabla<strong> 7. Supervisión de Surtido de Piezas: Piezas Adicionales <small>En proceso</small> </strong></h4>
+                                    <h3 class="text-center">Tabla<strong> 7. Supervisión de Surtido de Piezas: Piezas Adicionales </strong></h4>
 
                                         <?php
                                         if ($super == 1) {

@@ -34,11 +34,12 @@ $("#btnDeleteAgregadoPzsAdicionales").on('click', function () {
 // ----------------------------------------------------------------------------------------------------------------------------
 
 
-var tableVarios1 = $("#tableVarios1").DataTable({
+var tableVerGralRegSolPzsAdicionales = $("#tableVerGralRegSolPzsAdicionales").DataTable({
     "responsive": true,
     "lengthChange": true,
     "autoWidth": true,
     "dom": 'lBfrtip',
+    "pageLength": 50,
     "buttons": ["csv", "excel", "pdf"],
     "language": {
 

@@ -2,7 +2,7 @@
 require '../components/head-main.php';
 require '../components/head-dataTables.php';
 ?>
-<title>CRUD Autorización Descuentos | <?php echo $nomComp ?></title>
+<title>CRUD Solicitud Cambio Valor Alta | <?php echo $nomComp ?></title>
 <style>
     @media (min-width:320px) and (max-width:425px) {
         .content-header {
@@ -19,35 +19,11 @@ require '../components/head-dataTables.php';
     }
 </style>
 <script>
-    //  function abrirModal1(id_proyecto, nProyecto, id_cambioPlaca) {
-    //      $("#btnModal-regCambioPlacasAutorizar").click();
-    //      $("#id_proyecto").val(id_proyecto);
-    //      $("#nProyecto").val(nProyecto);
-    //      $("#id_cambioPlacas").val(id_cambioPlaca);
-    //      $("#tituloModal").html(nProyecto);
-    //  }
     // function abrirModal2(id_proyecto, nProyecto){
     //     $("#btnModal-regComPlacasSuper").click();
     //     $("#id_proyecto1").val(id_proyecto);
     //     $("#nProyecto1").val(nProyecto);
     //     $("#tituloModal1").html(nProyecto);
-    // }
-    // function abrirModal3(id_proyecto, nProyecto){
-    //     $("#btnModal-verGralComPlacas").click();
-    //     $("#id_proyecto2").val(id_proyecto);
-    //     $("#tituloModal2").html(nProyecto);
-    // }
-    // function abrirModal4(id_proyecto, nProyecto, id_comPlacas){
-    //     $("#btnModal-eliminarComPlacas").click();
-    //     $("#id_proyecto3").val(id_proyecto);
-    //     $("#id_comPlacas3").val(id_comPlacas);
-    //     $("#tituloModal3").html(nProyecto);
-    // }
-    // function abrirModal5(id_proyecto, nProyecto, id_comSupervision){
-    //     $("#btnModal-eliminarComPlacasSuper").click();
-    //     $("#id_proyecto4").val(id_proyecto);
-    //     $("#id_comSupervision4").val(id_comSupervision);
-    //     $("#tituloModal4").html(nProyecto);
     // }
 </script>
 
@@ -64,7 +40,7 @@ require '../components/head-dataTables.php';
                 <div class="container-fluid">
                     <div class="row my-3 mx-1">
                         <div class="col-sm-8">
-                            <h1 class="m-0">Tabla 2.10.1 Autorización Descuentos</h1>
+                            <h1 class="m-0">Tabla 2.10.1 Solicitud Cambio Valor Alta</h1>
                         </div>
                         <div class="col-sm-4">
                             <h5 class="float-right">Mi Usuario: <strong><?php echo $nomComp ?></strong></h5>
@@ -86,16 +62,14 @@ require '../components/head-dataTables.php';
                                         </button>
                                     </div>
                                 </div>
-
                                 <div class="card-body ">
                                     <div class="row justify-content-center">
-
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box">
-                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Activos</h6>
-                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -119,19 +93,19 @@ require '../components/head-dataTables.php';
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Código ID</h6>
-                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Supervisión</h6>
-                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -151,7 +125,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-footer" style="height: 50px;">
                                     <marquee width="100%" behavior="alternate">
                                         <marquee behavior="alternate">
-                                            <p>Consulta optimizada, ultima actualización: <strong>01/06/2022</strong></p>
+                                            <p>Consulta optimizada, ultima actualización: <strong>14/06/2022</strong></p>
                                         </marquee>
                                     </marquee>
                                 </div>
@@ -168,13 +142,13 @@ require '../components/head-dataTables.php';
                         <div class="col-md-12 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Autorización de Descuentos</h3>
+                                    <h3 class="card-title">Solicitar Cambio Valor Alta</h3>
                                     <div class="card-tools">
-                                    <?php if ($super == 1 OR $solAutorizDescuento == 1) { ?>
-                                            <a type="button" class="btn btn-secondary" href="../adds/formRegSolAutorizDescuento.php" data-toggle="tooltip" data-placement="left" title="2.10.1.1 Solicitar Autorización de Descuento"><i class="fa-solid fa-money-bill"></i>&nbsp;&nbsp; Solicitar Autorización de Descuento</a>
-                                        <?php } else { ?>
-                                            <a type="button" class="btn btn-outline-danger" id="solAutorizDescuento" data-toggle="tooltip" data-placement="left" title="2.10.1.1 Solicitar Autorización de Descuento"><i class="fa-solid fa-money-bill"></i>&nbsp;&nbsp; Solicitar Autorización de Descuento</a>
-                                        <?php } ?>
+                                    <?php if ($super == 1 OR $solAutorizDescuento == 1) {
+                                            echo '<a type="button" class="btn btn-secondary" href="../adds/formRegSolAutorizDescuento.php" data-toggle="tooltip" data-placement="left" title="2.10.1 Solicitar Cambio Valor Alta"><i class="fa-solid fa-money-bill"></i>&nbsp;&nbsp; Solicitar Cambio Valor Alta</a>';
+                                        } else {
+                                            echo '<a type="button" class="btn btn-outline-danger" id="solAutorizDescuento" data-toggle="tooltip" data-placement="left" title="2.10.1 Solicitar Cambio Valor Alta"><i class="fa-solid fa-money-bill"></i>&nbsp;&nbsp; Solicitar Cambio Valor Alta</a>';
+                                        } ?>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
@@ -195,10 +169,10 @@ require '../components/head-dataTables.php';
                                                 <th>ID</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Etapa Proyecto</th>
-                                                <th>Núm. Folio Cambio Placas</th>
-                                                <th>Estado Solicitud Cambio Placas</th>
-                                                <th>Placas Actual</th>
-                                                <th>Placas por Asignar</th>
+                                                <th>Núm. Folio Cambio Valor Alta</th>
+                                                <th>Estado Solicitud Autorización Descuento</th>
+                                                <th>Valor Venta Alta Actual</th>
+                                                <th>Valor Venta Alta por Asignar</th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -215,10 +189,10 @@ require '../components/head-dataTables.php';
                                                 <th>ID</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Etapa Proyecto</th>
-                                                <th>Núm. Folio Cambio Placas</th>
-                                                <th>Estado Solicitud Cambio Placas</th>
-                                                <th>Placas Actual</th>
-                                                <th>Placas por Asignar</th>
+                                                <th>Núm. Folio Cambio Valor Alta</th>
+                                                <th>Estado Solicitud Autorización Descuento</th>
+                                                <th class="suma"></th>
+                                                <th class="suma"></th>
                                                 <th>Núm. Proyecto</th>
                                                 <th>Núm. Orden</th>
                                                 <th>Marca</th>
@@ -240,6 +214,7 @@ require '../components/head-dataTables.php';
             </section>
             <!-- /table usuario -->
         </div>
+        <div id="divModal"></div>
         <?php
         require '../components/footer.php';
         ?>

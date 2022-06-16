@@ -27,6 +27,7 @@
                     <input type="hidden" name="id_solPzsDanadas10" id="id_solPzsDanadas10" value="">
                     <input type="hidden" name="id_regCompraInicial10" id="id_regCompraInicial10" value="">
                     <input type="hidden" name="id_autorizado10" id="id_autorizado10" value="">
+                    <input type="hidden" name="id_AutoProceSurtPz10" id="id_AutoProceSurtPz10" value="">
                     <hr>
                     <button type="button" id="btnEnviarPzsEntregadas" class="btn btn-secondary"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>

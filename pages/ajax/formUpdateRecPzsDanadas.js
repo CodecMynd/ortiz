@@ -3,6 +3,7 @@
         "responsive": true,
         "lengthChange": true,
         "autoWidth": true,
+        "pageLength": 50,
         "buttons": ["csv", "excel", "pdf"],
         "language": {
     
