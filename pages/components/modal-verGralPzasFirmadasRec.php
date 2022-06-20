@@ -18,7 +18,8 @@ require '../components/fechaEs.php';
             UP.nombres AS nomP, UP.aPaterno AS patP, UP.aMaterno AS matP,
             AU.folio_autoriz,
             PF.comenPzsFirmadasRec, PF.linkDocumento, PF.fecha_creacion AS fechaPzsFirmadasRec,
-            UPF.nombres AS nomUPF, UPF.aPaterno AS patUPF, UPF.aMaterno AS matUPF
+            UPF.nombres AS nomUPF, UPF.aPaterno AS patUPF, UPF.aMaterno AS matUPF,
+            PS.folioProceSurtPz
             FROM proyectos P 
             INNER JOIN autoprocesurtpzs A ON P.id_proyecto = A.id_proyecto
             INNER JOIN usuarios U ON A.id_capC = U.id_usuario
@@ -26,6 +27,7 @@ require '../components/fechaEs.php';
             INNER JOIN usuarios UP ON PE.id_capC = UP.id_usuario
             INNER JOIN autorizados AU ON A.id_proyecto = AU.id_proyecto
             INNER JOIN pzsfirmadasrec PF ON P.id_proyecto = PF.id_proyecto
+            INNER JOIN autoprocesurtpzs PS ON P.id_proyecto = PS.id_proyecto
             INNER JOIN usuarios UPF ON PF.id_capC = UPF.id_usuario
             WHERE P.id_proyecto = $id_proyecto AND PE.id_pzsEntregadas = $id_pzsEntregadas AND PF.id_pzsFirmadasRec = $id_pzsFirmadasRec  AND PF.borrado = 0";
             $resultado = mysqli_query($conexion, $query);
@@ -146,7 +148,7 @@ require '../components/fechaEs.php';
                                             <span class='input-group-text'><i class='fa-solid fa-calendar-check'></i></span>
                                         </div>
                                         <input name='' id='' type='text' class='form-control' value='<?php echo $row['folioPzsSurtida'] ?>' disabled readonly>
-                                        <label for='floatingInput' class='pl-5'>Número de Folio Surtido de Pieza</label>
+                                        <label for='floatingInput' class='pl-5'>Número de Folio Pieza Entregada</label>
                                     </div>
                                 </div>
                             </div>
@@ -198,10 +200,19 @@ require '../components/fechaEs.php';
                                 <div class='col-md-6 col-sm-12  form-group'>
                                     <div class='input-group form-floating'>
                                         <div class='input-group-prepend'>
-                                            <span class='input-group-text'><i class='fa-solid fa-calendar-check'></i></span>
+                                            <span class='input-group-text'><i class='fa-solid fa-hashtag'></i></span>
+                                        </div>
+                                        <input name='' id='' type='text' class='form-control' value='<?php echo $row['folioProceSurtPz'] ?>' disabled readonly>
+                                        <label for='floatingInput' class='pl-5'>Número de Folio Proceso Surtido Pieza</label>
+                                    </div>
+                                </div>
+                                <div class='col-md-6 col-sm-12  form-group'>
+                                    <div class='input-group form-floating'>
+                                        <div class='input-group-prepend'>
+                                            <span class='input-group-text'><i class='fa-solid fa-hashtag'></i></span>
                                         </div>
                                         <input name='' id='' type='text' class='form-control' value='<?php echo $row['folio_autoriz'] ?>' disabled readonly>
-                                        <label for='floatingInput' class='pl-5'>Número de Folio Autorización</label>
+                                        <label for='floatingInput' class='pl-5'>Número de Folio Autorizado de Pieza</label>
                                     </div>
                                 </div>
                             </div>

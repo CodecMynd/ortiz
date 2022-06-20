@@ -121,7 +121,7 @@ var tableSolPzsAdicionales = $("#tableSolPzsAdicionales").DataTable({
         style: 'multi'
     },
     "stateSave": false,
-    "pageLength": 10,
+    "pageLength": 50,
     "dom": 'PlBfrtip',
     "buttons": ["csv", "excel", "pdf", "colvis", ],
     "ajax": {
@@ -145,10 +145,10 @@ var tableSolPzsAdicionales = $("#tableSolPzsAdicionales").DataTable({
             searchPanes: {
                 show: true
             },
-            targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15],
+            targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15,16,17],
         },
         {
-            targets: [],
+            targets: [0,3],
             visible: false
         }
     ],
@@ -200,29 +200,29 @@ var tableSolPzsAdicionales = $("#tableSolPzsAdicionales").DataTable({
     "drawCallback": function () {
         //alert("La tabla se está recargando"); 
         var api2 = this.api();
-        $(api2.column(13).footer()).html(
-            'Total: ' + api2.column(13, {
+        $(api2.column(12).footer()).html(
+            'Total: ' + api2.column(12, {
                 page: 'current'
             }).data().sum()
         )
         var api3 = this.api();
-        $(api3.column(14).footer()).html(
-            'Total: ' + api3.column(14, {
+        $(api3.column(13).footer()).html(
+            'Total: ' + api3.column(13, {
                 page: 'current'
             }).data().sum()
         )
     },
     "createdRow": function (row, data, index) {
-        if (data[13] >= '0') {
-            $('td', row).eq(13).css({
+        if (data[10] >= '0') {
+            $('td', row).eq(10).css({
                 'text-align': 'center',
                 'background-color': '#5A6268',
                 'color': '#fff',
                 'font-weight': 'bold'
             });
         }
-        if (data[14] >= '0') {
-            $('td', row).eq(14).css({
+        if (data[11] >= '0') {
+            $('td', row).eq(11).css({
                 'text-align': 'center',
                 'background-color': '#5A6268',
                 'color': '#fff',
@@ -234,5 +234,5 @@ var tableSolPzsAdicionales = $("#tableSolPzsAdicionales").DataTable({
 });
 setInterval(function () {
     tableSolPzsAdicionales.ajax.reload(null, false); // user paging is not reset on reload
-}, 180000);
+}, 360000);
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------

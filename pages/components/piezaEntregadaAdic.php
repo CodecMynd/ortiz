@@ -235,7 +235,7 @@ $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden,
 V.placa, Co.color, M.marca, Mo.modelo, An.anio,
 C.fecha_creacion, 
 R.folioPzAdicional, R.cantidad, R.motivo, R.descripcionpzadicional, R.asesor, R.tecArmador, 
-AU.folio_autorizPzsAdic,
+AU.folio_autorizPzsAdic, AUP.folioProceSurtPzAdic,
 PE.folioPzsSurtidaAdic
 from proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
@@ -295,18 +295,20 @@ $row  = $respuesta->fetch_assoc();
                 <table class="table" style="position: fixed;top: 170px;left: 35px;right: 0px;width:1040px">
                     <thead>
                         <tr>
-                            <th>Fecha Registro Solicitud de Pieza Adicional</th>
-                            <th>Folio Pieza Adicional</th>
-                            <th>Folio Autorización Pieza Adicional</th>
-                            <th>Folio Pieza Surtida</th>
+                            <th style="width: 18%;">Fecha Solicitud de Pieza Adicional</th>
+                            <th style="width: 20%;">Núm Folio Pieza Entregada Adicional</th>
+                            <th style="width: 20%;">Núm Folio Proceso Surtido Pieza Adicional</th>
+                            <th style="width: 20%;">Núm Folio Autorizado Pieza Adicional</th>
+                            <th style="width: 20%;">Núm Folio Cotizado Pieza Adicional</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><?php echo (empty($row['fecha_creacion'])) ? 'Sin Registro' : $row['fecha_creacion'] ?></td>
-                            <td><strong><?php echo $row['folioPzAdicional'] ?></strong></td>
-                            <td><strong><?php echo $row['folio_autorizPzsAdic'] ?></strong></td>
-                            <td><strong><?php echo $row['folioPzsSurtidaAdic'] ?></strong></td>
+                            <td style="width: 18%;"><?php echo (empty($row['fecha_creacion'])) ? 'Sin Registro' : $row['fecha_creacion'] ?></td>
+                            <td style="width: 20%;"><strong><?php echo $row['folioPzsSurtidaAdic'] ?></strong></td>
+                            <td style="width: 20%;"><strong><?php echo $row['folioProceSurtPzAdic'] ?></strong></td>
+                            <td style="width: 20%;"><strong><?php echo $row['folio_autorizPzsAdic'] ?></strong></td>
+                            <td style="width: 20%;"><strong><?php echo $row['folioPzAdicional'] ?></strong></td>
                         </tr>
                     </tbody>
                 </table>
@@ -408,6 +410,6 @@ $dompdf->setPaper('A4', 'landscape'); //hoja tamaño carta horizontal
 //$dompdf->setPaper('A4', 'Landscape'); //tamaño oficio 
 
 $dompdf->render(); //poner visible
-$dompdf->stream("Pieza Entregada", array("Attachment" => true)); // nombre del archivo, array attachment => true para descagar en automatico
+$dompdf->stream("Pieza Entregada Adicional Núm_Proyecto_{$row['nProyecto']}", array("Attachment" => true)); // nombre del archivo, array attachment => true para descagar en automatico
 
 ?>

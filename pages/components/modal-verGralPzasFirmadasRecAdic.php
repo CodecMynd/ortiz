@@ -11,7 +11,7 @@ require '../components/fechaEs.php';
             $id_pzsFirmadasRecAdic = $_REQUEST['id_pzsFirmadasRecAdic'];
             $query = "SELECT P.id_proyecto, P.nProyecto,
             AU.folio_autorizPzsAdic,
-            A.comenProceSurtPzAdic, A.fecha_creacion, 
+            A.comenProceSurtPzAdic, A.fecha_creacion, A.folioProceSurtPzAdic,
             U.nombres, U.aPaterno, U.aMaterno,
             PE.comenPzsEntregadasAdic, PE.folioPzsSurtidaAdic, PE.fecha_creacion AS fechaPzsEntregada,
             UP.nombres AS nomP, UP.aPaterno AS patP, UP.aMaterno AS matP,
@@ -51,7 +51,7 @@ require '../components/fechaEs.php';
                             <div class='row justify-content-center'>
                                 <div class='col-md-12 col-sm-12 my-1'>
                                     <div class='form-group-input'>
-                                        <label class='ml-5 mb-2'>*Comentario Piezas Firmadas de Recibido</label>
+                                        <label class='ml-5 mb-2'>*Comentario Pieza Firmada de Recibido</label>
                                         <span data-toggle='tooltip' title='max. 300 caracteres'>
                                             <div class='input-group'>
                                                 <div class='input-group-prepend'>
@@ -81,7 +81,7 @@ require '../components/fechaEs.php';
                                             <span class='input-group-text'><i class='fa-solid fa-user'></i></span>
                                         </div>
                                         <input name='' id='modelo' type='text' class='form-control' value='<?php echo $row['nomUPF'] . ' ' . $row['patUPF'] . ' ' . $row['matUPF'] ?>' disabled readonly>
-                                        <label for='floatingInput' class='pl-5'>Capturista: Piezas Firmadas de Recibido </label>
+                                        <label for='floatingInput' class='pl-5'>Capturista: Pieza Firmada de Recibido </label>
                                     </div>
                                 </div>
                                 <div class='col-md-6 col-sm-12  form-group'>
@@ -145,7 +145,7 @@ require '../components/fechaEs.php';
                                             <span class='input-group-text'><i class='fa-solid fa-calendar-check'></i></span>
                                         </div>
                                         <input name='' id='' type='text' class='form-control' value='<?php echo $row['folioPzsSurtidaAdic'] ?>' disabled readonly>
-                                        <label for='floatingInput' class='pl-5'>Número de Folio Surtido de Pieza Adicional</label>
+                                        <label for='floatingInput' class='pl-5'>Número de Folio Pieza Entregada Adicional</label>
                                     </div>
                                 </div>
                             </div>
@@ -199,8 +199,17 @@ require '../components/fechaEs.php';
                                         <div class='input-group-prepend'>
                                             <span class='input-group-text'><i class='fa-solid fa-calendar-check'></i></span>
                                         </div>
+                                        <input name='' id='' type='text' class='form-control' value='<?php echo $row['folioProceSurtPzAdic'] ?>' disabled readonly>
+                                        <label for='floatingInput' class='pl-5'>Número de Folio Proceso de Surtido de Pieza Adicional</label>
+                                    </div>
+                                </div>
+                                <div class='col-md-6 col-sm-12  form-group'>
+                                    <div class='input-group form-floating'>
+                                        <div class='input-group-prepend'>
+                                            <span class='input-group-text'><i class='fa-solid fa-calendar-check'></i></span>
+                                        </div>
                                         <input name='' id='' type='text' class='form-control' value='<?php echo $row['folio_autorizPzsAdic'] ?>' disabled readonly>
-                                        <label for='floatingInput' class='pl-5'>Número de Folio Autorización Pieza Adicional</label>
+                                        <label for='floatingInput' class='pl-5'>Número de Folio Autorizado Pieza Adicional</label>
                                     </div>
                                 </div>
                             </div>

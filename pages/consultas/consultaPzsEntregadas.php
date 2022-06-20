@@ -9,9 +9,9 @@ if ($super == 1 or $verTablaPzsEntregadas == 1) {
 	SP.folio_solicitud, MIN(SP.borrado) AS solBorrado, MAX(SP.enUso) AS solEnUso, SP.folio_solicitud, SP.id_solPzsDanadas,
     RC.precio, RC.modalidadPago, RC.id_regCompraInicial,
 	ASE.asesor, TAR.tecArmador,
-    PA.cronoPreAuto, PA.fecha_creacion AS fechaRegPreAuto,
+    PA.cronoPreAuto, PA.fecha_creacion AS fechaRegPreAuto, 
     AU.folio_autoriz, AU.id_autorizado, AU.cronoAutorizado,
-    PE.id_pzsEntregadas, PE.folioPzsSurtida
+    PE.id_pzsEntregadas, PE.folioPzsSurtida, PS.folioProceSurtPz
 	FROM proyectos P
 	INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
 	INNER JOIN colores Co On V.id_color = Co.id_color
@@ -26,8 +26,9 @@ if ($super == 1 or $verTablaPzsEntregadas == 1) {
 	LEFT JOIN asesores ASE ON CA.id_asesor = ASE.id_asesor
     INNER JOIN preautorizados PA ON P.id_proyecto = PA.id_proyecto
     INNER JOIN autorizados AU ON P.id_proyecto = AU.id_proyecto
+	INNER JOIN autoprocesurtpzs PS ON P.id_proyecto = PS.id_proyecto
     INNER JOIN pzstregadas PE ON P.id_proyecto = PE.id_proyecto
-	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 AND P.pzsEntregadas = 1  AND PE.borrado = 0 GROUP BY P.id_proyecto ORDER BY RC.id_regCompraInicial DESC";
+	WHERE P.estadoProyectoEliminado = 1 AND P.pzsEntregadas = 1  AND PE.borrado = 0 GROUP BY P.id_proyecto ORDER BY RC.id_regCompraInicial DESC";
 } else {
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";
@@ -103,7 +104,7 @@ while ($row = $resultado->fetch_assoc()) {
 
 	// Solicitud Piezas
 	if ($solBorrado == 0 and $solEnUso == 1) {
-		$solicitud = "<h6><span class='badge badge-success badge-pill'>Solicitud(es)  {$soli}</span></h6>";
+		$solicitud = "<h6><span class='badge badge-success badge-pill'>Total  {$soli}</span></h6>";
 	} else if ($solBorrado == 1 and $solEnUso == 0) {
 		$solicitud = "<h6><span class='badge badge-danger badge-pill'>Sin Solicitud</span></h6>";
 	} else if (empty($folio_solicitud)) {
@@ -162,20 +163,19 @@ while ($row = $resultado->fetch_assoc()) {
 		"7" => $row['placa'],
 		"8" => $row['color'],
 		"9" => ($Eliminado == 0) ? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
-		"10" => $link,
-		"11" => $solicitud,
-		"12" => (empty($rowCompra['compra'])) ? "<h6><span class='badge badge-danger badge-pill'>Registros 0</span></h6>" : "<h6><span class='badge badge-success badge-pill'>Registro(s)  {$rowCompra['compra']}</span></h6>",
-		"13" => $precioCredito,
-		"14" => $precioContado,
-		"15" => $total,
+		"10" => $solicitud,
+		"11" => $precioCredito,
+		"12" => $precioContado,
+		"13" => $total,
+		"14" => "<strong>{$row['folioPzsSurtida']}</strong>",
+		"15" => "<strong>{$row['folioProceSurtPz']}</strong>",
 		"16" => "<strong>{$row['folio_autoriz']}</strong>",
-		"17" => "<strong>{$row['folioPzsSurtida']}</strong>",
-		"18" => "<strong>{$row['cronoPreAuto']}</strong>",
-		"19" => "<strong>{$row['cronoAutorizado']}</strong>",
-		"20" => (empty($row['asesor'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>",
-		"21" => (empty($row['tecArmador'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Técnico</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['tecArmador']}</span></h6>",
-		"22" => $fechaRegLink,
-		"23" => "<div class='input-group input-group-sm mb-4'>
+		"17" => "<strong>{$row['cronoPreAuto']}</strong>",
+		"18" => "<strong>{$row['cronoAutorizado']}</strong>",
+		"19" => (empty($row['asesor'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>",
+		"20" => (empty($row['tecArmador'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Técnico</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['tecArmador']}</span></h6>",
+		"21" => $fechaRegLink,
+		"22" => "<div class='input-group input-group-sm mb-4'>
 					<div class='input-group-prepend'>
 						<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Recepción de Piezas Dañadas'> Acciones</span></button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em; height:11em'>

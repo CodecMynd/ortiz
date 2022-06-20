@@ -176,7 +176,8 @@ require '../components/head-dataTables.php';
                                                 <th>Color</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Etapa del Proyecto</th>
-                                                <th>Incidencias</th>
+                                                <th>Ver Incidencias</th>
+                                                <th>Núm. Incidencias</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -198,7 +199,8 @@ require '../components/head-dataTables.php';
                                                 <th>Color</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Etapa del Proyecto</th>
-                                                <th>Incidencias</th>
+                                                <th>Ver Incidencias</th>
+                                                <th>Núm. Incidencias</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </tfoot>

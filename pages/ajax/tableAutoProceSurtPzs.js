@@ -29,8 +29,6 @@ $('#btnRegresarAutorizado').click(function () {
         })
 });
 
-// --------------------------------------------------------------------------------------------------------------------------------------------------
-
 //Ocultar boton por 3 minutos para evitar el doble submit
 $("#btnRegresarAutorizado").on('click', function () {
     $("#btnRegresarAutorizado").css('visibility', 'hidden');
@@ -38,6 +36,9 @@ $("#btnRegresarAutorizado").on('click', function () {
         $("#btnRegresarAutorizado").css('visibility', 'visible');
     }, 3000);
 });
+
+// --------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 // 4.1.5.2 Enviar Piezas Entregadas  --------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -61,8 +62,6 @@ $('#btnEnviarPzsEntregadas').click(function () {
             $('#respuestaEnviarPzsEntregadas').html(res)
         })
 });
-
-// --------------------------------------------------------------------------------------------------------------------------------------------------
 
 //Ocultar boton por 3 minutos para evitar el doble submit
 $("#btnEnviarPzsEntregadas").on('click', function () {
@@ -107,10 +106,10 @@ var tableAutoProceSurtPzs = $("#tableAutoProceSurtPzs").DataTable({
             searchPanes: {
                 show: true
             },
-            targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,20],
         },
         {
-            targets: [0, 3, 9, 21],
+            targets: [0, 3, 9],
             visible: false
         }
     ],
@@ -162,43 +161,43 @@ var tableAutoProceSurtPzs = $("#tableAutoProceSurtPzs").DataTable({
     "drawCallback": function () {
         //alert("La tabla se está recargando"); 
         var api = this.api();
-        $(api.column(13).footer()).html(
-            'Total: ' + api.column(13, {
+        $(api.column(11).footer()).html(
+            'Total: ' + api.column(11, {
                 page: 'current'
             }).data().sum()
         )
         var api2 = this.api();
-        $(api2.column(14).footer()).html(
-            'Total: ' + api2.column(14, {
+        $(api2.column(12).footer()).html(
+            'Total: ' + api2.column(12, {
                 page: 'current'
             }).data().sum()
         )
         var api3 = this.api();
-        $(api3.column(15).footer()).html(
-            'Total: ' + api3.column(15, {
+        $(api3.column(13).footer()).html(
+            'Total: ' + api3.column(13, {
                 page: 'current'
             }).data().sum()
         )
     },
     "createdRow": function (row, data, index) {
-        if (data[10] > '0') {
+        if (data[8] >= '0') {
+            $('td', row).eq(8).css({
+                'text-align': 'center',
+                'background-color': '#5A6268',
+                'color': '#fff',
+                'font-weight': 'bold'
+            });
+        }
+        if (data[9] >= '0') {
+            $('td', row).eq(9).css({
+                'text-align': 'center',
+                'background-color': '#5A6268',
+                'color': '#fff',
+                'font-weight': 'bold'
+            });
+        }
+        if (data[10] >= '0') {
             $('td', row).eq(10).css({
-                'text-align': 'center',
-                'background-color': '#5A6268',
-                'color': '#fff',
-                'font-weight': 'bold'
-            });
-        }
-        if (data[11] > '0') {
-            $('td', row).eq(11).css({
-                'text-align': 'center',
-                'background-color': '#5A6268',
-                'color': '#fff',
-                'font-weight': 'bold'
-            });
-        }
-        if (data[12] >= '0') {
-            $('td', row).eq(12).css({
                 'text-align': 'center',
                 'background-color': '#5A6268',
                 'color': '#fff',
@@ -210,5 +209,5 @@ var tableAutoProceSurtPzs = $("#tableAutoProceSurtPzs").DataTable({
 });
 setInterval(function () {
     tableAutoProceSurtPzs.ajax.reload(null, false); // user paging is not reset on reload
-}, 180000);
+}, 360000);
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -93,4 +93,4 @@
         });
         setInterval(function() {
             tableDadosdeAlta.ajax.reload(null, false); // user paging is not reset on reload
-        }, 18000);
+        }, 360000);

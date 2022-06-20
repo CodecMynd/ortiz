@@ -6,7 +6,8 @@ $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.comActMinDia, P.estadoP
 V.placa, M.marca, Mo.modelo, A.anio, Co.color,                                    
 MAX(AM.fecha_hoyV) AS FV, MAX(AM.fecha_hoyS) AS FS, MAX(AM.id_ActMinDiaria) AS id_ActMinDiaria,
 ASE.asesor, T.top,
-AST.id_aseTec, AST.aseTec
+AST.id_aseTec, AST.aseTec,
+PE.folioProyExtra
 FROM proyectos P
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
 INNER JOIN colores Co On V.id_color = Co.id_color
@@ -18,8 +19,9 @@ LEFT JOIN comasesor CA ON P.id_proyecto = CA.id_proyecto
 LEFT JOIN asesores ASE ON CA.id_asesor = ASE.id_asesor
 LEFT JOIN tops T ON P.id_proyecto = T.id_proyecto
 LEFT JOIN asesoramientostecnicos AST ON P.id_proyecto = AST.id_proyecto
+LEFT JOIN proyextras PE ON P.id_proyecto = PE.id_proyecto
 WHERE P.proyectoActivo = 1 AND P.estadoProyectoEliminado = 1 OR P.registroSolicitud = 1 GROUP BY P.id_proyecto  
-ORDER BY nProyecto  DESC";
+ORDER BY nProyecto DESC";
 }else{
 	$query = "SELECT id_proyecto FROM proyectos WHERE id_proyecto = 0";
 }
@@ -54,6 +56,7 @@ while ($row = $resultado->fetch_assoc()) {
 	$top = $row['top'];
 	$id_aseTec = $row['id_aseTec'];
 	$aseTec = $row['aseTec'];
+	$folioProyExtra = $row['folioProyExtra'];
 
 
 	// Validar columna asesor 
@@ -193,6 +196,7 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns4 = "<a href='javascript:void(0)' class='btn btn-info' onclick='mostarDetalles(\"".$row['id_proyecto']."\")'><i class='fa-solid fa-circle-info'></i></a>";
 	}
 	
+	$proyExtra = (empty($folioProyExtra)) ?  "<h6><span class='badge badge-danger badge-pill'>N/A</span></h6>" :  "<h6><span class='badge badge-success badge-pill'>{$folioProyExtra}</span></h6>";
 
 	$cont++;
 	$datos[] = array(
@@ -206,14 +210,15 @@ while ($row = $resultado->fetch_assoc()) {
 		"7" => $row['placa'],
 		"8" => $row['color'],
 		"9" => $validaAsesor,
-		"10" => $validaTop,
-		"11" => "<strong>{$row['valorVenta']}</strong>",
-		"12" => $validaAseTec,
-		"13" => $validaEstadoProyecto,
-		"14" => $validaCom,
-		"15" => $validaSup,
-		"16" => $validaUltReg,
-		"17" => "<div class='input-group input-group-sm mb-3'>
+		"10" => $proyExtra,
+		"11" => $validaTop,
+		"12" => "<strong>{$row['valorVenta']}</strong>",
+		"13" => $validaAseTec,
+		"14" => $validaEstadoProyecto,
+		"15" => $validaCom,
+		"16" => $validaSup,
+		"17" => $validaUltReg,
+		"18" => "<div class='input-group input-group-sm mb-3'>
 		<div class='input-group-prepend'>
 			<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Verificación Diaria Vehículos Activos'> Acciones</span>
 			</button>

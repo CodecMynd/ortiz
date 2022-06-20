@@ -234,7 +234,7 @@ $id_proyecto = $_GET['id'];
 $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden,
 V.placa, Co.color, M.marca, Mo.modelo, An.anio,
 R.linkRecPzsDanadas, R.fecha_creacion, U.nombres, U.aPaterno, U.aMaterno,
-T.tecArmador, AU.folio_autoriz, PE.folioPzsSurtida
+T.tecArmador, AU.folio_autoriz, PE.folioPzsSurtida, PS.folioProceSurtPz
 from proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -246,6 +246,7 @@ LEFT JOIN tecarmadores T ON R.id_tecArmador = T.id_tecArmador
 LEFT JOIN usuarios U ON R.id_capB = U.id_usuario
 INNER JOIN autorizados AU ON P.id_proyecto = AU.id_proyecto
 INNER JOIN pzstregadas PE ON P.id_proyecto = PE.id_proyecto
+INNER JOIN autoprocesurtpzs PS ON P.id_proyecto = PS.id_proyecto
 WHERE P.id_Proyecto = $id_proyecto AND AU.borrado = 0 AND PE.borrado = 0";
 $respuesta = mysqli_query($conexion, $query);
 $row  = $respuesta->fetch_assoc();
@@ -266,7 +267,7 @@ LEFT JOIN usuarios U ON S.id_capC = U.id_usuario
 LEFT JOIN regcomprainicial RC ON S.id_solPzsDanadas = RC.id_solPzsDanadas
 LEFT JOIN usuarios UCI ON RC.id_capC = UCI.id_usuario
 LEFT JOIN proveedores PR ON RC.id_proveedor = PR.id_proveedor
-WHERE P.id_Proyecto = $id_proyecto AND P.proyectoActivo = 1 AND S.borrado = 0 ORDER BY S.fecha_creacion DESC";
+WHERE P.id_Proyecto = $id_proyecto  AND S.borrado = 0 ORDER BY S.fecha_creacion DESC";
 $resultado = mysqli_query($conexion, $query1);
 ?>
 
@@ -291,6 +292,7 @@ $resultado = mysqli_query($conexion, $query1);
                             <th>Placas</th>
                             <th>Color</th>
                             <th>Técnico Armador</th>
+                            <th>Fecha Registro Link</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -303,6 +305,7 @@ $resultado = mysqli_query($conexion, $query1);
                             <td><?php echo $row['placa'] ?></td>
                             <td><?php echo $row['color'] ?></td>
                             <td><?php echo (empty($row['tecArmador'])) ? 'Sin Registro' : $row['tecArmador'] ?></td>
+                            <td><?php echo (empty($row['fecha_creacion'])) ? 'Sin Registro' : $row['fecha_creacion'] ?></td>
                         </tr>
                     </tbody>
                 </table>
@@ -310,17 +313,17 @@ $resultado = mysqli_query($conexion, $query1);
                     <thead>
                         <tr>
                             <th>Link de Desarmado</th>
-                            <th>Fecha Registro Link</th>
-                            <th>Folio Autorización</th>
-                            <th>Folio Pieza Surtida</th>
+                            <th style="width: 10%;">Folio Pieza Entregada</th>
+                            <th style="width: 10%;">Folio Proceso Surtido Pieza</th>
+                            <th style="width: 10%;">Folio Autorizado de Pieza</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><?php echo (empty($row['linkRecPzsDanadas'])) ? 'Sin Registro' : $row['linkRecPzsDanadas'] ?></td>
-                            <td><?php echo (empty($row['fecha_creacion'])) ? 'Sin Registro' : $row['fecha_creacion'] ?></td>
-                            <td><strong><?php echo $row['folio_autoriz'] ?></strong></td>
-                            <td><strong><?php echo $row['folioPzsSurtida'] ?></strong></td>
+                            <td style="width: 10%;"><?php echo $row['folioPzsSurtida'] ?></td>
+                            <td style="width: 10%;"><?php echo $row['folioProceSurtPz'] ?></td>
+                            <td style="width: 10%;"><?php echo $row['folio_autoriz'] ?></td>
                         </tr>
                     </tbody>
                 </table>
@@ -467,6 +470,6 @@ $dompdf->setPaper('A4', 'landscape'); //hoja tamaño carta horizontal
 //$dompdf->setPaper('A4', 'Landscape'); //tamaño oficio 
 
 $dompdf->render(); //poner visible
-$dompdf->stream("Pieza Entregada", array("Attachment" => true)); // nombre del archivo, array attachment => true para descagar en automatico
+$dompdf->stream("Pieza Entregada Núm_Proyecto_{$nP}", array("Attachment" => true)); // nombre del archivo, array attachment => true para descagar en automatico
 
 ?>

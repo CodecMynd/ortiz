@@ -80,7 +80,7 @@
      "select": {
          style: 'multi'
      },
-     "pageLength": 10,
+     "pageLength": 50,
      "dom": 'PlBfrtip',
      "buttons": ["csv", "excel", "pdf", "colvis"],
      "ajax": {
@@ -104,10 +104,10 @@
              searchPanes: {
                  show: true
              },
-             targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+             targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18,19],
          },
          {
-             targets: [0, 3, 19],
+             targets: [0, 3],
              visible: false
          }
      ],
@@ -159,29 +159,29 @@
      "drawCallback": function () {
          //alert("La tabla se está recargando"); 
          var api2 = this.api();
-         $(api2.column(13).footer()).html(
-             'Total: ' + api2.column(13, {
+         $(api2.column(10).footer()).html(
+             'Total: ' + api2.column(10, {
                  page: 'current'
              }).data().sum()
          )
          var api3 = this.api();
-         $(api3.column(14).footer()).html(
-             'Total: ' + api3.column(14, {
+         $(api3.column(11).footer()).html(
+             'Total: ' + api3.column(11, {
                  page: 'current'
              }).data().sum()
          )
      },
      "createdRow": function (row, data, index) {
-         if (data[11] >= '0') {
-             $('td', row).eq(11).css({
+         if (data[8] >= '0') {
+             $('td', row).eq(8).css({
                  'text-align': 'center',
                  'background-color': '#5A6268',
                  'color': '#fff',
                  'font-weight': 'bold'
              });
          }
-         if (data[12] >= '0') {
-             $('td', row).eq(12).css({
+         if (data[9] >= '0') {
+             $('td', row).eq(9).css({
                  'text-align': 'center',
                  'background-color': '#5A6268',
                  'color': '#fff',
@@ -193,5 +193,5 @@
  });
  setInterval(function () {
      tablepzsEntregadasAdic.ajax.reload(null, false); // user paging is not reset on reload
- }, 180000);
+    }, 360000);
  //----------------------------------------------------------------------------------------------------------------------------------------------------------------------

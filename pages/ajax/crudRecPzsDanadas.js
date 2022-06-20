@@ -246,6 +246,6 @@ var tableRecPzsDanadas = $("#tableRecPzsDanadas").DataTable({
 });
 setInterval(function () {
     tableRecPzsDanadas.ajax.reload(null, false); // user paging is not reset on reload
-}, 180000);
+}, 360000);
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

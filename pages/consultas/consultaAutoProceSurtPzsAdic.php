@@ -10,7 +10,7 @@ if ($super == 1 or $verTablaAutoProceSurtPzsAdic == 1) {
     CT.id_cotizandoPzsAdic, CT.borrado AS cotizandoBorrado,
     PR.cronoPreAuto, PR.id_preAutorizadoPzsAdic,
     AP.id_autorizadoPzsAdic, AP.folio_autorizPzsAdic, AP.cronoAutorizadoPzAdic,
-    APS.id_AutoProceSurtPzAdic
+    APS.id_AutoProceSurtPzAdic, APS.folioProceSurtPzAdic
 	FROM proyectos P
 	INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
 	INNER JOIN colores Co On V.id_color = Co.id_color
@@ -22,7 +22,7 @@ if ($super == 1 or $verTablaAutoProceSurtPzsAdic == 1) {
     INNER JOIN preautorizadospzsadic PR ON R.id_regSolpzadicional = PR.id_regSolpzadicional
     INNER JOIN autorizadospzsadic AP ON PR.id_preAutorizadoPzsAdic = AP.id_preAutorizadoPzsAdic
     INNER JOIN autoprocesurtpzsadic APS ON AP.id_autorizadoPzsAdic = APS.id_autorizadoPzsAdic
-	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 AND CT.autoProceSurtPzAdic = 1 AND APS.borrado = 0 GROUP BY APS.id_AutoProceSurtPzAdic";
+	WHERE P.estadoProyectoEliminado = 1 AND CT.autoProceSurtPzAdic = 1 AND APS.borrado = 0 GROUP BY APS.id_AutoProceSurtPzAdic";
 } else {
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";
@@ -133,17 +133,18 @@ while ($row = $resultado->fetch_assoc()) {
 		"6" => $row['anio'],
 		"7" => $row['placa'],
 		"8" => $row['color'],
-		"9" => "<strong>{$row['folio_autorizPzsAdic']}</strong>",
-		"10" => "<strong>{$row['folioPzAdicional']}</strong>",
-		"11" => "<strong>{$row['modalidadPago']}</strong>",
-		"12" => $precioCredito,
-		"13" => $precioContado,
-		"14" => "<strong>{$row['cronoAutorizadoPzAdic']}</strong>",
-		"15" => "<strong>{$row['cronoPreAuto']}</strong>",
-		"16" => (empty($row['asesor'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>",
-		"17" => (empty($row['tecArmador'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Técnico</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['tecArmador']}</span></h6>",
-		"18" => $fecha_creacion,
-		"19" => "<div class='input-group input-group-sm mb-3'>
+		"9" => "<strong>{$row['modalidadPago']}</strong>",
+		"10" => $precioCredito,
+		"11" => $precioContado,
+		"12" => "<strong>{$row['folioProceSurtPzAdic']}</strong>",
+		"13" => "<strong>{$row['folio_autorizPzsAdic']}</strong>",
+		"14" => "<strong>{$row['folioPzAdicional']}</strong>",
+		"15" => "<strong>{$row['cronoAutorizadoPzAdic']}</strong>",
+		"16" => "<strong>{$row['cronoPreAuto']}</strong>",
+		"17" => (empty($row['asesor'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>",
+		"18" => (empty($row['tecArmador'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Técnico</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['tecArmador']}</span></h6>",
+		"19" => $fecha_creacion,
+		"20" => "<div class='input-group input-group-sm mb-3'>
 					<div class='input-group-prepend'>
 						<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Recepción de Piezas Dañadas'> Acciones</span></button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>

@@ -22,6 +22,15 @@ $respuesta = mysqli_query($conexion, $query);
 $row = $respuesta->fetch_assoc();
 $folio_autorizPzsAdic = $row['folio_autorizPzsAdic'];
 
+// Query Registro de folio registrosolicitud
+$queryP = 'SELECT MAX(id_AutoProceSurtPzAdic) + 1 FROM autoprocesurtpzsadic';
+$result = mysqli_query($conexion,  $queryP);
+$rowp = mysqli_fetch_row($result);
+
+// Prefijo folio
+$text = "Surtido_Adic-00";
+$folioProceSurtPzAdic = $text . '' . $rowp[0];
+
 
 $autorizadoPzsAdic = 0;
 $autoProceSurtPzAdic = 1;
@@ -35,7 +44,7 @@ try {
     $resultado1 = mysqli_query($conexion, $query1);
     // var_dump($query1);
 
-    $query2 = "INSERT INTO autoprocesurtpzsadic(id_autorizadoPzsAdic, id_regSolpzadicional, id_cotizandoPzsAdic, id_preAutorizadoPzsAdic, id_proyecto, nProyecto, comenProceSurtPzAdic, fecha_creacion, id_capC) VALUES ('$id_autorizadoPzsAdic', '$id_regSolpzadicional', '$id_cotizandoPzsAdic', '$id_preAutorizadoPzsAdic', '$id_proyecto', '$nProyecto', '$comenProceSurtPzAdic', '$date', '$id')";
+    $query2 = "INSERT INTO autoprocesurtpzsadic(id_autorizadoPzsAdic, id_regSolpzadicional, id_cotizandoPzsAdic, id_preAutorizadoPzsAdic, id_proyecto, nProyecto, comenProceSurtPzAdic, folioProceSurtPzAdic, fecha_creacion, id_capC) VALUES ('$id_autorizadoPzsAdic', '$id_regSolpzadicional', '$id_cotizandoPzsAdic', '$id_preAutorizadoPzsAdic', '$id_proyecto', '$nProyecto', '$comenProceSurtPzAdic', '$folioProceSurtPzAdic', '$date', '$id')";
     $resultado2 = mysqli_query($conexion, $query2);
     // var_dump($query2);
 

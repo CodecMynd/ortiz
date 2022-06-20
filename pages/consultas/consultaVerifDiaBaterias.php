@@ -58,10 +58,10 @@ while ($row = $resultado->fetch_assoc()) {
 	$querySumInc = "SELECT
 	(SELECT COUNT(com) 
 	FROM incidencias 
-	WHERE com = 1 AND  borrado = 0 AND id_proyecto = $idP ) AS sumaCom,
+	WHERE com = 1  AND id_proyecto = $idP ) AS sumaCom,
 	(SELECT COUNT(sup)
 	FROM incidencias
-	WHERE sup = 1 AND borrado = 0 AND id_proyecto = $idP) AS sumaSup";
+	WHERE sup = 1  AND id_proyecto = $idP) AS sumaSup";
 	$resultadoInc = mysqli_query($conexion, $querySumInc);
 	$rowSInc = $resultadoInc->fetch_assoc();
 	$totalInc = $rowSInc['sumaCom'] + $rowSInc['sumaSup'];
@@ -179,16 +179,18 @@ while ($row = $resultado->fetch_assoc()) {
 
 	// 2.3.3.3 Ver Incidencias 
 	if (empty($comI) and empty($supI)) {
-		$incidencia = "<button class='btn btn-sm btn-secondary' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto no cuenta con Incidencias!' style='cursor:no-drop'>
-			<span class='badge badge-success'>{$totalInc}</span> Incidencias</button>";
+		$incidencia = "<button class='btn btn-sm btn-secondary' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto no cuenta con Incidencias!' style='cursor:no-drop'><span class='badge badge-success'></span>Sin Incidencias</button>";
 	} else if ($row['IncidenciaEli'] == 1) {
-		$incidencia = "<a href='javascript:void(0)' onclick='mostarIncidencias(\"" . $row['id_proyecto'] . "\")'><button type='button' class='btn btn-sm btn-secondary' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto Si cuenta con Incidencias, da un clic para ver información!'><span class='badge badge-light parpadea'>{$totalInc}</span> Incidencias</button></a>";
+		$incidencia = "<a href='javascript:void(0)' onclick='mostarIncidencias(\"" . $row['id_proyecto'] . "\")'><button type='button' class='btn btn-sm btn-danger' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto Si cuenta con Incidencias, da un clic para ver información!'><span class='badge badge-light parpadea'></span>Incidencias</button></a>";
+
 	} else if ($super == 1 or $verGralIncidencias == 1 and $row['borrado'] == 0) {
-		$incidencia = "<a href='javascript:void(0)' onclick='mostarIncidencias(\"" . $row['id_proyecto'] . "\")'><button type='button' class='btn btn-sm btn-danger' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto Si cuenta con Incidencias, da un clic para ver información!'><span class='badge badge-light parpadea'>{$totalInc}</span> Incidencias</button></a>";
+		$incidencia = "<a href='javascript:void(0)' onclick='mostarIncidencias(\"" . $row['id_proyecto'] . "\")'><button type='button' class='btn btn-sm btn-danger' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto Si cuenta con Incidencias, da un clic para ver información!'><span class='badge badge-light parpadea'></span>Incidencias</button></a>";
+
 	} else if ($super == 1 or $verGralIncidencias == 1 and ($comI == 1 or $supI == 1 and $row['borrado'] == 0)) {
-		$incidencia = "<a href='javascript:void(0)' onclick='mostarIncidencias(\"" . $row['id_proyecto'] . "\")'><button type='button' class='btn btn-sm btn-danger' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto Si cuenta con Incidencias, da un clic para ver información!'><span class='badge badge-light parpadea'>{$totalInc}</span> Incidencias</button></a>";
+		$incidencia = "<a href='javascript:void(0)' onclick='mostarIncidencias(\"" . $row['id_proyecto'] . "\")'><button type='button' class='btn btn-sm btn-danger' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto Si cuenta con Incidencias, da un clic para ver información!'><span class='badge badge-light parpadea'></span>Incidencias</button></a>";
+
 	} else {
-		$incidencia = "<a href='javascript:void(0)'><button type='button' class='btn btn-sm btn-danger' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto Si cuenta con Incidencias, da un clic para ver información! Sin permiso' style='cursor:no-drop'><span class='badge badge-light parpadea'>{$totalInc}</span> Incidencias1</button></a>";
+		$incidencia = "<a href='javascript:void(0)'><button type='button' class='btn btn-sm btn-danger' data-toggle='tooltip' data-placement='left' title='¡Este Número de Proyecto Si cuenta con Incidencias, da un clic para ver información! Sin permiso' style='cursor:no-drop'><span class='badge badge-light parpadea'></span>Con Incidencias</button></a>";
 	}
 
 	// 2.3.3.4 Ver Generales Verificación Diaria de Baterías
@@ -209,6 +211,8 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns4 = "<a class='btn btn-outline-danger' id='verGralVerDiaBat' data-toggle='tooltip' data-placement='left' data-placement='left' title='Sin permiso' style='cursor:no-drop'><i class='fa-solid fa-circle-info'></i></a>";
 	}
 
+	$numInci = ($totalInc == 0) ? "<h6><span class='badge badge-success badge-pill'>0 Incidencias</span></h6>" : "<h6><span class='badge badge-danger badge-pill'>{$totalInc} Incidencias</span></h6>";
+
 
 	$cont++;
 	$datos[] = array(
@@ -227,7 +231,8 @@ while ($row = $resultado->fetch_assoc()) {
 		"12" => $validaEstadoProyecto,
 		"13" => $etapa,
 		"14" => $incidencia,
-		"15" => "<div class='input-group input-group-sm mb-3'>
+		"15" => $numInci,
+		"16" => "<div class='input-group input-group-sm mb-3'>
 		<div class='input-group-prepend'>
 			<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Verificación Diaria Vehículos Activos'> Acciones</span>
 			</button>

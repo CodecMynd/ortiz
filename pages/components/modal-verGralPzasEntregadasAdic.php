@@ -9,7 +9,7 @@ require '../components/fechaEs.php';
             <?php
             $id_proyecto = $_REQUEST['id_proyecto'];
             $query = "SELECT P.id_proyecto, P.nProyecto,
-            A.comenProceSurtPzAdic, A.fecha_creacion, 
+            A.comenProceSurtPzAdic, A.fecha_creacion, A.folioProceSurtPzAdic,
             U.nombres, U.aPaterno, U.aMaterno,
             PE.comenPzsEntregadasAdic, PE.folioPzsSurtidaAdic, PE.fecha_creacion AS fechaPzsEntregada,
             UP.nombres AS nomP, UP.aPaterno AS patP, UP.aMaterno AS matP,
@@ -80,7 +80,7 @@ require '../components/fechaEs.php';
                                             <span class='input-group-text'><i class='fa-solid fa-calendar-check'></i></span>
                                         </div>
                                         <input name='' id='' type='text' class='form-control' value='<?php echo $row['folioPzsSurtidaAdic'] ?>' disabled readonly>
-                                        <label for='floatingInput' class='pl-5'>Número de Folio Surtido de Pieza Adicional</label>
+                                        <label for='floatingInput' class='pl-5'>Número Folio Pieza Entregada Adicional</label>
                                     </div>
                                 </div>
                             </div>
@@ -128,13 +128,23 @@ require '../components/fechaEs.php';
                                         <input name='' id='' type='text' class='form-control' value='<?php echo $row['fecha_creacion'] ?>' disabled readonly>
                                         <label for='floatingInput' class='pl-5'>Fecha: Proceso de Surtido de Piezas</label>
                                     </div>
-                                </div>                                <div class='col-md-6 col-sm-12  form-group'>
+                                </div>
+                                <div class='col-md-6 col-sm-12  form-group'>
+                                    <div class='input-group form-floating'>
+                                        <div class='input-group-prepend'>
+                                            <span class='input-group-text'><i class='fa-solid fa-calendar-check'></i></span>
+                                        </div>
+                                        <input name='' id='' type='text' class='form-control' value='<?php echo $row['folioProceSurtPzAdic'] ?>' disabled readonly>
+                                        <label for='floatingInput' class='pl-5'>Número de Folio Proceso de Surtido de Piezas Adicional</label>
+                                    </div>
+                                </div>
+                                <div class='col-md-6 col-sm-12  form-group'>
                                     <div class='input-group form-floating'>
                                         <div class='input-group-prepend'>
                                             <span class='input-group-text'><i class='fa-solid fa-calendar-check'></i></span>
                                         </div>
                                         <input name='' id='' type='text' class='form-control' value='<?php echo $row['folio_autorizPzsAdic'] ?>' disabled readonly>
-                                        <label for='floatingInput' class='pl-5'>Número de Folio Autorización</label>
+                                        <label for='floatingInput' class='pl-5'>Número de Folio Autorizado Pieza Adicional</label>
                                     </div>
                                 </div>
                             </div>

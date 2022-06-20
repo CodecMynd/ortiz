@@ -112,5 +112,5 @@ var tableProveedores = $("#tableProveedores").DataTable({
 });
 // setInterval(function () {
 //     tableProveedores.ajax.reload(null, false); // user paging is not reset on reload
-// }, 180000);
+//300000
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------

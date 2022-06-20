@@ -1,48 +1,74 @@
-// 2.3.6.2 Eliminar Programa de Asesoramiento Técnico ---------------------------------------------------
-$('#btnEliminarAseTec').click(function () {
-    var param = $('#formEliminarAseTec').serialize();
+    // 2.3.15.1.3 Registrar Supervisión Comprobación de Asesor --------------------------------------------------------------------------------------------------------------------------------------------------
+
+    $('#btnNuevoRegComAsesorSuper').click(function() {
+        var param = $('#formNuevoRegComAsesorSuper').serialize();
+        $.ajax({
+                url: '../adds/addNuevoRegComAsesorSuper.php',
+                type: 'POST',
+                data: param,
+
+                success: function(vs) {
+                    $('#formNuevoRegComAsesorSuper')[0].reset();
+                    setTimeout(function() {
+                        $('.regComAsesorSuper').modal('hide');
+                    }, 1000);
+                    tableComAsignarAsesor.ajax.reload(null, false);
+                }
+            })
+            .done(function(res) {
+                $('#respuestaNuevogComAsesorSuper').html(res)
+            })
+    });
+
+    //Ocultar boton por 3 minutos para evitar el doble submit
+    $("#btnNuevoRegComAsesorSuper").on('click', function() {
+        $("#btnNuevoRegComAsesorSuper").css('visibility', 'hidden');
+        setTimeout(function() {
+            $("#btnNuevoRegComAsesorSuper").css('visibility', 'visible');
+        }, 3000);
+    });
+
+// 2.3.15.1.1 Registrar Comprobación de Asignación Asesor --------------------------------------------------------------------------------------------------------------------------------------------------
+
+$('#btnNuevoRegComAsesor').click(function () {
+    var param = $('#formNuevoRegComAsesor').serialize();
     $.ajax({
-            url: '../delete/deleteAseTec.php',
+            url: '../adds/addNuevoRegComAsesor.php',
             type: 'POST',
             data: param,
 
             success: function (vs) {
-                $('#formEliminarAseTec')[0].reset();
+                $('#formNuevoRegComAsesor')[0].reset();
                 setTimeout(function () {
-                    $('.borrarAseTec').modal('hide');
+                    $('.regComAsesor').modal('hide');
                 }, 1000);
-                tableAsesoramientoTecnico.ajax.reload(null, false);
+                tableComAsignarAsesor.ajax.reload(null, false);
             }
         })
         .done(function (res) {
-            $('#respuestaDeleteAseTec').html(res)
+            $('#respuestaNuevogComAsesor').html(res)
         })
 });
 
-// --------------------------------------------------------------------------------------------------------------------------------------------------
-
 //Ocultar boton por 3 minutos para evitar el doble submit
-$("#btnEliminarAseTec").on('click', function () {
-    $("#btnEliminarAseTec").css('visibility', 'hidden');
+$("#btnNuevoRegComAsesor").on('click', function () {
+    $("#btnNuevoRegComAsesor").css('visibility', 'hidden');
     setTimeout(function () {
-        $("#btnEliminarAseTec").css('visibility', 'visible');
+        $("#btnNuevoRegComAsesor").css('visibility', 'visible');
     }, 3000);
 });
 
 
-// Tabla 2.3.6 Programa de Asesoramiento Técnico
-var tableAsesoramientoTecnico = $("#tableAsesoramientoTecnico").DataTable({
+// Tabla 2.3.15 Lista Comprobación de Asignación  de Asesor
+var tableComAsignarAsesor = $("#tableComAsignarAsesor").DataTable({
     "responsive": true,
     "lengthChange": true,
     "autoWidth": true,
-    "select": true,
-    "select": {
-        style: 'multi'
-    },
+
     "dom": 'PlBfrtip',
     "buttons": ["csv", "excel", "pdf", "colvis"],
     "ajax": {
-        url: "../consultas/consultaAsesoramientoTecnico.php",
+        url: "../consultas/consultaComAsignarAsesor.php",
         type: "get",
         dataType: "json",
         error: function (e) {
@@ -62,10 +88,10 @@ var tableAsesoramientoTecnico = $("#tableAsesoramientoTecnico").DataTable({
         searchPanes: {
             show: true
         },
-        targets: [4, 5, 6, 7, 8, 9, 10, 11],
+        targets: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
     }],
-
     "language": {
+
         "aria": {
             "sortAscending": "Activar para ordenar la columna de manera ascendente",
             "sortDescending": "Activar para ordenar la columna de manera descendente"
@@ -107,19 +133,20 @@ var tableAsesoramientoTecnico = $("#tableAsesoramientoTecnico").DataTable({
         "emptyTable": "No hay datos disponibles en la tabla",
         "info": "Mostrando de _START_ al _END_ de  _TOTAL_ registros",
         "zeroRecords": "No se encontraron coincidencias"
+
     },
     "drawCallback": function () {
         //alert("La tabla se está recargando"); 
         var api = this.api();
-        $(api.column(9).footer()).html(
-            'Total: ' + api.column(9, {
+        $(api.column(10).footer()).html(
+            'Total: ' + api.column(10, {
                 page: 'current'
             }).data().sum()
         )
     },
     "createdRow": function (row, data, index) {
-        if (data[9] > '0') {
-            $('td', row).eq(9).css({
+        if (data[10] >= '0') {
+            $('td', row).eq(10).css({
                 'text-align': 'center',
                 'background-color': '#5A6268',
                 'color': '#fff',
@@ -129,5 +156,5 @@ var tableAsesoramientoTecnico = $("#tableAsesoramientoTecnico").DataTable({
     },
 });
 setInterval(function () {
-    tableAsesoramientoTecnico.ajax.reload(null, false); // user paging is not reset on reload
+    tableComAsignarAsesor.ajax.reload(null, false); // user paging is not reset on reload
 }, 360000);

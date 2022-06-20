@@ -97,7 +97,7 @@ var tablePreautorizacion = $("#tablePreautorizacion").DataTable({
             targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
         },
         {
-            targets: [0, 3, 9, 19],
+            targets: [0, 2, 9, 18],
             visible: false
         }
     ],
@@ -149,20 +149,20 @@ var tablePreautorizacion = $("#tablePreautorizacion").DataTable({
     "drawCallback": function () {
         //alert("La tabla se está recargando"); 
         var api = this.api();
-        $(api.column(13).footer()).html(
-            'Total: ' + api.column(13, {
+        $(api.column(12).footer()).html(
+            'Total: ' + api.column(12, {
                 page: 'current'
             }).data().sum()
         )
         var api2 = this.api();
-        $(api2.column(14).footer()).html(
-            'Total: ' + api2.column(14, {
+        $(api2.column(13).footer()).html(
+            'Total: ' + api2.column(13, {
                 page: 'current'
             }).data().sum()
         )
         var api3 = this.api();
-        $(api3.column(15).footer()).html(
-            'Total: ' + api3.column(15, {
+        $(api3.column(14).footer()).html(
+            'Total: ' + api3.column(14, {
                 page: 'current'
             }).data().sum()
         )
@@ -182,6 +182,14 @@ var tablePreautorizacion = $("#tablePreautorizacion").DataTable({
                 'font-weight': 'bold'
             });
         }
+        if (data[9] > '0') {
+            $('td', row).eq(9).css({
+                'text-align': 'center',
+                'background-color': '#5A6268',
+                'color': '#fff',
+                'font-weight': 'bold'
+            });
+        }
         if (data[10] > '0') {
             $('td', row).eq(10).css({
                 'text-align': 'center',
@@ -190,16 +198,8 @@ var tablePreautorizacion = $("#tablePreautorizacion").DataTable({
                 'font-weight': 'bold'
             });
         }
-        if (data[11] > '0') {
+        if (data[11] >= '0') {
             $('td', row).eq(11).css({
-                'text-align': 'center',
-                'background-color': '#5A6268',
-                'color': '#fff',
-                'font-weight': 'bold'
-            });
-        }
-        if (data[12] >= '0') {
-            $('td', row).eq(12).css({
                 'text-align': 'center',
                 'background-color': '#5A6268',
                 'color': '#fff',
@@ -211,5 +211,5 @@ var tablePreautorizacion = $("#tablePreautorizacion").DataTable({
 });
 setInterval(function () {
     tablePreautorizacion.ajax.reload(null, false); // user paging is not reset on reload
-}, 180000);
+}, 360000);
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------

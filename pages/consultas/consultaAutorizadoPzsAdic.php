@@ -20,7 +20,7 @@ if ($super == 1 or $verTablaAutorizadoPzsAdic == 1) {
     INNER JOIN cotizandopzsadic CT ON R.id_cotizandoPzsAdic = CT.id_cotizandoPzsAdic
     INNER JOIN preautorizadospzsadic PR ON R.id_regSolpzadicional = PR.id_regSolpzadicional
     INNER JOIN autorizadospzsadic AP ON PR.id_preAutorizadoPzsAdic = AP.id_preAutorizadoPzsAdic
-	WHERE P.estadoProyectoEliminado = 1 AND P.proyectoActivo = 1 AND CT.autorizadoPzsAdic = 1 AND AP.borrado = 0 ORDER BY AP.id_autorizadoPzsAdic DESC";
+	WHERE P.estadoProyectoEliminado = 1 AND CT.autorizadoPzsAdic = 1 AND AP.borrado = 0 ORDER BY AP.id_autorizadoPzsAdic DESC";
 } else {
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";
@@ -124,11 +124,11 @@ while ($row = $resultado->fetch_assoc()) {
 		"6" => $row['anio'],
 		"7" => $row['placa'],
 		"8" => $row['color'],
-		"9" => "<strong>{$row['folio_autorizPzsAdic']}</strong>",
-		"10" => "<strong>{$row['folioPzAdicional']}</strong>",
-		"11" =>"<strong>{$row['modalidadPago']}</strong>",
-		"12" => $precioCredito,
-		"13" => $precioContado,
+		"9" =>"<strong>{$row['modalidadPago']}</strong>",
+		"10" => $precioCredito,
+		"11" => $precioContado,
+		"12" => "<strong>{$row['folio_autorizPzsAdic']}</strong>",
+		"13" => "<strong>{$row['folioPzAdicional']}</strong>",
 		"14" => "<strong>{$row['cronoAutorizadoPzAdic']}</strong>",
 		"15" => "<strong>{$row['cronoPreAuto']}</strong>",
 		"16" => (empty($row['asesor'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>",

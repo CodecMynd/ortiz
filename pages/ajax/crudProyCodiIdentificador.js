@@ -130,7 +130,7 @@
                 });
                 setInterval(function () {
                     tableProyCodId.ajax.reload(null, false); // user paging is not reset on reload
-                }, 30000);
+                }, 360000);
 
                 // ------------------------------------------------------------------------------------------------------------------------------
                 // regCodIdentificador 2.6.1 REGISTRO CODIGO IDENTIFICADOR  --------------------------------------------------------------

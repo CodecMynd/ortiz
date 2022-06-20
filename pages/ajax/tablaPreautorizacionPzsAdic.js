@@ -71,7 +71,7 @@ var tablePreautorizacionPzsAdic = $("#tablePreautorizacionPzsAdic").DataTable({
     "select": {
         style: 'multi'
     },
-    "pageLength": 10,
+    "pageLength": 50,
     "dom": 'PlBfrtip',
     "buttons": ["csv", "excel", "pdf", "colvis"],
     "ajax": {
@@ -95,10 +95,10 @@ var tablePreautorizacionPzsAdic = $("#tablePreautorizacionPzsAdic").DataTable({
             searchPanes: {
                 show: true
             },
-            targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16],
+            targets: [1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
         },
         {
-            targets: [16],
+            targets: [0,4],
             visible: false
         }
     ],
@@ -163,16 +163,16 @@ var tablePreautorizacionPzsAdic = $("#tablePreautorizacionPzsAdic").DataTable({
         )
     },
     "createdRow": function (row, data, index) {
-        if (data[11] >= '0') {
-            $('td', row).eq(11).css({
+        if (data[9] >= '0') {
+            $('td', row).eq(9).css({
                 'text-align': 'center',
                 'background-color': '#5A6268',
                 'color': '#fff',
                 'font-weight': 'bold'
             });
         }
-        if (data[12] >= '0') {
-            $('td', row).eq(12).css({
+        if (data[10] >= '0') {
+            $('td', row).eq(10).css({
                 'text-align': 'center',
                 'background-color': '#5A6268',
                 'color': '#fff',
@@ -184,5 +184,5 @@ var tablePreautorizacionPzsAdic = $("#tablePreautorizacionPzsAdic").DataTable({
 });
 setInterval(function () {
     tablePreautorizacionPzsAdic.ajax.reload(null, false); // user paging is not reset on reload
-}, 180000);
+}, 360000);
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -114,7 +114,7 @@ var tablaVerifDiaBaterias = $("#tablaVerifDiaBaterias").DataTable({
         searchPanes: {
             show: true
         },
-        targets: [4, 5, 6, 7, 8, 9, 11],
+        targets: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,14],
     },
     {
         targets: [ 0],
@@ -174,5 +174,5 @@ var tablaVerifDiaBaterias = $("#tablaVerifDiaBaterias").DataTable({
 });
 setInterval(function () {
     tablaVerifDiaBaterias.ajax.reload(null, false); // user paging is not reset on reload
-}, 180000);
+}, 360000);
 // --------------------------------------------------------------------------------------------------------

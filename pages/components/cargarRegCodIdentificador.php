@@ -11,7 +11,7 @@ V.placa, M.marca, Mo.modelo, A.anio,
 C.nombres, C.aPaternoCliente, C.aMaternoCliente, 
 Co.color, 
 R.folioRegSolicitud, R.valorVentaAlta, R.inspecCalidad, R.observCliente, R.descripcionFinal,
-S.semana, RA.observAudiFinal, RA.folioRegAlta, LV.link
+S.semana, RA.observAudiFinal, RA.folioRegAlta, LV.link, PE.valorProyExtra, PE.folioProyExtra
 FROM proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 INNER JOIN marcas M ON V.id_marca = M.id_marca 
@@ -23,6 +23,7 @@ INNER JOIN registrosolicitud R ON P.id_proyecto = R.id_proyecto
 INNER JOIN registroalta RA ON P.id_proyecto = RA.id_proyecto
 INNER JOIN linkvideos LV ON RA.id_link = LV.id_linkVideo
 INNER JOIN semanas S ON R.id_semana = S.id_semana 
+LEFT JOIN proyextras PE ON P.id_proyecto = PE.id_proyecto
 WHERE P.id_proyecto = ' . $id_proyecto . ' AND P.altaProyecto = 1 ORDER BY nProyecto ASC';
 $respuesta = mysqli_query($conexion, $query);
 $row  = $respuesta->fetch_assoc();
@@ -56,9 +57,9 @@ $queryP = 'SELECT MAX(id_regcodidenti) + 1 FROM registrocodidentibitacora';
 $result = mysqli_query($conexion,  $queryP);
 $rowA = mysqli_fetch_row($result);
 
- //Prefijo folio
- $text = "CodID-00";
- $folioCodID = $text . '' . $rowA[0];
+//Prefijo folio
+$text = "CodID-00";
+$folioCodID = $text . '' . $rowA[0];
 
 
 $marca = $row['marca'];
@@ -80,11 +81,13 @@ $observAudiFinal = $row['observAudiFinal'];
 $descripcionFinal = $row['descripcionFinal'];
 $link = $row['link'];
 $folioRegAlta = $row['folioRegAlta'];
+$valorProyExtra = (empty($row['valorProyExtra'])) ? '0.00' : $row['valorProyExtra'];
+$folioProyExtra = (empty($row['folioProyExtra'])) ? 'Sin Registro' : $row['folioProyExtra'];
 
 if ($respuesta->num_rows  > 0) {
     $output = '';
     $output .= "
-    <div class='row justify-content-center'>
+<div class='row justify-content-center'>
     <div class='col-md-12 col-sm-12 my-4'>
         <div class='card card-secondary card-outline' style='height: 90%;'>
             <div class='card-header'>
@@ -288,7 +291,7 @@ if ($respuesta->num_rows  > 0) {
                                         <div class='input-group-prepend'>
                                             <span class='input-group-text'><i class='fa-solid fa-comment'></i></span>
                                         </div>
-                                        <textarea name='descripcionFinal' id='descripcionFinal' class='form-control' rows='5' placeholder='Agrega Descripción Final de (los) Servicio(s) Realizado(s) al Vehículo'  maxlength='300' readonly>{$descripcionFinal}</textarea>
+                                        <textarea name='descripcionFinal' id='descripcionFinal' class='form-control' rows='5' placeholder='Agrega Descripción Final de (los) Servicio(s) Realizado(s) al Vehículo' maxlength='300' readonly>{$descripcionFinal}</textarea>
                                     </div>
                                 </span>
                             </div>
@@ -321,36 +324,45 @@ if ($respuesta->num_rows  > 0) {
                 </div>
                 <br>
                 <div class='col-md-12'>
-                <hr>
+                    <hr>
                     <div class='row justify-content-center'>
                         <div class='col-md-2 col-sm-12 my-2'>
                             <div class='input-group'>
                                 <label for='color' class='pl-5 parpadea'>Semana de Cobro</label>
                                 <select name='id_semanaCobro' id='id_semanaCobro' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Semana de la lista' style='width: 100%;' required>
                                     <option selected disabled>Selecciona</option>";
-
-    while ($rowSemanasCobro = $resultSemanasCobro->fetch_assoc()) {
-        $id_semanaCobro = $rowSemanasCobro['id_semanaCobro'];
-        $semanaCobro = $rowSemanasCobro['semanaCobro'];
-        $output .= " <option value=$id_semanaCobro> $semanaCobro </option>";
-    }
-    $output .= "
+                                    while ($rowSemanasCobro = $resultSemanasCobro->fetch_assoc()) {
+                                    $id_semanaCobro = $rowSemanasCobro['id_semanaCobro'];
+                                    $semanaCobro = $rowSemanasCobro['semanaCobro'];
+                                    $output .= " <option value=$id_semanaCobro> $semanaCobro </option>";
+                                    }
+                                    $output .= "
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class='col-md-12 col-sm-12 my-2 py-1' style='border: 2px solid #CED4DA;'>
                     <div class='row justify-content-center'>
                         <div class='col-md-3 col-sm-12 my-1'>
-                            <div class='input-group form-floating mb-3'>
-                                <div class='input-group-prepend'>
-                                    <span class='input-group-text parpadea mt-2'>
-                                        <i class='fa-solid fa-money-bill-1-wave '></i>
-                                    </span>
+                            <div class='row'>
+                                <div class='col-md-12 col-sm-12 my-1'>
+                                    <div class='input-group form-floating mb-3'>
+                                        <div class='input-group-prepend'>
+                                            <span class='input-group-text parpadea mt-2'>
+                                                <i class='fa-solid fa-money-bill-1-wave '></i>
+                                            </span>
+                                        </div>
+                                        <input name='valCobProyBase' id='currency1' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                        <label for='floatingInput' class='pl-5'>*Valor Cobro Proyecto Base</label>
+                                    </div>
                                 </div>
-                                <input name='valCobProyBase' id='currency1' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
-                                <label for='floatingInput' class='pl-5'>*Valor Cobro Proyecto Base</label>
+                                <div class='col-md-12 col-sm-12'>
+                                    <div class='row justify-content-center'>
+                                        <label class=''>Valor Venta Alta: <i class='fa-solid fa-dollar-sign'></i> {$valorVentaAlta}</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class='col-md-6 col-sm-12 my-1'>
@@ -358,7 +370,7 @@ if ($respuesta->num_rows  > 0) {
                                 <div class='input-group-prepend'>
                                     <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
                                 </div>
-                                <input name='codIdProyBase' id='codIdProyBase' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50'   data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                <input name='codIdProyBase' id='codIdProyBase' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
                                 <label for='floatingInput' class='pl-5'>*Código Identificador Valor Cobro Proyecto Base</label>
                             </div>
                         </div>
@@ -367,38 +379,61 @@ if ($respuesta->num_rows  > 0) {
                                 <label for='color' class='pl-5 parpadea'>Forma de Pago Proyecto Base</label>
                                 <select name='id_pagoProyBase' id='id_pagoProyBase' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
                                     <option selected disabled>Selecciona</option>";
-    while ($rowFormaCobro = $resultFormaCobro1->fetch_assoc()) {
-        $id_formaPago = $rowFormaCobro['id_formaPago'];
-        $formaPago = $rowFormaCobro['formaPago'];
-        $output .= " <option value=$id_formaPago> $formaPago </option>";
-    }
-    $output .= "
+                                    while ($rowFormaCobro = $resultFormaCobro1->fetch_assoc()) {
+                                    $id_formaPago = $rowFormaCobro['id_formaPago'];
+                                    $formaPago = $rowFormaCobro['formaPago'];
+                                    $output .= " <option value=$id_formaPago> $formaPago </option>";
+                                    }
+                                    $output .= "
                                 </select>
                             </div>
                         </div>
+                        <div class='col-md-12'>
+                            <hr>
+                        </div>
+
+
                     </div>
                 </div>
 
                 <div class='col-md-12 col-sm-12 my-2 py-1' style='border: 2px solid #CED4DA;'>
                     <div class='row justify-content-center'>
                         <div class='col-md-3 col-sm-12 my-1'>
-                            <div class='input-group form-floating mb-3'>
-                                <div class='input-group-prepend'>
-                                    <span class='input-group-text parpadea mt-2'>
-                                        <i class='fa-solid fa-money-bill-1-wave '></i>
-                                    </span>
+                            <div class='row'>
+                                <div class='col-md-12'>
+                                    <div class='input-group form-floating mb-3'>
+                                        <div class='input-group-prepend'>
+                                            <span class='input-group-text parpadea mt-2'>
+                                                <i class='fa-solid fa-money-bill-1-wave '></i>
+                                            </span>
+                                        </div>
+                                        <input name='valCobProyExtra' id='currency2' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                        <label for='floatingInput' class='pl-5'>Valor Cobro Proyecto Extra</label>
+                                    </div>
                                 </div>
-                                <input name='valCobProyExtra' id='currency2' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
-                                <label for='floatingInput' class='pl-5'>Valor Cobro Proyecto Extra</label>
+                                <div class='col-md-12'>
+                                    <div class='row justify-content-center'>
+                                        <label class=''>Valor Proyecto Extra: <i class='fa-solid fa-dollar-sign'></i> {$valorProyExtra}</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class='col-md-6 col-sm-12 my-1'>
-                            <div class='input-group form-floating mb-3'>
-                                <div class='input-group-prepend'>
-                                    <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                            <div class='row'>
+                                <div class='col-md-12'>
+                                    <div class='input-group form-floating mb-3'>
+                                        <div class='input-group-prepend'>
+                                            <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                                        </div>
+                                        <input name='codIdProyExtra' id='codIdProyExtra' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                        <label for='floatingInput' class='pl-5'>Código Identificador Proyecto Extra</label>
+                                    </div>
                                 </div>
-                                <input name='codIdProyExtra' id='codIdProyExtra' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50'   data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
-                                <label for='floatingInput' class='pl-5'>Código Identificador Proyecto Extra</label>
+                                <div class='col-md-12'>
+                                    <div class='row justify-content-left ml-5'>
+                                        <label class=''>Núm. Folio Proyecto Extra: {$folioProyExtra}</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class='col-md-3 col-sm-12 '>
@@ -406,12 +441,12 @@ if ($respuesta->num_rows  > 0) {
                                 <label for='color' class='pl-5 parpadea'>Forma de Pago Proyecto Extra</label>
                                 <select name='id_pagoProyExtra' id='id_pagoProyExtra' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
                                     <option selected disabled>Selecciona</option>";
-    while ($rowFormaCobro = $resultFormaCobro2->fetch_assoc()) {
-        $id_formaPago = $rowFormaCobro['id_formaPago'];
-        $formaPago = $rowFormaCobro['formaPago'];
-        $output .= " <option value=$id_formaPago> $formaPago </option>";
-    }
-    $output .= "
+                                    while ($rowFormaCobro = $resultFormaCobro2->fetch_assoc()) {
+                                    $id_formaPago = $rowFormaCobro['id_formaPago'];
+                                    $formaPago = $rowFormaCobro['formaPago'];
+                                    $output .= " <option value=$id_formaPago> $formaPago </option>";
+                                    }
+                                    $output .= "
                                 </select>
                             </div>
                         </div>
@@ -436,7 +471,7 @@ if ($respuesta->num_rows  > 0) {
                                 <div class='input-group-prepend'>
                                     <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
                                 </div>
-                                <input name='codIdComBan' id='codIdComBan' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50'   data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                <input name='codIdComBan' id='codIdComBan' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
                                 <label for='floatingInput' class='pl-5'>Código Identificador Comisión Bancaria</label>
                             </div>
                         </div>
@@ -445,12 +480,12 @@ if ($respuesta->num_rows  > 0) {
                                 <label for='color' class='pl-5 parpadea'>Forma de Pago Comisión Bancaria</label>
                                 <select name='id_pagoComBan' id='id_pagoComBan' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
                                     <option selected disabled>Selecciona</option>";
-    while ($rowFormaCobro = $resultFormaCobro3->fetch_assoc()) {
-        $id_formaPago = $rowFormaCobro['id_formaPago'];
-        $formaPago = $rowFormaCobro['formaPago'];
-        $output .= " <option value=$id_formaPago> $formaPago </option>";
-    }
-    $output .= "
+                                    while ($rowFormaCobro = $resultFormaCobro3->fetch_assoc()) {
+                                    $id_formaPago = $rowFormaCobro['id_formaPago'];
+                                    $formaPago = $rowFormaCobro['formaPago'];
+                                    $output .= " <option value=$id_formaPago> $formaPago </option>";
+                                    }
+                                    $output .= "
                                 </select>
                             </div>
                         </div>
@@ -475,7 +510,7 @@ if ($respuesta->num_rows  > 0) {
                                 <div class='input-group-prepend'>
                                     <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
                                 </div>
-                                <input name='codIdPension' id='codIdPension' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50'   data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                <input name='codIdPension' id='codIdPension' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
                                 <label for='floatingInput' class='pl-5'>Código Identificador Pensión</label>
                             </div>
                         </div>
@@ -484,12 +519,12 @@ if ($respuesta->num_rows  > 0) {
                                 <label for='color' class='pl-5 parpadea'>Forma de Pago Pensión</label>
                                 <select name='id_pagoPension' id='id_pagoPension' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
                                     <option selected disabled>Selecciona</option>";
-    while ($rowFormaCobro = $resultFormaCobro4->fetch_assoc()) {
-        $id_formaPago = $rowFormaCobro['id_formaPago'];
-        $formaPago = $rowFormaCobro['formaPago'];
-        $output .= " <option value=$id_formaPago> $formaPago </option>";
-    }
-    $output .= "
+                                    while ($rowFormaCobro = $resultFormaCobro4->fetch_assoc()) {
+                                    $id_formaPago = $rowFormaCobro['id_formaPago'];
+                                    $formaPago = $rowFormaCobro['formaPago'];
+                                    $output .= " <option value=$id_formaPago> $formaPago </option>";
+                                    }
+                                    $output .= "
                                 </select>
                             </div>
                         </div>
@@ -514,7 +549,7 @@ if ($respuesta->num_rows  > 0) {
                                 <div class='input-group-prepend'>
                                     <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
                                 </div>
-                                <input name='codIdOtros' id='codIdOtros' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50'   data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                <input name='codIdOtros' id='codIdOtros' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
                                 <label for='floatingInput' class='pl-5'>Código Identificador Otros</label>
                             </div>
                         </div>
@@ -523,12 +558,12 @@ if ($respuesta->num_rows  > 0) {
                                 <label for='color' class='pl-5 parpadea'>Forma de Pago Otros</label>
                                 <select name='id_pagoOtros' id='id_pagoOtros' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
                                     <option selected disabled>Selecciona</option>";
-    while ($rowFormaCobro = $resultFormaCobro5->fetch_assoc()) {
-        $id_formaPago = $rowFormaCobro['id_formaPago'];
-        $formaPago = $rowFormaCobro['formaPago'];
-        $output .= " <option value=$id_formaPago> $formaPago </option>";
-    }
-    $output .= "
+                                    while ($rowFormaCobro = $resultFormaCobro5->fetch_assoc()) {
+                                    $id_formaPago = $rowFormaCobro['id_formaPago'];
+                                    $formaPago = $rowFormaCobro['formaPago'];
+                                    $output .= " <option value=$id_formaPago> $formaPago </option>";
+                                    }
+                                    $output .= "
                                 </select>
                             </div>
                         </div>
@@ -628,5 +663,29 @@ if ($respuesta->num_rows  > 0) {
             prefix: ''
         });
 
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $("#hide").on('click', function() {
+            $("#element").hide();
+            return false;
+        });
+
+        $("#show").on('click', function() {
+            $("#element").show();
+            return false;
+        });
+
+        $("#hide2").on('click', function(){
+            $("#element2").hide();
+            return false;
+        });
+
+        $("#show2").on('click', function(){
+            $("#element2").show();
+            return false;
+        })
     });
 </script>

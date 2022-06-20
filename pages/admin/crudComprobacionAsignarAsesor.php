@@ -150,7 +150,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-footer" style="height: 50px;">
                                     <marquee width="100%" behavior="alternate">
                                         <marquee behavior="alternate">
-                                            <p>Consulta optimizada, ultima actualización: <strong>05/05/2022</strong></p>
+                                            <p>Consulta optimizada, ultima actualización: <strong>17/06/2022</strong></p>
                                         </marquee>
                                     </marquee>
                                 </div>
@@ -195,7 +195,7 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
-                                                <!-- <th>Cliente</th> -->
+                                                <th>Valor Venta Inicial</th> 
                                                 <th>Estado del Proyecto</th>
                                                 <th>Status Comprobación</th>
                                                 <th>Status Supervisión</th>
@@ -216,7 +216,7 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
-                                                <!-- <th>Cliente</th> -->
+                                                <th class="suma">Valor Venta Inicial</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Status Comprobación</th>
                                                 <th>Status Supervisión</th>
@@ -254,9 +254,10 @@ require '../components/head-dataTables.php';
     // Scripts principales
     require '../components/scripts-main.php';
     // Scripts dataTables
-    require '../components/scripts-dataTables.php';
+    require '../ajax/plugins-datatable.php';
     ?>
     <!-- avisos -->
+    <script src="../ajax/crudComprobacionAsignarAsesor.js"></script>
     <script src="../../src/js/toastr.js"></script>
     <script>
         // comprobar NO SE PUEDE HACER UNA SUPERVISION SIN HABER PRIMERO HECHO UNA COMPROBACION DE ASESORS --------------------------------------------------------------

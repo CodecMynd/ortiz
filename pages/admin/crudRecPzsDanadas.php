@@ -207,14 +207,14 @@ require '../components/head-dataTables.php';
                     </div>
                 </div>
             </div>
-            <!-- Contador de Registros -->
+            <!-- Contador de Registros Table Cotizando -->
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
                         <div class="col-12">
                             <div class="card card-secondary card-outline collapsed-card">
                                 <div class="card-header">
-                                    <h2 class="card-title"><strong>Tablas Consultadas</strong></h2>
+                                    <h2 class="card-title"><strong>Tabla Consultada: Cotizando</strong></h2>
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
                                             <i class="fas fa-plus"></i>
@@ -286,7 +286,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-footer" style="height: 50px;">
                                     <marquee width="100%" behavior="alternate">
                                         <marquee behavior="alternate">
-                                            <p>Consulta optimizada, ultima actualización: <strong>02/06/2022</strong></p>
+                                            <p>Consulta optimizada, ultima actualización: <strong>16/06/2022</strong></p>
                                         </marquee>
                                     </marquee>
                                 </div>
@@ -295,7 +295,6 @@ require '../components/head-dataTables.php';
                     </div>
                 </div>
             </section>
-
             <!-- Table Cotizando -->
             <section class="content" id="Cotizando">
                 <div class="container-fluid">
@@ -390,6 +389,95 @@ require '../components/head-dataTables.php';
                 </div>
             </section>
 
+            <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+            <!-- Contador de Registros Table Pre-Autorización -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="card card-secondary card-outline collapsed-card">
+                                <div class="card-header">
+                                    <h2 class="card-title"><strong>Tabla Consultada: Pre-Autorización</strong></h2>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card-body ">
+                                    <div class="row justify-content-center">
+
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Activos</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Solicitud Alta</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Alta Proyecto</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Código ID</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Supervisión</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-6 col-md-3">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-trash-can"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Proyectos Eliminados</h6>
+                                                    <div class="text-center "><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer" style="height: 50px;">
+                                    <marquee width="100%" behavior="alternate">
+                                        <marquee behavior="alternate">
+                                            <p>Consulta optimizada, ultima actualización: <strong>16/06/2022</strong></p>
+                                        </marquee>
+                                    </marquee>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <!-- Table Pre-Autorización -->
             <section class="content" id="Pre-Autorización">
                 <div class="container-fluid">
@@ -427,8 +515,7 @@ require '../components/head-dataTables.php';
                                                     <th>ID</th>
                                                     <th>Estado del Proyecto</th>
                                                     <th>Valor Venta Inicial</th>
-                                                    <th>Solicitud de Piezas</th>
-                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th>Suma Total Costo Crédito</th>
                                                     <th>Suma Total Costo Contado</th>
                                                     <th>Gran Total Costo</th>
@@ -453,8 +540,7 @@ require '../components/head-dataTables.php';
                                                     <th>ID</th>
                                                     <th>Estado del Proyecto</th>
                                                     <th class="suma"></th>
-                                                    <th>Solicitud de Piezas</th>
-                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th class="suma"></th>
                                                     <th class="suma"></th>
                                                     <th class="suma"></th>
@@ -479,6 +565,96 @@ require '../components/head-dataTables.php';
                 </div>
             </section>
 
+            <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+            <!-- Contador de Registros Table Autorizado -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="card card-secondary card-outline collapsed-card">
+                                <div class="card-header">
+                                    <h2 class="card-title"><strong>Tabla Consultada: Autorizado</strong></h2>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card-body ">
+                                    <div class="row justify-content-center">
+
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Activos</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Solicitud Alta</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Alta Proyecto</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Código ID</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Supervisión</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-6 col-md-3">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-trash-can"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Proyectos Eliminados</h6>
+                                                    <div class="text-center "><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer" style="height: 50px;">
+                                    <marquee width="100%" behavior="alternate">
+                                        <marquee behavior="alternate">
+                                            <p>Consulta optimizada, ultima actualización: <strong>16/06/2022</strong></p>
+                                        </marquee>
+                                    </marquee>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <!-- Table Autorizado -->
             <section class="content" id="Autorizado">
                 <div class="container-fluid">
@@ -516,13 +692,11 @@ require '../components/head-dataTables.php';
                                                     <th>Placa</th>
                                                     <th>Color</th>
                                                     <th>Estado del Proyecto</th>
-                                                    <th>Link de Desarmado</th>
-                                                    <th>Solicitud de Piezas</th>
-                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th>Suma Total Costo Crédito</th>
                                                     <th>Suma Total Costo Contado</th>
                                                     <th>Gran Total Costo</th>
-                                                    <th>Núm. Folio Autorización</th>
+                                                    <th>Núm. Folio Autorizado de Pieza</th>
                                                     <th>Cronometro Link Desarmado / Pre-Autorización</th>
                                                     <th>Cronometro Pre-Autorización / Autorización</th>
                                                     <th>Asesor</th>
@@ -544,13 +718,11 @@ require '../components/head-dataTables.php';
                                                     <th>Placa</th>
                                                     <th>Color</th>
                                                     <th>Estado del Proyecto</th>
-                                                    <th>Link de Desarmado</th>
-                                                    <th>Solicitud de Piezas</th>
-                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th class='suma'>Suma Total Costo Crédito</th>
                                                     <th class='suma'>Suma Total Costo Contado</th>
                                                     <th class='suma'>Gran Total Costo</th>
-                                                    <th>Núm. Folio Autorización</th>
+                                                    <th>Núm. Folio Autorizado de Pieza</th>
                                                     <th>Cronometro Link Desarmado / Pre-Autorización</th>
                                                     <th>Cronometro Pre-Autorización / Autorización</th>
                                                     <th>Asesor</th>
@@ -573,6 +745,96 @@ require '../components/head-dataTables.php';
                 </div>
             </section>
 
+            <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+            <!-- Contador de Registros Table Proceso de Surtido de Piezas -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="card card-secondary card-outline collapsed-card">
+                                <div class="card-header">
+                                    <h2 class="card-title"><strong>Tabla Consultada: Proceso de Surtido de Piezas</strong></h2>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card-body ">
+                                    <div class="row justify-content-center">
+
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Activos</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Solicitud Alta</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Alta Proyecto</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Código ID</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Supervisión</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-6 col-md-3">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-trash-can"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Proyectos Eliminados</h6>
+                                                    <div class="text-center "><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer" style="height: 50px;">
+                                    <marquee width="100%" behavior="alternate">
+                                        <marquee behavior="alternate">
+                                            <p>Consulta optimizada, ultima actualización: <strong>16/06/2022</strong></p>
+                                        </marquee>
+                                    </marquee>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <!-- Table  Proceso de Surtido de Piezas -->
             <section class="content" id="ProcesoSurtidoPz">
                 <div class="container-fluid">
@@ -580,14 +842,14 @@ require '../components/head-dataTables.php';
                         <div class="col-md-12 col-sm-12">
                             <div class="card border-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Proyectos en  Proceso de Surtido de Piezas</h3>
+                                    <h3 class="card-title">Proyectos en Proceso de Surtido de Piezas</h3>
                                     <div class="card-tools">
                                         <button class="btn btn-secondary" id='refresh_tableAutoProceSurtPzs' data-toggle="tooltip" data-placement="bottom" title="Actualizar Tabla"><i class="fa-solid fa-table"></i></button>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="text-center">Tabla<strong> 4.  Proceso de Surtido de Piezas</strong></h4>
+                                    <h3 class="text-center">Tabla<strong> 4. Proceso de Surtido de Piezas</strong></h4>
 
                                         <?php
                                         if ($super == 1) {
@@ -610,13 +872,12 @@ require '../components/head-dataTables.php';
                                                     <th>Placa</th>
                                                     <th>Color</th>
                                                     <th>Estado del Proyecto</th>
-                                                    <th>Link de Desarmado</th>
-                                                    <th>Solicitud de Piezas</th>
-                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th>Suma Total Costo Crédito</th>
                                                     <th>Suma Total Costo Contado</th>
                                                     <th>Gran Total Costo</th>
-                                                    <th>Núm. Folio Autorización</th>
+                                                    <th>Núm. Folio Proceso Surtido Pieza</th>
+                                                    <th>Núm. Folio Autorizado de Pieza</th>
                                                     <th>Cronometro Link Desarmado / Pre-Autorización</th>
                                                     <th>Cronometro Pre-Autorización / Autorización</th>
                                                     <th>Asesor</th>
@@ -638,13 +899,12 @@ require '../components/head-dataTables.php';
                                                     <th>Placa</th>
                                                     <th>Color</th>
                                                     <th>Estado del Proyecto</th>
-                                                    <th>Link de Desarmado</th>
-                                                    <th>Solicitud de Piezas</th>
-                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th class='suma'>Suma Total Costo Crédito</th>
                                                     <th class='suma'>Suma Total Costo Contado</th>
                                                     <th class='suma'>Gran Total Costo</th>
-                                                    <th>Núm. Folio Autorización</th>
+                                                    <th>Núm. Folio Proceso Surtido Pieza</th>
+                                                    <th>Núm. Folio Autorizado de Pieza</th>
                                                     <th>Cronometro Link Desarmado / Pre-Autorización</th>
                                                     <th>Cronometro Pre-Autorización / Autorización</th>
                                                     <th>Asesor</th>
@@ -667,6 +927,96 @@ require '../components/head-dataTables.php';
                 </div>
             </section>
 
+            <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+            <!-- Contador de Registros Table Entregadas -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="card card-secondary card-outline collapsed-card">
+                                <div class="card-header">
+                                    <h2 class="card-title"><strong>Tabla Consultada: Entregadas</strong></h2>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card-body ">
+                                    <div class="row justify-content-center">
+
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Activos</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Solicitud Alta</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Alta Proyecto</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Código ID</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Supervisión</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-6 col-md-3">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-trash-can"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Proyectos Eliminados</h6>
+                                                    <div class="text-center "><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer" style="height: 50px;">
+                                    <marquee width="100%" behavior="alternate">
+                                        <marquee behavior="alternate">
+                                            <p>Consulta optimizada, ultima actualización: <strong>16/06/2022</strong></p>
+                                        </marquee>
+                                    </marquee>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <!-- Table Piezas Entregadas -->
             <section class="content" id="pzsEntregadas">
                 <div class="container-fluid">
@@ -704,14 +1054,13 @@ require '../components/head-dataTables.php';
                                                     <th>Placa</th>
                                                     <th>Color</th>
                                                     <th>Estado del Proyecto</th>
-                                                    <th>Link de Desarmado</th>
-                                                    <th>Solicitud de Piezas</th>
-                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th>Suma Total Costo Crédito</th>
                                                     <th>Suma Total Costo Contado</th>
                                                     <th>Gran Total Costo</th>
-                                                    <th>Núm. Folio Autorización</th>
-                                                    <th>Núm. Folio Pieza Surtida</th>
+                                                    <th>Núm. Folio Pieza Entregada</th>
+                                                    <th>Núm. Folio Proceso Surtido Pieza</th>
+                                                    <th>Núm. Folio Autorizado de Pieza</th>
                                                     <th>Cronometro Link Desarmado / Pre-Autorización</th>
                                                     <th>Cronometro Pre-Autorización / Autorización</th>
                                                     <th>Asesor</th>
@@ -733,14 +1082,13 @@ require '../components/head-dataTables.php';
                                                     <th>Placa</th>
                                                     <th>Color</th>
                                                     <th>Estado del Proyecto</th>
-                                                    <th>Link de Desarmado</th>
-                                                    <th>Solicitud de Piezas</th>
-                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th class='suma'>Suma Total Costo Crédito</th>
                                                     <th class='suma'>Suma Total Costo Contado</th>
                                                     <th class='suma'>Gran Total Costo</th>
-                                                    <th>Núm. Folio Autorización</th>
-                                                    <th>Núm. Folio Pieza Surtida</th>
+                                                    <th>Núm. Folio Pieza Entregada</th>
+                                                    <th>Núm. Folio Proceso Surtido Pieza</th>
+                                                    <th>Núm. Folio Autorizado de Pieza</th>
                                                     <th>Cronometro Link Desarmado / Pre-Autorización</th>
                                                     <th>Cronometro Pre-Autorización / Autorización</th>
                                                     <th>Asesor</th>
@@ -763,6 +1111,96 @@ require '../components/head-dataTables.php';
                 </div>
             </section>
 
+            <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+            <!-- Contador de Registros Table Piezas Firmadas de Recibido -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="card card-secondary card-outline collapsed-card">
+                                <div class="card-header">
+                                    <h2 class="card-title"><strong>Tabla Consultada: Piezas Firmadas de Recibido</strong></h2>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card-body ">
+                                    <div class="row justify-content-center">
+
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Activos</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Solicitud Alta</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Alta Proyecto</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Código ID</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Supervisión</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-6 col-md-3">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-trash-can"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Proyectos Eliminados</h6>
+                                                    <div class="text-center "><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer" style="height: 50px;">
+                                    <marquee width="100%" behavior="alternate">
+                                        <marquee behavior="alternate">
+                                            <p>Consulta optimizada, ultima actualización: <strong>16/06/2022</strong></p>
+                                        </marquee>
+                                    </marquee>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <!-- Table Piezas Firmadas de Recibido -->
             <section class="content" id="pzsFirmadasRec">
                 <div class="container-fluid">
@@ -800,14 +1238,13 @@ require '../components/head-dataTables.php';
                                                     <th>Placa</th>
                                                     <th>Color</th>
                                                     <th>Estado del Proyecto</th>
-                                                    <th>Link de Desarmado</th>
-                                                    <th>Solicitud de Piezas</th>
-                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th>Suma Total Costo Crédito</th>
                                                     <th>Suma Total Costo Contado</th>
                                                     <th>Gran Total Costo</th>
-                                                    <th>Núm. Folio Autorización</th>
-                                                    <th>Núm. Folio Pieza Surtida</th>
+                                                    <th>Núm. Folio Pieza Entregada</th>
+                                                    <th>Núm. Folio Proceso Surtido Pieza</th>
+                                                    <th>Núm. Folio Autorizado de Pieza</th>
                                                     <th>Cronometro Autorización / Pzs. Firmadas Recibido</th>
                                                     <th>Cronometro Pre-Autorización / Autorización</th>
                                                     <th>Cronometro Link Desarmado / Pre-Autorización</th>
@@ -830,14 +1267,13 @@ require '../components/head-dataTables.php';
                                                     <th>Placa</th>
                                                     <th>Color</th>
                                                     <th>Estado del Proyecto</th>
-                                                    <th>Link de Desarmado</th>
-                                                    <th>Solicitud de Piezas</th>
-                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th class='suma'>Suma Total Costo Crédito</th>
                                                     <th class='suma'>Suma Total Costo Contado</th>
                                                     <th class='suma'>Gran Total Costo</th>
-                                                    <th>Núm. Folio Autorización</th>
-                                                    <th>Núm. Folio Pieza Surtida</th>
+                                                    <th>Núm. Folio Pieza Entregada</th>
+                                                    <th>Núm. Folio Proceso Surtido Pieza</th>
+                                                    <th>Núm. Folio Autorizado de Pieza</th>
                                                     <th>Cronometro Autorización / Pzs. Firmadas Recibido</th>
                                                     <th>Cronometro Pre-Autorización / Autorización</th>
                                                     <th>Cronometro Link Desarmado / Pre-Autorización</th>
@@ -861,6 +1297,96 @@ require '../components/head-dataTables.php';
                 </div>
             </section>
 
+            <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+            <!-- Contador de Registros Table Supervisión de Surtido de Piezas -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="card card-secondary card-outline collapsed-card">
+                                <div class="card-header">
+                                    <h2 class="card-title"><strong>Tabla Consultada: Supervisión de Surtido de Piezas</strong></h2>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card-body ">
+                                    <div class="row justify-content-center">
+
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Activos</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Solicitud Alta</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Alta Proyecto</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Código ID</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Supervisión</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-6 col-md-3">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-trash-can"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Proyectos Eliminados</h6>
+                                                    <div class="text-center "><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer" style="height: 50px;">
+                                    <marquee width="100%" behavior="alternate">
+                                        <marquee behavior="alternate">
+                                            <p>Consulta optimizada, ultima actualización: <strong>16/06/2022</strong></p>
+                                        </marquee>
+                                    </marquee>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <!-- Table Supervisión de Surtido de Piezas -->
             <section class="content" id="SuperSurtPzs">
                 <div class="container-fluid">
@@ -898,14 +1424,13 @@ require '../components/head-dataTables.php';
                                                     <th>Placa</th>
                                                     <th>Color</th>
                                                     <th>Estado del Proyecto</th>
-                                                    <th>Link de Desarmado</th>
-                                                    <th>Solicitud de Piezas</th>
-                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th>Suma Total Costo Crédito</th>
                                                     <th>Suma Total Costo Contado</th>
                                                     <th>Gran Total Costo</th>
-                                                    <th>Núm. Folio Autorización</th>
-                                                    <th>Núm. Folio Pieza Surtida</th>
+                                                    <th>Núm. Folio Pieza Entregada</th>
+                                                    <th>Núm. Folio Proceso Surtido Pieza</th>
+                                                    <th>Núm. Folio Autorizado de Pieza</th>
                                                     <th>Cronometro Link Desarmado / Pzs. Firmadas Recibido</th>
                                                     <th>Cronometro Autorización / Pzs. Firmadas Recibido</th>
                                                     <th>Cronometro Pre-Autorización / Autorización</th>
@@ -929,14 +1454,13 @@ require '../components/head-dataTables.php';
                                                     <th>Placa</th>
                                                     <th>Color</th>
                                                     <th>Estado del Proyecto</th>
-                                                    <th>Link de Desarmado</th>
-                                                    <th>Solicitud de Piezas</th>
-                                                    <th>Registro(s) Compra(s)</th>
+                                                    <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th class='suma'>Suma Total Costo Crédito</th>
                                                     <th class='suma'>Suma Total Costo Contado</th>
                                                     <th class='suma'>Gran Total Costo</th>
-                                                    <th>Núm. Folio Autorización</th>
-                                                    <th>Núm. Folio Pieza Surtida</th>
+                                                    <th>Núm. Folio Pieza Entregada</th>
+                                                    <th>Núm. Folio Proceso Surtido Pieza</th>
+                                                    <th>Núm. Folio Autorizado de Pieza</th>
                                                     <th>Cronometro Link Desarmado / Pzs. Firmadas Recibido</th>
                                                     <th>Cronometro Autorización / Pzs. Firmadas Recibido</th>
                                                     <th>Cronometro Pre-Autorización / Autorización</th>

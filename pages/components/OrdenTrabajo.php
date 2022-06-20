@@ -31,7 +31,7 @@ ob_start();
 
         /** Defina ahora los márgenes reales de cada página en el PDF **/
         body {
-            margin-top: 3.5cm;
+            margin-top: 4cm;
             margin-left: 1cm;
             margin-right: 2.2cm;
             margin-bottom: 1cm;
@@ -163,15 +163,20 @@ ob_start();
 
         .logoHeader {
             float: left;
-            width: 35%;
+            width: 28%;
             outline: none;
+            padding: 0px;
+            margin: 0px;
         }
 
         .titleHeader {
+            
             text-align: right;
             float: left;
-            width: 60%;
+            width: 69%;
             outline: none;
+            padding: 0px;
+            margin: 0px;
         }
 
         .lineaHeader {
@@ -180,7 +185,7 @@ ob_start();
             left: 1cm;
             right: 0cm;
             height: 0cm;
-            width: 100px;
+            width: 110px;
         }
 
         .linea {
@@ -199,6 +204,7 @@ ob_start();
             left: 30px;
             font-size: 8px;
             color: gray;
+            
         }
     </style>
 </head>
@@ -241,10 +247,10 @@ $capturista = $rowUsuario['nombres'] . ' ' . $rowUsuario['aPaterno'] . ' ' . $ro
         <div class="logoHeader"><img src="../../src/img/logos/headerSolicitudAltaLogo.png" /></div>
         <div class="titleHeader">
             <h2 class="mb-0">Orden de Servicio</h2>
-            <ul class="float-right text-center">
-                <li>Av. Alcalde #1011 Col. Alcalde Barranquitas</li>
-                <li>Guadalajara Jalisco, México</li>
-                <li>Tel.(33) 2101 1653</li>
+            <ul class="float-center">
+                <li style="font-size: 12px;">Av. Alcalde #1011 Col. Alcalde Barranquitas</li>
+                <li style="font-size: 12px;">Guadalajara Jalisco, México</li>
+                <li style="font-size: 15px;">Para Conocer el Estatus de Tu Vehículo Puede llamar al Tel. (33) 4164 0077</li>
             </ul>
         </div>
     </header>
@@ -255,7 +261,7 @@ $capturista = $rowUsuario['nombres'] . ' ' . $rowUsuario['aPaterno'] . ' ' . $ro
 
     <!-- Envuelva el contenido de su PDF dentro de una etiqueta principal -->
     <main>
-        <div class="lineaHeader"><img src="../../src/img/logos/headerSolicitudAltaLinea.png" /></div>
+        <div class="lineaHeader"><img src="../../src/img/logos/headerSolicitudAltaLinea.png" style="width: 750px;" /></div>
         <div class="container-fluid" style="width:107%">
             <div class="col-md-12">
                 <ul class="float-right">
@@ -387,8 +393,6 @@ $capturista = $rowUsuario['nombres'] . ' ' . $rowUsuario['aPaterno'] . ' ' . $ro
 </body>
 
 </html>
-
-
 
 <?php
 $html = ob_get_clean();

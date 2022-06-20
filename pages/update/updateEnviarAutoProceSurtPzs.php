@@ -22,6 +22,15 @@ $respuesta = mysqli_query($conexion, $query);
 $row = $respuesta->fetch_assoc();
 $folio_autoriz = $row['folio_autoriz'];
 
+// Query Registro de folio registrosolicitud
+$queryP = 'SELECT MAX(id_AutoProceSurtPz) + 1 FROM autoprocesurtpzs';
+$result = mysqli_query($conexion,  $queryP);
+$rowp = mysqli_fetch_row($result);
+
+// Prefijo folio
+$text = "Surtido_Desarm-00";
+$folioProceSurtPz = $text . '' . $rowp[0];
+
 
 $autorizado = 0;
 $autoProceSurtPz = 1;
@@ -35,8 +44,8 @@ try {
     $resultado1 = mysqli_query($conexion, $query1);
     // var_dump($query1);
 
-    $query2 = "INSERT INTO autoprocesurtpzs(id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_autorizado, id_proyecto, nProyecto, comenProceSurtPz, fecha_creacion, id_capC) 
-                                VALUES ('$id_recPzsDanadas', '$id_solPzsDanadas', '$id_regCompraInicial', '$id_autorizado', '$id_proyecto', '$nProyecto', '$comenProceSurtPz', '$date', '$id')";
+    $query2 = "INSERT INTO autoprocesurtpzs(id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial, id_autorizado, id_proyecto, nProyecto, comenProceSurtPz, folioProceSurtPz, fecha_creacion, id_capC) 
+                                VALUES ('$id_recPzsDanadas', '$id_solPzsDanadas', '$id_regCompraInicial', '$id_autorizado', '$id_proyecto', '$nProyecto', '$comenProceSurtPz', '$folioProceSurtPz', '$date', '$id')";
     $resultado2 = mysqli_query($conexion, $query2);
     // var_dump($query2);
 

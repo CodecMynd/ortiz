@@ -9,11 +9,11 @@ $result = mysqli_query($conexion, $query1) or die(mysqli_error($conexion));
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">
-                    Registrar Comprobacion de Asignación  de Asesor de Número de Proyecto: <span id="tituloModal"></span> 
+                    Registrar Comprobacion de Asignación de Asesor de Número de Proyecto: <span id="tituloModal"></span>
                 </h5>
             </div>
-            <form id="formNuevoRegComAsesor" action="../adds/addNuevoRegComAsesor.php" method="POST">  
-            <!-- <form id="formNuevoRegComAsesor"> -->
+            <form id="formNuevoRegComAsesor">
+                <!-- <form id="formNuevoRegComAsesor"> -->
                 <div class="modal-body">
                     <div class='row justify-content-center'>
                         <input type="hidden" name="id_proyecto" id="id_proyecto" value="">
@@ -23,26 +23,30 @@ $result = mysqli_query($conexion, $query1) or die(mysqli_error($conexion));
                                 <label for='asesor' class='pl-5 parpadea'>Asesor <small>(requerido)</small></label>
                                 <select name='id_asesor' id='id_asesor' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona un Asesor de la lista' style='width: 100%;' required>
                                     <option selected disabled>Selecciona</option>
-                                        <?php
-                                        while ($row1 = $result->fetch_assoc()) {
-                                            $id_asesor = $row1['id_asesor'];
-                                            $asesor = $row1['asesor'];
-                                            ?>
-                                   <option value="<?php echo  $id_asesor ?>"><?php echo $asesor ?></option>
-                                       <?php } ?>
+                                    <?php
+                                    while ($row1 = $result->fetch_assoc()) {
+                                        $id_asesor = $row1['id_asesor'];
+                                        $asesor = $row1['asesor'];
+                                    ?>
+                                        <option value="<?php echo  $id_asesor ?>"><?php echo $asesor ?></option>
+                                    <?php } ?>
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer text-left">
-                    <button type="submit" name="btnNuevoRegComAsesor" id="btnNuevoRegComAsesor" class="btn btn-secondary"><i class="fas fa-pen"></i> Guardar</button>
+                    <button type="button" id="btnNuevoRegComAsesor" class="btn btn-secondary"><i class="fas fa-pen"></i> Guardar</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>
                 </div>
             </form>
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <div id="respuestaNuevogComAsesor"></div>
+                </div>
+            </div>
             <div class="pie">
-                <h5>2.3.15.1.1 Registrar Comprobación de Asignación  Asesor</h5>
-                <div id="respuestaNuevogComAsesor"></div>
+                <h5>2.3.15.1.1 Registrar Comprobación de Asignación Asesor</h5>
             </div>
         </div>
     </div>

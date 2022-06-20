@@ -7,10 +7,10 @@ require '../components/fechaEs.php';
         <div class="modal-content">
             <!-- consulta sql -->
             <?php
-            echo $id_proyecto = $_REQUEST['id_proyecto'];
-            echo $id_pzsEntregadas = $_REQUEST['id_pzsEntregadas'];
+            $id_proyecto = $_REQUEST['id_proyecto'];
+            $id_pzsEntregadas = $_REQUEST['id_pzsEntregadas'];
             $query = "SELECT P.id_proyecto, P.nProyecto,
-            A.comenProceSurtPz, A.fecha_creacion, 
+            A.comenProceSurtPz, A.fecha_creacion, A.folioProceSurtPz,
             U.nombres, U.aPaterno, U.aMaterno,
             PE.comenPzsEntregadas, PE.folioPzsSurtida, PE.fecha_creacion AS fechaPzsEntregada,
             UP.nombres AS nomP, UP.aPaterno AS patP, UP.aMaterno AS matP,
@@ -129,13 +129,14 @@ require '../components/fechaEs.php';
                                         <input name='' id='' type='text' class='form-control' value='<?php echo $row['fecha_creacion'] ?>' disabled readonly>
                                         <label for='floatingInput' class='pl-5'>Fecha: Proceso de Surtido de Piezas</label>
                                     </div>
-                                </div>                                <div class='col-md-6 col-sm-12  form-group'>
+                                </div>
+                                <div class='col-md-6 col-sm-12  form-group'>
                                     <div class='input-group form-floating'>
                                         <div class='input-group-prepend'>
                                             <span class='input-group-text'><i class='fa-solid fa-calendar-check'></i></span>
                                         </div>
-                                        <input name='' id='' type='text' class='form-control' value='<?php echo $row['folio_autoriz'] ?>' disabled readonly>
-                                        <label for='floatingInput' class='pl-5'>Número de Folio Autorización</label>
+                                        <input name='' id='' type='text' class='form-control' value='<?php echo $row['folioProceSurtPz'] ?>' disabled readonly>
+                                        <label for='floatingInput' class='pl-5'>Número de Folio Proceso de Surtido de Piezas</label>
                                     </div>
                                 </div>
                             </div>

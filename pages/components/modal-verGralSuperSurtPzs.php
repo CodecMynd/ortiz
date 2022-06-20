@@ -7,10 +7,11 @@ require '../components/fechaEs.php';
         <div class="modal-content">
             <!-- consulta sql -->
             <?php
-          $id_proyecto = $_REQUEST['id_proyecto'];
-          $id_preAutorizado = $_REQUEST['id_preAutorizado'];
-          $id_pzsEntregadas = $_REQUEST['id_pzsEntregadas'];
-          $id_pzsFirmadasRec = $_REQUEST['id_pzsFirmadasRec'];
+           $id_proyecto = $_REQUEST['id_proyecto'];
+           $id_preAutorizado = $_REQUEST['id_preAutorizado'];
+           $id_pzsEntregadas = $_REQUEST['id_pzsEntregadas'];
+           $id_pzsFirmadasRec = $_REQUEST['id_pzsFirmadasRec'];
+           $id_superSurtPzs = $_REQUEST['id_superSurtPzs'];
            $query = "SELECT P.id_proyecto, P.nProyecto,
            A.comenProceSurtPz, A.fecha_creacion, 
            U.nombres, U.aPaterno, U.aMaterno,
@@ -29,7 +30,7 @@ require '../components/fechaEs.php';
            INNER JOIN usuarios UP ON PE.id_capC = UP.id_usuario
            INNER JOIN usuarios UPF ON PF.id_capC = UPF.id_usuario
            INNER JOIN usuarios US ON S.id_capC = US.id_usuario
-           WHERE P.id_proyecto = $id_proyecto AND PE.id_pzsEntregadas = $id_pzsEntregadas AND PF.id_pzsFirmadasRec =  $id_pzsFirmadasRec AND PF.borrado = 0";
+           WHERE P.id_proyecto = $id_proyecto AND S.id_superSurtPzs = $id_superSurtPzs";
             $resultado = mysqli_query($conexion, $query);
             $row = $resultado->fetch_assoc();
             ?>

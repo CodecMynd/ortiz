@@ -75,4 +75,4 @@
         });
         setInterval(function () {
             tableVerifDiariaVeh.ajax.reload(null, false); // user paging is not reset on reload
-        }, 30000);
+        }, 360000);

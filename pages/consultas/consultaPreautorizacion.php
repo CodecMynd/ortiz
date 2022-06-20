@@ -100,7 +100,7 @@ while ($row = $resultado->fetch_assoc()) {
 
 	// Solicitud Piezas
 	if ($solBorrado == 0 and $solEnUso == 1) {
-		$solicitud = "<h6><span class='badge badge-success badge-pill'>Solicitud(es)  {$soli}</span></h6>";
+		$solicitud = "<h6><span class='badge badge-success badge-pill'>Total {$soli}</span></h6>";
 	} else if ($solBorrado == 1 and $solEnUso == 0) {
 		$solicitud = "<h6><span class='badge badge-danger badge-pill'>Sin Solicitud</span></h6>";
 	} else if (empty($folio_solicitud)) {
@@ -145,17 +145,16 @@ while ($row = $resultado->fetch_assoc()) {
 		"7" => $row['color'],
 		"8" => "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>",
 		"9" => ($Eliminado == 0) ? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
-		"10" => "<strong>{$row['valorVenta']}</strong>",
+		"10" => $row['valorVenta'],
 		"11" => $solicitud,
-		"12" => (empty($rowCompra['compra'])) ? "<h6><span class='badge badge-danger badge-pill'>Registros 0</span></h6>" : "<h6><span class='badge badge-success badge-pill'>Registro(s)  {$rowCompra['compra']}</span></h6>",
-		"13" => $precioCredito,
-		"14" => $precioContado,
-		"15" => $total,
-		"16" => "<strong>{$row['cronoPreAuto']}</strong>",
-		"17" => (empty($row['asesor'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>",
-		"18" => (empty($row['tecArmador'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Técnico</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['tecArmador']}</span></h6>",
-		"19" => $fechaRegLink,
-		"20" => "<div class='input-group input-group-sm mb-3'>
+		"12" => $precioCredito,
+		"13" => $precioContado,
+		"14" => $total,
+		"15" => "<strong>{$row['cronoPreAuto']}</strong>",
+		"16" => (empty($row['asesor'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>",
+		"17" => (empty($row['tecArmador'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Técnico</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['tecArmador']}</span></h6>",
+		"18" => $fechaRegLink,
+		"19" => "<div class='input-group input-group-sm mb-3'>
 					<div class='input-group-prepend'>
 						<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Recepción de Piezas Dañadas'> Acciones</span></button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>

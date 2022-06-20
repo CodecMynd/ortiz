@@ -235,5 +235,5 @@ var tableProyExtraUtil = $("#tableProyExtraUtil").DataTable({
 });
 setInterval(function () {
     tableProyExtraUtil.ajax.reload(null, false); // user paging is not reset on reload
-}, 180000);
+}, 360000);
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -121,4 +121,4 @@ function mostrarDetalles(id_proyecto, nProyecto, id_cambioAutorizDescuento) {
         });
         setInterval(function() {
             tableSolAutorizDescuento.ajax.reload(null, false); // user paging is not reset on reload
-        }, 30000);
+        }, 360000);
