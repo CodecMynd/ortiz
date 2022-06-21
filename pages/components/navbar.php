@@ -13,8 +13,8 @@
             <!-- Produccion -->
             <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span></a>
 
-            <!-- Pruebas -->
-            <!-- <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span> -->
+        <!-- Pruebas -->
+        <!-- <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span> -->
         </a>
 
         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,7 +57,7 @@
                                                                                                                                                                 echo 'disabled';
                                                                                                                                                             } else {
                                                                                                                                                                 echo 'text-dark ';
-                                                                                                                                                            } ?> " style="padding-left: 5px;padding-right: 5px;">1.0 Catálogos  </a>
+                                                                                                                                                            } ?> " style="padding-left: 5px;padding-right: 5px;">1.0 Catálogos </a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style="columns:1; width: 195%;">
                         <li><a href="../admin/crudUsuarios.php" class="dropdown-item">1.1 Usuarios </a></li>
                         <li><a href="../admin/crudMarcas.php" class="dropdown-item">1.2 Marcas </a></li>
@@ -197,10 +197,16 @@
                                                                                                                                                             echo 'text-dark ';
                                                                                                                                                         } ?> " style="padding-left: 5px;padding-right: 5px;">4.0 Compras y Almacén</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                        <li><a href="../admin/crudRecPzsDanadas.php" class="dropdown-item">4.1 Recepción de Piezas Dañadas</a></li>
+                        <li class="dropdown-submenu dropdown-hover">
+                            <a id="dropdownSubMenu1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">4.1 Piezas Dañadas&nbsp;</a>
+                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                <li><a href="../admin/crudRecPzsDanadas.php" class="dropdown-item">4.1 Recepción de Piezas Dañadas</a></li>
+                                <li><a href="../admin/crudDesarmAutorizAlta.php" class="dropdown-item ">4.1.1 Desarmadas Autorizadas por dar de Alta</a></li>
+                            </ul>
+                        </li>
                         <li><a href="../admin/crudSolPzsAdicionales.php" class="dropdown-item">4.2 Solicitud de Piezas Adicionales </a></li>
                         <li><a href="../admin/crudCronoSurPzs.php" class="dropdown-item">4.3 Cronometro de Surtido de Piezas </a></li>
-                        <!-- <li><a href="#" class="dropdown-item disabled">4.4 item </a></li> -->
+                        <li><a href="../admin/crudPorAutorizar.php" class="dropdown-item disabled">4.4 Por Autorizar </a></li>
                     </ul>
                 </li>
                 <!------------------------------------------------------------- 5.0 Proyectos Extras ------------------------------------------------------------->

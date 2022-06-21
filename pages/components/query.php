@@ -349,6 +349,8 @@ while ($row = mysqli_fetch_array($query)) {
     $autorizarSolDesc = $row['autorizarSolDesc'];
     $verGralSolAutorizDesc = $row['verGralSolAutorizDesc'];
     $verTablaSolAutorizDescuento = $row['verTablaSolAutorizDescuento'];
+    $verTablaSelectProyCodId = $row['verTablaSelectProyCodId'];
+    $verTablasDesarmadosAutoAlta = $row['verTablasDesarmadosAutoAlta'];
 
 
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------

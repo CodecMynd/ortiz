@@ -1,67 +1,39 @@
-// 4.1.2.2 Regresar a Cotizando--------------------------------------------------------------------------------------------------------------------------------------------------
+    // 4.1.2.2 Regresar a Cotizando--------------------------------------------------------------------------------------------------------------------------------------------------
 
-$('#btnRegresarCotizando').click(function () {
-    var param = $('#formRegresarCotizando').serialize();
-    $.ajax({
-            url: '../update/updateRegresarCotizando.php',
-            type: 'POST',
-            data: param,
+    $('#btnRegresarCotizando2').click(function () {
+        var param = $('#formRegresarCotizando2').serialize();
+        $.ajax({
+                url: '../update/updateRegresarCotizando2.php',
+                type: 'POST',
+                data: param,
+    
+                success: function (vs) {
+                    $('#formRegresarCotizando2')[0].reset();
+                    setTimeout(function () {
+                        $('.regresarCotizando2').modal('hide');
+                    }, 1000);
+                    tablePreautorizacion.ajax.reload(null, false);
+                    tablePreautorizacion2.ajax.reload(null, false);
+                    tableRecPzsDanadas.ajax.reload(null, false);
+                }
+            })
+            .done(function (res) {
+                $('#respuestaRegresarCotizando2').html(res)
+            })
+    });
+    
+    //Ocultar boton por 3 minutos para evitar el doble submit
+    $("#btnRegresarCotizando2").on('click', function () {
+        $("#btnRegresarCotizando2").css('visibility', 'hidden');
+        setTimeout(function () {
+            $("#btnRegresarCotizando2").css('visibility', 'visible');
+        }, 3000);
+    });
 
-            success: function (vs) {
-                $('#formRegresarCotizando')[0].reset();
-                setTimeout(function () {
-                    $('.regresarCotizando').modal('hide');
-                }, 1000);
-                tablePreautorizacion.ajax.reload(null, false);
-                tableRecPzsDanadas.ajax.reload(null, false);
-            }
-        })
-        .done(function (res) {
-            $('#respuestaRegresarCotizando').html(res)
-        })
-});
 
-//Ocultar boton por 3 minutos para evitar el doble submit
-$("#btnRegresarCotizando").on('click', function () {
-    $("#btnRegresarCotizando").css('visibility', 'hidden');
-    setTimeout(function () {
-        $("#btnRegresarCotizando").css('visibility', 'visible');
-    }, 3000);
-});
-
-// 4.1.2.3 Enviar a Autorizado  --------------------------------------------------------------------------------------------------------------------------------------------------
-
-$('#btnEnviarAutorizado').click(function () {
-    var param = $('#formEnviarAutorizado').serialize();
-    $.ajax({
-            url: '../update/updateEnviarAutorizado.php',
-            type: 'POST',
-            data: param,
-
-            success: function (vs) {
-                $('#formEnviarAutorizado')[0].reset();
-                setTimeout(function () {
-                    $('.enviarAutorizado').modal('hide');
-                }, 1000);
-                tablePreautorizacion.ajax.reload(null, false);
-                tableAutorizado.ajax.reload(null, false);
-            }
-        })
-        .done(function (res) {
-            $('#respuestaEnviarAutorizado').html(res)
-        })
-});
-
-//Ocultar boton por 3 minutos para evitar el doble submit
-$("#btnEnviarAutorizado").on('click', function () {
-    $("#btnEnviarAutorizado").css('visibility', 'hidden');
-    setTimeout(function () {
-        $("#btnEnviarAutorizado").css('visibility', 'visible');
-    }, 1000);
-});
 
 // Tabla 4.1 Recepción de Piezas Dañadas
-var tablePreautorizacion = $("#tablePreautorizacion").DataTable({
+var tablePreautorizacion2 = $("#tablePreautorizacion2").DataTable({
     "responsive": true,
     "lengthChange": true,
     "autoWidth": true,
@@ -74,7 +46,7 @@ var tablePreautorizacion = $("#tablePreautorizacion").DataTable({
     "dom": 'PlBfrtip',
     "buttons": ["csv", "excel", "pdf", "colvis"],
     "ajax": {
-        url: "../consultas/consultaPreautorizacion.php",
+        url: "../consultas/consultaPreautorizacion2.php",
         type: "get",
         dataType: "json",
         error: function (e) {
@@ -210,6 +182,6 @@ var tablePreautorizacion = $("#tablePreautorizacion").DataTable({
 
 });
 setInterval(function () {
-    tablePreautorizacion.ajax.reload(null, false); // user paging is not reset on reload
+    tablePreautorizacion2.ajax.reload(null, false); // user paging is not reset on reload
 }, 360000);
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------

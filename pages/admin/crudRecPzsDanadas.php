@@ -1544,7 +1544,7 @@ require '../components/head-dataTables.php';
                 tablaPzsFirmadasRec.ajax.reload();
             });
 
-            tablaPzsFirmadasRec = $("#tableSuperSurtPzs").DataTable();
+            tableSuperSurtPzs = $("#tableSuperSurtPzs").DataTable();
             $("#refresh_tableSuperSurtPzs").on("click", function() {
                 tableSuperSurtPzs.ajax.reload();
             });

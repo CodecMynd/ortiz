@@ -9,16 +9,27 @@ ini_set('date.timezone',  'America/Mexico_City');
 $date = date('Y-m-d H:i:s');
 $id = $_SESSION['id_usuario'];
 
-$id_proyecto = $_POST['id_proyecto'];
+$id_proyecto = $_POST['id_proyecto2'];
+$id_regcodidenti = $_POST['id_regcodidenti2'];
+
 $query = "SELECT nProyecto, superCodIdentificador FROM proyectos WHERE id_proyecto = $id_proyecto";
 $respuesta = mysqli_query($conexion, $query);
 $row = $respuesta->fetch_assoc();
 $row['superCodIdentificador'];
 $row['nProyecto'];
 
-$id_regcodidenti = $_POST['id_regcodidenti'];
-$compCodId = $_POST['compCodId'];
-$folioSupervision = $_POST['folioSupervision'];
+$compCodId = '--';
+
+// Query Registro de folio Supervision
+$queryP = 'SELECT MAX(id_supervisado) + 1 FROM supervisadobitacora';
+$result = mysqli_query($conexion,  $queryP);
+$rowA = mysqli_fetch_row($result);
+
+// Prefijo folio
+$text = "Supervisión-00";
+$folioSupervision = $text . '' . $rowA[0];
+
+
 $borrado = 0;
 $status = 'Supervisión Código Identificador';
 $etapa = 'Proyecto avanzó a 2.7 Supervisión de Registro Código Identificador';
@@ -40,19 +51,20 @@ try {
     // Ingresamos id a tabla proyectos modificar registros
     $query1 = "UPDATE proyectos SET proyCodIdentificador = 0, superCodIdentificador = 1  WHERE id_proyecto = $id_proyecto";
     $resultado1 = mysqli_query($conexion, $query1);
-    //var_dump($queryP);
+    // var_dump($query1);
 
 
     // Insertamos tabla registrocodidenti
-    $query2 = "UPDATE registrocodidenti SET status = '$status', supervisado = 1";
+    $query2 = "UPDATE registrocodidenti SET status = '$status', supervisado = 1 WHERE id_regcodidenti = '$id_regcodidenti' ";
     $resultado2 = mysqli_query($conexion, $query2);
+    // var_dump($query2);
 
-    //var_dump($query);
 
     // Insertamos tabla registrocodidentibitacora
     $query3 = "UPDATE registrocodidentibitacora SET status = '$status', supervisado = 1";
     $resultado3 = mysqli_query($conexion, $query3);
-    //var_dump($query);
+    // var_dump($query3);
+
 
     // Insertamos registro en tabla supervisado
     $query4 = "INSERT INTO supervisado(folioSupervision, id_regcodidenti, id_proyecto, compCodId, supervisado, fecha_creacion, id_capC) VALUES ('$folioSupervision', $id_regcodidenti, $id_proyecto, '$compCodId', 1, '$date', $id)";
@@ -68,17 +80,21 @@ try {
     } else {
 
         $resultado4 = mysqli_query($conexion, $query4);
-        //var_dump($query);
+        // var_dump($query4);
+
     }
 
     // Insertamos registro en tabla supervisado
     $query5 = "INSERT INTO supervisadobitacora(folioSupervision, id_regcodidenti, id_proyecto, compCodId, supervisado, fecha_creacion, id_capC) VALUES ('$folioSupervision', $id_regcodidenti, $id_proyecto, '$compCodId', 1,'$date', $id)";
     $resultado5 = mysqli_query($conexion, $query5);
-    //var_dump($query);
+    // var_dump($query5);
+
 
     // Bitacora
     $query6 = "INSERT INTO bitacora(id_proyecto, etapa, fecha_modificacion, id_capM) VALUES ('$id_proyecto', '$etapa', '$date', $id)";
     $resultado6 = mysqli_query($conexion, $query6);
+    // var_dump($query6);
+
 
     $conexion->commit();
 

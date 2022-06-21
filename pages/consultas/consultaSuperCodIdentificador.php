@@ -7,7 +7,7 @@ $query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.valorVenta,
 V.placa, Co.color, M.marca, Mo.modelo, A.anio, 
 RS.valorVentaAlta, RC.id_regcodidenti,
 SS.semana AS semSolAlta, S.semana, SC.semanaCobro, 
-D.valCobProyBase, D.codIdProyBase, SU.compCodId, SU.folioSupervision
+D.valCobProyBase, D.codIdProyBase, SU.compCodId, SU.folioSupervision, SU.borrado, SU.id_supervisado
 FROM proyectos P 
 INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -22,7 +22,7 @@ INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
 INNER JOIN semanas S ON RS.id_semana = S.id_semana
 INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto 
 INNER JOIN supervisado SU ON P.id_proyecto = SU.id_proyecto
-WHERE superCodIdentificador = 1 AND D.borrado = 0";
+ORDER BY SU.id_supervisado DESC";
 }else{
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";
@@ -38,15 +38,23 @@ while ($row = $resultado->fetch_assoc()) {
 	$idP = $row['id_proyecto'];
 	$codIdProyBase = $row['codIdProyBase'];
 	$nP = $row['nProyecto'];
+	$Eliminado = $row['borrado'];
+
+	// validar columna estado del proyecto
+	if ($Eliminado == 1) {
+		$validaEstadoProyecto = "<h6><span class='badge badge-danger badge-pill'>Eliminado</span></h6>";
+	} else {
+		$validaEstadoProyecto = "<h6><span class='badge badge-success badge-pill'>Activo</span></h6>";
+	}
 
 
 	// 2.7.2 Eliminar Supervisión de Registro Código Identificador
-	if ($super == 1) {
-		$outputBtns1 = "<a href='#' onclick='abrirModal1(\"" . $idP . "\",\"".$codIdProyBase."\", \"".$nP."\")' class='btn btn-secondary' ><i class='fas fa-trash-alt'></i></a>";
-	} else if ($eliSuperCodIdentificador == 1) {
-		$outputBtns1 = "<a href='#' onclick='abrirModal1(\"" . $idP . "\",\"".$codIdProyBase."\", \"".$nP."\")' class='btn btn-secondary' ><i class='fas fa-trash-alt'></i></a>";
+	if($Eliminado == 1){
+		$outputBtns1 = "<a class='btn btn-outline-danger' id='eliSuperCodIdentificador' data-toggle='tooltip' data-placement='left' title='Proyecto ya Eliminado'><i class='fas fa-trash-alt'></i></a>";
+	}else if ($super == 1 OR $eliSuperCodIdentificador == 1) {
+		$outputBtns1 = "<a href='#' onclick='abrirModal1(\"" . $idP . "\",\"".$codIdProyBase."\", \"".$nP."\",\"".$row['id_supervisado']."\")' class='btn btn-secondary' ><i class='fas fa-trash-alt'></i></a>";
 	} else {
-		$outputBtns1 = "<a class='btn btn-outline-danger' id='eliSuperCodIdentificador'><i class='fas fa-trash-alt'></i></a>";
+		$outputBtns1 = "<a class='btn btn-outline-danger' id='eliSuperCodIdentificador' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fas fa-trash-alt'></i></a>";
 	}
 
 	//2.7.3 Ver Link de Video, Observaciones y Generales
@@ -55,7 +63,7 @@ while ($row = $resultado->fetch_assoc()) {
 	} else if ($verLinkObsSuperIdentificador == 1) {
 		$outputBtns2 = "<a href='../consultas/tablaConsultaSuperCodIdentificador.php?id={$idP}' target='_blank' class='btn btn-secondary'><i class='fa-solid fa-eye'></i></a>";
 	} else {
-		$outputBtns2 = "<a class='btn btn-outline-danger' id='verLinkObsSuperIdentificador'><i class='fa-fa-comments'></i></a>";
+		$outputBtns2 = "<a class='btn btn-outline-danger' id='verLinkObsSuperIdentificador' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-fa-comments'></i></a>";
 	}
 
 	$cont++;
@@ -64,7 +72,7 @@ while ($row = $resultado->fetch_assoc()) {
 		"1" => "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>",
 		"2" => $row['folioSupervision'],
 		"3" => $row['codIdProyBase'],
-		"4" => $row['compCodId'],
+		"4" => $validaEstadoProyecto,
 		"5" => $row['nProyecto'],
 		"6" => $row['nOrden'],
 		"7" => $row['marca'],

@@ -69,9 +69,9 @@ while ($row = $resultado->fetch_assoc()) {
 	if ($Eliminado == 0) {
 		$outputBtns1 = "<a class='btn btn-outline-danger' id='eliminado'><i class='fa-solid fa-ban'></i></a>";
 	} else if ($super == 1 or $autorizarSolDesc == 1) {
-		$outputBtns1 = "<a href='../update/formUpdateAutorizarDescuento.php?id=$id_cambioAutorizDescuento&&idP=$idP&&nP=$nP&&id_regSolicitud=$id_regSolicitud' class='btn btn-secondary'><i class='fa-solid fa-pencil'></i></a>";
+		$outputBtns1 = "<a href='../update/formUpdateAutorizarDescuento.php?id=$id_cambioAutorizDescuento&&idP=$idP&&nP=$nP&&id_regSolicitud=$id_regSolicitud' class='btn btn-secondary'><i class='fa-solid fa-thumbs-up'></i></a>";
 	} else {
-		$outputBtns1 = "<a class='btn btn-outline-danger' id='autorizarSolDesc'><i class='fa-solid fa-pencil'></i></a>";
+		$outputBtns1 = "<a class='btn btn-outline-danger' id='autorizarSolDesc'><i class='fa-solid fa-thumbs-up'></i></a>";
 	}
 
 	// 2.10.1.3 Ver Generales Solicitud de Cambio de Valor Alta

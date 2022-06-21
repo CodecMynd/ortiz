@@ -12,6 +12,8 @@
             </div>
             <form id="formRegresarSuperCodId">
                 <input type="hidden" name="id_proyecto" id="id_proyecto">
+                <input type="hidden" name="id_supervisado" id="id_supervisado">
+
                 <div class="modal-footer text-left">
                     <button type="button" id="btnRegresarSuperCodId" class="btn btn-secondary"><i class="fa-solid fa-trash"></i> Eliminar</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>
@@ -28,3 +30,5 @@
         </div>
     </div>
 </div>
+
+

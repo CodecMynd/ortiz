@@ -9,6 +9,7 @@ $date = date('Y-m-d H:i:s');
 $id = $_SESSION['id_usuario'];
 
 $id_proyecto = $_POST['id_proyecto'];
+$id_supervisado = $_POST['id_supervisado'];
 $status = 'Borrado de 2.7 Supervisión Código Identificador';
 $etapa = 'Proyecto regresado a 2.6 Proyectos con Código Identificador';
 
@@ -32,7 +33,7 @@ $resultado3 = mysqli_query($conexion, $query3);
 // var_dump($query3);
 // echo '<br>';
 
-$query4 = ("DELETE FROM supervisado  WHERE id_proyecto = $id_proyecto ");
+$query4 = ("UPDATE supervisado SET borrado = 1, fecha_borrado = '$date', id_capB = '$id'  WHERE id_supervisado = $id_supervisado ");
 $resultado4 = mysqli_query($conexion, $query4);
 // var_dump($query4);
 // echo '<br>';
