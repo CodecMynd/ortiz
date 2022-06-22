@@ -20,7 +20,7 @@ INNER JOIN semanascobro SC ON RC.id_semanaCobro = SC.id_semanaCobro
 INNER JOIN semanas S ON RS.id_semana = S.id_semana
 INNER JOIN desglocecodid D ON P.id_proyecto = D.id_proyecto
 WHERE proyCodIdentificador = 1 AND RC.borrado = 0
-	ORDER BY nProyecto DESC";
+ORDER BY nProyecto DESC";
 }else{
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";

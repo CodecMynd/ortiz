@@ -2,7 +2,7 @@
 require '../components/query.php';
 if ($super == 1 or $verTablasDesarmadosAutoAlta == 1) {
 
-	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado,
+	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado, P.valorVenta,
 	V.placa, M.marca, Mo.modelo, A.anio, Co.color,
     MAX(R.id_recPzsDanadas) AS id_recPzsDanadas, R.linkRecPzsDanadas, MIN(R.borrado) AS linkBorrado, MAX(R.enUso) AS linkEnUso, 
     R.fecha_creacion AS fechaRegLink, R.fecha_borrado AS fechaEliLink, R.enUso,
@@ -143,17 +143,18 @@ while ($row = $resultado->fetch_assoc()) {
 		"6" => $row['anio'],
 		"7" => $row['placa'],
 		"8" => $row['color'],
-		"9" => ($Eliminado == 0) ? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
-		"10" => $solicitud,
-		"11" => $precioCredito,
-		"12" => $precioContado,
-		"13" => $total,
-		"14" => "<strong>{$row['folio_autoriz']}</strong>",
-		"15" => "<strong>{$row['cronoPreAuto']}</strong>",
-		"16" => "<strong>{$row['cronoAutorizado']}</strong>",
-		"17" => (empty($row['asesor'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>",
-		"18" => (empty($row['tecArmador'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Técnico</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['tecArmador']}</span></h6>",
-		"19" => $fechaRegLink,
+		"9" => "<b>{$row['valorVenta']}</b>",
+		"10" => ($Eliminado == 0) ? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
+		"11" => $solicitud,
+		"12" => $precioCredito,
+		"13" => $precioContado,
+		"14" => $total,
+		"15" => "<strong>{$row['folio_autoriz']}</strong>",
+		"16" => "<strong>{$row['cronoPreAuto']}</strong>",
+		"17" => "<strong>{$row['cronoAutorizado']}</strong>",
+		"18" => (empty($row['asesor'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>",
+		"19" => (empty($row['tecArmador'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Técnico</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['tecArmador']}</span></h6>",
+		"20" => $fechaRegLink,
 
 
 	);

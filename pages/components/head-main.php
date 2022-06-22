@@ -113,7 +113,9 @@ require 'query.php';
         tr td {
             font-size: 15px;
             font-weight: 500;
+
         }
+        
 
     </style>
     <!-- notas

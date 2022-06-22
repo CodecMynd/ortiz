@@ -41,6 +41,7 @@
             style: 'multi'
         },
         "dom": 'PBlfrtip',
+        "pageLength": 50,
         "buttons": ["csv", "excel", "pdf", "colvis"],
         "ajax": {
             url: "../consultas/consultaSuperCodIdentificador.php",
@@ -64,7 +65,12 @@
                 show: true
             },
             targets: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
-        }],
+        },
+        {
+            targets: [0,6],
+            visible: false
+        }
+    ],
         "language": {
             "aria": {
                 "sortAscending": "Activar para ordenar la columna de manera ascendente",
@@ -111,25 +117,39 @@
         "drawCallback": function () {
             //alert("La tabla se está recargando"); 
             var api = this.api();
-            $(api.column(12).footer()).html(
-                'Total: ' + api.column(12, {
+            $(api.column(13).footer()).html(
+                'Total: ' + api.column(13, {
                     page: 'current'
                 }).data().sum()
             )
             var api2 = this.api();
-            $(api2.column(13).footer()).html(
-                'Total: ' + api2.column(13, {
+            $(api2.column(14).footer()).html(
+                'Total: ' + api2.column(14, {
                     page: 'current'
                 }).data().sum()
             )
             var api3 = this.api();
-            $(api3.column(14).footer()).html(
-                'Total: ' + api3.column(14, {
+            $(api3.column(15).footer()).html(
+                'Total: ' + api3.column(15, {
+                    page: 'current'
+                }).data().sum()
+            )
+            var api4 = this.api();
+            $(api3.column(16).footer()).html(
+                'Total: ' + api4.column(16, {
                     page: 'current'
                 }).data().sum()
             )
         },
         "createdRow": function (row, data, index) {
+            if (data[11] >= '0') {
+                $('td', row).eq(11).css({
+                    'text-align': 'center',
+                    'background-color': '#5A6268',
+                    'color': '#fff',
+                    'font-weight': 'bold'
+                });
+            }
             if (data[12] >= '0') {
                 $('td', row).eq(12).css({
                     'text-align': 'center',

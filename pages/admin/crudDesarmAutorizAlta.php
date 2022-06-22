@@ -167,6 +167,7 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placa</th>
                                                 <th>Color</th>
+                                                <th>Valor Venta Inicial</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Solicitudes de Piezas y Registros de Compras</th>
                                                 <th>Suma Total Costo Crédito</th>
@@ -192,6 +193,7 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placa</th>
                                                 <th>Color</th>
+                                                <th class='suma'>Valor Venta Inicial</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Solicitudes de Piezas y Registros de Compras</th>
                                                 <th class='suma'>Suma Total Costo Crédito</th>
@@ -250,6 +252,7 @@ require '../components/head-dataTables.php';
                                                     <th>Año</th>
                                                     <th>Placa</th>
                                                     <th>Color</th>
+                                                    <th>Valor Venta Inicial</th>
                                                     <th>Estado del Proyecto</th>
                                                     <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th>Suma Total Costo Crédito</th>
@@ -276,6 +279,7 @@ require '../components/head-dataTables.php';
                                                     <th>Año</th>
                                                     <th>Placa</th>
                                                     <th>Color</th>
+                                                    <th class='suma'>Valor Venta Inicial</th>
                                                     <th>Estado del Proyecto</th>
                                                     <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th class='suma'>Suma Total Costo Crédito</th>
@@ -336,6 +340,7 @@ require '../components/head-dataTables.php';
                                                     <th>Año</th>
                                                     <th>Placa</th>
                                                     <th>Color</th>
+                                                    <th>Valor Venta Inicial</th>
                                                     <th>Estado del Proyecto</th>
                                                     <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th>Suma Total Costo Crédito</th>
@@ -363,6 +368,7 @@ require '../components/head-dataTables.php';
                                                     <th>Año</th>
                                                     <th>Placa</th>
                                                     <th>Color</th>
+                                                    <th class="suma">Valor Venta Inicial</th>
                                                     <th>Estado del Proyecto</th>
                                                     <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th class='suma'>Suma Total Costo Crédito</th>
@@ -424,6 +430,7 @@ require '../components/head-dataTables.php';
                                                     <th>Año</th>
                                                     <th>Placa</th>
                                                     <th>Color</th>
+                                                    <th>Valor Venta Inicial</th>
                                                     <th>Estado del Proyecto</th>
                                                     <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th>Suma Total Costo Crédito</th>
@@ -452,6 +459,7 @@ require '../components/head-dataTables.php';
                                                     <th>Año</th>
                                                     <th>Placa</th>
                                                     <th>Color</th>
+                                                    <th class="suma">Valor Venta Inicial</th>
                                                     <th>Estado del Proyecto</th>
                                                     <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th class='suma'>Suma Total Costo Crédito</th>
@@ -512,6 +520,7 @@ require '../components/head-dataTables.php';
                                                     <th>Año</th>
                                                     <th>Placa</th>
                                                     <th>Color</th>
+                                                    <th>Valor Venta Inicial</th>
                                                     <th>Estado del Proyecto</th>
                                                     <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th>Suma Total Costo Crédito</th>
@@ -541,6 +550,7 @@ require '../components/head-dataTables.php';
                                                     <th>Año</th>
                                                     <th>Placa</th>
                                                     <th>Color</th>
+                                                    <th class="suma">Valor Venta Inicial</th>
                                                     <th>Estado del Proyecto</th>
                                                     <th>Solicitudes de Piezas y Registros de Compras</th>
                                                     <th class='suma'>Suma Total Costo Crédito</th>

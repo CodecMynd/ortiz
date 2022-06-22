@@ -30,12 +30,20 @@ require '../components/head-dataTables.php';
 
     }
 
-    function abrirModal2(id_proyecto, nProyecto, id_regcodidenti) {
+    function abrirModal2(id_proyecto, nProyecto, id_regcodidenti, folioCodID, marca, modelo, anio, color, placa) {
         $("#btnModal-generarSuperCodIdentificador").click();
         $("#id_proyecto2").val(id_proyecto);
         $("#nProyecto2").val(nProyecto);
         $("#id_regcodidenti2").val(id_regcodidenti);
-        $("#tituloModal2").html(nProyecto);
+        
+        $("#id_proyectoText").html(id_proyecto);
+        $("#nProyectoText").html(nProyecto);
+        $("#folioCodIDText").html(folioCodID);
+        $("#marcaText").html(marca);
+        $("#modeloText").html(modelo);
+        $("#anioText").html(anio);
+        $("#colorText").html(color);
+        $("#placaText").html(placa);
 
     }
 </script>
@@ -158,7 +166,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-header">
                                     <h3 class="card-title">Supervisión de Registro Código Identificador en el sistema</h3>
                                     <div class="card-tools">
-
+                                    <button class="btn btn-secondary" id='refresh_tableSelectProyCodId' data-toggle="tooltip" data-placement="bottom" title="Actualizar Tabla"><i class="fa-solid fa-table"></i></button>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
@@ -207,8 +215,11 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placa</th>
                                                 <th>Color</th>
-                                                <th>Valor Venta Alta</th>
+                                                <th>Núm. Folio Proyecto Extra</th>
+                                                <th>Valor Proyecto Extra</th>
                                                 <th>Valor Cobro Proyecto Base</th>
+                                                <th>Valor Venta Alta</th>
+                                                <th>Valor Venta Inicial</th>
                                                 <th>Enviar</th>
                                             </tr>
                                         </thead>
@@ -228,8 +239,11 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placa</th>
                                                 <th>Color</th>
-                                                <th class="suma">Valor Venta Alta</th>
+                                                <th>Núm. Folio Proyecto Extra</th>
+                                                <th class="suma">Valor Proyecto Extra</th>
                                                 <th class="suma">Valor Cobro Proyecto Base</th>
+                                                <th class="suma">Valor Venta Alta</th>
+                                                <th class="suma">Valor Venta Inicial</th>
                                                 <th>Enviar</th>
                                             </tr>
                                         </tfoot>
@@ -265,7 +279,7 @@ require '../components/head-dataTables.php';
                                                 <i class="fa-solid fa-file-arrow-up"></i></i>&nbsp;&nbsp; Registro de Supervisión Código Identificador </a>
                                         <?php } ?>
                                         <a href="crudProyCodiIdentificador.php" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Ver Tabla 2.6 Proyectos con Código Identificador"><i class="fa-solid fa-angle-left"></i>&nbsp;&nbsp;<i class="fa-solid fa-eye"></i></a> -->
-
+                                        <button class="btn btn-secondary" id='refresh_tableSuperRegCodID' data-toggle="tooltip" data-placement="bottom" title="Actualizar Tabla"><i class="fa-solid fa-table"></i></button>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
@@ -295,9 +309,11 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
-                                                <th>Valor Venta Inicial</th>
+                                                <th>Núm. Folio Proyecto Extra</th>
+                                                <th>Valor Proyecto Extra</th>
+                                                <th>Valor Cobro Proyecto Base</th>
                                                 <th>Valor Venta Alta</th>
-                                                <th>Valor Cobro</th>
+                                                <th>Valor Venta Inicial</th>
                                                 <th>Semana de Alta</th>
                                                 <th>Semana Solicitud de Alta</th>
                                                 <th>Semana de Cobro</th>
@@ -319,9 +335,11 @@ require '../components/head-dataTables.php';
                                                 <th>Año</th>
                                                 <th>Placas</th>
                                                 <th>Color</th>
-                                                <th class="suma"></th>
-                                                <th class="suma"></th>
-                                                <th class="suma"></th>
+                                                <th>Núm. Folio Proyecto Extra</th>
+                                                <th class="suma">Valor Proyecto Extra</th>
+                                                <th class="suma">Valor Cobro Proyecto Base</th>
+                                                <th class="suma">Valor Venta Alta</th>
+                                                <th class="suma">Valor Venta Inicial</th>
                                                 <th>Semana Solicitud de Alta</th>
                                                 <th>Semana de Alta</th>
                                                 <th>Semana de Cobro</th>
@@ -367,6 +385,23 @@ require '../components/head-dataTables.php';
             });
         }
     </script>
+
+<script>
+        // Actualizar tablas independientes
+        $(document).ready(function() {
+
+            tableSelectProyCodId = $("#tableSelectProyCodId").DataTable();
+            $("#refresh_tableSelectProyCodId").on("click", function() {
+                tableSelectProyCodId.ajax.reload();
+            });
+
+            tableSuperRegCodID = $("#tableSuperRegCodID").DataTable();
+            $("#refresh_tableSuperRegCodID").on("click", function() {
+                tableSuperRegCodID.ajax.reload();
+            });
+
+        });
+</script>
 
 </body>
 

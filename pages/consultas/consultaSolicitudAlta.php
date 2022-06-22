@@ -73,10 +73,10 @@ $cont = 0;
 		//  2.4.6 Ver Observaciones Registro de Solicitud Alta Proyecto
 		if ($super == 1) { 
 		$outputBtns3 = "<a href='../consultas/tablaConsultaSolicitudAlta.php?id={$idP}' class='btn btn-secondary'><i class='fa-solid fa-comments'></i></a>";
-		} else if ($eliProyecto == 1) { 
+		} else if ($verObsRegSolAltProy == 1) { 
 		$outputBtns3 = "<a href='../consultas/tablaConsultaSolicitudAlta.php?id={$idP}' class='btn btn-secondary'><i class='fa-solid fa-comments'></i></a>";
 		} else {
-		$outputBtns3 = "<a href='#' class='btn btn-outline-danger' id='verComentRegSolAltProy'><i class='fa-solid fa-comments'></i></a>";
+		$outputBtns3 = "<a href='#' class='btn btn-outline-danger' id='verObsRegSolAltProy'><i class='fa-solid fa-comments'></i></a>";
 		}
 
 

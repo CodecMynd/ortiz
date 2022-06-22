@@ -24,16 +24,16 @@
                         $("#btnRegresarRegCodIdentificador").css('visibility', 'visible');
                     }, 5000);
                 });
-                 // ---------------------------------------------------------------------------------------------
+                // ---------------------------------------------------------------------------------------------
                 // Tabla 2.6 Proyectos con Código Identificador -----------------------------------------------------------------------------
                 var tableProyCodId = $("#tableProyCodId").DataTable({
                     "responsive": true,
                     "lengthChange": true,
                     "autoWidth": true,
-            "select": true,
-            "select":{
-                style:'multi'
-            },
+                    "select": true,
+                    "select": {
+                        style: 'multi'
+                    },
                     "dom": 'PlBfrtip',
                     "buttons": ["csv", "excel", "pdf", "colvis"],
                     "ajax": {

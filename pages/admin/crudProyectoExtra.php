@@ -203,9 +203,11 @@ require '../components/head-dataTables.php';
                                                     <th>Año</th>
                                                     <th>Placas</th>
                                                     <th>Color</th>
+                                                    <th>Semana Proyecto Extra</th>
                                                     <th>Estado del Proyecto</th>
                                                     <th>Etapa del Proyecto</th>
                                                     <th>Estado Proyecto Extra</th>
+                                                    <th>Valor Venta Inicial</th>
                                                     <th>Núm. Folio Proyecto Extra</th>
                                                     <th>Valor Proyecto Extra</th>
                                                     <th>Link Autorización Whatsapp</th>
@@ -225,9 +227,11 @@ require '../components/head-dataTables.php';
                                                     <th>Año</th>
                                                     <th>Placas</th>
                                                     <th>Color</th>
+                                                    <th>Semana Proyecto Extra</th>
                                                     <th>Estado del Proyecto</th>
                                                     <th>Etapa del Proyecto</th>
                                                     <th>Estado Proyecto Extra</th>
+                                                    <th class="suma">Valor Venta Inicial</th>
                                                     <th>Núm. Folio Proyecto Extra</th>
                                                     <th class="suma">Valor Proyecto Extra</th>
                                                     <th>Link Autorización Whatsapp</th>

@@ -2,10 +2,11 @@
 require '../components/query.php';
 if ($super == 1 or $verTablaRegProyExtra == 1) {
 
-	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado, P.proyectoActivo, P.registroSolicitud, P.altaProyecto, P.proyCodIdentificador, P.superCodIdentificador, P.proyExtra,
+	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado, P.proyectoActivo, P.valorVenta,
+	P.registroSolicitud, P.altaProyecto, P.proyCodIdentificador, P.superCodIdentificador, P.proyExtra,
 	V.placa, M.marca, Mo.modelo, A.anio, Co.color,
 	PE.id_proyExtra, PE.folioProyExtra, PE.valorProyExtra, PE.linkAutorWhats, PE.borrado, PE.super AS supervision,
-    SP.textSupervision, SP.id_comSuperProyExtra
+    SP.textSupervision, SP.id_comSuperProyExtra, SS.semana
 	FROM proyectos P 
 	INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 	INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -14,6 +15,7 @@ if ($super == 1 or $verTablaRegProyExtra == 1) {
 	INNER JOIN anios A ON V.id_anio = A.id_anio 
 	INNER JOIN proyextras PE ON P.id_proyecto = PE.id_proyecto
     LEFT JOIN comsupervisionproyextra SP ON PE.id_proyExtra = SP.id_proyExtra
+    INNER JOIN semanasolalta SS ON PE.id_semSolAlta = SS.id_semSolAlta
     WHERE PE.borrado = 0 AND PE.proyExtraCapt = 1
 	ORDER BY PE.id_proyExtra DESC";
 } else {
@@ -153,14 +155,16 @@ $datos[] = array(
 		"6" => $row['anio'],
 		"7" => $row['placa'],
 		"8" => $row['color'],
-		"9" => ($Eliminado == 0) ? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
-		"10" => $etapa,
-		"11" => ($row['borrado'] == 1) ? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
-		"12" => "<strong>{$folioProyExtra}</strong>",
-		"13" => $valorProyExtra,
-		"14" => (empty($linkAutorWhats)) ? '<h6><span class="badge badge-danger badge-pill">N/A</span></h6>' : '<h6><span class="badge badge-success badge-pill">Registrado</span></h6>',
-		"15" => ($row['textSupervision'] == 0) ? '<h6><span class="badge badge-danger badge-pill">No Supervisado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Supervisado</span></h6>',
-		"16" => "<div class='input-group input-group-sm mb-3'>
+		"9" => "<strong>{$row['semana']}</strong>",
+		"10" => ($Eliminado == 0) ? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
+		"11" => $etapa,
+		"12" => ($row['borrado'] == 1) ? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
+		"13" => $row['valorVenta'],
+		"14" => "<strong>{$folioProyExtra}</strong>",
+		"15" => $valorProyExtra,
+		"16" => (empty($linkAutorWhats)) ? '<h6><span class="badge badge-danger badge-pill">N/A</span></h6>' : '<h6><span class="badge badge-success badge-pill">Registrado</span></h6>',
+		"17" => ($row['textSupervision'] == 0) ? '<h6><span class="badge badge-danger badge-pill">No Supervisado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Supervisado</span></h6>',
+		"18" => "<div class='input-group input-group-sm mb-3'>
 						<div class='input-group-prepend'>
 							<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Solicitud Alta'> Acciones</span>
 							</button>

@@ -14,7 +14,7 @@
             "dom": 'PlBfrtip',
             "buttons": ["csv", "excel", "pdf", "colvis"],
             "ajax": {
-                url: "../consultas/consultaAutorizado.php",
+                url: "../consultas/consultaAutorizado3.php",
                 type: "get",
                 dataType: "json",
                 error: function (e) {
@@ -37,7 +37,7 @@
                     targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18,19],
                 },
                 {
-                    targets: [0, 3, 9],
+                    targets: [0, 3,10],
                     visible: false
                 }
             ],
@@ -89,8 +89,8 @@
             "drawCallback": function () {
                 //alert("La tabla se está recargando"); 
                 var api = this.api();
-                $(api.column(11).footer()).html(
-                    'Total: ' + api.column(11, {
+                $(api.column(9).footer()).html(
+                    'Total: ' + api.column(9, {
                         page: 'current'
                     }).data().sum()
                 )
@@ -106,17 +106,23 @@
                         page: 'current'
                     }).data().sum()
                 )
+                var api4 = this.api();
+                $(api4.column(14).footer()).html(
+                    'Total: ' + api4.column(14, {
+                        page: 'current'
+                    }).data().sum()
+                )
             },
             "createdRow": function (row, data, index) {
-                if (data[8] > '0') {
-                    $('td', row).eq(8).css({
+                if (data[7] >= '0') {
+                    $('td', row).eq(7).css({
                         'text-align': 'center',
                         'background-color': '#5A6268',
                         'color': '#fff',
                         'font-weight': 'bold'
                     });
                 }
-                if (data[9] > '0') {
+                if (data[9] >= '0') {
                     $('td', row).eq(9).css({
                         'text-align': 'center',
                         'background-color': '#5A6268',
@@ -126,6 +132,14 @@
                 }
                 if (data[10] >= '0') {
                     $('td', row).eq(10).css({
+                        'text-align': 'center',
+                        'background-color': '#5A6268',
+                        'color': '#fff',
+                        'font-weight': 'bold'
+                    });
+                }
+                if (data[11] >= '0') {
+                    $('td', row).eq(11).css({
                         'text-align': 'center',
                         'background-color': '#5A6268',
                         'color': '#fff',

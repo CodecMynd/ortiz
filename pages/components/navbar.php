@@ -206,7 +206,7 @@
                         </li>
                         <li><a href="../admin/crudSolPzsAdicionales.php" class="dropdown-item">4.2 Solicitud de Piezas Adicionales </a></li>
                         <li><a href="../admin/crudCronoSurPzs.php" class="dropdown-item">4.3 Cronometro de Surtido de Piezas </a></li>
-                        <li><a href="../admin/crudPorAutorizar.php" class="dropdown-item disabled">4.4 Por Autorizar </a></li>
+                        <li><a href="../admin/crudPorAutorizar.php" class="dropdown-item">4.4 Por Autorizar </a></li>
                     </ul>
                 </li>
                 <!------------------------------------------------------------- 5.0 Proyectos Extras ------------------------------------------------------------->

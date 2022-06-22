@@ -102,35 +102,35 @@ $("#btnDeleteProyExtra").on('click', function () {
 
 // ----------------------------------------------------------------------------------------------------------------------------
 
-    // 5.1.6 Enviar A Proyecto Extra Utilizado
-    $('#btnEnviarProyExtraUtil').click(function () {
-        var param = $('#formEnviarProyExtraUtil').serialize();
-        $.ajax({
-                url: '../update/updateEnviarProyExtraUtil.php',
-                cache: false,
-                type: 'POST',
-                data: param,
-    
-                success: function (vs) {
-                    $('#formEnviarProyExtraUtil')[0].reset();
-                    setTimeout(function () {
-                        $('.enviarProyExtraUtil').modal('hide');
-                    }, 1000);
-                    tableProyExtra.ajax.reload(null, false)
-                    tableProyExtraUtil.ajax.reload(null, false)
-                }
-            })
-            .done(function (res) {
-                $('#respuestaEnviarProyExtraUtil').html(res)
-            })
-    });
-    //Ocultar boton por 5 minutos para evitar el doble submit
-    $("#btnEnviarProyExtraUtil").on('click', function () {
-        $("#btnEnviarProyExtraUtil").css('visibility', 'hidden');
-        setTimeout(function () {
-            $("#btnEnviarProyExtraUtil").css('visibility', 'visible');
-        }, 5000);
-    });
+// 5.1.6 Enviar A Proyecto Extra Utilizado
+$('#btnEnviarProyExtraUtil').click(function () {
+    var param = $('#formEnviarProyExtraUtil').serialize();
+    $.ajax({
+            url: '../update/updateEnviarProyExtraUtil.php',
+            cache: false,
+            type: 'POST',
+            data: param,
+
+            success: function (vs) {
+                $('#formEnviarProyExtraUtil')[0].reset();
+                setTimeout(function () {
+                    $('.enviarProyExtraUtil').modal('hide');
+                }, 1000);
+                tableProyExtra.ajax.reload(null, false)
+                tableProyExtraUtil.ajax.reload(null, false)
+            }
+        })
+        .done(function (res) {
+            $('#respuestaEnviarProyExtraUtil').html(res)
+        })
+});
+//Ocultar boton por 5 minutos para evitar el doble submit
+$("#btnEnviarProyExtraUtil").on('click', function () {
+    $("#btnEnviarProyExtraUtil").css('visibility', 'hidden');
+    setTimeout(function () {
+        $("#btnEnviarProyExtraUtil").css('visibility', 'visible');
+    }, 5000);
+});
 
 // ----------------------------------------------------------------------------------------------------------------------------
 
@@ -163,11 +163,16 @@ var tableProyExtra = $("#tableProyExtra").DataTable({
         }
     },
     "columnDefs": [{
-        searchPanes: {
-            show: true
+            searchPanes: {
+                show: true
+            },
+            targets: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,16,17],
         },
-        targets: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-    }],
+        {
+            targets: [3, 10],
+            visible: false
+        }
+    ],
     "language": {
 
         "aria": {
@@ -222,8 +227,22 @@ var tableProyExtra = $("#tableProyExtra").DataTable({
                 page: 'current'
             }).data().sum()
         )
+        var api2 = this.api();
+        $(api2.column(15).footer()).html(
+            'Total: ' + api2.column(15, {
+                page: 'current'
+            }).data().sum()
+        )
     },
     "createdRow": function (row, data, index) {
+        if (data[11] > '0') {
+            $('td', row).eq(11).css({
+                'text-align': 'center',
+                'background-color': '#5A6268',
+                'color': '#fff',
+                'font-weight': 'bold'
+            });
+        }
         if (data[13] > '0') {
             $('td', row).eq(13).css({
                 'text-align': 'center',

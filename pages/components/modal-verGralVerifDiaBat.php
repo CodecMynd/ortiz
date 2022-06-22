@@ -71,7 +71,7 @@ require '../components/head-main.php';
                 $resultado = mysqli_query($conexion, $query);
                 ?>
                 <div id="table_refresh">
-                    <table id="tableVarios1" class="table table-responsive table-sm table-bordered table-striped" style="width: 100%;">
+                    <table id="tableVariosA" class="table table-responsive table-sm table-bordered table-striped" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -158,4 +158,4 @@ require '../components/head-main.php';
         </div>
     </div>
 </div>
-<script src="../ajax/tableVarios.js"></script>
+<script src="../ajax/tableVarios2.js"></script>
