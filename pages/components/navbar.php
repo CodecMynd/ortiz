@@ -11,10 +11,7 @@
         <a href="../admin/panelAdmin.php" class="navbar-brand">
             <img src="../../src/img/logos/logo.png" alt="JSOL Automotriz Logo" class="brand-image  elevation-5" style="opacity: .8; height:4rem">
             <!-- Produccion -->
-            <span style="font-size: 1.5vw" class="title-nav">Sistema Proyectos Ortiz &reg;</span></a>
-
-        <!-- Pruebas -->
-        <!-- <span style="font-size: 1.5vw" class="title-nav text-red parpadea">Sistema Ortiz Pruebas &reg;</span> -->
+            <span style="font-size: 1.7vw" class="title-nav">S. Proyectos Ortiz &reg;</span></a>
         </a>
 
         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,16 +22,16 @@
         <div class="collapse navbar-collapse order-2" id="navbarCollapse">
             <!-- Left navbar links -->
             <div class="btn-group" role="group" aria-label="Basic example">
-                <a href="../admin/panelAdmin.php" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Ir al Inicio" style="padding-left: 5px;padding-right: 5px;">| <i class="fa-solid fa-house-user"></i></a>
+                <a href="../admin/panelAdmin.php" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Ir al Inicio" style="padding-left: 3px;padding-right: 3px;">| <i class="fa-solid fa-house-user"></i></a>
                 <?php if ($super == 1) { ?>
-                    <a href="#" type="button" class="nav-link" data-toggle="modal" data-target="#exampleModalCenter" data-toggle="tooltip" data-placement="bottom" title="Mostrar contadores de proyectos" style="padding-left: 5px;padding-right: 5px;"><i class="fa-solid fa-eye"></i></a>
+                    <a href="#" type="button" class="nav-link" data-toggle="modal" data-target="#exampleModalCenter" data-toggle="tooltip" data-placement="bottom" title="Mostrar contadores de proyectos" style="padding-left: 3px;padding-right: 3px;"><i class="fa-solid fa-eye"></i></a>
                 <?php } ?>
-                <a class="nav-link" data-widget="fullscreen" href="#" role="button" data-toggle="tooltip" data-placement="bottom" title="Expandir pantalla completa" style="padding-left: 5px;padding-right: 5px;"><i class="fas fa-expand-arrows-alt"></i></a>
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button" data-toggle="tooltip" data-placement="bottom" title="Expandir pantalla completa" style="padding-left: 3px;padding-right: 3px;"><i class="fas fa-expand-arrows-alt"></i></a>
                 <?php if ($passUser == 'SIN_PASSWORD') {
-                    echo '<a class="nav-link parpadea" data-toggle="dropdown" href="#" style="padding-left: 5px;padding-right: 5px;">
+                    echo '<a class="nav-link parpadea" data-toggle="dropdown" href="#" style="padding-left: 3px;padding-right: 3px;">
             <i class="fa-solid fa-user fa-2x" data-toggle="tooltip" data-placement="bottom" title="Ir a mi perfil"></i> |</a>';
                 } else {
-                    echo '<a class="nav-link" data-toggle="dropdown" href="#" style="padding-left: 5px;padding-right: 5px;">
+                    echo '<a class="nav-link" data-toggle="dropdown" href="#" style="padding-left: 3px;padding-right: 3px;">
                <i class="fa-solid fa-user" data-toggle="tooltip" data-placement="bottom" title="Ir a mi perfil"></i> |</a>';
                 } ?>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -218,6 +215,18 @@
                                                                                                                                                         } ?> " style="padding-left: 5px;padding-right: 5px;">5.0 Proyectos Extras</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                         <li><a href="../admin/crudProyectoExtra.php" class="dropdown-item">5.1 Captura Proyectos Extras</a></li>
+
+                    </ul>
+                </li>
+                <!------------------------------------------------------------- 6.0 Envio ------------------------------------------------------------->
+                <li class="nav-item dropdown">
+                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle <?php if ($passUser == 'SIN_PASSWORD') {
+                                                                                                                                                            echo 'disabled';
+                                                                                                                                                        } else {
+                                                                                                                                                            echo 'text-dark ';
+                                                                                                                                                        } ?> " style="padding-left: 5px;padding-right: 5px;">6.0 Envió</a>
+                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                        <li><a href="../admin/crudEnvioRecepTransmision.php" class="dropdown-item">6.1 Envió y Recepción de Transmisión </a></li>
 
                     </ul>
                 </li>

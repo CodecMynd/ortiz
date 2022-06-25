@@ -1,6 +1,6 @@
 <?php
 require '../components/query.php';
-if ($super == 1 or $verTablaPreautorizacion == 1) {
+if ($super == 1 or $verTablaPreautorizacion2 == 1) {
 
 	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado, P.valorVenta,
 	V.placa, M.marca, Mo.modelo, A.anio, Co.color,
@@ -107,25 +107,25 @@ while ($row = $resultado->fetch_assoc()) {
 		$solicitud = "<h6><span class='badge badge-danger badge-pill'>Sin Registro</span></h6>";
 	}
 
-	// 4.1.3 Ver Generales Recepción de Piezas Dañadas (Consulta Rapida)
-	if ($super == 1 or $verGralRecPzsDanadas == 1) {
-		$outputBtns4 = "<a href='javascript:void(0)' class='btn btn-info' onclick='mostarDetalles(\"" . $row['id_proyecto'] . "\")'><i class='fa-solid fa-circle-info'></i></a>";
+	// 4.4.3 Ver Generales Recepción de Piezas Dañadas (Consulta Rapida)
+	if ($super == 1 or $verGralRecPzsDanadas2 == 1) {
+		$outputBtns3 = "<a href='javascript:void(0)' class='btn btn-info' onclick='mostrarDetalles1(\"" . $row['id_proyecto'] . "\")'><i class='fa-solid fa-circle-info'></i></a>";
 	} else {
-		$outputBtns4 = "<a class='btn btn-outline-danger' id='verGralRecPzsDanadas' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-circle-info'></i></a>";
+		$outputBtns3 = "<a class='btn btn-outline-danger' id='verGralRecPzsDanadas2' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-circle-info'></i></a>";
 	}
 
-	// 4.1.4 Enviar a Cotizando
-	if ($super == 1 or $regresarCotizando == 1) {
-		$outputBtns5 = "<a href='#' class='btn btn-secondary' onclick='abrirModal1(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\")'><i class='fa-solid fa-reply'></i></a>";
+	// 4.4.1 Regresar de Pre-Autorización a Cotizando
+	if ($super == 1 or $regresarCotizando2 == 1) {
+		$outputBtns1 = "<a href='#' class='btn btn-secondary' onclick='abrirModal1(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\")'><i class='fa-solid fa-reply'></i></a>";
 	} else {
-		$outputBtns5 = "<a class='btn btn-outline-danger' id='regresarCotizando' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-reply'></i></a>";
+		$outputBtns1 = "<a class='btn btn-outline-danger' id='regresarCotizando2' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-reply'></i></a>";
 	}
 
-	// 4.1.2.3 Enviar a Autorizado
-	if ($super == 1 or $enviarAutoriz == 1) {
-		$outputBtns6 = "<a href='#' class='btn btn-secondary' onclick='abrirModal2(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\",\"".$fechaRegPreAuto."\")'><i class='fa-solid fa-paper-plane'></i></a>";
+	// 4.4.2 Enviar de Pre-Autorización a Autorizado
+	if ($super == 1 or $enviarAutoriz2 == 1) {
+		$outputBtns2 = "<a href='#' class='btn btn-secondary' onclick='abrirModal2(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_recPzsDanadas'] . "\",\"" . $id_solPzsDanadas . "\",\"" . $id_regCompraInicial . "\",\"".$fechaRegPreAuto."\")'><i class='fa-solid fa-paper-plane'></i></a>";
 	} else {
-		$outputBtns6 = "<a class='btn btn-outline-danger' id='enviarAutoriz' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-paper-plane'></i></a>";
+		$outputBtns2 = "<a class='btn btn-outline-danger' id='enviarAutoriz2' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-paper-plane'></i></a>";
 	}
 
 	// Fecha Registro Link
@@ -159,18 +159,18 @@ while ($row = $resultado->fetch_assoc()) {
 						<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Recepción de Piezas Dañadas'> Acciones</span></button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='4.1.3.1 Regresar de Pre-Autorización a Cotizando'>
-										" . $outputBtns5 . "
+									<span data-toggle='tooltip' title='4.4.1.1 Regresar de Pre-Autorización a Cotizando'>
+										" . $outputBtns1 . "
 									</span>
 								</li>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='4.1.3.2 Enviar de Pre-Autorización a Autorizado'>
-										" . $outputBtns6 . "
+									<span data-toggle='tooltip' title='4.4.1.2 Enviar de Pre-Autorización a Autorizado'>
+										" . $outputBtns2 . "
 									</span>
 								</li>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='4.1.3 Ver Generales Recepción de Piezas Dañadas (Consulta Rapida)'>
-										" . $outputBtns4 . "
+									<span data-toggle='tooltip' title='4.4.1.3 Ver Generales Recepción de Piezas Dañadas (Consulta Rapida)'>
+										" . $outputBtns3 . "
 									</span>
 								</li>
 							</ul>

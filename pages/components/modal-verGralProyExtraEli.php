@@ -2,11 +2,11 @@
 require '../components/queryDomPdf.php';
 ?>
 <!-- Modal  style="max-width: 1250px!important;"  -->
-<div class="modal fade" id="modal-verGralProyExtraUtil" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modal-verGralProyExtraEli" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">5.2.5 Ver Generales Proyecto Extra Utilizado</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">5.3.1 Ver Generales Proyecto Extra Eliminados</h5>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>
             </div>
             <!-- consulta sql -->
@@ -14,25 +14,23 @@ require '../components/queryDomPdf.php';
             $id_proyecto = $_REQUEST['id_proyecto'];
             $id_proyExtra = $_REQUEST['id_proyExtra'];
             $query = "SELECT P.id_proyecto, P.nProyecto, 
-            PE.descVentaProyExtra, PE.linkAutorWhats, PE.fecha_creacion, PE.valorProyExtra,
+            PE.descVentaProyExtra, PE.linkAutorWhats, PE.fecha_creacion, PE.valorProyExtra, PE.fecha_borrado,
             S.semana,
             U.nombres, U.aPaterno, U.aMaterno,
-            PEU.folioProyExtraUtil, PEU.semProyExtraUtil, PEU.fecha_creacion AS fechaUtil,
-            UU.nombres AS nomU, UU.aPaterno AS patU, UU.aMaterno AS matU
+            UB.nombres AS nomB, UB.aPaterno AS matB, UB.aMaterno AS patB
             FROM proyectos P
             INNER JOIN proyextras PE ON P.id_proyecto = PE.id_proyecto
             INNER JOIN semanasolalta S ON PE.id_semSolAlta = S.id_semSolAlta
-            INNER JOIN proyextrasutil PEU ON PE.id_proyExtra = PEU.id_proyExtra
             INNER JOIN usuarios U ON PE.id_capC = U.id_usuario
-            INNER JOIN usuarios UU ON PEU.id_capC = UU.id_usuario
-            WHERE PE.id_proyecto = $id_proyecto AND PE.id_proyExtra = $id_proyExtra";
+            INNER JOIN usuarios UB ON PE.id_capB = UB.id_usuario
+            WHERE P.id_proyecto = $id_proyecto AND PE.id_proyExtra = $id_proyExtra";
             $respuesta = mysqli_query($conexion, $query);
             $row = $respuesta->fetch_assoc();
             ?>
             <div class="card-body">
                 <div class="card card-secondary card-outline collapsed-card">
                     <div class="card-header">
-                        <h2 class="card-title"><strong>Proyecto Extra Utilizado</strong></h2>
+                        <h2 class="card-title"><strong>Borrado Proyecto Extra</strong></h2>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool text-dark " data-card-widget="collapse">
                                 <i class="fas fa-plus"></i>
@@ -44,29 +42,10 @@ require '../components/queryDomPdf.php';
                             <div class='col-md-5 col-sm-12 my-5 form-group'>
                                 <div class='input-group form-floating'>
                                     <div class='input-group-prepend'>
-                                        <span class='input-group-text'><i class='fa-solid fa-hashtag'></i></span>
-                                    </div>
-                                    <input type='text' class='form-control' value='<?php echo $row['folioProyExtraUtil'] ?>' disabled readonly>
-                                    <label for='floatingInput' class='pl-5'>Núm Folio: Proyecto Extra Utilizado</label>
-                                </div>
-                            </div>
-                            <div class='col-md-5 col-sm-12 my-5 form-group'>
-                                <div class='input-group form-floating'>
-                                    <div class='input-group-prepend'>
-                                        <span class='input-group-text'><i class='fa-solid fa-calendar-check'></i></span>
-                                    </div>
-                                    <input name='' id='' type='text' class='form-control' value='<?php echo $row['semProyExtraUtil'] ?>' disabled readonly>
-                                    <label for='floatingInput' class='pl-5'>Semana: Proyecto Extra Utilizado</label>
-                                </div>
-                            </div>
-
-                            <div class='col-md-5 col-sm-12 my-5 form-group'>
-                                <div class='input-group form-floating'>
-                                    <div class='input-group-prepend'>
                                         <span class='input-group-text'><i class='fa-solid fa-user'></i></span>
                                     </div>
-                                    <input type='text' class='form-control' value='<?php echo $row['nomU'] . ' ' . $row['patU'] . ' ' . $row['matU'] ?>' disabled readonly>
-                                    <label for='floatingInput' class='pl-5'>Capturista: Proyecto Extra Utilizado</label>
+                                    <input type='text' class='form-control' value='<?php echo (empty($row['nomB']) AND empty($row['patB']) AND empty($row['matB'])) ? 'El Proyecto en general Fue Eliminado' : $row['nomB'] . ' ' . $row['patB'] . ' ' . $row['matB'] ?>' disabled readonly>
+                                    <label for='floatingInput' class='pl-5'>Capturista Borrado: Proyecto Extra</label>
                                 </div>
                             </div>
                             <div class='col-md-5 col-sm-12 my-5 form-group'>
@@ -74,14 +53,13 @@ require '../components/queryDomPdf.php';
                                     <div class='input-group-prepend'>
                                         <span class='input-group-text'><i class='fa-solid fa-calendar-check'></i></span>
                                     </div>
-                                    <input name='' id='' type='text' class='form-control' value='<?php echo (empty($row['fechaUtil'])) ? 'Sin Registro' : $row['fechaUtil'] ?>' disabled readonly>
-                                    <label for='floatingInput' class='pl-5'>Fecha Registro: Proyecto Extra Utilizado</label>
+                                    <input name='' id='' type='text' class='form-control' value='<?php echo (empty($row['fecha_borrado'])) ? 'El Proyecto en general Fue Eliminado' : $row['fecha_borrado'] ?>' disabled readonly>
+                                    <label for='floatingInput' class='pl-5'>Fecha Borrado: Proyecto Extra</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="card card-secondary card-outline collapsed-card">
                     <div class="card-header">
                         <h2 class="card-title"><strong>Proyecto Extra</strong></h2>
@@ -93,9 +71,6 @@ require '../components/queryDomPdf.php';
                     </div>
                     <div class="card-body">
                         <div class="row justify-content-center">
-                            <div class="col 12">
-                                <br>
-                            </div>
                             <div class='col-md-12 col-sm-12 my-1'>
                                 <div class='form-group-input' style='border: 1px solid #CED4DA;'>
                                     <label class='ml-5 mb-2'>Descripción de Venta Proyecto Extra</label>
@@ -169,7 +144,6 @@ require '../components/queryDomPdf.php';
                     </div>
                 </div>
                 <?php
-
                 $query2 = "SELECT PE.id_proyecto, PE.nProyecto,
                 S.textSupervision, S.fecha_registro,
                 U.nombres, U.aPaterno, U.aMaterno

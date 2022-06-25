@@ -1,12 +1,13 @@
 <?php
 require '../components/query.php';
-if ($super == 1 or $verTablaRegProyExtra == 1) {
+if ($super == 1 or $verTablaRegProyExtraUtil == 1) {
 
-	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado, P.proyectoActivo, P.registroSolicitud, P.altaProyecto, P.proyCodIdentificador, P.superCodIdentificador, P.proyExtra,
+	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado, P.proyectoActivo, P.valorVenta,
+	P.registroSolicitud, P.altaProyecto, P.proyCodIdentificador, P.superCodIdentificador, P.proyExtra,
 	V.placa, M.marca, Mo.modelo, A.anio, Co.color,
 	PE.id_proyExtra, PE.folioProyExtra, PE.valorProyExtra, PE.linkAutorWhats, PE.borrado, PE.super AS supervision,
     SP.textSupervision, SP.id_comSuperProyExtra,
-    PEU.folioProyExtraUtil, PEU.semProyExtraUtil
+    PEU.folioProyExtraUtil, PEU.semProyExtraUtil, SS.semana
 	FROM proyectos P 
 	INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
 	INNER JOIN colores Co ON V.id_color = Co.id_color
@@ -16,6 +17,7 @@ if ($super == 1 or $verTablaRegProyExtra == 1) {
 	INNER JOIN proyextras PE ON P.id_proyecto = PE.id_proyecto
     LEFT JOIN comsupervisionproyextra SP ON PE.id_proyExtra = SP.id_proyExtra
     INNER JOIN proyextrasutil PEU ON PE.id_proyExtra = PEU.id_proyExtra
+	INNER JOIN semanasolalta SS ON PE.id_semSolAlta = SS.id_semSolAlta
     WHERE PEU.borrado = 0 AND PE.proyExtraUtil = 1
 	ORDER BY PE.id_proyExtra DESC ";
 } else {
@@ -124,10 +126,10 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns4 = "<a class='btn btn-outline-danger' id='noComImg' data-toggle='tooltip' data-placement='left' title='Proyecto Eliminado'><i class='fa-solid fa-ban'></i></a>";
 	}else if ($super == 1) {
 		$outputBtns4 = "<a href='javascript:void(0)' class='btn btn-secondary' onclick='mostarDetalles2(\"" . $row['id_proyecto'] . "\",\"" . $id_proyExtra . "\")'><i class='fa-solid fa-eye'></i></a>";
-	} else if ($verGralProyExtra  == 1) {
+	} else if ($verGralProyExtraUtil  == 1) {
 		$outputBtns4 = "<a href='javascript:void(0)' class='btn btn-secondary' onclick='mostarDetalles2(\"" . $row['id_proyecto'] . "\",\"" . $id_proyExtra . "\")'><i class='fa-solid fa-eye'></i></a>";
 	} else {
-		$outputBtns4 = "<a href='#' class='btn btn-outline-danger' id='verGralProyExtra' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-eye'></i></a>";
+		$outputBtns4 = "<a href='#' class='btn btn-outline-danger' id='verGralProyExtraUtil' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-eye'></i></a>";
 	}
 
 	// 5.1.6 Enviar A Proyecto Extra Utilizado
@@ -146,7 +148,7 @@ if($row['textSupervision'] == 0)
 
 $cont++;
 $datos[] = array(
-	"0" => $cont,
+		"0" => $cont,
 		"1" => "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>",
 		"2" => $row['nProyecto'],
 		"3" => $row['nOrden'],
@@ -155,40 +157,22 @@ $datos[] = array(
 		"6" => $row['anio'],
 		"7" => $row['placa'],
 		"8" => $row['color'],
-		"9" => ($Eliminado == 0) ? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
-		"10" => $etapa,
-		"11" => "<strong>{$folioProyExtra}</strong>",
-		"12" => $valorProyExtra,
-		"13" => "<strong>{$row['folioProyExtraUtil']}</strong>",
-		"14" => "<strong>{$row['semProyExtraUtil']}</strong>",
-		"15" => "<div class='input-group input-group-sm mb-3'>
+		"9" => "<strong>{$row['semana']}</strong>",
+		"10" => ($Eliminado == 0) ? '<h6><span class="badge badge-danger badge-pill">Eliminado</span></h6>' : '<h6><span class="badge badge-success badge-pill">Activo</span></h6>',
+		"11" => $etapa,
+		"12" => $row['valorVenta'],
+		"13" => "<strong>{$folioProyExtra}</strong>",
+		"14" => $valorProyExtra,
+		"15" => "<strong>{$row['folioProyExtraUtil']}</strong>",
+		"16" => "<strong>{$row['semProyExtraUtil']}</strong>",
+		"17" => "<div class='input-group input-group-sm mb-3'>
 						<div class='input-group-prepend'>
 							<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Solicitud Alta'> Acciones</span>
 							</button>
-							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>
+							<ul class='dropdown-menu' style='columns:1; min-width:2em;'>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='5.1.2 Elimniar Registro Proyecto Extra'>
-
-									</span>
-								</li>
-								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='5.1.3 Registrar Supervisión Proyecto Extra'>
-
-									</span>
-								</li>
-								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='5.1.4 Eliminar Supervisión Proyecto Extra'>
-
-									</span>
-								</li>
-								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='5.1.5 Ver Generales Proyecto Extra'>
+									<span data-toggle='tooltip' title='5.2.5 Ver Generales Proyecto Extra Utilizado'>
 										" . $outputBtns4 . "
-									</span>
-								</li>
-								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='5.1.6 Enviar A Proyecto Extra Utilizado'>
-
 									</span>
 								</li>
 							</ul>

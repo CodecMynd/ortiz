@@ -71,7 +71,7 @@ $("#btnDeleteSuperProyExtra").on('click', function () {
 
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// 2.5.2 Eliminar Registro Alta Proyecto
+// 5.1.2 Eliminar Registro Proyecto Extra
 $('#btnDeleteProyExtra').click(function () {
     var param = $('#formDeleteProyExtra').serialize();
     $.ajax({
@@ -86,6 +86,7 @@ $('#btnDeleteProyExtra').click(function () {
                     $('.eliminarProyExtra').modal('hide');
                 }, 1000);
                 tableProyExtra.ajax.reload(null, false)
+                tableProyExtraEli.ajax.reload(null, false)
             }
         })
         .done(function (res) {
@@ -166,10 +167,10 @@ var tableProyExtra = $("#tableProyExtra").DataTable({
             searchPanes: {
                 show: true
             },
-            targets: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,16,17],
+            targets: [2,3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,16,17],
         },
         {
-            targets: [3, 10],
+            targets: [0,3,10],
             visible: false
         }
     ],
@@ -235,16 +236,16 @@ var tableProyExtra = $("#tableProyExtra").DataTable({
         )
     },
     "createdRow": function (row, data, index) {
-        if (data[11] > '0') {
-            $('td', row).eq(11).css({
+        if (data[10] > '0') {
+            $('td', row).eq(10).css({
                 'text-align': 'center',
                 'background-color': '#5A6268',
                 'color': '#fff',
                 'font-weight': 'bold'
             });
         }
-        if (data[13] > '0') {
-            $('td', row).eq(13).css({
+        if (data[12] > '0') {
+            $('td', row).eq(12).css({
                 'text-align': 'center',
                 'background-color': '#5A6268',
                 'color': '#fff',

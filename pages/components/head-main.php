@@ -106,13 +106,15 @@ require 'query.php';
         }
 
         tr th {
-            font-size: 13px;
+            font-size: 12px;
             text-align: center;
+            padding: 0;
         }
 
         tr td {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 500;
+            padding: 0;
 
         }
         

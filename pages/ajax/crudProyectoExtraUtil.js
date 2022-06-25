@@ -165,8 +165,13 @@ var tableProyExtraUtil = $("#tableProyExtraUtil").DataTable({
         searchPanes: {
             show: true
         },
-        targets: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-    }],
+        targets: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,15],
+    },
+    {
+        targets: [0,10],
+        visible: false
+    }
+],
     "language": {
 
         "aria": {
@@ -221,8 +226,22 @@ var tableProyExtraUtil = $("#tableProyExtraUtil").DataTable({
                 page: 'current'
             }).data().sum()
         )
+        var api2 = this.api();
+        $(api2.column(14).footer()).html(
+            'Total: ' + api2.column(14, {
+                page: 'current'
+            }).data().sum()
+        )
     },
     "createdRow": function (row, data, index) {
+        if (data[10] > '0') {
+            $('td', row).eq(10).css({
+                'text-align': 'center',
+                'background-color': '#5A6268',
+                'color': '#fff',
+                'font-weight': 'bold'
+            });
+        }
         if (data[12] > '0') {
             $('td', row).eq(12).css({
                 'text-align': 'center',

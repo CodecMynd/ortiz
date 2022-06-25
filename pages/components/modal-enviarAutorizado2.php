@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="pie">
-                <h5>4.1.6 Enviar a Autorizado</h5>
+                <h5>4.4.1.2 Enviar de Pre-Autorización a Autorizado</h5>
             </div>
         </div>
     </div>

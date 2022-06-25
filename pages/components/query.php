@@ -351,6 +351,24 @@ while ($row = mysqli_fetch_array($query)) {
     $verTablaSolAutorizDescuento = $row['verTablaSolAutorizDescuento'];
     $verTablaSelectProyCodId = $row['verTablaSelectProyCodId'];
     $verTablasDesarmadosAutoAlta = $row['verTablasDesarmadosAutoAlta'];
+    $regresarCotizando2 = $row['regresarCotizando2'];
+    $enviarAutoriz2 = $row['enviarAutoriz2'];
+    $verGralRecPzsDanadas2 = $row['verGralRecPzsDanadas2'];
+    $verTablaPreautorizacion2 = $row['verTablaPreautorizacion2'];
+    $regresarCotizandoPzsAdic2 = $row['regresarCotizandoPzsAdic2'];
+    $enviarAutorizPzsAdic2 = $row['enviarAutorizPzsAdic2'];
+    $verGralSolPzsAdicionales2 = $row['verGralSolPzsAdicionales2'];
+    $verTablaPreautorizacionPzsAdic2 = $row['verTablaPreautorizacionPzsAdic2'];
+    $verGralProyExtraUtil = $row['verGralProyExtraUtil'];
+    $verGralProyExtraEli = $row['verGralProyExtraEli'];
+    $verTablaRegProyExtraEli = $row['verTablaRegProyExtraEli'];
+    $verTablaRegProyExtraUtil = $row['verTablaRegProyExtraUtil'];
+    $regEnvioTransmision = $row['regEnvioTransmision'];
+    $eliEnvioTransmision = $row['eliEnvioTransmision'];
+    $regRecTransmision = $row['regRecTransmision'];
+    $eliRecTransmision = $row['eliRecTransmision'];
+    $verGralEnvioRecTransmision = $row['verGralEnvioRecTransmision'];
+    $verTablaEnvioRecTransm = $row['verTablaEnvioRecTransm'];
 
 
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
@@ -364,3 +382,11 @@ while ($row = mysqli_fetch_array($query)) {
     }
 }
 
+
+
+
+
+
+
+
+	

@@ -120,7 +120,7 @@ require '../components/head-main.php';
                                     <?php echo $row['nProyecto'] ?>
                                 </td>
                                 <td>
-                                    <?php echo $row['folio']?>
+                                    <?php echo "<h6><span class='badge badge-success badge-pill'>{$row['folio']}</span></h6>"?>
                                 </td>
                                 <td>
                                     <?php echo (empty($row['incidencia'])) ? 'Sin Registro' : $row['incidencia']; ?>
@@ -218,7 +218,7 @@ require '../components/head-main.php';
                                     <?php echo $row['nProyecto'] ?>
                                 </td>
                                 <td>
-                                    <?php echo $row['folio']?>
+                                    <?php echo "<h6><span class='badge badge-danger badge-pill'>{$row['folio']}</span></h6>" ?>
                                 </td>
                                 <td>
                                     <?php echo (empty($row['incidencia'])) ? 'Sin Registro' : $row['incidencia']; ?>

@@ -21,7 +21,7 @@ require '../components/queryDomPdf.php';
             INNER JOIN proyextras PE ON P.id_proyecto = PE.id_proyecto
             INNER JOIN semanasolalta S ON PE.id_semSolAlta = S.id_semSolAlta
             INNER JOIN usuarios U ON PE.id_capC = U.id_usuario
-            WHERE P.id_proyecto = $id_proyecto";
+            WHERE P.id_proyecto = $id_proyecto AND PE.id_proyExtra = $id_proyExtra";
             $respuesta = mysqli_query($conexion, $query);
             $row = $respuesta->fetch_assoc();
             ?>
@@ -37,9 +37,6 @@ require '../components/queryDomPdf.php';
                     </div>
                     <div class="card-body">
                         <div class="row justify-content-center">
-                            <div class="col 12">
-                                <br>
-                            </div>
                             <div class='col-md-12 col-sm-12 my-1'>
                                 <div class='form-group-input' style='border: 1px solid #CED4DA;'>
                                     <label class='ml-5 mb-2'>Descripción de Venta Proyecto Extra</label>

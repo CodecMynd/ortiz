@@ -24,8 +24,10 @@
                 </div>
             </div>
             <div class="pie">
-                <h5>4.1.2.2 Regresar a Cotizando</h5>
+                <h5>4.4.1 Regresar de Pre-Autorización a Cotizando</h5>
             </div>
         </div>
     </div>
 </div>
+
+

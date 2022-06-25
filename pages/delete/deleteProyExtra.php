@@ -26,7 +26,7 @@ try {
   // echo '<br>';
 
   //Borrar ID Registro Proyecto Extra
-  $query1 = ("UPDATE proyextras SET borrado = 1, fecha_borrado = '$date', id_capB = '$id' WHERE id_proyecto =  $id_proyecto AND folioProyExtra = '$folioProyExtra'");
+  $query1 = ("UPDATE proyextras SET proyExtraEli = 1, borrado = 1, fecha_borrado = '$date', id_capB = '$id' WHERE id_proyecto =  $id_proyecto AND folioProyExtra = '$folioProyExtra'");
   $resultado1 = mysqli_query($conexion, $query1);
   // var_dump($queryD);
   // echo '<br>';

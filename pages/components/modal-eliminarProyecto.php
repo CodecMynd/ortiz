@@ -13,13 +13,18 @@
                 </strong>
             </div>
             
-            <form action="../delete/deleteProyecto.php" method="POST">
+            <form id="formDeleteProyecto">
             <input type="hidden" name="id_proyecto" id="id_proyecto" value="">
                 <div class="modal-footer">
-                    <button type="submit"  class="btn btn-secondary"><i class="fas fa-ban"></i> Eliminar</button>
-                    <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Salir"><i class="fa-solid fa-circle-xmark"></i> Salir</a>
+                    <button type="button" id="btnDeleteProyecto" class="btn btn-secondary"><i class="fa-solid fa-trash"></i> Eliminar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Salir</button>
                 </div>
             </form>
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <div id="respuestaDeleteProyecto"></div>
+                </div>
+            </div>
             <div class="pie">
                 <h5>2.2.4 Eliminar Proyecto</h5>
             </div>

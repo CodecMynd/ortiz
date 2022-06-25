@@ -20,7 +20,7 @@ require '../components/head-dataTables.php';
 </style>
 <link rel="stylesheet" href="../../src/css/btnRecPzsDanadas.css">
 <script>
-        function abrirModal1(id_proyecto, nProyecto, id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial) {
+    function abrirModal1(id_proyecto, nProyecto, id_recPzsDanadas, id_solPzsDanadas, id_regCompraInicial) {
         $("#btnModal-regresarCotizando2").click();
         $("#id_proyecto1").val(id_proyecto);
         $("#nProyecto1").val(nProyecto);
@@ -40,24 +40,25 @@ require '../components/head-dataTables.php';
         $("#fechaRegPreAuto2").val(fechaRegPreAuto);
         $("#tituloModal2").html(nProyecto);
     }
-        function abrirModal4(id_proyecto, nProyecto, id_regSolpzadicional, id_cotizandoPzsAdic, id_preAutorizadoPzsAdic) {
-        $("#btnModal-regresarCotizandoPzsAdic").click();
+
+    function abrirModal3(id_proyecto, nProyecto, id_regSolpzadicional, id_cotizandoPzsAdic, id_preAutorizadoPzsAdic) {
+        $("#btnModal-regresarCotizandoPzsAdic2").click();
+        $("#id_proyecto3").val(id_proyecto);
+        $("#nProyecto3").val(nProyecto);
+        $("#id_regSolpzadicional3").val(id_regSolpzadicional);
+        $("#id_cotizandoPzsAdic3").val(id_cotizandoPzsAdic);
+        $("#id_preAutorizadoPzsAdic3").val(id_preAutorizadoPzsAdic);
+        $("#tituloModal3").html(nProyecto);
+    }
+
+    function abrirModal4(id_proyecto, nProyecto, id_regSolpzadicional, id_cotizandoPzsAdic, id_preAutorizadoPzsAdic) {
+        $("#btnModal-enviarAutorizadoPzsAdic2").click();
         $("#id_proyecto4").val(id_proyecto);
         $("#nProyecto4").val(nProyecto);
         $("#id_regSolpzadicional4").val(id_regSolpzadicional);
         $("#id_cotizandoPzsAdic4").val(id_cotizandoPzsAdic);
         $("#id_preAutorizadoPzsAdic4").val(id_preAutorizadoPzsAdic);
         $("#tituloModal4").html(nProyecto);
-    }
-
-    function abrirModal5(id_proyecto, nProyecto, id_regSolpzadicional, id_cotizandoPzsAdic, id_preAutorizadoPzsAdic) {
-        $("#btnModal-enviarAutorizadoPzsAdic").click();
-        $("#id_proyecto5").val(id_proyecto);
-        $("#nProyecto5").val(nProyecto);
-        $("#id_regSolpzadicional5").val(id_regSolpzadicional);
-        $("#id_cotizandoPzsAdic5").val(id_cotizandoPzsAdic);
-        $("#id_preAutorizadoPzsAdic5").val(id_preAutorizadoPzsAdic);
-        $("#tituloModal2").html(nProyecto);
     }
 </script>
 </head>
@@ -161,7 +162,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-footer" style="height: 50px;">
                                     <marquee width="100%" behavior="alternate">
                                         <marquee behavior="alternate">
-                                            <p>Consulta optimizada, ultima actualización: <strong>21/06/2022</strong></p>
+                                            <p>Consulta optimizada, ultima actualización: <strong>22/06/2022</strong></p>
                                         </marquee>
                                     </marquee>
                                 </div>
@@ -187,7 +188,7 @@ require '../components/head-dataTables.php';
                                     <h3 class="text-center">Tabla:<strong> 1. Recepción de Piezas Dañadas "Pre-Autorización"</strong></h4>
                                         <?php
                                         if ($super == 1) {
-                                        } else if ($verTablaPreautorizacion == 0) { ?>
+                                        } else if ($verTablaPreautorizacion2 == 0) { ?>
                                             <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                             <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                             <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
@@ -356,7 +357,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-header">
                                     <h3 class="card-title">Proyectos de Solicitud de Piezas Adicionales Pre-Autorización</h3>
                                     <div class="card-tools">
-                                        <button class="btn btn-secondary" id='refresh_tablePreautorizacionPzsAdic' data-toggle="tooltip" data-placement="bottom" title="Actualizar Tabla"><i class="fa-solid fa-table"></i></button>
+                                        <button class="btn btn-secondary" id='refresh_tablePreautorizacionPzsAdic2' data-toggle="tooltip" data-placement="bottom" title="Actualizar Tabla"><i class="fa-solid fa-table"></i></button>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
@@ -364,13 +365,13 @@ require '../components/head-dataTables.php';
                                     <h3 class="text-center">Tabla<strong> 2. Solicitud de Piezas Adicionales "Pre-Autorización"</strong></h4>
                                         <?php
                                         if ($super == 1) {
-                                        } else if ($verTablaPreautorizacionPzsAdic == 0) { ?>
+                                        } else if ($verTablaPreautorizacionPzsAdic2 == 0) { ?>
                                             <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                             <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                             <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                             <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                         <?php } ?>
-                                        <table id="tablePreautorizacionPzsAdic" class="display compact table-bordered table-striped" style="width: 100%;">
+                                        <table id="tablePreautorizacionPzsAdic2" class="display compact table-bordered table-striped" style="width: 100%;">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
@@ -417,11 +418,11 @@ require '../components/head-dataTables.php';
                                                 </tr>
                                             </tfoot>
                                         </table>
-                                        <button id="btnModal-regresarCotizandoPzsAdic" class="btn btn-white" data-toggle="modal" data-target=".regresarCotizandoPzsAdic"></button>
-                                        <button id="btnModal-enviarAutorizadoPzsAdic" class="btn btn-white" data-toggle="modal" data-target=".enviarAutorizadoPzsAdic"></button>
+                                        <button id="btnModal-regresarCotizandoPzsAdic2" class="btn btn-white" data-toggle="modal" data-target=".regresarCotizandoPzsAdic2"></button>
+                                        <button id="btnModal-enviarAutorizadoPzsAdic2" class="btn btn-white" data-toggle="modal" data-target=".enviarAutorizadoPzsAdic2"></button>
                                         <?php
-                                        require '../components/modal-regresarCotizandoPzsAdic.php';
-                                        require '../components/modal-enviarAutorizadoPzsAdic.php';
+                                        require '../components/modal-regresarCotizandoPzsAdic2.php';
+                                        require '../components/modal-enviarAutorizadoPzsAdic2.php';
                                         ?>
                                 </div>
                             </div>
@@ -434,7 +435,8 @@ require '../components/head-dataTables.php';
         require '../components/footer.php';
         ?>
     </div>
-    <div id="divModal"></div>
+    <div id="divModal1"></div>
+    <div id="divModal2"></div>
     <?php
     // Scripts principales
     require '../components/scripts-main.php';
@@ -444,13 +446,21 @@ require '../components/head-dataTables.php';
     require '../components/btnSuperCodId.php';
     ?>
     <script src="../ajax/tablaPreautorizacion2.js"></script>
-    <script src="../ajax/tablaPreautorizacionPzsAdic.js"></script>
+    <script src="../ajax/tablaPreautorizacionPzsAdic2.js"></script>
     <script>
-        function mostarDetalles(id_proyecto) {
+        function mostrarDetalles1(id_proyecto) {
             var ruta = '../components/modal-verGralRecPzsDanadas.php?id_proyecto=' + id_proyecto;
             $.get(ruta, function(data) {
-                $('#divModal').html(data);
+                $('#divModal1').html(data);
                 $('#modal-verGralRecPzsDanadas').modal('show');
+            });
+        }
+
+        function mostrarDetalles2(id_proyecto, id_cotizandoPzsAdic) {
+            var ruta = '../components/modal-verGralRegSolPzsAdicionales.php?id_proyecto=' + id_proyecto + '&id_cotizandoPzsAdic=' + id_cotizandoPzsAdic;
+            $.get(ruta, function(data) {
+                $('#divModal2').html(data);
+                $('#modal-verGralRegSolPzsAdicionales').modal('show');
             });
         }
     </script>
@@ -460,6 +470,11 @@ require '../components/head-dataTables.php';
             tablePreautorizacion2 = $("#tablePreautorizacion2").DataTable();
             $("#refresh_tablePreautorizacion2").on("click", function() {
                 tablePreautorizacion2.ajax.reload();
+            });
+
+            tablePreautorizacionPzsAdic2 = $("#tablePreautorizacionPzsAdic2").DataTable();
+            $("#refresh_tablePreautorizacionPzsAdic2").on("click", function() {
+                tablePreautorizacionPzsAdic2.ajax.reload();
             });
         });
     </script>

@@ -1,3 +1,13 @@
+<style>
+            .btn-circle.btn-sm {
+            width: 30px;
+            height: 30px;
+            padding: 6px 0px;
+            border-radius: 15px;
+            font-size: 8px;
+            text-align: center;
+        }
+</style>
 <?php
 require 'head-main.php';
 conectar();
@@ -32,25 +42,60 @@ $row  = $respuesta->fetch_assoc();
 $queryS = "SELECT id_semanaCobro, semanaCobro, borrado FROM semanascobro WHERE borrado = 0 ORDER BY semanaCobro DESC";
 $resultSemanasCobro = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
 
-// Query Forma de Pago 1
+// Query Forma de Pago A
 $queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A' ORDER BY formaPago ASC";
-$resultFormaCobro1 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+$resultFormaCobroA1 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A' ORDER BY formaPago ASC";
+$resultFormaCobroA2 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A' ORDER BY formaPago ASC";
+$resultFormaCobroA3 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+// ---------------------------------------------------------------------------------------------------------------------
 
 // Query Forma de Pago 2
 $queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A' ORDER BY formaPago ASC";
-$resultFormaCobro2 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+$resultFormaCobroB1 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A' ORDER BY formaPago ASC";
+$resultFormaCobroB2 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A' ORDER BY formaPago ASC";
+$resultFormaCobroB3 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+// ---------------------------------------------------------------------------------------------------------------------
 
 // Query Forma de Pago 3
 $queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A'  ORDER BY formaPago ASC";
-$resultFormaCobro3 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+$resultFormaCobroC1 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A'  ORDER BY formaPago ASC";
+$resultFormaCobroC2 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A'  ORDER BY formaPago ASC";
+$resultFormaCobroC3 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+// ---------------------------------------------------------------------------------------------------------------------
 
 // Query Forma de Pago 4
 $queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A' ORDER BY formaPago ASC";
-$resultFormaCobro4 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+$resultFormaCobroD1 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A' ORDER BY formaPago ASC";
+$resultFormaCobroD2 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A' ORDER BY formaPago ASC";
+$resultFormaCobroD3 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+// ---------------------------------------------------------------------------------------------------------------------
 
 // Query Forma de Pago 5
 $queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A' ORDER BY formaPago ASC";
-$resultFormaCobro5 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+$resultFormaCobroE1 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A' ORDER BY formaPago ASC";
+$resultFormaCobroE2 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+
+$queryS = "SELECT id_formaPago, formaPago FROM formapagos WHERE formaPago <> 'N/A' ORDER BY formaPago ASC";
+$resultFormaCobroE3 = mysqli_query($conexion, $queryS) or die(mysqli_error($conexion));
+// ---------------------------------------------------------------------------------------------------------------------
 
 // Query Registro de folio Alta
 $queryP = 'SELECT MAX(id_regcodidenti) + 1 FROM registrocodidentibitacora';
@@ -354,7 +399,7 @@ if ($respuesta->num_rows  > 0) {
                                                 <i class='fa-solid fa-money-bill-1-wave '></i>
                                             </span>
                                         </div>
-                                        <input name='valCobProyBase' id='currency1' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                        <input name='valCobProyBaseA1' id='currencyA1' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
                                         <label for='floatingInput' class='pl-5'>*Valor Cobro Proyecto Base</label>
                                     </div>
                                 </div>
@@ -370,16 +415,16 @@ if ($respuesta->num_rows  > 0) {
                                 <div class='input-group-prepend'>
                                     <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
                                 </div>
-                                <input name='codIdProyBase' id='codIdProyBase' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                <input name='codIdProyBaseA1' id='codIdProyBaseA1' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
                                 <label for='floatingInput' class='pl-5'>*Código Identificador Valor Cobro Proyecto Base</label>
                             </div>
                         </div>
                         <div class='col-md-3 col-sm-12 '>
                             <div class='input-group'>
                                 <label for='color' class='pl-5 parpadea'>Forma de Pago Proyecto Base</label>
-                                <select name='id_pagoProyBase' id='id_pagoProyBase' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
+                                <select name='id_pagoProyBaseA1' id='id_pagoProyBaseA1' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
                                     <option selected disabled>Selecciona</option>";
-                                    while ($rowFormaCobro = $resultFormaCobro1->fetch_assoc()) {
+                                    while ($rowFormaCobro = $resultFormaCobroA1->fetch_assoc()) {
                                     $id_formaPago = $rowFormaCobro['id_formaPago'];
                                     $formaPago = $rowFormaCobro['formaPago'];
                                     $output .= " <option value=$id_formaPago> $formaPago </option>";
@@ -391,8 +436,96 @@ if ($respuesta->num_rows  > 0) {
                         <div class='col-md-12'>
                             <hr>
                         </div>
-
-
+                        <p><a class='btn btn-secondary btn-circle btn-sm' href='#' id='showA2' data-toggle='tooltip' data-placement='bottom' title='Generar campos adicionales'><i class='fa-solid fa-plus'></i>&nbsp;<i class='fa-solid fa-1'></i></a></p>
+                        <div id='content' class='col-lg-12'>
+                            <div id='elementA2' class='col-lg-12' style='display: none;'> 
+                                <div id='close'>
+                                    <a class='btn btn-secondary btn-circle btn-sm' href='#' id='hideA2' data-toggle='tooltip' data-placement='bottom' title='Cerrar campos adicionales'><i class='fa fa-close'></i></a>
+                                </div>
+                                <div class='row justify-content-center'>
+                                    <div class='col-md-3 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea mt-2'>
+                                                    <i class='fa-solid fa-money-bill-1-wave '></i>
+                                                </span>
+                                            </div>
+                                            <input name='valCobProyBaseA2' id='currencyA2' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                            <label for='floatingInput' class='pl-5'>*Valor Cobro Proyecto Base</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-6 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                                            </div>
+                                            <input name='codIdProyBaseA2' id='codIdProyBaseA2' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                            <label for='floatingInput' class='pl-5'>*Código Identificador Valor Cobro Proyecto Base</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-3 col-sm-12 '>
+                                        <div class='input-group'>
+                                            <label for='color' class='pl-5 parpadea'>Forma de Pago Proyecto Base</label>
+                                            <select name='id_pagoProyBaseA2' id='id_pagoProyBaseA2' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
+                                                <option selected disabled>Selecciona</option>";
+                                                while ($rowFormaCobro = $resultFormaCobroA2->fetch_assoc()) {
+                                                $id_formaPago = $rowFormaCobro['id_formaPago'];
+                                                $formaPago = $rowFormaCobro['formaPago'];
+                                                $output .= " <option value=$id_formaPago> $formaPago </option>";
+                                                }
+                                                $output .= "
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='row justify-content-center'>
+                                    <a class='btn btn-secondary btn-circle btn-sm' href='#' id='showA3' data-toggle='tooltip' data-placement='bottom' title='Generar campos adicionales'><i class='fa-solid fa-plus'></i>&nbsp;<i class='fa-solid fa-2'></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id='content' class='col-lg-12'>
+                            <div id='elementA3' class='col-lg-12' style='display: none;'> 
+                                <div id='close2'>
+                                    <a class='btn btn-secondary btn-circle btn-sm' href='#' id='hideA3' title='Cerrar'><i class='fa fa-close'></i></a>
+                                </div>
+                                <div class='row justify-content-center'>
+                                    <div class='col-md-3 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea mt-2'>
+                                                    <i class='fa-solid fa-money-bill-1-wave '></i>
+                                                </span>
+                                            </div>
+                                            <input name='valCobProyBaseA3' id='currencyA3' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                            <label for='floatingInput' class='pl-5'>*Valor Cobro Proyecto Base</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-6 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                                            </div>
+                                            <input name='codIdProyBaseA3' id='codIdProyBaseA3' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                            <label for='floatingInput' class='pl-5'>*Código Identificador Valor Cobro Proyecto Base</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-3 col-sm-12 '>
+                                        <div class='input-group'>
+                                            <label for='color' class='pl-5 parpadea'>Forma de Pago Proyecto Base</label>
+                                            <select name='id_pagoProyBaseA3' id='id_pagoProyBaseA3' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
+                                                <option selected disabled>Selecciona</option>";
+                                                while ($rowFormaCobro = $resultFormaCobroA3->fetch_assoc()) {
+                                                $id_formaPago = $rowFormaCobro['id_formaPago'];
+                                                $formaPago = $rowFormaCobro['formaPago'];
+                                                $output .= " <option value=$id_formaPago> $formaPago </option>";
+                                                }
+                                                $output .= "
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -407,7 +540,7 @@ if ($respuesta->num_rows  > 0) {
                                                 <i class='fa-solid fa-money-bill-1-wave '></i>
                                             </span>
                                         </div>
-                                        <input name='valCobProyExtra' id='currency2' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                        <input name='valCobProyExtraB1' id='currencyB1' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
                                         <label for='floatingInput' class='pl-5'>Valor Cobro Proyecto Extra</label>
                                     </div>
                                 </div>
@@ -425,7 +558,7 @@ if ($respuesta->num_rows  > 0) {
                                         <div class='input-group-prepend'>
                                             <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
                                         </div>
-                                        <input name='codIdProyExtra' id='codIdProyExtra' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                        <input name='codIdProyExtraB1' id='codIdProyExtraB1' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
                                         <label for='floatingInput' class='pl-5'>Código Identificador Proyecto Extra</label>
                                     </div>
                                 </div>
@@ -439,15 +572,108 @@ if ($respuesta->num_rows  > 0) {
                         <div class='col-md-3 col-sm-12 '>
                             <div class='input-group'>
                                 <label for='color' class='pl-5 parpadea'>Forma de Pago Proyecto Extra</label>
-                                <select name='id_pagoProyExtra' id='id_pagoProyExtra' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
+                                <select name='id_pagoProyExtraB1' id='id_pagoProyExtraB1' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
                                     <option selected disabled>Selecciona</option>";
-                                    while ($rowFormaCobro = $resultFormaCobro2->fetch_assoc()) {
+                                    while ($rowFormaCobro = $resultFormaCobroB1->fetch_assoc()) {
                                     $id_formaPago = $rowFormaCobro['id_formaPago'];
                                     $formaPago = $rowFormaCobro['formaPago'];
                                     $output .= " <option value=$id_formaPago> $formaPago </option>";
                                     }
                                     $output .= "
                                 </select>
+                            </div>
+                        </div>
+                        <div class='col-md-12'>
+                            <hr>
+                        </div>
+                        <p><a class='btn btn-secondary btn-circle btn-sm' href='#' id='showB2' data-toggle='tooltip' data-placement='bottom' title='Generar campos adicionales'><i class='fa-solid fa-plus'></i>&nbsp;<i class='fa-solid fa-1'></i></a></p>
+                        <div id='content' class='col-lg-12'>
+                            <div id='elementB2' class='col-lg-12' style='display: none;'> 
+                                <div id='close'>
+                                    <a class='btn btn-secondary btn-circle btn-sm' href='#' id='hideB2' data-toggle='tooltip' data-placement='bottom' title='Cerrar campos adicionales'><i class='fa fa-close'></i></a>
+                                </div>
+                                <div class='row justify-content-center'>
+                                    <div class='col-md-3 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea mt-2'>
+                                                    <i class='fa-solid fa-money-bill-1-wave '></i>
+                                                </span>
+                                            </div>
+                                            <input name='valCobProyExtraB2' id='currencyB2' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip'  data-placement='bottom' title='Ingresa Cobro'>
+                                            <label for='floatingInput' class='pl-5'>Valor Cobro Proyecto Extra</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-6 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                                            </div>
+                                            <input name='codIdProyExtraB2' id='codIdProyExtraB2' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50'    data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                            <label for='floatingInput' class='pl-5'>Código Identificador Proyecto Extra</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-3 col-sm-12 '>
+                                        <div class='input-group'>
+                                            <label for='color' class='pl-5 parpadea'>Forma de Pago Proyecto Extra</label>
+                                            <select name='id_pagoProyExtraB2' id='id_pagoProyExtraB2' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista'   style='width:100%;'>
+                                                <option selected disabled>Selecciona</option>";
+                                                while ($rowFormaCobro = $resultFormaCobroB2->fetch_assoc()) {
+                                                $id_formaPago = $rowFormaCobro['id_formaPago'];
+                                                $formaPago = $rowFormaCobro['formaPago'];
+                                                $output .= " <option value=$id_formaPago> $formaPago </option>";
+                                                }
+                                                $output .= "
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='row justify-content-center'>
+                                    <a class='btn btn-secondary btn-circle btn-sm' href='#' id='showB3' data-toggle='tooltip' data-placement='bottom' title='Generar campos adicionales'><i class='fa-solid fa-plus'></i>&nbsp;<i class='fa-solid fa-2'></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id='content' class='col-lg-12'>
+                            <div id='elementB3' class='col-lg-12' style='display: none;'> 
+                                <div id='close3'>
+                                    <a class='btn btn-secondary btn-circle btn-sm' href='#' id='hideB3' title='Cerrar'><i class='fa fa-close'></i></a>
+                                </div>
+                                <div class='row justify-content-center'>
+                                    <div class='col-md-3 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea mt-2'>
+                                                    <i class='fa-solid fa-money-bill-1-wave '></i>
+                                                </span>
+                                            </div>
+                                        <input name='valCobProyExtraB3' id='currencyB3' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip'  data-placement='bottom' title='Ingresa Cobro'>
+                                        <label for='floatingInput' class='pl-5'>Valor Cobro Proyecto Extra</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-6 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                                            </div>
+                                            <input name='codIdProyExtraB3' id='codIdProyExtraB3' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50'        data-toggle='tooltip'   data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                            <label for='floatingInput' class='pl-5'>Código Identificador Proyecto Extra</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-3 col-sm-12 '>
+                                        <div class='input-group'>
+                                            <label for='color' class='pl-5 parpadea'>Forma de Pago Proyecto Extra</label>
+                                            <select name='id_pagoProyExtraB3' id='id_pagoProyExtraB3' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la  lista'  style='width:100%;'>
+                                            <option selected disabled>Selecciona</option>";
+                                            while ($rowFormaCobro = $resultFormaCobroB3->fetch_assoc()) {
+                                            $id_formaPago = $rowFormaCobro['id_formaPago'];
+                                            $formaPago = $rowFormaCobro['formaPago'];
+                                            $output .= " <option value=$id_formaPago> $formaPago </option>";
+                                            }
+                                            $output .= "
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -462,7 +688,7 @@ if ($respuesta->num_rows  > 0) {
                                         <i class='fa-solid fa-money-bill-1-wave '></i>
                                     </span>
                                 </div>
-                                <input name='valCobComBan' id='currency3' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                <input name='valCobComBanC1' id='currencyC1' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
                                 <label for='floatingInput' class='pl-5'>Valor Cobro Comisión Bancaria</label>
                             </div>
                         </div>
@@ -471,22 +697,115 @@ if ($respuesta->num_rows  > 0) {
                                 <div class='input-group-prepend'>
                                     <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
                                 </div>
-                                <input name='codIdComBan' id='codIdComBan' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                <input name='codIdComBanC1' id='codIdComBanC1' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
                                 <label for='floatingInput' class='pl-5'>Código Identificador Comisión Bancaria</label>
                             </div>
                         </div>
                         <div class='col-md-3 col-sm-12 '>
                             <div class='input-group'>
                                 <label for='color' class='pl-5 parpadea'>Forma de Pago Comisión Bancaria</label>
-                                <select name='id_pagoComBan' id='id_pagoComBan' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
+                                <select name='id_pagoComBanC1' id='id_pagoComBanC1' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
                                     <option selected disabled>Selecciona</option>";
-                                    while ($rowFormaCobro = $resultFormaCobro3->fetch_assoc()) {
+                                    while ($rowFormaCobro = $resultFormaCobroC1->fetch_assoc()) {
                                     $id_formaPago = $rowFormaCobro['id_formaPago'];
                                     $formaPago = $rowFormaCobro['formaPago'];
                                     $output .= " <option value=$id_formaPago> $formaPago </option>";
                                     }
                                     $output .= "
                                 </select>
+                            </div>
+                        </div>
+                        <div class='col-md-12'>
+                            <hr>
+                        </div>
+                        <p><a class='btn btn-secondary btn-circle btn-sm' href='#' id='showC2' data-toggle='tooltip' data-placement='bottom' title='Generar campos adicionales'><i class='fa-solid fa-plus'></i>&nbsp;<i class='fa-solid fa-1'></i></a></p>
+                        <div id='content' class='col-lg-12'>
+                            <div id='elementC2' class='col-lg-12' style='display: none;'> 
+                                <div id='close'>
+                                    <a class='btn btn-secondary btn-circle btn-sm' href='#' id='hideC2' data-toggle='tooltip' data-placement='bottom' title='Cerrar campos adicionales'><i class='fa fa-close'></i></a>
+                                </div>
+                                <div class='row justify-content-center'>
+                                    <div class='col-md-3 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea mt-2'>
+                                                    <i class='fa-solid fa-money-bill-1-wave '></i>
+                                                </span>
+                                            </div>
+                                            <input name='valCobComBanC2' id='currencyC2' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                            <label for='floatingInput' class='pl-5'>Valor Cobro Comisión Bancaria</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-6 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                                            </div>
+                                            <input name='codIdComBanC2' id='codIdComBanC2' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                            <label for='floatingInput' class='pl-5'>Código Identificador Comisión Bancaria</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-3 col-sm-12 '>
+                                        <div class='input-group'>
+                                            <label for='color' class='pl-5 parpadea'>Forma de Pago Comisión Bancaria</label>
+                                            <select name='id_pagoComBanC2' id='id_pagoComBanC2' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
+                                                <option selected disabled>Selecciona</option>";
+                                                while ($rowFormaCobro = $resultFormaCobroC2->fetch_assoc()) {
+                                                $id_formaPago = $rowFormaCobro['id_formaPago'];
+                                                $formaPago = $rowFormaCobro['formaPago'];
+                                                $output .= " <option value=$id_formaPago> $formaPago </option>";
+                                                }
+                                                $output .= "
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='row justify-content-center'>
+                                    <a class='btn btn-secondary btn-circle btn-sm' href='#' id='showC3' data-toggle='tooltip' data-placement='bottom' title='Generar campos adicionales'><i class='fa-solid fa-plus'></i>&nbsp;<i class='fa-solid fa-2'></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id='content' class='col-lg-12'>
+                            <div id='elementC3' class='col-lg-12' style='display: none;'> 
+                                <div id='close3'>
+                                    <a class='btn btn-secondary btn-circle btn-sm' href='#' id='hideC3' title='Cerrar'><i class='fa fa-close'></i></a>
+                                </div>
+                                <div class='row justify-content-center'>
+                                    <div class='col-md-3 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea mt-2'>
+                                                    <i class='fa-solid fa-money-bill-1-wave '></i>
+                                                </span>
+                                            </div>
+                                            <input name='valCobComBanC3' id='currencyC3' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                            <label for='floatingInput' class='pl-5'>Valor Cobro Comisión Bancaria</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-6 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                                            </div>
+                                            <input name='codIdComBanC3' id='codIdComBanC3' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                            <label for='floatingInput' class='pl-5'>Código Identificador Comisión Bancaria</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-3 col-sm-12 '>
+                                        <div class='input-group'>
+                                            <label for='color' class='pl-5 parpadea'>Forma de Pago Comisión Bancaria</label>
+                                            <select name='id_pagoComBanC3' id='id_pagoComBanC3' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
+                                                <option selected disabled>Selecciona</option>";
+                                                while ($rowFormaCobro = $resultFormaCobroC3->fetch_assoc()) {
+                                                $id_formaPago = $rowFormaCobro['id_formaPago'];
+                                                $formaPago = $rowFormaCobro['formaPago'];
+                                                $output .= " <option value=$id_formaPago> $formaPago </option>";
+                                                }
+                                                $output .= "
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -501,7 +820,7 @@ if ($respuesta->num_rows  > 0) {
                                         <i class='fa-solid fa-money-bill-1-wave '></i>
                                     </span>
                                 </div>
-                                <input name='valCobPen' id='currency4' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                <input name='valCobPenD1' id='currencyD1' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
                                 <label for='floatingInput' class='pl-5'>Valor Cobro Pensión</label>
                             </div>
                         </div>
@@ -510,22 +829,115 @@ if ($respuesta->num_rows  > 0) {
                                 <div class='input-group-prepend'>
                                     <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
                                 </div>
-                                <input name='codIdPension' id='codIdPension' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                <input name='codIdPensionD1' id='codIdPensionD1' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
                                 <label for='floatingInput' class='pl-5'>Código Identificador Pensión</label>
                             </div>
                         </div>
                         <div class='col-md-3 col-sm-12 '>
                             <div class='input-group'>
                                 <label for='color' class='pl-5 parpadea'>Forma de Pago Pensión</label>
-                                <select name='id_pagoPension' id='id_pagoPension' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
+                                <select name='id_pagoPensionD1' id='id_pagoPensionD1' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
                                     <option selected disabled>Selecciona</option>";
-                                    while ($rowFormaCobro = $resultFormaCobro4->fetch_assoc()) {
+                                    while ($rowFormaCobro = $resultFormaCobroD1->fetch_assoc()) {
                                     $id_formaPago = $rowFormaCobro['id_formaPago'];
                                     $formaPago = $rowFormaCobro['formaPago'];
                                     $output .= " <option value=$id_formaPago> $formaPago </option>";
                                     }
                                     $output .= "
                                 </select>
+                            </div>
+                        </div>
+                        <div class='col-md-12'>
+                            <hr>
+                        </div>
+                        <p><a class='btn btn-secondary btn-circle btn-sm' href='#' id='showD2' data-toggle='tooltip' data-placement='bottom' title='Generar campos adicionales'><i class='fa-solid fa-plus'></i>&nbsp;<i class='fa-solid fa-1'></i></a></p>
+                        <div id='content' class='col-lg-12'>
+                            <div id='elementD2' class='col-lg-12' style='display: none;'> 
+                                <div id='close'>
+                                    <a class='btn btn-secondary btn-circle btn-sm' href='#' id='hideD2' data-toggle='tooltip' data-placement='bottom' title='Cerrar campos adicionales'><i class='fa fa-close'></i></a>
+                                </div>
+                                <div class='row justify-content-center'>
+                                    <div class='col-md-3 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea mt-2'>
+                                                    <i class='fa-solid fa-money-bill-1-wave '></i>
+                                                </span>
+                                            </div>
+                                            <input name='valCobPenD2' id='currencyD2' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                            <label for='floatingInput' class='pl-5'>Valor Cobro Pensión</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-6 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                                            </div>
+                                            <input name='codIdPensionD2' id='codIdPensionD2' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                            <label for='floatingInput' class='pl-5'>Código Identificador Pensión</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-3 col-sm-12 '>
+                                        <div class='input-group'>
+                                            <label for='color' class='pl-5 parpadea'>Forma de Pago Pensión</label>
+                                            <select name='id_pagoPensionD2' id='id_pagoPensionD2' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
+                                                <option selected disabled>Selecciona</option>";
+                                                while ($rowFormaCobro = $resultFormaCobroD2->fetch_assoc()) {
+                                                $id_formaPago = $rowFormaCobro['id_formaPago'];
+                                                $formaPago = $rowFormaCobro['formaPago'];
+                                                $output .= " <option value=$id_formaPago> $formaPago </option>";
+                                                }
+                                                $output .= "
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='row justify-content-center'>
+                                    <a class='btn btn-secondary btn-circle btn-sm' href='#' id='showD3' data-toggle='tooltip' data-placement='bottom' title='Generar campos adicionales'><i class='fa-solid fa-plus'></i>&nbsp;<i class='fa-solid fa-2'></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id='content' class='col-lg-12'>
+                            <div id='elementD3' class='col-lg-12' style='display: none;'> 
+                                <div id='close3'>
+                                    <a class='btn btn-secondary btn-circle btn-sm' href='#' id='hideD3' title='Cerrar'><i class='fa fa-close'></i></a>
+                                </div>
+                                <div class='row justify-content-center'>
+                                    <div class='col-md-3 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea mt-2'>
+                                                    <i class='fa-solid fa-money-bill-1-wave '></i>
+                                                </span>
+                                            </div>
+                                            <input name='valCobPenD3' id='currencyD3' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                            <label for='floatingInput' class='pl-5'>Valor Cobro Pensión</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-6 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                                            </div>
+                                            <input name='codIdPensionD3' id='codIdPensionD3' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                            <label for='floatingInput' class='pl-5'>Código Identificador Pensión</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-3 col-sm-12 '>
+                                        <div class='input-group'>
+                                            <label for='color' class='pl-5 parpadea'>Forma de Pago Pensión</label>
+                                            <select name='id_pagoPensionD3' id='id_pagoPensionD3' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
+                                                <option selected disabled>Selecciona</option>";
+                                                while ($rowFormaCobro = $resultFormaCobroD3->fetch_assoc()) {
+                                                $id_formaPago = $rowFormaCobro['id_formaPago'];
+                                                $formaPago = $rowFormaCobro['formaPago'];
+                                                $output .= " <option value=$id_formaPago> $formaPago </option>";
+                                                }
+                                                $output .= "
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -540,7 +952,7 @@ if ($respuesta->num_rows  > 0) {
                                         <i class='fa-solid fa-money-bill-1-wave '></i>
                                     </span>
                                 </div>
-                                <input name='valCobOtros' id='currency5' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                <input name='valCobOtrosE1' id='currencyE1' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
                                 <label for='floatingInput' class='pl-5'>Valor Cobro Otros</label>
                             </div>
                         </div>
@@ -549,22 +961,115 @@ if ($respuesta->num_rows  > 0) {
                                 <div class='input-group-prepend'>
                                     <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
                                 </div>
-                                <input name='codIdOtros' id='codIdOtros' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                <input name='codIdOtrosE1' id='codIdOtrosE1' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
                                 <label for='floatingInput' class='pl-5'>Código Identificador Otros</label>
                             </div>
                         </div>
                         <div class='col-md-3 col-sm-12 '>
                             <div class='input-group'>
                                 <label for='color' class='pl-5 parpadea'>Forma de Pago Otros</label>
-                                <select name='id_pagoOtros' id='id_pagoOtros' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
+                                <select name='id_pagoOtrosE1' id='id_pagoOtrosE1' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
                                     <option selected disabled>Selecciona</option>";
-                                    while ($rowFormaCobro = $resultFormaCobro5->fetch_assoc()) {
+                                    while ($rowFormaCobro = $resultFormaCobroE1->fetch_assoc()) {
                                     $id_formaPago = $rowFormaCobro['id_formaPago'];
                                     $formaPago = $rowFormaCobro['formaPago'];
                                     $output .= " <option value=$id_formaPago> $formaPago </option>";
                                     }
                                     $output .= "
                                 </select>
+                            </div>
+                        </div>
+                        <div class='col-md-12'>
+                            <hr>
+                        </div>
+                        <p><a class='btn btn-secondary btn-circle btn-sm' href='#' id='showE2' data-toggle='tooltip' data-placement='bottom' title='Generar campos adicionales'><i class='fa-solid fa-plus'></i>&nbsp;<i class='fa-solid fa-1'></i></a></p>
+                        <div id='content' class='col-lg-12'>
+                            <div id='elementE2' class='col-lg-12' style='display: none;'> 
+                                <div id='close'>
+                                    <a class='btn btn-secondary btn-circle btn-sm' href='#' id='hideE2' data-toggle='tooltip' data-placement='bottom' title='Cerrar campos adicionales'><i class='fa fa-close'></i></a>
+                                </div>
+                                <div class='row justify-content-center'>
+                                    <div class='col-md-3 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea mt-2'>
+                                                    <i class='fa-solid fa-money-bill-1-wave '></i>
+                                                </span>
+                                            </div>
+                                            <input name='valCobOtrosE2' id='currencyE2' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                            <label for='floatingInput' class='pl-5'>Valor Cobro Otros</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-6 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                                            </div>
+                                            <input name='codIdOtrosE2' id='codIdOtrosE2' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                            <label for='floatingInput' class='pl-5'>Código Identificador Otros</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-3 col-sm-12 '>
+                                        <div class='input-group'>
+                                            <label for='color' class='pl-5 parpadea'>Forma de Pago Otros</label>
+                                            <select name='id_pagoOtrosE2' id='id_pagoOtrosE2' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
+                                                <option selected disabled>Selecciona</option>";
+                                                while ($rowFormaCobro = $resultFormaCobroE2->fetch_assoc()) {
+                                                $id_formaPago = $rowFormaCobro['id_formaPago'];
+                                                $formaPago = $rowFormaCobro['formaPago'];
+                                                $output .= " <option value=$id_formaPago> $formaPago </option>";
+                                                }
+                                                $output .= "
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='row justify-content-center'>
+                                    <a class='btn btn-secondary btn-circle btn-sm' href='#' id='showE3' data-toggle='tooltip' data-placement='bottom' title='Generar campos adicionales'><i class='fa-solid fa-plus'></i>&nbsp;<i class='fa-solid fa-2'></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id='content' class='col-lg-12'>
+                            <div id='elementE3' class='col-lg-12' style='display: none;'> 
+                                <div id='close3'>
+                                    <a class='btn btn-secondary btn-circle btn-sm' href='#' id='hideE3' title='Cerrar'><i class='fa fa-close'></i></a>
+                                </div>
+                                <div class='row justify-content-center'>
+                                    <div class='col-md-3 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea mt-2'>
+                                                    <i class='fa-solid fa-money-bill-1-wave '></i>
+                                                </span>
+                                            </div>
+                                            <input name='valCobOtrosE3' id='currencyE3' type='text' class='form-control' placeholder='Ingresa Cobro' required maxlength='12' data-toggle='tooltip' data-placement='bottom' title='Ingresa Cobro'>
+                                            <label for='floatingInput' class='pl-5'>Valor Cobro Otros</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-6 col-sm-12 my-1'>
+                                        <div class='input-group form-floating mb-3'>
+                                            <div class='input-group-prepend'>
+                                                <span class='input-group-text parpadea'><i class='fa-solid fa-arrow-down-1-9'></i></span>
+                                            </div>
+                                            <input name='codIdOtrosE3' id='codIdOtrosE3' type='text' class='form-control' placeholder='Ingresa el Código Identificador ' required maxlength='50' data-toggle='tooltip' data-placement='bottom' title='Código Identificador max. 50 Caracteres'>
+                                            <label for='floatingInput' class='pl-5'>Código Identificador Otros</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-3 col-sm-12 '>
+                                        <div class='input-group'>
+                                            <label for='color' class='pl-5 parpadea'>Forma de Pago Otros</label>
+                                            <select name='id_pagoOtrosE3' id='id_pagoOtrosE3' class='form-control' data-toggle='tooltip' data-placement='bottom' title='Selecciona una Forma de Pago de la lista' style='width:100%;'>
+                                                <option selected disabled>Selecciona</option>";
+                                                while ($rowFormaCobro = $resultFormaCobroE3->fetch_assoc()) {
+                                                $id_formaPago = $rowFormaCobro['id_formaPago'];
+                                                $formaPago = $rowFormaCobro['formaPago'];
+                                                $output .= " <option value=$id_formaPago> $formaPago </option>";
+                                                }
+                                                $output .= "
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -642,23 +1147,63 @@ if ($respuesta->num_rows  > 0) {
     });
 
     $(document).ready(function() {
-        $("#currency1").inputmask({
+        $("#currencyA1").inputmask({
             alias: "currency",
             prefix: ''
         });
-        $("#currency2").inputmask({
+        $("#currencyA2").inputmask({
             alias: "currency",
             prefix: ''
         });
-        $("#currency3").inputmask({
+        $("#currencyA3").inputmask({
             alias: "currency",
             prefix: ''
         });
-        $("#currency4").inputmask({
+        $("#currencyB1").inputmask({
             alias: "currency",
             prefix: ''
         });
-        $("#currency5").inputmask({
+        $("#currencyB2").inputmask({
+            alias: "currency",
+            prefix: ''
+        });
+        $("#currencyB3").inputmask({
+            alias: "currency",
+            prefix: ''
+        });
+        $("#currencyC1").inputmask({
+            alias: "currency",
+            prefix: ''
+        });
+        $("#currencyC2").inputmask({
+            alias: "currency",
+            prefix: ''
+        });
+        $("#currencyC3").inputmask({
+            alias: "currency",
+            prefix: ''
+        });
+        $("#currencyD1").inputmask({
+            alias: "currency",
+            prefix: ''
+        });
+        $("#currencyD2").inputmask({
+            alias: "currency",
+            prefix: ''
+        });
+        $("#currencyD3").inputmask({
+            alias: "currency",
+            prefix: ''
+        });
+        $("#currencyE1").inputmask({
+            alias: "currency",
+            prefix: ''
+        });
+        $("#currencyE2").inputmask({
+            alias: "currency",
+            prefix: ''
+        });
+        $("#currencyE3").inputmask({
             alias: "currency",
             prefix: ''
         });
@@ -668,23 +1213,103 @@ if ($respuesta->num_rows  > 0) {
 
 <script>
     $(document).ready(function() {
-        $("#hide").on('click', function() {
-            $("#element").hide();
+        $("#hideA2").on('click', function() {
+            $("#elementA2").hide();
             return false;
         });
 
-        $("#show").on('click', function() {
-            $("#element").show();
+        $("#showA2").on('click', function() {
+            $("#elementA2").show();
             return false;
         });
 
-        $("#hide2").on('click', function(){
-            $("#element2").hide();
+        $("#hideA3").on('click', function(){
+            $("#elementA3").hide();
             return false;
         });
 
-        $("#show2").on('click', function(){
-            $("#element2").show();
+        $("#showA3").on('click', function(){
+            $("#elementA3").show();
+            return false;
+        })
+
+        $("#hideB2").on('click', function() {
+            $("#elementB2").hide();
+            return false;
+        });
+
+        $("#showB2").on('click', function() {
+            $("#elementB2").show();
+            return false;
+        });
+
+        $("#hideB3").on('click', function(){
+            $("#elementB3").hide();
+            return false;
+        });
+
+        $("#showB3").on('click', function(){
+            $("#elementB3").show();
+            return false;
+        })
+
+        $("#hideC2").on('click', function() {
+            $("#elementC2").hide();
+            return false;
+        });
+
+        $("#showC2").on('click', function() {
+            $("#elementC2").show();
+            return false;
+        });
+
+        $("#hideC3").on('click', function(){
+            $("#elementC3").hide();
+            return false;
+        });
+
+        $("#showC3").on('click', function(){
+            $("#elementC3").show();
+            return false;
+        })
+
+        $("#hideD2").on('click', function() {
+            $("#elementD2").hide();
+            return false;
+        });
+
+        $("#showD2").on('click', function() {
+            $("#elementD2").show();
+            return false;
+        });
+
+        $("#hideD3").on('click', function(){
+            $("#elementD3").hide();
+            return false;
+        });
+
+        $("#showD3").on('click', function(){
+            $("#elementD3").show();
+            return false;
+        })
+
+        $("#hideE2").on('click', function() {
+            $("#elementE2").hide();
+            return false;
+        });
+
+        $("#showE2").on('click', function() {
+            $("#elementE2").show();
+            return false;
+        });
+
+        $("#hideE3").on('click', function(){
+            $("#elementE3").hide();
+            return false;
+        });
+
+        $("#showE3").on('click', function(){
+            $("#elementE3").show();
             return false;
         })
     });

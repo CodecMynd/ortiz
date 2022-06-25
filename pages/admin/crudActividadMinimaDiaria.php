@@ -121,6 +121,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-header">
                                     <h3 class="card-title">Proyectos dados de alta en el sistema</h3>
                                     <div class="card-tools">
+                                    <button class="btn btn-secondary" id='refresh_tableActMinDia' data-toggle="tooltip" data-placement="bottom" title="Actualizar Tabla"><i class="fa-solid fa-table"></i></button>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
                                 </div>
@@ -201,9 +202,10 @@ require '../components/head-dataTables.php';
     // Scripts principales
     require '../components/scripts-main.php';
     // Scripts dataTables
-    require '../components/scripts-dataTables.php';
+    require '../ajax/plugins-datatable.php';
     ?>
     <div id="divModal"></div>
+    <script src="../ajax/crudActividadMinimaDiaria.js"></script>
     <script>
         function mostarDetalles(id_proyecto) {
             var ruta = '../components/modal-VerGralActMinDiaria.php?id_proyecto=' + id_proyecto;
@@ -212,10 +214,17 @@ require '../components/head-dataTables.php';
                 $('#modal-verGralActMinDiaria').modal('show');
             });
         }
+// ------------------------------------
+        // Actualizar tablas independientes
+        $(document).ready(function() {
+
+            tableActMinDia = $("#tableActMinDia").DataTable();
+            $("#refresh_tableActMinDia").on("click", function() {
+                tableActMinDia.ajax.reload();
+            });
+        });
     </script>
 
-    </script>
-    <!-- avisos -->
     <script>
         // sinRegistro ¡SIN REGISTRO, AGREGA UNA COMPROBACIÓN PARA HABILITAR ESTE BÓTON --------------------------------------------------------------
         $(document).ready(function() {

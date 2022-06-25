@@ -16,7 +16,7 @@ if ($super == 1 or $verTablaRegProyExtra == 1) {
 	INNER JOIN proyextras PE ON P.id_proyecto = PE.id_proyecto
     LEFT JOIN comsupervisionproyextra SP ON PE.id_proyExtra = SP.id_proyExtra
     INNER JOIN semanasolalta SS ON PE.id_semSolAlta = SS.id_semSolAlta
-    WHERE PE.borrado = 0 AND PE.proyExtraCapt = 1
+    WHERE PE.borrado = 0 AND P.estadoProyectoEliminado = 1  AND PE.proyExtraCapt = 1
 	ORDER BY PE.id_proyExtra DESC";
 } else {
 	$query = "SELECT id_proyecto
@@ -146,7 +146,7 @@ if($row['textSupervision'] == 0)
 
 $cont++;
 $datos[] = array(
-	"0" => $cont,
+		"0" => $cont,
 		"1" => "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>",
 		"2" => $row['nProyecto'],
 		"3" => $row['nOrden'],

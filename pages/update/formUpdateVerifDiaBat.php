@@ -78,7 +78,7 @@ require '../components/head-dataTables.php';
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="text-center"><strong> Consulta: Registros del Proyecto</strong></h5>
+                                    <h4 class="text-center"><strong> Consulta: Registros del Proyecto</strong></h4>
                                     <?php
                                     $id_proyecto = $_GET['id'];
                                     $query1 = "SELECT P.id_proyecto, P.nProyecto, P.nOrden,
@@ -123,7 +123,7 @@ require '../components/head-dataTables.php';
                                     <br>
                                     <hr>
                                     <br>
-                                    <h5 class="text-center"><strong> Registros Comprobación y Supervisión de Verificación Diaria de Baterías</strong></h5>
+                                    <h4 class="text-center"><strong> Registros Comprobación y Supervisión de Verificación Diaria de Baterías</strong></h3>
 
                                     <?php
                                     if ($super == 1 or $verGralVerDiaBat == 1) {
@@ -152,7 +152,7 @@ require '../components/head-dataTables.php';
                                     <?php } ?>
 
                                     <div id="table_refresh">
-                                        <table id="tablePermisos" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                        <table id="tableVarios1" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
@@ -334,8 +334,11 @@ require '../components/head-dataTables.php';
                                         <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
                                         <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
                                     <?php } ?>
+                                    <hr>
+                                    <br>
+                                    <h4 class="text-center"><strong>Incidencias Registradas</strong></h4>
                                     <div id="table_refresh2">
-                                        <table id="tableSm" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                        <table id="tableVarios2" class="table table-sm table-bordered table-striped" style="width: 100%;">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
@@ -393,7 +396,7 @@ require '../components/head-dataTables.php';
                                                             <?php echo $row['color'] ?>
                                                         </td>
                                                         <td>
-                                                            <?php echo $row['folio'] ?>
+                                                            <?php echo "<h6><span class='badge badge-success badge-pill'>{$row['folio']}</span></h6>" ?>
                                                         </td>
                                                         <td>
                                                             <?php echo (empty($row['incidencia'])) ? 'Sin Registro' : $row['incidencia']; ?>
@@ -454,6 +457,159 @@ require '../components/head-dataTables.php';
                                     <button id="btnModal-eliminarIncidencia" class="btn btn-white" data-toggle="modal" data-target='.eliminarIncidencia'></button>
                                     <?php
                                     require '../components/modal-eliminarIncidencia.php';
+                                    ?>
+
+                                    <?php
+                                    if ($super == 1 or $verGralIncidencias == 1) {
+                                        $cont = 0;
+                                        $query = "SELECT P.id_proyecto, P.nProyecto,
+                                    V.placa, Co.color, M.marca, Mo.modelo, An.anio,
+                                    I.incidencia, I.fecha_creacion, I.folio,
+                                    I.com, I.sup, I.id_incidencia, I.fecha_borrado,
+                                    U.nombres, U.aPaterno, U.aMaterno,
+                                    UB.nombres AS nomB, UB.aPaterno AS patB, UB.aMaterno AS matB
+                                    from proyectos P 
+                                    INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo 
+                                    INNER JOIN colores Co ON V.id_color = Co.id_color
+                                    INNER JOIN marcas M ON V.id_marca = M.id_marca 
+                                    INNER JOIN modelos Mo ON V.id_modelo = Mo.id_modelo
+                                    INNER JOIN anios An ON V.id_anio = An.id_anio 
+                                    LEFT JOIN incidencias I ON P.id_proyecto = I.id_proyecto
+                                    LEFT JOIN usuarios U ON I.id_capC = U.id_usuario
+                                    LEFT JOIN usuarios UB ON I.id_capB = UB.id_usuario
+                                    WHERE P.id_proyecto = '$id_proyecto' and I.borrado = 1";
+                                    } else {
+                                        $query = "SELECT id_proyecto FROM proyectos WHERE id_proyecto = 1";
+                                    }
+                                    $resultado = mysqli_query($conexion, $query);
+
+                                    if ($super == 1) {
+                                    } else if ($verGralIncidencias == 0) { ?>
+                                        <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
+                                        <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
+                                        <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
+                                        <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
+                                    <?php } ?>
+                                    <hr>
+                                    <br>
+                                    <h4 class="text-center"><strong>Incidencias Eliminadas</strong></h4>
+                                    <div id="table_refresh3">
+                                        <table id="tableVarios3" class="table table-sm table-bordered table-striped" style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>ID</th>
+                                                    <th>Núm. Proyecto</th>
+                                                    <th>Marca</th>
+                                                    <th>Modelo</th>
+                                                    <th>Año</th>
+                                                    <th>Placas</th>
+                                                    <th>Color</th>
+                                                    <th>Núm. Folio</th>
+                                                    <th>Incidencia</th>
+                                                    <th>Solicitado en</th>
+                                                    <th>Capturista Incidencia</th>
+                                                    <th>Fecha Solicitud</th>
+                                                    <th>Capturista Eliminó</th>
+                                                    <th>Fecha Borrado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                while ($row = $resultado->fetch_assoc()) {
+                                                    $id_proyecto = $row['id_proyecto'];
+                                                    $id_i = $row['id_incidencia'];
+                                                    $nP = $row['nProyecto'];
+                                                    $f = $row['folio'];
+                                                    $solicitante = $row['nombres'] . ' ' . $row['aPaterno'] . ' ' . $row['aMaterno'];
+                                                    $solicitanteB = $row['nomB'] . ' ' . $row['patB'] . ' ' . $row['matB'];
+                                                    $c = $row['com'];
+                                                    $s = $row['sup'];
+                                                ?>
+                                                    <tr>
+                                                        <td>
+                                                            <?php $cont++;
+                                                            echo $cont;
+                                                            ?>
+                                                        </td>
+                                                        <td>
+                                                            <span class='badge badge-dark badge-pill'><?php echo $id_proyecto ?></span>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $row['nProyecto'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $row['marca'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $row['modelo'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $row['anio'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $row['placa'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $row['color'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo "<h6><span class='badge badge-danger badge-pill'>{$row['folio']}</span></h6>" ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo (empty($row['incidencia'])) ? 'Sin Registro' : $row['incidencia']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php
+                                                            if ($c == 1) {
+                                                                echo 'Comprobación';
+                                                            } else if ($s == 1) {
+                                                                echo 'Supervisión';
+                                                            } else {
+                                                                echo 'Sin Registro';
+                                                            }
+                                                            ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo (empty($solicitante)) ? 'Sin Registro' : $solicitante; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo (empty($row['fecha_creacion'])) ? 'Sin Registro' : $row['fecha_creacion']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo (empty($solicitanteB)) ? 'Sin Registro' : $solicitanteB; ?>
+                                                        </td>                                                        
+                                                        <td>
+                                                            <?php echo (empty($row['fecha_borrado'])) ? 'Sin Registro' : $row['fecha_borrado']; ?>
+                                                        </td>
+                                                    </tr>
+                                                <?php
+                                                }
+                                                ?>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>ID</th>
+                                                    <th>Núm. Proyecto</th>
+                                                    <th>Marca</th>
+                                                    <th>Modelo</th>
+                                                    <th>Año</th>
+                                                    <th>Placas</th>
+                                                    <th>Color</th>
+                                                    <th>Núm. Folio</th>
+                                                    <th>Incidencia</th>
+                                                    <th>Solicitado en</th>
+                                                    <th>Capturista Incidencia</th>
+                                                    <th>Fecha Solicitud</th>
+                                                    <th>Capturista Eliminó</th>
+                                                    <th>Fecha Eliminado</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+
+                                    <?php
                                     desconectar();
                                     ?>
                                 </div>
@@ -470,8 +626,9 @@ require '../components/head-dataTables.php';
     <?php
     // Scripts principales
     require '../components/scripts-main.php';
-    require '../components/scripts-dataTables.php';
+    require '../ajax/plugins-datatable.php';
     ?>
+    <script src="../ajax/tableVarios.js"></script>
     <script>
         // 2.3.3.6 Eliminar Comprobación Recepción de Piezas Dañadas
         $('#btnDeleteComVerifDiaBat').click(function() {

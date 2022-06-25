@@ -245,6 +245,7 @@ require '../components/head-dataTables.php';
                                                 <tr>
                                                     <th>#</th>
                                                     <th>ID</th>
+                                                    <th>Asesor</th>
                                                     <th>Núm. Proyecto</th>
                                                     <th>Núm. Orden</th>
                                                     <th>Marca</th>
@@ -262,7 +263,6 @@ require '../components/head-dataTables.php';
                                                     <th>Núm. Folio Autorizado de Pieza</th>
                                                     <th>Cronometro Link Desarmado / Pre-Autorización</th>
                                                     <th>Cronometro Pre-Autorización / Autorización</th>
-                                                    <th>Asesor</th>
                                                     <th>Técnico Armador</th>
                                                     <th>Fecha Registro Link Desarmado</th>
                                                 </tr>
@@ -272,6 +272,7 @@ require '../components/head-dataTables.php';
                                                 <tr>
                                                     <th>#</th>
                                                     <th>ID</th>
+                                                    <th>Asesor</th>
                                                     <th>Núm. Proyecto</th>
                                                     <th>Núm. Orden</th>
                                                     <th>Marca</th>
@@ -289,7 +290,6 @@ require '../components/head-dataTables.php';
                                                     <th>Núm. Folio Autorizado de Pieza</th>
                                                     <th>Cronometro Link Desarmado / Pre-Autorización</th>
                                                     <th>Cronometro Pre-Autorización / Autorización</th>
-                                                    <th>Asesor</th>
                                                     <th>Técnico Armador</th>
                                                     <th>Fecha Registro Link Desarmado</th>
                                                 </tr>

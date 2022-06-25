@@ -46,10 +46,8 @@ require '../components/head-dataTables.php';
                                         </button>
                                     </div>
                                 </div>
-
                                 <div class="card-body ">
                                     <div class="row justify-content-center">
-
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box">
                                                 <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
@@ -131,6 +129,13 @@ require '../components/head-dataTables.php';
                                         </div>
                                     </div>
                                 </div>
+                                <div class="card-footer" style="height: 50px;">
+                                    <marquee width="100%" behavior="alternate">
+                                        <marquee behavior="alternate">
+                                            <p>Consulta optimizada, ultima actualización: <strong>24/06/2022</strong></p>
+                                        </marquee>
+                                    </marquee>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -190,6 +195,7 @@ require '../components/head-dataTables.php';
                                                 <th>Valor Venta Inicial</th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Etapa Proyecto</th>
+                                                <th>Estado Proyecto Extra</th>
                                                 <th>Fecha Registro del Proyecto</th>
                                                 <th>Acciones</th>
                                             </tr>
@@ -211,6 +217,7 @@ require '../components/head-dataTables.php';
                                                 <th class="suma"></th>
                                                 <th>Estado del Proyecto</th>
                                                 <th>Etapa Proyecto</th>
+                                                <th>Estado Proyecto Extra</th>
                                                 <th>Fecha Registro del Proyecto</th>
                                                 <th>Acciones</th>
                                             </tr>
@@ -237,8 +244,9 @@ require '../components/head-dataTables.php';
     // Scripts principales
     require '../components/scripts-main.php';
     // Scripts dataTables
-    require '../components/scripts-dataTables.php';
+    require '../ajax/plugins-datatable.php';
     ?>
+    <script src="../ajax/crudProyectos.js"></script>
     <!-- avisos -->
     <script src="../../src/js/toastr.js"></script>
     <script>
@@ -290,7 +298,6 @@ require '../components/head-dataTables.php';
                 }
             })
         });
-
 
         // Info Consulta --------------------------------------------------------------
         $(document).ready(function() {

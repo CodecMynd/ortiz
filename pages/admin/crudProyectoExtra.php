@@ -76,7 +76,8 @@ require '../components/head-dataTables.php';
                     </div>
                 </div>
             </div>
-            <!-- Registros -->
+
+            <!-- Table Proyecto Extra Capturados -->
             <section class="content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
@@ -103,37 +104,37 @@ require '../components/head-dataTables.php';
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Solicitud Alta</h6>
-                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Alta Proyecto</h6>
-                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Código ID</h6>
-                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-2">
                                             <div class="info-box mb-3">
-                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                                                 <div class="info-box-content">
                                                     <h6 class="info-box-number text-center">Supervisión</h6>
-                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -153,7 +154,7 @@ require '../components/head-dataTables.php';
                                 <div class="card-footer" style="height: 50px;">
                                     <marquee width="100%" behavior="alternate">
                                         <marquee behavior="alternate">
-                                            <p>Consulta optimizada, ultima actualización: <strong>13/06/2022</strong></p>
+                                            <p>Consulta optimizada, ultima actualización: <strong>23/06/2022</strong></p>
                                         </marquee>
                                     </marquee>
                                 </div>
@@ -162,8 +163,6 @@ require '../components/head-dataTables.php';
                     </div>
                 </div>
             </section>
-
-            <!-- Table Proyecto Extra Capturados -->
             <section class="content" id="ProyExtraCapturados">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
@@ -258,6 +257,91 @@ require '../components/head-dataTables.php';
             </section>
 
             <!-- Table Proyecto Extra Utilizado -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="card card-secondary card-outline collapsed-card">
+                                <div class="card-header">
+                                    <h2 class="card-title"><strong>Tablas Consultadas</strong></h2>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body ">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Activos</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Solicitud Alta</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Alta Proyecto</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Código ID</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Supervisión</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-6 col-md-3">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-trash-can"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Proyectos Eliminados</h6>
+                                                    <div class="text-center "><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer" style="height: 50px;">
+                                    <marquee width="100%" behavior="alternate">
+                                        <marquee behavior="alternate">
+                                            <p>Consulta optimizada, ultima actualización: <strong>23/06/2022</strong></p>
+                                        </marquee>
+                                    </marquee>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section class="content" id="ProyExtraUtilizados">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
@@ -266,13 +350,6 @@ require '../components/head-dataTables.php';
                                 <div class="card-header">
                                     <h3 class="card-title">Registro de Proyecto Extra Utilizados</h3>
                                     <div class="card-tools">
-                                        <?php
-                                        // if ($super == 1 or $regProyExtra  == 1) {
-                                        //     echo "<a type='button' class='btn btn-secondary' href='../adds/formRegProyectoExtra.php' data-toggle='tooltip' data-placement='left' title='5.1.1 Registro de Proyecto Extra'><i class='fa-solid fa-file-arrow-up'></i></i>&nbsp;&nbsp; Registro de Proyecto Extra</a>";
-                                        // } else {
-                                        //     echo "<a type='button' class='btn btn-outline-danger' id='regProyExtra ' data-toggle='tooltip' data-placement='left' title='5.1.1 Registro de Proyecto Extra'><i class='fa-solid fa-file-arrow-up'></i></i>&nbsp;&nbsp; Registro de Proyecto Extra</a>";
-                                        // } 
-                                        ?>
                                         <button class="btn btn-secondary" id='refresh_tableProyExtraUtil' data-toggle="tooltip" data-placement="bottom" title="Actualizar Tabla"><i class="fa-solid fa-table"></i></button>
                                         <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
                                     </div>
@@ -281,7 +358,7 @@ require '../components/head-dataTables.php';
                                     <h3 class="text-center">Tabla:<strong> 2. Proyectos Extras Utilizados</strong></h4>
                                         <?php
                                         if ($super == 1) {
-                                        } else if ($verTablaRegProyExtra == 0) { ?>
+                                        } else if ($verTablaRegProyExtraUtil == 0) { ?>
                                             <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
                                             <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
                                             <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
@@ -299,8 +376,10 @@ require '../components/head-dataTables.php';
                                                     <th>Año</th>
                                                     <th>Placas</th>
                                                     <th>Color</th>
+                                                    <th>Semana Proyecto Extra</th>
                                                     <th>Estado del Proyecto</th>
                                                     <th>Etapa del Proyecto</th>
+                                                    <th>Valor Venta Inicial</th>
                                                     <th>Núm. Folio Proyecto Extra</th>
                                                     <th>Valor Proyecto Extra</th>
                                                     <th>Núm. Folio Proyecto Extra Utilizado</th>
@@ -320,8 +399,10 @@ require '../components/head-dataTables.php';
                                                     <th>Año</th>
                                                     <th>Placas</th>
                                                     <th>Color</th>
+                                                    <th>Semana Proyecto Extra</th>
                                                     <th>Estado del Proyecto</th>
                                                     <th>Etapa del Proyecto</th>
+                                                    <th class="suma">Valor Venta Inicial</th>
                                                     <th>Núm. Folio Proyecto Extra</th>
                                                     <th class="suma">Valor Proyecto Extra</th>
                                                     <th>Núm. Folio Proyecto Extra Utilizado</th>
@@ -330,15 +411,171 @@ require '../components/head-dataTables.php';
                                                 </tr>
                                             </tfoot>
                                         </table>
-                                        <!-- <button id="btbModal-eliminarProyExtra" class="btn btn-white" data-toggle="modal" data-target=".eliminarProyExtra"></button>
-                                        <button id="btbModal-regSuperProyExtra" class="btn btn-white" data-toggle="modal" data-target=".regSuperProyExtra"></button>
-                                        <button id="btbModal-eliminarSuperProyExtra" class="btn btn-white" data-toggle="modal" data-target=".eliminarSuperProyExtra"></button>
-                                        <button id="btbModal-enviarProyExtraUtil" class="btn btn-white" data-toggle="modal" data-target=".enviarProyExtraUtil"></button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Table Proyecto Extra Eliminados -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="card card-secondary card-outline collapsed-card">
+                                <div class="card-header">
+                                    <h2 class="card-title"><strong>Tablas Consultadas</strong></h2>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool text-dark parpadea" data-card-widget="collapse">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body ">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Activos</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Solicitud Alta</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Alta Proyecto</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Código ID</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Supervisión</h6>
+                                                    <div class="text-center"><i class="fa-solid fa-circle-xmark fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-6 col-md-3">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-trash-can"></i></span>
+                                                <div class="info-box-content">
+                                                    <h6 class="info-box-number text-center">Proyectos Eliminados</h6>
+                                                    <div class="text-center "><i class="fa-solid fa-circle-check fa-2x"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer" style="height: 50px;">
+                                    <marquee width="100%" behavior="alternate">
+                                        <marquee behavior="alternate">
+                                            <p>Consulta optimizada, ultima actualización: <strong>23/06/2022</strong></p>
+                                        </marquee>
+                                    </marquee>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="content" id="ProyExtraEliminados">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="card border-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Registro de Proyecto Extra Eliminados</h3>
+                                    <div class="card-tools">
+                                        <button class="btn btn-secondary" id='refresh_tableProyExtraEli' data-toggle="tooltip" data-placement="bottom" title="Actualizar Tabla"><i class="fa-solid fa-table"></i></button>
+                                        <a href="javascript:location.reload()" class="btn btn-secondary btn-inline" data-toggle="tooltip" data-placement="bottom" title="Actualizar página"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="text-center">Tabla:<strong> 3. Proyectos Extras Eliminados</strong></h4>
                                         <?php
-                                        // require '../components/modal-eliminarProyExtra.php';
-                                        // require '../components/modal-regSuperProyExtra.php';
-                                        // require '../components/modal-eliminarSuperProyExtra.php';
-                                        // require '../components/modal-enviarProyExtraUtil.php';
+                                        if ($super == 1) {
+                                        } else if ($verTablaRegProyExtraEli == 0) { ?>
+                                            <div class="ribbon ribbon-top-left"><span>Sin permiso</span></div>
+                                            <div class="ribbon ribbon-top-right"><span>Sin permiso</span></div>
+                                            <div class="ribbon ribbon-bottom-left"><span>Sin permiso</span></div>
+                                            <div class="ribbon ribbon-bottom-right"><span>Sin permiso</span></div>
+                                        <?php } ?>
+                                        <table id="tableProyExtraEli" class="display compact table-bordered table-striped" style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>ID</th>
+                                                    <th>Núm. Proyecto</th>
+                                                    <th>Núm. Orden</th>
+                                                    <th>Marca</th>
+                                                    <th>Modelo</th>
+                                                    <th>Año</th>
+                                                    <th>Placas</th>
+                                                    <th>Color</th>
+                                                    <th>Semana Proyecto Extra</th>
+                                                    <th>Estado del Proyecto</th>
+                                                    <th>Etapa del Proyecto</th>
+                                                    <th>Estado Proyecto Extra</th>
+                                                    <th>Valor Venta Inicial</th>
+                                                    <th>Núm. Folio Proyecto Extra</th>
+                                                    <th>Valor Proyecto Extra</th>
+                                                    <th>Link Autorización Whatsapp</th>
+                                                    <th>Link de Supervisión</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>ID</th>
+                                                    <th>Núm. Proyecto</th>
+                                                    <th>Núm. Orden</th>
+                                                    <th>Marca</th>
+                                                    <th>Modelo</th>
+                                                    <th>Año</th>
+                                                    <th>Placas</th>
+                                                    <th>Color</th>
+                                                    <th>Semana Proyecto Extra</th>
+                                                    <th>Estado del Proyecto</th>
+                                                    <th>Etapa del Proyecto</th>
+                                                    <th>Estado Proyecto Extra</th>
+                                                    <th class="suma">Valor Venta Inicial</th>
+                                                    <th>Núm. Folio Proyecto Extra</th>
+                                                    <th class="suma">Valor Proyecto Extra</th>
+                                                    <th>Link Autorización Whatsapp</th>
+                                                    <th>Link de Supervisión</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <?php
                                         desconectar();
                                         ?>
                                 </div>
@@ -351,6 +588,7 @@ require '../components/head-dataTables.php';
 
             <div id="divModal"></div>
             <div id="divModal2"></div>
+            <div id="divModal3"></div>
         </div>
         <?php
         require '../components/footer.php';
@@ -365,6 +603,7 @@ require '../components/head-dataTables.php';
     ?>
     <script src="../ajax/crudProyectoExtra.js"></script>
     <script src="../ajax/crudProyectoExtraUtil.js"></script>
+    <script src="../ajax/crudProyectoExtraEli.js"></script>
 
     <script>
         // Actualizar tablas independientes
@@ -378,6 +617,11 @@ require '../components/head-dataTables.php';
             tableProyExtraUtil = $("#tableProyExtraUtil").DataTable();
             $("#refresh_tableProyExtraUtil").on("click", function() {
                 tableProyExtraUtil.ajax.reload();
+            });
+
+            tableProyExtraEli = $("#tableProyExtraEli").DataTable();
+            $("#refresh_tableProyExtraEli").on("click", function() {
+                tableProyExtraEli.ajax.reload();
             });
         });
     </script>
