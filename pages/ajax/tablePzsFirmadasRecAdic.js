@@ -65,7 +65,6 @@
           })
   });
 
-
   //Ocultar boton por 3 minutos para evitar el doble submit
   $("#btnEnviarSuperSurtPzsAdic").on('click', function () {
       $("#btnEnviarSuperSurtPzsAdic").css('visibility', 'hidden');
@@ -73,6 +72,37 @@
           $("#btnEnviarSuperSurtPzsAdic").css('visibility', 'visible');
       }, 3000);
   });
+
+  // -------------------------------------------------------------------------------
+  // 4.2.6.4 Eliminar Proyecto en Piezas Firmadas: Piezas Adicionales  --------------------------------------------------------------------------------------------------------------------------------------------------
+  $('#btnEliminarRegPzsFirmadasAdic').click(function () {
+      var param = $('#formEliminarRegPzsFirmadasAdic').serialize();
+      $.ajax({
+              url: '../update/updateEliminarRegPzsFirmadasAdic.php',
+              type: 'POST',
+              data: param,
+
+              success: function (vs) {
+                  $('#formEliminarRegPzsFirmadasAdic')[0].reset();
+                  setTimeout(function () {
+                      $('.eliminarRegPzsFirmadasAdic').modal('hide');
+                  }, 1000);
+                  tablePzsFirmadasRecAdic.ajax.reload(null, false);
+              }
+          })
+          .done(function (res) {
+              $('#respuestaEliminarRegPzsFirmadasAdic').html(res)
+          })
+  });
+
+  //Ocultar boton por 3 minutos para evitar el doble submit
+  $("#btnEliminarRegPzsFirmadasAdic").on('click', function () {
+      $("#btnEliminarRegPzsFirmadasAdic").css('visibility', 'hidden');
+      setTimeout(function () {
+          $("#btnEliminarRegPzsFirmadasAdic").css('visibility', 'visible');
+      }, 3000);
+  });
+
   // Tabla tablePzsFirmadasRecAdic
   var tablePzsFirmadasRecAdic = $("#tablePzsFirmadasRecAdic").DataTable({
       "responsive": true,
@@ -107,7 +137,7 @@
               searchPanes: {
                   show: true
               },
-              targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,21],
+              targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
           },
           {
               targets: [0, 3],
@@ -197,5 +227,5 @@
   });
   setInterval(function () {
       tablePzsFirmadasRecAdic.ajax.reload(null, false); // user paging is not reset on reload
-    }, 360000);
+  }, 360000);
   //----------------------------------------------------------------------------------------------------------------------------------------------------------------------

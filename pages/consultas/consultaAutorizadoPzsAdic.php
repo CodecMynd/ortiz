@@ -112,6 +112,14 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns3 = "<a class='btn btn-outline-danger' id='verGralSolPzsAdicionales' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-circle-info'></i></a>";
 	}
 
+	
+	// 4.2.3.3 Eliminar Proyecto en Autorizado: Piezas Adicionales
+	if ($super == 1 or $eliAutorizadoPzsAdic == 1) {
+		$eliminar2 = "<a href='#' class='btn btn-secondary' onclick='eliminar2(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_regSolpzadicional'] . "\",\"" . $row['id_cotizandoPzsAdic'] . "\",\"" . $row['id_preAutorizadoPzsAdic'] . "\",\"".$row['id_autorizadoPzsAdic']."\")'><i class='fa-solid fa-trash'></i></a>";
+	} else {
+		$eliminar2 = "<a class='btn btn-outline-danger' id='eliAutorizadoPzsAdic' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-trash'></i></a>";
+	}
+
 
 	$cont++;
 	$datos[] = array(
@@ -151,6 +159,11 @@ while ($row = $resultado->fetch_assoc()) {
 								<li class='dropdown-item'>
 									<span data-toggle='tooltip' title='4.2.5 Ver Generales Solicitud de Piezas Adicionales'>
 									" . $outputBtns3 . "
+									</span>
+								</li>
+								<li class='dropdown-item'>
+									<span data-toggle='tooltip' title='4.2.3.3 Eliminar Proyecto en Autorizado: Piezas Adicionales'>
+									" . $eliminar2 . "
 									</span>
 								</li>
 							</ul>

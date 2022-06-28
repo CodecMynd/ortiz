@@ -62,7 +62,6 @@
          })
  });
 
-
  //Ocultar boton por 3 minutos para evitar el doble submit
  $("#btnEnviarPzsFirmadasRecAdic").on('click', function () {
      $("#btnEnviarPzsFirmadasRecAdic").css('visibility', 'hidden');
@@ -70,6 +69,38 @@
          $("#btnEnviarPzsFirmadasRecAdic").css('visibility', 'visible');
      }, 3000);
  });
+
+ //----------------------------------------------------------------------------------------------------------------------------
+ // 4.2.5.5 Eliminar Proyecto en Piezas Entregadas: Piezas Adicionales  --------------------------------------------------------------------------------------------------------------------------------------------------
+ $('#btnEliminarRegPzsEntregadasAdic').click(function () {
+     var param = $('#formEliminarRegPzsEntregadasAdic').serialize();
+     $.ajax({
+             url: '../update/updateEliminarRegPzsEntregadasAdic.php',
+             type: 'POST',
+             data: param,
+
+             success: function (vs) {
+                 $('#formEliminarRegPzsEntregadasAdic')[0].reset();
+                 setTimeout(function () {
+                     $('.eliminarRegPzsEntregadasAdic').modal('hide');
+                 }, 1000);
+                 tablepzsEntregadasAdic.ajax.reload(null, false);
+             }
+         })
+         .done(function (res) {
+             $('#respuestaEliminarRegPzsEntregadasAdic').html(res)
+         })
+ });
+
+ //Ocultar boton por 3 minutos para evitar el doble submit
+ $("#btnEliminarRegPzsEntregadasAdic").on('click', function () {
+     $("#btnEliminarRegPzsEntregadasAdic").css('visibility', 'hidden');
+     setTimeout(function () {
+         $("#btnEliminarRegPzsEntregadasAdic").css('visibility', 'visible');
+     }, 3000);
+ });
+
+
  // Tabla tablepzsEntregadasAdic
  var tablepzsEntregadasAdic = $("#tablepzsEntregadasAdic").DataTable({
      "responsive": true,
@@ -104,10 +135,10 @@
              searchPanes: {
                  show: true
              },
-             targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18,19],
+             targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
          },
          {
-             targets: [0, 3],
+             targets: [0, 3, 9, 14, 15, 16, 17, 19, 22, 23],
              visible: false
          }
      ],
@@ -172,16 +203,16 @@
          )
      },
      "createdRow": function (row, data, index) {
-         if (data[8] >= '0') {
-             $('td', row).eq(8).css({
+         if (data[7] >= '0') {
+             $('td', row).eq(7).css({
                  'text-align': 'center',
                  'background-color': '#5A6268',
                  'color': '#fff',
                  'font-weight': 'bold'
              });
          }
-         if (data[9] >= '0') {
-             $('td', row).eq(9).css({
+         if (data[8] >= '0') {
+             $('td', row).eq(8).css({
                  'text-align': 'center',
                  'background-color': '#5A6268',
                  'color': '#fff',
@@ -193,5 +224,5 @@
  });
  setInterval(function () {
      tablepzsEntregadasAdic.ajax.reload(null, false); // user paging is not reset on reload
-    }, 360000);
+ }, 360000);
  //----------------------------------------------------------------------------------------------------------------------------------------------------------------------

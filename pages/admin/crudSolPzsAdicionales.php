@@ -180,6 +180,76 @@ require '../components/head-dataTables.php';
         $("#id_superSurtPzsAdic14").val(id_superSurtPzsAdic);
         $("#tituloModal14").html(nProyecto);
     }
+    function eliminar1(id_proyecto, nProyecto, id_regSolpzadicional, id_cotizandoPzsAdic, id_preAutorizadoPzsAdic ) {
+        $("#btnModal-eliminarRegPreautoPzsAdic").click();
+        $("#id_proyectoE1").val(id_proyecto);
+        $("#nProyectoE1").val(nProyecto);
+        $("#id_regSolpzadicionalE1").val(id_regSolpzadicional);
+        $("#id_cotizandoPzsAdicE1").val(id_cotizandoPzsAdic);
+        $("#id_preAutorizadoPzsAdicE1").val(id_preAutorizadoPzsAdic);
+        $("#tituloModalE1").html(nProyecto);
+    }
+    function eliminar2(id_proyecto, nProyecto, id_regSolpzadicional, id_cotizandoPzsAdic, id_preAutorizadoPzsAdic, id_autorizadoPzsAdic ) {
+        $("#btnModal-eliminarRegAutorizadoPzsAdic").click();
+        $("#id_proyectoE2").val(id_proyecto);
+        $("#nProyectoE2").val(nProyecto);
+        $("#id_regSolpzadicionalE2").val(id_regSolpzadicional);
+        $("#id_cotizandoPzsAdicE2").val(id_cotizandoPzsAdic);
+        $("#id_preAutorizadoPzsAdicE2").val(id_preAutorizadoPzsAdic);
+        $("#id_autorizadoPzsAdicE2").val(id_autorizadoPzsAdic);
+        $("#tituloModalE2").html(nProyecto);
+    }
+    function eliminar3(id_proyecto, nProyecto, id_regSolpzadicional, id_cotizandoPzsAdic, id_preAutorizadoPzsAdic, id_autorizadoPzsAdic, id_AutoProceSurtPzAdic ) {
+        $("#btnModal-eliminarProceSurtPzsAdic").click();
+        $("#id_proyectoE3").val(id_proyecto);
+        $("#nProyectoE3").val(nProyecto);
+        $("#id_regSolpzadicionalE3").val(id_regSolpzadicional);
+        $("#id_cotizandoPzsAdicE3").val(id_cotizandoPzsAdic);
+        $("#id_preAutorizadoPzsAdicE3").val(id_preAutorizadoPzsAdic);
+        $("#id_autorizadoPzsAdicE3").val(id_autorizadoPzsAdic);
+        $("#id_AutoProceSurtPzAdicE3").val(id_AutoProceSurtPzAdic);
+        $("#tituloModalE3").html(nProyecto);
+
+    }
+    function eliminar4(id_proyecto, nProyecto, id_regSolpzadicional, id_cotizandoPzsAdic, id_preAutorizadoPzsAdic, id_autorizadoPzsAdic, id_AutoProceSurtPzAdic, id_pzsEntregadasAdic ) {
+        $("#btnModal-eliminarRegPzsEntregadasAdic").click();
+        $("#id_proyectoE4").val(id_proyecto);
+        $("#nProyectoE4").val(nProyecto);
+        $("#id_regSolpzadicionalE4").val(id_regSolpzadicional);
+        $("#id_cotizandoPzsAdicE4").val(id_cotizandoPzsAdic);
+        $("#id_preAutorizadoPzsAdicE4").val(id_preAutorizadoPzsAdic);
+        $("#id_autorizadoPzsAdicE4").val(id_autorizadoPzsAdic);
+        $("#id_AutoProceSurtPzAdicE4").val(id_AutoProceSurtPzAdic);
+        $("#id_pzsEntregadasAdicE4").val(id_pzsEntregadasAdic);
+        $("#tituloModalE4").html(nProyecto);
+    }
+    function eliminar5(id_proyecto, nProyecto, id_regSolpzadicional, id_cotizandoPzsAdic, id_preAutorizadoPzsAdic, id_autorizadoPzsAdic, id_AutoProceSurtPzAdic, id_pzsEntregadasAdic, id_pzsFirmadasRecAdic ) {
+        $("#btnModal-eliminarRegPzsFirmadasAdic").click();
+        $("#id_proyectoE5").val(id_proyecto);
+        $("#nProyectoE5").val(nProyecto);
+        $("#id_regSolpzadicionalE5").val(id_regSolpzadicional);
+        $("#id_cotizandoPzsAdicE5").val(id_cotizandoPzsAdic);
+        $("#id_preAutorizadoPzsAdicE5").val(id_preAutorizadoPzsAdic);
+        $("#id_autorizadoPzsAdicE5").val(id_autorizadoPzsAdic);
+        $("#id_AutoProceSurtPzAdicE5").val(id_AutoProceSurtPzAdic);
+        $("#id_pzsEntregadasAdicE5").val(id_pzsEntregadasAdic);
+        $("#id_pzsFirmadasRecAdicE5").val(id_pzsFirmadasRecAdic);
+        $("#tituloModalE5").html(nProyecto);
+    }
+    function eliminar6(id_proyecto, nProyecto, id_regSolpzadicional, id_cotizandoPzsAdic, id_preAutorizadoPzsAdic, id_autorizadoPzsAdic, id_AutoProceSurtPzAdic, id_pzsEntregadasAdic, id_pzsFirmadasRecAdic, id_superSurtPzsAdic ) {
+        $("#btnModal-eliminarRegSuperSurtPzsAdic").click();
+        $("#id_proyectoE6").val(id_proyecto);
+        $("#nProyectoE6").val(nProyecto);
+        $("#id_regSolpzadicionalE6").val(id_regSolpzadicional);
+        $("#id_cotizandoPzsAdicE6").val(id_cotizandoPzsAdic);
+        $("#id_preAutorizadoPzsAdicE6").val(id_preAutorizadoPzsAdic);
+        $("#id_autorizadoPzsAdicE6").val(id_autorizadoPzsAdic);
+        $("#id_AutoProceSurtPzAdicE6").val(id_AutoProceSurtPzAdic);
+        $("#id_pzsEntregadasAdicE6").val(id_pzsEntregadasAdic);
+        $("#id_pzsFirmadasRecAdicE6").val(id_pzsFirmadasRecAdic);
+        $("#id_superSurtPzsAdicE6").val(id_superSurtPzsAdic);
+        $("#tituloModalE6").html(nProyecto);
+    }
 </script>
 </head>
 
@@ -500,6 +570,7 @@ require '../components/head-dataTables.php';
                                         <table id="tablePreautorizacionPzsAdic" class="display compact table-bordered table-striped" style="width: 100%;">
                                             <thead>
                                                 <tr>
+                                                    <th>*</th>
                                                     <th>#</th>
                                                     <th>Núm Folio Cotizado Pieza Adicional</th>
                                                     <th>ID</th>
@@ -523,6 +594,7 @@ require '../components/head-dataTables.php';
                                             <tbody></tbody>
                                             <tfoot>
                                                 <tr>
+                                                    <th>*</th>
                                                     <th>#</th>
                                                     <th>Núm Folio Cotizado Pieza Adicional</th>
                                                     <th>ID</th>
@@ -546,9 +618,11 @@ require '../components/head-dataTables.php';
                                         </table>
                                         <button id="btnModal-regresarCotizandoPzsAdic" class="btn btn-white" data-toggle="modal" data-target=".regresarCotizandoPzsAdic"></button>
                                         <button id="btnModal-enviarAutorizadoPzsAdic" class="btn btn-white" data-toggle="modal" data-target=".enviarAutorizadoPzsAdic"></button>
+                                        <button id="btnModal-eliminarRegPreautoPzsAdic" class="btn btn-white" data-toggle="modal" data-target=".eliminarRegPreautoPzsAdic"></button>
                                         <?php
                                         require '../components/modal-regresarCotizandoPzsAdic.php';
                                         require '../components/modal-enviarAutorizadoPzsAdic.php';
+                                        require '../components/modal-eliminarRegPreautoPzsAdic.php';
                                         ?>
                                 </div>
                             </div>
@@ -723,9 +797,11 @@ require '../components/head-dataTables.php';
                                         </table>
                                         <button id="btnModal-regresarPreAutorizacionPzsAdic" class="btn btn-white" data-toggle="modal" data-target=".regresarPreAutorizacionPzsAdic"></button>
                                         <button id="btnModal-enviarAutoProceSurtPzsAdic" class="btn btn-white" data-toggle="modal" data-target=".enviarAutoProceSurtPzsAdic"></button>
+                                        <button id="btnModal-eliminarRegAutorizadoPzsAdic" class="btn btn-white" data-toggle="modal" data-target=".eliminarRegAutorizadoPzsAdic"></button>
                                         <?php
                                         require '../components/modal-regresarPreAutorizacionPzsAdic.php';
                                         require '../components/modal-enviarAutoProceSurtPzsAdic.php';
+                                        require '../components/modal-eliminarRegAutorizadoPzsAdic.php';
                                         ?>
                                 </div>
                             </div>
@@ -868,6 +944,8 @@ require '../components/head-dataTables.php';
                                                     <th>Cronometro Cotizando / Pre-Autorizado</th>
                                                     <th>Asesor</th>
                                                     <th>Técnico Armador</th>
+                                                    <th>Fecha Registro Proceso de Surtido de Pieza Adicional</th>
+                                                    <th>Fecha Registro Autorizado Pieza Adicional</th>
                                                     <th>Fecha Registro Solicitud Pieza Adicional</th>
                                                     <th>Acciones</th>
                                                 </tr>
@@ -894,6 +972,8 @@ require '../components/head-dataTables.php';
                                                     <th>Cronometro Cotizando / Pre-Autorizado</th>
                                                     <th>Asesor</th>
                                                     <th>Técnico Armador</th>
+                                                    <th>Fecha Registro Proceso de Surtido de Pieza Adicional</th>
+                                                    <th>Fecha Registro Autorizado Pieza Adicional</th>
                                                     <th>Fecha Registro Solicitud Pieza Adicional</th>
                                                     <th>Acciones</th>
                                                 </tr>
@@ -901,9 +981,11 @@ require '../components/head-dataTables.php';
                                         </table>
                                         <button id="btnModal-regresarAutorizadoPzsAdic" class="btn btn-white" data-toggle="modal" data-target=".regresarAutorizadoPzsAdic"></button>
                                         <button id="btnModal-enviarPzsEntregadasPzsAdic" class="btn btn-white" data-toggle="modal" data-target=".enviarPzsEntregadasPzsAdic"></button>
+                                        <button id="btnModal-eliminarProceSurtPzsAdic" class="btn btn-white" data-toggle="modal" data-target=".eliminarProceSurtPzsAdic"></button>
                                         <?php
                                         require '../components/modal-regresarAutorizadoPzsAdic.php';
                                         require '../components/modal-enviarPzsEntregadasPzsAdic.php';
+                                        require '../components/modal-eliminarProceSurtPzsAdic.php';
                                         ?>
                                 </div>
                             </div>
@@ -1048,6 +1130,9 @@ require '../components/head-dataTables.php';
                                                     <th>Cronometro Cotizando / Pre-Autorizado</th>
                                                     <th>Asesor</th>
                                                     <th>Técnico Armador</th>
+                                                    <th>Fecha Registro Piezas Entregadas Pieza Adicional</th>
+                                                    <th>Fecha Registro Proceso de Surtido de Pieza Adicional</th>
+                                                    <th>Fecha Registro Autorizado Pieza Adicional</th>
                                                     <th>Fecha Registro Solicitud Pieza Adicional</th>
                                                     <th>Acciones</th>
                                                 </tr>
@@ -1075,6 +1160,9 @@ require '../components/head-dataTables.php';
                                                     <th>Cronometro Cotizando / Pre-Autorizado</th>
                                                     <th>Asesor</th>
                                                     <th>Técnico Armador</th>
+                                                    <th>Fecha Registro Piezas Entregadas Pieza Adicional</th>
+                                                    <th>Fecha Registro Proceso de Surtido de Pieza Adicional</th>
+                                                    <th>Fecha Registro Autorizado Pieza Adicional</th>
                                                     <th>Fecha Registro Solicitud Pieza Adicional</th>
                                                     <th>Acciones</th>
                                                 </tr>
@@ -1082,9 +1170,11 @@ require '../components/head-dataTables.php';
                                         </table>
                                         <button id="btnModal-regresarAutoProceSurtPzsAdic" class="btn btn-white" data-toggle="modal" data-target=".regresarAutoProceSurtPzsAdic"></button>
                                         <button id="btnModal-enviarPzsFirmadasRecAdic" class="btn btn-white" data-toggle="modal" data-target=".enviarPzsFirmadasRecAdic"></button>
+                                        <button id="btnModal-eliminarRegPzsEntregadasAdic" class="btn btn-white" data-toggle="modal" data-target=".eliminarRegPzsEntregadasAdic"></button>
                                         <?php
                                         require '../components/modal-regresarAutoProceSurtPzsAdic.php';
                                         require '../components/modal-enviarPzsFirmadasRecAdic.php';
+                                        require '../components/modal-eliminarRegPzsEntregadasAdic.php';
                                         ?>
                                 </div>
                             </div>
@@ -1265,9 +1355,11 @@ require '../components/head-dataTables.php';
                                         </table>
                                         <button id="btnModal-regresarPzsEntregadasAdic" class="btn btn-white" data-toggle="modal" data-target=".regresarPzsEntregadasAdic"></button>
                                         <button id="btnModal-enviarSuperSurtPzsAdic" class="btn btn-white" data-toggle="modal" data-target=".enviarSuperSurtPzsAdic"></button>
+                                        <button id="btnModal-eliminarRegPzsFirmadasAdic" class="btn btn-white" data-toggle="modal" data-target=".eliminarRegPzsFirmadasAdic"></button>
                                         <?php
                                         require '../components/modal-regresarPzsEntregadasAdic.php';
                                         require '../components/modal-enviarSuperSurtPzsAdic.php';
+                                        require '../components/modal-eliminarRegPzsFirmadasAdic.php';
                                         ?>
                                 </div>
                             </div>
@@ -1449,8 +1541,10 @@ require '../components/head-dataTables.php';
                                             </tfoot>
                                         </table>
                                         <button id="btnModal-regresarPzsFirmadasRecAdic" class="btn btn-white" data-toggle="modal" data-target=".regresarPzsFirmadasRecAdic"></button>
+                                        <button id="btnModal-eliminarRegSuperSurtPzsAdic" class="btn btn-white" data-toggle="modal" data-target=".eliminarRegSuperSurtPzsAdic"></button>
                                         <?php
                                         require '../components/modal-regresarPzsFirmadasRecAdic.php';
+                                        require '../components/modal-eliminarRegSuperSurtPzsAdic.php';
                                         ?>
                                 </div>
                             </div>

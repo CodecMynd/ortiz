@@ -217,9 +217,9 @@ require '../components/head-dataTables.php';
                                                 <th>Color</th>
                                                 <th>Núm. Folio Proyecto Extra</th>
                                                 <th>Valor Proyecto Extra</th>
-                                                <th>Valor Cobro Proyecto Base</th>
-                                                <th>Valor Venta Alta</th>
                                                 <th>Valor Venta Inicial</th>
+                                                <th>Valor Venta Alta</th>
+                                                <th>Valor Cobro Proyecto Base</th>
                                                 <th>Enviar</th>
                                             </tr>
                                         </thead>
@@ -241,9 +241,9 @@ require '../components/head-dataTables.php';
                                                 <th>Color</th>
                                                 <th>Núm. Folio Proyecto Extra</th>
                                                 <th class="suma">Valor Proyecto Extra</th>
-                                                <th class="suma">Valor Cobro Proyecto Base</th>
-                                                <th class="suma">Valor Venta Alta</th>
                                                 <th class="suma">Valor Venta Inicial</th>
+                                                <th class="suma">Valor Venta Alta</th>
+                                                <th class="suma">Valor Cobro Proyecto Base</th>
                                                 <th>Enviar</th>
                                             </tr>
                                         </tfoot>
@@ -299,7 +299,8 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
-                                                <th>Folio Supervisión</th>
+                                                <th>Núm. Folio Supervisión</th>
+                                                <th>Núm. Folio Código ID</th>
                                                 <th>Código Identificador</th>
                                                 <th>Estado Supervisión Código Identificador</th>
                                                 <th>Núm. Proyecto</th>
@@ -311,11 +312,11 @@ require '../components/head-dataTables.php';
                                                 <th>Color</th>
                                                 <th>Núm. Folio Proyecto Extra</th>
                                                 <th>Valor Proyecto Extra</th>
-                                                <th>Valor Cobro Proyecto Base</th>
-                                                <th>Valor Venta Alta</th>
                                                 <th>Valor Venta Inicial</th>
-                                                <th>Semana de Alta</th>
+                                                <th>Valor Venta Alta</th>
+                                                <th>Valor Cobro Proyecto Base</th>
                                                 <th>Semana Solicitud de Alta</th>
+                                                <th>Semana de Alta</th>
                                                 <th>Semana de Cobro</th>
                                                 <th>Acciones</th>
                                             </tr>
@@ -325,7 +326,8 @@ require '../components/head-dataTables.php';
                                             <tr>
                                                 <th>#</th>
                                                 <th>ID</th>
-                                                <th>Folio Supervisión</th>
+                                                <th>Núm. Folio Supervisión</th>
+                                                <th>Núm. Folio Código ID</th>
                                                 <th>Código Identificador</th>
                                                 <th>Estado Supervisión Código Identificador</th>
                                                 <th>Núm. Proyecto</th>
@@ -337,9 +339,9 @@ require '../components/head-dataTables.php';
                                                 <th>Color</th>
                                                 <th>Núm. Folio Proyecto Extra</th>
                                                 <th class="suma">Valor Proyecto Extra</th>
-                                                <th class="suma">Valor Cobro Proyecto Base</th>
-                                                <th class="suma">Valor Venta Alta</th>
                                                 <th class="suma">Valor Venta Inicial</th>
+                                                <th class="suma">Valor Venta Alta</th>
+                                                <th class="suma">Valor Cobro Proyecto Base</th>
                                                 <th>Semana Solicitud de Alta</th>
                                                 <th>Semana de Alta</th>
                                                 <th>Semana de Cobro</th>

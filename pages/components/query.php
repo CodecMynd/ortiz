@@ -369,8 +369,14 @@ while ($row = mysqli_fetch_array($query)) {
     $eliRecTransmision = $row['eliRecTransmision'];
     $verGralEnvioRecTransmision = $row['verGralEnvioRecTransmision'];
     $verTablaEnvioRecTransm = $row['verTablaEnvioRecTransm'];
+    $eliPreautoPzsAdic = $row['eliPreautoPzsAdic'];
+    $eliAutorizadoPzsAdic = $row['eliAutorizadoPzsAdic'];
+    $eliProceSurtPzsAdic = $row['eliProceSurtPzsAdic'];
+    $eliPzsEntregadasAdic = $row['eliPzsEntregadasAdic'];
+    $eliPzsFirmadasAdic = $row['eliPzsFirmadasAdic'];
+    $eliSuperSurtPzsAdic = $row['eliSuperSurtPzsAdic'];
 
-
+                        
     // Mostar Modal al recargar pagína en panelAdmin ------------------------------------------------------------------------------------------
     if ($passUser === 'SIN_PASSWORD') {
         echo '<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

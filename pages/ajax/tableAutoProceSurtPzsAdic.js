@@ -73,6 +73,37 @@ $("#btnEnviarPzsEntregadasPzsAdic").on('click', function () {
 });
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------
+
+    // 4.2.4.4 Eliminar Proyecto en Proceso de Surtido de Piezas: Piezas Adicionales --------------------------------------------------------------------------------------------------------------------------------------------------
+
+    $('#btnEliminarRegProceSurtPzsAdic').click(function () {
+        var param = $('#formEliminarRegProceSurtPzsAdic').serialize();
+        $.ajax({
+                url: '../update/updateEliminarRegProceSurtPzsdic.php',
+                type: 'POST',
+                data: param,
+    
+                success: function (vs) {
+                    $('#formEliminarRegProceSurtPzsAdic')[0].reset();
+                     setTimeout(function () {
+                         $('.eliminarProceSurtPzsAdic').modal('hide');
+                     }, 1000);
+                    tableAutoProceSurtPzsAdic.ajax.reload(null, false);
+                }
+            })
+            .done(function (res) {
+                $('#respuestaEliminarRegProceSurtPzsAdic').html(res)
+            })
+    });
+    
+    //Ocultar boton por 3 minutos para evitar el doble submit
+    $("#btnEliminarRegProceSurtPzsAdic").on('click', function () {
+        $("#btnEliminarRegProceSurtPzsAdic").css('visibility', 'hidden');
+        setTimeout(function () {
+            $("#btnEliminarRegProceSurtPzsAdic").css('visibility', 'visible');
+        }, 3000);
+    });
+
 // Tabla tableAutoProceSurtPzsAdic
 var tableAutoProceSurtPzsAdic = $("#tableAutoProceSurtPzsAdic").DataTable({
     "responsive": true,
@@ -107,10 +138,10 @@ var tableAutoProceSurtPzsAdic = $("#tableAutoProceSurtPzsAdic").DataTable({
             searchPanes: {
                 show: true
             },
-            targets: [2,3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            targets: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,20,21],
         },
         {
-            targets: [0,3],
+            targets: [0,3,9,13,15,16,18,21],
             visible: false
         }
     ],
@@ -175,16 +206,16 @@ var tableAutoProceSurtPzsAdic = $("#tableAutoProceSurtPzsAdic").DataTable({
         )
     },
     "createdRow": function (row, data, index) {
-        if (data[8] >= '0') {
-            $('td', row).eq(8).css({
+        if (data[7] > '0') {
+            $('td', row).eq(7).css({
                 'text-align': 'center',
                 'background-color': '#5A6268',
                 'color': '#fff',
                 'font-weight': 'bold'
             });
         }
-        if (data[9] >= '0') {
-            $('td', row).eq(9).css({
+        if (data[8] > '0') {
+            $('td', row).eq(8).css({
                 'text-align': 'center',
                 'background-color': '#5A6268',
                 'color': '#fff',

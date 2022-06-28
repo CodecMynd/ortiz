@@ -73,12 +73,12 @@ while ($row = $resultado->fetch_assoc()) {
 	// 	$validaTop = "<h6><a href='../admin/crudAsignacionTop.php' data-toggle='tooltip' data-placement='bottom' title='ir a: Tabla 2.3.5 Asignación de Top'><span class='badge badge-ligth badge-pill top'><i class='fa-solid fa-star fa-2x' style='color:#28A745'></i></span></a></h6>";
 	// }
 
-		// valida columna Top
-		if ($top == 0) {
-			$validaTop = "<h6><span class='badge badge-danger badge-pill top' data-toggle='tooltip' data-placement='bottom' title='Este Proyecto no es Top'>No es Top</span></h6>";
-		} else {
-			$validaTop = "<h6><span class='badge badge-success badge-pill top' data-toggle='tooltip' data-placement='bottom' title='Este Proyecto es Top'>Es Top</span></h6>";
-		}
+	// valida columna Top
+	if ($top == 0) {
+		$validaTop = "<h6><span class='badge badge-danger badge-pill top' data-toggle='tooltip' data-placement='bottom' title='Este Proyecto no es Top'>No es Top</span></h6>";
+	} else {
+		$validaTop = "<h6><span class='badge badge-success badge-pill top' data-toggle='tooltip' data-placement='bottom' title='Este Proyecto es Top'>Es Top</span></h6>";
+	}
 
 	// valida columna aseTec
 	if ($aseTec == 0) {

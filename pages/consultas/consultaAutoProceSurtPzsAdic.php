@@ -1,16 +1,18 @@
 <?php
 require '../components/query.php';
+require '../components/fechaEs.php';
+
 if ($super == 1 or $verTablaAutoProceSurtPzsAdic == 1) {
 
 	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado,
 	V.placa, M.marca, Mo.modelo, A.anio, Co.color,
 	R.id_regSolpzadicional, R.folioPzAdicional, R.id_regSolpzadicional AS id_regSolPzs,
-    R.precio, R.modalidadPago, R.enUso AS MAXenUso, R.enUso, R.fecha_creacion, R.estatusEspera, 	R.estatusAprobado,
+    R.precio, R.modalidadPago, R.enUso AS MAXenUso, R.enUso, R.fecha_creacion, R.estatusEspera, R.estatusAprobado,
     R.tecArmador, R.asesor,
     CT.id_cotizandoPzsAdic, CT.borrado AS cotizandoBorrado,
     PR.cronoPreAuto, PR.id_preAutorizadoPzsAdic,
-    AP.id_autorizadoPzsAdic, AP.folio_autorizPzsAdic, AP.cronoAutorizadoPzAdic,
-    APS.id_AutoProceSurtPzAdic, APS.folioProceSurtPzAdic
+    AP.id_autorizadoPzsAdic, AP.folio_autorizPzsAdic, AP.cronoAutorizadoPzAdic, AP.fecha_creacion AS fecha_auto,
+    APS.id_AutoProceSurtPzAdic, APS.folioProceSurtPzAdic, APS.fecha_creacion AS fecha_proceSurtPz
 	FROM proyectos P
 	INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
 	INNER JOIN colores Co On V.id_color = Co.id_color
@@ -22,7 +24,7 @@ if ($super == 1 or $verTablaAutoProceSurtPzsAdic == 1) {
     INNER JOIN preautorizadospzsadic PR ON R.id_regSolpzadicional = PR.id_regSolpzadicional
     INNER JOIN autorizadospzsadic AP ON PR.id_preAutorizadoPzsAdic = AP.id_preAutorizadoPzsAdic
     INNER JOIN autoprocesurtpzsadic APS ON AP.id_autorizadoPzsAdic = APS.id_autorizadoPzsAdic
-	WHERE P.estadoProyectoEliminado = 1 AND CT.autoProceSurtPzAdic = 1 AND APS.borrado = 0 GROUP BY APS.id_AutoProceSurtPzAdic";
+	WHERE P.estadoProyectoEliminado = 1 AND CT.autoProceSurtPzAdic = 1 AND APS.borrado = 0 GROUP BY APS.id_AutoProceSurtPzAdic ORDER BY AP.fecha_creacion DESC";
 } else {
 	$query = "SELECT id_proyecto
 	FROM proyectos WHERE id_proyecto = 0";
@@ -121,7 +123,20 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns3 = "<a class='btn btn-outline-danger' id='verGralSolPzsAdicionales' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-circle-info'></i></a>";
 	}
 
+	// 4.2.4.4 Eliminar Proyecto en Proceso de Surtido de Piezas: Piezas Adicionales
+	if ($super == 1 or $eliProceSurtPzsAdic == 1) {
+		$eliminar3 = "<a href='#' class='btn btn-secondary' onclick='eliminar3(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_regSolpzadicional'] . "\",\"" . $row['id_cotizandoPzsAdic'] . "\",\"" . $row['id_preAutorizadoPzsAdic'] . "\",\"" . $row['id_autorizadoPzsAdic'] . "\",\"".$row['id_AutoProceSurtPzAdic']."\")'><i class='fa-solid fa-trash'></i></a>";
+	} else {
+		$eliminar3 = "<a class='btn btn-outline-danger' id='eliProceSurtPzsAdic' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-trash'></i></a>";
+	}
 
+	$fecha1 = fechaEs($row['fecha_proceSurtPz']);
+	$fecha_proceSurtPz = "<span data-toggle='tooltip' data-placement='top' title='{$row['fecha_proceSurtPz']}'>{$fecha1}</span>";
+
+	$fecha2 = fechaEs($row['fecha_auto']);
+	$fecha_auto = "<span data-toggle='tooltip' data-placement='top' title='{$row['fecha_auto']}'>{$fecha2}</span>";
+	
+	
 	$cont++;
 	$datos[] = array(
 		"0" => $cont,
@@ -143,8 +158,10 @@ while ($row = $resultado->fetch_assoc()) {
 		"16" => "<strong>{$row['cronoPreAuto']}</strong>",
 		"17" => (empty($row['asesor'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>",
 		"18" => (empty($row['tecArmador'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Técnico</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['tecArmador']}</span></h6>",
-		"19" => $fecha_creacion,
-		"20" => "<div class='input-group input-group-sm mb-3'>
+		"19" => $fecha_proceSurtPz,
+		"20" => $fecha_auto,
+		"21" => $fecha_creacion,
+		"22" => "<div class='input-group input-group-sm mb-3'>
 					<div class='input-group-prepend'>
 						<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Recepción de Piezas Dañadas'> Acciones</span></button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>
@@ -164,8 +181,8 @@ while ($row = $resultado->fetch_assoc()) {
 									</span>
 								</li>
 								<li class='dropdown-item'>
-									<span data-toggle='tooltip' title='4.2.5 Ver Generales Solicitud de Piezas Adicionales'>
-										" . $outputBtns4 . "
+									<span data-toggle='tooltip' title='4.2.4.4 Eliminar Proyecto en Proceso de Surtido de Piezas: Piezas Adicionales'>
+										" . $eliminar3 . "
 									</span>
 								</li>
 							</ul>

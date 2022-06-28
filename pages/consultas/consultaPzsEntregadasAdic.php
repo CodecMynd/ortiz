@@ -1,5 +1,6 @@
 <?php
 require '../components/query.php';
+require '../components/fechaEs.php';
 if ($super == 1 or $verTablaPzsEntregadasAdic == 1) {
 
 	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado,
@@ -9,9 +10,9 @@ if ($super == 1 or $verTablaPzsEntregadasAdic == 1) {
     R.tecArmador, R.asesor,
     CT.id_cotizandoPzsAdic, CT.borrado AS cotizandoBorrado,
     PR.cronoPreAuto, PR.id_preAutorizadoPzsAdic,
-    AP.id_autorizadoPzsAdic, AP.folio_autorizPzsAdic, AP.cronoAutorizadoPzAdic,
-    APS.id_AutoProceSurtPzAdic, APS.folioProceSurtPzAdic,
-    PE.id_pzsEntregadasAdic, PE.folioPzsSurtidaAdic
+    AP.id_autorizadoPzsAdic, AP.folio_autorizPzsAdic, AP.cronoAutorizadoPzAdic, AP.fecha_creacion AS fecha_auto,
+    APS.id_AutoProceSurtPzAdic, APS.folioProceSurtPzAdic, APS.fecha_creacion AS fecha_proceSurtPz,
+    PE.id_pzsEntregadasAdic, PE.folioPzsSurtidaAdic, PE.fecha_creacion AS fecha_pzEntregada
 	FROM proyectos P
 	INNER JOIN vehiculos V ON P.id_vehiculo = V.id_vehiculo
 	INNER JOIN colores Co On V.id_color = Co.id_color
@@ -45,7 +46,7 @@ while ($row = $resultado->fetch_assoc()) {
 	$id_regSolpzadicional = $row['id_regSolpzadicional'];
 	$folioPzAdicional = $row['folioPzAdicional'];
 	$MAXenUso = $row['MAXenUso'];
-	$fecha_creacion = $row['fecha_creacion'];
+	// $fecha_creacion = $row['fecha_creacion'];
 	$id_regSolPzs = $row['id_regSolPzs'];
 	$id_cotizandoPzsAdic = $row['id_cotizandoPzsAdic'];
 
@@ -129,6 +130,24 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns5 = "<a class='btn btn-outline-danger' id='verGralSolPzsAdicionales' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-circle-info'></i></a>";
 	}
 
+	// 4.2.5.5 Eliminar Proyecto en Piezas Entregadas: Piezas Adicionales
+	if ($super == 1 or $eliPzsEntregadasAdic == 1) {
+		$eliminar4 = "<a href='#' class='btn btn-secondary' onclick='eliminar4(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_regSolpzadicional'] . "\",\"" . $row['id_cotizandoPzsAdic'] . "\",\"" . $row['id_preAutorizadoPzsAdic'] . "\",\"" . $row['id_autorizadoPzsAdic'] . "\",\"" . $row['id_AutoProceSurtPzAdic'] . "\",\"" . $row['id_pzsEntregadasAdic'] . "\")'><i class='fa-solid fa-trash'></i></a>";
+	} else {
+		$eliminar4 = "<a class='btn btn-outline-danger' id='eliPzsEntregadasAdic' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-trash'></i></a>";
+	}
+
+	$fecha1 = fechaEs($row['fecha_creacion']);
+	$fecha_creacion = "<span data-toggle='tooltip' data-placement='top' title='{$row['fecha_creacion']}'>{$fecha1}</span>";
+
+	$fecha2 = fechaEs($row['fecha_auto']);
+	$fecha_auto = "<span data-toggle='tooltip' data-placement='top' title='{$row['fecha_auto']}'>{$fecha2}</span>";
+
+	$fecha3 = fechaEs($row['fecha_proceSurtPz']);
+	$fecha_proceSurtPz = "<span data-toggle='tooltip' data-placement='top' title='{$row['fecha_proceSurtPz']}'>{$fecha3}</span>";
+
+	$fecha4 = fechaEs($row['fecha_pzEntregada']);
+	$fecha_pzEntregada = "<span data-toggle='tooltip' data-placement='top' title='{$row['fecha_pzEntregada']}'>{$fecha4}</span>";
 
 	$cont++;
 	$datos[] = array(
@@ -152,8 +171,11 @@ while ($row = $resultado->fetch_assoc()) {
 		"17" => "<strong>{$row['cronoPreAuto']}</strong>",
 		"18" => (empty($row['asesor'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>",
 		"19" => (empty($row['tecArmador'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Técnico</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['tecArmador']}</span></h6>",
-		"20" => $fecha_creacion,
-		"21" => "<div class='input-group input-group-sm mb-3'>
+		"20" => $fecha_pzEntregada,
+		"21" => $fecha_proceSurtPz,
+		"22" => $fecha_auto,
+		"23" => $fecha_creacion,
+		"24" => "<div class='input-group input-group-sm mb-3'>
 					<div class='input-group-prepend'>
 						<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Recepción de Piezas Dañadas'> Acciones</span></button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em; height:11em'>
@@ -180,6 +202,11 @@ while ($row = $resultado->fetch_assoc()) {
 								<li class='dropdown-item'>
 									<span data-toggle='tooltip' title='4.2.5 Ver Generales Solicitud de Piezas Adicionales'>
 										" . $outputBtns5 . "
+									</span>
+								</li>
+								<li class='dropdown-item'>
+									<span data-toggle='tooltip' title='4.2.5.5 Eliminar Proyecto en Piezas Entregadas: Piezas Adicionales'>
+										" . $eliminar4 . "
 									</span>
 								</li>
 							</ul>

@@ -1,6 +1,6 @@
 <?php
 require '../components/query.php';
-if ($super == 1 or $verTablaPreautorizacionPzsAdic == 1) {
+if ($super == 1 OR $verTablaPreautorizacionPzsAdic == 1) {
 
 	$query = "SELECT P.id_proyecto, P.nProyecto, P.nOrden, P.estadoProyectoEliminado,
 	V.placa, M.marca, Mo.modelo, A.anio, Co.color,
@@ -32,6 +32,7 @@ while ($row = $resultado->fetch_assoc()) {
 	$outputBtns3 = "";
 	$outputBtns4 = "";
 	$outputBtns5 = "";
+	$eliminar1 = "";
 
 	$idP = $row['id_proyecto'];
 	$nP = $row['nProyecto'];
@@ -111,27 +112,38 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns2 = "<a class='btn btn-outline-danger' id='enviarAutorizPzsAdic' data-toggle='tooltip' data-placement='left' title='Sin Permiso'><i class='fa-solid fa-paper-plane'></i></a>";
 	}
 
+	// 4.2.2.3 Eliminar Proyecto en Pre-Autorización: Piezas Adicionales 
+	if ($super == 1 or $eliPreautoPzsAdic == 1) {
+	 	$eliminar1 = "<a href='#' class='btn btn-secondary' onclick='eliminar1(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_regSolpzadicional'] . "\",\"" . $row['id_cotizandoPzsAdic'] . "\",\"" . $row['id_preAutorizadoPzsAdic'] . "\")'><i class='fa-solid fa-trash'></i></a>";
+	 } else {
+	 	$eliminar1 = "<a class='btn btn-outline-danger' id='eliPreautoPzsAdic' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-trash'></i></a>";
+	 }
+
+
+	$dateFC = date("Y-m-d", strtotime($fecha_mensaje . "- 2 days"));
+	$fecha = ($dateFC < $fecha_creacion) ? 0 : 1;
 
 	$cont++;
 	$datos[] = array(
-		"0" => $cont,
-		"1" => "<strong>{$row['folioPzAdicional']}</strong>",
-		"2" => "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>",
-		"3" => $row['nProyecto'],
-		"4" => $row['nOrden'],
-		"5" => $row['marca'],
-		"6" => $row['modelo'],
-		"7" => $row['anio'],
-		"8" => $row['placa'],
-		"9" => $row['color'],
-		"10" => "<strong>{$row['modalidadPago']}</strong>",
-		"11" => $precioCredito,
-		"12" => $precioContado,
-		"13" => "<strong>{$row['cronoPreAuto']}</strong>",
-		"14" => (empty($row['asesor'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>",
-		"15" => (empty($row['tecArmador'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Técnico</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['tecArmador']}</span></h6>",
-		"16" => $fecha_creacion,
-		"17" => "<div class='input-group input-group-sm mb-3'>
+		"0" =>  $fecha,
+		"1" => $cont,
+		"2" => "<strong>{$row['folioPzAdicional']}</strong>",
+		"3" => "<span class='badge badge-dark badge-pill'>{$row['id_proyecto']}</span>",
+		"4" => $row['nProyecto'],
+		"5" => $row['nOrden'],
+		"6" => $row['marca'],
+		"7" => $row['modelo'],
+		"8" => $row['anio'],
+		"9" => $row['placa'],
+		"10" => $row['color'],
+		"11" => "<strong>{$row['modalidadPago']}</strong>",
+		"12" => $precioCredito,
+		"13" => $precioContado,
+		"14" => "<strong>{$row['cronoPreAuto']}</strong>",
+		"15" => (empty($row['asesor'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Asesor</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['asesor']}</span></h6>",
+		"16" => (empty($row['tecArmador'])) ? "<h6><span class='badge badge-danger badge-pill'>Sin Técnico</span></h6>" : "<h6><span class='badge badge-success badge-pill'>{$row['tecArmador']}</span></h6>",
+		"17" => $fecha_creacion,
+		"18" => "<div class='input-group input-group-sm mb-3'>
 					<div class='input-group-prepend'>
 						<button type='button' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown'><i class='fas fa-cog'></i><span data-toogle='tooltip' title='Botónes de administración  tabla Recepción de Piezas Dañadas'> Acciones</span></button>
 							<ul class='dropdown-menu text-center' style='columns:2; min-width:2em;'>
@@ -148,6 +160,11 @@ while ($row = $resultado->fetch_assoc()) {
 								<li class='dropdown-item'>
 									<span data-toggle='tooltip' title='4.2.5 Ver Generales Solicitud de Piezas Adicionales'>
 									" . $outputBtns3 . "
+									</span>
+								</li>
+								<li class='dropdown-item'>
+									<span data-toggle='tooltip' title='4.2.2.3 Eliminar Proyecto en Pre-Autorización: Piezas Adicionales '>
+									" . $eliminar1 . "
 									</span>
 								</li>
 							</ul>

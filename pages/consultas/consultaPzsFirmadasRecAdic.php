@@ -124,6 +124,14 @@ while ($row = $resultado->fetch_assoc()) {
 		$outputBtns4 = "<a class='btn btn-outline-danger' id='verGralSolPzsAdicionales' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-circle-info'></i></a>";
 	}
 
+	// 4.2.6.4 Eliminar Proyecto en Piezas Firmadas: Piezas Adicionales
+	if ($super == 1 or $eliPzsFirmadasAdic == 1) {
+		$eliminar5 = "<a href='#' class='btn btn-secondary' onclick='eliminar5(\"" . $idP . "\",\"" . $nP . "\",\"" . $row['id_regSolpzadicional'] . "\",\"" . $row['id_cotizandoPzsAdic'] . "\",\"" . $row['id_preAutorizadoPzsAdic'] . "\",\"" . $row['id_autorizadoPzsAdic'] . "\",\"" . $row['id_AutoProceSurtPzAdic'] . "\",\"" . $row['id_pzsEntregadasAdic'] . "\",\"".$row['id_pzsFirmadasRecAdic']."\")'><i class='fa-solid fa-trash'></i></a>";
+	} else {
+		$eliminar5 = "<a class='btn btn-outline-danger' id='eliPzsFirmadasAdic' data-toggle='tooltip'  title='Sin Permiso'><i class='fa-solid fa-trash'></i></a>";
+	}
+	
+
 
 	$cont++;
 	$datos[] = array(
@@ -171,6 +179,11 @@ while ($row = $resultado->fetch_assoc()) {
 								<li class='dropdown-item'>
 									<span data-toggle='tooltip' title='4.2.5 Ver Generales Solicitud de Piezas Adicionales'>
 										" . $outputBtns4 . "
+									</span>
+								</li>
+								<li class='dropdown-item'>
+									<span data-toggle='tooltip' title='4.2.6.4 Eliminar Proyecto en Piezas Firmadas: Piezas Adicionales'>
+										" . $eliminar5 . "
 									</span>
 								</li>
 							</ul>

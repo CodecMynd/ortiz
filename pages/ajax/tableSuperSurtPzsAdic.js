@@ -37,9 +37,39 @@
           $("#btnRegresarPzsFirmadasRecAdic").css('visibility', 'visible');
       }, 3000);
   });
+  
+  // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+  // 4.2.7.3 Eliminar Proyecto en Supervisión de Surtido de Piezas: Piezas Adicionales  --------------------------------------------------------------------------------------------------------------------------------------------------
+  $('#btnEliminarRegSuperSurtPzsAdic').click(function () {
+      var param = $('#formEliminarRegSuperSurtPzsAdic').serialize();
+      $.ajax({
+              url: '../update/updateEliminarRegSuperSurtPzsAdic.php',
+              type: 'POST',
+              data: param,
 
-  // --------------------------------------------------------------------------------------------------------------------------------------------------
+              success: function (vs) {
+                  $('#formEliminarRegSuperSurtPzsAdic')[0].reset();
+                  setTimeout(function () {
+                      $('.eliminarRegSuperSurtPzsAdic').modal('hide');
+                  }, 1000);
+                  tableSuperSurtPzsAdic.ajax.reload(null, false);
+              }
+          })
+          .done(function (res) {
+              $('#respuestaEliminarRegSuperSurtPzsAdic').html(res)
+          })
+  });
+
+  //Ocultar boton por 3 minutos para evitar el doble submit
+  $("#btnEliminarRegSuperSurtPzsAdic").on('click', function () {
+      $("#btnEliminarRegSuperSurtPzsAdic").css('visibility', 'hidden');
+      setTimeout(function () {
+          $("#btnEliminarRegSuperSurtPzsAdic").css('visibility', 'visible');
+      }, 3000);
+  });
+
+  // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   // Tabla tablePzsFirmadasRec
   var tableSuperSurtPzsAdic = $("#tableSuperSurtPzsAdic").DataTable({
@@ -75,7 +105,7 @@
               searchPanes: {
                   show: true
               },
-              targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,22],
+              targets: [2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
           },
           {
               targets: [0, 3],
